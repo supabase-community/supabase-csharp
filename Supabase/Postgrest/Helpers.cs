@@ -13,71 +13,71 @@ namespace Supabase.Postgrest
     {
         public enum Operator
         {
-            [ProcessAs("and")]
+            [MapTo("and")]
             And,
-            [ProcessAs("or")]
+            [MapTo("or")]
             Or,
-            [ProcessAs("eq")]
+            [MapTo("eq")]
             Equals,
-            [ProcessAs("gt")]
+            [MapTo("gt")]
             GreaterThan,
-            [ProcessAs("gte")]
+            [MapTo("gte")]
             GreaterThanOrEqual,
-            [ProcessAs("lt")]
+            [MapTo("lt")]
             LessThan,
-            [ProcessAs("lte")]
+            [MapTo("lte")]
             LessThanOrEqual,
-            [ProcessAs("neq")]
+            [MapTo("neq")]
             NotEqual,
-            [ProcessAs("like")]
+            [MapTo("like")]
             Like,
-            [ProcessAs("ilike")]
+            [MapTo("ilike")]
             ILike,
-            [ProcessAs("in")]
+            [MapTo("in")]
             In,
-            [ProcessAs("is")]
+            [MapTo("is")]
             Is,
-            [ProcessAs("fts")]
+            [MapTo("fts")]
             FTS,
-            [ProcessAs("plfts")]
+            [MapTo("plfts")]
             PLFTS,
-            [ProcessAs("phfts")]
+            [MapTo("phfts")]
             PHFTS,
-            [ProcessAs("wfts")]
+            [MapTo("wfts")]
             WFTS,
-            [ProcessAs("cs")]
+            [MapTo("cs")]
             Contains,
-            [ProcessAs("cd")]
+            [MapTo("cd")]
             ContainedIn,
-            [ProcessAs("ov")]
+            [MapTo("ov")]
             Overlap,
-            [ProcessAs("sl")]
+            [MapTo("sl")]
             StrictlyLeft,
-            [ProcessAs("sr")]
+            [MapTo("sr")]
             StrictlyRight,
-            [ProcessAs("nxr")]
+            [MapTo("nxr")]
             NotRightOf,
-            [ProcessAs("nxl")]
+            [MapTo("nxl")]
             NotLeftOf,
-            [ProcessAs("adj")]
+            [MapTo("adj")]
             Adjacent,
-            [ProcessAs("not")]
+            [MapTo("not")]
             Not,
         }
 
         public enum Ordering
         {
-            [ProcessAs("asc")]
+            [MapTo("asc")]
             Ascending,
-            [ProcessAs("desc")]
+            [MapTo("desc")]
             Descending,
         }
 
         public enum NullPosition
         {
-            [ProcessAs("nullsfirst")]
+            [MapTo("nullsfirst")]
             First,
-            [ProcessAs("nullslast")]
+            [MapTo("nullslast")]
             Last
         }
 

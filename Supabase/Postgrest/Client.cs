@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using Newtonsoft.Json;
 using Supabase.Models;
+using Supabase.Postgrest.Options;
 using Supabase.Postgrest.Responses;
 using static Supabase.Postgrest.Helpers;
 
@@ -11,17 +14,18 @@ namespace Supabase.Postgrest
 {
     public class Client
     {
-        private string baseUrl;
-        private string apiKey;
+        public string BaseUrl { get; private set; }
+
+        private ClientAuthorization authorization;
+        private ClientOptions options;
 
         private HttpMethod method;
-        private ClientOptions options;
 
         private string tableName;
         private string columnQuery;
 
-        private List<Filter> filters = new List<Filter>();
-        private List<Orderer> orderers = new List<Orderer>();
+        private List<QueryFilter> filters = new List<QueryFilter>();
+        private List<QueryOrderer> orderers = new List<QueryOrderer>();
 
         private int rangeFrom = int.MinValue;
         private int rangeTo = int.MinValue;
@@ -33,12 +37,18 @@ namespace Supabase.Postgrest
         private string offsetForeignKey;
 
 
-        public Client(string baseUrl, string apiKey, ClientOptions options)
+        public Client(string baseUrl, string apiKey, ClientOptions options) : this(baseUrl, new ClientAuthorization(apiKey), options) { }
+        public Client(string baseUrl, ClientAuthorization authorization = null, ClientOptions options = null)
         {
-            this.baseUrl = baseUrl;
-            this.apiKey = apiKey;
+            BaseUrl = baseUrl;
+            this.authorization = authorization;
+
+            if (options == null)
+                options = new ClientOptions();
+
             this.options = options;
         }
+
 
         public Client From(string tableName)
         {
@@ -48,31 +58,37 @@ namespace Supabase.Postgrest
 
         public Client Filter(string columnName, Operator op, string criteria)
         {
-            filters.Add(new Filter(columnName, op, criteria));
+            filters.Add(new QueryFilter(columnName, op, criteria));
             return this;
         }
 
-        public Client Match(string query)
+        public Client Match(Dictionary<string, string> query)
         {
             return this;
         }
 
-        public Client Order(string property, Ordering ordering, NullPosition nullPosition = NullPosition.First)
+        public Client Order(string column, Ordering ordering, NullPosition nullPosition = NullPosition.First)
         {
-            orderers.Add(new Orderer(property, ordering, nullPosition));
+            orderers.Add(new QueryOrderer(null, column, ordering, nullPosition));
+            return this;
+        }
+
+        public Client Order(string foreignTable, string column, Ordering ordering, NullPosition nullPosition = NullPosition.First)
+        {
+            orderers.Add(new QueryOrderer(foreignTable, column, ordering, nullPosition));
             return this;
         }
 
         public Client Range(int from)
         {
-            this.rangeFrom = from;
+            rangeFrom = from;
             return this;
         }
 
         public Client Range(int from, int to)
         {
-            this.rangeFrom = from;
-            this.rangeTo = to;
+            rangeFrom = from;
+            rangeTo = to;
             return this;
         }
 
@@ -163,73 +179,97 @@ namespace Supabase.Postgrest
         }
 
 
-        private Task<ModeledResponse<T>> Request<T>(HttpMethod method, object data, Dictionary<string, string> headers = null)
+        public string GenerateUrl()
         {
-            if (headers == null)
-                headers = new Dictionary<string, string>();
+            var builder = new UriBuilder($"{BaseUrl}/{tableName}");
+            var query = HttpUtility.ParseQueryString(builder.Query);
 
-            if (options.Schema != null)
+            foreach (var param in options.QueryParams)
             {
-                if (method == HttpMethod.Get)
-                    headers.Add("Accept-Profile", options.Schema);
-                else
-                    headers.Add("Content-Profile", options.Schema);
+                query[param.Key] = param.Value;
             }
-
-            var toJson = JsonConvert.SerializeObject(data);
-            var toDictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(toJson);
-
-            return MakeRequest<T>(method, GenerateUrl(), toDictionary, headers);
-        }
-
-        private Task<BaseResponse> Request(HttpMethod method, object data, Dictionary<string, string> headers = null)
-        {
-            if (headers == null)
-                headers = new Dictionary<string, string>();
-
-            if (options.Schema != null)
-            {
-                if (method == HttpMethod.Get)
-                    headers.Add("Accept-Profile", options.Schema);
-                else
-                    headers.Add("Content-Profile", options.Schema);
-            }
-
-            var json = JsonConvert.SerializeObject(data);
-            var dictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
-
-            return MakeRequest(method, GenerateUrl(), dictionary, headers);
-        }
-
-        private string GenerateUrl()
-        {
-            var url = $"{baseUrl}/{tableName}?apikey={apiKey}";
 
             foreach (var filter in filters)
             {
-                var attr = Attribute.GetCustomAttribute(filter.Op.GetType(), typeof(ProcessAsAttribute));
-                if (attr is ProcessAsAttribute asAttribute)
+                var attr = Attribute.GetCustomAttribute(filter.Op.GetType(), typeof(MapToAttribute));
+                if (attr is MapToAttribute asAttribute)
                 {
                     switch (filter.Op)
                     {
                         case Operator.Like:
                         case Operator.ILike:
-                            url += $"{filter.Property}={asAttribute.Operator}.{filter.Criteria.Replace("%", "*")}";
-                            break;
-                        case Operator.In:
-
+                            query[filter.Property] = $"{asAttribute.Mapping}.{filter.Criteria.Replace(" % ", " * ")}";
                             break;
                         default:
-                            url += $"{filter.Property}={asAttribute.Operator}.{filter.Criteria}";
+                            query[filter.Property] = $"{asAttribute.Mapping}.{filter.Criteria}";
                             break;
                     }
                 }
             }
 
-            return url;
+            foreach (var orderer in orderers)
+            {
+                var attr = Attribute.GetCustomAttribute(orderer.NullPosition.GetType(), typeof(MapToAttribute));
+                if (attr is MapToAttribute asAttribute)
+                {
+                    var key = orderer.ForeignTable != null ? $"{orderer.ForeignTable}.order" : "order";
+                    query[key] = $"{orderer.Column}.{orderer.Ordering}.{asAttribute.Mapping}";
+                }
+            }
+
+            if (limit != int.MinValue)
+            {
+                var key = limitForeignKey != null ? $"{limitForeignKey}.limit" : "limit";
+                query[key] = limit.ToString();
+            }
+
+            if (offset != int.MinValue)
+            {
+                var key = offsetForeignKey != null ? $"{offsetForeignKey}.offset" : "offset";
+                query[key] = offset.ToString();
+            }
+
+            builder.Query = query.ToString();
+            return builder.Uri.ToString();
         }
 
-        private void Clear()
+        public Dictionary<string, string> PrepareRequestData(object data) => JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(data));
+
+        public Dictionary<string, string> PrepareRequestHeaders(Dictionary<string, string> headers = null)
+        {
+            if (headers == null)
+                headers = new Dictionary<string, string>();
+
+            if (options.Schema != null)
+            {
+                if (method == HttpMethod.Get)
+                    headers.Add("Accept-Profile", options.Schema);
+                else
+                    headers.Add("Content-Profile", options.Schema);
+            }
+
+            if (authorization.ApiKey != null)
+            {
+                headers.Add("apikey", authorization.ApiKey);
+                headers.Add("Authorization", $"Bearer {authorization.ApiKey}");
+            }
+
+            if (authorization.Username != null && authorization.Password != null)
+            {
+                var header = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{authorization.Username}:{authorization.Password}"));
+                headers.Add("Authorization", $"Basic {header}");
+            }
+
+            if (rangeFrom != int.MinValue)
+            {
+                headers.Add("Range-Unit", "items");
+                headers.Add("Range", $"{rangeFrom}-{(rangeTo != int.MinValue ? rangeTo.ToString() : null)}");
+            }
+
+            return headers;
+        }
+
+        public void Clear()
         {
             tableName = null;
             columnQuery = null;
@@ -246,44 +286,15 @@ namespace Supabase.Postgrest
             offset = int.MinValue;
             offsetForeignKey = null;
         }
-    }
 
-    public class ClientOptions
-    {
-        public string Schema { get; set; }
-        public Dictionary<string, object> Headers { get; set; } = new Dictionary<string, object>();
-    }
-
-    public class InsertOptions
-    {
-        public bool Upsert { get; set; } = false;
-    }
-
-    public class Filter
-    {
-        public string Property { get; set; }
-        public Operator Op { get; set; }
-        public string Criteria { get; set; }
-
-        public Filter(string property, Operator op, string criteria)
+        private Task<BaseResponse> Request(HttpMethod method, object data, Dictionary<string, string> headers = null)
         {
-            Property = property;
-            Op = op;
-            Criteria = criteria;
+            return MakeRequest(method, GenerateUrl(), PrepareRequestData(data), PrepareRequestHeaders(headers));
         }
-    }
 
-    public class Orderer
-    {
-        public string Property { get; set; }
-        public Ordering Ordering { get; set; }
-        public NullPosition NullPosition { get; set; }
-
-        public Orderer(string property, Ordering ordering, NullPosition nullPosition)
+        private Task<ModeledResponse<T>> Request<T>(HttpMethod method, object data, Dictionary<string, string> headers = null)
         {
-            Property = property;
-            Ordering = ordering;
-            NullPosition = nullPosition;
+            return MakeRequest<T>(method, GenerateUrl(), PrepareRequestData(data), PrepareRequestHeaders(headers));
         }
     }
 }

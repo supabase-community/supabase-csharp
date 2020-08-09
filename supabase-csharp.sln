@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supabase", "Supabase\Supabase.csproj", "{6190F0FF-F951-4FAE-858D-89A7D817EB88}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupabaseTests", "SupabaseTests\SupabaseTests.csproj", "{C5AA68B0-1F4C-4101-8B87-CFDAD1FA25AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +15,9 @@ Global
 		{6190F0FF-F951-4FAE-858D-89A7D817EB88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6190F0FF-F951-4FAE-858D-89A7D817EB88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6190F0FF-F951-4FAE-858D-89A7D817EB88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5AA68B0-1F4C-4101-8B87-CFDAD1FA25AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5AA68B0-1F4C-4101-8B87-CFDAD1FA25AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5AA68B0-1F4C-4101-8B87-CFDAD1FA25AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5AA68B0-1F4C-4101-8B87-CFDAD1FA25AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

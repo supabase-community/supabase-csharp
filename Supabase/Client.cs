@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Supabase.Models;
+using Supabase.Postgrest.Options;
 using Supabase.Postgrest.Responses;
 using Supabase.Realtime;
 
@@ -102,9 +103,8 @@ namespace Supabase
 
         private Postgrest.Client GetClient()
         {
-            var client = new Postgrest.Client(restUrl, supabaseKey, new Postgrest.ClientOptions
+            var client = new Postgrest.Client(restUrl, supabaseKey, new ClientOptions
             {
-                Headers = new Dictionary<string, object> { { "Authorization", $"Bearer {supabaseKey}" } },
                 Schema = schema
             });
 
@@ -115,8 +115,8 @@ namespace Supabase
 
         private void Clear()
         {
-            this.tableName = null;
-            this.queryFiters = null;
+            tableName = null;
+            queryFiters = null;
         }
     }
 
