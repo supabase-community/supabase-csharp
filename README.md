@@ -6,7 +6,9 @@
 
 # supabase-csharp (**VERY MUCH A WIP**)
 
-**This repo is currently public for the sake of contributions - it should NOT be used in anything remotely resembling production**
+## This repo is currently public for the sake of contributions - it should NOT be used in anything remotely resembling production
+
+---
 
 Integrate your [Supabase](https://supabase.io) projects with C#.
 
