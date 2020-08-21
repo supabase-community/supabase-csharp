@@ -14,7 +14,7 @@ API is heavily modeled after the [supabase-js repo](https://github.com/supabase/
 
 ## Status
 
-- [X] Supbase.Auth
+- [X] Supabase.Auth
 - [ ] **(In Progress)** Supabase.Realtime
 - [ ] **(In Progress)** PostgREST
 - [ ] **(In Progress)** Unit/Integration Testing
@@ -26,11 +26,3 @@ API is heavily modeled after the [supabase-js repo](https://github.com/supabase/
 Authentication via this client _is_ platform agnostic - because of this, session persistance is not included by default.
 
 To enable persistance, you will have to specify handlers into the passed `Supabase.Auth.ClientOptions` that will store a session on a users's device (either browser storage or device storage).
-
-### Initilizing
-
-Initilize by calling `Supabase.Instance.Auth(options)` and specifying (optional) options.
-
-### `SignUp(string username, string password)` -> `CurrentUser`;
-### `Login(string username, string password)` -> `CurrentUser`;
-### `Logout()`;
