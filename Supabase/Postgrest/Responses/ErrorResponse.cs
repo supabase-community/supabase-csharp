@@ -6,12 +6,15 @@ namespace Supabase.Postgrest.Responses
     public class ErrorResponse : BaseResponse
     {
         [JsonProperty("hint")]
-        public string Hint { get; set; }
+        public object Hint { get; set; }
+
+        [JsonProperty("details")]
+        public object Details { get; set; }
+
+        [JsonProperty("code")]
+        public string Code { get; set; }
 
         [JsonProperty("message")]
         public string Message { get; set; }
-
-        [JsonProperty("code")]
-        public int Code { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Supabase.Postgrest.Options
+namespace Supabase.Postgrest
 {
     public class InsertOptions
     {

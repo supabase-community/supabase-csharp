@@ -6,11 +6,15 @@ namespace Supabase.Postgrest.Responses
 {
     public class ModeledResponse<T> : BaseResponse
     {
-        public ModeledResponse(BaseResponse baseResponse)
+        public ModeledResponse(BaseResponse baseResponse, bool shouldParse = true)
         {
             Content = baseResponse.Content;
             ResponseMessage = baseResponse.ResponseMessage;
-            Models = JsonConvert.DeserializeObject<List<T>>(Content);
+
+            if (shouldParse)
+            {
+                Models = JsonConvert.DeserializeObject<List<T>>(Content);
+            }
         }
 
         public List<T> Models { get; set; } = new List<T>();

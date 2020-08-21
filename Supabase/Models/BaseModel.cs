@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Supabase.Postgrest.Responses;
 
 namespace Supabase.Models
 {
@@ -16,5 +18,9 @@ namespace Supabase.Models
 
         [JsonProperty("updated_at")]
         public DateTime UpdatedAt { get; set; } = new DateTime();
+
+
+        public virtual Task<ModeledResponse<T>> Update<T>() where T : BaseModel, new() => Client.Instance.Postgrest<T>().Update((T)this);
+        public virtual Task Delete<T>() where T : BaseModel, new() => Client.Instance.Postgrest<T>().Delete((T)this);
     }
 }

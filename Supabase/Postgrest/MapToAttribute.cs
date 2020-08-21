@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Reflection;
+
 namespace Supabase.Postgrest
 {
     [AttributeUsage(AttributeTargets.Field)]

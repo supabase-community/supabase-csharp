@@ -4,12 +4,20 @@ namespace Supabase.Realtime
     public static class Constants
     {
         public static string VERSION = "1.0.0";
-        public enum SOCKET_STATES
+
+        public enum SocketStates
         {
             connecting = 0,
             open = 1,
             closing = 2,
             closed = 3
+        }
+
+        public enum EventType
+        {
+            Insert,
+            Update,
+            Delete
         }
 
         public static int DEFAULT_TIMEOUT = 10000;

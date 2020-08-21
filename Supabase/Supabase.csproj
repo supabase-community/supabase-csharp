@@ -26,6 +26,6 @@
     <Folder Include="Postgrest\" />
     <Folder Include="Models\" />
     <Folder Include="Postgrest\Responses\" />
-    <Folder Include="Postgrest\Options\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using Supabase.Models;
+using static Supabase.Realtime.Constants;
 using static Supabase.Realtime.StateChangedEventArgs;
 
 namespace Supabase.Realtime
@@ -10,7 +11,8 @@ namespace Supabase.Realtime
         private string tableName;
         private string realtimeUrl;
         private string schema;
-        private string apiKey;
+        private ClientAuthorization authorization;
+
         private string uuid;
 
         private Socket<T> socket;
@@ -22,16 +24,18 @@ namespace Supabase.Realtime
         public EventHandler<ItemUpdatedEventArgs> OnUpdated;
         public EventHandler<ItemDeletedEventArgs> OnDelete;
 
-        public Listener(string tableName, string realtimeUrl, string schema, string apiKey, string uuid, string eventType, Action<T> callback, object queryFilters)
+        public Listener(string tableName, string realtimeUrl, string schema, ClientAuthorization authorization, string uuid, EventType eventType, Action<T> callback, object queryFilters)
         {
             this.tableName = tableName;
             this.realtimeUrl = realtimeUrl;
             this.schema = schema;
-            this.apiKey = apiKey;
+            this.authorization = authorization;
+
             this.uuid = uuid;
 
             this.queryFilters = queryFilters;
 
+            On(eventType, callback);
         }
 
         public void CreateListener()
@@ -42,19 +46,28 @@ namespace Supabase.Realtime
 
             var channel = tableName == "*" ? "realtime:*" : $"realtime:{schema}:{tableName}{filterString}";
 
-            socket = new Realtime.Socket<T>(socketUrl, new SocketOptions<T> { Parameters = new SocketOptionsParameters { ApiKey = apiKey } });
+            // TODO: Other auth options?
+            socket = new Realtime.Socket<T>(socketUrl, new SocketOptions<T> { Parameters = new SocketOptionsParameters { ApiKey = authorization.ApiKey } });
             socket.StateChanged += (object sender, StateChangedEventArgs args) =>
             {
                 switch (args.State)
                 {
                     case ConnectionState.Open:
-                        Debug.WriteLine($"{this.realtimeUrl}: REALTIME CONNECTED");
+                        Debug.WriteLine($"{realtimeUrl}: REALTIME CONNECTED");
                         break;
                     case ConnectionState.Close:
-                        Debug.WriteLine($"{this.realtimeUrl}: REALTIME DISCONNECTED");
+                        Debug.WriteLine($"{realtimeUrl}: REALTIME DISCONNECTED");
                         break;
                 }
             };
+            socket.Connect();
+        }
+
+        public void On(EventType eventType, Action<T> callback)
+        {
+            if (socket == null)
+                CreateListener();
+
         }
 
         public Listener<T> Subscribe() { return this; }

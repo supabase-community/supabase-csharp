@@ -15,8 +15,6 @@ namespace Supabase.Realtime
     {
         public EventHandler<StateChangedEventArgs> StateChanged;
 
-
-
         private string endpoint;
         private SocketOptions<T> options;
         private WebSocket connection;
@@ -42,13 +40,13 @@ namespace Supabase.Realtime
                     { "apikey", options.Parameters.ApiKey }
                 };
 
-                return string.Format($"{endpoint}?{0}", Utils.QueryString(parameters));
+                return string.Format($"{endpoint}?{Utils.QueryString(parameters)}");
             }
         }
 
         public Socket(string endpoint, SocketOptions<T> options = null)
         {
-            this.endpoint = $"{endpoint}/${Constants.TANSPORT_WEBSOCKET}";
+            this.endpoint = $"{endpoint}/{Constants.TANSPORT_WEBSOCKET}";
 
             if (options == null)
             {
@@ -68,6 +66,7 @@ namespace Supabase.Realtime
             connection.OnMessage += OnConnectionMessage;
             connection.OnError += OnConnectionError;
             connection.OnClose += OnConnectionClosed;
+            connection.Connect();
         }
 
         public void Disconnect(CloseStatusCode code = CloseStatusCode.Normal, string reason = "")
@@ -120,7 +119,9 @@ namespace Supabase.Realtime
             options.Logger("transport", $"connected to ${endpointUrl}", null);
 
             FlushBuffer();
-            reconnectTokenSource.Cancel();
+
+            if (reconnectTokenSource != null)
+                reconnectTokenSource.Cancel();
 
             if (hearbeatTokenSource != null)
                 hearbeatTokenSource.Cancel();

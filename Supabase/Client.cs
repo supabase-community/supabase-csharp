@@ -1,27 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Supabase.Models;
-using Supabase.Postgrest.Options;
-using Supabase.Postgrest.Responses;
-using Supabase.Realtime;
 
 namespace Supabase
 {
     public class Client
     {
-        private string supabaseUrl;
-        private string supabaseKey;
+        private Auth.Client authClient;
+        private ClientAuthorization authorization;
+
+        private SupabaseOptions options;
+
+        private Postgrest.ClientOptions postgrestOptions;
+        private Realtime.ClientOptions realtimeOptions;
+
         private string restUrl;
         private string realtimeUrl;
         private string authUrl;
-        private string schema;
-
-        private Dictionary<string, object> subscriptions;
-
-        private string tableName;
-        private object queryFiters;
 
         private static Client instance;
         public static Client Instance
@@ -37,92 +31,100 @@ namespace Supabase
             }
         }
 
-        public static Client Initialize(string supabaseUrl, string supabaseKey, SupabaseOptions options = null)
+        public static Client Initialize(string supabaseUrl, ClientAuthorization authorization, SupabaseOptions options = null)
         {
+            if (authorization == null)
+                authorization = new ClientAuthorization();
+
             if (options == null)
                 options = new SupabaseOptions();
 
             instance = new Client();
-            instance.Authenticate(supabaseUrl, supabaseKey);
-            instance.schema = options.schema;
-            instance.subscriptions = new Dictionary<string, dynamic>();
+            instance.options = options;
+            instance.Authenticate(supabaseUrl, authorization);
 
             return instance;
         }
 
 
-        public void Authenticate(string supabaseUrl, string supabaseKey)
+        /// <summary>
+        /// Returns either a new instance (if it has not been instantiated) or the existing instance of the Auth Client
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public Auth.Client Auth(Auth.ClientOptions options = null)
         {
-            this.supabaseUrl = supabaseUrl;
-            this.supabaseKey = supabaseKey;
-            this.restUrl = $"{this.supabaseUrl}/rest/v1";
-            this.realtimeUrl = $"{this.supabaseUrl}/realtime/v1".Replace("http", "ws");
-            this.authUrl = $"{this.supabaseUrl}/auth/v1";
-        }
-
-        public Client From(string tableName)
-        {
-            this.tableName = tableName;
-            return this;
-        }
-
-        // REALTIME
-
-        public Listener<T> On<T>(string eventType, Action<T> callback) where T : BaseModel, new()
-        {
-            var id = Guid.NewGuid().ToString();
-            subscriptions.Add(id, new Listener<T>(tableName, realtimeUrl, schema, supabaseKey, id, eventType, callback, queryFiters));
-
-            Clear();
-
-            return subscriptions[id] as Realtime.Listener<T>;
-        }
-
-        // REST API
-        public Postgrest.Client Select(string columnQuery = "*")
-        {
-            var client = GetClient();
-
-            return client.Select(columnQuery);
-        }
-
-        public Task<ModeledResponse<T>> Insert<T>(T model) where T : BaseModel, new()
-        {
-            var client = GetClient();
-            return client.Insert(model);
-        }
-
-        public async Task<T> Update<T>(T model) where T : BaseModel, new()
-        {
-            var client = GetClient();
-
-            await client.Insert(model);
-
-            return null;
-        }
-
-        private Postgrest.Client GetClient()
-        {
-            var client = new Postgrest.Client(restUrl, supabaseKey, new ClientOptions
+            if (authClient != null)
             {
-                Schema = schema
-            });
+                if (options != null)
+                {
+                    authClient.Options = options;
+                }
+                return authClient;
+            }
+            else
+            {
+                if (options == null)
+                    options = new Auth.ClientOptions();
 
-            client.From(tableName);
+                authClient = new Auth.Client(authUrl, authorization, options);
 
-            return client;
+                return authClient;
+            }
         }
 
-        private void Clear()
+        /// <summary>
+        /// Returns a new instance of the Postgrest Client
+        /// </summary>
+        /// <typeparam name="T">Model to be used as coercion type for the returned instance</typeparam>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public Postgrest.Client<T> Postgrest<T>(Postgrest.ClientOptions options = null) where T : BaseModel, new()
         {
-            tableName = null;
-            queryFiters = null;
+            if (options == null && postgrestOptions == null)
+                options = new Postgrest.ClientOptions { Schema = this.options.Schema };
+
+            postgrestOptions = options;
+
+            return new Postgrest.Client<T>(restUrl, authorization, postgrestOptions);
+        }
+
+        /// <summary>
+        /// Returns a new instance of the Realtime Client
+        /// </summary>
+        /// <typeparam name="T">Model to be used as coercion type for the returned instance</typeparam>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public Realtime.Client<T> Realtime<T>(Realtime.ClientOptions options = null) where T : BaseModel, new()
+        {
+            if (options == null && realtimeOptions == null)
+                options = new Realtime.ClientOptions { Schema = this.options.Schema };
+
+            realtimeOptions = options;
+
+            return new Realtime.Client<T>(realtimeUrl, authorization, realtimeOptions);
+        }
+
+        /// <summary>
+        /// Sets up urls and authorization options for this instance
+        /// </summary>
+        /// <param name="supabaseUrl"></param>
+        /// <param name="authorization"></param>
+        public void Authenticate(string supabaseUrl, ClientAuthorization authorization)
+        {
+            this.authorization = authorization;
+            this.restUrl = string.Format(options.RestUrlFormat, supabaseUrl);
+            this.realtimeUrl = string.Format(options.RealtimeUrlFormat, supabaseUrl).Replace("http", "ws");
+            this.authUrl = string.Format(options.AuthUrlFormat, supabaseUrl);
         }
     }
 
     public class SupabaseOptions
     {
-        public bool autoRefreshToken = true;
-        public string schema = "public";
+        public string Schema = "public";
+
+        public string RestUrlFormat { get; set; } = "{0}/rest/v1";
+        public string RealtimeUrlFormat { get; set; } = "{0}/realtime/v1";
+        public string AuthUrlFormat { get; set; } = "{0}/auth/v1";
     }
 }

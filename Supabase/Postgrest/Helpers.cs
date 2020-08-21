@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -85,54 +86,41 @@ namespace Supabase.Postgrest
 
         public static async Task<ModeledResponse<T>> MakeRequest<T>(HttpMethod method, string url, Dictionary<string, string> reqParams = null, Dictionary<string, string> headers = null)
         {
-            try
-            {
-                var baseResponse = await MakeRequest(method, url, reqParams, headers);
-
-                if (!string.IsNullOrWhiteSpace(baseResponse.Content))
-                {
-                    return new ModeledResponse<T>(baseResponse);
-                }
-                throw new Exception("Failed to Deserialize object");
-            }
-            catch (Exception ex)
-            {
-                Console.Write(ex);
-            }
-            return default;
+            var baseResponse = await MakeRequest(method, url, reqParams, headers);
+            return new ModeledResponse<T>(baseResponse);
         }
 
         public static async Task<BaseResponse> MakeRequest(HttpMethod method, string url, Dictionary<string, string> reqParams = null, Dictionary<string, string> headers = null)
         {
-            var builder = new UriBuilder(url);
-            var query = HttpUtility.ParseQueryString(builder.Query);
-            builder.Port = -1;
-
-            if (reqParams != null && method == HttpMethod.Get)
-            {
-                foreach (var param in reqParams)
-                    query[param.Key] = param.Value;
-            }
-
-            builder.Query = query.ToString();
-
-            var requestMessage = new HttpRequestMessage(method, builder.Uri);
-
-            if (reqParams != null && method == HttpMethod.Post)
-            {
-                requestMessage.Content = new StringContent(JsonConvert.SerializeObject(reqParams), Encoding.UTF8, "application/json");
-            }
-
-            if (headers != null)
-            {
-                foreach (var kvp in headers)
-                {
-                    requestMessage.Headers.Add(kvp.Key, kvp.Value);
-                }
-            }
-
             try
             {
+                var builder = new UriBuilder(url);
+                var query = HttpUtility.ParseQueryString(builder.Query);
+                builder.Port = -1;
+
+                if (reqParams != null && method == HttpMethod.Get)
+                {
+                    foreach (var param in reqParams)
+                        query[param.Key] = param.Value;
+                }
+
+                builder.Query = query.ToString();
+
+                var requestMessage = new HttpRequestMessage(method, builder.Uri);
+
+                if (reqParams != null && method != HttpMethod.Get)
+                {
+                    requestMessage.Content = new StringContent(JsonConvert.SerializeObject(reqParams), Encoding.UTF8, "application/json");
+                }
+
+                if (headers != null)
+                {
+                    foreach (var kvp in headers)
+                    {
+                        requestMessage.Headers.Add(kvp.Key, kvp.Value);
+                    }
+                }
+
                 var response = await client.SendAsync(requestMessage);
                 var content = await response.Content.ReadAsStringAsync();
 
@@ -140,9 +128,7 @@ namespace Supabase.Postgrest
                 {
                     var obj = JsonConvert.DeserializeObject<ErrorResponse>(content);
                     obj.Content = content;
-                    obj.ResponseMessage = response;
-
-                    return obj;
+                    throw new RequestException(response, obj);
                 }
                 else
                 {
@@ -151,11 +137,21 @@ namespace Supabase.Postgrest
             }
             catch (Exception e)
             {
-                return new ErrorResponse { Message = e.Message };
+                Debug.WriteLine(e.Message);
+                throw e;
             }
         }
-
     }
 
+    public class RequestException : Exception
+    {
+        public HttpResponseMessage Response { get; private set; }
+        public ErrorResponse Error { get; private set; }
 
+        public RequestException(HttpResponseMessage response, ErrorResponse error) : base(error.Message)
+        {
+            Response = response;
+            Error = error;
+        }
+    }
 }

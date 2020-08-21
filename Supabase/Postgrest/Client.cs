@@ -2,24 +2,25 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json;
+using Supabase.Extensions;
 using Supabase.Models;
-using Supabase.Postgrest.Options;
 using Supabase.Postgrest.Responses;
 using static Supabase.Postgrest.Helpers;
 
 namespace Supabase.Postgrest
 {
-    public class Client
+    public class Client<T> where T : BaseModel, new()
     {
         public string BaseUrl { get; private set; }
 
         private ClientAuthorization authorization;
         private ClientOptions options;
 
-        private HttpMethod method;
+        private HttpMethod method = HttpMethod.Get;
 
         private string tableName;
         private string columnQuery;
@@ -37,83 +38,85 @@ namespace Supabase.Postgrest
         private string offsetForeignKey;
 
 
-        public Client(string baseUrl, string apiKey, ClientOptions options) : this(baseUrl, new ClientAuthorization(apiKey), options) { }
-        public Client(string baseUrl, ClientAuthorization authorization = null, ClientOptions options = null)
+        public Client(string baseUrl, ClientAuthorization authorization, ClientOptions options = null)
         {
             BaseUrl = baseUrl;
-            this.authorization = authorization;
 
             if (options == null)
                 options = new ClientOptions();
 
             this.options = options;
+            this.authorization = authorization;
+
+            var attr = Attribute.GetCustomAttribute(typeof(T), typeof(TableAttribute));
+            if (attr is TableAttribute tableAttr)
+            {
+                tableName = tableAttr.Name;
+            }
+            else
+            {
+                tableName = typeof(T).Name;
+            }
         }
 
-
-        public Client From(string tableName)
-        {
-            this.tableName = tableName;
-            return this;
-        }
-
-        public Client Filter(string columnName, Operator op, string criteria)
+        public Client<T> Filter(string columnName, Operator op, string criteria)
         {
             filters.Add(new QueryFilter(columnName, op, criteria));
             return this;
         }
 
-        public Client Match(Dictionary<string, string> query)
+        public Client<T> Match(Dictionary<string, string> query)
         {
             return this;
         }
 
-        public Client Order(string column, Ordering ordering, NullPosition nullPosition = NullPosition.First)
+        public Client<T> Order(string column, Ordering ordering, NullPosition nullPosition = NullPosition.First)
         {
             orderers.Add(new QueryOrderer(null, column, ordering, nullPosition));
             return this;
         }
 
-        public Client Order(string foreignTable, string column, Ordering ordering, NullPosition nullPosition = NullPosition.First)
+        public Client<T> Order(string foreignTable, string column, Ordering ordering, NullPosition nullPosition = NullPosition.First)
         {
             orderers.Add(new QueryOrderer(foreignTable, column, ordering, nullPosition));
             return this;
         }
 
-        public Client Range(int from)
+        public Client<T> Range(int from)
         {
             rangeFrom = from;
             return this;
         }
 
-        public Client Range(int from, int to)
+        public Client<T> Range(int from, int to)
         {
             rangeFrom = from;
             rangeTo = to;
             return this;
         }
 
-        public Client Select(string columnQuery)
+        public Client<T> Select(string columnQuery)
         {
             method = HttpMethod.Get;
             this.columnQuery = columnQuery;
             return this;
         }
 
-        public Client Limit(int limit, string foreignTableName = null)
+        public Client<T> Limit(int limit, string foreignTableName = null)
         {
             this.limit = limit;
             this.limitForeignKey = foreignTableName;
             return this;
         }
 
-        public Client Offset(int offset, string foreignTableName = null)
+        public Client<T> Offset(int offset, string foreignTableName = null)
         {
             this.offset = offset;
             this.offsetForeignKey = foreignTableName;
             return this;
         }
 
-        public Task<ModeledResponse<T>> Insert<T>(T model, InsertOptions options = null) where T : BaseModel, new()
+        public Task<ModeledResponse<T>> Insert(T model, InsertOptions options = null)
         {
             method = HttpMethod.Post;
             if (options == null)
@@ -131,9 +134,10 @@ namespace Supabase.Postgrest
             return request;
         }
 
-        public Task<ModeledResponse<T>> Update<T>(T model) where T : BaseModel, new()
+        public Task<ModeledResponse<T>> Update(T model)
         {
             method = HttpMethod.Patch;
+            filters.Add(new QueryFilter("id", Operator.Equals, model.Id.ToString()));
 
             var headers = new Dictionary<string, string>
             {
@@ -158,6 +162,15 @@ namespace Supabase.Postgrest
             return request;
         }
 
+        public Task Delete(T model)
+        {
+            method = HttpMethod.Delete;
+            Filter("id", Operator.Equals, model.Id.ToString());
+            var request = Request(method, null, null);
+            Clear();
+            return request;
+        }
+
         public Task Single()
         {
             method = HttpMethod.Get;
@@ -171,7 +184,7 @@ namespace Supabase.Postgrest
             return null;
         }
 
-        public Task<ModeledResponse<T>> Get<T>()
+        public Task<ModeledResponse<T>> Get()
         {
             var request = Request<T>(method, null, null);
             Clear();
@@ -191,7 +204,7 @@ namespace Supabase.Postgrest
 
             foreach (var filter in filters)
             {
-                var attr = Attribute.GetCustomAttribute(filter.Op.GetType(), typeof(MapToAttribute));
+                var attr = filter.Op.GetAttribute<MapToAttribute>();
                 if (attr is MapToAttribute asAttribute)
                 {
                     switch (filter.Op)
@@ -209,12 +222,22 @@ namespace Supabase.Postgrest
 
             foreach (var orderer in orderers)
             {
-                var attr = Attribute.GetCustomAttribute(orderer.NullPosition.GetType(), typeof(MapToAttribute));
+                var attr = orderer.NullPosition.GetAttribute<MapToAttribute>();
                 if (attr is MapToAttribute asAttribute)
                 {
-                    var key = orderer.ForeignTable != null ? $"{orderer.ForeignTable}.order" : "order";
+                    var key = !string.IsNullOrEmpty(orderer.ForeignTable) ? $"{orderer.ForeignTable}.order" : "order";
                     query[key] = $"{orderer.Column}.{orderer.Ordering}.{asAttribute.Mapping}";
                 }
+            }
+
+            if (authorization.Type == ClientAuthorization.AuthorizationType.Token)
+            {
+                query["apikey"] = authorization.ApiKey;
+            }
+
+            if (!string.IsNullOrEmpty(columnQuery))
+            {
+                query["select"] = Regex.Replace(columnQuery, @"\s", "");
             }
 
             if (limit != int.MinValue)
@@ -240,7 +263,7 @@ namespace Supabase.Postgrest
             if (headers == null)
                 headers = new Dictionary<string, string>();
 
-            if (options.Schema != null)
+            if (!string.IsNullOrEmpty(options.Schema))
             {
                 if (method == HttpMethod.Get)
                     headers.Add("Accept-Profile", options.Schema);
@@ -248,16 +271,18 @@ namespace Supabase.Postgrest
                     headers.Add("Content-Profile", options.Schema);
             }
 
-            if (authorization.ApiKey != null)
+            switch (authorization.Type)
             {
-                headers.Add("apikey", authorization.ApiKey);
-                headers.Add("Authorization", $"Bearer {authorization.ApiKey}");
-            }
-
-            if (authorization.Username != null && authorization.Password != null)
-            {
-                var header = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{authorization.Username}:{authorization.Password}"));
-                headers.Add("Authorization", $"Basic {header}");
+                case ClientAuthorization.AuthorizationType.ApiKey:
+                    headers.Add("apikey", authorization.ApiKey);
+                    break;
+                case ClientAuthorization.AuthorizationType.Token:
+                    headers.Add("Authorization", $"Bearer {authorization.Token}");
+                    break;
+                case ClientAuthorization.AuthorizationType.Basic:
+                    var header = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{authorization.Username}:{authorization.Password}"));
+                    headers.Add("Authorization", $"Basic {header}");
+                    break;
             }
 
             if (rangeFrom != int.MinValue)
@@ -271,7 +296,6 @@ namespace Supabase.Postgrest
 
         public void Clear()
         {
-            tableName = null;
             columnQuery = null;
 
             filters.Clear();
