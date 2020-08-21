@@ -6,6 +6,8 @@
 
 # supabase-csharp (**VERY MUCH A WIP**)
 
+**This repo is currently public for the sake of contributions - it should NOT be used in anything remotely resembling production**
+
 Integrate your [Supabase](https://supabase.io) projects with C#.
 
 Includes C# features to make supabase function more like an ORM - specifically the ability to leverage **strongly typed models**.
