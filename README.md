@@ -18,12 +18,11 @@ API is heavily modeled after the [supabase-js repo](https://github.com/supabase/
 
 ## Status
 
-- [X] Supabase.Auth
+- [x] Supabase.Auth
 - [ ] **(In Progress)** Supabase.Realtime
-- [ ] **(In Progress)** PostgREST
+- [ ] **(In Progress)** PostgREST Intgration (separate library found [here](https://github.com/supabase/postgrest-csharp))
 - [ ] **(In Progress)** Unit/Integration Testing
 - [ ] **(Planned)** Nuget Release
-
 
 ## Auth API
 

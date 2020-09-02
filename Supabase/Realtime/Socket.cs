@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json;
-using Supabase.Models;
+using Postgrest.Models;
 using WebSocketSharp;
 using static Supabase.Realtime.StateChangedEventArgs;
 

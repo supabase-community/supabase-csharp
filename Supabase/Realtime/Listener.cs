@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using Supabase.Models;
+using Postgrest.Models;
 using static Supabase.Realtime.Constants;
 using static Supabase.Realtime.StateChangedEventArgs;
 

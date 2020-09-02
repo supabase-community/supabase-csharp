@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Supabase.Models;
-using Supabase.Postgrest;
+using Postgrest.Attributes;
+using Postgrest.Models;
 using static Supabase.Realtime.Constants;
 
 namespace Supabase.Realtime

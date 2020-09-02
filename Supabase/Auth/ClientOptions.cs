@@ -1,6 +1,4 @@
 ﻿using System;
-using Supabase.Models;
-
 namespace Supabase.Auth
 {
     public class ClientOptions
