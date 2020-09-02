@@ -45,7 +45,7 @@ steps:
     versioningScheme: 'off'
 
 # The last task is a nuget command, nuget push
-# This will push any .nupkg files to the 'TestFeed' artifact feed
+# This will push any .nupkg files to the 'Build' artifact feed
 # allowPackageConflicts allows us to build the same version and not throw an error when trying to push
 # instead it just ingores the latest package unless the version changes
 - task: NuGetAuthenticate@0
@@ -57,6 +57,6 @@ steps:
     feedsToUse: 'select'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
     nuGetFeedType: 'internal'
-    publishVstsFeed: 'supabase-csharp/TestFeed'
+    publishVstsFeed: 'supabase-csharp/Build'
     versioningScheme: 'off'
     allowPackageConflicts: true
