@@ -1,22 +1,24 @@
-﻿using System.Diagnostics;
-using Supabase.Extensions;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using Postgrest;
+using Postgrest.Models;
+using Postgrest.Responses;
 
 namespace Supabase
 {
+    /// <summary>
+    /// A singleton class representing a Supabase Client.
+    /// </summary>
     public class Client
     {
-        private Auth.Client authClient;
-        private Postgrest.Client databaseClient;
-        private ClientAuthorization authorization;
-
-        private SupabaseOptions options;
-
-        private Realtime.ClientOptions realtimeOptions;
-        private Postgrest.ClientOptions databaseOptions;
-
         private string restUrl;
         private string realtimeUrl;
         private string authUrl;
+        private string schema;
+
+        private Postgrest.Client pgClient;
 
         private static Client instance;
         public static Client Instance
@@ -32,107 +34,58 @@ namespace Supabase
             }
         }
 
-        public static Client Initialize(string supabaseUrl, ClientAuthorization authorization, SupabaseOptions options = null)
+        private Client() { }
+
+        /// <summary>
+        /// Initializes a Supabase Client.
+        /// </summary>
+        /// <param name="supabaseUrl"></param>
+        /// <param name="supabaseKey"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static Client Initialize(string supabaseUrl, string supabaseKey, SupabaseOptions options = null)
         {
-            if (authorization == null)
-                authorization = new ClientAuthorization();
+            instance = new Client();
 
             if (options == null)
                 options = new SupabaseOptions();
 
-            instance = new Client();
-            instance.options = options;
-            instance.Authenticate(supabaseUrl, authorization);
+            instance.restUrl = string.Format(options.RestUrlFormat, supabaseUrl);
+            instance.realtimeUrl = string.Format(options.RealtimeUrlFormat, supabaseUrl).Replace("http", "ws");
+            instance.authUrl = string.Format(options.AuthUrlFormat, supabaseUrl);
+            instance.schema = options.Schema;
+
+            instance.pgClient = Postgrest.Client.Instance.Initialize(instance.restUrl, new ClientAuthorization(supabaseKey));
 
             return instance;
         }
 
-
         /// <summary>
-        /// Returns either a new instance (if it has not been instantiated) or the existing instance of the Auth Client
+        /// Gets the Postgrest client to prepare for a query.
         /// </summary>
-        /// <param name="options"></param>
+        /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public Auth.Client Auth(Auth.ClientOptions options = null)
-        {
-            if (authClient != null)
-            {
-                if (options != null)
-                {
-                    authClient.Options = options;
-                }
-                return authClient;
-            }
-            else
-            {
-                if (options == null)
-                    options = new Auth.ClientOptions();
-
-                authClient = new Auth.Client(authUrl, authorization, options);
-
-                return authClient;
-            }
-        }
+        public Table<T> From<T>() where T : BaseModel, new() => pgClient.Table<T>();
 
         /// <summary>
-        /// Returns either a new instance (if it has not been instantiated) or the existing instance of the Database Client
+        /// Runs a remote procedure.
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="procedureName"></param>
+        /// <param name="parameters"></param>
         /// <returns></returns>
-        public Postgrest.Builder<T> Database<T>(Postgrest.ClientOptions options = null) where T : Postgrest.Models.BaseModel, new()
-        {
-            if (databaseClient != null)
-            {
-                if (options != null)
-                {
-                    databaseClient.Initialize(restUrl, authorization.ToPostgrestAuth(), options);
-                }
-                return databaseClient.Builder<T>();
-            }
-            else
-            {
-                if (options == null)
-                    options = new Postgrest.ClientOptions { Schema = this.options.Schema };
-
-                databaseClient = Postgrest.Client.Instance.Initialize(restUrl, authorization.ToPostgrestAuth(), options);
-
-                return databaseClient.Builder<T>();
-            }
-        }
-
-        /// <summary>
-        /// Returns a new instance of the Realtime Client
-        /// </summary>
-        /// <typeparam name="T">Model to be used as coercion type for the returned instance</typeparam>
-        /// <param name="options"></param>
-        /// <returns></returns>
-        public Realtime.Client<T> Realtime<T>(Realtime.ClientOptions options = null) where T : Postgrest.Models.BaseModel, new()
-        {
-            if (options == null && realtimeOptions == null)
-                options = new Realtime.ClientOptions { Schema = this.options.Schema };
-
-            realtimeOptions = options;
-
-            return new Realtime.Client<T>(realtimeUrl, authorization, realtimeOptions);
-        }
-
-        /// <summary>
-        /// Sets up urls and authorization options for this instance
-        /// </summary>
-        /// <param name="supabaseUrl"></param>
-        /// <param name="authorization"></param>
-        public void Authenticate(string supabaseUrl, ClientAuthorization authorization)
-        {
-            this.authorization = authorization;
-            this.restUrl = string.Format(options.RestUrlFormat, supabaseUrl);
-            this.realtimeUrl = string.Format(options.RealtimeUrlFormat, supabaseUrl).Replace("http", "ws");
-            this.authUrl = string.Format(options.AuthUrlFormat, supabaseUrl);
-        }
+        public Task<BaseResponse> Rpc(string procedureName, Dictionary<string, object> parameters) => pgClient.Rpc(procedureName, parameters);
     }
 
+    /// <summary>
+    /// Options available for Supabase Client Configuration
+    /// </summary>
     public class SupabaseOptions
     {
         public string Schema = "public";
+        public bool AutoRefreshToken = true;
+
+        public Action<object> PersistSession = (object arg) => { };
+        public Dictionary<string, string> Headers = new Dictionary<string, string>();
 
         public string RestUrlFormat { get; set; } = "{0}/rest/v1";
         public string RealtimeUrlFormat { get; set; } = "{0}/realtime/v1";

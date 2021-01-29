@@ -1,0 +1,54 @@
+name: Publish Nuget Package
+on:
+  push:
+    branches:
+      - release/* # Default release branch
+jobs:
+  publish:
+    name: build, pack & publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.301
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Initialize Testing Stack
+        run: docker-compose up -d
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test --no-restore
+
+      # Publish
+      - name: publish on version change
+        id: publish_nuget
+        uses: rohith/publish-nuget@v2
+        with:
+          # Filepath of the project to be packaged, relative to root of repository
+          PROJECT_FILE_PATH: Supabase/Supabase.csproj
+
+          # NuGet package id, used for version detection & defaults to project name
+          PACKAGE_NAME: supabase/supabase
+
+          # Filepath with version info, relative to root of repository & defaults to PROJECT_FILE_PATH
+          # VERSION_FILE_PATH: Directory.Build.props
+
+          # Regex pattern to extract version info in a capturing group
+          VERSION_REGEX: ^\s*<PackageVersion>(.*)<\/PackageVersion>\s*$
+
+          # API key to authenticate with NuGet server
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+
+          # NuGet server uri hosting the packages, defaults to https://api.nuget.org
+          NUGET_SOURCE: https://api.nuget.org
+
+          # Flag to toggle pushing symbols along with nuget package to the server, disabled by default
+          INCLUDE_SYMBOLS: true

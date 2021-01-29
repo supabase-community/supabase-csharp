@@ -1,5 +1,7 @@
 <p align="center">
-<img width="300" src=".github/supabase-csharp.svg"/>
+<img width="300" src=".github/supabase-csharp.png"/>
+<br/>
+<img src="https://github.com/supabase/supabase-csharp/workflows/Build%20And%20Test/badge.svg"/>
 </p>
 
 ---
@@ -18,14 +20,21 @@ API is heavily modeled after the [supabase-js repo](https://github.com/supabase/
 
 ## Status
 
-- [x] Supabase.Auth
-- [ ] **(In Progress)** Supabase.Realtime
-- [ ] **(In Progress)** PostgREST Intgration (separate library found [here](https://github.com/supabase/postgrest-csharp))
-- [ ] **(In Progress)** Unit/Integration Testing
-- [ ] **(Planned)** Nuget Release
+- [x] Integration with [Supabase.Realtime](https://github.com/supabase/realtime-csharp)
+- [x] Integration with [Postgrest](https://github.com/supabase/postgrest-csharp)
+- [ ] Integration with Gotrue
+- [ ] Unit/Integration Testing
+- [ ] Nuget Release
 
-## Auth API
 
-Authentication via this client _is_ platform agnostic - because of this, session persistance is not included by default.
+## Package made possible through the efforts of:
 
-To enable persistance, you will have to specify handlers into the passed `Supabase.Auth.ClientOptions` that will store a session on a users's device (either browser storage or device storage).
+Join the ranks! See a problem? Help fix it!
+
+| <img src="https://github.com/acupofjose.png" width="150" height="150"> |
+| :--------------------------------------------------------------------: |
+|              [acupofjose](https://github.com/acupofjose)               |
+
+## Contributing
+
+We are more than happy to have contributions! Please submit a PR.

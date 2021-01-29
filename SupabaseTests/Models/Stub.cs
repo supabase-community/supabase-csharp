@@ -1,5 +1,5 @@
 ﻿using System;
-using Supabase.Models;
+using Postgrest.Models;
 
 namespace SupabaseTests.Models
 {
