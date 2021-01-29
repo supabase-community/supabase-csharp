@@ -1,0 +1,142 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: Supabase
+  name: Supabase
+  href: api/Supabase.html
+  commentId: N:Supabase
+  fullName: Supabase
+  nameWithType: Supabase
+- uid: Supabase.Client
+  name: Client
+  href: api/Supabase.Client.html
+  commentId: T:Supabase.Client
+  fullName: Supabase.Client
+  nameWithType: Client
+- uid: Supabase.Client.From*
+  name: From
+  href: api/Supabase.Client.html#Supabase_Client_From_
+  commentId: Overload:Supabase.Client.From
+  isSpec: "True"
+  fullName: Supabase.Client.From
+  nameWithType: Client.From
+- uid: Supabase.Client.From``1
+  name: From<T>()
+  href: api/Supabase.Client.html#Supabase_Client_From__1
+  commentId: M:Supabase.Client.From``1
+  name.vb: From(Of T)()
+  fullName: Supabase.Client.From<T>()
+  fullName.vb: Supabase.Client.From(Of T)()
+  nameWithType: Client.From<T>()
+  nameWithType.vb: Client.From(Of T)()
+- uid: Supabase.Client.Initialize(System.String,System.String,Supabase.SupabaseOptions)
+  name: Initialize(String, String, SupabaseOptions)
+  href: api/Supabase.Client.html#Supabase_Client_Initialize_System_String_System_String_Supabase_SupabaseOptions_
+  commentId: M:Supabase.Client.Initialize(System.String,System.String,Supabase.SupabaseOptions)
+  fullName: Supabase.Client.Initialize(System.String, System.String, Supabase.SupabaseOptions)
+  nameWithType: Client.Initialize(String, String, SupabaseOptions)
+- uid: Supabase.Client.Initialize*
+  name: Initialize
+  href: api/Supabase.Client.html#Supabase_Client_Initialize_
+  commentId: Overload:Supabase.Client.Initialize
+  isSpec: "True"
+  fullName: Supabase.Client.Initialize
+  nameWithType: Client.Initialize
+- uid: Supabase.Client.Instance
+  name: Instance
+  href: api/Supabase.Client.html#Supabase_Client_Instance
+  commentId: P:Supabase.Client.Instance
+  fullName: Supabase.Client.Instance
+  nameWithType: Client.Instance
+- uid: Supabase.Client.Instance*
+  name: Instance
+  href: api/Supabase.Client.html#Supabase_Client_Instance_
+  commentId: Overload:Supabase.Client.Instance
+  isSpec: "True"
+  fullName: Supabase.Client.Instance
+  nameWithType: Client.Instance
+- uid: Supabase.Client.Rpc(System.String,Dictionary{System.String,System.Object})
+  name: Rpc(String, Dictionary<String, Object>)
+  href: api/Supabase.Client.html#Supabase_Client_Rpc_System_String_Dictionary_System_String_System_Object__
+  commentId: M:Supabase.Client.Rpc(System.String,Dictionary{System.String,System.Object})
+  name.vb: Rpc(String, Dictionary(Of String, Object))
+  fullName: Supabase.Client.Rpc(System.String, Dictionary<System.String, System.Object>)
+  fullName.vb: Supabase.Client.Rpc(System.String, Dictionary(Of System.String, System.Object))
+  nameWithType: Client.Rpc(String, Dictionary<String, Object>)
+  nameWithType.vb: Client.Rpc(String, Dictionary(Of String, Object))
+- uid: Supabase.Client.Rpc*
+  name: Rpc
+  href: api/Supabase.Client.html#Supabase_Client_Rpc_
+  commentId: Overload:Supabase.Client.Rpc
+  isSpec: "True"
+  fullName: Supabase.Client.Rpc
+  nameWithType: Client.Rpc
+- uid: Supabase.SupabaseOptions
+  name: SupabaseOptions
+  href: api/Supabase.SupabaseOptions.html
+  commentId: T:Supabase.SupabaseOptions
+  fullName: Supabase.SupabaseOptions
+  nameWithType: SupabaseOptions
+- uid: Supabase.SupabaseOptions.AuthUrlFormat
+  name: AuthUrlFormat
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_AuthUrlFormat
+  commentId: P:Supabase.SupabaseOptions.AuthUrlFormat
+  fullName: Supabase.SupabaseOptions.AuthUrlFormat
+  nameWithType: SupabaseOptions.AuthUrlFormat
+- uid: Supabase.SupabaseOptions.AuthUrlFormat*
+  name: AuthUrlFormat
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_AuthUrlFormat_
+  commentId: Overload:Supabase.SupabaseOptions.AuthUrlFormat
+  isSpec: "True"
+  fullName: Supabase.SupabaseOptions.AuthUrlFormat
+  nameWithType: SupabaseOptions.AuthUrlFormat
+- uid: Supabase.SupabaseOptions.AutoRefreshToken
+  name: AutoRefreshToken
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_AutoRefreshToken
+  commentId: F:Supabase.SupabaseOptions.AutoRefreshToken
+  fullName: Supabase.SupabaseOptions.AutoRefreshToken
+  nameWithType: SupabaseOptions.AutoRefreshToken
+- uid: Supabase.SupabaseOptions.Headers
+  name: Headers
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_Headers
+  commentId: F:Supabase.SupabaseOptions.Headers
+  fullName: Supabase.SupabaseOptions.Headers
+  nameWithType: SupabaseOptions.Headers
+- uid: Supabase.SupabaseOptions.PersistSession
+  name: PersistSession
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_PersistSession
+  commentId: F:Supabase.SupabaseOptions.PersistSession
+  fullName: Supabase.SupabaseOptions.PersistSession
+  nameWithType: SupabaseOptions.PersistSession
+- uid: Supabase.SupabaseOptions.RealtimeUrlFormat
+  name: RealtimeUrlFormat
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_RealtimeUrlFormat
+  commentId: P:Supabase.SupabaseOptions.RealtimeUrlFormat
+  fullName: Supabase.SupabaseOptions.RealtimeUrlFormat
+  nameWithType: SupabaseOptions.RealtimeUrlFormat
+- uid: Supabase.SupabaseOptions.RealtimeUrlFormat*
+  name: RealtimeUrlFormat
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_RealtimeUrlFormat_
+  commentId: Overload:Supabase.SupabaseOptions.RealtimeUrlFormat
+  isSpec: "True"
+  fullName: Supabase.SupabaseOptions.RealtimeUrlFormat
+  nameWithType: SupabaseOptions.RealtimeUrlFormat
+- uid: Supabase.SupabaseOptions.RestUrlFormat
+  name: RestUrlFormat
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_RestUrlFormat
+  commentId: P:Supabase.SupabaseOptions.RestUrlFormat
+  fullName: Supabase.SupabaseOptions.RestUrlFormat
+  nameWithType: SupabaseOptions.RestUrlFormat
+- uid: Supabase.SupabaseOptions.RestUrlFormat*
+  name: RestUrlFormat
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_RestUrlFormat_
+  commentId: Overload:Supabase.SupabaseOptions.RestUrlFormat
+  isSpec: "True"
+  fullName: Supabase.SupabaseOptions.RestUrlFormat
+  nameWithType: SupabaseOptions.RestUrlFormat
+- uid: Supabase.SupabaseOptions.Schema
+  name: Schema
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_Schema
+  commentId: F:Supabase.SupabaseOptions.Schema
+  fullName: Supabase.SupabaseOptions.Schema
+  nameWithType: SupabaseOptions.Schema
