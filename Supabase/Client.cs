@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Postgrest;
 using Postgrest.Models;
 using Postgrest.Responses;
+using Supabase.Gotrue;
 
 namespace Supabase
 {
@@ -13,12 +14,22 @@ namespace Supabase
     /// </summary>
     public class Client
     {
-        private string restUrl;
-        private string realtimeUrl;
-        private string authUrl;
-        private string schema;
+        public enum ChannelEventType
+        {
+            Insert,
+            Update,
+            Delete,
+            All
+        }
 
-        private Postgrest.Client pgClient;
+        public Gotrue.Client Auth { get; private set; }
+        public Realtime.Client Realtime { get; private set; }
+
+        private Postgrest.Client Postgrest() => global::Postgrest.Client.Initialize(instance.RestUrl, new Postgrest.ClientOptions
+        {
+            Headers = instance.GetAuthHeaders(),
+            Schema = Schema
+        });
 
         private static Client instance;
         public static Client Instance
@@ -34,6 +45,13 @@ namespace Supabase
             }
         }
 
+        public string SupabaseUrl { get; private set; }
+        public string SupabaseKey { get; private set; }
+        public string RestUrl { get; private set; }
+        public string RealtimeUrl { get; private set; }
+        public string AuthUrl { get; private set; }
+        public string Schema { get; private set; }
+
         private Client() { }
 
         /// <summary>
@@ -43,19 +61,36 @@ namespace Supabase
         /// <param name="supabaseKey"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static Client Initialize(string supabaseUrl, string supabaseKey, SupabaseOptions options = null)
+        public static async Task<Client> Initialize(string supabaseUrl, string supabaseKey, SupabaseOptions options = null)
         {
             instance = new Client();
+
+            instance.SupabaseUrl = supabaseUrl;
+            instance.SupabaseKey = supabaseKey;
 
             if (options == null)
                 options = new SupabaseOptions();
 
-            instance.restUrl = string.Format(options.RestUrlFormat, supabaseUrl);
-            instance.realtimeUrl = string.Format(options.RealtimeUrlFormat, supabaseUrl).Replace("http", "ws");
-            instance.authUrl = string.Format(options.AuthUrlFormat, supabaseUrl);
-            instance.schema = options.Schema;
+            instance.RestUrl = string.Format(options.RestUrlFormat, supabaseUrl);
+            instance.RealtimeUrl = string.Format(options.RealtimeUrlFormat, supabaseUrl).Replace("http", "ws");
+            instance.AuthUrl = string.Format(options.AuthUrlFormat, supabaseUrl);
+            instance.Schema = options.Schema;
 
-            instance.pgClient = Postgrest.Client.Instance.Initialize(instance.restUrl, new ClientAuthorization(supabaseKey));
+            instance.Auth = await Gotrue.Client.Initialize(new Gotrue.ClientOptions
+            {
+                Url = instance.AuthUrl,
+                Headers = instance.GetAuthHeaders(),
+                AutoRefreshToken = options.AutoRefreshToken,
+                PersistSession = options.PersistSession,
+                SessionDestroyer = options.SessionDestroyer,
+                SessionPersistor = options.SessionPersistor,
+                SessionRetriever = options.SessionRetriever
+            });
+
+            instance.Realtime = Supabase.Realtime.Client.Initialize(instance.RealtimeUrl, new Realtime.ClientOptions
+            {
+                Parameters = { ApiKey = instance.SupabaseKey }
+            });
 
             return instance;
         }
@@ -65,7 +100,8 @@ namespace Supabase
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public Table<T> From<T>() where T : BaseModel, new() => pgClient.Table<T>();
+        public SupabaseTable<T> From<T>() where T : BaseModel, new() => new SupabaseTable<T>();
+
 
         /// <summary>
         /// Runs a remote procedure.
@@ -73,7 +109,19 @@ namespace Supabase
         /// <param name="procedureName"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public Task<BaseResponse> Rpc(string procedureName, Dictionary<string, object> parameters) => pgClient.Rpc(procedureName, parameters);
+        public Task<BaseResponse> Rpc(string procedureName, Dictionary<string, object> parameters) => Postgrest().Rpc(procedureName, parameters);
+
+
+        internal Dictionary<string, string> GetAuthHeaders()
+        {
+            var headers = new Dictionary<string, string>();
+            var bearer = Auth?.CurrentSession?.AccessToken != null ? Auth.CurrentSession.AccessToken : SupabaseKey;
+
+            headers["apiKey"] = SupabaseKey;
+            headers["Authorization"] = $"Bearer {bearer}";
+
+            return headers;
+        }
     }
 
     /// <summary>
@@ -82,9 +130,32 @@ namespace Supabase
     public class SupabaseOptions
     {
         public string Schema = "public";
-        public bool AutoRefreshToken = true;
 
-        public Action<object> PersistSession = (object arg) => { };
+        /// <summary>
+        /// Should the Client automatically handle refreshing the User's Token?
+        /// </summary>
+        public bool AutoRefreshToken { get; set; } = true;
+
+        /// <summary>
+        /// Should the Client call <see cref="SessionPersistor"/>, <see cref="SessionRetriever"/>, and <see cref="SessionDestroyer"/>?
+        /// </summary>
+        public bool PersistSession { get; set; } = true;
+
+        /// <summary>
+        /// Function called to persist the session (probably on a filesystem or cookie)
+        /// </summary>
+        public Func<Session, Task<bool>> SessionPersistor = (Session session) => Task.FromResult<bool>(true);
+
+        /// <summary>
+        /// Function to retrieve a session (probably from the filesystem or cookie)
+        /// </summary>
+        public Func<Task<Session>> SessionRetriever = () => Task.FromResult<Session>(null);
+
+        /// <summary>
+        /// Function to destroy a session.
+        /// </summary>
+        public Func<Task<bool>> SessionDestroyer = () => Task.FromResult<bool>(true);
+
         public Dictionary<string, string> Headers = new Dictionary<string, string>();
 
         public string RestUrlFormat { get; set; } = "{0}/rest/v1";
