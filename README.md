@@ -22,7 +22,7 @@ API is heavily modeled after the [supabase-js repo](https://github.com/supabase/
 
 - [x] Integration with [Supabase.Realtime](https://github.com/supabase/realtime-csharp)
 - [x] Integration with [Postgrest](https://github.com/supabase/postgrest-csharp)
-- [ ] Integration with Gotrue
+- [x] Integration with [Gotrue](https://github.com/supabase/supabase-csharp)
 - [ ] Unit/Integration Testing
 - [ ] Nuget Release
 
