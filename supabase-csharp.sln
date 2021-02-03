@@ -133,4 +133,7 @@ Global
 		{A99C9838-F680-4388-838F-60DC72CDD257} = {00D73611-9F2D-4422-947F-8EE17A3B9961}
 		{00D73611-9F2D-4422-947F-8EE17A3B9961} = {10663351-909C-4184-BA87-6DB4EA78BF6C}
 	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		version = 0.1.0-prerelease
+	EndGlobalSection
 EndGlobal
