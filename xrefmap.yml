@@ -13,6 +13,62 @@ references:
   commentId: T:Supabase.Client
   fullName: Supabase.Client
   nameWithType: Client
+- uid: Supabase.Client.Auth
+  name: Auth
+  href: api/Supabase.Client.html#Supabase_Client_Auth
+  commentId: P:Supabase.Client.Auth
+  fullName: Supabase.Client.Auth
+  nameWithType: Client.Auth
+- uid: Supabase.Client.Auth*
+  name: Auth
+  href: api/Supabase.Client.html#Supabase_Client_Auth_
+  commentId: Overload:Supabase.Client.Auth
+  isSpec: "True"
+  fullName: Supabase.Client.Auth
+  nameWithType: Client.Auth
+- uid: Supabase.Client.AuthUrl
+  name: AuthUrl
+  href: api/Supabase.Client.html#Supabase_Client_AuthUrl
+  commentId: P:Supabase.Client.AuthUrl
+  fullName: Supabase.Client.AuthUrl
+  nameWithType: Client.AuthUrl
+- uid: Supabase.Client.AuthUrl*
+  name: AuthUrl
+  href: api/Supabase.Client.html#Supabase_Client_AuthUrl_
+  commentId: Overload:Supabase.Client.AuthUrl
+  isSpec: "True"
+  fullName: Supabase.Client.AuthUrl
+  nameWithType: Client.AuthUrl
+- uid: Supabase.Client.ChannelEventType
+  name: Client.ChannelEventType
+  href: api/Supabase.Client.ChannelEventType.html
+  commentId: T:Supabase.Client.ChannelEventType
+  fullName: Supabase.Client.ChannelEventType
+  nameWithType: Client.ChannelEventType
+- uid: Supabase.Client.ChannelEventType.All
+  name: All
+  href: api/Supabase.Client.ChannelEventType.html#Supabase_Client_ChannelEventType_All
+  commentId: F:Supabase.Client.ChannelEventType.All
+  fullName: Supabase.Client.ChannelEventType.All
+  nameWithType: Client.ChannelEventType.All
+- uid: Supabase.Client.ChannelEventType.Delete
+  name: Delete
+  href: api/Supabase.Client.ChannelEventType.html#Supabase_Client_ChannelEventType_Delete
+  commentId: F:Supabase.Client.ChannelEventType.Delete
+  fullName: Supabase.Client.ChannelEventType.Delete
+  nameWithType: Client.ChannelEventType.Delete
+- uid: Supabase.Client.ChannelEventType.Insert
+  name: Insert
+  href: api/Supabase.Client.ChannelEventType.html#Supabase_Client_ChannelEventType_Insert
+  commentId: F:Supabase.Client.ChannelEventType.Insert
+  fullName: Supabase.Client.ChannelEventType.Insert
+  nameWithType: Client.ChannelEventType.Insert
+- uid: Supabase.Client.ChannelEventType.Update
+  name: Update
+  href: api/Supabase.Client.ChannelEventType.html#Supabase_Client_ChannelEventType_Update
+  commentId: F:Supabase.Client.ChannelEventType.Update
+  fullName: Supabase.Client.ChannelEventType.Update
+  nameWithType: Client.ChannelEventType.Update
 - uid: Supabase.Client.From*
   name: From
   href: api/Supabase.Client.html#Supabase_Client_From_
@@ -55,6 +111,45 @@ references:
   isSpec: "True"
   fullName: Supabase.Client.Instance
   nameWithType: Client.Instance
+- uid: Supabase.Client.Realtime
+  name: Realtime
+  href: api/Supabase.Client.html#Supabase_Client_Realtime
+  commentId: P:Supabase.Client.Realtime
+  fullName: Supabase.Client.Realtime
+  nameWithType: Client.Realtime
+- uid: Supabase.Client.Realtime*
+  name: Realtime
+  href: api/Supabase.Client.html#Supabase_Client_Realtime_
+  commentId: Overload:Supabase.Client.Realtime
+  isSpec: "True"
+  fullName: Supabase.Client.Realtime
+  nameWithType: Client.Realtime
+- uid: Supabase.Client.RealtimeUrl
+  name: RealtimeUrl
+  href: api/Supabase.Client.html#Supabase_Client_RealtimeUrl
+  commentId: P:Supabase.Client.RealtimeUrl
+  fullName: Supabase.Client.RealtimeUrl
+  nameWithType: Client.RealtimeUrl
+- uid: Supabase.Client.RealtimeUrl*
+  name: RealtimeUrl
+  href: api/Supabase.Client.html#Supabase_Client_RealtimeUrl_
+  commentId: Overload:Supabase.Client.RealtimeUrl
+  isSpec: "True"
+  fullName: Supabase.Client.RealtimeUrl
+  nameWithType: Client.RealtimeUrl
+- uid: Supabase.Client.RestUrl
+  name: RestUrl
+  href: api/Supabase.Client.html#Supabase_Client_RestUrl
+  commentId: P:Supabase.Client.RestUrl
+  fullName: Supabase.Client.RestUrl
+  nameWithType: Client.RestUrl
+- uid: Supabase.Client.RestUrl*
+  name: RestUrl
+  href: api/Supabase.Client.html#Supabase_Client_RestUrl_
+  commentId: Overload:Supabase.Client.RestUrl
+  isSpec: "True"
+  fullName: Supabase.Client.RestUrl
+  nameWithType: Client.RestUrl
 - uid: Supabase.Client.Rpc(System.String,Dictionary{System.String,System.Object})
   name: Rpc(String, Dictionary<String, Object>)
   href: api/Supabase.Client.html#Supabase_Client_Rpc_System_String_Dictionary_System_String_System_Object__
@@ -71,6 +166,45 @@ references:
   isSpec: "True"
   fullName: Supabase.Client.Rpc
   nameWithType: Client.Rpc
+- uid: Supabase.Client.Schema
+  name: Schema
+  href: api/Supabase.Client.html#Supabase_Client_Schema
+  commentId: P:Supabase.Client.Schema
+  fullName: Supabase.Client.Schema
+  nameWithType: Client.Schema
+- uid: Supabase.Client.Schema*
+  name: Schema
+  href: api/Supabase.Client.html#Supabase_Client_Schema_
+  commentId: Overload:Supabase.Client.Schema
+  isSpec: "True"
+  fullName: Supabase.Client.Schema
+  nameWithType: Client.Schema
+- uid: Supabase.Client.SupabaseKey
+  name: SupabaseKey
+  href: api/Supabase.Client.html#Supabase_Client_SupabaseKey
+  commentId: P:Supabase.Client.SupabaseKey
+  fullName: Supabase.Client.SupabaseKey
+  nameWithType: Client.SupabaseKey
+- uid: Supabase.Client.SupabaseKey*
+  name: SupabaseKey
+  href: api/Supabase.Client.html#Supabase_Client_SupabaseKey_
+  commentId: Overload:Supabase.Client.SupabaseKey
+  isSpec: "True"
+  fullName: Supabase.Client.SupabaseKey
+  nameWithType: Client.SupabaseKey
+- uid: Supabase.Client.SupabaseUrl
+  name: SupabaseUrl
+  href: api/Supabase.Client.html#Supabase_Client_SupabaseUrl
+  commentId: P:Supabase.Client.SupabaseUrl
+  fullName: Supabase.Client.SupabaseUrl
+  nameWithType: Client.SupabaseUrl
+- uid: Supabase.Client.SupabaseUrl*
+  name: SupabaseUrl
+  href: api/Supabase.Client.html#Supabase_Client_SupabaseUrl_
+  commentId: Overload:Supabase.Client.SupabaseUrl
+  isSpec: "True"
+  fullName: Supabase.Client.SupabaseUrl
+  nameWithType: Client.SupabaseUrl
 - uid: Supabase.SupabaseOptions
   name: SupabaseOptions
   href: api/Supabase.SupabaseOptions.html
@@ -93,7 +227,14 @@ references:
 - uid: Supabase.SupabaseOptions.AutoRefreshToken
   name: AutoRefreshToken
   href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_AutoRefreshToken
-  commentId: F:Supabase.SupabaseOptions.AutoRefreshToken
+  commentId: P:Supabase.SupabaseOptions.AutoRefreshToken
+  fullName: Supabase.SupabaseOptions.AutoRefreshToken
+  nameWithType: SupabaseOptions.AutoRefreshToken
+- uid: Supabase.SupabaseOptions.AutoRefreshToken*
+  name: AutoRefreshToken
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_AutoRefreshToken_
+  commentId: Overload:Supabase.SupabaseOptions.AutoRefreshToken
+  isSpec: "True"
   fullName: Supabase.SupabaseOptions.AutoRefreshToken
   nameWithType: SupabaseOptions.AutoRefreshToken
 - uid: Supabase.SupabaseOptions.Headers
@@ -105,7 +246,14 @@ references:
 - uid: Supabase.SupabaseOptions.PersistSession
   name: PersistSession
   href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_PersistSession
-  commentId: F:Supabase.SupabaseOptions.PersistSession
+  commentId: P:Supabase.SupabaseOptions.PersistSession
+  fullName: Supabase.SupabaseOptions.PersistSession
+  nameWithType: SupabaseOptions.PersistSession
+- uid: Supabase.SupabaseOptions.PersistSession*
+  name: PersistSession
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_PersistSession_
+  commentId: Overload:Supabase.SupabaseOptions.PersistSession
+  isSpec: "True"
   fullName: Supabase.SupabaseOptions.PersistSession
   nameWithType: SupabaseOptions.PersistSession
 - uid: Supabase.SupabaseOptions.RealtimeUrlFormat
@@ -140,3 +288,65 @@ references:
   commentId: F:Supabase.SupabaseOptions.Schema
   fullName: Supabase.SupabaseOptions.Schema
   nameWithType: SupabaseOptions.Schema
+- uid: Supabase.SupabaseOptions.SessionDestroyer
+  name: SessionDestroyer
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_SessionDestroyer
+  commentId: F:Supabase.SupabaseOptions.SessionDestroyer
+  fullName: Supabase.SupabaseOptions.SessionDestroyer
+  nameWithType: SupabaseOptions.SessionDestroyer
+- uid: Supabase.SupabaseOptions.SessionPersistor
+  name: SessionPersistor
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_SessionPersistor
+  commentId: F:Supabase.SupabaseOptions.SessionPersistor
+  fullName: Supabase.SupabaseOptions.SessionPersistor
+  nameWithType: SupabaseOptions.SessionPersistor
+- uid: Supabase.SupabaseOptions.SessionRetriever
+  name: SessionRetriever
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_SessionRetriever
+  commentId: F:Supabase.SupabaseOptions.SessionRetriever
+  fullName: Supabase.SupabaseOptions.SessionRetriever
+  nameWithType: SupabaseOptions.SessionRetriever
+- uid: Supabase.SupabaseTable`1
+  name: SupabaseTable<T>
+  href: api/Supabase.SupabaseTable-1.html
+  commentId: T:Supabase.SupabaseTable`1
+  name.vb: SupabaseTable(Of T)
+  fullName: Supabase.SupabaseTable<T>
+  fullName.vb: Supabase.SupabaseTable(Of T)
+  nameWithType: SupabaseTable<T>
+  nameWithType.vb: SupabaseTable(Of T)
+- uid: Supabase.SupabaseTable`1.#ctor
+  name: SupabaseTable()
+  href: api/Supabase.SupabaseTable-1.html#Supabase_SupabaseTable_1__ctor
+  commentId: M:Supabase.SupabaseTable`1.#ctor
+  fullName: Supabase.SupabaseTable<T>.SupabaseTable()
+  fullName.vb: Supabase.SupabaseTable(Of T).SupabaseTable()
+  nameWithType: SupabaseTable<T>.SupabaseTable()
+  nameWithType.vb: SupabaseTable(Of T).SupabaseTable()
+- uid: Supabase.SupabaseTable`1.#ctor*
+  name: SupabaseTable
+  href: api/Supabase.SupabaseTable-1.html#Supabase_SupabaseTable_1__ctor_
+  commentId: Overload:Supabase.SupabaseTable`1.#ctor
+  isSpec: "True"
+  fullName: Supabase.SupabaseTable<T>.SupabaseTable
+  fullName.vb: Supabase.SupabaseTable(Of T).SupabaseTable
+  nameWithType: SupabaseTable<T>.SupabaseTable
+  nameWithType.vb: SupabaseTable(Of T).SupabaseTable
+- uid: Supabase.SupabaseTable`1.On(Supabase.Client.ChannelEventType,Action{System.Object,SocketResponseEventArgs})
+  name: On(Client.ChannelEventType, Action<Object, SocketResponseEventArgs>)
+  href: api/Supabase.SupabaseTable-1.html#Supabase_SupabaseTable_1_On_Supabase_Client_ChannelEventType_Action_System_Object_SocketResponseEventArgs__
+  commentId: M:Supabase.SupabaseTable`1.On(Supabase.Client.ChannelEventType,Action{System.Object,SocketResponseEventArgs})
+  name.vb: On(Client.ChannelEventType, Action(Of Object, SocketResponseEventArgs))
+  fullName: Supabase.SupabaseTable<T>.On(Supabase.Client.ChannelEventType, Action<System.Object, SocketResponseEventArgs>)
+  fullName.vb: Supabase.SupabaseTable(Of T).On(Supabase.Client.ChannelEventType, Action(Of System.Object, SocketResponseEventArgs))
+  nameWithType: SupabaseTable<T>.On(Client.ChannelEventType, Action<Object, SocketResponseEventArgs>)
+  nameWithType.vb: SupabaseTable(Of T).On(Client.ChannelEventType, Action(Of Object, SocketResponseEventArgs))
+- uid: Supabase.SupabaseTable`1.On*
+  name: On
+  href: api/Supabase.SupabaseTable-1.html#Supabase_SupabaseTable_1_On_
+  commentId: Overload:Supabase.SupabaseTable`1.On
+  isSpec: "True"
+  fullName: Supabase.SupabaseTable<T>.On
+  fullName.vb: Supabase.SupabaseTable(Of T).On
+  nameWithType: SupabaseTable<T>.On
+  nameWithType.vb: SupabaseTable(Of T).On
