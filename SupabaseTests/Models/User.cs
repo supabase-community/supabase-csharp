@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 using Postgrest.Attributes;
-using Supabase.Models;
+using Postgrest.Models;
 
 namespace SupabaseTests.Models
 {
