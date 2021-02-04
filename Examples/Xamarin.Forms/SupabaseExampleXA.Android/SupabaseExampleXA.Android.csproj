@@ -90,11 +90,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SupabaseExampleXA\SupabaseExampleXA.csproj">
-      <Project>{E767C2EE-DF3E-436E-A010-AC75E05FF9AF}</Project>
+      <Project>{0F986F22-CF68-40E8-B193-45880B7C4D49}</Project>
       <Name>SupabaseExampleXA</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Supabase\Supabase.csproj">
-      <Project>{6190F0FF-F951-4FAE-858D-89A7D817EB88}</Project>
+    <ProjectReference Include="..\..\..\Supabase\Supabase.csproj">
+      <Project>{313E0FFC-E478-4365-99FA-70B8BBC92A5D}</Project>
       <Name>Supabase</Name>
     </ProjectReference>
   </ItemGroup>

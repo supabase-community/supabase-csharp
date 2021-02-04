@@ -14,9 +14,9 @@
     <PackageProjectUrl>https://github.com/supabase/supabase-csharp</PackageProjectUrl>
     <Summary>A C# implementation of the Supabase client</Summary>
     <Title>Supabase</Title>
-    <ReleaseVersion>0.1.0-prerelease</ReleaseVersion>
     <PackageIconUrl>https://avatars.githubusercontent.com/u/54469796?s=200&amp;v=4</PackageIconUrl>
     <PackageTags>supabase</PackageTags>
+    <ReleaseVersion>0.1.0-prerelease</ReleaseVersion>
   </PropertyGroup>
 
   <ItemGroup>

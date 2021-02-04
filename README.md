@@ -4,7 +4,6 @@
 <img src="https://github.com/supabase/supabase-csharp/workflows/Build%20And%20Test/badge.svg"/>
 </p>
 
----
 
 ## Stage: (Alpha)
 

@@ -1,4 +1,5 @@
-version: "3"
+version: "2.3"
+
 services:
   rest:
     image: postgrest/postgrest:v7.0.1
@@ -10,14 +11,58 @@ services:
       PGRST_DB_ANON_ROLE: postgres
     depends_on:
       - db
-  db:
-    image: postgres:12
+
+  gotrue:
+    image: supabase/gotrue:latest
     ports:
-      - "6543:5432"
+      - "9999:9999"
+    environment:
+      GOTRUE_JWT_SECRET: "37c304f8-51aa-419a-a1af-06154e63707a"
+      GOTRUE_JWT_EXP: 3600
+      GOTRUE_DB_DRIVER: postgres
+      DB_NAMESPACE: auth
+      API_EXTERNAL_URL: http://localhost
+      GOTRUE_API_HOST: 0.0.0.0
+      PORT: 9999
+      GOTRUE_DISABLE_SIGNUP: "false"
+      GOTRUE_SITE_URL: http://localhost
+      GOTRUE_MAILER_AUTOCONFIRM: "true"
+      GOTRUE_LOG_LEVEL: DEBUG
+      GOTRUE_OPERATOR_TOKEN: super-secret-operator-token
+      DATABASE_URL: "postgres://postgres:postgres@db:5432/postgres?sslmode=disable"
+      GOTRUE_EXTERNAL_GOOGLE_ENABLED: "true"
+      GOTRUE_EXTERNAL_GOOGLE_CLIENT_ID: 53566906701-bmhc1ndue7hild39575gkpimhs06b7ds.apps.googleusercontent.com
+      GOTRUE_EXTERNAL_GOOGLE_SECRET: Sm3s8RE85rDcS36iMy8YjrpC
+      GOTRUE_EXTERNAL_GOOGLE_REDIRECT_URI: http://localhost:9999/callback
+    depends_on:
+      - db
+
+  realtime:
+    image: supabase/realtime:latest
+    ports:
+      - "4000:4000"
+    environment:
+      DB_HOST: db
+      DB_NAME: postgres
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_PORT: 5432
+      PORT: 4000
+      HOSTNAME: localhost
+      JWT_SECRET: SOMETHING_SUPER_SECRET
+      SECURE_CHANNELS: "false"
+    depends_on:
+      - db
+
+  db:
+    image: supabase/postgres
+    ports:
+      - "5432:5432"
     volumes:
       - ./SupabaseTests/db:/docker-entrypoint-initdb.d/
+    command:
+      - postgres
+      - -c
+      - wal_level=logical
     environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_PORT: 5432
