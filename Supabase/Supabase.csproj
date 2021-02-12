@@ -16,13 +16,12 @@
     <Title>Supabase</Title>
     <PackageIconUrl>https://avatars.githubusercontent.com/u/54469796?s=200&amp;v=4</PackageIconUrl>
     <PackageTags>supabase</PackageTags>
-    <ReleaseVersion>0.1.0-prerelease</ReleaseVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="postgrest-csharp" Version="1.0.5" />
+    <PackageReference Include="postgrest-csharp" Version="1.0.6" />
     <PackageReference Include="gotrue-csharp" Version="1.0.3" />
-    <PackageReference Include="realtime-csharp" Version="1.0.2" />
+    <PackageReference Include="realtime-csharp" Version="1.0.3" />
   </ItemGroup>
 </Project>
