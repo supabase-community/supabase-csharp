@@ -1,7 +1,12 @@
 <p align="center">
 <img width="300" src=".github/supabase-csharp.png"/>
-<br/>
-<img src="https://github.com/supabase/supabase-csharp/workflows/Build%20And%20Test/badge.svg"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/supabase/supabase-csharp/workflows/Build%20And%20Test/badge.svg"/>
+  <a href="https://www.nuget.org/packages/supabase-csharp/">
+    <img src="https://img.shields.io/nuget/vpre/supabase-csharp"/>
+  </a>
 </p>
 
 
