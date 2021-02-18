@@ -92,6 +92,8 @@ namespace Supabase
                 Parameters = { ApiKey = instance.SupabaseKey }
             });
 
+            await instance.Realtime.Connect();
+
             return instance;
         }
 

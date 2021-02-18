@@ -19,7 +19,6 @@ namespace Supabase
 
         public async Task<Channel> On(ChannelEventType e, Action<object, SocketResponseEventArgs> action)
         {
-
             if (Instance.Realtime.Socket == null || !Instance.Realtime.Socket.IsConnected)
                 await Instance.Realtime.Connect();
 
@@ -43,6 +42,7 @@ namespace Supabase
             {
                 await channel.Subscribe();
             } catch { }
+
             return channel;
         }
     }
