@@ -31,7 +31,7 @@ namespace Supabase
                     channel.OnUpdate += (sender, args) => action.Invoke(sender, args);
                     break;
                 case ChannelEventType.Delete:
-                    channel.OnInsert += (sender, args) => action.Invoke(sender, args);
+                    channel.OnDelete += (sender, args) => action.Invoke(sender, args);
                     break;
                 case ChannelEventType.All:
                     channel.OnMessage += (sender, args) => action.Invoke(sender, args);
