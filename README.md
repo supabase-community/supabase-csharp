@@ -9,7 +9,6 @@
   </a>
 </p>
 
-
 ## Stage: (Alpha) / Testing
 
 ---
@@ -28,6 +27,70 @@ API is heavily modeled after the [supabase-js repo](https://github.com/supabase/
 - [ ] Unit/Integration Testing
 - [ ] Nuget Release
 
+## Getting Started
+
+Care has been taken to make API interactions mirror - as much as possible - the Javascript API. However, there are some places
+where Supabase-csharp deviates to make use of C# goodies that Javascript doesn't have.
+
+Getting started is pretty easy!
+
+Grab your API URL and Public Key from the Supabase admin panel.
+
+```c#
+public async void Main()
+{
+  // Make sure you set these (or similar)
+  var url = Environment.GetEnvironmentVariable("SUPABASE_URL")
+  var key = Environment.GetEnvironmentVariable("SUPABASE_KEY")
+
+  await Supabase.Client.Initialize(url, key);
+  // That's it - forreal. Crazy right?
+
+  // The Supabase Instance can be accessed at any time using:
+  //  Supabase.Client.Instance {.Realtime|.Auth|etc.}
+  // For ease of readability we'll use this:
+  var instance = Supabase.Client.Instance;
+
+  // Access Postgrest using:
+  var channels = await instance.From<Channel>().Get();
+
+  // Access Auth using:
+  await instance.Auth.SignIn(email, password);
+  Debug.WriteLine(instance.Auth.CurrentUser.Id);
+
+  // Interested in Realtime Events?
+  var table = await instance.From<Channel>();
+  table.On(ChannelEventType.Insert, Channel_Inserted);
+  table.On(ChannelEventType.Delete, Channel_Deleted);
+  table.On(ChannelEventType.Update, Channel_Updated);
+
+  // Run a Remote Stored Procedure:
+  await instance.Rpc("my_cool_procedure", params);
+}
+```
+
+### Models:
+
+Supabase-csharp is _heavily_ dependent on Models deriving from `SupabaseModel` (which derive from Postgrest-chsharp's `BaseModel`). To interact with the API, one must have the associated model specified.
+
+Leverage `Table`,`PrimaryKey`, and `Column` attributes to specify names of classes/properties that are different from their C# Versions.
+
+```c#
+[Table("messages")]
+public class Message : BaseModel
+{
+    // `ShouldInsert` Set to false so-as to honor DB generated key
+    // If the primary key was set by the application, this could be omitted.
+    [PrimaryKey("id", false)]
+    public int Id { get; set; }
+
+    [Column("username")]
+    public string UserName { get; set; }
+
+    [Column("channel_id")]
+    public int ChannelId { get; set; }
+}
+```
 
 ## Package made possible through the efforts of:
 
