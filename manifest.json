@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Supabase.Client.ChannelEventType.html",
-          "hash": "tYvkMFy/JcuqtVNJgYAHYQ=="
+          "hash": "1howTwlqS3HpctXohn3QMA=="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Supabase.Client.html",
-          "hash": "DxKp8UIlSWD1x04E6QffMw=="
+          "hash": "jmISGh4f/ulkblOHztvx5w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.SupabaseModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.SupabaseModel.html",
+          "hash": "EITSFC88E9uIirDa5uoKlQ=="
         }
       },
       "is_incremental": false,
@@ -33,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Supabase.SupabaseOptions.html",
-          "hash": "No8OUOWI7mI5H9JEwb8Z5A=="
+          "hash": "mwtCd3OujKs+DrA1+zalVw=="
         }
       },
       "is_incremental": false,
@@ -45,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Supabase.SupabaseTable-1.html",
-          "hash": "EmvOF8ZpgHhLeoIhBOaBiA=="
+          "hash": "jCG960HcMj2neIKI9kjRqw=="
         }
       },
       "is_incremental": false,
@@ -57,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Supabase.html",
-          "hash": "+SWshv/srlX+ZxPiZ/qiYw=="
+          "hash": "yTUFjmoHdy/WV8Ab3htAIA=="
         }
       },
       "is_incremental": false,
@@ -69,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "MUeqGZUEYH2HGzVTHsOFbQ=="
+          "hash": "jjxIJSicbhIZYTQqn1ZZ1w=="
         }
       },
       "is_incremental": false,
@@ -81,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "/+SaTbj+dMV7avRqp4Qavw=="
+          "hash": "HkPPdtXYOZ9EHpkIYjul2w=="
         }
       },
       "is_incremental": false,
@@ -93,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "GAnsntBFOLSM3L24DbYp8g=="
+          "hash": "plaM3h9rcbApFNW4mFLaVw=="
         }
       },
       "is_incremental": false,
@@ -117,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "MHjEaCCp3hHmnJucRfE2Ig=="
+          "hash": "/y3O8YMt0XNLO5eiG0STXw=="
         }
       },
       "is_incremental": false,
@@ -156,7 +168,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 5,
+          "total_file_count": 6,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

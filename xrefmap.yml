@@ -205,6 +205,44 @@ references:
   isSpec: "True"
   fullName: Supabase.Client.SupabaseUrl
   nameWithType: Client.SupabaseUrl
+- uid: Supabase.SupabaseModel
+  name: SupabaseModel
+  href: api/Supabase.SupabaseModel.html
+  commentId: T:Supabase.SupabaseModel
+  fullName: Supabase.SupabaseModel
+  nameWithType: SupabaseModel
+- uid: Supabase.SupabaseModel.Delete*
+  name: Delete
+  href: api/Supabase.SupabaseModel.html#Supabase_SupabaseModel_Delete_
+  commentId: Overload:Supabase.SupabaseModel.Delete
+  isSpec: "True"
+  fullName: Supabase.SupabaseModel.Delete
+  nameWithType: SupabaseModel.Delete
+- uid: Supabase.SupabaseModel.Delete``1
+  name: Delete<T>()
+  href: api/Supabase.SupabaseModel.html#Supabase_SupabaseModel_Delete__1
+  commentId: M:Supabase.SupabaseModel.Delete``1
+  name.vb: Delete(Of T)()
+  fullName: Supabase.SupabaseModel.Delete<T>()
+  fullName.vb: Supabase.SupabaseModel.Delete(Of T)()
+  nameWithType: SupabaseModel.Delete<T>()
+  nameWithType.vb: SupabaseModel.Delete(Of T)()
+- uid: Supabase.SupabaseModel.Update*
+  name: Update
+  href: api/Supabase.SupabaseModel.html#Supabase_SupabaseModel_Update_
+  commentId: Overload:Supabase.SupabaseModel.Update
+  isSpec: "True"
+  fullName: Supabase.SupabaseModel.Update
+  nameWithType: SupabaseModel.Update
+- uid: Supabase.SupabaseModel.Update``1
+  name: Update<T>()
+  href: api/Supabase.SupabaseModel.html#Supabase_SupabaseModel_Update__1
+  commentId: M:Supabase.SupabaseModel.Update``1
+  name.vb: Update(Of T)()
+  fullName: Supabase.SupabaseModel.Update<T>()
+  fullName.vb: Supabase.SupabaseModel.Update(Of T)()
+  nameWithType: SupabaseModel.Update<T>()
+  nameWithType.vb: SupabaseModel.Update(Of T)()
 - uid: Supabase.SupabaseOptions
   name: SupabaseOptions
   href: api/Supabase.SupabaseOptions.html
