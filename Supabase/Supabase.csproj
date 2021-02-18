@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackOnBuild>true</PackOnBuild>
     <PackageId>supabase-csharp</PackageId>
-    <PackageVersion>0.1.1-prerelease</PackageVersion>
+    <PackageVersion>0.1.2-prerelease</PackageVersion>
     <Authors>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Authors>
     <Description>A C# implementation of the Supabase client</Description>
     <Copyright>MIT</Copyright>
@@ -16,7 +16,7 @@
     <Title>Supabase</Title>
     <PackageIconUrl>https://avatars.githubusercontent.com/u/54469796?s=200&amp;v=4</PackageIconUrl>
     <PackageTags>supabase</PackageTags>
-    <ReleaseVersion>0.1.1</ReleaseVersion>
+    <ReleaseVersion>0.1.2-prerelease</ReleaseVersion>
   </PropertyGroup>
 
   <ItemGroup>
