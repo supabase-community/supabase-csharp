@@ -77,7 +77,7 @@ Leverage `Table`,`PrimaryKey`, and `Column` attributes to specify names of class
 
 ```c#
 [Table("messages")]
-public class Message : BaseModel
+public class Message : SupabaseModel
 {
     // `ShouldInsert` Set to false so-as to honor DB generated key
     // If the primary key was set by the application, this could be omitted.
