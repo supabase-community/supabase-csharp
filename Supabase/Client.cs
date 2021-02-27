@@ -54,6 +54,7 @@ namespace Supabase
 
         private Client() { }
 
+
         /// <summary>
         /// Initializes a Supabase Client.
         /// </summary>
@@ -61,7 +62,18 @@ namespace Supabase
         /// <param name="supabaseKey"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static async Task<Client> Initialize(string supabaseUrl, string supabaseKey, SupabaseOptions options = null)
+        public static Client Initialize(string supabaseUrl, string supabaseKey, SupabaseOptions options = null) =>
+            AsyncHelper.RunSync<Client>(() => InitializeAsync(supabaseUrl, supabaseKey, options));
+
+
+        /// <summary>
+        /// Initializes a Supabase Client Asynchronously.
+        /// </summary>
+        /// <param name="supabaseUrl"></param>
+        /// <param name="supabaseKey"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static async Task<Client> InitializeAsync(string supabaseUrl, string supabaseKey, SupabaseOptions options = null)
         {
             instance = new Client();
 
@@ -76,7 +88,7 @@ namespace Supabase
             instance.AuthUrl = string.Format(options.AuthUrlFormat, supabaseUrl);
             instance.Schema = options.Schema;
 
-            instance.Auth = await Gotrue.Client.Initialize(new Gotrue.ClientOptions
+            instance.Auth = Gotrue.Client.Initialize(new Gotrue.ClientOptions
             {
                 Url = instance.AuthUrl,
                 Headers = instance.GetAuthHeaders(),

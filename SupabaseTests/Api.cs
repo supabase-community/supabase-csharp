@@ -15,7 +15,7 @@ namespace SupabaseTests
         [TestInitialize]
         public async Task InitializeTest()
         {
-            await Supabase.Client.Initialize("http://localhost", null, new Supabase.SupabaseOptions
+            Supabase.Client.Initialize("http://localhost", null, new Supabase.SupabaseOptions
             {
                 AuthUrlFormat = "{0}:9999",
                 RealtimeUrlFormat = "{0}:4000/socket",
