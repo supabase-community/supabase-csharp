@@ -366,7 +366,7 @@
     <a href="https://github.com/supabase/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Client_From__1.md&amp;value=---%0Auid%3A%20Supabase.Client.From%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase/supabase-csharp/blob/master/Supabase/Client.cs/#L105">View Source</a>
+    <a href="https://github.com/supabase/supabase-csharp/blob/master/Supabase/Client.cs/#L117">View Source</a>
   </span>
   <a id="Supabase_Client_From_" data-uid="Supabase.Client.From*"></a>
   <h4 id="Supabase_Client_From__1" data-uid="Supabase.Client.From``1">From&lt;T&gt;()</h4>
@@ -413,7 +413,7 @@
     <a href="https://github.com/supabase/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Client_Initialize_System_String_System_String_Supabase_SupabaseOptions_.md&amp;value=---%0Auid%3A%20Supabase.Client.Initialize(System.String%2CSystem.String%2CSupabase.SupabaseOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase/supabase-csharp/blob/master/Supabase/Client.cs/#L64">View Source</a>
+    <a href="https://github.com/supabase/supabase-csharp/blob/master/Supabase/Client.cs/#L65">View Source</a>
   </span>
   <a id="Supabase_Client_Initialize_" data-uid="Supabase.Client.Initialize*"></a>
   <h4 id="Supabase_Client_Initialize_System_String_System_String_Supabase_SupabaseOptions_" data-uid="Supabase.Client.Initialize(System.String,System.String,Supabase.SupabaseOptions)">Initialize(String, String, SupabaseOptions)</h4>
@@ -422,7 +422,65 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;Client&gt; Initialize(string supabaseUrl, string supabaseKey, SupabaseOptions options = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Client Initialize(string supabaseUrl, string supabaseKey, SupabaseOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">supabaseUrl</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">supabaseKey</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Supabase.SupabaseOptions.html">SupabaseOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Supabase.Client.html">Client</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Client_InitializeAsync_System_String_System_String_Supabase_SupabaseOptions_.md&amp;value=---%0Auid%3A%20Supabase.Client.InitializeAsync(System.String%2CSystem.String%2CSupabase.SupabaseOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase/supabase-csharp/blob/master/Supabase/Client.cs/#L76">View Source</a>
+  </span>
+  <a id="Supabase_Client_InitializeAsync_" data-uid="Supabase.Client.InitializeAsync*"></a>
+  <h4 id="Supabase_Client_InitializeAsync_System_String_System_String_Supabase_SupabaseOptions_" data-uid="Supabase.Client.InitializeAsync(System.String,System.String,Supabase.SupabaseOptions)">InitializeAsync(String, String, SupabaseOptions)</h4>
+  <div class="markdown level1 summary"><p>Initializes a Supabase Client Asynchronously.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;Client&gt; InitializeAsync(string supabaseUrl, string supabaseKey, SupabaseOptions options = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -471,7 +529,7 @@
     <a href="https://github.com/supabase/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Client_Rpc_System_String_Dictionary_System_String_System_Object__.md&amp;value=---%0Auid%3A%20Supabase.Client.Rpc(System.String%2CDictionary%7BSystem.String%2CSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase/supabase-csharp/blob/master/Supabase/Client.cs/#L114">View Source</a>
+    <a href="https://github.com/supabase/supabase-csharp/blob/master/Supabase/Client.cs/#L126">View Source</a>
   </span>
   <a id="Supabase_Client_Rpc_" data-uid="Supabase.Client.Rpc*"></a>
   <h4 id="Supabase_Client_Rpc_System_String_Dictionary_System_String_System_Object__" data-uid="Supabase.Client.Rpc(System.String,Dictionary{System.String,System.Object})">Rpc(String, Dictionary&lt;String, Object&gt;)</h4>

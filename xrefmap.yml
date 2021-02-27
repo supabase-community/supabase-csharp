@@ -98,6 +98,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Client.Initialize
   nameWithType: Client.Initialize
+- uid: Supabase.Client.InitializeAsync(System.String,System.String,Supabase.SupabaseOptions)
+  name: InitializeAsync(String, String, SupabaseOptions)
+  href: api/Supabase.Client.html#Supabase_Client_InitializeAsync_System_String_System_String_Supabase_SupabaseOptions_
+  commentId: M:Supabase.Client.InitializeAsync(System.String,System.String,Supabase.SupabaseOptions)
+  fullName: Supabase.Client.InitializeAsync(System.String, System.String, Supabase.SupabaseOptions)
+  nameWithType: Client.InitializeAsync(String, String, SupabaseOptions)
+- uid: Supabase.Client.InitializeAsync*
+  name: InitializeAsync
+  href: api/Supabase.Client.html#Supabase_Client_InitializeAsync_
+  commentId: Overload:Supabase.Client.InitializeAsync
+  isSpec: "True"
+  fullName: Supabase.Client.InitializeAsync
+  nameWithType: Client.InitializeAsync
 - uid: Supabase.Client.Instance
   name: Instance
   href: api/Supabase.Client.html#Supabase_Client_Instance
