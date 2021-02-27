@@ -13,9 +13,9 @@ namespace SupabaseTests
     public class Api
     {
         [TestInitialize]
-        public async Task InitializeTest()
+        public void InitializeTest()
         {
-            Supabase.Client.Initialize("http://localhost", null, new Supabase.SupabaseOptions
+            Initialize("http://localhost", null, new Supabase.SupabaseOptions
             {
                 AuthUrlFormat = "{0}:9999",
                 RealtimeUrlFormat = "{0}:4000/socket",
