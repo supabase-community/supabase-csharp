@@ -62,9 +62,14 @@ namespace Supabase
         /// <param name="supabaseKey"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static Client Initialize(string supabaseUrl, string supabaseKey, SupabaseOptions options = null) =>
-            AsyncHelper.RunSync<Client>(() => InitializeAsync(supabaseUrl, supabaseKey, options));
-
+        public static void Initialize(string supabaseUrl, string supabaseKey, SupabaseOptions options = null, Action<Client> callback = null)
+        {
+            Task.Run(async () =>
+            {
+                var result = await InitializeAsync(supabaseUrl, supabaseKey, options);
+                callback?.Invoke(result);
+            });
+        }
 
         /// <summary>
         /// Initializes a Supabase Client Asynchronously.
@@ -88,7 +93,7 @@ namespace Supabase
             instance.AuthUrl = string.Format(options.AuthUrlFormat, supabaseUrl);
             instance.Schema = options.Schema;
 
-            instance.Auth = Gotrue.Client.Initialize(new Gotrue.ClientOptions
+            instance.Auth = await Gotrue.Client.InitializeAsync(new Gotrue.ClientOptions
             {
                 Url = instance.AuthUrl,
                 Headers = instance.GetAuthHeaders(),
@@ -99,12 +104,18 @@ namespace Supabase
                 SessionRetriever = options.SessionRetriever
             });
 
-            instance.Realtime = Supabase.Realtime.Client.Initialize(instance.RealtimeUrl, new Realtime.ClientOptions
+            if (options.ShouldInitializeRealtime)
             {
-                Parameters = { ApiKey = instance.SupabaseKey }
-            });
+                instance.Realtime = Supabase.Realtime.Client.Initialize(instance.RealtimeUrl, new Realtime.ClientOptions
+                {
+                    Parameters = { ApiKey = instance.SupabaseKey }
+                });
 
-            await instance.Realtime.Connect();
+                if (options.AutoConnectRealtime)
+                {
+                    await instance.Realtime.ConnectAsync();
+                }
+            }
 
             return instance;
         }
@@ -115,7 +126,6 @@ namespace Supabase
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public SupabaseTable<T> From<T>() where T : BaseModel, new() => new SupabaseTable<T>();
-
 
         /// <summary>
         /// Runs a remote procedure.
@@ -149,6 +159,16 @@ namespace Supabase
         /// Should the Client automatically handle refreshing the User's Token?
         /// </summary>
         public bool AutoRefreshToken { get; set; } = true;
+
+        /// <summary>
+        /// Should the Client Initialize Realtime?
+        /// </summary>
+        public bool ShouldInitializeRealtime { get; set; } = false;
+
+        /// <summary>
+        /// Should the Client automatically connect to Realtime?
+        /// </summary>
+        public bool AutoConnectRealtime { get; set; } = false;
 
         /// <summary>
         /// Should the Client call <see cref="SessionPersistor"/>, <see cref="SessionRetriever"/>, and <see cref="SessionDestroyer"/>?

@@ -13,14 +13,15 @@ namespace Supabase
         private Channel channel;
 
         public SupabaseTable() : base(Client.Instance.RestUrl, new Postgrest.ClientOptions { Headers = Client.Instance.GetAuthHeaders(), Schema = Client.Instance.Schema })
-        {
-            channel = Client.Instance.Realtime.Channel("realtime", Instance.Schema, TableName);
-        }
+        {}
 
         public async Task<Channel> On(ChannelEventType e, Action<object, SocketResponseEventArgs> action)
         {
+            if (channel == null)
+                channel = Client.Instance.Realtime.Channel("realtime", Instance.Schema, TableName);
+
             if (Instance.Realtime.Socket == null || !Instance.Realtime.Socket.IsConnected)
-                await Instance.Realtime.Connect();
+                await Instance.Realtime.ConnectAsync();
 
             switch (e)
             {
@@ -41,7 +42,8 @@ namespace Supabase
             try
             {
                 await channel.Subscribe();
-            } catch { }
+            }
+            catch { }
 
             return channel;
         }
