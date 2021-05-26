@@ -85,12 +85,15 @@ references:
   fullName.vb: Supabase.Client.From(Of T)()
   nameWithType: Client.From<T>()
   nameWithType.vb: Client.From(Of T)()
-- uid: Supabase.Client.Initialize(System.String,System.String,Supabase.SupabaseOptions)
-  name: Initialize(String, String, SupabaseOptions)
-  href: api/Supabase.Client.html#Supabase_Client_Initialize_System_String_System_String_Supabase_SupabaseOptions_
-  commentId: M:Supabase.Client.Initialize(System.String,System.String,Supabase.SupabaseOptions)
-  fullName: Supabase.Client.Initialize(System.String, System.String, Supabase.SupabaseOptions)
-  nameWithType: Client.Initialize(String, String, SupabaseOptions)
+- uid: Supabase.Client.Initialize(System.String,System.String,Supabase.SupabaseOptions,Action{Supabase.Client})
+  name: Initialize(String, String, SupabaseOptions, Action<Client>)
+  href: api/Supabase.Client.html#Supabase_Client_Initialize_System_String_System_String_Supabase_SupabaseOptions_Action_Supabase_Client__
+  commentId: M:Supabase.Client.Initialize(System.String,System.String,Supabase.SupabaseOptions,Action{Supabase.Client})
+  name.vb: Initialize(String, String, SupabaseOptions, Action(Of Client))
+  fullName: Supabase.Client.Initialize(System.String, System.String, Supabase.SupabaseOptions, Action<Supabase.Client>)
+  fullName.vb: Supabase.Client.Initialize(System.String, System.String, Supabase.SupabaseOptions, Action(Of Supabase.Client))
+  nameWithType: Client.Initialize(String, String, SupabaseOptions, Action<Client>)
+  nameWithType.vb: Client.Initialize(String, String, SupabaseOptions, Action(Of Client))
 - uid: Supabase.Client.Initialize*
   name: Initialize
   href: api/Supabase.Client.html#Supabase_Client_Initialize_
@@ -275,6 +278,19 @@ references:
   isSpec: "True"
   fullName: Supabase.SupabaseOptions.AuthUrlFormat
   nameWithType: SupabaseOptions.AuthUrlFormat
+- uid: Supabase.SupabaseOptions.AutoConnectRealtime
+  name: AutoConnectRealtime
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_AutoConnectRealtime
+  commentId: P:Supabase.SupabaseOptions.AutoConnectRealtime
+  fullName: Supabase.SupabaseOptions.AutoConnectRealtime
+  nameWithType: SupabaseOptions.AutoConnectRealtime
+- uid: Supabase.SupabaseOptions.AutoConnectRealtime*
+  name: AutoConnectRealtime
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_AutoConnectRealtime_
+  commentId: Overload:Supabase.SupabaseOptions.AutoConnectRealtime
+  isSpec: "True"
+  fullName: Supabase.SupabaseOptions.AutoConnectRealtime
+  nameWithType: SupabaseOptions.AutoConnectRealtime
 - uid: Supabase.SupabaseOptions.AutoRefreshToken
   name: AutoRefreshToken
   href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_AutoRefreshToken
@@ -357,6 +373,19 @@ references:
   commentId: F:Supabase.SupabaseOptions.SessionRetriever
   fullName: Supabase.SupabaseOptions.SessionRetriever
   nameWithType: SupabaseOptions.SessionRetriever
+- uid: Supabase.SupabaseOptions.ShouldInitializeRealtime
+  name: ShouldInitializeRealtime
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_ShouldInitializeRealtime
+  commentId: P:Supabase.SupabaseOptions.ShouldInitializeRealtime
+  fullName: Supabase.SupabaseOptions.ShouldInitializeRealtime
+  nameWithType: SupabaseOptions.ShouldInitializeRealtime
+- uid: Supabase.SupabaseOptions.ShouldInitializeRealtime*
+  name: ShouldInitializeRealtime
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_ShouldInitializeRealtime_
+  commentId: Overload:Supabase.SupabaseOptions.ShouldInitializeRealtime
+  isSpec: "True"
+  fullName: Supabase.SupabaseOptions.ShouldInitializeRealtime
+  nameWithType: SupabaseOptions.ShouldInitializeRealtime
 - uid: Supabase.SupabaseTable`1
   name: SupabaseTable<T>
   href: api/Supabase.SupabaseTable-1.html
