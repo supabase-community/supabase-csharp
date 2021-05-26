@@ -21,7 +21,7 @@ namespace Supabase
                 channel = Client.Instance.Realtime.Channel("realtime", Instance.Schema, TableName);
 
             if (Instance.Realtime.Socket == null || !Instance.Realtime.Socket.IsConnected)
-                await Instance.Realtime.ConnectAsync();
+                await Instance.Realtime.Connect();
 
             switch (e)
             {

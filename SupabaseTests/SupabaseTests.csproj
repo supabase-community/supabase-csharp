@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
-    <ReleaseVersion>0.1.4-prerelease</ReleaseVersion>
+    <ReleaseVersion>0.1.5-prerelease</ReleaseVersion>
   </PropertyGroup>
 
   <ItemGroup>

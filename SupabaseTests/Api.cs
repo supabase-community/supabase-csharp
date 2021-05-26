@@ -13,13 +13,15 @@ namespace SupabaseTests
     public class Api
     {
         [TestInitialize]
-        public void InitializeTest()
+        public async Task InitializeTest()
         {
-            Initialize("http://localhost", null, new Supabase.SupabaseOptions
+            await InitializeAsync("http://localhost", null, new Supabase.SupabaseOptions
             {
                 AuthUrlFormat = "{0}:9999",
                 RealtimeUrlFormat = "{0}:4000/socket",
-                RestUrlFormat = "{0}:3000"
+                RestUrlFormat = "{0}:3000",
+                ShouldInitializeRealtime = true,
+                AutoConnectRealtime = true
             });
         }
 

@@ -113,7 +113,7 @@ namespace Supabase
 
                 if (options.AutoConnectRealtime)
                 {
-                    await instance.Realtime.ConnectAsync();
+                    await instance.Realtime.Connect();
                 }
             }
 
