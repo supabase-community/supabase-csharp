@@ -52,6 +52,8 @@ namespace Supabase
         public string AuthUrl { get; private set; }
         public string Schema { get; private set; }
 
+        private SupabaseOptions options;
+
         private Client() { }
 
 
@@ -88,6 +90,7 @@ namespace Supabase
             if (options == null)
                 options = new SupabaseOptions();
 
+            instance.options = options;
             instance.RestUrl = string.Format(options.RestUrlFormat, supabaseUrl);
             instance.RealtimeUrl = string.Format(options.RealtimeUrlFormat, supabaseUrl).Replace("http", "ws");
             instance.AuthUrl = string.Format(options.AuthUrlFormat, supabaseUrl);
@@ -139,10 +142,18 @@ namespace Supabase
         internal Dictionary<string, string> GetAuthHeaders()
         {
             var headers = new Dictionary<string, string>();
-            var bearer = Auth?.CurrentSession?.AccessToken != null ? Auth.CurrentSession.AccessToken : SupabaseKey;
-
             headers["apiKey"] = SupabaseKey;
-            headers["Authorization"] = $"Bearer {bearer}";
+
+            // In Regard To: https://github.com/supabase/supabase-csharp/issues/5
+            if (options.Headers.ContainsKey("Authorization"))
+            {
+                headers["Authorization"] = options.Headers["Authorization"];
+            }
+            else
+            {
+                var bearer = Auth?.CurrentSession?.AccessToken != null ? Auth.CurrentSession.AccessToken : SupabaseKey;
+                headers["Authorization"] = $"Bearer {bearer}";
+            }
 
             return headers;
         }
