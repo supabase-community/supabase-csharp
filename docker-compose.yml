@@ -3,6 +3,7 @@ version: "2.3"
 services:
   rest:
     image: postgrest/postgrest:v7.0.1
+    restart: unless-stopped
     ports:
       - "3000:3000"
     environment:
@@ -14,6 +15,7 @@ services:
 
   gotrue:
     image: supabase/gotrue:latest
+    restart: unless-stopped
     ports:
       - "9999:9999"
     environment:
@@ -39,6 +41,7 @@ services:
 
   realtime:
     image: supabase/realtime:latest
+    restart: unless-stopped
     ports:
       - "4000:4000"
     environment:
@@ -56,6 +59,7 @@ services:
 
   db:
     image: supabase/postgres
+    restart: unless-stopped
     ports:
       - "5432:5432"
     volumes:
