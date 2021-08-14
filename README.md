@@ -40,10 +40,10 @@ Grab your API URL and Public Key from the Supabase admin panel.
 public async void Main()
 {
   // Make sure you set these (or similar)
-  var url = Environment.GetEnvironmentVariable("SUPABASE_URL")
-  var key = Environment.GetEnvironmentVariable("SUPABASE_KEY")
+  var url = Environment.GetEnvironmentVariable("SUPABASE_URL");
+  var key = Environment.GetEnvironmentVariable("SUPABASE_KEY");
 
-  await Supabase.Client.Initialize(url, key);
+  await Supabase.Client.InitializeAsync(url, key);
   // That's it - forreal. Crazy right?
 
   // The Supabase Instance can be accessed at any time using:
