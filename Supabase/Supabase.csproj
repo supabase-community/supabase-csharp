@@ -1,28 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <PackOnBuild>true</PackOnBuild>
-    <PackageId>supabase-csharp</PackageId>
-    <PackageVersion>0.1.7-prerelease</PackageVersion>
-    <Authors>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Authors>
-    <Description>A C# implementation of the Supabase client</Description>
-    <Copyright>MIT</Copyright>
-    <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageLicenseUrl>https://github.com/supabase/supabase-csharp/blob/master/LICENSE</PackageLicenseUrl>
-    <Owners>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Owners>
-    <PackageProjectUrl>https://github.com/supabase/supabase-csharp</PackageProjectUrl>
-    <Summary>A C# implementation of the Supabase client</Summary>
-    <Title>Supabase</Title>
-    <PackageIconUrl>https://avatars.githubusercontent.com/u/54469796?s=200&amp;v=4</PackageIconUrl>
-    <PackageTags>supabase</PackageTags>
-    <ReleaseVersion>0.1.7-prerelease</ReleaseVersion>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="postgrest-csharp" Version="1.0.6" />
-    <PackageReference Include="realtime-csharp" Version="1.0.4" />
-    <PackageReference Include="gotrue-csharp" Version="2.1.1" />
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<PackOnBuild>true</PackOnBuild>
+		<PackageId>supabase-csharp</PackageId>
+		<PackageVersion>0.1.8-prerelease</PackageVersion>
+		<Authors>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Authors>
+		<Description>A C# implementation of the Supabase client</Description>
+		<Copyright>MIT</Copyright>
+		<NeutralLanguage>en-US</NeutralLanguage>
+		<PackageLicenseUrl>https://github.com/supabase/supabase-csharp/blob/master/LICENSE</PackageLicenseUrl>
+		<Owners>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Owners>
+		<PackageProjectUrl>https://github.com/supabase/supabase-csharp</PackageProjectUrl>
+		<Summary>A C# implementation of the Supabase client</Summary>
+		<Title>Supabase</Title>
+		<PackageIconUrl>https://avatars.githubusercontent.com/u/54469796?s=200&amp;v=4</PackageIconUrl>
+		<PackageTags>supabase</PackageTags>
+		<ReleaseVersion>0.1.8-prerelease</ReleaseVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Version)' == '' ">
+		<VersionPrefix Condition=" '$(VersionPrefix)' == '' ">0.1.8</VersionPrefix>
+		<VersionSuffix Condition=" '$(VersionSuffix)' == '' ">prerelease</VersionSuffix>
+		<Version Condition=" '$(VersionSuffix)' != '' ">$(VersionPrefix)-$(VersionSuffix)</Version>
+		<Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="postgrest-csharp" Version="1.0.6" />
+		<PackageReference Include="realtime-csharp" Version="1.0.4" />
+		<PackageReference Include="gotrue-csharp" Version="2.1.1" />
+	</ItemGroup>
 </Project>

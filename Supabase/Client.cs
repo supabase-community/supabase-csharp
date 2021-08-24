@@ -143,6 +143,7 @@ namespace Supabase
         {
             var headers = new Dictionary<string, string>();
             headers["apiKey"] = SupabaseKey;
+            headers["X-Client-Info"] = Util.GetAssemblyVersion();
 
             // In Regard To: https://github.com/supabase/supabase-csharp/issues/5
             if (options.Headers.ContainsKey("Authorization"))
