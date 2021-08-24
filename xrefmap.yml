@@ -430,3 +430,22 @@ references:
   fullName.vb: Supabase.SupabaseTable(Of T).On
   nameWithType: SupabaseTable<T>.On
   nameWithType.vb: SupabaseTable(Of T).On
+- uid: Supabase.Util
+  name: Util
+  href: api/Supabase.Util.html
+  commentId: T:Supabase.Util
+  fullName: Supabase.Util
+  nameWithType: Util
+- uid: Supabase.Util.GetAssemblyVersion
+  name: GetAssemblyVersion()
+  href: api/Supabase.Util.html#Supabase_Util_GetAssemblyVersion
+  commentId: M:Supabase.Util.GetAssemblyVersion
+  fullName: Supabase.Util.GetAssemblyVersion()
+  nameWithType: Util.GetAssemblyVersion()
+- uid: Supabase.Util.GetAssemblyVersion*
+  name: GetAssemblyVersion
+  href: api/Supabase.Util.html#Supabase_Util_GetAssemblyVersion_
+  commentId: Overload:Supabase.Util.GetAssemblyVersion
+  isSpec: "True"
+  fullName: Supabase.Util.GetAssemblyVersion
+  nameWithType: Util.GetAssemblyVersion
