@@ -26,8 +26,8 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-		<PackageReference Include="postgrest-csharp" Version="1.0.6" />
-		<PackageReference Include="realtime-csharp" Version="1.0.4" />
-		<PackageReference Include="gotrue-csharp" Version="2.1.1" />
+		<PackageReference Include="postgrest-csharp" Version="1.0.7" />
+		<PackageReference Include="realtime-csharp" Version="1.0.5" />
+		<PackageReference Include="gotrue-csharp" Version="2.1.2" />
 	</ItemGroup>
 </Project>
