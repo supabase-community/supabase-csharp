@@ -37,7 +37,7 @@ namespace SupabaseTests
         {
             var tsc = new TaskCompletionSource<bool>();
 
-            await Supabase.Client.Instance.Realtime.Connect();
+            await Supabase.Client.Instance.Realtime.ConnectAsync();
 
             var table = Supabase.Client.Instance.From<Models.Channel>();
 
