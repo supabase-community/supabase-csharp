@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace SupabaseExample
@@ -21,9 +23,38 @@ namespace SupabaseExample
                 Debug.WriteLine($"[{ev.Response.Event}]:{ev.Response.Topic}:{ev.Response.Payload.Record}");
             });
 
-            await reference.Insert(new Models.Channel { Slug = GenerateName(10), InsertedAt = DateTime.Now });
+            //await reference.Insert(new Models.Channel { Slug = GenerateName(10), InsertedAt = DateTime.Now });
 
-            Console.ReadLine();
+            #region Storage
+            var storage = Supabase.Client.Instance.Storage;
+
+            var exists = (await storage.GetBucket("testing") != null);
+            if (!exists)
+                await storage.CreateBucket("testing", new Supabase.Storage.BucketUpsertOptions { Public = true });
+
+            var buckets = await storage.ListBuckets();
+
+            foreach (var b in buckets)
+                Debug.WriteLine($"[{b.Id}] {b.Name}");
+
+            var bucket = storage.From("testing");
+            var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase).Replace("file:", "");
+            var imagePath = Path.Combine(basePath, "Assets", "supabase-csharp.png");
+
+            Debug.WriteLine(await bucket.Upload(imagePath, "supabase-csharp.png", new Supabase.Storage.FileOptions { Upsert = true }, (sender, args) => Debug.WriteLine($"Upload Progress: {args.ProgressPercentage}%")));
+            Debug.WriteLine(bucket.GetPublicUrl("supabase-csharp.png"));
+            Debug.WriteLine(await bucket.CreateSignedUrl("supabase-csharp.png", 3600));
+
+            var bucketItems = await bucket.List();
+
+            foreach (var item in bucketItems)
+                Debug.WriteLine($"[{item.Id}] {item.Name} - {item.CreatedAt}");
+
+            Debug.WriteLine(await bucket.Download("supabase-csharp.png", Path.Combine(basePath, "testing-download.png"), (sender, args) => Debug.WriteLine($"Download Progress: {args.ProgressPercentage}%")));
+
+            await storage.EmptyBucket("testing");
+            await storage.DeleteBucket("testing");
+            #endregion
         }
 
         // From: https://stackoverflow.com/a/49922533/3629438
@@ -45,8 +76,6 @@ namespace SupabaseExample
             }
 
             return Name;
-
-
         }
     }
 }

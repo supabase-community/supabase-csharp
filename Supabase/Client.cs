@@ -45,11 +45,14 @@ namespace Supabase
             }
         }
 
-        public string SupabaseUrl { get; private set; }
         public string SupabaseKey { get; private set; }
+
+        public string SupabaseUrl { get; private set; }
+        public string AuthUrl { get; private set; }
         public string RestUrl { get; private set; }
         public string RealtimeUrl { get; private set; }
-        public string AuthUrl { get; private set; }
+        public string StorageUrl { get; private set; }
+
         public string Schema { get; private set; }
 
         private SupabaseOptions options;
@@ -91,9 +94,10 @@ namespace Supabase
                 options = new SupabaseOptions();
 
             instance.options = options;
+            instance.AuthUrl = string.Format(options.AuthUrlFormat, supabaseUrl);
             instance.RestUrl = string.Format(options.RestUrlFormat, supabaseUrl);
             instance.RealtimeUrl = string.Format(options.RealtimeUrlFormat, supabaseUrl).Replace("http", "ws");
-            instance.AuthUrl = string.Format(options.AuthUrlFormat, supabaseUrl);
+            instance.StorageUrl = string.Format(options.StorageUrlFormat, supabaseUrl);
             instance.Schema = options.Schema;
 
             instance.Auth = await Gotrue.Client.InitializeAsync(new Gotrue.ClientOptions
@@ -122,6 +126,11 @@ namespace Supabase
 
             return instance;
         }
+
+        /// <summary>
+        /// Supabase Storage allows you to manage user-generated content, such as photos or videos.
+        /// </summary>
+        public Storage.Client Storage => new Storage.Client(StorageUrl, GetAuthHeaders());
 
         /// <summary>
         /// Gets the Postgrest client to prepare for a query.
@@ -204,8 +213,9 @@ namespace Supabase
 
         public Dictionary<string, string> Headers = new Dictionary<string, string>();
 
+        public string AuthUrlFormat { get; set; } = "{0}/auth/v1";
         public string RestUrlFormat { get; set; } = "{0}/rest/v1";
         public string RealtimeUrlFormat { get; set; } = "{0}/realtime/v1";
-        public string AuthUrlFormat { get; set; } = "{0}/auth/v1";
+        public string StorageUrlFormat { get; set; } = "{0}/storage/v1";
     }
 }

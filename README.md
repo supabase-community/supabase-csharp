@@ -9,7 +9,7 @@
   </a>
 </p>
 
-## Stage: (Alpha) / Testing
+## Stage: Beta
 
 ---
 
@@ -24,8 +24,8 @@ API is heavily modeled after the [supabase-js repo](https://github.com/supabase/
 - [x] Integration with [Supabase.Realtime](https://github.com/supabase/realtime-csharp)
 - [x] Integration with [Postgrest](https://github.com/supabase/postgrest-csharp)
 - [x] Integration with [Gotrue](https://github.com/supabase/supabase-csharp)
-- [ ] Unit/Integration Testing
-- [ ] Nuget Release
+- [x] Integration with Supabase Storage
+- [x] Nuget Release
 
 ## Getting Started
 
@@ -66,6 +66,26 @@ public async void Main()
 
   // Run a Remote Stored Procedure:
   await instance.Rpc("my_cool_procedure", params);
+
+  // Interact with Supabase Storage
+  var storage = Supabase.Client.Instance.Storage
+  await storage.CreateBucket("testing")
+
+  var bucket = storage.From("testing");
+
+  var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase).Replace("file:", "");
+  var imagePath = Path.Combine(basePath, "Assets", "supabase-csharp.png");
+
+  await bucket.Upload(imagePath, "supabase-csharp.png");
+
+  // If bucket is public, get url
+  bucket.GetPublicUrl("supabase-csharp.png"));
+
+  // If bucket is private, generate url
+  await bucket.CreateSignedUrl("supabase-csharp.png", 3600));
+
+  // Download it!
+  await bucket.Download("supabase-csharp.png", Path.Combine(basePath, "testing-download.png"));
 }
 ```
 
