@@ -102,11 +102,16 @@ namespace Supabase.Storage
         /// <param name="supabasePath">The relative file path. Should be of the format `folder/subfolder/filename.png`. The bucket must already exist before attempting to upload.</param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async Task<string> Upload(byte[] data, string supabasePath, FileOptions options = null, UploadProgressChangedEventHandler onProgress = null)
+        public async Task<string> Upload(byte[] data, string supabasePath, FileOptions options = null, UploadProgressChangedEventHandler onProgress = null, bool inferContentType = true)
         {
             if (options == null)
             {
                 options = new FileOptions();
+            }
+
+            if (inferContentType)
+            {
+                options.ContentType = MimeMapping.MimeUtility.GetMimeMapping(supabasePath);
             }
 
             var result = await UploadOrUpdate(data, supabasePath, options, onProgress);

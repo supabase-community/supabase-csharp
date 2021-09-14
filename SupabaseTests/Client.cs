@@ -10,7 +10,7 @@ using static Supabase.Client;
 namespace SupabaseTests
 {
     [TestClass]
-    public class Api
+    public class Client
     {
         [TestInitialize]
         public async Task InitializeTest()

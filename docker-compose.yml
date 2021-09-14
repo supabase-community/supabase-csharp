@@ -1,6 +1,23 @@
 version: "2.3"
 
 services:
+  db:
+    image: postgres:13
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./SupabaseTests/db:/docker-entrypoint-initdb.d/
+    command:
+      - postgres
+      - -c
+      - wal_level=logical
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_PORT: 5432
+
   rest:
     image: postgrest/postgrest:v7.0.1
     restart: unless-stopped
@@ -8,8 +25,10 @@ services:
       - "3000:3000"
     environment:
       PGRST_DB_URI: postgres://postgres:postgres@db:5432/postgres
-      PGRST_DB_SCHEMA: public, personal
+      PGRST_DB_SCHEMA: public,storage
+      PGRST_DB_EXTRA_SEARCH_PATH: public,storage,extensions
       PGRST_DB_ANON_ROLE: postgres
+      PGRST_JWT_SECRET: 'f023d3db-39dc-4ac9-87b2-b2be72e9162b'
     depends_on:
       - db
 
@@ -19,23 +38,21 @@ services:
     ports:
       - "9999:9999"
     environment:
-      GOTRUE_JWT_SECRET: "37c304f8-51aa-419a-a1af-06154e63707a"
+      GOTRUE_MAILER_URLPATHS_CONFIRMATION: '/verify'
+      GOTRUE_JWT_SECRET: 'f023d3db-39dc-4ac9-87b2-b2be72e9162b'
       GOTRUE_JWT_EXP: 3600
       GOTRUE_DB_DRIVER: postgres
       DB_NAMESPACE: auth
-      API_EXTERNAL_URL: http://localhost
       GOTRUE_API_HOST: 0.0.0.0
       PORT: 9999
-      GOTRUE_DISABLE_SIGNUP: "false"
-      GOTRUE_SITE_URL: http://localhost
-      GOTRUE_MAILER_AUTOCONFIRM: "true"
+      GOTRUE_DISABLE_SIGNUP: 'false'
+      API_EXTERNAL_URL: http://localhost:9999
+      GOTRUE_SITE_URL: http://localhost:9999
+      GOTRUE_URI_ALLOW_LIST: https://supabase.io/docs
+      GOTRUE_MAILER_AUTOCONFIRM: 'false'
       GOTRUE_LOG_LEVEL: DEBUG
       GOTRUE_OPERATOR_TOKEN: super-secret-operator-token
-      DATABASE_URL: "postgres://postgres:postgres@db:5432/postgres?sslmode=disable"
-      GOTRUE_EXTERNAL_GOOGLE_ENABLED: "true"
-      GOTRUE_EXTERNAL_GOOGLE_CLIENT_ID: 53566906701-bmhc1ndue7hild39575gkpimhs06b7ds.apps.googleusercontent.com
-      GOTRUE_EXTERNAL_GOOGLE_SECRET: Sm3s8RE85rDcS36iMy8YjrpC
-      GOTRUE_EXTERNAL_GOOGLE_REDIRECT_URI: http://localhost:9999/callback
+      DATABASE_URL: 'postgres://postgres:postgres@db:5432/postgres?sslmode=disable'
     depends_on:
       - db
 
@@ -57,16 +74,27 @@ services:
     depends_on:
       - db
 
-  db:
-    image: supabase/postgres
+  storage:
+    image: supabase/storage-api
     restart: unless-stopped
+    depends_on:
+      - db
     ports:
-      - "5432:5432"
-    volumes:
-      - ./SupabaseTests/db:/docker-entrypoint-initdb.d/
-    command:
-      - postgres
-      - -c
-      - wal_level=logical
+      - "5000:5000"
     environment:
-      POSTGRES_PASSWORD: postgres
+      ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYxMzUzMTk4NSwiZXhwIjoxOTI5MTA3OTg1fQ.mqfi__KnQB4v6PkIjkhzfwWrYyF94MEbSC6LnuvVniE
+      SERVICE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic2VydmljZV9yb2xlIiwiaWF0IjoxNjEzNTMxOTg1LCJleHAiOjE5MjkxMDc5ODV9.th84OKK0Iz8QchDyXZRrojmKSEZ-OuitQm_5DvLiSIc
+      PROJECT_REF: bjhaohmqunupljrqypxz
+      REGION: region-of-your-s3-bucket
+      GLOBAL_S3_BUCKET: name-of-your-s3-bucket
+      POSTGREST_URL: http://rest:3000
+      PGRST_JWT_SECRET: f023d3db-39dc-4ac9-87b2-b2be72e9162b
+      DATABASE_URL: postgresql://postgres:postgres@db/postgres
+      PGOPTIONS: "-c search_path=storage,public"
+      FILE_SIZE_LIMIT: 52428800
+      STORAGE_BACKEND: s3
+      FILE_STORAGE_BACKEND_PATH: ./data
+      X_FORWARDED_HOST_REGEXP: 
+      POSTGREST_URL_SUFFIX: /rest/v1
+      ADMIN_API_KEYS: apikey
+      ENCRYPTION_KEY: encryptionkey
