@@ -13,7 +13,7 @@ using static Supabase.Client;
 namespace SupabaseTests
 {
     [TestClass]
-    public class Storage
+    public class StorageBucket
     {
         private static string SERVICE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic2VydmljZV9yb2xlIiwiaWF0IjoxNjEzNTMxOTg1LCJleHAiOjE5MjkxMDc5ODV9.th84OKK0Iz8QchDyXZRrojmKSEZ-OuitQm_5DvLiSIc";
 
@@ -37,8 +37,8 @@ namespace SupabaseTests
             });
         }
 
-        [TestMethod("Can List Buckets")]
-        public async Task CanListBuckets()
+        [TestMethod("Bucket: List")]
+        public async Task List()
         {
             var buckets = await storage.ListBuckets();
 
@@ -46,15 +46,15 @@ namespace SupabaseTests
             Assert.IsInstanceOfType(buckets, typeof(List<Bucket>));
         }
 
-        [TestMethod("Can Get Bucket")]
-        public async Task CanGetPublicBucket()
+        [TestMethod("Bucket: Get")]
+        public async Task Get()
         {
             var bucket = await storage.GetBucket("public-bucket");
             Assert.IsInstanceOfType(bucket, typeof(Bucket));
         }
 
-        [TestMethod("Can Create Bucket")]
-        public async Task CanCreateBucket()
+        [TestMethod("Bucket: Create, Private")]
+        public async Task CreatePrivate()
         {
             var id = Guid.NewGuid().ToString();
             var insertId = await storage.CreateBucket(id);
@@ -65,8 +65,8 @@ namespace SupabaseTests
             Assert.IsFalse(bucket.Public);
         }
 
-        [TestMethod("Can Create Public Bucket")]
-        public async Task CanCreatePublicBucket()
+        [TestMethod("Bucket: Create, Public")]
+        public async Task CreatePublic()
         {
             var id = Guid.NewGuid().ToString();
             await storage.CreateBucket(id, new BucketUpsertOptions { Public = true }); ;
@@ -76,8 +76,8 @@ namespace SupabaseTests
             Assert.IsTrue(bucket.Public);
         }
 
-        [TestMethod("Can Update Bucket")]
-        public async Task CanUpdateBucket()
+        [TestMethod("Bucket: Update")]
+        public async Task Update()
         {
             var id = Guid.NewGuid().ToString();
             await storage.CreateBucket(id);
@@ -91,10 +91,17 @@ namespace SupabaseTests
             Assert.IsTrue(nowPublicBucket.Public);
         }
 
-        [TestMethod("Can Empty Bucket")]
-        public async Task CanEmptyBucket()
+        [TestMethod("Bucket: Empty")]
+        public async Task Empty()
         {
-            var id = "bucket-3";
+            var id = Guid.NewGuid().ToString();
+            await storage.CreateBucket(id);
+
+            for (var i = 0; i < 5; i++)
+            {
+                await storage.From(id).Upload(new Byte[] { 0x0, 0x0, 0x0 }, $"test-{i}.bin");
+            }
+
             var initialList = await storage.From(id).List();
 
             Assert.IsTrue(initialList.Count > 0);
@@ -104,6 +111,40 @@ namespace SupabaseTests
             var listAfterEmpty = await storage.From(id).List();
 
             Assert.IsTrue(listAfterEmpty.Count == 0);
+        }
+
+        [TestMethod("Bucket: Delete, Throws Error if Not Empty")]
+        public async Task DeleteThrows()
+        {
+            var id = Guid.NewGuid().ToString();
+            await storage.CreateBucket(id);
+
+            for (var i = 0; i < 5; i++)
+            {
+                await storage.From(id).Upload(new Byte[] { 0x0, 0x0, 0x0 }, $"test-{i}.bin");
+            }
+
+            await Assert.ThrowsExceptionAsync<BadRequestException>(async () =>
+            {
+                await storage.DeleteBucket(id);
+            });
+        }
+
+        [TestMethod("Bucket: Delete")]
+        public async Task Delete()
+        {
+            var id = Guid.NewGuid().ToString();
+            await storage.CreateBucket(id);
+
+            for (var i = 0; i < 5; i++)
+            {
+                await storage.From(id).Upload(new Byte[] { 0x0, 0x0, 0x0 }, $"test-{i}.bin");
+            }
+
+            await storage.EmptyBucket(id);
+            await storage.DeleteBucket(id);
+
+            Assert.IsNull(await storage.GetBucket(id));
         }
     }
 }

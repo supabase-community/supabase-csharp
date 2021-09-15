@@ -15,17 +15,13 @@ jobs:
         with:
           dotnet-version: 3.1.301
 
-      - name: Install dependencies
-        run: dotnet restore
-
-      - name: Initialize Testing Stack
-        run: docker-compose up -d
-
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
-
-      - name: Test
-        run: dotnet test --no-restore
+      - name: Wait for tests to succeed
+        uses: lewagon/wait-on-check-action@v1.0.0
+        with:
+          ref: ${{ github.ref }}
+          check-name: 'buildAndTest'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
 
       # Publish
       - name: publish on version change

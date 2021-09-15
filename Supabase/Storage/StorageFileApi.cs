@@ -160,12 +160,18 @@ namespace Supabase.Storage
         /// <param name="fromPath">The original file path, including the current file name. For example `folder/image.png`.</param>
         /// <param name="toPath">The new file path, including the new file name. For example `folder/image-copy.png`.</param>
         /// <returns></returns>
-        public async Task<string> Move(string fromPath, string toPath)
+        public async Task<bool> Move(string fromPath, string toPath)
         {
-            var body = new Dictionary<string, string> { { "bucketId", BucketId }, { "sourceKey", fromPath }, { "destinationKey", toPath } };
-            var response = await Helpers.MakeRequest<GenericResponse>(HttpMethod.Post, $"{Url}/object/move", body, Headers);
-
-            return response.Message;
+            try
+            {
+                var body = new Dictionary<string, string> { { "bucketId", BucketId }, { "sourceKey", fromPath }, { "destinationKey", toPath } };
+                await Helpers.MakeRequest<GenericResponse>(HttpMethod.Post, $"{Url}/object/move", body, Headers);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         /// <summary>

@@ -89,14 +89,14 @@ namespace Supabase.Storage
 
     public class BadRequestException : Exception
     {
-        public ErrorResponse Error { get; private set; }
+        public ErrorResponse ErrorResponse { get; private set; }
 
         public HttpResponseMessage HttpResponse { get; private set; }
 
         public BadRequestException(HttpResponseMessage httpResponse, string content)
         {
             HttpResponse = httpResponse;
-            Error = JsonConvert.DeserializeObject<ErrorResponse>(content);
+            ErrorResponse = JsonConvert.DeserializeObject<ErrorResponse>(content);
         }
     }
 

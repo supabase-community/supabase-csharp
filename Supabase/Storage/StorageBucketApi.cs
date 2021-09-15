@@ -42,8 +42,16 @@ namespace Supabase.Storage
         /// <returns></returns>
         public async Task<Bucket> GetBucket(string id)
         {
-            var result = await Helpers.MakeRequest<Bucket>(HttpMethod.Get, $"{Url}/bucket/{id}", null, Headers);
-            return result;
+            try
+            {
+                var result = await Helpers.MakeRequest<Bucket>(HttpMethod.Get, $"{Url}/bucket/{id}", null, Headers);
+                return result;
+            }
+            catch (BadRequestException ex)
+            {
+                if (ex.ErrorResponse.Error == "Not found") return null;
+                else throw ex;
+            }
         }
 
         /// <summary>

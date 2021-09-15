@@ -19,8 +19,17 @@
   <ItemGroup>
     <Folder Include="db\" />
     <Folder Include="Models\" />
+    <Folder Include="Assets\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Supabase\Supabase.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Assets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Assets\supabase-csharp.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
