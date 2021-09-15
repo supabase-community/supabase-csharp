@@ -272,19 +272,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.BadRequestException.BadRequestException
   nameWithType: BadRequestException.BadRequestException
-- uid: Supabase.Storage.BadRequestException.Error
-  name: Error
-  href: api/Supabase.Storage.BadRequestException.html#Supabase_Storage_BadRequestException_Error
-  commentId: P:Supabase.Storage.BadRequestException.Error
-  fullName: Supabase.Storage.BadRequestException.Error
-  nameWithType: BadRequestException.Error
-- uid: Supabase.Storage.BadRequestException.Error*
-  name: Error
-  href: api/Supabase.Storage.BadRequestException.html#Supabase_Storage_BadRequestException_Error_
-  commentId: Overload:Supabase.Storage.BadRequestException.Error
+- uid: Supabase.Storage.BadRequestException.ErrorResponse
+  name: ErrorResponse
+  href: api/Supabase.Storage.BadRequestException.html#Supabase_Storage_BadRequestException_ErrorResponse
+  commentId: P:Supabase.Storage.BadRequestException.ErrorResponse
+  fullName: Supabase.Storage.BadRequestException.ErrorResponse
+  nameWithType: BadRequestException.ErrorResponse
+- uid: Supabase.Storage.BadRequestException.ErrorResponse*
+  name: ErrorResponse
+  href: api/Supabase.Storage.BadRequestException.html#Supabase_Storage_BadRequestException_ErrorResponse_
+  commentId: Overload:Supabase.Storage.BadRequestException.ErrorResponse
   isSpec: "True"
-  fullName: Supabase.Storage.BadRequestException.Error
-  nameWithType: BadRequestException.Error
+  fullName: Supabase.Storage.BadRequestException.ErrorResponse
+  nameWithType: BadRequestException.ErrorResponse
 - uid: Supabase.Storage.BadRequestException.HttpResponse
   name: HttpResponse
   href: api/Supabase.Storage.BadRequestException.html#Supabase_Storage_BadRequestException_HttpResponse
@@ -1027,15 +1027,15 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.StorageFileApi.Update
   nameWithType: StorageFileApi.Update
-- uid: Supabase.Storage.StorageFileApi.Upload(System.Byte[],System.String,Supabase.Storage.FileOptions,UploadProgressChangedEventHandler)
-  name: Upload(Byte[], String, FileOptions, UploadProgressChangedEventHandler)
-  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Upload_System_Byte___System_String_Supabase_Storage_FileOptions_UploadProgressChangedEventHandler_
-  commentId: M:Supabase.Storage.StorageFileApi.Upload(System.Byte[],System.String,Supabase.Storage.FileOptions,UploadProgressChangedEventHandler)
-  name.vb: Upload(Byte(), String, FileOptions, UploadProgressChangedEventHandler)
-  fullName: Supabase.Storage.StorageFileApi.Upload(System.Byte[], System.String, Supabase.Storage.FileOptions, UploadProgressChangedEventHandler)
-  fullName.vb: Supabase.Storage.StorageFileApi.Upload(System.Byte(), System.String, Supabase.Storage.FileOptions, UploadProgressChangedEventHandler)
-  nameWithType: StorageFileApi.Upload(Byte[], String, FileOptions, UploadProgressChangedEventHandler)
-  nameWithType.vb: StorageFileApi.Upload(Byte(), String, FileOptions, UploadProgressChangedEventHandler)
+- uid: Supabase.Storage.StorageFileApi.Upload(System.Byte[],System.String,Supabase.Storage.FileOptions,UploadProgressChangedEventHandler,System.Boolean)
+  name: Upload(Byte[], String, FileOptions, UploadProgressChangedEventHandler, Boolean)
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Upload_System_Byte___System_String_Supabase_Storage_FileOptions_UploadProgressChangedEventHandler_System_Boolean_
+  commentId: M:Supabase.Storage.StorageFileApi.Upload(System.Byte[],System.String,Supabase.Storage.FileOptions,UploadProgressChangedEventHandler,System.Boolean)
+  name.vb: Upload(Byte(), String, FileOptions, UploadProgressChangedEventHandler, Boolean)
+  fullName: Supabase.Storage.StorageFileApi.Upload(System.Byte[], System.String, Supabase.Storage.FileOptions, UploadProgressChangedEventHandler, System.Boolean)
+  fullName.vb: Supabase.Storage.StorageFileApi.Upload(System.Byte(), System.String, Supabase.Storage.FileOptions, UploadProgressChangedEventHandler, System.Boolean)
+  nameWithType: StorageFileApi.Upload(Byte[], String, FileOptions, UploadProgressChangedEventHandler, Boolean)
+  nameWithType.vb: StorageFileApi.Upload(Byte(), String, FileOptions, UploadProgressChangedEventHandler, Boolean)
 - uid: Supabase.Storage.StorageFileApi.Upload(System.String,System.String,Supabase.Storage.FileOptions,UploadProgressChangedEventHandler,System.Boolean)
   name: Upload(String, String, FileOptions, UploadProgressChangedEventHandler, Boolean)
   href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Upload_System_String_System_String_Supabase_Storage_FileOptions_UploadProgressChangedEventHandler_System_Boolean_
