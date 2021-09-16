@@ -1,16 +1,20 @@
 <p align="center">
 <img width="300" src=".github/supabase-csharp.png"/>
 </p>
-
 <p align="center">
   <img src="https://github.com/supabase/supabase-csharp/workflows/Build%20And%20Test/badge.svg"/>
   <a href="https://www.nuget.org/packages/supabase-csharp/">
     <img src="https://img.shields.io/nuget/vpre/supabase-csharp"/>
   </a>
 </p>
+<h3 align="center">Stage: Beta</h3>
 
-## Stage: Beta
+---
+### BREAKING CHANGES FOR v0.2.x
 
+**postgrest-csharp**
+- `System.Range` (netstandard2.1) is not available in netstandard2.0, so all `System.Range` calls should be changed to `Postgrest.IntRange` instead.
+- `InsertOptions` has been generalized to `QueryOptions` which allows for setting return `minimal` or `representation`
 ---
 
 Integrate your [Supabase](https://supabase.io) projects with C#.
