@@ -12,7 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-            persist-credentials: false
+          submodules: "true"
+          persist-credentials: false
 
       - uses: nikeee/docfx-action@v1.0.0
         name: Build Documentation

@@ -1,0 +1,9 @@
+[submodule "modules/gotrue-csharp"]
+	path = modules/gotrue-csharp
+	url = https://github.com/supabase-community/gotrue-csharp
+[submodule "modules/postgrest-csharp"]
+	path = modules/postgrest-csharp
+	url = https://github.com/supabase-community/postgrest-csharp
+[submodule "modules/realtime-csharp"]
+	path = modules/realtime-csharp
+	url = https://github.com/supabase-community/realtime-csharp

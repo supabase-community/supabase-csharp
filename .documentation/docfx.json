@@ -1,10 +1,26 @@
 {
   "metadata": [{
     "src": [{
-      "files": "Supabase.csproj",
-      "exclude": ["**/bin/**", "**/obj/**"],
-      "src": "../Supabase"
-    }],
+        "files": "Supabase.csproj",
+        "exclude": ["**/bin/**", "**/obj/**"],
+        "src": "../Supabase"
+      },
+      {
+        "files": "Gotrue.csproj",
+        "exclude": ["**/bin/**", "**/obj/**"],
+        "src": "../modules/gotrue-csharp/Gotrue"
+      },
+      {
+        "files": "Realtime.csproj",
+        "exclude": ["**/bin/**", "**/obj/**"],
+        "src": "../modules/realtime-csharp/Realtime"
+      },
+      {
+        "files": "Postgrest.csproj",
+        "exclude": ["**/bin/**", "**/obj/**"],
+        "src": "../modules/postgrest-csharp/Postgrest"
+      }
+    ],
     "dest": "api",
     "disableGitFeatures": false,
     "disableDefaultFilter": false
