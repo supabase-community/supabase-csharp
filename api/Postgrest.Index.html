@@ -1,0 +1,673 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Index
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Index
+   ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Postgrest.Index">
+  
+  
+  <h1 id="Postgrest_Index" data-uid="Postgrest.Index" class="text-break">Class Index
+  </h1>
+  <div class="markdown level0 summary"><p>Represent a type can be used to index a collection either from the start or the end.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Index</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Postgrest.html">Postgrest</a></h6>
+  <h6><strong>Assembly</strong>: Postgrest.dll</h6>
+  <h5 id="Postgrest_Index_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Index : IEquatable&lt;Index&gt;</code></pre>
+  </div>
+  <h5 id="Postgrest_Index_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Index is used by the C# compiler to support the new index syntax</p>
+<pre><code>int[] someArray = new int[5] { 1, 2, 3, 4, 5 } ;
+int lastElement = someArray[^1]; // lastElement = 5</code></pre>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_Index__ctor_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20Postgrest.Index.%23ctor(System.Int32%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L28">View Source</a>
+  </span>
+  <a id="Postgrest_Index__ctor_" data-uid="Postgrest.Index.#ctor*"></a>
+  <h4 id="Postgrest_Index__ctor_System_Int32_System_Boolean_" data-uid="Postgrest.Index.#ctor(System.Int32,System.Boolean)">Index(Int32, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Construct an Index using a value and indicating if the index is from the start or from the end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Index(int value, bool fromEnd = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The index value. it has to be zero or positive number.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">fromEnd</span></td>
+        <td><p>Indicating if the index is from the start or from the end.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Postgrest_Index__ctor_System_Int32_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If the Index constructed from the end, index value 1 means pointing at the last element and index value 0 means pointing at beyond last element.</p>
+</div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_Index_End.md&amp;value=---%0Auid%3A%20Postgrest.Index.End%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L52">View Source</a>
+  </span>
+  <a id="Postgrest_Index_End_" data-uid="Postgrest.Index.End*"></a>
+  <h4 id="Postgrest_Index_End" data-uid="Postgrest.Index.End">End</h4>
+  <div class="markdown level1 summary"><p>Create an Index pointing at beyond last element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Index End { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Postgrest.Index.html">Index</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_Index_IsFromEnd.md&amp;value=---%0Auid%3A%20Postgrest.Index.IsFromEnd%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L97">View Source</a>
+  </span>
+  <a id="Postgrest_Index_IsFromEnd_" data-uid="Postgrest.Index.IsFromEnd*"></a>
+  <h4 id="Postgrest_Index_IsFromEnd" data-uid="Postgrest.Index.IsFromEnd">IsFromEnd</h4>
+  <div class="markdown level1 summary"><p>Indicates whether the index is from the start or the end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsFromEnd { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_Index_Start.md&amp;value=---%0Auid%3A%20Postgrest.Index.Start%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L49">View Source</a>
+  </span>
+  <a id="Postgrest_Index_Start_" data-uid="Postgrest.Index.Start*"></a>
+  <h4 id="Postgrest_Index_Start" data-uid="Postgrest.Index.Start">Start</h4>
+  <div class="markdown level1 summary"><p>Create an Index pointing at first element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Index Start { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Postgrest.Index.html">Index</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_Index_Value.md&amp;value=---%0Auid%3A%20Postgrest.Index.Value%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L81">View Source</a>
+  </span>
+  <a id="Postgrest_Index_Value_" data-uid="Postgrest.Index.Value*"></a>
+  <h4 id="Postgrest_Index_Value" data-uid="Postgrest.Index.Value">Value</h4>
+  <div class="markdown level1 summary"><p>Returns the index value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Value { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_Index_Equals_Postgrest_Index_.md&amp;value=---%0Auid%3A%20Postgrest.Index.Equals(Postgrest.Index)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L128">View Source</a>
+  </span>
+  <a id="Postgrest_Index_Equals_" data-uid="Postgrest.Index.Equals*"></a>
+  <h4 id="Postgrest_Index_Equals_Postgrest_Index_" data-uid="Postgrest.Index.Equals(Postgrest.Index)">Equals(Index)</h4>
+  <div class="markdown level1 summary"><p>Indicates whether the current Index object is equal to another Index object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Index other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Postgrest.Index.html">Index</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>An object to compare with this object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_Index_Equals_System_Nullable_System_Object__.md&amp;value=---%0Auid%3A%20Postgrest.Index.Equals(System.Nullable%7BSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L124">View Source</a>
+  </span>
+  <a id="Postgrest_Index_Equals_" data-uid="Postgrest.Index.Equals*"></a>
+  <h4 id="Postgrest_Index_Equals_System_Nullable_System_Object__" data-uid="Postgrest.Index.Equals(System.Nullable{System.Object})">Equals(Nullable&lt;Object&gt;)</h4>
+  <div class="markdown level1 summary"><p>Indicates whether the current Index object is equal to another object of the same type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">value</span></td>
+        <td><p>An object to compare with this object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_Index_FromEnd_System_Int32_.md&amp;value=---%0Auid%3A%20Postgrest.Index.FromEnd(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L69">View Source</a>
+  </span>
+  <a id="Postgrest_Index_FromEnd_" data-uid="Postgrest.Index.FromEnd*"></a>
+  <h4 id="Postgrest_Index_FromEnd_System_Int32_" data-uid="Postgrest.Index.FromEnd(System.Int32)">FromEnd(Int32)</h4>
+  <div class="markdown level1 summary"><p>Create an Index from the end at the position indicated by the value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Index FromEnd(int value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The index value from the end.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Postgrest.Index.html">Index</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_Index_FromStart_System_Int32_.md&amp;value=---%0Auid%3A%20Postgrest.Index.FromStart(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L56">View Source</a>
+  </span>
+  <a id="Postgrest_Index_FromStart_" data-uid="Postgrest.Index.FromStart*"></a>
+  <h4 id="Postgrest_Index_FromStart_System_Int32_" data-uid="Postgrest.Index.FromStart(System.Int32)">FromStart(Int32)</h4>
+  <div class="markdown level1 summary"><p>Create an Index from the start at the position indicated by the value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Index FromStart(int value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The index value from the start.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Postgrest.Index.html">Index</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_Index_GetHashCode.md&amp;value=---%0Auid%3A%20Postgrest.Index.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L131">View Source</a>
+  </span>
+  <a id="Postgrest_Index_GetHashCode_" data-uid="Postgrest.Index.GetHashCode*"></a>
+  <h4 id="Postgrest_Index_GetHashCode" data-uid="Postgrest.Index.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Returns the hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_Index_GetOffset_System_Int32_.md&amp;value=---%0Auid%3A%20Postgrest.Index.GetOffset(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L107">View Source</a>
+  </span>
+  <a id="Postgrest_Index_GetOffset_" data-uid="Postgrest.Index.GetOffset*"></a>
+  <h4 id="Postgrest_Index_GetOffset_System_Int32_" data-uid="Postgrest.Index.GetOffset(System.Int32)">GetOffset(Int32)</h4>
+  <div class="markdown level1 summary"><p>Calculate the offset from the start using the giving collection length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetOffset(int length)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">length</span></td>
+        <td><p>The length of the collection that the Index will be used with. length has to be a positive value</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Postgrest_Index_GetOffset_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>For performance reason, we don't validate the input length parameter and the returned offset value against negative values.
+we don't validate either the returned offset is greater than the input length.
+It is expected Index will be used with collections which always have non negative length/count. If the returned offset is negative and
+then used to index a collection will get out of range exception which will be same affect as the validation.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_Index_ToString.md&amp;value=---%0Auid%3A%20Postgrest.Index.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L137">View Source</a>
+  </span>
+  <a id="Postgrest_Index_ToString_" data-uid="Postgrest.Index.ToString*"></a>
+  <h4 id="Postgrest_Index_ToString" data-uid="Postgrest.Index.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Converts the value of the current Index object to its equivalent string representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_Index_op_Implicit_System_Int32__Postgrest_Index.md&amp;value=---%0Auid%3A%20Postgrest.Index.op_Implicit(System.Int32)~Postgrest.Index%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L134">View Source</a>
+  </span>
+  <a id="Postgrest_Index_op_Implicit_" data-uid="Postgrest.Index.op_Implicit*"></a>
+  <h4 id="Postgrest_Index_op_Implicit_System_Int32__Postgrest_Index" data-uid="Postgrest.Index.op_Implicit(System.Int32)~Postgrest.Index">Implicit(Int32 to Index)</h4>
+  <div class="markdown level1 summary"><p>Converts integer number to an Index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Index(int value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Postgrest.Index.html">Index</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_Index.md&amp;value=---%0Auid%3A%20Postgrest.Index%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L18" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

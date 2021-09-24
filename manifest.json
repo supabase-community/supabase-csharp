@@ -5,6 +5,414 @@
   "files": [
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Attributes.ColumnAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Attributes.ColumnAttribute.html",
+          "hash": "UMKNG79G7GeujKWsk4fEhw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Attributes.PrimaryKeyAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Attributes.PrimaryKeyAttribute.html",
+          "hash": "kz5I01Mg527QwmeC1iTUWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Attributes.TableAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Attributes.TableAttribute.html",
+          "hash": "vNz5y0H3kjfpw+t+y0373g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Attributes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Attributes.html",
+          "hash": "Pw5CJfiTld3KPOCeZECNqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Client.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Client.html",
+          "hash": "2IqxGzkh1R+9JAAZ2wLKow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.ClientOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.ClientOptions.html",
+          "hash": "Hl3hiC0KYC0GT2wm7EPJgQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Constants.CountType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Constants.CountType.html",
+          "hash": "8KdjphzrPVt+5HyT9BRWjg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Constants.NullPosition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Constants.NullPosition.html",
+          "hash": "+Z+n6hcX5M/VlhgMPd8vjg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Constants.Operator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Constants.Operator.html",
+          "hash": "6smx7n5oeYNwVFXH/4uRiw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Constants.Ordering.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Constants.Ordering.html",
+          "hash": "Vcd/RgUotHChcJNRCwThAQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Constants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Constants.html",
+          "hash": "xsnBuDeXdqle7oKmaPG0jA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Extensions.DictionaryExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Extensions.DictionaryExtensions.html",
+          "hash": "oEOyjTRYtjsyQcXLoNmWlA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Extensions.EnumExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Extensions.EnumExtensions.html",
+          "hash": "qaW8Iaa8rZ+wNkkgjy+v2g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Extensions.RangeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Extensions.RangeExtensions.html",
+          "hash": "5LjKpn1lJePHtuykcrLPrQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Extensions.html",
+          "hash": "zg/xaZSXryYDvsdAb2l5Yg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.FullTextSearchConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.FullTextSearchConfig.html",
+          "hash": "oRYMFc1UU1FhvnItr8E+fg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Index.html",
+          "hash": "rLe1ulSrOy+THOUwN5j5nA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.IntRange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.IntRange.html",
+          "hash": "gsXj9vtsnyTsW2O/OjAJkw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Models.BaseModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Models.BaseModel.html",
+          "hash": "YUJ8l81Ue5Yh/XXe6gNW5Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Models.html",
+          "hash": "VhRub5O1pWQMCmGlKzz+OQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.QueryFilter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.QueryFilter.html",
+          "hash": "BfJa07Kf1YShKQdNta+Jkw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.QueryOptions.CountType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.QueryOptions.CountType.html",
+          "hash": "lsa/wGP7vhGvc/Vhb63XBg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.QueryOptions.DuplicateResolutionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.QueryOptions.DuplicateResolutionType.html",
+          "hash": "p9+jNGWk+/L0yypicRoLUg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.QueryOptions.ReturnType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.QueryOptions.ReturnType.html",
+          "hash": "blZBrN9YhnmqvLTVg9Ec6g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.QueryOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.QueryOptions.html",
+          "hash": "O9F5xReXvCCPAikClA87KA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.QueryOrderer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.QueryOrderer.html",
+          "hash": "/Xz/MuAjiFa/OFbHoglUIQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.RequestException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.RequestException.html",
+          "hash": "UVlMn5y6JysySYwGYOi5bA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Responses.BaseResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Responses.BaseResponse.html",
+          "hash": "o7Y0nqlvrWXWPfB/3yiePQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Responses.ErrorResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Responses.ErrorResponse.html",
+          "hash": "BGBkddyGitQ9+YvhSdI6sA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Responses.ModeledResponse-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Responses.ModeledResponse-1.html",
+          "hash": "/HhtsXOU3v4SsXUjxpeCbA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Responses.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Responses.html",
+          "hash": "ah5osFELAOhj/W7WtWUizg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Table-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Table-1.html",
+          "hash": "V5F3DgJKtb1zuTQvk6h5Zg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.Util.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.Util.html",
+          "hash": "C6Vi+qI3qbmWPjkLWD+IYw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Postgrest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Postgrest.html",
+          "hash": "2uYe1ah6/VDk3jvYUoyWaA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Supabase.Client.ChannelEventType.yml",
       "output": {
         ".html": {
@@ -22,6 +430,570 @@
         ".html": {
           "relative_path": "api/Supabase.Client.html",
           "hash": "+2evBteHApd6GYhgDW4HBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Api.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Api.html",
+          "hash": "fIB+HoZ2KW3CoKzp4dIMDQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.BadRequestException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.BadRequestException.html",
+          "hash": "NgudjeIQH5j93Gem3Ua81w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Client.AuthState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Client.AuthState.html",
+          "hash": "eCa7BoQiCvaftn7uUA7GuA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Client.Provider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Client.Provider.html",
+          "hash": "k8+5DQN/MYPHciLi7QZEUg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Client.SignInType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Client.SignInType.html",
+          "hash": "ZDrLnphuOzOK4Nlzhg7aWg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Client.SignUpType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Client.SignUpType.html",
+          "hash": "HRnbXi3bR0XIh32+81Lf3Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Client.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Client.html",
+          "hash": "XmYaUc9l5VMcR+Fh/BNZhA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.ClientOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.ClientOptions.html",
+          "hash": "KrsD3ejMtN6dF/qyZHpF5w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.ClientStateChanged.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.ClientStateChanged.html",
+          "hash": "fUkhuIFH6XCV+JOLRsp7eA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Constants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Constants.html",
+          "hash": "zQWq367cBszX/O63HS632Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.ExistingUserException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.ExistingUserException.html",
+          "hash": "Wk4I9jGJuoO1oyG1UqGlmA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.ForbiddenException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.ForbiddenException.html",
+          "hash": "rc7MoPowBj2n1IgXql34eA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.InvalidEmailOrPasswordException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.InvalidEmailOrPasswordException.html",
+          "hash": "zkhBxIRFfSvO1HlD2n1y4w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.RequestException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.RequestException.html",
+          "hash": "BksmFVyuzQ7DXDBgAqDUcA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Responses.BaseResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Responses.BaseResponse.html",
+          "hash": "4xzHOTKqJ5TbKxv7wIKfrA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Responses.ErrorResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Responses.ErrorResponse.html",
+          "hash": "8L+heUs2QgEX9QjFgVgEtw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Responses.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Responses.html",
+          "hash": "5NPNr+YnyGXEg03SXLf84w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Session.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Session.html",
+          "hash": "OTW/BF+c2HNmaalJJqUXNQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.UnauthorizedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.UnauthorizedException.html",
+          "hash": "O3pG9zbwHfpbuWhgX+IiVw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.User.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.User.html",
+          "hash": "dKEHYp+hG5G40M/YU8ELSw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.UserAttributes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.UserAttributes.html",
+          "hash": "LfqkOsQX7gW6pcijh+DKzg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Util.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Util.html",
+          "hash": "e3FZJkhvjgfkfJafY5YWlA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.VerifyOTPParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.VerifyOTPParams.html",
+          "hash": "aMnbuwveiuBTs3aGUSj+dw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.html",
+          "hash": "4ffy0zELIvSDThhTH1RhAw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.Channel.ChannelState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.Channel.ChannelState.html",
+          "hash": "cGxxtoey2AEdfzEz1x1i4g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.Channel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.Channel.html",
+          "hash": "VclREqE3OL/MYz2tHHF4PA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.ChannelStateChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.ChannelStateChangedEventArgs.html",
+          "hash": "u6oATtaboGKca613GnnDCA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.Client.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.Client.html",
+          "hash": "tCCIhp5Ne5/F7qrATzQiIg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.ClientOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.ClientOptions.html",
+          "hash": "lnaNzuIoPAp8DHBx3GwB7g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.Constants.EventType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.Constants.EventType.html",
+          "hash": "OF+Yjcfuzy3qfRUpLIfe1A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.Constants.SocketStates.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.Constants.SocketStates.html",
+          "hash": "BU+/XK0/d7Za5J1CCp3mUQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.Constants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.Constants.html",
+          "hash": "t3G6wwvoBSN7Yzdvrmw6+g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.PheonixResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.PheonixResponse.html",
+          "hash": "M9lds4RCeCnqN5vUUqA0sw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.Push.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.Push.html",
+          "hash": "SiwwBTAzQMTWwXoryisAYw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.PushTimeoutException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.PushTimeoutException.html",
+          "hash": "PUiMqmm5qRqzKN/rAHQOfA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.RealtimeTimestampConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.RealtimeTimestampConverter.html",
+          "hash": "l3tyRBNUtDDCJDsqZuddAA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.Socket.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.Socket.html",
+          "hash": "z6eKXKtIkD8ae8ItKdSDjw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.SocketOptionsParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.SocketOptionsParameters.html",
+          "hash": "qEsM1n3zrZQqul2LPzpQyg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.SocketRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.SocketRequest.html",
+          "hash": "lQYfLcV+a3kXKR1T1Cby5g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.SocketResponse-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.SocketResponse-1.html",
+          "hash": "+qvgSpP5Lnk+KBh4ec2vow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.SocketResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.SocketResponse.html",
+          "hash": "tzTmZP1aN4ldOPa0n9Iggg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.SocketResponseEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.SocketResponseEventArgs.html",
+          "hash": "G6CrTBExl0dkmFApu6fVAg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.SocketResponsePayload-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.SocketResponsePayload-1.html",
+          "hash": "IK2EnelEvB15/n2KaOwsuw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.SocketResponsePayload.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.SocketResponsePayload.html",
+          "hash": "LVEmnh3rdkXTFpw0/aIm0g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.SocketStateChangedEventArgs.ConnectionState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.SocketStateChangedEventArgs.ConnectionState.html",
+          "hash": "q2XSiM9Qj20FzdGdUoNx8A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.SocketStateChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.SocketStateChangedEventArgs.html",
+          "hash": "v0PjWQyVY6LTsWAoqWcIfg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Realtime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Realtime.html",
+          "hash": "Lf/8Q4LqkexTErZXbuLG7A=="
         }
       },
       "is_incremental": false,
@@ -273,7 +1245,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "haTtG7vy2SXH0ixHvW1p5g=="
+          "hash": "RdsXV8nW9xcUd2anBVCwEw=="
         }
       },
       "is_incremental": false,
@@ -348,7 +1320,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 21,
+          "total_file_count": 102,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

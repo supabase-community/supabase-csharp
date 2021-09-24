@@ -1,0 +1,602 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class IntRange
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class IntRange
+   ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Postgrest.IntRange">
+  
+  
+  <h1 id="Postgrest_IntRange" data-uid="Postgrest.IntRange" class="text-break">Class IntRange
+  </h1>
+  <div class="markdown level0 summary"><p>Represent a range has start and end indexes.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">IntRange</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Postgrest.html">Postgrest</a></h6>
+  <h6><strong>Assembly</strong>: Postgrest.dll</h6>
+  <h5 id="Postgrest_IntRange_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class IntRange : IEquatable&lt;IntRange&gt;</code></pre>
+  </div>
+  <h5 id="Postgrest_IntRange_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Range is used by the C# compiler to support the range syntax.</p>
+<pre><code>int[] someArray = new int[5] { 1, 2, 3, 4, 5 };
+int[] subArray1 = someArray[0..2]; // { 1, 2 }
+int[] subArray2 = someArray[1..^0]; // { 2, 3, 4, 5 }</code></pre>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_IntRange__ctor.md&amp;value=---%0Auid%3A%20Postgrest.IntRange.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L172">View Source</a>
+  </span>
+  <a id="Postgrest_IntRange__ctor_" data-uid="Postgrest.IntRange.#ctor*"></a>
+  <h4 id="Postgrest_IntRange__ctor" data-uid="Postgrest.IntRange.#ctor">IntRange()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRange()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_IntRange__ctor_Postgrest_Index_Postgrest_Index_.md&amp;value=---%0Auid%3A%20Postgrest.IntRange.%23ctor(Postgrest.Index%2CPostgrest.Index)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L166">View Source</a>
+  </span>
+  <a id="Postgrest_IntRange__ctor_" data-uid="Postgrest.IntRange.#ctor*"></a>
+  <h4 id="Postgrest_IntRange__ctor_Postgrest_Index_Postgrest_Index_" data-uid="Postgrest.IntRange.#ctor(Postgrest.Index,Postgrest.Index)">IntRange(Index, Index)</h4>
+  <div class="markdown level1 summary"><p>Construct a Range object using the start and end indexes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRange(Index start, Index end)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Postgrest.Index.html">Index</a></td>
+        <td><span class="parametername">start</span></td>
+        <td><p>Represent the inclusive start index of the range.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Postgrest.Index.html">Index</a></td>
+        <td><span class="parametername">end</span></td>
+        <td><p>Represent the exclusive end index of the range.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_IntRange_All.md&amp;value=---%0Auid%3A%20Postgrest.IntRange.All%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L206">View Source</a>
+  </span>
+  <a id="Postgrest_IntRange_All_" data-uid="Postgrest.IntRange.All*"></a>
+  <h4 id="Postgrest_IntRange_All" data-uid="Postgrest.IntRange.All">All</h4>
+  <div class="markdown level1 summary"><p>Create a Range object starting from first element to the end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange All { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Postgrest.IntRange.html">IntRange</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_IntRange_End.md&amp;value=---%0Auid%3A%20Postgrest.IntRange.End%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L161">View Source</a>
+  </span>
+  <a id="Postgrest_IntRange_End_" data-uid="Postgrest.IntRange.End*"></a>
+  <h4 id="Postgrest_IntRange_End" data-uid="Postgrest.IntRange.End">End</h4>
+  <div class="markdown level1 summary"><p>Represent the exclusive end index of the Range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Index End { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Postgrest.Index.html">Index</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_IntRange_Start.md&amp;value=---%0Auid%3A%20Postgrest.IntRange.Start%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L158">View Source</a>
+  </span>
+  <a id="Postgrest_IntRange_Start_" data-uid="Postgrest.IntRange.Start*"></a>
+  <h4 id="Postgrest_IntRange_Start" data-uid="Postgrest.IntRange.Start">Start</h4>
+  <div class="markdown level1 summary"><p>Represent the inclusive start index of the Range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Index Start { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Postgrest.Index.html">Index</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_IntRange_EndAt_Postgrest_Index_.md&amp;value=---%0Auid%3A%20Postgrest.IntRange.EndAt(Postgrest.Index)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L203">View Source</a>
+  </span>
+  <a id="Postgrest_IntRange_EndAt_" data-uid="Postgrest.IntRange.EndAt*"></a>
+  <h4 id="Postgrest_IntRange_EndAt_Postgrest_Index_" data-uid="Postgrest.IntRange.EndAt(Postgrest.Index)">EndAt(Index)</h4>
+  <div class="markdown level1 summary"><p>Create a Range object starting from first element in the collection to the end Index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange EndAt(Index end)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Postgrest.Index.html">Index</a></td>
+        <td><span class="parametername">end</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Postgrest.IntRange.html">IntRange</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_IntRange_Equals_Postgrest_IntRange_.md&amp;value=---%0Auid%3A%20Postgrest.IntRange.Equals(Postgrest.IntRange)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L185">View Source</a>
+  </span>
+  <a id="Postgrest_IntRange_Equals_" data-uid="Postgrest.IntRange.Equals*"></a>
+  <h4 id="Postgrest_IntRange_Equals_Postgrest_IntRange_" data-uid="Postgrest.IntRange.Equals(Postgrest.IntRange)">Equals(IntRange)</h4>
+  <div class="markdown level1 summary"><p>Indicates whether the current Range object is equal to another Range object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(IntRange other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Postgrest.IntRange.html">IntRange</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>An object to compare with this object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_IntRange_Equals_System_Nullable_System_Object__.md&amp;value=---%0Auid%3A%20Postgrest.IntRange.Equals(System.Nullable%7BSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L178">View Source</a>
+  </span>
+  <a id="Postgrest_IntRange_Equals_" data-uid="Postgrest.IntRange.Equals*"></a>
+  <h4 id="Postgrest_IntRange_Equals_System_Nullable_System_Object__" data-uid="Postgrest.IntRange.Equals(System.Nullable{System.Object})">Equals(Nullable&lt;Object&gt;)</h4>
+  <div class="markdown level1 summary"><p>Indicates whether the current Range object is equal to another object of the same type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">value</span></td>
+        <td><p>An object to compare with this object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_IntRange_GetHashCode.md&amp;value=---%0Auid%3A%20Postgrest.IntRange.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L188">View Source</a>
+  </span>
+  <a id="Postgrest_IntRange_GetHashCode_" data-uid="Postgrest.IntRange.GetHashCode*"></a>
+  <h4 id="Postgrest_IntRange_GetHashCode" data-uid="Postgrest.IntRange.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Returns the hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_IntRange_GetOffsetAndLength_System_Int32_.md&amp;value=---%0Auid%3A%20Postgrest.IntRange.GetOffsetAndLength(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L215">View Source</a>
+  </span>
+  <a id="Postgrest_IntRange_GetOffsetAndLength_" data-uid="Postgrest.IntRange.GetOffsetAndLength*"></a>
+  <h4 id="Postgrest_IntRange_GetOffsetAndLength_System_Int32_" data-uid="Postgrest.IntRange.GetOffsetAndLength(System.Int32)">GetOffsetAndLength(Int32)</h4>
+  <div class="markdown level1 summary"><p>Calculate the start offset and length of range object using a collection length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int Offset, int Length) GetOffsetAndLength(int length)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">length</span></td>
+        <td><p>The length of the collection that the range will be used with. length has to be a positive value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Postgrest_IntRange_GetOffsetAndLength_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>For performance reason, we don't validate the input length parameter against negative values.
+It is expected Range will be used with collections which always have non negative length/count.
+We validate the range is inside the length scope though.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_IntRange_StartAt_Postgrest_Index_.md&amp;value=---%0Auid%3A%20Postgrest.IntRange.StartAt(Postgrest.Index)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L200">View Source</a>
+  </span>
+  <a id="Postgrest_IntRange_StartAt_" data-uid="Postgrest.IntRange.StartAt*"></a>
+  <h4 id="Postgrest_IntRange_StartAt_Postgrest_Index_" data-uid="Postgrest.IntRange.StartAt(Postgrest.Index)">StartAt(Index)</h4>
+  <div class="markdown level1 summary"><p>Create a Range object starting from start index to the end of the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange StartAt(Index start)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Postgrest.Index.html">Index</a></td>
+        <td><span class="parametername">start</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Postgrest.IntRange.html">IntRange</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_IntRange_ToString.md&amp;value=---%0Auid%3A%20Postgrest.IntRange.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L194">View Source</a>
+  </span>
+  <a id="Postgrest_IntRange_ToString_" data-uid="Postgrest.IntRange.ToString*"></a>
+  <h4 id="Postgrest_IntRange_ToString" data-uid="Postgrest.IntRange.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Converts the value of the current Range object to its equivalent string representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/supabase-community/postgrest-csharp/new/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/apiSpec/new?filename=Postgrest_IntRange.md&amp;value=---%0Auid%3A%20Postgrest.IntRange%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/supabase-community/postgrest-csharp/blob/78d9b2b43807ad1ace3434bf7f1bb69028c366a3/Postgrest/IntRange.cs/#L155" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
