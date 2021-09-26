@@ -15,15 +15,15 @@
 		<Title>Supabase</Title>
 		<PackageIconUrl>https://avatars.githubusercontent.com/u/54469796?s=200&amp;v=4</PackageIconUrl>
 		<PackageTags>supabase</PackageTags>
-		<ReleaseVersion>0.2.1</ReleaseVersion>
-		<PackageVersion>0.2.1</PackageVersion>
+		<ReleaseVersion>0.2.2</ReleaseVersion>
+		<PackageVersion>0.2.2</PackageVersion>
 		<PackageReleaseNotes>Ported to netstandard2.0 to support a wider ranger of applications.
 
 Breaking Change:
 - Postgrest uses `Postgrest.IntRange` instead of `System.Range`</PackageReleaseNotes>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Version)' == '' ">
-		<VersionPrefix Condition=" '$(VersionPrefix)' == '' ">0.2.1</VersionPrefix>
+		<VersionPrefix Condition=" '$(VersionPrefix)' == '' ">0.2.2</VersionPrefix>
 		<Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
 	</PropertyGroup>
 	<ItemGroup>
