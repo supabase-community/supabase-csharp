@@ -28,8 +28,8 @@ Breaking Change:
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-		<PackageReference Include="postgrest-csharp" Version="2.0.1" />
-		<PackageReference Include="realtime-csharp" Version="2.0.0" />
+		<PackageReference Include="postgrest-csharp" Version="2.0.2" />
+		<PackageReference Include="realtime-csharp" Version="2.0.2" />
 		<PackageReference Include="gotrue-csharp" Version="2.1.5" />
 		<PackageReference Include="MimeMapping" Version="1.0.1.37" />
 	</ItemGroup>
