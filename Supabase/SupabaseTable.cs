@@ -12,13 +12,23 @@ namespace Supabase
     {
         private Channel channel;
 
-        public SupabaseTable() : base(Client.Instance.RestUrl, new Postgrest.ClientOptions { Headers = Client.Instance.GetAuthHeaders(), Schema = Client.Instance.Schema })
+        public SupabaseTable() : base(Client.Instance.RestUrl, new Postgrest.ClientOptions { Headers = Instance.GetAuthHeaders(), Schema = Instance.Schema })
         {}
 
         public async Task<Channel> On(ChannelEventType e, Action<object, SocketResponseEventArgs> action)
         {
-            if (channel == null)
-                channel = Client.Instance.Realtime.Channel("realtime", Instance.Schema, TableName);
+            if (channel == null) {
+                var parameters = new Dictionary<string, string>();
+
+                // In regard to: https://github.com/supabase/supabase-js/pull/270
+                var headers = Instance.GetAuthHeaders();
+                if (headers.ContainsKey("Authorization"))
+                {
+                    parameters.Add("user_token", headers["Authorization"].Split(' ')[1]);
+                }
+
+                channel = Instance.Realtime.Channel("realtime", Instance.Schema, TableName, parameters: parameters);
+            }
 
             if (Instance.Realtime.Socket == null || !Instance.Realtime.Socket.IsConnected)
                 await Instance.Realtime.ConnectAsync();
