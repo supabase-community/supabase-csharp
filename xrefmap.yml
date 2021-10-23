@@ -45,6 +45,25 @@ references:
   isSpec: "True"
   fullName: Postgrest.Attributes.ColumnAttribute.ColumnName
   nameWithType: ColumnAttribute.ColumnName
+- uid: Postgrest.Attributes.PostgrestContractResolver
+  name: PostgrestContractResolver
+  href: api/Postgrest.Attributes.PostgrestContractResolver.html
+  commentId: T:Postgrest.Attributes.PostgrestContractResolver
+  fullName: Postgrest.Attributes.PostgrestContractResolver
+  nameWithType: PostgrestContractResolver
+- uid: Postgrest.Attributes.PostgrestContractResolver.CreateProperty(MemberInfo,MemberSerialization)
+  name: CreateProperty(MemberInfo, MemberSerialization)
+  href: api/Postgrest.Attributes.PostgrestContractResolver.html#Postgrest_Attributes_PostgrestContractResolver_CreateProperty_MemberInfo_MemberSerialization_
+  commentId: M:Postgrest.Attributes.PostgrestContractResolver.CreateProperty(MemberInfo,MemberSerialization)
+  fullName: Postgrest.Attributes.PostgrestContractResolver.CreateProperty(MemberInfo, MemberSerialization)
+  nameWithType: PostgrestContractResolver.CreateProperty(MemberInfo, MemberSerialization)
+- uid: Postgrest.Attributes.PostgrestContractResolver.CreateProperty*
+  name: CreateProperty
+  href: api/Postgrest.Attributes.PostgrestContractResolver.html#Postgrest_Attributes_PostgrestContractResolver_CreateProperty_
+  commentId: Overload:Postgrest.Attributes.PostgrestContractResolver.CreateProperty
+  isSpec: "True"
+  fullName: Postgrest.Attributes.PostgrestContractResolver.CreateProperty
+  nameWithType: PostgrestContractResolver.CreateProperty
 - uid: Postgrest.Attributes.PrimaryKeyAttribute
   name: PrimaryKeyAttribute
   href: api/Postgrest.Attributes.PrimaryKeyAttribute.html
@@ -491,6 +510,70 @@ references:
   commentId: F:Postgrest.Constants.Ordering.Descending
   fullName: Postgrest.Constants.Ordering.Descending
   nameWithType: Constants.Ordering.Descending
+- uid: Postgrest.Converters
+  name: Postgrest.Converters
+  href: api/Postgrest.Converters.html
+  commentId: N:Postgrest.Converters
+  fullName: Postgrest.Converters
+  nameWithType: Postgrest.Converters
+- uid: Postgrest.Converters.IntArrayConverter
+  name: IntArrayConverter
+  href: api/Postgrest.Converters.IntArrayConverter.html
+  commentId: T:Postgrest.Converters.IntArrayConverter
+  fullName: Postgrest.Converters.IntArrayConverter
+  nameWithType: IntArrayConverter
+- uid: Postgrest.Converters.IntArrayConverter.CanConvert(Type)
+  name: CanConvert(Type)
+  href: api/Postgrest.Converters.IntArrayConverter.html#Postgrest_Converters_IntArrayConverter_CanConvert_Type_
+  commentId: M:Postgrest.Converters.IntArrayConverter.CanConvert(Type)
+  fullName: Postgrest.Converters.IntArrayConverter.CanConvert(Type)
+  nameWithType: IntArrayConverter.CanConvert(Type)
+- uid: Postgrest.Converters.IntArrayConverter.CanConvert*
+  name: CanConvert
+  href: api/Postgrest.Converters.IntArrayConverter.html#Postgrest_Converters_IntArrayConverter_CanConvert_
+  commentId: Overload:Postgrest.Converters.IntArrayConverter.CanConvert
+  isSpec: "True"
+  fullName: Postgrest.Converters.IntArrayConverter.CanConvert
+  nameWithType: IntArrayConverter.CanConvert
+- uid: Postgrest.Converters.IntArrayConverter.CanRead
+  name: CanRead
+  href: api/Postgrest.Converters.IntArrayConverter.html#Postgrest_Converters_IntArrayConverter_CanRead
+  commentId: P:Postgrest.Converters.IntArrayConverter.CanRead
+  fullName: Postgrest.Converters.IntArrayConverter.CanRead
+  nameWithType: IntArrayConverter.CanRead
+- uid: Postgrest.Converters.IntArrayConverter.CanRead*
+  name: CanRead
+  href: api/Postgrest.Converters.IntArrayConverter.html#Postgrest_Converters_IntArrayConverter_CanRead_
+  commentId: Overload:Postgrest.Converters.IntArrayConverter.CanRead
+  isSpec: "True"
+  fullName: Postgrest.Converters.IntArrayConverter.CanRead
+  nameWithType: IntArrayConverter.CanRead
+- uid: Postgrest.Converters.IntArrayConverter.ReadJson(JsonReader,Type,System.Object,JsonSerializer)
+  name: ReadJson(JsonReader, Type, Object, JsonSerializer)
+  href: api/Postgrest.Converters.IntArrayConverter.html#Postgrest_Converters_IntArrayConverter_ReadJson_JsonReader_Type_System_Object_JsonSerializer_
+  commentId: M:Postgrest.Converters.IntArrayConverter.ReadJson(JsonReader,Type,System.Object,JsonSerializer)
+  fullName: Postgrest.Converters.IntArrayConverter.ReadJson(JsonReader, Type, System.Object, JsonSerializer)
+  nameWithType: IntArrayConverter.ReadJson(JsonReader, Type, Object, JsonSerializer)
+- uid: Postgrest.Converters.IntArrayConverter.ReadJson*
+  name: ReadJson
+  href: api/Postgrest.Converters.IntArrayConverter.html#Postgrest_Converters_IntArrayConverter_ReadJson_
+  commentId: Overload:Postgrest.Converters.IntArrayConverter.ReadJson
+  isSpec: "True"
+  fullName: Postgrest.Converters.IntArrayConverter.ReadJson
+  nameWithType: IntArrayConverter.ReadJson
+- uid: Postgrest.Converters.IntArrayConverter.WriteJson(JsonWriter,System.Object,JsonSerializer)
+  name: WriteJson(JsonWriter, Object, JsonSerializer)
+  href: api/Postgrest.Converters.IntArrayConverter.html#Postgrest_Converters_IntArrayConverter_WriteJson_JsonWriter_System_Object_JsonSerializer_
+  commentId: M:Postgrest.Converters.IntArrayConverter.WriteJson(JsonWriter,System.Object,JsonSerializer)
+  fullName: Postgrest.Converters.IntArrayConverter.WriteJson(JsonWriter, System.Object, JsonSerializer)
+  nameWithType: IntArrayConverter.WriteJson(JsonWriter, Object, JsonSerializer)
+- uid: Postgrest.Converters.IntArrayConverter.WriteJson*
+  name: WriteJson
+  href: api/Postgrest.Converters.IntArrayConverter.html#Postgrest_Converters_IntArrayConverter_WriteJson_
+  commentId: Overload:Postgrest.Converters.IntArrayConverter.WriteJson
+  isSpec: "True"
+  fullName: Postgrest.Converters.IntArrayConverter.WriteJson
+  nameWithType: IntArrayConverter.WriteJson
 - uid: Postgrest.Extensions
   name: Postgrest.Extensions
   href: api/Postgrest.Extensions.html
@@ -3696,12 +3779,15 @@ references:
   commentId: T:Supabase.Realtime.Channel
   fullName: Supabase.Realtime.Channel
   nameWithType: Channel
-- uid: Supabase.Realtime.Channel.#ctor(System.String,System.String,System.String,System.String,System.String)
-  name: Channel(String, String, String, String, String)
-  href: api/Supabase.Realtime.Channel.html#Supabase_Realtime_Channel__ctor_System_String_System_String_System_String_System_String_System_String_
-  commentId: M:Supabase.Realtime.Channel.#ctor(System.String,System.String,System.String,System.String,System.String)
-  fullName: Supabase.Realtime.Channel.Channel(System.String, System.String, System.String, System.String, System.String)
-  nameWithType: Channel.Channel(String, String, String, String, String)
+- uid: Supabase.Realtime.Channel.#ctor(System.String,System.String,System.String,System.String,System.String,Dictionary{System.String,System.String})
+  name: Channel(String, String, String, String, String, Dictionary<String, String>)
+  href: api/Supabase.Realtime.Channel.html#Supabase_Realtime_Channel__ctor_System_String_System_String_System_String_System_String_System_String_Dictionary_System_String_System_String__
+  commentId: M:Supabase.Realtime.Channel.#ctor(System.String,System.String,System.String,System.String,System.String,Dictionary{System.String,System.String})
+  name.vb: Channel(String, String, String, String, String, Dictionary(Of String, String))
+  fullName: Supabase.Realtime.Channel.Channel(System.String, System.String, System.String, System.String, System.String, Dictionary<System.String, System.String>)
+  fullName.vb: Supabase.Realtime.Channel.Channel(System.String, System.String, System.String, System.String, System.String, Dictionary(Of System.String, System.String))
+  nameWithType: Channel.Channel(String, String, String, String, String, Dictionary<String, String>)
+  nameWithType.vb: Channel.Channel(String, String, String, String, String, Dictionary(Of String, String))
 - uid: Supabase.Realtime.Channel.#ctor*
   name: Channel
   href: api/Supabase.Realtime.Channel.html#Supabase_Realtime_Channel__ctor_
@@ -3846,6 +3932,12 @@ references:
   commentId: E:Supabase.Realtime.Channel.OnUpdate
   fullName: Supabase.Realtime.Channel.OnUpdate
   nameWithType: Channel.OnUpdate
+- uid: Supabase.Realtime.Channel.Parameters
+  name: Parameters
+  href: api/Supabase.Realtime.Channel.html#Supabase_Realtime_Channel_Parameters
+  commentId: F:Supabase.Realtime.Channel.Parameters
+  fullName: Supabase.Realtime.Channel.Parameters
+  nameWithType: Channel.Parameters
 - uid: Supabase.Realtime.Channel.Push(System.String,System.Object,System.Int32)
   name: Push(String, Object, Int32)
   href: api/Supabase.Realtime.Channel.html#Supabase_Realtime_Channel_Push_System_String_System_Object_System_Int32_
@@ -3981,12 +4073,15 @@ references:
   commentId: T:Supabase.Realtime.Client
   fullName: Supabase.Realtime.Client
   nameWithType: Client
-- uid: Supabase.Realtime.Client.Channel(System.String,System.String,System.String,System.String,System.String)
-  name: Channel(String, String, String, String, String)
-  href: api/Supabase.Realtime.Client.html#Supabase_Realtime_Client_Channel_System_String_System_String_System_String_System_String_System_String_
-  commentId: M:Supabase.Realtime.Client.Channel(System.String,System.String,System.String,System.String,System.String)
-  fullName: Supabase.Realtime.Client.Channel(System.String, System.String, System.String, System.String, System.String)
-  nameWithType: Client.Channel(String, String, String, String, String)
+- uid: Supabase.Realtime.Client.Channel(System.String,System.String,System.String,System.String,System.String,Dictionary{System.String,System.String})
+  name: Channel(String, String, String, String, String, Dictionary<String, String>)
+  href: api/Supabase.Realtime.Client.html#Supabase_Realtime_Client_Channel_System_String_System_String_System_String_System_String_System_String_Dictionary_System_String_System_String__
+  commentId: M:Supabase.Realtime.Client.Channel(System.String,System.String,System.String,System.String,System.String,Dictionary{System.String,System.String})
+  name.vb: Channel(String, String, String, String, String, Dictionary(Of String, String))
+  fullName: Supabase.Realtime.Client.Channel(System.String, System.String, System.String, System.String, System.String, Dictionary<System.String, System.String>)
+  fullName.vb: Supabase.Realtime.Client.Channel(System.String, System.String, System.String, System.String, System.String, Dictionary(Of System.String, System.String))
+  nameWithType: Client.Channel(String, String, String, String, String, Dictionary<String, String>)
+  nameWithType.vb: Client.Channel(String, String, String, String, String, Dictionary(Of String, String))
 - uid: Supabase.Realtime.Client.Channel*
   name: Channel
   href: api/Supabase.Realtime.Client.html#Supabase_Realtime_Client_Channel_
@@ -4397,6 +4492,77 @@ references:
   commentId: F:Supabase.Realtime.Constants.WS_CLOSE_NORMAL
   fullName: Supabase.Realtime.Constants.WS_CLOSE_NORMAL
   nameWithType: Constants.WS_CLOSE_NORMAL
+- uid: Supabase.Realtime.IntArrayConverter
+  name: IntArrayConverter
+  href: api/Supabase.Realtime.IntArrayConverter.html
+  commentId: T:Supabase.Realtime.IntArrayConverter
+  fullName: Supabase.Realtime.IntArrayConverter
+  nameWithType: IntArrayConverter
+- uid: Supabase.Realtime.IntArrayConverter.CanConvert(Type)
+  name: CanConvert(Type)
+  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_CanConvert_Type_
+  commentId: M:Supabase.Realtime.IntArrayConverter.CanConvert(Type)
+  fullName: Supabase.Realtime.IntArrayConverter.CanConvert(Type)
+  nameWithType: IntArrayConverter.CanConvert(Type)
+- uid: Supabase.Realtime.IntArrayConverter.CanConvert*
+  name: CanConvert
+  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_CanConvert_
+  commentId: Overload:Supabase.Realtime.IntArrayConverter.CanConvert
+  isSpec: "True"
+  fullName: Supabase.Realtime.IntArrayConverter.CanConvert
+  nameWithType: IntArrayConverter.CanConvert
+- uid: Supabase.Realtime.IntArrayConverter.CanRead
+  name: CanRead
+  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_CanRead
+  commentId: P:Supabase.Realtime.IntArrayConverter.CanRead
+  fullName: Supabase.Realtime.IntArrayConverter.CanRead
+  nameWithType: IntArrayConverter.CanRead
+- uid: Supabase.Realtime.IntArrayConverter.CanRead*
+  name: CanRead
+  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_CanRead_
+  commentId: Overload:Supabase.Realtime.IntArrayConverter.CanRead
+  isSpec: "True"
+  fullName: Supabase.Realtime.IntArrayConverter.CanRead
+  nameWithType: IntArrayConverter.CanRead
+- uid: Supabase.Realtime.IntArrayConverter.CanWrite
+  name: CanWrite
+  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_CanWrite
+  commentId: P:Supabase.Realtime.IntArrayConverter.CanWrite
+  fullName: Supabase.Realtime.IntArrayConverter.CanWrite
+  nameWithType: IntArrayConverter.CanWrite
+- uid: Supabase.Realtime.IntArrayConverter.CanWrite*
+  name: CanWrite
+  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_CanWrite_
+  commentId: Overload:Supabase.Realtime.IntArrayConverter.CanWrite
+  isSpec: "True"
+  fullName: Supabase.Realtime.IntArrayConverter.CanWrite
+  nameWithType: IntArrayConverter.CanWrite
+- uid: Supabase.Realtime.IntArrayConverter.ReadJson(JsonReader,Type,System.Object,JsonSerializer)
+  name: ReadJson(JsonReader, Type, Object, JsonSerializer)
+  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_ReadJson_JsonReader_Type_System_Object_JsonSerializer_
+  commentId: M:Supabase.Realtime.IntArrayConverter.ReadJson(JsonReader,Type,System.Object,JsonSerializer)
+  fullName: Supabase.Realtime.IntArrayConverter.ReadJson(JsonReader, Type, System.Object, JsonSerializer)
+  nameWithType: IntArrayConverter.ReadJson(JsonReader, Type, Object, JsonSerializer)
+- uid: Supabase.Realtime.IntArrayConverter.ReadJson*
+  name: ReadJson
+  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_ReadJson_
+  commentId: Overload:Supabase.Realtime.IntArrayConverter.ReadJson
+  isSpec: "True"
+  fullName: Supabase.Realtime.IntArrayConverter.ReadJson
+  nameWithType: IntArrayConverter.ReadJson
+- uid: Supabase.Realtime.IntArrayConverter.WriteJson(JsonWriter,System.Object,JsonSerializer)
+  name: WriteJson(JsonWriter, Object, JsonSerializer)
+  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_WriteJson_JsonWriter_System_Object_JsonSerializer_
+  commentId: M:Supabase.Realtime.IntArrayConverter.WriteJson(JsonWriter,System.Object,JsonSerializer)
+  fullName: Supabase.Realtime.IntArrayConverter.WriteJson(JsonWriter, System.Object, JsonSerializer)
+  nameWithType: IntArrayConverter.WriteJson(JsonWriter, Object, JsonSerializer)
+- uid: Supabase.Realtime.IntArrayConverter.WriteJson*
+  name: WriteJson
+  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_WriteJson_
+  commentId: Overload:Supabase.Realtime.IntArrayConverter.WriteJson
+  isSpec: "True"
+  fullName: Supabase.Realtime.IntArrayConverter.WriteJson
+  nameWithType: IntArrayConverter.WriteJson
 - uid: Supabase.Realtime.PheonixResponse
   name: PheonixResponse
   href: api/Supabase.Realtime.PheonixResponse.html
@@ -4473,6 +4639,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Realtime.Push.IsSent
   nameWithType: Push.IsSent
+- uid: Supabase.Realtime.Push.Message
+  name: Message
+  href: api/Supabase.Realtime.Push.html#Supabase_Realtime_Push_Message
+  commentId: P:Supabase.Realtime.Push.Message
+  fullName: Supabase.Realtime.Push.Message
+  nameWithType: Push.Message
+- uid: Supabase.Realtime.Push.Message*
+  name: Message
+  href: api/Supabase.Realtime.Push.html#Supabase_Realtime_Push_Message_
+  commentId: Overload:Supabase.Realtime.Push.Message
+  isSpec: "True"
+  fullName: Supabase.Realtime.Push.Message
+  nameWithType: Push.Message
 - uid: Supabase.Realtime.Push.OnMessage
   name: OnMessage
   href: api/Supabase.Realtime.Push.html#Supabase_Realtime_Push_OnMessage
