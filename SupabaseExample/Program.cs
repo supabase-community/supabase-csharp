@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
+using Supabase.Gotrue;
+using static Supabase.Gotrue.Client;
 
 namespace SupabaseExample
 {
@@ -15,6 +18,15 @@ namespace SupabaseExample
             var key = Environment.GetEnvironmentVariable("SUPABASE_KEY");
 
             await Supabase.Client.InitializeAsync(url, key, new Supabase.SupabaseOptions { AutoConnectRealtime = true, ShouldInitializeRealtime = true });
+
+            try
+            {
+                var instance = Supabase.Client.Instance;
+            }
+            catch (Exception ex)
+            {
+                // Handle exception here
+            }
 
             var reference = Supabase.Client.Instance.From<Models.Channel>();
 
