@@ -4492,77 +4492,199 @@ references:
   commentId: F:Supabase.Realtime.Constants.WS_CLOSE_NORMAL
   fullName: Supabase.Realtime.Constants.WS_CLOSE_NORMAL
   nameWithType: Constants.WS_CLOSE_NORMAL
-- uid: Supabase.Realtime.IntArrayConverter
+- uid: Supabase.Realtime.Converters
+  name: Supabase.Realtime.Converters
+  href: api/Supabase.Realtime.Converters.html
+  commentId: N:Supabase.Realtime.Converters
+  fullName: Supabase.Realtime.Converters
+  nameWithType: Supabase.Realtime.Converters
+- uid: Supabase.Realtime.Converters.IntArrayConverter
   name: IntArrayConverter
-  href: api/Supabase.Realtime.IntArrayConverter.html
-  commentId: T:Supabase.Realtime.IntArrayConverter
-  fullName: Supabase.Realtime.IntArrayConverter
+  href: api/Supabase.Realtime.Converters.IntArrayConverter.html
+  commentId: T:Supabase.Realtime.Converters.IntArrayConverter
+  fullName: Supabase.Realtime.Converters.IntArrayConverter
   nameWithType: IntArrayConverter
-- uid: Supabase.Realtime.IntArrayConverter.CanConvert(Type)
+- uid: Supabase.Realtime.Converters.IntArrayConverter.CanConvert(Type)
   name: CanConvert(Type)
-  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_CanConvert_Type_
-  commentId: M:Supabase.Realtime.IntArrayConverter.CanConvert(Type)
-  fullName: Supabase.Realtime.IntArrayConverter.CanConvert(Type)
+  href: api/Supabase.Realtime.Converters.IntArrayConverter.html#Supabase_Realtime_Converters_IntArrayConverter_CanConvert_Type_
+  commentId: M:Supabase.Realtime.Converters.IntArrayConverter.CanConvert(Type)
+  fullName: Supabase.Realtime.Converters.IntArrayConverter.CanConvert(Type)
   nameWithType: IntArrayConverter.CanConvert(Type)
-- uid: Supabase.Realtime.IntArrayConverter.CanConvert*
+- uid: Supabase.Realtime.Converters.IntArrayConverter.CanConvert*
   name: CanConvert
-  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_CanConvert_
-  commentId: Overload:Supabase.Realtime.IntArrayConverter.CanConvert
+  href: api/Supabase.Realtime.Converters.IntArrayConverter.html#Supabase_Realtime_Converters_IntArrayConverter_CanConvert_
+  commentId: Overload:Supabase.Realtime.Converters.IntArrayConverter.CanConvert
   isSpec: "True"
-  fullName: Supabase.Realtime.IntArrayConverter.CanConvert
+  fullName: Supabase.Realtime.Converters.IntArrayConverter.CanConvert
   nameWithType: IntArrayConverter.CanConvert
-- uid: Supabase.Realtime.IntArrayConverter.CanRead
+- uid: Supabase.Realtime.Converters.IntArrayConverter.CanRead
   name: CanRead
-  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_CanRead
-  commentId: P:Supabase.Realtime.IntArrayConverter.CanRead
-  fullName: Supabase.Realtime.IntArrayConverter.CanRead
+  href: api/Supabase.Realtime.Converters.IntArrayConverter.html#Supabase_Realtime_Converters_IntArrayConverter_CanRead
+  commentId: P:Supabase.Realtime.Converters.IntArrayConverter.CanRead
+  fullName: Supabase.Realtime.Converters.IntArrayConverter.CanRead
   nameWithType: IntArrayConverter.CanRead
-- uid: Supabase.Realtime.IntArrayConverter.CanRead*
+- uid: Supabase.Realtime.Converters.IntArrayConverter.CanRead*
   name: CanRead
-  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_CanRead_
-  commentId: Overload:Supabase.Realtime.IntArrayConverter.CanRead
+  href: api/Supabase.Realtime.Converters.IntArrayConverter.html#Supabase_Realtime_Converters_IntArrayConverter_CanRead_
+  commentId: Overload:Supabase.Realtime.Converters.IntArrayConverter.CanRead
   isSpec: "True"
-  fullName: Supabase.Realtime.IntArrayConverter.CanRead
+  fullName: Supabase.Realtime.Converters.IntArrayConverter.CanRead
   nameWithType: IntArrayConverter.CanRead
-- uid: Supabase.Realtime.IntArrayConverter.CanWrite
+- uid: Supabase.Realtime.Converters.IntArrayConverter.CanWrite
   name: CanWrite
-  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_CanWrite
-  commentId: P:Supabase.Realtime.IntArrayConverter.CanWrite
-  fullName: Supabase.Realtime.IntArrayConverter.CanWrite
+  href: api/Supabase.Realtime.Converters.IntArrayConverter.html#Supabase_Realtime_Converters_IntArrayConverter_CanWrite
+  commentId: P:Supabase.Realtime.Converters.IntArrayConverter.CanWrite
+  fullName: Supabase.Realtime.Converters.IntArrayConverter.CanWrite
   nameWithType: IntArrayConverter.CanWrite
-- uid: Supabase.Realtime.IntArrayConverter.CanWrite*
+- uid: Supabase.Realtime.Converters.IntArrayConverter.CanWrite*
   name: CanWrite
-  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_CanWrite_
-  commentId: Overload:Supabase.Realtime.IntArrayConverter.CanWrite
+  href: api/Supabase.Realtime.Converters.IntArrayConverter.html#Supabase_Realtime_Converters_IntArrayConverter_CanWrite_
+  commentId: Overload:Supabase.Realtime.Converters.IntArrayConverter.CanWrite
   isSpec: "True"
-  fullName: Supabase.Realtime.IntArrayConverter.CanWrite
+  fullName: Supabase.Realtime.Converters.IntArrayConverter.CanWrite
   nameWithType: IntArrayConverter.CanWrite
-- uid: Supabase.Realtime.IntArrayConverter.ReadJson(JsonReader,Type,System.Object,JsonSerializer)
+- uid: Supabase.Realtime.Converters.IntArrayConverter.ReadJson(JsonReader,Type,System.Object,JsonSerializer)
   name: ReadJson(JsonReader, Type, Object, JsonSerializer)
-  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_ReadJson_JsonReader_Type_System_Object_JsonSerializer_
-  commentId: M:Supabase.Realtime.IntArrayConverter.ReadJson(JsonReader,Type,System.Object,JsonSerializer)
-  fullName: Supabase.Realtime.IntArrayConverter.ReadJson(JsonReader, Type, System.Object, JsonSerializer)
+  href: api/Supabase.Realtime.Converters.IntArrayConverter.html#Supabase_Realtime_Converters_IntArrayConverter_ReadJson_JsonReader_Type_System_Object_JsonSerializer_
+  commentId: M:Supabase.Realtime.Converters.IntArrayConverter.ReadJson(JsonReader,Type,System.Object,JsonSerializer)
+  fullName: Supabase.Realtime.Converters.IntArrayConverter.ReadJson(JsonReader, Type, System.Object, JsonSerializer)
   nameWithType: IntArrayConverter.ReadJson(JsonReader, Type, Object, JsonSerializer)
-- uid: Supabase.Realtime.IntArrayConverter.ReadJson*
+- uid: Supabase.Realtime.Converters.IntArrayConverter.ReadJson*
   name: ReadJson
-  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_ReadJson_
-  commentId: Overload:Supabase.Realtime.IntArrayConverter.ReadJson
+  href: api/Supabase.Realtime.Converters.IntArrayConverter.html#Supabase_Realtime_Converters_IntArrayConverter_ReadJson_
+  commentId: Overload:Supabase.Realtime.Converters.IntArrayConverter.ReadJson
   isSpec: "True"
-  fullName: Supabase.Realtime.IntArrayConverter.ReadJson
+  fullName: Supabase.Realtime.Converters.IntArrayConverter.ReadJson
   nameWithType: IntArrayConverter.ReadJson
-- uid: Supabase.Realtime.IntArrayConverter.WriteJson(JsonWriter,System.Object,JsonSerializer)
+- uid: Supabase.Realtime.Converters.IntArrayConverter.WriteJson(JsonWriter,System.Object,JsonSerializer)
   name: WriteJson(JsonWriter, Object, JsonSerializer)
-  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_WriteJson_JsonWriter_System_Object_JsonSerializer_
-  commentId: M:Supabase.Realtime.IntArrayConverter.WriteJson(JsonWriter,System.Object,JsonSerializer)
-  fullName: Supabase.Realtime.IntArrayConverter.WriteJson(JsonWriter, System.Object, JsonSerializer)
+  href: api/Supabase.Realtime.Converters.IntArrayConverter.html#Supabase_Realtime_Converters_IntArrayConverter_WriteJson_JsonWriter_System_Object_JsonSerializer_
+  commentId: M:Supabase.Realtime.Converters.IntArrayConverter.WriteJson(JsonWriter,System.Object,JsonSerializer)
+  fullName: Supabase.Realtime.Converters.IntArrayConverter.WriteJson(JsonWriter, System.Object, JsonSerializer)
   nameWithType: IntArrayConverter.WriteJson(JsonWriter, Object, JsonSerializer)
-- uid: Supabase.Realtime.IntArrayConverter.WriteJson*
+- uid: Supabase.Realtime.Converters.IntArrayConverter.WriteJson*
   name: WriteJson
-  href: api/Supabase.Realtime.IntArrayConverter.html#Supabase_Realtime_IntArrayConverter_WriteJson_
-  commentId: Overload:Supabase.Realtime.IntArrayConverter.WriteJson
+  href: api/Supabase.Realtime.Converters.IntArrayConverter.html#Supabase_Realtime_Converters_IntArrayConverter_WriteJson_
+  commentId: Overload:Supabase.Realtime.Converters.IntArrayConverter.WriteJson
   isSpec: "True"
-  fullName: Supabase.Realtime.IntArrayConverter.WriteJson
+  fullName: Supabase.Realtime.Converters.IntArrayConverter.WriteJson
   nameWithType: IntArrayConverter.WriteJson
+- uid: Supabase.Realtime.Converters.StringArrayConverter
+  name: StringArrayConverter
+  href: api/Supabase.Realtime.Converters.StringArrayConverter.html
+  commentId: T:Supabase.Realtime.Converters.StringArrayConverter
+  fullName: Supabase.Realtime.Converters.StringArrayConverter
+  nameWithType: StringArrayConverter
+- uid: Supabase.Realtime.Converters.StringArrayConverter.CanConvert(Type)
+  name: CanConvert(Type)
+  href: api/Supabase.Realtime.Converters.StringArrayConverter.html#Supabase_Realtime_Converters_StringArrayConverter_CanConvert_Type_
+  commentId: M:Supabase.Realtime.Converters.StringArrayConverter.CanConvert(Type)
+  fullName: Supabase.Realtime.Converters.StringArrayConverter.CanConvert(Type)
+  nameWithType: StringArrayConverter.CanConvert(Type)
+- uid: Supabase.Realtime.Converters.StringArrayConverter.CanConvert*
+  name: CanConvert
+  href: api/Supabase.Realtime.Converters.StringArrayConverter.html#Supabase_Realtime_Converters_StringArrayConverter_CanConvert_
+  commentId: Overload:Supabase.Realtime.Converters.StringArrayConverter.CanConvert
+  isSpec: "True"
+  fullName: Supabase.Realtime.Converters.StringArrayConverter.CanConvert
+  nameWithType: StringArrayConverter.CanConvert
+- uid: Supabase.Realtime.Converters.StringArrayConverter.CanRead
+  name: CanRead
+  href: api/Supabase.Realtime.Converters.StringArrayConverter.html#Supabase_Realtime_Converters_StringArrayConverter_CanRead
+  commentId: P:Supabase.Realtime.Converters.StringArrayConverter.CanRead
+  fullName: Supabase.Realtime.Converters.StringArrayConverter.CanRead
+  nameWithType: StringArrayConverter.CanRead
+- uid: Supabase.Realtime.Converters.StringArrayConverter.CanRead*
+  name: CanRead
+  href: api/Supabase.Realtime.Converters.StringArrayConverter.html#Supabase_Realtime_Converters_StringArrayConverter_CanRead_
+  commentId: Overload:Supabase.Realtime.Converters.StringArrayConverter.CanRead
+  isSpec: "True"
+  fullName: Supabase.Realtime.Converters.StringArrayConverter.CanRead
+  nameWithType: StringArrayConverter.CanRead
+- uid: Supabase.Realtime.Converters.StringArrayConverter.CanWrite
+  name: CanWrite
+  href: api/Supabase.Realtime.Converters.StringArrayConverter.html#Supabase_Realtime_Converters_StringArrayConverter_CanWrite
+  commentId: P:Supabase.Realtime.Converters.StringArrayConverter.CanWrite
+  fullName: Supabase.Realtime.Converters.StringArrayConverter.CanWrite
+  nameWithType: StringArrayConverter.CanWrite
+- uid: Supabase.Realtime.Converters.StringArrayConverter.CanWrite*
+  name: CanWrite
+  href: api/Supabase.Realtime.Converters.StringArrayConverter.html#Supabase_Realtime_Converters_StringArrayConverter_CanWrite_
+  commentId: Overload:Supabase.Realtime.Converters.StringArrayConverter.CanWrite
+  isSpec: "True"
+  fullName: Supabase.Realtime.Converters.StringArrayConverter.CanWrite
+  nameWithType: StringArrayConverter.CanWrite
+- uid: Supabase.Realtime.Converters.StringArrayConverter.ReadJson(JsonReader,Type,System.Object,JsonSerializer)
+  name: ReadJson(JsonReader, Type, Object, JsonSerializer)
+  href: api/Supabase.Realtime.Converters.StringArrayConverter.html#Supabase_Realtime_Converters_StringArrayConverter_ReadJson_JsonReader_Type_System_Object_JsonSerializer_
+  commentId: M:Supabase.Realtime.Converters.StringArrayConverter.ReadJson(JsonReader,Type,System.Object,JsonSerializer)
+  fullName: Supabase.Realtime.Converters.StringArrayConverter.ReadJson(JsonReader, Type, System.Object, JsonSerializer)
+  nameWithType: StringArrayConverter.ReadJson(JsonReader, Type, Object, JsonSerializer)
+- uid: Supabase.Realtime.Converters.StringArrayConverter.ReadJson*
+  name: ReadJson
+  href: api/Supabase.Realtime.Converters.StringArrayConverter.html#Supabase_Realtime_Converters_StringArrayConverter_ReadJson_
+  commentId: Overload:Supabase.Realtime.Converters.StringArrayConverter.ReadJson
+  isSpec: "True"
+  fullName: Supabase.Realtime.Converters.StringArrayConverter.ReadJson
+  nameWithType: StringArrayConverter.ReadJson
+- uid: Supabase.Realtime.Converters.StringArrayConverter.WriteJson(JsonWriter,System.Object,JsonSerializer)
+  name: WriteJson(JsonWriter, Object, JsonSerializer)
+  href: api/Supabase.Realtime.Converters.StringArrayConverter.html#Supabase_Realtime_Converters_StringArrayConverter_WriteJson_JsonWriter_System_Object_JsonSerializer_
+  commentId: M:Supabase.Realtime.Converters.StringArrayConverter.WriteJson(JsonWriter,System.Object,JsonSerializer)
+  fullName: Supabase.Realtime.Converters.StringArrayConverter.WriteJson(JsonWriter, System.Object, JsonSerializer)
+  nameWithType: StringArrayConverter.WriteJson(JsonWriter, Object, JsonSerializer)
+- uid: Supabase.Realtime.Converters.StringArrayConverter.WriteJson*
+  name: WriteJson
+  href: api/Supabase.Realtime.Converters.StringArrayConverter.html#Supabase_Realtime_Converters_StringArrayConverter_WriteJson_
+  commentId: Overload:Supabase.Realtime.Converters.StringArrayConverter.WriteJson
+  isSpec: "True"
+  fullName: Supabase.Realtime.Converters.StringArrayConverter.WriteJson
+  nameWithType: StringArrayConverter.WriteJson
+- uid: Supabase.Realtime.Converters.TimestampConverter
+  name: TimestampConverter
+  href: api/Supabase.Realtime.Converters.TimestampConverter.html
+  commentId: T:Supabase.Realtime.Converters.TimestampConverter
+  fullName: Supabase.Realtime.Converters.TimestampConverter
+  nameWithType: TimestampConverter
+- uid: Supabase.Realtime.Converters.TimestampConverter.CanConvert(Type)
+  name: CanConvert(Type)
+  href: api/Supabase.Realtime.Converters.TimestampConverter.html#Supabase_Realtime_Converters_TimestampConverter_CanConvert_Type_
+  commentId: M:Supabase.Realtime.Converters.TimestampConverter.CanConvert(Type)
+  fullName: Supabase.Realtime.Converters.TimestampConverter.CanConvert(Type)
+  nameWithType: TimestampConverter.CanConvert(Type)
+- uid: Supabase.Realtime.Converters.TimestampConverter.CanConvert*
+  name: CanConvert
+  href: api/Supabase.Realtime.Converters.TimestampConverter.html#Supabase_Realtime_Converters_TimestampConverter_CanConvert_
+  commentId: Overload:Supabase.Realtime.Converters.TimestampConverter.CanConvert
+  isSpec: "True"
+  fullName: Supabase.Realtime.Converters.TimestampConverter.CanConvert
+  nameWithType: TimestampConverter.CanConvert
+- uid: Supabase.Realtime.Converters.TimestampConverter.ReadJson(JsonReader,Type,System.Object,JsonSerializer)
+  name: ReadJson(JsonReader, Type, Object, JsonSerializer)
+  href: api/Supabase.Realtime.Converters.TimestampConverter.html#Supabase_Realtime_Converters_TimestampConverter_ReadJson_JsonReader_Type_System_Object_JsonSerializer_
+  commentId: M:Supabase.Realtime.Converters.TimestampConverter.ReadJson(JsonReader,Type,System.Object,JsonSerializer)
+  fullName: Supabase.Realtime.Converters.TimestampConverter.ReadJson(JsonReader, Type, System.Object, JsonSerializer)
+  nameWithType: TimestampConverter.ReadJson(JsonReader, Type, Object, JsonSerializer)
+- uid: Supabase.Realtime.Converters.TimestampConverter.ReadJson*
+  name: ReadJson
+  href: api/Supabase.Realtime.Converters.TimestampConverter.html#Supabase_Realtime_Converters_TimestampConverter_ReadJson_
+  commentId: Overload:Supabase.Realtime.Converters.TimestampConverter.ReadJson
+  isSpec: "True"
+  fullName: Supabase.Realtime.Converters.TimestampConverter.ReadJson
+  nameWithType: TimestampConverter.ReadJson
+- uid: Supabase.Realtime.Converters.TimestampConverter.WriteJson(JsonWriter,System.Object,JsonSerializer)
+  name: WriteJson(JsonWriter, Object, JsonSerializer)
+  href: api/Supabase.Realtime.Converters.TimestampConverter.html#Supabase_Realtime_Converters_TimestampConverter_WriteJson_JsonWriter_System_Object_JsonSerializer_
+  commentId: M:Supabase.Realtime.Converters.TimestampConverter.WriteJson(JsonWriter,System.Object,JsonSerializer)
+  fullName: Supabase.Realtime.Converters.TimestampConverter.WriteJson(JsonWriter, System.Object, JsonSerializer)
+  nameWithType: TimestampConverter.WriteJson(JsonWriter, Object, JsonSerializer)
+- uid: Supabase.Realtime.Converters.TimestampConverter.WriteJson*
+  name: WriteJson
+  href: api/Supabase.Realtime.Converters.TimestampConverter.html#Supabase_Realtime_Converters_TimestampConverter_WriteJson_
+  commentId: Overload:Supabase.Realtime.Converters.TimestampConverter.WriteJson
+  isSpec: "True"
+  fullName: Supabase.Realtime.Converters.TimestampConverter.WriteJson
+  nameWithType: TimestampConverter.WriteJson
 - uid: Supabase.Realtime.PheonixResponse
   name: PheonixResponse
   href: api/Supabase.Realtime.PheonixResponse.html
@@ -4735,51 +4857,6 @@ references:
   commentId: T:Supabase.Realtime.PushTimeoutException
   fullName: Supabase.Realtime.PushTimeoutException
   nameWithType: PushTimeoutException
-- uid: Supabase.Realtime.RealtimeTimestampConverter
-  name: RealtimeTimestampConverter
-  href: api/Supabase.Realtime.RealtimeTimestampConverter.html
-  commentId: T:Supabase.Realtime.RealtimeTimestampConverter
-  fullName: Supabase.Realtime.RealtimeTimestampConverter
-  nameWithType: RealtimeTimestampConverter
-- uid: Supabase.Realtime.RealtimeTimestampConverter.CanConvert(Type)
-  name: CanConvert(Type)
-  href: api/Supabase.Realtime.RealtimeTimestampConverter.html#Supabase_Realtime_RealtimeTimestampConverter_CanConvert_Type_
-  commentId: M:Supabase.Realtime.RealtimeTimestampConverter.CanConvert(Type)
-  fullName: Supabase.Realtime.RealtimeTimestampConverter.CanConvert(Type)
-  nameWithType: RealtimeTimestampConverter.CanConvert(Type)
-- uid: Supabase.Realtime.RealtimeTimestampConverter.CanConvert*
-  name: CanConvert
-  href: api/Supabase.Realtime.RealtimeTimestampConverter.html#Supabase_Realtime_RealtimeTimestampConverter_CanConvert_
-  commentId: Overload:Supabase.Realtime.RealtimeTimestampConverter.CanConvert
-  isSpec: "True"
-  fullName: Supabase.Realtime.RealtimeTimestampConverter.CanConvert
-  nameWithType: RealtimeTimestampConverter.CanConvert
-- uid: Supabase.Realtime.RealtimeTimestampConverter.ReadJson(JsonReader,Type,System.Object,JsonSerializer)
-  name: ReadJson(JsonReader, Type, Object, JsonSerializer)
-  href: api/Supabase.Realtime.RealtimeTimestampConverter.html#Supabase_Realtime_RealtimeTimestampConverter_ReadJson_JsonReader_Type_System_Object_JsonSerializer_
-  commentId: M:Supabase.Realtime.RealtimeTimestampConverter.ReadJson(JsonReader,Type,System.Object,JsonSerializer)
-  fullName: Supabase.Realtime.RealtimeTimestampConverter.ReadJson(JsonReader, Type, System.Object, JsonSerializer)
-  nameWithType: RealtimeTimestampConverter.ReadJson(JsonReader, Type, Object, JsonSerializer)
-- uid: Supabase.Realtime.RealtimeTimestampConverter.ReadJson*
-  name: ReadJson
-  href: api/Supabase.Realtime.RealtimeTimestampConverter.html#Supabase_Realtime_RealtimeTimestampConverter_ReadJson_
-  commentId: Overload:Supabase.Realtime.RealtimeTimestampConverter.ReadJson
-  isSpec: "True"
-  fullName: Supabase.Realtime.RealtimeTimestampConverter.ReadJson
-  nameWithType: RealtimeTimestampConverter.ReadJson
-- uid: Supabase.Realtime.RealtimeTimestampConverter.WriteJson(JsonWriter,System.Object,JsonSerializer)
-  name: WriteJson(JsonWriter, Object, JsonSerializer)
-  href: api/Supabase.Realtime.RealtimeTimestampConverter.html#Supabase_Realtime_RealtimeTimestampConverter_WriteJson_JsonWriter_System_Object_JsonSerializer_
-  commentId: M:Supabase.Realtime.RealtimeTimestampConverter.WriteJson(JsonWriter,System.Object,JsonSerializer)
-  fullName: Supabase.Realtime.RealtimeTimestampConverter.WriteJson(JsonWriter, System.Object, JsonSerializer)
-  nameWithType: RealtimeTimestampConverter.WriteJson(JsonWriter, Object, JsonSerializer)
-- uid: Supabase.Realtime.RealtimeTimestampConverter.WriteJson*
-  name: WriteJson
-  href: api/Supabase.Realtime.RealtimeTimestampConverter.html#Supabase_Realtime_RealtimeTimestampConverter_WriteJson_
-  commentId: Overload:Supabase.Realtime.RealtimeTimestampConverter.WriteJson
-  isSpec: "True"
-  fullName: Supabase.Realtime.RealtimeTimestampConverter.WriteJson
-  nameWithType: RealtimeTimestampConverter.WriteJson
 - uid: Supabase.Realtime.Socket
   name: Socket
   href: api/Supabase.Realtime.Socket.html
