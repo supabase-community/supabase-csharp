@@ -2760,6 +2760,18 @@ references:
   commentId: F:Supabase.Gotrue.Client.Provider.Google
   fullName: Supabase.Gotrue.Client.Provider.Google
   nameWithType: Client.Provider.Google
+- uid: Supabase.Gotrue.Client.Provider.Slack
+  name: Slack
+  href: api/Supabase.Gotrue.Client.Provider.html#Supabase_Gotrue_Client_Provider_Slack
+  commentId: F:Supabase.Gotrue.Client.Provider.Slack
+  fullName: Supabase.Gotrue.Client.Provider.Slack
+  nameWithType: Client.Provider.Slack
+- uid: Supabase.Gotrue.Client.Provider.Spotify
+  name: Spotify
+  href: api/Supabase.Gotrue.Client.Provider.html#Supabase_Gotrue_Client_Provider_Spotify
+  commentId: F:Supabase.Gotrue.Client.Provider.Spotify
+  fullName: Supabase.Gotrue.Client.Provider.Spotify
+  nameWithType: Client.Provider.Spotify
 - uid: Supabase.Gotrue.Client.Provider.Twitch
   name: Twitch
   href: api/Supabase.Gotrue.Client.Provider.html#Supabase_Gotrue_Client_Provider_Twitch
