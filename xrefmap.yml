@@ -202,19 +202,6 @@ references:
   isSpec: "True"
   fullName: Postgrest.Client.Rpc
   nameWithType: Client.Rpc
-- uid: Postgrest.Client.SerializerSettings
-  name: SerializerSettings
-  href: api/Postgrest.Client.html#Postgrest_Client_SerializerSettings
-  commentId: P:Postgrest.Client.SerializerSettings
-  fullName: Postgrest.Client.SerializerSettings
-  nameWithType: Client.SerializerSettings
-- uid: Postgrest.Client.SerializerSettings*
-  name: SerializerSettings
-  href: api/Postgrest.Client.html#Postgrest_Client_SerializerSettings_
-  commentId: Overload:Postgrest.Client.SerializerSettings
-  isSpec: "True"
-  fullName: Postgrest.Client.SerializerSettings
-  nameWithType: Client.SerializerSettings
 - uid: Postgrest.Client.Table*
   name: Table
   href: api/Postgrest.Client.html#Postgrest_Client_Table_
@@ -516,6 +503,64 @@ references:
   commentId: N:Postgrest.Converters
   fullName: Postgrest.Converters
   nameWithType: Postgrest.Converters
+- uid: Postgrest.Converters.DateTimeConverter
+  name: DateTimeConverter
+  href: api/Postgrest.Converters.DateTimeConverter.html
+  commentId: T:Postgrest.Converters.DateTimeConverter
+  fullName: Postgrest.Converters.DateTimeConverter
+  nameWithType: DateTimeConverter
+- uid: Postgrest.Converters.DateTimeConverter.CanConvert(Type)
+  name: CanConvert(Type)
+  href: api/Postgrest.Converters.DateTimeConverter.html#Postgrest_Converters_DateTimeConverter_CanConvert_Type_
+  commentId: M:Postgrest.Converters.DateTimeConverter.CanConvert(Type)
+  fullName: Postgrest.Converters.DateTimeConverter.CanConvert(Type)
+  nameWithType: DateTimeConverter.CanConvert(Type)
+- uid: Postgrest.Converters.DateTimeConverter.CanConvert*
+  name: CanConvert
+  href: api/Postgrest.Converters.DateTimeConverter.html#Postgrest_Converters_DateTimeConverter_CanConvert_
+  commentId: Overload:Postgrest.Converters.DateTimeConverter.CanConvert
+  isSpec: "True"
+  fullName: Postgrest.Converters.DateTimeConverter.CanConvert
+  nameWithType: DateTimeConverter.CanConvert
+- uid: Postgrest.Converters.DateTimeConverter.CanWrite
+  name: CanWrite
+  href: api/Postgrest.Converters.DateTimeConverter.html#Postgrest_Converters_DateTimeConverter_CanWrite
+  commentId: P:Postgrest.Converters.DateTimeConverter.CanWrite
+  fullName: Postgrest.Converters.DateTimeConverter.CanWrite
+  nameWithType: DateTimeConverter.CanWrite
+- uid: Postgrest.Converters.DateTimeConverter.CanWrite*
+  name: CanWrite
+  href: api/Postgrest.Converters.DateTimeConverter.html#Postgrest_Converters_DateTimeConverter_CanWrite_
+  commentId: Overload:Postgrest.Converters.DateTimeConverter.CanWrite
+  isSpec: "True"
+  fullName: Postgrest.Converters.DateTimeConverter.CanWrite
+  nameWithType: DateTimeConverter.CanWrite
+- uid: Postgrest.Converters.DateTimeConverter.ReadJson(JsonReader,Type,System.Object,JsonSerializer)
+  name: ReadJson(JsonReader, Type, Object, JsonSerializer)
+  href: api/Postgrest.Converters.DateTimeConverter.html#Postgrest_Converters_DateTimeConverter_ReadJson_JsonReader_Type_System_Object_JsonSerializer_
+  commentId: M:Postgrest.Converters.DateTimeConverter.ReadJson(JsonReader,Type,System.Object,JsonSerializer)
+  fullName: Postgrest.Converters.DateTimeConverter.ReadJson(JsonReader, Type, System.Object, JsonSerializer)
+  nameWithType: DateTimeConverter.ReadJson(JsonReader, Type, Object, JsonSerializer)
+- uid: Postgrest.Converters.DateTimeConverter.ReadJson*
+  name: ReadJson
+  href: api/Postgrest.Converters.DateTimeConverter.html#Postgrest_Converters_DateTimeConverter_ReadJson_
+  commentId: Overload:Postgrest.Converters.DateTimeConverter.ReadJson
+  isSpec: "True"
+  fullName: Postgrest.Converters.DateTimeConverter.ReadJson
+  nameWithType: DateTimeConverter.ReadJson
+- uid: Postgrest.Converters.DateTimeConverter.WriteJson(JsonWriter,System.Object,JsonSerializer)
+  name: WriteJson(JsonWriter, Object, JsonSerializer)
+  href: api/Postgrest.Converters.DateTimeConverter.html#Postgrest_Converters_DateTimeConverter_WriteJson_JsonWriter_System_Object_JsonSerializer_
+  commentId: M:Postgrest.Converters.DateTimeConverter.WriteJson(JsonWriter,System.Object,JsonSerializer)
+  fullName: Postgrest.Converters.DateTimeConverter.WriteJson(JsonWriter, System.Object, JsonSerializer)
+  nameWithType: DateTimeConverter.WriteJson(JsonWriter, Object, JsonSerializer)
+- uid: Postgrest.Converters.DateTimeConverter.WriteJson*
+  name: WriteJson
+  href: api/Postgrest.Converters.DateTimeConverter.html#Postgrest_Converters_DateTimeConverter_WriteJson_
+  commentId: Overload:Postgrest.Converters.DateTimeConverter.WriteJson
+  isSpec: "True"
+  fullName: Postgrest.Converters.DateTimeConverter.WriteJson
+  nameWithType: DateTimeConverter.WriteJson
 - uid: Postgrest.Converters.IntArrayConverter
   name: IntArrayConverter
   href: api/Postgrest.Converters.IntArrayConverter.html
@@ -1537,14 +1582,14 @@ references:
   fullName.vb: Postgrest.Responses.ModeledResponse(Of T)
   nameWithType: ModeledResponse<T>
   nameWithType.vb: ModeledResponse(Of T)
-- uid: Postgrest.Responses.ModeledResponse`1.#ctor(Postgrest.Responses.BaseResponse,System.Boolean)
-  name: ModeledResponse(BaseResponse, Boolean)
-  href: api/Postgrest.Responses.ModeledResponse-1.html#Postgrest_Responses_ModeledResponse_1__ctor_Postgrest_Responses_BaseResponse_System_Boolean_
-  commentId: M:Postgrest.Responses.ModeledResponse`1.#ctor(Postgrest.Responses.BaseResponse,System.Boolean)
-  fullName: Postgrest.Responses.ModeledResponse<T>.ModeledResponse(Postgrest.Responses.BaseResponse, System.Boolean)
-  fullName.vb: Postgrest.Responses.ModeledResponse(Of T).ModeledResponse(Postgrest.Responses.BaseResponse, System.Boolean)
-  nameWithType: ModeledResponse<T>.ModeledResponse(BaseResponse, Boolean)
-  nameWithType.vb: ModeledResponse(Of T).ModeledResponse(BaseResponse, Boolean)
+- uid: Postgrest.Responses.ModeledResponse`1.#ctor(Postgrest.Responses.BaseResponse,JsonSerializerSettings,System.Boolean)
+  name: ModeledResponse(BaseResponse, JsonSerializerSettings, Boolean)
+  href: api/Postgrest.Responses.ModeledResponse-1.html#Postgrest_Responses_ModeledResponse_1__ctor_Postgrest_Responses_BaseResponse_JsonSerializerSettings_System_Boolean_
+  commentId: M:Postgrest.Responses.ModeledResponse`1.#ctor(Postgrest.Responses.BaseResponse,JsonSerializerSettings,System.Boolean)
+  fullName: Postgrest.Responses.ModeledResponse<T>.ModeledResponse(Postgrest.Responses.BaseResponse, JsonSerializerSettings, System.Boolean)
+  fullName.vb: Postgrest.Responses.ModeledResponse(Of T).ModeledResponse(Postgrest.Responses.BaseResponse, JsonSerializerSettings, System.Boolean)
+  nameWithType: ModeledResponse<T>.ModeledResponse(BaseResponse, JsonSerializerSettings, Boolean)
+  nameWithType.vb: ModeledResponse(Of T).ModeledResponse(BaseResponse, JsonSerializerSettings, Boolean)
 - uid: Postgrest.Responses.ModeledResponse`1.#ctor*
   name: ModeledResponse
   href: api/Postgrest.Responses.ModeledResponse-1.html#Postgrest_Responses_ModeledResponse_1__ctor_
@@ -1571,6 +1616,76 @@ references:
   fullName.vb: Postgrest.Responses.ModeledResponse(Of T).Models
   nameWithType: ModeledResponse<T>.Models
   nameWithType.vb: ModeledResponse(Of T).Models
+- uid: Postgrest.StatelessClient
+  name: StatelessClient
+  href: api/Postgrest.StatelessClient.html
+  commentId: T:Postgrest.StatelessClient
+  fullName: Postgrest.StatelessClient
+  nameWithType: StatelessClient
+- uid: Postgrest.StatelessClient.Rpc(System.String,Dictionary{System.String,System.Object},Postgrest.StatelessClientOptions)
+  name: Rpc(String, Dictionary<String, Object>, StatelessClientOptions)
+  href: api/Postgrest.StatelessClient.html#Postgrest_StatelessClient_Rpc_System_String_Dictionary_System_String_System_Object__Postgrest_StatelessClientOptions_
+  commentId: M:Postgrest.StatelessClient.Rpc(System.String,Dictionary{System.String,System.Object},Postgrest.StatelessClientOptions)
+  name.vb: Rpc(String, Dictionary(Of String, Object), StatelessClientOptions)
+  fullName: Postgrest.StatelessClient.Rpc(System.String, Dictionary<System.String, System.Object>, Postgrest.StatelessClientOptions)
+  fullName.vb: Postgrest.StatelessClient.Rpc(System.String, Dictionary(Of System.String, System.Object), Postgrest.StatelessClientOptions)
+  nameWithType: StatelessClient.Rpc(String, Dictionary<String, Object>, StatelessClientOptions)
+  nameWithType.vb: StatelessClient.Rpc(String, Dictionary(Of String, Object), StatelessClientOptions)
+- uid: Postgrest.StatelessClient.Rpc*
+  name: Rpc
+  href: api/Postgrest.StatelessClient.html#Postgrest_StatelessClient_Rpc_
+  commentId: Overload:Postgrest.StatelessClient.Rpc
+  isSpec: "True"
+  fullName: Postgrest.StatelessClient.Rpc
+  nameWithType: StatelessClient.Rpc
+- uid: Postgrest.StatelessClient.Table*
+  name: Table
+  href: api/Postgrest.StatelessClient.html#Postgrest_StatelessClient_Table_
+  commentId: Overload:Postgrest.StatelessClient.Table
+  isSpec: "True"
+  fullName: Postgrest.StatelessClient.Table
+  nameWithType: StatelessClient.Table
+- uid: Postgrest.StatelessClient.Table``1(Postgrest.StatelessClientOptions)
+  name: Table<T>(StatelessClientOptions)
+  href: api/Postgrest.StatelessClient.html#Postgrest_StatelessClient_Table__1_Postgrest_StatelessClientOptions_
+  commentId: M:Postgrest.StatelessClient.Table``1(Postgrest.StatelessClientOptions)
+  name.vb: Table(Of T)(StatelessClientOptions)
+  fullName: Postgrest.StatelessClient.Table<T>(Postgrest.StatelessClientOptions)
+  fullName.vb: Postgrest.StatelessClient.Table(Of T)(Postgrest.StatelessClientOptions)
+  nameWithType: StatelessClient.Table<T>(StatelessClientOptions)
+  nameWithType.vb: StatelessClient.Table(Of T)(StatelessClientOptions)
+- uid: Postgrest.StatelessClientOptions
+  name: StatelessClientOptions
+  href: api/Postgrest.StatelessClientOptions.html
+  commentId: T:Postgrest.StatelessClientOptions
+  fullName: Postgrest.StatelessClientOptions
+  nameWithType: StatelessClientOptions
+- uid: Postgrest.StatelessClientOptions.#ctor(System.String)
+  name: StatelessClientOptions(String)
+  href: api/Postgrest.StatelessClientOptions.html#Postgrest_StatelessClientOptions__ctor_System_String_
+  commentId: M:Postgrest.StatelessClientOptions.#ctor(System.String)
+  fullName: Postgrest.StatelessClientOptions.StatelessClientOptions(System.String)
+  nameWithType: StatelessClientOptions.StatelessClientOptions(String)
+- uid: Postgrest.StatelessClientOptions.#ctor*
+  name: StatelessClientOptions
+  href: api/Postgrest.StatelessClientOptions.html#Postgrest_StatelessClientOptions__ctor_
+  commentId: Overload:Postgrest.StatelessClientOptions.#ctor
+  isSpec: "True"
+  fullName: Postgrest.StatelessClientOptions.StatelessClientOptions
+  nameWithType: StatelessClientOptions.StatelessClientOptions
+- uid: Postgrest.StatelessClientOptions.BaseUrl
+  name: BaseUrl
+  href: api/Postgrest.StatelessClientOptions.html#Postgrest_StatelessClientOptions_BaseUrl
+  commentId: P:Postgrest.StatelessClientOptions.BaseUrl
+  fullName: Postgrest.StatelessClientOptions.BaseUrl
+  nameWithType: StatelessClientOptions.BaseUrl
+- uid: Postgrest.StatelessClientOptions.BaseUrl*
+  name: BaseUrl
+  href: api/Postgrest.StatelessClientOptions.html#Postgrest_StatelessClientOptions_BaseUrl_
+  commentId: Overload:Postgrest.StatelessClientOptions.BaseUrl
+  isSpec: "True"
+  fullName: Postgrest.StatelessClientOptions.BaseUrl
+  nameWithType: StatelessClientOptions.BaseUrl
 - uid: Postgrest.Table`1
   name: Table<T>
   href: api/Postgrest.Table-1.html
@@ -1588,6 +1703,14 @@ references:
   fullName.vb: Postgrest.Table(Of T).Table(System.String, Postgrest.ClientOptions)
   nameWithType: Table<T>.Table(String, ClientOptions)
   nameWithType.vb: Table(Of T).Table(String, ClientOptions)
+- uid: Postgrest.Table`1.#ctor(System.String,Postgrest.ClientOptions,JsonSerializerSettings)
+  name: Table(String, ClientOptions, JsonSerializerSettings)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1__ctor_System_String_Postgrest_ClientOptions_JsonSerializerSettings_
+  commentId: M:Postgrest.Table`1.#ctor(System.String,Postgrest.ClientOptions,JsonSerializerSettings)
+  fullName: Postgrest.Table<T>.Table(System.String, Postgrest.ClientOptions, JsonSerializerSettings)
+  fullName.vb: Postgrest.Table(Of T).Table(System.String, Postgrest.ClientOptions, JsonSerializerSettings)
+  nameWithType: Table<T>.Table(String, ClientOptions, JsonSerializerSettings)
+  nameWithType.vb: Table(Of T).Table(String, ClientOptions, JsonSerializerSettings)
 - uid: Postgrest.Table`1.#ctor*
   name: Table
   href: api/Postgrest.Table-1.html#Postgrest_Table_1__ctor_
@@ -3489,6 +3612,191 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Session.User
   nameWithType: Session.User
+- uid: Supabase.Gotrue.StatelessClient
+  name: StatelessClient
+  href: api/Supabase.Gotrue.StatelessClient.html
+  commentId: T:Supabase.Gotrue.StatelessClient
+  fullName: Supabase.Gotrue.StatelessClient
+  nameWithType: StatelessClient
+- uid: Supabase.Gotrue.StatelessClient.DeleteUser(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: DeleteUser(String, String, StatelessClient.StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_DeleteUser_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.DeleteUser(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.DeleteUser(System.String, System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.DeleteUser(String, String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.DeleteUser*
+  name: DeleteUser
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_DeleteUser_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.DeleteUser
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.DeleteUser
+  nameWithType: StatelessClient.DeleteUser
+- uid: Supabase.Gotrue.StatelessClient.GetApi(Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: GetApi(StatelessClient.StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_GetApi_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.GetApi(Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.GetApi(Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.GetApi(StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.GetApi*
+  name: GetApi
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_GetApi_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.GetApi
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.GetApi
+  nameWithType: StatelessClient.GetApi
+- uid: Supabase.Gotrue.StatelessClient.GetSessionFromUrl(Uri,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: GetSessionFromUrl(Uri, StatelessClient.StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_GetSessionFromUrl_Uri_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.GetSessionFromUrl(Uri,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.GetSessionFromUrl(Uri, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.GetSessionFromUrl(Uri, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.GetSessionFromUrl*
+  name: GetSessionFromUrl
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_GetSessionFromUrl_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.GetSessionFromUrl
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.GetSessionFromUrl
+  nameWithType: StatelessClient.GetSessionFromUrl
+- uid: Supabase.Gotrue.StatelessClient.InviteUserByEmail(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: InviteUserByEmail(String, String, StatelessClient.StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_InviteUserByEmail_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.InviteUserByEmail(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.InviteUserByEmail(System.String, System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.InviteUserByEmail(String, String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.InviteUserByEmail*
+  name: InviteUserByEmail
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_InviteUserByEmail_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.InviteUserByEmail
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.InviteUserByEmail
+  nameWithType: StatelessClient.InviteUserByEmail
+- uid: Supabase.Gotrue.StatelessClient.RefreshToken(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: RefreshToken(String, StatelessClient.StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_RefreshToken_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.RefreshToken(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.RefreshToken(System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.RefreshToken(String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.RefreshToken*
+  name: RefreshToken
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_RefreshToken_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.RefreshToken
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.RefreshToken
+  nameWithType: StatelessClient.RefreshToken
+- uid: Supabase.Gotrue.StatelessClient.SendMagicLink(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: SendMagicLink(String, StatelessClient.StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SendMagicLink_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.SendMagicLink(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.SendMagicLink(System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.SendMagicLink(String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.SendMagicLink*
+  name: SendMagicLink
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SendMagicLink_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.SendMagicLink
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.SendMagicLink
+  nameWithType: StatelessClient.SendMagicLink
+- uid: Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Client.Provider,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.String)
+  name: SignIn(Client.Provider, StatelessClient.StatelessClientOptions, String)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignIn_Supabase_Gotrue_Client_Provider_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_
+  commentId: M:Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Client.Provider,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.String)
+  fullName: Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Client.Provider, Supabase.Gotrue.StatelessClient.StatelessClientOptions, System.String)
+  nameWithType: StatelessClient.SignIn(Client.Provider, StatelessClient.StatelessClientOptions, String)
+- uid: Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Client.SignInType,System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: SignIn(Client.SignInType, String, String, StatelessClient.StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignIn_Supabase_Gotrue_Client_SignInType_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Client.SignInType,System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Client.SignInType, System.String, System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.SignIn(Client.SignInType, String, String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.SignIn(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: SignIn(String, StatelessClient.StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignIn_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.SignIn(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.SignIn(System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.SignIn(String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.SignIn(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: SignIn(String, String, StatelessClient.StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignIn_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.SignIn(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.SignIn(System.String, System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.SignIn(String, String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.SignIn*
+  name: SignIn
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignIn_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.SignIn
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.SignIn
+  nameWithType: StatelessClient.SignIn
+- uid: Supabase.Gotrue.StatelessClient.SignUp(Supabase.Gotrue.Client.SignUpType,System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: SignUp(Client.SignUpType, String, String, StatelessClient.StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignUp_Supabase_Gotrue_Client_SignUpType_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.SignUp(Supabase.Gotrue.Client.SignUpType,System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.SignUp(Supabase.Gotrue.Client.SignUpType, System.String, System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.SignUp(Client.SignUpType, String, String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.SignUp(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: SignUp(String, String, StatelessClient.StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignUp_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.SignUp(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.SignUp(System.String, System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.SignUp(String, String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.SignUp*
+  name: SignUp
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignUp_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.SignUp
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.SignUp
+  nameWithType: StatelessClient.SignUp
+- uid: Supabase.Gotrue.StatelessClient.StatelessClientOptions
+  name: StatelessClient.StatelessClientOptions
+  href: api/Supabase.Gotrue.StatelessClient.StatelessClientOptions.html
+  commentId: T:Supabase.Gotrue.StatelessClient.StatelessClientOptions
+  fullName: Supabase.Gotrue.StatelessClient.StatelessClientOptions
+  nameWithType: StatelessClient.StatelessClientOptions
+- uid: Supabase.Gotrue.StatelessClient.StatelessClientOptions.Headers
+  name: Headers
+  href: api/Supabase.Gotrue.StatelessClient.StatelessClientOptions.html#Supabase_Gotrue_StatelessClient_StatelessClientOptions_Headers
+  commentId: F:Supabase.Gotrue.StatelessClient.StatelessClientOptions.Headers
+  fullName: Supabase.Gotrue.StatelessClient.StatelessClientOptions.Headers
+  nameWithType: StatelessClient.StatelessClientOptions.Headers
+- uid: Supabase.Gotrue.StatelessClient.StatelessClientOptions.Url
+  name: Url
+  href: api/Supabase.Gotrue.StatelessClient.StatelessClientOptions.html#Supabase_Gotrue_StatelessClient_StatelessClientOptions_Url
+  commentId: P:Supabase.Gotrue.StatelessClient.StatelessClientOptions.Url
+  fullName: Supabase.Gotrue.StatelessClient.StatelessClientOptions.Url
+  nameWithType: StatelessClient.StatelessClientOptions.Url
+- uid: Supabase.Gotrue.StatelessClient.StatelessClientOptions.Url*
+  name: Url
+  href: api/Supabase.Gotrue.StatelessClient.StatelessClientOptions.html#Supabase_Gotrue_StatelessClient_StatelessClientOptions_Url_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.StatelessClientOptions.Url
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.StatelessClientOptions.Url
+  nameWithType: StatelessClient.StatelessClientOptions.Url
+- uid: Supabase.Gotrue.StatelessClient.Update(System.String,Supabase.Gotrue.UserAttributes,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: Update(String, UserAttributes, StatelessClient.StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_Update_System_String_Supabase_Gotrue_UserAttributes_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.Update(System.String,Supabase.Gotrue.UserAttributes,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.Update(System.String, Supabase.Gotrue.UserAttributes, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.Update(String, UserAttributes, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.Update*
+  name: Update
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_Update_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.Update
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.Update
+  nameWithType: StatelessClient.Update
+- uid: Supabase.Gotrue.StatelessClient.VerifyOTP(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: VerifyOTP(String, String, StatelessClient.StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_VerifyOTP_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.VerifyOTP(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.VerifyOTP(System.String, System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.VerifyOTP(String, String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.VerifyOTP*
+  name: VerifyOTP
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_VerifyOTP_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.VerifyOTP
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.VerifyOTP
+  nameWithType: StatelessClient.VerifyOTP
 - uid: Supabase.Gotrue.UnauthorizedException
   name: UnauthorizedException
   href: api/Supabase.Gotrue.UnauthorizedException.html
