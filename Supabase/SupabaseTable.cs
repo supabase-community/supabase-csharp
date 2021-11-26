@@ -13,11 +13,15 @@ namespace Supabase
         private Channel channel;
 
         public SupabaseTable() : base(Client.Instance.RestUrl, new Postgrest.ClientOptions { Headers = Instance.GetAuthHeaders(), Schema = Instance.Schema })
-        {}
+        { }
+
+        public SupabaseTable(string restUrl, Postgrest.ClientOptions options) : base(restUrl, options)
+        { }
 
         public async Task<Channel> On(ChannelEventType e, Action<object, SocketResponseEventArgs> action)
         {
-            if (channel == null) {
+            if (channel == null)
+            {
                 var parameters = new Dictionary<string, string>();
 
                 // In regard to: https://github.com/supabase/supabase-js/pull/270
