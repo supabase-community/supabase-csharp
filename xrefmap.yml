@@ -5398,6 +5398,83 @@ references:
   isSpec: "True"
   fullName: Supabase.Realtime.SocketStateChangedEventArgs.State
   nameWithType: SocketStateChangedEventArgs.State
+- uid: Supabase.StatelessClient
+  name: StatelessClient
+  href: api/Supabase.StatelessClient.html
+  commentId: T:Supabase.StatelessClient
+  fullName: Supabase.StatelessClient
+  nameWithType: StatelessClient
+- uid: Supabase.StatelessClient.From*
+  name: From
+  href: api/Supabase.StatelessClient.html#Supabase_StatelessClient_From_
+  commentId: Overload:Supabase.StatelessClient.From
+  isSpec: "True"
+  fullName: Supabase.StatelessClient.From
+  nameWithType: StatelessClient.From
+- uid: Supabase.StatelessClient.From``1(System.String,System.String,Supabase.SupabaseOptions)
+  name: From<T>(String, String, SupabaseOptions)
+  href: api/Supabase.StatelessClient.html#Supabase_StatelessClient_From__1_System_String_System_String_Supabase_SupabaseOptions_
+  commentId: M:Supabase.StatelessClient.From``1(System.String,System.String,Supabase.SupabaseOptions)
+  name.vb: From(Of T)(String, String, SupabaseOptions)
+  fullName: Supabase.StatelessClient.From<T>(System.String, System.String, Supabase.SupabaseOptions)
+  fullName.vb: Supabase.StatelessClient.From(Of T)(System.String, System.String, Supabase.SupabaseOptions)
+  nameWithType: StatelessClient.From<T>(String, String, SupabaseOptions)
+  nameWithType.vb: StatelessClient.From(Of T)(String, String, SupabaseOptions)
+- uid: Supabase.StatelessClient.GetAuthOptions(System.String,System.String,Supabase.SupabaseOptions)
+  name: GetAuthOptions(String, String, SupabaseOptions)
+  href: api/Supabase.StatelessClient.html#Supabase_StatelessClient_GetAuthOptions_System_String_System_String_Supabase_SupabaseOptions_
+  commentId: M:Supabase.StatelessClient.GetAuthOptions(System.String,System.String,Supabase.SupabaseOptions)
+  fullName: Supabase.StatelessClient.GetAuthOptions(System.String, System.String, Supabase.SupabaseOptions)
+  nameWithType: StatelessClient.GetAuthOptions(String, String, SupabaseOptions)
+- uid: Supabase.StatelessClient.GetAuthOptions*
+  name: GetAuthOptions
+  href: api/Supabase.StatelessClient.html#Supabase_StatelessClient_GetAuthOptions_
+  commentId: Overload:Supabase.StatelessClient.GetAuthOptions
+  isSpec: "True"
+  fullName: Supabase.StatelessClient.GetAuthOptions
+  nameWithType: StatelessClient.GetAuthOptions
+- uid: Supabase.StatelessClient.GetRestOptions(System.String,System.String,Supabase.SupabaseOptions)
+  name: GetRestOptions(String, String, SupabaseOptions)
+  href: api/Supabase.StatelessClient.html#Supabase_StatelessClient_GetRestOptions_System_String_System_String_Supabase_SupabaseOptions_
+  commentId: M:Supabase.StatelessClient.GetRestOptions(System.String,System.String,Supabase.SupabaseOptions)
+  fullName: Supabase.StatelessClient.GetRestOptions(System.String, System.String, Supabase.SupabaseOptions)
+  nameWithType: StatelessClient.GetRestOptions(String, String, SupabaseOptions)
+- uid: Supabase.StatelessClient.GetRestOptions*
+  name: GetRestOptions
+  href: api/Supabase.StatelessClient.html#Supabase_StatelessClient_GetRestOptions_
+  commentId: Overload:Supabase.StatelessClient.GetRestOptions
+  isSpec: "True"
+  fullName: Supabase.StatelessClient.GetRestOptions
+  nameWithType: StatelessClient.GetRestOptions
+- uid: Supabase.StatelessClient.Rpc(System.String,System.String,System.String,Dictionary{System.String,System.Object},Supabase.SupabaseOptions)
+  name: Rpc(String, String, String, Dictionary<String, Object>, SupabaseOptions)
+  href: api/Supabase.StatelessClient.html#Supabase_StatelessClient_Rpc_System_String_System_String_System_String_Dictionary_System_String_System_Object__Supabase_SupabaseOptions_
+  commentId: M:Supabase.StatelessClient.Rpc(System.String,System.String,System.String,Dictionary{System.String,System.Object},Supabase.SupabaseOptions)
+  name.vb: Rpc(String, String, String, Dictionary(Of String, Object), SupabaseOptions)
+  fullName: Supabase.StatelessClient.Rpc(System.String, System.String, System.String, Dictionary<System.String, System.Object>, Supabase.SupabaseOptions)
+  fullName.vb: Supabase.StatelessClient.Rpc(System.String, System.String, System.String, Dictionary(Of System.String, System.Object), Supabase.SupabaseOptions)
+  nameWithType: StatelessClient.Rpc(String, String, String, Dictionary<String, Object>, SupabaseOptions)
+  nameWithType.vb: StatelessClient.Rpc(String, String, String, Dictionary(Of String, Object), SupabaseOptions)
+- uid: Supabase.StatelessClient.Rpc*
+  name: Rpc
+  href: api/Supabase.StatelessClient.html#Supabase_StatelessClient_Rpc_
+  commentId: Overload:Supabase.StatelessClient.Rpc
+  isSpec: "True"
+  fullName: Supabase.StatelessClient.Rpc
+  nameWithType: StatelessClient.Rpc
+- uid: Supabase.StatelessClient.Storage(System.String,System.String,Supabase.SupabaseOptions)
+  name: Storage(String, String, SupabaseOptions)
+  href: api/Supabase.StatelessClient.html#Supabase_StatelessClient_Storage_System_String_System_String_Supabase_SupabaseOptions_
+  commentId: M:Supabase.StatelessClient.Storage(System.String,System.String,Supabase.SupabaseOptions)
+  fullName: Supabase.StatelessClient.Storage(System.String, System.String, Supabase.SupabaseOptions)
+  nameWithType: StatelessClient.Storage(String, String, SupabaseOptions)
+- uid: Supabase.StatelessClient.Storage*
+  name: Storage
+  href: api/Supabase.StatelessClient.html#Supabase_StatelessClient_Storage_
+  commentId: Overload:Supabase.StatelessClient.Storage
+  isSpec: "True"
+  fullName: Supabase.StatelessClient.Storage
+  nameWithType: StatelessClient.Storage
 - uid: Supabase.Storage
   name: Supabase.Storage
   href: api/Supabase.Storage.html
@@ -6408,6 +6485,14 @@ references:
   fullName.vb: Supabase.SupabaseTable(Of T).SupabaseTable()
   nameWithType: SupabaseTable<T>.SupabaseTable()
   nameWithType.vb: SupabaseTable(Of T).SupabaseTable()
+- uid: Supabase.SupabaseTable`1.#ctor(System.String,Postgrest.ClientOptions)
+  name: SupabaseTable(String, Postgrest.ClientOptions)
+  href: api/Supabase.SupabaseTable-1.html#Supabase_SupabaseTable_1__ctor_System_String_Postgrest_ClientOptions_
+  commentId: M:Supabase.SupabaseTable`1.#ctor(System.String,Postgrest.ClientOptions)
+  fullName: Supabase.SupabaseTable<T>.SupabaseTable(System.String, Postgrest.ClientOptions)
+  fullName.vb: Supabase.SupabaseTable(Of T).SupabaseTable(System.String, Postgrest.ClientOptions)
+  nameWithType: SupabaseTable<T>.SupabaseTable(String, Postgrest.ClientOptions)
+  nameWithType.vb: SupabaseTable(Of T).SupabaseTable(String, Postgrest.ClientOptions)
 - uid: Supabase.SupabaseTable`1.#ctor*
   name: SupabaseTable
   href: api/Supabase.SupabaseTable-1.html#Supabase_SupabaseTable_1__ctor_

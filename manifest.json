@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Postgrest.Client.html",
-          "hash": "jQ3yhUmqmFOvNjRT8Y0PJg=="
+          "hash": "nGZ+PAcboYtFMnYdUMJJpQ=="
         }
       },
       "is_incremental": false,
@@ -417,7 +417,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Postgrest.Table-1.html",
-          "hash": "bnZkFMT+FicMRw6WhYeueA=="
+          "hash": "YWORzsWA/IMUKM03EDv7VQ=="
         }
       },
       "is_incremental": false,
@@ -1073,6 +1073,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.StatelessClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.StatelessClient.html",
+          "hash": "BWdk/cec75OS2UZPOr/wPA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Supabase.Storage.BadRequestException.yml",
       "output": {
         ".html": {
@@ -1269,7 +1281,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Supabase.SupabaseTable-1.html",
-          "hash": "j4t1RnQILmOB4KNXLWzM1A=="
+          "hash": "m0qsFvHWs3ynTgU9C6i1YQ=="
         }
       },
       "is_incremental": false,
@@ -1293,7 +1305,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Supabase.html",
-          "hash": "QG+4Dv8Hv0pVTDD++TuugA=="
+          "hash": "Ki8tzkFCvFr9PiPHVahi8A=="
         }
       },
       "is_incremental": false,
@@ -1317,7 +1329,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "gk5dySCpQQMgNEUVdJftAw=="
+          "hash": "KSXAvfE1ZmwbepN+3gEf/g=="
         }
       },
       "is_incremental": false,
@@ -1392,7 +1404,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 108,
+          "total_file_count": 109,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
