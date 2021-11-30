@@ -2703,6 +2703,12 @@ references:
   commentId: F:Supabase.Gotrue.Client.AuthState.SignedOut
   fullName: Supabase.Gotrue.Client.AuthState.SignedOut
   nameWithType: Client.AuthState.SignedOut
+- uid: Supabase.Gotrue.Client.AuthState.TokenRefreshed
+  name: TokenRefreshed
+  href: api/Supabase.Gotrue.Client.AuthState.html#Supabase_Gotrue_Client_AuthState_TokenRefreshed
+  commentId: F:Supabase.Gotrue.Client.AuthState.TokenRefreshed
+  fullName: Supabase.Gotrue.Client.AuthState.TokenRefreshed
+  nameWithType: Client.AuthState.TokenRefreshed
 - uid: Supabase.Gotrue.Client.AuthState.UserUpdated
   name: UserUpdated
   href: api/Supabase.Gotrue.Client.AuthState.html#Supabase_Gotrue_Client_AuthState_UserUpdated
@@ -4151,6 +4157,19 @@ references:
   commentId: F:Supabase.Realtime.Channel.ChannelState.Leaving
   fullName: Supabase.Realtime.Channel.ChannelState.Leaving
   nameWithType: Channel.ChannelState.Leaving
+- uid: Supabase.Realtime.Channel.HasJoinedOnce
+  name: HasJoinedOnce
+  href: api/Supabase.Realtime.Channel.html#Supabase_Realtime_Channel_HasJoinedOnce
+  commentId: P:Supabase.Realtime.Channel.HasJoinedOnce
+  fullName: Supabase.Realtime.Channel.HasJoinedOnce
+  nameWithType: Channel.HasJoinedOnce
+- uid: Supabase.Realtime.Channel.HasJoinedOnce*
+  name: HasJoinedOnce
+  href: api/Supabase.Realtime.Channel.html#Supabase_Realtime_Channel_HasJoinedOnce_
+  commentId: Overload:Supabase.Realtime.Channel.HasJoinedOnce
+  isSpec: "True"
+  fullName: Supabase.Realtime.Channel.HasJoinedOnce
+  nameWithType: Channel.HasJoinedOnce
 - uid: Supabase.Realtime.Channel.IsClosed
   name: IsClosed
   href: api/Supabase.Realtime.Channel.html#Supabase_Realtime_Channel_IsClosed
@@ -4540,6 +4559,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Realtime.Client.SerializerSettings
   nameWithType: Client.SerializerSettings
+- uid: Supabase.Realtime.Client.SetAuth(System.String)
+  name: SetAuth(String)
+  href: api/Supabase.Realtime.Client.html#Supabase_Realtime_Client_SetAuth_System_String_
+  commentId: M:Supabase.Realtime.Client.SetAuth(System.String)
+  fullName: Supabase.Realtime.Client.SetAuth(System.String)
+  nameWithType: Client.SetAuth(String)
+- uid: Supabase.Realtime.Client.SetAuth*
+  name: SetAuth
+  href: api/Supabase.Realtime.Client.html#Supabase_Realtime_Client_SetAuth_
+  commentId: Overload:Supabase.Realtime.Client.SetAuth
+  isSpec: "True"
+  fullName: Supabase.Realtime.Client.SetAuth
+  nameWithType: Client.SetAuth
 - uid: Supabase.Realtime.Client.Socket
   name: Socket
   href: api/Supabase.Realtime.Client.html#Supabase_Realtime_Client_Socket
@@ -4553,6 +4585,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Realtime.Client.Socket
   nameWithType: Client.Socket
+- uid: Supabase.Realtime.Client.Subscriptions
+  name: Subscriptions
+  href: api/Supabase.Realtime.Client.html#Supabase_Realtime_Client_Subscriptions
+  commentId: P:Supabase.Realtime.Client.Subscriptions
+  fullName: Supabase.Realtime.Client.Subscriptions
+  nameWithType: Client.Subscriptions
+- uid: Supabase.Realtime.Client.Subscriptions*
+  name: Subscriptions
+  href: api/Supabase.Realtime.Client.html#Supabase_Realtime_Client_Subscriptions_
+  commentId: Overload:Supabase.Realtime.Client.Subscriptions
+  isSpec: "True"
+  fullName: Supabase.Realtime.Client.Subscriptions
+  nameWithType: Client.Subscriptions
 - uid: Supabase.Realtime.ClientOptions
   name: ClientOptions
   href: api/Supabase.Realtime.ClientOptions.html
@@ -4686,6 +4731,12 @@ references:
   commentId: T:Supabase.Realtime.Constants
   fullName: Supabase.Realtime.Constants
   nameWithType: Constants
+- uid: Supabase.Realtime.Constants.CHANNEL_ACCESS_TOKEN
+  name: CHANNEL_ACCESS_TOKEN
+  href: api/Supabase.Realtime.Constants.html#Supabase_Realtime_Constants_CHANNEL_ACCESS_TOKEN
+  commentId: F:Supabase.Realtime.Constants.CHANNEL_ACCESS_TOKEN
+  fullName: Supabase.Realtime.Constants.CHANNEL_ACCESS_TOKEN
+  nameWithType: Constants.CHANNEL_ACCESS_TOKEN
 - uid: Supabase.Realtime.Constants.CHANNEL_EVENT_CLOSE
   name: CHANNEL_EVENT_CLOSE
   href: api/Supabase.Realtime.Constants.html#Supabase_Realtime_Constants_CHANNEL_EVENT_CLOSE
