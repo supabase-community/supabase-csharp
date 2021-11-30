@@ -110,6 +110,7 @@ namespace Supabase
                 SessionPersistor = options.SessionPersistor,
                 SessionRetriever = options.SessionRetriever
             });
+            instance.Auth.StateChanged += Auth_StateChanged;
 
             if (options.ShouldInitializeRealtime)
             {
@@ -125,6 +126,33 @@ namespace Supabase
             }
 
             return instance;
+        }
+
+        private static void Auth_StateChanged(object sender, ClientStateChanged e)
+        {
+            switch (e.State)
+            {
+                // Pass new Auth down to Realtime
+                // Ref: https://github.com/supabase-community/supabase-csharp/issues/12
+                case Gotrue.Client.AuthState.SignedIn:
+                case Gotrue.Client.AuthState.TokenRefreshed:
+                    if (Instance.Realtime != null)
+                    {
+                        Instance.Realtime.SetAuth(Instance.Auth.CurrentSession.AccessToken);
+                    }
+                    break;
+
+                // Remove Realtime Subscriptions on Auth Signout.
+                case Gotrue.Client.AuthState.SignedOut:
+                    if (Instance.Realtime != null)
+                    {
+                        foreach (var subscription in Instance.Realtime.Subscriptions.Values)
+                            subscription.Unsubscribe();
+
+                        Instance.Realtime.Disconnect(WebSocketSharp.CloseStatusCode.Normal);
+                    }
+                    break;
+            }
         }
 
         /// <summary>

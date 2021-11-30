@@ -49,7 +49,7 @@ services:
       API_EXTERNAL_URL: http://localhost:9999
       GOTRUE_SITE_URL: http://localhost:9999
       GOTRUE_URI_ALLOW_LIST: https://supabase.io/docs
-      GOTRUE_MAILER_AUTOCONFIRM: 'false'
+      GOTRUE_MAILER_AUTOCONFIRM: 'true'
       GOTRUE_LOG_LEVEL: DEBUG
       GOTRUE_OPERATOR_TOKEN: super-secret-operator-token
       DATABASE_URL: 'postgres://postgres:postgres@db:5432/postgres?sslmode=disable'
@@ -69,7 +69,7 @@ services:
       DB_PORT: 5432
       PORT: 4000
       HOSTNAME: localhost
-      JWT_SECRET: SOMETHING_SUPER_SECRET
+      JWT_SECRET: 'f023d3db-39dc-4ac9-87b2-b2be72e9162b'
       SECURE_CHANNELS: "false"
     depends_on:
       - db

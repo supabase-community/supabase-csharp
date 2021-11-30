@@ -49,7 +49,10 @@ namespace SupabaseTests
         [TestMethod("Bucket: Get")]
         public async Task Get()
         {
-            var bucket = await storage.GetBucket("public-bucket");
+            var id = Guid.NewGuid().ToString();
+            await storage.CreateBucket(id);
+            var bucket = await storage.GetBucket(id);
+
             Assert.IsInstanceOfType(bucket, typeof(Bucket));
         }
 
