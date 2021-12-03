@@ -15,19 +15,19 @@
 		<Title>Supabase</Title>
 		<PackageIconUrl>https://avatars.githubusercontent.com/u/54469796?s=200&amp;v=4</PackageIconUrl>
 		<PackageTags>supabase</PackageTags>
-		<ReleaseVersion>0.2.6</ReleaseVersion>
-		<PackageVersion>0.2.6</PackageVersion>
+		<ReleaseVersion>0.2.7</ReleaseVersion>
+		<PackageVersion>0.2.7</PackageVersion>
 		<PackageReleaseNotes></PackageReleaseNotes>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Version)' == '' ">
-		<VersionPrefix Condition=" '$(VersionPrefix)' == '' ">0.2.6</VersionPrefix>
+		<VersionPrefix Condition=" '$(VersionPrefix)' == '' ">0.2.7</VersionPrefix>
 		<Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 		<PackageReference Include="postgrest-csharp" Version="2.0.3" />
 		<PackageReference Include="realtime-csharp" Version="2.0.6" />
-		<PackageReference Include="gotrue-csharp" Version="2.2.2" />
+		<PackageReference Include="gotrue-csharp" Version="2.2.3" />
 		<PackageReference Include="MimeMapping" Version="1.0.1.37" />
 	</ItemGroup>
 	<ItemGroup>
