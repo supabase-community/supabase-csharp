@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 0.2.8 - 2021-12-4
+
+- Update gotrue-csharp to 2.2.4
+    - Adds support for `ListUsers` (paginate, sort, filter), `GetUserById`, `CreateUser`, and `UpdateById`
+
 ## 0.2.7 - 2021-12-2
 
 - Update gotrue-csharp to 2.2.3
