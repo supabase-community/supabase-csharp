@@ -16,10 +16,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Assets\" />
+    <None Remove="Storage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Assets\supabase-csharp.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Storage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   </ItemGroup>
 </Project>

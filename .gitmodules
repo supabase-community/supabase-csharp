@@ -7,3 +7,6 @@
 [submodule "modules/realtime-csharp"]
 	path = modules/realtime-csharp
 	url = https://github.com/supabase-community/realtime-csharp
+[submodule "modules/storage-csharp"]
+	path = modules/storage-csharp
+	url = https://github.com/supabase-community/storage-csharp
