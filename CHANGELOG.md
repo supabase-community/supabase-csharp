@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 0.2.9 - 2021-12-9
+
+- Separate Storage client from Supabase repo and into `storage-csharp`, `supabase-csharp` now references new repo.
+
 ## 0.2.8 - 2021-12-4
 
 - Update gotrue-csharp to 2.2.4
