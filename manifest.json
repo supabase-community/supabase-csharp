@@ -501,7 +501,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Supabase.Client.html",
-          "hash": "/gLlkrEv7dha0BptuWW2SA=="
+          "hash": "s+mzBvw1Z8y/gFF/i8AosA=="
         }
       },
       "is_incremental": false,
@@ -1161,175 +1161,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Supabase.StatelessClient.html",
-          "hash": "szxUAtAYpt4DX4hugsITUA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Storage.BadRequestException.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Storage.BadRequestException.html",
-          "hash": "I+oiVnU5clIl086sBTX7CQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Storage.Bucket.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Storage.Bucket.html",
-          "hash": "VdT45SwrWiQgw9ZbzzWAeg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Storage.BucketUpsertOptions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Storage.BucketUpsertOptions.html",
-          "hash": "jv5bik7HNPLwq0pe+n7jzA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Storage.Client.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Storage.Client.html",
-          "hash": "3SOtATZqhSDeQZyjYTp9nA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Storage.CreateSignedUrlResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Storage.CreateSignedUrlResponse.html",
-          "hash": "YfJ4IG6/wQcxvDMsEYm69g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Storage.ErrorResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Storage.ErrorResponse.html",
-          "hash": "3jIzCkeGXNnJrZi5y2ohRQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Storage.FileObject.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Storage.FileObject.html",
-          "hash": "J9UBku1csrOGEGtf+fYz6Q=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Storage.FileOptions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Storage.FileOptions.html",
-          "hash": "5roY6fQhMZMEeCp+2FNrEQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Storage.GenericResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Storage.GenericResponse.html",
-          "hash": "xTsesXhg7V1LHwCjV7gksQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Storage.SearchOptions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Storage.SearchOptions.html",
-          "hash": "6lgarLe1XskzQ/6NLvIv8w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Storage.SortBy.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Storage.SortBy.html",
-          "hash": "c9H6/0zDip+W1dRz7QYmJg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Storage.StorageBucketApi.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Storage.StorageBucketApi.html",
-          "hash": "e1cIUqZ4DMn0bbQ6hxjp3A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Storage.StorageFileApi.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Storage.StorageFileApi.html",
-          "hash": "zrdEAda/fHSwBJYjWkccOQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Storage.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Storage.html",
-          "hash": "eFUrJ7asC0owol6oEWHRZw=="
+          "hash": "dugpZcIqajHZb3GZeSTohQ=="
         }
       },
       "is_incremental": false,
@@ -1413,7 +1245,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "5dAiuJeq48VpcTRY2DsxqQ=="
+          "hash": "FLF/2deYKshqHtOwA9p0pA=="
         }
       },
       "is_incremental": false,
@@ -1488,7 +1320,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 116,
+          "total_file_count": 102,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
