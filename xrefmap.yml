@@ -2602,12 +2602,15 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Api.SignOut
   nameWithType: Api.SignOut
-- uid: Supabase.Gotrue.Api.SignUpWithEmail(System.String,System.String)
-  name: SignUpWithEmail(String, String)
-  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SignUpWithEmail_System_String_System_String_
-  commentId: M:Supabase.Gotrue.Api.SignUpWithEmail(System.String,System.String)
-  fullName: Supabase.Gotrue.Api.SignUpWithEmail(System.String, System.String)
-  nameWithType: Api.SignUpWithEmail(String, String)
+- uid: Supabase.Gotrue.Api.SignUpWithEmail(System.String,System.String,Dictionary{System.String,System.Object})
+  name: SignUpWithEmail(String, String, Dictionary<String, Object>)
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SignUpWithEmail_System_String_System_String_Dictionary_System_String_System_Object__
+  commentId: M:Supabase.Gotrue.Api.SignUpWithEmail(System.String,System.String,Dictionary{System.String,System.Object})
+  name.vb: SignUpWithEmail(String, String, Dictionary(Of String, Object))
+  fullName: Supabase.Gotrue.Api.SignUpWithEmail(System.String, System.String, Dictionary<System.String, System.Object>)
+  fullName.vb: Supabase.Gotrue.Api.SignUpWithEmail(System.String, System.String, Dictionary(Of System.String, System.Object))
+  nameWithType: Api.SignUpWithEmail(String, String, Dictionary<String, Object>)
+  nameWithType.vb: Api.SignUpWithEmail(String, String, Dictionary(Of String, Object))
 - uid: Supabase.Gotrue.Api.SignUpWithEmail*
   name: SignUpWithEmail
   href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SignUpWithEmail_
@@ -2615,15 +2618,15 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Api.SignUpWithEmail
   nameWithType: Api.SignUpWithEmail
-- uid: Supabase.Gotrue.Api.SignUpWithPhone(System.String,System.String,Dictionary{System.String,System.String})
-  name: SignUpWithPhone(String, String, Dictionary<String, String>)
-  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SignUpWithPhone_System_String_System_String_Dictionary_System_String_System_String__
-  commentId: M:Supabase.Gotrue.Api.SignUpWithPhone(System.String,System.String,Dictionary{System.String,System.String})
-  name.vb: SignUpWithPhone(String, String, Dictionary(Of String, String))
-  fullName: Supabase.Gotrue.Api.SignUpWithPhone(System.String, System.String, Dictionary<System.String, System.String>)
-  fullName.vb: Supabase.Gotrue.Api.SignUpWithPhone(System.String, System.String, Dictionary(Of System.String, System.String))
-  nameWithType: Api.SignUpWithPhone(String, String, Dictionary<String, String>)
-  nameWithType.vb: Api.SignUpWithPhone(String, String, Dictionary(Of String, String))
+- uid: Supabase.Gotrue.Api.SignUpWithPhone(System.String,System.String,Dictionary{System.String,System.Object})
+  name: SignUpWithPhone(String, String, Dictionary<String, Object>)
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SignUpWithPhone_System_String_System_String_Dictionary_System_String_System_Object__
+  commentId: M:Supabase.Gotrue.Api.SignUpWithPhone(System.String,System.String,Dictionary{System.String,System.Object})
+  name.vb: SignUpWithPhone(String, String, Dictionary(Of String, Object))
+  fullName: Supabase.Gotrue.Api.SignUpWithPhone(System.String, System.String, Dictionary<System.String, System.Object>)
+  fullName.vb: Supabase.Gotrue.Api.SignUpWithPhone(System.String, System.String, Dictionary(Of System.String, System.Object))
+  nameWithType: Api.SignUpWithPhone(String, String, Dictionary<String, Object>)
+  nameWithType.vb: Api.SignUpWithPhone(String, String, Dictionary(Of String, Object))
 - uid: Supabase.Gotrue.Api.SignUpWithPhone*
   name: SignUpWithPhone
   href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SignUpWithPhone_
@@ -3182,18 +3185,24 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.SignOut
   nameWithType: Client.SignOut
-- uid: Supabase.Gotrue.Client.SignUp(Supabase.Gotrue.Client.SignUpType,System.String,System.String)
-  name: SignUp(Client.SignUpType, String, String)
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignUp_Supabase_Gotrue_Client_SignUpType_System_String_System_String_
-  commentId: M:Supabase.Gotrue.Client.SignUp(Supabase.Gotrue.Client.SignUpType,System.String,System.String)
-  fullName: Supabase.Gotrue.Client.SignUp(Supabase.Gotrue.Client.SignUpType, System.String, System.String)
-  nameWithType: Client.SignUp(Client.SignUpType, String, String)
-- uid: Supabase.Gotrue.Client.SignUp(System.String,System.String)
-  name: SignUp(String, String)
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignUp_System_String_System_String_
-  commentId: M:Supabase.Gotrue.Client.SignUp(System.String,System.String)
-  fullName: Supabase.Gotrue.Client.SignUp(System.String, System.String)
-  nameWithType: Client.SignUp(String, String)
+- uid: Supabase.Gotrue.Client.SignUp(Supabase.Gotrue.Client.SignUpType,System.String,System.String,Dictionary{System.String,System.Object})
+  name: SignUp(Client.SignUpType, String, String, Dictionary<String, Object>)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignUp_Supabase_Gotrue_Client_SignUpType_System_String_System_String_Dictionary_System_String_System_Object__
+  commentId: M:Supabase.Gotrue.Client.SignUp(Supabase.Gotrue.Client.SignUpType,System.String,System.String,Dictionary{System.String,System.Object})
+  name.vb: SignUp(Client.SignUpType, String, String, Dictionary(Of String, Object))
+  fullName: Supabase.Gotrue.Client.SignUp(Supabase.Gotrue.Client.SignUpType, System.String, System.String, Dictionary<System.String, System.Object>)
+  fullName.vb: Supabase.Gotrue.Client.SignUp(Supabase.Gotrue.Client.SignUpType, System.String, System.String, Dictionary(Of System.String, System.Object))
+  nameWithType: Client.SignUp(Client.SignUpType, String, String, Dictionary<String, Object>)
+  nameWithType.vb: Client.SignUp(Client.SignUpType, String, String, Dictionary(Of String, Object))
+- uid: Supabase.Gotrue.Client.SignUp(System.String,System.String,Dictionary{System.String,System.Object})
+  name: SignUp(String, String, Dictionary<String, Object>)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignUp_System_String_System_String_Dictionary_System_String_System_Object__
+  commentId: M:Supabase.Gotrue.Client.SignUp(System.String,System.String,Dictionary{System.String,System.Object})
+  name.vb: SignUp(String, String, Dictionary(Of String, Object))
+  fullName: Supabase.Gotrue.Client.SignUp(System.String, System.String, Dictionary<System.String, System.Object>)
+  fullName.vb: Supabase.Gotrue.Client.SignUp(System.String, System.String, Dictionary(Of System.String, System.Object))
+  nameWithType: Client.SignUp(String, String, Dictionary<String, Object>)
+  nameWithType.vb: Client.SignUp(String, String, Dictionary(Of String, Object))
 - uid: Supabase.Gotrue.Client.SignUp*
   name: SignUp
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignUp_
@@ -3929,18 +3938,24 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.StatelessClient.SignIn
   nameWithType: StatelessClient.SignIn
-- uid: Supabase.Gotrue.StatelessClient.SignUp(Supabase.Gotrue.Client.SignUpType,System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
-  name: SignUp(Client.SignUpType, String, String, StatelessClient.StatelessClientOptions)
-  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignUp_Supabase_Gotrue_Client_SignUpType_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
-  commentId: M:Supabase.Gotrue.StatelessClient.SignUp(Supabase.Gotrue.Client.SignUpType,System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
-  fullName: Supabase.Gotrue.StatelessClient.SignUp(Supabase.Gotrue.Client.SignUpType, System.String, System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
-  nameWithType: StatelessClient.SignUp(Client.SignUpType, String, String, StatelessClient.StatelessClientOptions)
-- uid: Supabase.Gotrue.StatelessClient.SignUp(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
-  name: SignUp(String, String, StatelessClient.StatelessClientOptions)
-  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignUp_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
-  commentId: M:Supabase.Gotrue.StatelessClient.SignUp(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
-  fullName: Supabase.Gotrue.StatelessClient.SignUp(System.String, System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
-  nameWithType: StatelessClient.SignUp(String, String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.SignUp(Supabase.Gotrue.Client.SignUpType,System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Dictionary{System.String,System.Object})
+  name: SignUp(Client.SignUpType, String, String, StatelessClient.StatelessClientOptions, Dictionary<String, Object>)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignUp_Supabase_Gotrue_Client_SignUpType_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Dictionary_System_String_System_Object__
+  commentId: M:Supabase.Gotrue.StatelessClient.SignUp(Supabase.Gotrue.Client.SignUpType,System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Dictionary{System.String,System.Object})
+  name.vb: SignUp(Client.SignUpType, String, String, StatelessClient.StatelessClientOptions, Dictionary(Of String, Object))
+  fullName: Supabase.Gotrue.StatelessClient.SignUp(Supabase.Gotrue.Client.SignUpType, System.String, System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions, Dictionary<System.String, System.Object>)
+  fullName.vb: Supabase.Gotrue.StatelessClient.SignUp(Supabase.Gotrue.Client.SignUpType, System.String, System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions, Dictionary(Of System.String, System.Object))
+  nameWithType: StatelessClient.SignUp(Client.SignUpType, String, String, StatelessClient.StatelessClientOptions, Dictionary<String, Object>)
+  nameWithType.vb: StatelessClient.SignUp(Client.SignUpType, String, String, StatelessClient.StatelessClientOptions, Dictionary(Of String, Object))
+- uid: Supabase.Gotrue.StatelessClient.SignUp(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Dictionary{System.String,System.Object})
+  name: SignUp(String, String, StatelessClient.StatelessClientOptions, Dictionary<String, Object>)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignUp_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Dictionary_System_String_System_Object__
+  commentId: M:Supabase.Gotrue.StatelessClient.SignUp(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Dictionary{System.String,System.Object})
+  name.vb: SignUp(String, String, StatelessClient.StatelessClientOptions, Dictionary(Of String, Object))
+  fullName: Supabase.Gotrue.StatelessClient.SignUp(System.String, System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions, Dictionary<System.String, System.Object>)
+  fullName.vb: Supabase.Gotrue.StatelessClient.SignUp(System.String, System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions, Dictionary(Of System.String, System.Object))
+  nameWithType: StatelessClient.SignUp(String, String, StatelessClient.StatelessClientOptions, Dictionary<String, Object>)
+  nameWithType.vb: StatelessClient.SignUp(String, String, StatelessClient.StatelessClientOptions, Dictionary(Of String, Object))
 - uid: Supabase.Gotrue.StatelessClient.SignUp*
   name: SignUp
   href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignUp_
