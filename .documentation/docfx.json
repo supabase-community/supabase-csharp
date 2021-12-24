@@ -19,6 +19,11 @@
         "files": "Postgrest.csproj",
         "exclude": ["**/bin/**", "**/obj/**"],
         "src": "../modules/postgrest-csharp/Postgrest"
+      },
+      {
+        "files": "Storage.csproj",
+        "exclude": ["**/bin/**", "**/obj/**"],
+        "src": "../modules/storage-csharp/Storage"
       }
     ],
     "dest": "api",
