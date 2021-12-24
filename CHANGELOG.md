@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 0.2.10 - 2021-12-23
+
+- Update dependency: gotrue-csharp@2.3.0 (adds metadata support for user signup, see [#14](https://github.com/supabase/community/issues/14))
+
 ## 0.2.9 - 2021-12-9
 
 - Separate Storage client from Supabase repo and into `storage-csharp`, `supabase-csharp` now references new repo.
