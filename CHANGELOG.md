@@ -1,5 +1,13 @@
 ﻿# Changelog
 
+## 0.2.11 - 2021-12-24
+
+- Update dependency: gotrue-csharp@2.3.2 (changes CreateUser parameters to conform to `AdminUserAttributes`)
+    - See [#15](https://github.com/supabase-community/supabase-csharp/issues/15)
+    - See [#16](https://github.com/supabase-community/supabase-csharp/issues/16)
+- Update dependency: realtime-csharp@2.0.7
+    - See [#13](https://github.com/supabase-community/supabase-csharp/issues/13)
+
 ## 0.2.10 - 2021-12-23
 
 - Update dependency: gotrue-csharp@2.3.0 (adds metadata support for user signup, see [#14](https://github.com/supabase/community/issues/14))
