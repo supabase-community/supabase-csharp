@@ -1,5 +1,15 @@
 ﻿# Changelog
 
+## 0.2.12 - 2012-12-29
+
+- Update dependency: gotrue-csharp@2.3.3
+    - `SignUp` will return a `Session` with a *populated `User` object* on an unconfirmed signup.
+        - Fixes [#19](https://github.com/supabase-community/gotrue-csharp/issues/19)
+        - Developers who were using a `null` check on `Session.User` will need to adjust accordingly.
+- Update dependency: postgrest-csharp@2.0.5
+    - Fix for [#37](https://github.com/supabase-community/postgrest-csharp/issues/37) - Return Type `minimal` would fail to resolve because of incorrect `Accept` headers. Added header and test to verify for future.
+    - Fix for [#36](https://github.com/supabase-community/postgrest-csharp/issues/36) - Inserting/Upserting bulk records would fail while doing an unnecessary generic coercion.
+
 ## 0.2.11 - 2021-12-24
 
 - Update dependency: gotrue-csharp@2.3.2 (changes CreateUser parameters to conform to `AdminUserAttributes`)
