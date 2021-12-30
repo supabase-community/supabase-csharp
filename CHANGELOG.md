@@ -1,5 +1,15 @@
 ﻿# Changelog
 
+## 0.3.0 - 2021-12-30
+
+- Update dependency: postgrest-csharp@2.0.6
+    - Add support for `NullValueHandling` to be specified on a `Column` Attribute and for it to be honored on Inserts and Updates. Defaults to: `NullValueHandling.Include`.
+        - Implements [#38](https://github.com/supabase-community/postgrest-csharp/issues/38)
+- Update dependency: realtime-csharp@2.0.8
+    - Implement Upstream Realtime RLS Error Broadcast Handler
+        - Implements [#12](https://github.com/supabase-community/realtime-csharp/issues/12)
+    - `SocketResponse` now exposes a method: `OldModel`, that hydrates the `OldRecord` property into a model.
+
 ## 0.2.12 - 2012-12-29
 
 - Update dependency: gotrue-csharp@2.3.3
