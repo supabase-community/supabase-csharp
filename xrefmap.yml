@@ -19,12 +19,12 @@ references:
   commentId: T:Postgrest.Attributes.ColumnAttribute
   fullName: Postgrest.Attributes.ColumnAttribute
   nameWithType: ColumnAttribute
-- uid: Postgrest.Attributes.ColumnAttribute.#ctor(System.String)
-  name: ColumnAttribute(String)
-  href: api/Postgrest.Attributes.ColumnAttribute.html#Postgrest_Attributes_ColumnAttribute__ctor_System_String_
-  commentId: M:Postgrest.Attributes.ColumnAttribute.#ctor(System.String)
-  fullName: Postgrest.Attributes.ColumnAttribute.ColumnAttribute(System.String)
-  nameWithType: ColumnAttribute.ColumnAttribute(String)
+- uid: Postgrest.Attributes.ColumnAttribute.#ctor(System.String,NullValueHandling)
+  name: ColumnAttribute(String, NullValueHandling)
+  href: api/Postgrest.Attributes.ColumnAttribute.html#Postgrest_Attributes_ColumnAttribute__ctor_System_String_NullValueHandling_
+  commentId: M:Postgrest.Attributes.ColumnAttribute.#ctor(System.String,NullValueHandling)
+  fullName: Postgrest.Attributes.ColumnAttribute.ColumnAttribute(System.String, NullValueHandling)
+  nameWithType: ColumnAttribute.ColumnAttribute(String, NullValueHandling)
 - uid: Postgrest.Attributes.ColumnAttribute.#ctor*
   name: ColumnAttribute
   href: api/Postgrest.Attributes.ColumnAttribute.html#Postgrest_Attributes_ColumnAttribute__ctor_
@@ -45,6 +45,19 @@ references:
   isSpec: "True"
   fullName: Postgrest.Attributes.ColumnAttribute.ColumnName
   nameWithType: ColumnAttribute.ColumnName
+- uid: Postgrest.Attributes.ColumnAttribute.NullValueHandling
+  name: NullValueHandling
+  href: api/Postgrest.Attributes.ColumnAttribute.html#Postgrest_Attributes_ColumnAttribute_NullValueHandling
+  commentId: P:Postgrest.Attributes.ColumnAttribute.NullValueHandling
+  fullName: Postgrest.Attributes.ColumnAttribute.NullValueHandling
+  nameWithType: ColumnAttribute.NullValueHandling
+- uid: Postgrest.Attributes.ColumnAttribute.NullValueHandling*
+  name: NullValueHandling
+  href: api/Postgrest.Attributes.ColumnAttribute.html#Postgrest_Attributes_ColumnAttribute_NullValueHandling_
+  commentId: Overload:Postgrest.Attributes.ColumnAttribute.NullValueHandling
+  isSpec: "True"
+  fullName: Postgrest.Attributes.ColumnAttribute.NullValueHandling
+  nameWithType: ColumnAttribute.NullValueHandling
 - uid: Postgrest.Attributes.PostgrestContractResolver
   name: PostgrestContractResolver
   href: api/Postgrest.Attributes.PostgrestContractResolver.html
@@ -5789,6 +5802,22 @@ references:
   fullName.vb: Supabase.Realtime.SocketResponse.Model(Of T)()
   nameWithType: SocketResponse.Model<T>()
   nameWithType.vb: SocketResponse.Model(Of T)()
+- uid: Supabase.Realtime.SocketResponse.OldModel*
+  name: OldModel
+  href: api/Supabase.Realtime.SocketResponse.html#Supabase_Realtime_SocketResponse_OldModel_
+  commentId: Overload:Supabase.Realtime.SocketResponse.OldModel
+  isSpec: "True"
+  fullName: Supabase.Realtime.SocketResponse.OldModel
+  nameWithType: SocketResponse.OldModel
+- uid: Supabase.Realtime.SocketResponse.OldModel``1
+  name: OldModel<T>()
+  href: api/Supabase.Realtime.SocketResponse.html#Supabase_Realtime_SocketResponse_OldModel__1
+  commentId: M:Supabase.Realtime.SocketResponse.OldModel``1
+  name.vb: OldModel(Of T)()
+  fullName: Supabase.Realtime.SocketResponse.OldModel<T>()
+  fullName.vb: Supabase.Realtime.SocketResponse.OldModel(Of T)()
+  nameWithType: SocketResponse.OldModel<T>()
+  nameWithType.vb: SocketResponse.OldModel(Of T)()
 - uid: Supabase.Realtime.SocketResponse.Payload
   name: Payload
   href: api/Supabase.Realtime.SocketResponse.html#Supabase_Realtime_SocketResponse_Payload
@@ -5918,6 +5947,32 @@ references:
   isSpec: "True"
   fullName: Supabase.Realtime.SocketResponsePayload.CommitTimestamp
   nameWithType: SocketResponsePayload.CommitTimestamp
+- uid: Supabase.Realtime.SocketResponsePayload.Errors
+  name: Errors
+  href: api/Supabase.Realtime.SocketResponsePayload.html#Supabase_Realtime_SocketResponsePayload_Errors
+  commentId: P:Supabase.Realtime.SocketResponsePayload.Errors
+  fullName: Supabase.Realtime.SocketResponsePayload.Errors
+  nameWithType: SocketResponsePayload.Errors
+- uid: Supabase.Realtime.SocketResponsePayload.Errors*
+  name: Errors
+  href: api/Supabase.Realtime.SocketResponsePayload.html#Supabase_Realtime_SocketResponsePayload_Errors_
+  commentId: Overload:Supabase.Realtime.SocketResponsePayload.Errors
+  isSpec: "True"
+  fullName: Supabase.Realtime.SocketResponsePayload.Errors
+  nameWithType: SocketResponsePayload.Errors
+- uid: Supabase.Realtime.SocketResponsePayload.OldRecord
+  name: OldRecord
+  href: api/Supabase.Realtime.SocketResponsePayload.html#Supabase_Realtime_SocketResponsePayload_OldRecord
+  commentId: P:Supabase.Realtime.SocketResponsePayload.OldRecord
+  fullName: Supabase.Realtime.SocketResponsePayload.OldRecord
+  nameWithType: SocketResponsePayload.OldRecord
+- uid: Supabase.Realtime.SocketResponsePayload.OldRecord*
+  name: OldRecord
+  href: api/Supabase.Realtime.SocketResponsePayload.html#Supabase_Realtime_SocketResponsePayload_OldRecord_
+  commentId: Overload:Supabase.Realtime.SocketResponsePayload.OldRecord
+  isSpec: "True"
+  fullName: Supabase.Realtime.SocketResponsePayload.OldRecord
+  nameWithType: SocketResponsePayload.OldRecord
 - uid: Supabase.Realtime.SocketResponsePayload.Record
   name: Record
   href: api/Supabase.Realtime.SocketResponsePayload.html#Supabase_Realtime_SocketResponsePayload_Record
@@ -6005,6 +6060,23 @@ references:
   fullName.vb: Supabase.Realtime.SocketResponsePayload(Of T)
   nameWithType: SocketResponsePayload<T>
   nameWithType.vb: SocketResponsePayload(Of T)
+- uid: Supabase.Realtime.SocketResponsePayload`1.OldRecord
+  name: OldRecord
+  href: api/Supabase.Realtime.SocketResponsePayload-1.html#Supabase_Realtime_SocketResponsePayload_1_OldRecord
+  commentId: P:Supabase.Realtime.SocketResponsePayload`1.OldRecord
+  fullName: Supabase.Realtime.SocketResponsePayload<T>.OldRecord
+  fullName.vb: Supabase.Realtime.SocketResponsePayload(Of T).OldRecord
+  nameWithType: SocketResponsePayload<T>.OldRecord
+  nameWithType.vb: SocketResponsePayload(Of T).OldRecord
+- uid: Supabase.Realtime.SocketResponsePayload`1.OldRecord*
+  name: OldRecord
+  href: api/Supabase.Realtime.SocketResponsePayload-1.html#Supabase_Realtime_SocketResponsePayload_1_OldRecord_
+  commentId: Overload:Supabase.Realtime.SocketResponsePayload`1.OldRecord
+  isSpec: "True"
+  fullName: Supabase.Realtime.SocketResponsePayload<T>.OldRecord
+  fullName.vb: Supabase.Realtime.SocketResponsePayload(Of T).OldRecord
+  nameWithType: SocketResponsePayload<T>.OldRecord
+  nameWithType.vb: SocketResponsePayload(Of T).OldRecord
 - uid: Supabase.Realtime.SocketResponsePayload`1.Record
   name: Record
   href: api/Supabase.Realtime.SocketResponsePayload-1.html#Supabase_Realtime_SocketResponsePayload_1_Record
