@@ -2608,12 +2608,12 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Api.ResetPasswordForEmail
   nameWithType: Api.ResetPasswordForEmail
-- uid: Supabase.Gotrue.Api.SendMagicLinkEmail(System.String)
-  name: SendMagicLinkEmail(String)
-  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SendMagicLinkEmail_System_String_
-  commentId: M:Supabase.Gotrue.Api.SendMagicLinkEmail(System.String)
-  fullName: Supabase.Gotrue.Api.SendMagicLinkEmail(System.String)
-  nameWithType: Api.SendMagicLinkEmail(String)
+- uid: Supabase.Gotrue.Api.SendMagicLinkEmail(System.String,Supabase.Gotrue.SignInOptions)
+  name: SendMagicLinkEmail(String, SignInOptions)
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SendMagicLinkEmail_System_String_Supabase_Gotrue_SignInOptions_
+  commentId: M:Supabase.Gotrue.Api.SendMagicLinkEmail(System.String,Supabase.Gotrue.SignInOptions)
+  fullName: Supabase.Gotrue.Api.SendMagicLinkEmail(System.String, Supabase.Gotrue.SignInOptions)
+  nameWithType: Api.SendMagicLinkEmail(String, SignInOptions)
 - uid: Supabase.Gotrue.Api.SendMagicLinkEmail*
   name: SendMagicLinkEmail
   href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SendMagicLinkEmail_
@@ -3123,12 +3123,12 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.RetrieveSessionAsync
   nameWithType: Client.RetrieveSessionAsync
-- uid: Supabase.Gotrue.Client.SendMagicLink(System.String)
-  name: SendMagicLink(String)
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SendMagicLink_System_String_
-  commentId: M:Supabase.Gotrue.Client.SendMagicLink(System.String)
-  fullName: Supabase.Gotrue.Client.SendMagicLink(System.String)
-  nameWithType: Client.SendMagicLink(String)
+- uid: Supabase.Gotrue.Client.SendMagicLink(System.String,Supabase.Gotrue.SignInOptions)
+  name: SendMagicLink(String, SignInOptions)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SendMagicLink_System_String_Supabase_Gotrue_SignInOptions_
+  commentId: M:Supabase.Gotrue.Client.SendMagicLink(System.String,Supabase.Gotrue.SignInOptions)
+  fullName: Supabase.Gotrue.Client.SendMagicLink(System.String, Supabase.Gotrue.SignInOptions)
+  nameWithType: Client.SendMagicLink(String, SignInOptions)
 - uid: Supabase.Gotrue.Client.SendMagicLink*
   name: SendMagicLink
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SendMagicLink_
@@ -3200,12 +3200,12 @@ references:
   commentId: M:Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Client.SignInType,System.String,System.String,System.String)
   fullName: Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Client.SignInType, System.String, System.String, System.String)
   nameWithType: Client.SignIn(Client.SignInType, String, String, String)
-- uid: Supabase.Gotrue.Client.SignIn(System.String)
-  name: SignIn(String)
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignIn_System_String_
-  commentId: M:Supabase.Gotrue.Client.SignIn(System.String)
-  fullName: Supabase.Gotrue.Client.SignIn(System.String)
-  nameWithType: Client.SignIn(String)
+- uid: Supabase.Gotrue.Client.SignIn(System.String,Supabase.Gotrue.SignInOptions)
+  name: SignIn(String, SignInOptions)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignIn_System_String_Supabase_Gotrue_SignInOptions_
+  commentId: M:Supabase.Gotrue.Client.SignIn(System.String,Supabase.Gotrue.SignInOptions)
+  fullName: Supabase.Gotrue.Client.SignIn(System.String, Supabase.Gotrue.SignInOptions)
+  nameWithType: Client.SignIn(String, SignInOptions)
 - uid: Supabase.Gotrue.Client.SignIn(System.String,System.String)
   name: SignIn(String, String)
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignIn_System_String_System_String_
@@ -3833,6 +3833,25 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Session.User
   nameWithType: Session.User
+- uid: Supabase.Gotrue.SignInOptions
+  name: SignInOptions
+  href: api/Supabase.Gotrue.SignInOptions.html
+  commentId: T:Supabase.Gotrue.SignInOptions
+  fullName: Supabase.Gotrue.SignInOptions
+  nameWithType: SignInOptions
+- uid: Supabase.Gotrue.SignInOptions.RedirectTo
+  name: RedirectTo
+  href: api/Supabase.Gotrue.SignInOptions.html#Supabase_Gotrue_SignInOptions_RedirectTo
+  commentId: P:Supabase.Gotrue.SignInOptions.RedirectTo
+  fullName: Supabase.Gotrue.SignInOptions.RedirectTo
+  nameWithType: SignInOptions.RedirectTo
+- uid: Supabase.Gotrue.SignInOptions.RedirectTo*
+  name: RedirectTo
+  href: api/Supabase.Gotrue.SignInOptions.html#Supabase_Gotrue_SignInOptions_RedirectTo_
+  commentId: Overload:Supabase.Gotrue.SignInOptions.RedirectTo
+  isSpec: "True"
+  fullName: Supabase.Gotrue.SignInOptions.RedirectTo
+  nameWithType: SignInOptions.RedirectTo
 - uid: Supabase.Gotrue.SignUpOptions
   name: SignUpOptions
   href: api/Supabase.Gotrue.SignUpOptions.html
@@ -3852,19 +3871,6 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.SignUpOptions.Data
   nameWithType: SignUpOptions.Data
-- uid: Supabase.Gotrue.SignUpOptions.RedirectTo
-  name: RedirectTo
-  href: api/Supabase.Gotrue.SignUpOptions.html#Supabase_Gotrue_SignUpOptions_RedirectTo
-  commentId: P:Supabase.Gotrue.SignUpOptions.RedirectTo
-  fullName: Supabase.Gotrue.SignUpOptions.RedirectTo
-  nameWithType: SignUpOptions.RedirectTo
-- uid: Supabase.Gotrue.SignUpOptions.RedirectTo*
-  name: RedirectTo
-  href: api/Supabase.Gotrue.SignUpOptions.html#Supabase_Gotrue_SignUpOptions_RedirectTo_
-  commentId: Overload:Supabase.Gotrue.SignUpOptions.RedirectTo
-  isSpec: "True"
-  fullName: Supabase.Gotrue.SignUpOptions.RedirectTo
-  nameWithType: SignUpOptions.RedirectTo
 - uid: Supabase.Gotrue.StatelessClient
   name: StatelessClient
   href: api/Supabase.Gotrue.StatelessClient.html
@@ -3997,12 +4003,12 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.StatelessClient.ResetPasswordForEmail
   nameWithType: StatelessClient.ResetPasswordForEmail
-- uid: Supabase.Gotrue.StatelessClient.SendMagicLink(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
-  name: SendMagicLink(String, StatelessClient.StatelessClientOptions)
-  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SendMagicLink_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
-  commentId: M:Supabase.Gotrue.StatelessClient.SendMagicLink(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
-  fullName: Supabase.Gotrue.StatelessClient.SendMagicLink(System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
-  nameWithType: StatelessClient.SendMagicLink(String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.SendMagicLink(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.SignInOptions)
+  name: SendMagicLink(String, StatelessClient.StatelessClientOptions, SignInOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SendMagicLink_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignInOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.SendMagicLink(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.SignInOptions)
+  fullName: Supabase.Gotrue.StatelessClient.SendMagicLink(System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions, Supabase.Gotrue.SignInOptions)
+  nameWithType: StatelessClient.SendMagicLink(String, StatelessClient.StatelessClientOptions, SignInOptions)
 - uid: Supabase.Gotrue.StatelessClient.SendMagicLink*
   name: SendMagicLink
   href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SendMagicLink_
@@ -4022,12 +4028,12 @@ references:
   commentId: M:Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Client.SignInType,System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
   fullName: Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Client.SignInType, System.String, System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
   nameWithType: StatelessClient.SignIn(Client.SignInType, String, String, StatelessClient.StatelessClientOptions)
-- uid: Supabase.Gotrue.StatelessClient.SignIn(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
-  name: SignIn(String, StatelessClient.StatelessClientOptions)
-  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignIn_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
-  commentId: M:Supabase.Gotrue.StatelessClient.SignIn(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
-  fullName: Supabase.Gotrue.StatelessClient.SignIn(System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
-  nameWithType: StatelessClient.SignIn(String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.SignIn(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.SignInOptions)
+  name: SignIn(String, StatelessClient.StatelessClientOptions, SignInOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignIn_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignInOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.SignIn(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.SignInOptions)
+  fullName: Supabase.Gotrue.StatelessClient.SignIn(System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions, Supabase.Gotrue.SignInOptions)
+  nameWithType: StatelessClient.SignIn(String, StatelessClient.StatelessClientOptions, SignInOptions)
 - uid: Supabase.Gotrue.StatelessClient.SignIn(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
   name: SignIn(String, String, StatelessClient.StatelessClientOptions)
   href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignIn_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
@@ -4041,6 +4047,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.StatelessClient.SignIn
   nameWithType: StatelessClient.SignIn
+- uid: Supabase.Gotrue.StatelessClient.SignOut(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: SignOut(String, StatelessClient.StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignOut_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.SignOut(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.SignOut(System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.SignOut(String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.SignOut*
+  name: SignOut
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignOut_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.SignOut
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.SignOut
+  nameWithType: StatelessClient.SignOut
 - uid: Supabase.Gotrue.StatelessClient.SignUp(Supabase.Gotrue.Client.SignUpType,System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.SignUpOptions)
   name: SignUp(Client.SignUpType, String, String, StatelessClient.StatelessClientOptions, SignUpOptions)
   href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignUp_Supabase_Gotrue_Client_SignUpType_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignUpOptions_
