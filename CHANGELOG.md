@@ -1,5 +1,11 @@
 ﻿# Changelog
 
+## 0.3.1 - 2022-01-20
+
+- Update dependency: gotrue-csharp@2.3.5
+    - [#23](https://github.com/supabase-community/gotrue-csharp/pull/23) Added `redirect_url` option for MagicLink sign in (Thanks [@MisterJimson](https://github.com/MisterJimson))
+    - [#21](https://github.com/supabase-community/gotrue-csharp/pull/21) Added SignOut method to Stateless Client (Thanks [@fplaras](https://github.com/fplaras))
+
 ## 0.3.0 - 2021-12-30
 
 - Update dependency: postgrest-csharp@2.0.6

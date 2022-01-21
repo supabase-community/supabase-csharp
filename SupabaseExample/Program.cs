@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
-using Supabase.Gotrue;
-using static Supabase.Gotrue.Client;
 
 namespace SupabaseExample
 {
@@ -34,6 +31,8 @@ namespace SupabaseExample
             {
                 Debug.WriteLine($"[{ev.Response.Event}]:{ev.Response.Topic}:{ev.Response.Payload.Record}");
             });
+
+            var channels = await reference.Get();
 
             //await reference.Insert(new Models.Channel { Slug = GenerateName(10), InsertedAt = DateTime.Now });
 
