@@ -149,7 +149,7 @@ namespace Supabase
                         foreach (var subscription in Instance.Realtime.Subscriptions.Values)
                             subscription.Unsubscribe();
 
-                        Instance.Realtime.Disconnect(WebSocketSharp.CloseStatusCode.Normal);
+                        Instance.Realtime.Disconnect();
                     }
                     break;
             }
