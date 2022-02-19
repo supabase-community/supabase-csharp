@@ -1,5 +1,11 @@
 ﻿# Changelog
 
+## 0.3.2 - 2022-02-18
+
+- Update dependency: realtime-csharp@3.0.0
+    - Exchange existing websocket client: [WebSocketSharp](https://github.com/sta/websocket-sharp) for [Marfusios/websocket-client](https://github.com/Marfusios/websocket-client) which adds support for Blazor WASM apps.
+      Ref: [#14](https://github.com/supabase-community/realtime-csharp/pull/14)
+
 ## 0.3.1 - 2022-01-20
 
 - Update dependency: gotrue-csharp@2.3.5
@@ -16,7 +22,7 @@
         - Implements [#12](https://github.com/supabase-community/realtime-csharp/issues/12)
     - `SocketResponse` now exposes a method: `OldModel`, that hydrates the `OldRecord` property into a model.
 
-## 0.2.12 - 2012-12-29
+## 0.2.12 - 2021-12-29
 
 - Update dependency: gotrue-csharp@2.3.3
     - `SignUp` will return a `Session` with a *populated `User` object* on an unconfirmed signup.
