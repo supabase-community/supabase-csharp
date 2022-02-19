@@ -4829,12 +4829,12 @@ references:
   isSpec: "True"
   fullName: Supabase.Realtime.Client.ConnectAsync
   nameWithType: Client.ConnectAsync
-- uid: Supabase.Realtime.Client.Disconnect(CloseStatusCode,System.String)
-  name: Disconnect(CloseStatusCode, String)
-  href: api/Supabase.Realtime.Client.html#Supabase_Realtime_Client_Disconnect_CloseStatusCode_System_String_
-  commentId: M:Supabase.Realtime.Client.Disconnect(CloseStatusCode,System.String)
-  fullName: Supabase.Realtime.Client.Disconnect(CloseStatusCode, System.String)
-  nameWithType: Client.Disconnect(CloseStatusCode, String)
+- uid: Supabase.Realtime.Client.Disconnect(WebSocketCloseStatus,System.String)
+  name: Disconnect(WebSocketCloseStatus, String)
+  href: api/Supabase.Realtime.Client.html#Supabase_Realtime_Client_Disconnect_WebSocketCloseStatus_System_String_
+  commentId: M:Supabase.Realtime.Client.Disconnect(WebSocketCloseStatus,System.String)
+  fullName: Supabase.Realtime.Client.Disconnect(WebSocketCloseStatus, System.String)
+  nameWithType: Client.Disconnect(WebSocketCloseStatus, String)
 - uid: Supabase.Realtime.Client.Disconnect*
   name: Disconnect
   href: api/Supabase.Realtime.Client.html#Supabase_Realtime_Client_Disconnect_
@@ -5632,12 +5632,12 @@ references:
   isSpec: "True"
   fullName: Supabase.Realtime.Socket.Connect
   nameWithType: Socket.Connect
-- uid: Supabase.Realtime.Socket.Disconnect(CloseStatusCode,System.String)
-  name: Disconnect(CloseStatusCode, String)
-  href: api/Supabase.Realtime.Socket.html#Supabase_Realtime_Socket_Disconnect_CloseStatusCode_System_String_
-  commentId: M:Supabase.Realtime.Socket.Disconnect(CloseStatusCode,System.String)
-  fullName: Supabase.Realtime.Socket.Disconnect(CloseStatusCode, System.String)
-  nameWithType: Socket.Disconnect(CloseStatusCode, String)
+- uid: Supabase.Realtime.Socket.Disconnect(WebSocketCloseStatus,System.String)
+  name: Disconnect(WebSocketCloseStatus, String)
+  href: api/Supabase.Realtime.Socket.html#Supabase_Realtime_Socket_Disconnect_WebSocketCloseStatus_System_String_
+  commentId: M:Supabase.Realtime.Socket.Disconnect(WebSocketCloseStatus,System.String)
+  fullName: Supabase.Realtime.Socket.Disconnect(WebSocketCloseStatus, System.String)
+  nameWithType: Socket.Disconnect(WebSocketCloseStatus, String)
 - uid: Supabase.Realtime.Socket.Disconnect*
   name: Disconnect
   href: api/Supabase.Realtime.Socket.html#Supabase_Realtime_Socket_Disconnect_
