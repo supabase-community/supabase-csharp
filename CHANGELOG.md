@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 0.3.3 - 2022-02-27
+
+- Update dependency: gotrue-csharp@2.3.6
+- Update dependency: supabase-storage-csharp@1.0.2
+
 ## 0.3.2 - 2022-02-18
 
 - Update dependency: realtime-csharp@3.0.0
