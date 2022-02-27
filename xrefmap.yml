@@ -3060,6 +3060,18 @@ references:
   commentId: F:Supabase.Gotrue.Client.Provider.Google
   fullName: Supabase.Gotrue.Client.Provider.Google
   nameWithType: Client.Provider.Google
+- uid: Supabase.Gotrue.Client.Provider.LinkedIn
+  name: LinkedIn
+  href: api/Supabase.Gotrue.Client.Provider.html#Supabase_Gotrue_Client_Provider_LinkedIn
+  commentId: F:Supabase.Gotrue.Client.Provider.LinkedIn
+  fullName: Supabase.Gotrue.Client.Provider.LinkedIn
+  nameWithType: Client.Provider.LinkedIn
+- uid: Supabase.Gotrue.Client.Provider.Notion
+  name: Notion
+  href: api/Supabase.Gotrue.Client.Provider.html#Supabase_Gotrue_Client_Provider_Notion
+  commentId: F:Supabase.Gotrue.Client.Provider.Notion
+  fullName: Supabase.Gotrue.Client.Provider.Notion
+  nameWithType: Client.Provider.Notion
 - uid: Supabase.Gotrue.Client.Provider.Slack
   name: Slack
   href: api/Supabase.Gotrue.Client.Provider.html#Supabase_Gotrue_Client_Provider_Slack
@@ -6473,6 +6485,25 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.CreateSignedUrlResponse.SignedUrl
   nameWithType: CreateSignedUrlResponse.SignedUrl
+- uid: Supabase.Storage.CreateSignedUrlsResponse
+  name: CreateSignedUrlsResponse
+  href: api/Supabase.Storage.CreateSignedUrlsResponse.html
+  commentId: T:Supabase.Storage.CreateSignedUrlsResponse
+  fullName: Supabase.Storage.CreateSignedUrlsResponse
+  nameWithType: CreateSignedUrlsResponse
+- uid: Supabase.Storage.CreateSignedUrlsResponse.Path
+  name: Path
+  href: api/Supabase.Storage.CreateSignedUrlsResponse.html#Supabase_Storage_CreateSignedUrlsResponse_Path
+  commentId: P:Supabase.Storage.CreateSignedUrlsResponse.Path
+  fullName: Supabase.Storage.CreateSignedUrlsResponse.Path
+  nameWithType: CreateSignedUrlsResponse.Path
+- uid: Supabase.Storage.CreateSignedUrlsResponse.Path*
+  name: Path
+  href: api/Supabase.Storage.CreateSignedUrlsResponse.html#Supabase_Storage_CreateSignedUrlsResponse_Path_
+  commentId: Overload:Supabase.Storage.CreateSignedUrlsResponse.Path
+  isSpec: "True"
+  fullName: Supabase.Storage.CreateSignedUrlsResponse.Path
+  nameWithType: CreateSignedUrlsResponse.Path
 - uid: Supabase.Storage.ErrorResponse
   name: ErrorResponse
   href: api/Supabase.Storage.ErrorResponse.html
@@ -6936,6 +6967,22 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.StorageFileApi.CreateSignedUrl
   nameWithType: StorageFileApi.CreateSignedUrl
+- uid: Supabase.Storage.StorageFileApi.CreateSignedUrls(List{System.String},System.Int32)
+  name: CreateSignedUrls(List<String>, Int32)
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_CreateSignedUrls_List_System_String__System_Int32_
+  commentId: M:Supabase.Storage.StorageFileApi.CreateSignedUrls(List{System.String},System.Int32)
+  name.vb: CreateSignedUrls(List(Of String), Int32)
+  fullName: Supabase.Storage.StorageFileApi.CreateSignedUrls(List<System.String>, System.Int32)
+  fullName.vb: Supabase.Storage.StorageFileApi.CreateSignedUrls(List(Of System.String), System.Int32)
+  nameWithType: StorageFileApi.CreateSignedUrls(List<String>, Int32)
+  nameWithType.vb: StorageFileApi.CreateSignedUrls(List(Of String), Int32)
+- uid: Supabase.Storage.StorageFileApi.CreateSignedUrls*
+  name: CreateSignedUrls
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_CreateSignedUrls_
+  commentId: Overload:Supabase.Storage.StorageFileApi.CreateSignedUrls
+  isSpec: "True"
+  fullName: Supabase.Storage.StorageFileApi.CreateSignedUrls
+  nameWithType: StorageFileApi.CreateSignedUrls
 - uid: Supabase.Storage.StorageFileApi.Download(System.String,DownloadProgressChangedEventHandler)
   name: Download(String, DownloadProgressChangedEventHandler)
   href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Download_System_String_DownloadProgressChangedEventHandler_
