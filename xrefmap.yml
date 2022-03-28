@@ -3060,6 +3060,12 @@ references:
   commentId: F:Supabase.Gotrue.Client.Provider.Google
   fullName: Supabase.Gotrue.Client.Provider.Google
   nameWithType: Client.Provider.Google
+- uid: Supabase.Gotrue.Client.Provider.KeyCloak
+  name: KeyCloak
+  href: api/Supabase.Gotrue.Client.Provider.html#Supabase_Gotrue_Client_Provider_KeyCloak
+  commentId: F:Supabase.Gotrue.Client.Provider.KeyCloak
+  fullName: Supabase.Gotrue.Client.Provider.KeyCloak
+  nameWithType: Client.Provider.KeyCloak
 - uid: Supabase.Gotrue.Client.Provider.LinkedIn
   name: LinkedIn
   href: api/Supabase.Gotrue.Client.Provider.html#Supabase_Gotrue_Client_Provider_LinkedIn
@@ -3096,6 +3102,12 @@ references:
   commentId: F:Supabase.Gotrue.Client.Provider.Twitter
   fullName: Supabase.Gotrue.Client.Provider.Twitter
   nameWithType: Client.Provider.Twitter
+- uid: Supabase.Gotrue.Client.Provider.WorkOS
+  name: WorkOS
+  href: api/Supabase.Gotrue.Client.Provider.html#Supabase_Gotrue_Client_Provider_WorkOS
+  commentId: F:Supabase.Gotrue.Client.Provider.WorkOS
+  fullName: Supabase.Gotrue.Client.Provider.WorkOS
+  nameWithType: Client.Provider.WorkOS
 - uid: Supabase.Gotrue.Client.RefreshSession
   name: RefreshSession()
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_RefreshSession
@@ -3356,6 +3368,19 @@ references:
   commentId: T:Supabase.Gotrue.ClientOptions
   fullName: Supabase.Gotrue.ClientOptions
   nameWithType: ClientOptions
+- uid: Supabase.Gotrue.ClientOptions.AllowUnconfirmedUserSessions
+  name: AllowUnconfirmedUserSessions
+  href: api/Supabase.Gotrue.ClientOptions.html#Supabase_Gotrue_ClientOptions_AllowUnconfirmedUserSessions
+  commentId: P:Supabase.Gotrue.ClientOptions.AllowUnconfirmedUserSessions
+  fullName: Supabase.Gotrue.ClientOptions.AllowUnconfirmedUserSessions
+  nameWithType: ClientOptions.AllowUnconfirmedUserSessions
+- uid: Supabase.Gotrue.ClientOptions.AllowUnconfirmedUserSessions*
+  name: AllowUnconfirmedUserSessions
+  href: api/Supabase.Gotrue.ClientOptions.html#Supabase_Gotrue_ClientOptions_AllowUnconfirmedUserSessions_
+  commentId: Overload:Supabase.Gotrue.ClientOptions.AllowUnconfirmedUserSessions
+  isSpec: "True"
+  fullName: Supabase.Gotrue.ClientOptions.AllowUnconfirmedUserSessions
+  nameWithType: ClientOptions.AllowUnconfirmedUserSessions
 - uid: Supabase.Gotrue.ClientOptions.AutoRefreshToken
   name: AutoRefreshToken
   href: api/Supabase.Gotrue.ClientOptions.html#Supabase_Gotrue_ClientOptions_AutoRefreshToken
@@ -4097,6 +4122,19 @@ references:
   commentId: T:Supabase.Gotrue.StatelessClient.StatelessClientOptions
   fullName: Supabase.Gotrue.StatelessClient.StatelessClientOptions
   nameWithType: StatelessClient.StatelessClientOptions
+- uid: Supabase.Gotrue.StatelessClient.StatelessClientOptions.AllowUnconfirmedUserSessions
+  name: AllowUnconfirmedUserSessions
+  href: api/Supabase.Gotrue.StatelessClient.StatelessClientOptions.html#Supabase_Gotrue_StatelessClient_StatelessClientOptions_AllowUnconfirmedUserSessions
+  commentId: P:Supabase.Gotrue.StatelessClient.StatelessClientOptions.AllowUnconfirmedUserSessions
+  fullName: Supabase.Gotrue.StatelessClient.StatelessClientOptions.AllowUnconfirmedUserSessions
+  nameWithType: StatelessClient.StatelessClientOptions.AllowUnconfirmedUserSessions
+- uid: Supabase.Gotrue.StatelessClient.StatelessClientOptions.AllowUnconfirmedUserSessions*
+  name: AllowUnconfirmedUserSessions
+  href: api/Supabase.Gotrue.StatelessClient.StatelessClientOptions.html#Supabase_Gotrue_StatelessClient_StatelessClientOptions_AllowUnconfirmedUserSessions_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.StatelessClientOptions.AllowUnconfirmedUserSessions
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.StatelessClientOptions.AllowUnconfirmedUserSessions
+  nameWithType: StatelessClient.StatelessClientOptions.AllowUnconfirmedUserSessions
 - uid: Supabase.Gotrue.StatelessClient.StatelessClientOptions.Headers
   name: Headers
   href: api/Supabase.Gotrue.StatelessClient.StatelessClientOptions.html#Supabase_Gotrue_StatelessClient_StatelessClientOptions_Headers
@@ -4206,6 +4244,19 @@ references:
   commentId: T:Supabase.Gotrue.User
   fullName: Supabase.Gotrue.User
   nameWithType: User
+- uid: Supabase.Gotrue.User.ActionLink
+  name: ActionLink
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_ActionLink
+  commentId: P:Supabase.Gotrue.User.ActionLink
+  fullName: Supabase.Gotrue.User.ActionLink
+  nameWithType: User.ActionLink
+- uid: Supabase.Gotrue.User.ActionLink*
+  name: ActionLink
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_ActionLink_
+  commentId: Overload:Supabase.Gotrue.User.ActionLink
+  isSpec: "True"
+  fullName: Supabase.Gotrue.User.ActionLink
+  nameWithType: User.ActionLink
 - uid: Supabase.Gotrue.User.AppMetadata
   name: AppMetadata
   href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_AppMetadata
@@ -4232,6 +4283,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.User.Aud
   nameWithType: User.Aud
+- uid: Supabase.Gotrue.User.ConfirmationSentAt
+  name: ConfirmationSentAt
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_ConfirmationSentAt
+  commentId: P:Supabase.Gotrue.User.ConfirmationSentAt
+  fullName: Supabase.Gotrue.User.ConfirmationSentAt
+  nameWithType: User.ConfirmationSentAt
+- uid: Supabase.Gotrue.User.ConfirmationSentAt*
+  name: ConfirmationSentAt
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_ConfirmationSentAt_
+  commentId: Overload:Supabase.Gotrue.User.ConfirmationSentAt
+  isSpec: "True"
+  fullName: Supabase.Gotrue.User.ConfirmationSentAt
+  nameWithType: User.ConfirmationSentAt
 - uid: Supabase.Gotrue.User.ConfirmedAt
   name: ConfirmedAt
   href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_ConfirmedAt
@@ -4271,6 +4335,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.User.Email
   nameWithType: User.Email
+- uid: Supabase.Gotrue.User.EmailConfirmedAt
+  name: EmailConfirmedAt
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_EmailConfirmedAt
+  commentId: P:Supabase.Gotrue.User.EmailConfirmedAt
+  fullName: Supabase.Gotrue.User.EmailConfirmedAt
+  nameWithType: User.EmailConfirmedAt
+- uid: Supabase.Gotrue.User.EmailConfirmedAt*
+  name: EmailConfirmedAt
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_EmailConfirmedAt_
+  commentId: Overload:Supabase.Gotrue.User.EmailConfirmedAt
+  isSpec: "True"
+  fullName: Supabase.Gotrue.User.EmailConfirmedAt
+  nameWithType: User.EmailConfirmedAt
 - uid: Supabase.Gotrue.User.Id
   name: Id
   href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_Id
@@ -4284,6 +4361,32 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.User.Id
   nameWithType: User.Id
+- uid: Supabase.Gotrue.User.Identities
+  name: Identities
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_Identities
+  commentId: P:Supabase.Gotrue.User.Identities
+  fullName: Supabase.Gotrue.User.Identities
+  nameWithType: User.Identities
+- uid: Supabase.Gotrue.User.Identities*
+  name: Identities
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_Identities_
+  commentId: Overload:Supabase.Gotrue.User.Identities
+  isSpec: "True"
+  fullName: Supabase.Gotrue.User.Identities
+  nameWithType: User.Identities
+- uid: Supabase.Gotrue.User.InvitedAt
+  name: InvitedAt
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_InvitedAt
+  commentId: P:Supabase.Gotrue.User.InvitedAt
+  fullName: Supabase.Gotrue.User.InvitedAt
+  nameWithType: User.InvitedAt
+- uid: Supabase.Gotrue.User.InvitedAt*
+  name: InvitedAt
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_InvitedAt_
+  commentId: Overload:Supabase.Gotrue.User.InvitedAt
+  isSpec: "True"
+  fullName: Supabase.Gotrue.User.InvitedAt
+  nameWithType: User.InvitedAt
 - uid: Supabase.Gotrue.User.LastSignInAt
   name: LastSignInAt
   href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_LastSignInAt
@@ -4297,6 +4400,45 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.User.LastSignInAt
   nameWithType: User.LastSignInAt
+- uid: Supabase.Gotrue.User.Phone
+  name: Phone
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_Phone
+  commentId: P:Supabase.Gotrue.User.Phone
+  fullName: Supabase.Gotrue.User.Phone
+  nameWithType: User.Phone
+- uid: Supabase.Gotrue.User.Phone*
+  name: Phone
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_Phone_
+  commentId: Overload:Supabase.Gotrue.User.Phone
+  isSpec: "True"
+  fullName: Supabase.Gotrue.User.Phone
+  nameWithType: User.Phone
+- uid: Supabase.Gotrue.User.PhoneConfirmedAt
+  name: PhoneConfirmedAt
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_PhoneConfirmedAt
+  commentId: P:Supabase.Gotrue.User.PhoneConfirmedAt
+  fullName: Supabase.Gotrue.User.PhoneConfirmedAt
+  nameWithType: User.PhoneConfirmedAt
+- uid: Supabase.Gotrue.User.PhoneConfirmedAt*
+  name: PhoneConfirmedAt
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_PhoneConfirmedAt_
+  commentId: Overload:Supabase.Gotrue.User.PhoneConfirmedAt
+  isSpec: "True"
+  fullName: Supabase.Gotrue.User.PhoneConfirmedAt
+  nameWithType: User.PhoneConfirmedAt
+- uid: Supabase.Gotrue.User.RecoverySentAt
+  name: RecoverySentAt
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_RecoverySentAt
+  commentId: P:Supabase.Gotrue.User.RecoverySentAt
+  fullName: Supabase.Gotrue.User.RecoverySentAt
+  nameWithType: User.RecoverySentAt
+- uid: Supabase.Gotrue.User.RecoverySentAt*
+  name: RecoverySentAt
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_RecoverySentAt_
+  commentId: Overload:Supabase.Gotrue.User.RecoverySentAt
+  isSpec: "True"
+  fullName: Supabase.Gotrue.User.RecoverySentAt
+  nameWithType: User.RecoverySentAt
 - uid: Supabase.Gotrue.User.Role
   name: Role
   href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_Role
@@ -4394,6 +4536,116 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.UserAttributes.Password
   nameWithType: UserAttributes.Password
+- uid: Supabase.Gotrue.UserAttributes.Phone
+  name: Phone
+  href: api/Supabase.Gotrue.UserAttributes.html#Supabase_Gotrue_UserAttributes_Phone
+  commentId: P:Supabase.Gotrue.UserAttributes.Phone
+  fullName: Supabase.Gotrue.UserAttributes.Phone
+  nameWithType: UserAttributes.Phone
+- uid: Supabase.Gotrue.UserAttributes.Phone*
+  name: Phone
+  href: api/Supabase.Gotrue.UserAttributes.html#Supabase_Gotrue_UserAttributes_Phone_
+  commentId: Overload:Supabase.Gotrue.UserAttributes.Phone
+  isSpec: "True"
+  fullName: Supabase.Gotrue.UserAttributes.Phone
+  nameWithType: UserAttributes.Phone
+- uid: Supabase.Gotrue.UserIdentity
+  name: UserIdentity
+  href: api/Supabase.Gotrue.UserIdentity.html
+  commentId: T:Supabase.Gotrue.UserIdentity
+  fullName: Supabase.Gotrue.UserIdentity
+  nameWithType: UserIdentity
+- uid: Supabase.Gotrue.UserIdentity.CreatedAt
+  name: CreatedAt
+  href: api/Supabase.Gotrue.UserIdentity.html#Supabase_Gotrue_UserIdentity_CreatedAt
+  commentId: P:Supabase.Gotrue.UserIdentity.CreatedAt
+  fullName: Supabase.Gotrue.UserIdentity.CreatedAt
+  nameWithType: UserIdentity.CreatedAt
+- uid: Supabase.Gotrue.UserIdentity.CreatedAt*
+  name: CreatedAt
+  href: api/Supabase.Gotrue.UserIdentity.html#Supabase_Gotrue_UserIdentity_CreatedAt_
+  commentId: Overload:Supabase.Gotrue.UserIdentity.CreatedAt
+  isSpec: "True"
+  fullName: Supabase.Gotrue.UserIdentity.CreatedAt
+  nameWithType: UserIdentity.CreatedAt
+- uid: Supabase.Gotrue.UserIdentity.Id
+  name: Id
+  href: api/Supabase.Gotrue.UserIdentity.html#Supabase_Gotrue_UserIdentity_Id
+  commentId: P:Supabase.Gotrue.UserIdentity.Id
+  fullName: Supabase.Gotrue.UserIdentity.Id
+  nameWithType: UserIdentity.Id
+- uid: Supabase.Gotrue.UserIdentity.Id*
+  name: Id
+  href: api/Supabase.Gotrue.UserIdentity.html#Supabase_Gotrue_UserIdentity_Id_
+  commentId: Overload:Supabase.Gotrue.UserIdentity.Id
+  isSpec: "True"
+  fullName: Supabase.Gotrue.UserIdentity.Id
+  nameWithType: UserIdentity.Id
+- uid: Supabase.Gotrue.UserIdentity.IdentityData
+  name: IdentityData
+  href: api/Supabase.Gotrue.UserIdentity.html#Supabase_Gotrue_UserIdentity_IdentityData
+  commentId: P:Supabase.Gotrue.UserIdentity.IdentityData
+  fullName: Supabase.Gotrue.UserIdentity.IdentityData
+  nameWithType: UserIdentity.IdentityData
+- uid: Supabase.Gotrue.UserIdentity.IdentityData*
+  name: IdentityData
+  href: api/Supabase.Gotrue.UserIdentity.html#Supabase_Gotrue_UserIdentity_IdentityData_
+  commentId: Overload:Supabase.Gotrue.UserIdentity.IdentityData
+  isSpec: "True"
+  fullName: Supabase.Gotrue.UserIdentity.IdentityData
+  nameWithType: UserIdentity.IdentityData
+- uid: Supabase.Gotrue.UserIdentity.LastSignInAt
+  name: LastSignInAt
+  href: api/Supabase.Gotrue.UserIdentity.html#Supabase_Gotrue_UserIdentity_LastSignInAt
+  commentId: P:Supabase.Gotrue.UserIdentity.LastSignInAt
+  fullName: Supabase.Gotrue.UserIdentity.LastSignInAt
+  nameWithType: UserIdentity.LastSignInAt
+- uid: Supabase.Gotrue.UserIdentity.LastSignInAt*
+  name: LastSignInAt
+  href: api/Supabase.Gotrue.UserIdentity.html#Supabase_Gotrue_UserIdentity_LastSignInAt_
+  commentId: Overload:Supabase.Gotrue.UserIdentity.LastSignInAt
+  isSpec: "True"
+  fullName: Supabase.Gotrue.UserIdentity.LastSignInAt
+  nameWithType: UserIdentity.LastSignInAt
+- uid: Supabase.Gotrue.UserIdentity.Provider
+  name: Provider
+  href: api/Supabase.Gotrue.UserIdentity.html#Supabase_Gotrue_UserIdentity_Provider
+  commentId: P:Supabase.Gotrue.UserIdentity.Provider
+  fullName: Supabase.Gotrue.UserIdentity.Provider
+  nameWithType: UserIdentity.Provider
+- uid: Supabase.Gotrue.UserIdentity.Provider*
+  name: Provider
+  href: api/Supabase.Gotrue.UserIdentity.html#Supabase_Gotrue_UserIdentity_Provider_
+  commentId: Overload:Supabase.Gotrue.UserIdentity.Provider
+  isSpec: "True"
+  fullName: Supabase.Gotrue.UserIdentity.Provider
+  nameWithType: UserIdentity.Provider
+- uid: Supabase.Gotrue.UserIdentity.UpdatedAt
+  name: UpdatedAt
+  href: api/Supabase.Gotrue.UserIdentity.html#Supabase_Gotrue_UserIdentity_UpdatedAt
+  commentId: P:Supabase.Gotrue.UserIdentity.UpdatedAt
+  fullName: Supabase.Gotrue.UserIdentity.UpdatedAt
+  nameWithType: UserIdentity.UpdatedAt
+- uid: Supabase.Gotrue.UserIdentity.UpdatedAt*
+  name: UpdatedAt
+  href: api/Supabase.Gotrue.UserIdentity.html#Supabase_Gotrue_UserIdentity_UpdatedAt_
+  commentId: Overload:Supabase.Gotrue.UserIdentity.UpdatedAt
+  isSpec: "True"
+  fullName: Supabase.Gotrue.UserIdentity.UpdatedAt
+  nameWithType: UserIdentity.UpdatedAt
+- uid: Supabase.Gotrue.UserIdentity.UserId
+  name: UserId
+  href: api/Supabase.Gotrue.UserIdentity.html#Supabase_Gotrue_UserIdentity_UserId
+  commentId: P:Supabase.Gotrue.UserIdentity.UserId
+  fullName: Supabase.Gotrue.UserIdentity.UserId
+  nameWithType: UserIdentity.UserId
+- uid: Supabase.Gotrue.UserIdentity.UserId*
+  name: UserId
+  href: api/Supabase.Gotrue.UserIdentity.html#Supabase_Gotrue_UserIdentity_UserId_
+  commentId: Overload:Supabase.Gotrue.UserIdentity.UserId
+  isSpec: "True"
+  fullName: Supabase.Gotrue.UserIdentity.UserId
+  nameWithType: UserIdentity.UserId
 - uid: Supabase.Gotrue.UserList
   name: UserList
   href: api/Supabase.Gotrue.UserList.html
@@ -4451,6 +4703,19 @@ references:
   commentId: T:Supabase.Gotrue.VerifyOTPParams
   fullName: Supabase.Gotrue.VerifyOTPParams
   nameWithType: VerifyOTPParams
+- uid: Supabase.Gotrue.VerifyOTPParams.Email
+  name: Email
+  href: api/Supabase.Gotrue.VerifyOTPParams.html#Supabase_Gotrue_VerifyOTPParams_Email
+  commentId: P:Supabase.Gotrue.VerifyOTPParams.Email
+  fullName: Supabase.Gotrue.VerifyOTPParams.Email
+  nameWithType: VerifyOTPParams.Email
+- uid: Supabase.Gotrue.VerifyOTPParams.Email*
+  name: Email
+  href: api/Supabase.Gotrue.VerifyOTPParams.html#Supabase_Gotrue_VerifyOTPParams_Email_
+  commentId: Overload:Supabase.Gotrue.VerifyOTPParams.Email
+  isSpec: "True"
+  fullName: Supabase.Gotrue.VerifyOTPParams.Email
+  nameWithType: VerifyOTPParams.Email
 - uid: Supabase.Gotrue.VerifyOTPParams.Phone
   name: Phone
   href: api/Supabase.Gotrue.VerifyOTPParams.html#Supabase_Gotrue_VerifyOTPParams_Phone
@@ -4477,6 +4742,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.VerifyOTPParams.Token
   nameWithType: VerifyOTPParams.Token
+- uid: Supabase.Gotrue.VerifyOTPParams.Type
+  name: Type
+  href: api/Supabase.Gotrue.VerifyOTPParams.html#Supabase_Gotrue_VerifyOTPParams_Type
+  commentId: P:Supabase.Gotrue.VerifyOTPParams.Type
+  fullName: Supabase.Gotrue.VerifyOTPParams.Type
+  nameWithType: VerifyOTPParams.Type
+- uid: Supabase.Gotrue.VerifyOTPParams.Type*
+  name: Type
+  href: api/Supabase.Gotrue.VerifyOTPParams.html#Supabase_Gotrue_VerifyOTPParams_Type_
+  commentId: Overload:Supabase.Gotrue.VerifyOTPParams.Type
+  isSpec: "True"
+  fullName: Supabase.Gotrue.VerifyOTPParams.Type
+  nameWithType: VerifyOTPParams.Type
 - uid: Supabase.Realtime
   name: Supabase.Realtime
   href: api/Supabase.Realtime.html
