@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 0.4.0 - 2022-4-12
+
+- Add support for functions-csharp@1.0.1, giving access to invoking Supabase's edge functions.
+- Update dependency: gotrue-csharp@2.4.1
+
 ## 0.3.5 - 2022-4-11
 
 - Update dependency: postgres-csharp@2.0.7
