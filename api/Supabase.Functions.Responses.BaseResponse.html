@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class SupabaseModel
+    <title>Class BaseResponse
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class SupabaseModel
+    <meta name="title" content="Class BaseResponse
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -68,42 +68,44 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Supabase.SupabaseModel">
+            <article class="content wrap" id="_content" data-uid="Supabase.Functions.Responses.BaseResponse">
   
   
-  <h1 id="Supabase_SupabaseModel" data-uid="Supabase.SupabaseModel" class="text-break">Class SupabaseModel
+  <h1 id="Supabase_Functions_Responses_BaseResponse" data-uid="Supabase.Functions.Responses.BaseResponse" class="text-break">Class BaseResponse
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A wrapper class from which all Responses derive.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">SupabaseModel</span></div>
+    <div class="level1"><span class="xref">BaseResponse</span></div>
+      <div class="level2"><a class="xref" href="Supabase.Functions.Responses.ErrorResponse.html">ErrorResponse</a></div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.html">Supabase</a></h6>
-  <h6><strong>Assembly</strong>: Supabase.dll</h6>
-  <h5 id="Supabase_SupabaseModel_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Functions.Responses.html">Supabase.Functions.Responses</a></h6>
+  <h6><strong>Assembly</strong>: Functions.dll</h6>
+  <h5 id="Supabase_Functions_Responses_BaseResponse_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class SupabaseModel : BaseModel</code></pre>
+    <pre><code class="lang-csharp hljs">public class BaseResponse : object</code></pre>
   </div>
-  <h3 id="methods">Methods
+  <h3 id="properties">Properties
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_SupabaseModel_Delete__1.md&amp;value=---%0Auid%3A%20Supabase.SupabaseModel.Delete%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/functions-csharp/new/2cb1f5567f149b88ee34028d6105e0d22d093d08/apiSpec/new?filename=Supabase_Functions_Responses_BaseResponse_Content.md&amp;value=---%0Auid%3A%20Supabase.Functions.Responses.BaseResponse.Content%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/SupabaseModel.cs/#L15">View Source</a>
+    <a href="https://github.com/supabase-community/functions-csharp/blob/2cb1f5567f149b88ee34028d6105e0d22d093d08/Functions/Responses/BaseResponse.cs/#L15">View Source</a>
   </span>
-  <a id="Supabase_SupabaseModel_Delete_" data-uid="Supabase.SupabaseModel.Delete*"></a>
-  <h4 id="Supabase_SupabaseModel_Delete__1" data-uid="Supabase.SupabaseModel.Delete``1">Delete&lt;T&gt;()</h4>
+  <a id="Supabase_Functions_Responses_BaseResponse_Content_" data-uid="Supabase.Functions.Responses.BaseResponse.Content*"></a>
+  <h4 id="Supabase_Functions_Responses_BaseResponse_Content" data-uid="Supabase.Functions.Responses.BaseResponse.Content">Content</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override Task Delete&lt;T&gt;()</code></pre>
+    <pre><code class="lang-csharp hljs">public string Content { get; set; }</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -113,42 +115,27 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
+        <td><span class="xref">System.String</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_SupabaseModel_Update__1.md&amp;value=---%0Auid%3A%20Supabase.SupabaseModel.Update%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/functions-csharp/new/2cb1f5567f149b88ee34028d6105e0d22d093d08/apiSpec/new?filename=Supabase_Functions_Responses_BaseResponse_ResponseMessage.md&amp;value=---%0Auid%3A%20Supabase.Functions.Responses.BaseResponse.ResponseMessage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/SupabaseModel.cs/#L10">View Source</a>
+    <a href="https://github.com/supabase-community/functions-csharp/blob/2cb1f5567f149b88ee34028d6105e0d22d093d08/Functions/Responses/BaseResponse.cs/#L12">View Source</a>
   </span>
-  <a id="Supabase_SupabaseModel_Update_" data-uid="Supabase.SupabaseModel.Update*"></a>
-  <h4 id="Supabase_SupabaseModel_Update__1" data-uid="Supabase.SupabaseModel.Update``1">Update&lt;T&gt;()</h4>
+  <a id="Supabase_Functions_Responses_BaseResponse_ResponseMessage_" data-uid="Supabase.Functions.Responses.BaseResponse.ResponseMessage*"></a>
+  <h4 id="Supabase_Functions_Responses_BaseResponse_ResponseMessage" data-uid="Supabase.Functions.Responses.BaseResponse.ResponseMessage">ResponseMessage</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override Task&lt;ModeledResponse&lt;T&gt;&gt; Update&lt;T&gt;()</code></pre>
+    <pre><code class="lang-csharp hljs">public HttpResponseMessage ResponseMessage { get; set; }</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -158,22 +145,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">ModeledResponse</span>&lt;T&gt;&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
+        <td><span class="xref">HttpResponseMessage</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -186,10 +158,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_SupabaseModel.md&amp;value=---%0Auid%3A%20Supabase.SupabaseModel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/supabase-community/functions-csharp/new/2cb1f5567f149b88ee34028d6105e0d22d093d08/apiSpec/new?filename=Supabase_Functions_Responses_BaseResponse.md&amp;value=---%0Auid%3A%20Supabase.Functions.Responses.BaseResponse%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/SupabaseModel.cs/#L8" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/functions-csharp/blob/2cb1f5567f149b88ee34028d6105e0d22d093d08/Functions/Responses/BaseResponse.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

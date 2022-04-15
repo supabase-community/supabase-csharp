@@ -2247,6 +2247,32 @@ references:
   fullName.vb: Supabase.Client.From(Of T)()
   nameWithType: Client.From<T>()
   nameWithType.vb: Client.From(Of T)()
+- uid: Supabase.Client.Functions
+  name: Functions
+  href: api/Supabase.Client.html#Supabase_Client_Functions
+  commentId: P:Supabase.Client.Functions
+  fullName: Supabase.Client.Functions
+  nameWithType: Client.Functions
+- uid: Supabase.Client.Functions*
+  name: Functions
+  href: api/Supabase.Client.html#Supabase_Client_Functions_
+  commentId: Overload:Supabase.Client.Functions
+  isSpec: "True"
+  fullName: Supabase.Client.Functions
+  nameWithType: Client.Functions
+- uid: Supabase.Client.FunctionsUrl
+  name: FunctionsUrl
+  href: api/Supabase.Client.html#Supabase_Client_FunctionsUrl
+  commentId: P:Supabase.Client.FunctionsUrl
+  fullName: Supabase.Client.FunctionsUrl
+  nameWithType: Client.FunctionsUrl
+- uid: Supabase.Client.FunctionsUrl*
+  name: FunctionsUrl
+  href: api/Supabase.Client.html#Supabase_Client_FunctionsUrl_
+  commentId: Overload:Supabase.Client.FunctionsUrl
+  isSpec: "True"
+  fullName: Supabase.Client.FunctionsUrl
+  nameWithType: Client.FunctionsUrl
 - uid: Supabase.Client.Initialize(System.String,System.String,Supabase.SupabaseOptions,Action{Supabase.Client})
   name: Initialize(String, String, SupabaseOptions, Action<Client>)
   href: api/Supabase.Client.html#Supabase_Client_Initialize_System_String_System_String_Supabase_SupabaseOptions_Action_Supabase_Client__
@@ -2409,6 +2435,206 @@ references:
   isSpec: "True"
   fullName: Supabase.Client.SupabaseUrl
   nameWithType: Client.SupabaseUrl
+- uid: Supabase.Functions
+  name: Supabase.Functions
+  href: api/Supabase.Functions.html
+  commentId: N:Supabase.Functions
+  fullName: Supabase.Functions
+  nameWithType: Supabase.Functions
+- uid: Supabase.Functions.Client
+  name: Client
+  href: api/Supabase.Functions.Client.html
+  commentId: T:Supabase.Functions.Client
+  fullName: Supabase.Functions.Client
+  nameWithType: Client
+- uid: Supabase.Functions.Client.Invoke(System.String,System.String,Supabase.Functions.Client.InvokeFunctionOptions)
+  name: Invoke(String, String, Client.InvokeFunctionOptions)
+  href: api/Supabase.Functions.Client.html#Supabase_Functions_Client_Invoke_System_String_System_String_Supabase_Functions_Client_InvokeFunctionOptions_
+  commentId: M:Supabase.Functions.Client.Invoke(System.String,System.String,Supabase.Functions.Client.InvokeFunctionOptions)
+  fullName: Supabase.Functions.Client.Invoke(System.String, System.String, Supabase.Functions.Client.InvokeFunctionOptions)
+  nameWithType: Client.Invoke(String, String, Client.InvokeFunctionOptions)
+- uid: Supabase.Functions.Client.Invoke*
+  name: Invoke
+  href: api/Supabase.Functions.Client.html#Supabase_Functions_Client_Invoke_
+  commentId: Overload:Supabase.Functions.Client.Invoke
+  isSpec: "True"
+  fullName: Supabase.Functions.Client.Invoke
+  nameWithType: Client.Invoke
+- uid: Supabase.Functions.Client.Invoke``1(System.String,System.String,Supabase.Functions.Client.InvokeFunctionOptions)
+  name: Invoke<T>(String, String, Client.InvokeFunctionOptions)
+  href: api/Supabase.Functions.Client.html#Supabase_Functions_Client_Invoke__1_System_String_System_String_Supabase_Functions_Client_InvokeFunctionOptions_
+  commentId: M:Supabase.Functions.Client.Invoke``1(System.String,System.String,Supabase.Functions.Client.InvokeFunctionOptions)
+  name.vb: Invoke(Of T)(String, String, Client.InvokeFunctionOptions)
+  fullName: Supabase.Functions.Client.Invoke<T>(System.String, System.String, Supabase.Functions.Client.InvokeFunctionOptions)
+  fullName.vb: Supabase.Functions.Client.Invoke(Of T)(System.String, System.String, Supabase.Functions.Client.InvokeFunctionOptions)
+  nameWithType: Client.Invoke<T>(String, String, Client.InvokeFunctionOptions)
+  nameWithType.vb: Client.Invoke(Of T)(String, String, Client.InvokeFunctionOptions)
+- uid: Supabase.Functions.Client.InvokeFunctionOptions
+  name: Client.InvokeFunctionOptions
+  href: api/Supabase.Functions.Client.InvokeFunctionOptions.html
+  commentId: T:Supabase.Functions.Client.InvokeFunctionOptions
+  fullName: Supabase.Functions.Client.InvokeFunctionOptions
+  nameWithType: Client.InvokeFunctionOptions
+- uid: Supabase.Functions.Client.InvokeFunctionOptions.Body
+  name: Body
+  href: api/Supabase.Functions.Client.InvokeFunctionOptions.html#Supabase_Functions_Client_InvokeFunctionOptions_Body
+  commentId: P:Supabase.Functions.Client.InvokeFunctionOptions.Body
+  fullName: Supabase.Functions.Client.InvokeFunctionOptions.Body
+  nameWithType: Client.InvokeFunctionOptions.Body
+- uid: Supabase.Functions.Client.InvokeFunctionOptions.Body*
+  name: Body
+  href: api/Supabase.Functions.Client.InvokeFunctionOptions.html#Supabase_Functions_Client_InvokeFunctionOptions_Body_
+  commentId: Overload:Supabase.Functions.Client.InvokeFunctionOptions.Body
+  isSpec: "True"
+  fullName: Supabase.Functions.Client.InvokeFunctionOptions.Body
+  nameWithType: Client.InvokeFunctionOptions.Body
+- uid: Supabase.Functions.Client.InvokeFunctionOptions.Headers
+  name: Headers
+  href: api/Supabase.Functions.Client.InvokeFunctionOptions.html#Supabase_Functions_Client_InvokeFunctionOptions_Headers
+  commentId: P:Supabase.Functions.Client.InvokeFunctionOptions.Headers
+  fullName: Supabase.Functions.Client.InvokeFunctionOptions.Headers
+  nameWithType: Client.InvokeFunctionOptions.Headers
+- uid: Supabase.Functions.Client.InvokeFunctionOptions.Headers*
+  name: Headers
+  href: api/Supabase.Functions.Client.InvokeFunctionOptions.html#Supabase_Functions_Client_InvokeFunctionOptions_Headers_
+  commentId: Overload:Supabase.Functions.Client.InvokeFunctionOptions.Headers
+  isSpec: "True"
+  fullName: Supabase.Functions.Client.InvokeFunctionOptions.Headers
+  nameWithType: Client.InvokeFunctionOptions.Headers
+- uid: Supabase.Functions.Client.RawInvoke(System.String,System.String,Supabase.Functions.Client.InvokeFunctionOptions)
+  name: RawInvoke(String, String, Client.InvokeFunctionOptions)
+  href: api/Supabase.Functions.Client.html#Supabase_Functions_Client_RawInvoke_System_String_System_String_Supabase_Functions_Client_InvokeFunctionOptions_
+  commentId: M:Supabase.Functions.Client.RawInvoke(System.String,System.String,Supabase.Functions.Client.InvokeFunctionOptions)
+  fullName: Supabase.Functions.Client.RawInvoke(System.String, System.String, Supabase.Functions.Client.InvokeFunctionOptions)
+  nameWithType: Client.RawInvoke(String, String, Client.InvokeFunctionOptions)
+- uid: Supabase.Functions.Client.RawInvoke*
+  name: RawInvoke
+  href: api/Supabase.Functions.Client.html#Supabase_Functions_Client_RawInvoke_
+  commentId: Overload:Supabase.Functions.Client.RawInvoke
+  isSpec: "True"
+  fullName: Supabase.Functions.Client.RawInvoke
+  nameWithType: Client.RawInvoke
+- uid: Supabase.Functions.Client.RequestException
+  name: Client.RequestException
+  href: api/Supabase.Functions.Client.RequestException.html
+  commentId: T:Supabase.Functions.Client.RequestException
+  fullName: Supabase.Functions.Client.RequestException
+  nameWithType: Client.RequestException
+- uid: Supabase.Functions.Client.RequestException.#ctor(HttpResponseMessage,Supabase.Functions.Responses.ErrorResponse)
+  name: RequestException(HttpResponseMessage, ErrorResponse)
+  href: api/Supabase.Functions.Client.RequestException.html#Supabase_Functions_Client_RequestException__ctor_HttpResponseMessage_Supabase_Functions_Responses_ErrorResponse_
+  commentId: M:Supabase.Functions.Client.RequestException.#ctor(HttpResponseMessage,Supabase.Functions.Responses.ErrorResponse)
+  fullName: Supabase.Functions.Client.RequestException.RequestException(HttpResponseMessage, Supabase.Functions.Responses.ErrorResponse)
+  nameWithType: Client.RequestException.RequestException(HttpResponseMessage, ErrorResponse)
+- uid: Supabase.Functions.Client.RequestException.#ctor*
+  name: RequestException
+  href: api/Supabase.Functions.Client.RequestException.html#Supabase_Functions_Client_RequestException__ctor_
+  commentId: Overload:Supabase.Functions.Client.RequestException.#ctor
+  isSpec: "True"
+  fullName: Supabase.Functions.Client.RequestException.RequestException
+  nameWithType: Client.RequestException.RequestException
+- uid: Supabase.Functions.Client.RequestException.Error
+  name: Error
+  href: api/Supabase.Functions.Client.RequestException.html#Supabase_Functions_Client_RequestException_Error
+  commentId: P:Supabase.Functions.Client.RequestException.Error
+  fullName: Supabase.Functions.Client.RequestException.Error
+  nameWithType: Client.RequestException.Error
+- uid: Supabase.Functions.Client.RequestException.Error*
+  name: Error
+  href: api/Supabase.Functions.Client.RequestException.html#Supabase_Functions_Client_RequestException_Error_
+  commentId: Overload:Supabase.Functions.Client.RequestException.Error
+  isSpec: "True"
+  fullName: Supabase.Functions.Client.RequestException.Error
+  nameWithType: Client.RequestException.Error
+- uid: Supabase.Functions.Client.RequestException.Response
+  name: Response
+  href: api/Supabase.Functions.Client.RequestException.html#Supabase_Functions_Client_RequestException_Response
+  commentId: P:Supabase.Functions.Client.RequestException.Response
+  fullName: Supabase.Functions.Client.RequestException.Response
+  nameWithType: Client.RequestException.Response
+- uid: Supabase.Functions.Client.RequestException.Response*
+  name: Response
+  href: api/Supabase.Functions.Client.RequestException.html#Supabase_Functions_Client_RequestException_Response_
+  commentId: Overload:Supabase.Functions.Client.RequestException.Response
+  isSpec: "True"
+  fullName: Supabase.Functions.Client.RequestException.Response
+  nameWithType: Client.RequestException.Response
+- uid: Supabase.Functions.Responses
+  name: Supabase.Functions.Responses
+  href: api/Supabase.Functions.Responses.html
+  commentId: N:Supabase.Functions.Responses
+  fullName: Supabase.Functions.Responses
+  nameWithType: Supabase.Functions.Responses
+- uid: Supabase.Functions.Responses.BaseResponse
+  name: BaseResponse
+  href: api/Supabase.Functions.Responses.BaseResponse.html
+  commentId: T:Supabase.Functions.Responses.BaseResponse
+  fullName: Supabase.Functions.Responses.BaseResponse
+  nameWithType: BaseResponse
+- uid: Supabase.Functions.Responses.BaseResponse.Content
+  name: Content
+  href: api/Supabase.Functions.Responses.BaseResponse.html#Supabase_Functions_Responses_BaseResponse_Content
+  commentId: P:Supabase.Functions.Responses.BaseResponse.Content
+  fullName: Supabase.Functions.Responses.BaseResponse.Content
+  nameWithType: BaseResponse.Content
+- uid: Supabase.Functions.Responses.BaseResponse.Content*
+  name: Content
+  href: api/Supabase.Functions.Responses.BaseResponse.html#Supabase_Functions_Responses_BaseResponse_Content_
+  commentId: Overload:Supabase.Functions.Responses.BaseResponse.Content
+  isSpec: "True"
+  fullName: Supabase.Functions.Responses.BaseResponse.Content
+  nameWithType: BaseResponse.Content
+- uid: Supabase.Functions.Responses.BaseResponse.ResponseMessage
+  name: ResponseMessage
+  href: api/Supabase.Functions.Responses.BaseResponse.html#Supabase_Functions_Responses_BaseResponse_ResponseMessage
+  commentId: P:Supabase.Functions.Responses.BaseResponse.ResponseMessage
+  fullName: Supabase.Functions.Responses.BaseResponse.ResponseMessage
+  nameWithType: BaseResponse.ResponseMessage
+- uid: Supabase.Functions.Responses.BaseResponse.ResponseMessage*
+  name: ResponseMessage
+  href: api/Supabase.Functions.Responses.BaseResponse.html#Supabase_Functions_Responses_BaseResponse_ResponseMessage_
+  commentId: Overload:Supabase.Functions.Responses.BaseResponse.ResponseMessage
+  isSpec: "True"
+  fullName: Supabase.Functions.Responses.BaseResponse.ResponseMessage
+  nameWithType: BaseResponse.ResponseMessage
+- uid: Supabase.Functions.Responses.ErrorResponse
+  name: ErrorResponse
+  href: api/Supabase.Functions.Responses.ErrorResponse.html
+  commentId: T:Supabase.Functions.Responses.ErrorResponse
+  fullName: Supabase.Functions.Responses.ErrorResponse
+  nameWithType: ErrorResponse
+- uid: Supabase.Functions.Responses.ErrorResponse.Message
+  name: Message
+  href: api/Supabase.Functions.Responses.ErrorResponse.html#Supabase_Functions_Responses_ErrorResponse_Message
+  commentId: P:Supabase.Functions.Responses.ErrorResponse.Message
+  fullName: Supabase.Functions.Responses.ErrorResponse.Message
+  nameWithType: ErrorResponse.Message
+- uid: Supabase.Functions.Responses.ErrorResponse.Message*
+  name: Message
+  href: api/Supabase.Functions.Responses.ErrorResponse.html#Supabase_Functions_Responses_ErrorResponse_Message_
+  commentId: Overload:Supabase.Functions.Responses.ErrorResponse.Message
+  isSpec: "True"
+  fullName: Supabase.Functions.Responses.ErrorResponse.Message
+  nameWithType: ErrorResponse.Message
+- uid: Supabase.Functions.Util
+  name: Util
+  href: api/Supabase.Functions.Util.html
+  commentId: T:Supabase.Functions.Util
+  fullName: Supabase.Functions.Util
+  nameWithType: Util
+- uid: Supabase.Functions.Util.GetAssemblyVersion
+  name: GetAssemblyVersion()
+  href: api/Supabase.Functions.Util.html#Supabase_Functions_Util_GetAssemblyVersion
+  commentId: M:Supabase.Functions.Util.GetAssemblyVersion
+  fullName: Supabase.Functions.Util.GetAssemblyVersion()
+  nameWithType: Util.GetAssemblyVersion()
+- uid: Supabase.Functions.Util.GetAssemblyVersion*
+  name: GetAssemblyVersion
+  href: api/Supabase.Functions.Util.html#Supabase_Functions_Util_GetAssemblyVersion_
+  commentId: Overload:Supabase.Functions.Util.GetAssemblyVersion
+  isSpec: "True"
+  fullName: Supabase.Functions.Util.GetAssemblyVersion
+  nameWithType: Util.GetAssemblyVersion
 - uid: Supabase.Gotrue
   name: Supabase.Gotrue
   href: api/Supabase.Gotrue.html
@@ -6500,6 +6726,19 @@ references:
   fullName.vb: Supabase.StatelessClient.From(Of T)(System.String, System.String, Supabase.SupabaseOptions)
   nameWithType: StatelessClient.From<T>(String, String, SupabaseOptions)
   nameWithType.vb: StatelessClient.From(Of T)(String, String, SupabaseOptions)
+- uid: Supabase.StatelessClient.Functions(System.String,System.String,Supabase.SupabaseOptions)
+  name: Functions(String, String, SupabaseOptions)
+  href: api/Supabase.StatelessClient.html#Supabase_StatelessClient_Functions_System_String_System_String_Supabase_SupabaseOptions_
+  commentId: M:Supabase.StatelessClient.Functions(System.String,System.String,Supabase.SupabaseOptions)
+  fullName: Supabase.StatelessClient.Functions(System.String, System.String, Supabase.SupabaseOptions)
+  nameWithType: StatelessClient.Functions(String, String, SupabaseOptions)
+- uid: Supabase.StatelessClient.Functions*
+  name: Functions
+  href: api/Supabase.StatelessClient.html#Supabase_StatelessClient_Functions_
+  commentId: Overload:Supabase.StatelessClient.Functions
+  isSpec: "True"
+  fullName: Supabase.StatelessClient.Functions
+  nameWithType: StatelessClient.Functions
 - uid: Supabase.StatelessClient.GetAuthOptions(System.String,System.String,Supabase.SupabaseOptions)
   name: GetAuthOptions(String, String, SupabaseOptions)
   href: api/Supabase.StatelessClient.html#Supabase_StatelessClient_GetAuthOptions_System_String_System_String_Supabase_SupabaseOptions_
@@ -7424,6 +7663,69 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.Util.GetAssemblyVersion
   nameWithType: Util.GetAssemblyVersion
+- uid: Supabase.SupabaseFunctions
+  name: SupabaseFunctions
+  href: api/Supabase.SupabaseFunctions.html
+  commentId: T:Supabase.SupabaseFunctions
+  fullName: Supabase.SupabaseFunctions
+  nameWithType: SupabaseFunctions
+- uid: Supabase.SupabaseFunctions.#ctor(System.String,Dictionary{System.String,System.String})
+  name: SupabaseFunctions(String, Dictionary<String, String>)
+  href: api/Supabase.SupabaseFunctions.html#Supabase_SupabaseFunctions__ctor_System_String_Dictionary_System_String_System_String__
+  commentId: M:Supabase.SupabaseFunctions.#ctor(System.String,Dictionary{System.String,System.String})
+  name.vb: SupabaseFunctions(String, Dictionary(Of String, String))
+  fullName: Supabase.SupabaseFunctions.SupabaseFunctions(System.String, Dictionary<System.String, System.String>)
+  fullName.vb: Supabase.SupabaseFunctions.SupabaseFunctions(System.String, Dictionary(Of System.String, System.String))
+  nameWithType: SupabaseFunctions.SupabaseFunctions(String, Dictionary<String, String>)
+  nameWithType.vb: SupabaseFunctions.SupabaseFunctions(String, Dictionary(Of String, String))
+- uid: Supabase.SupabaseFunctions.#ctor*
+  name: SupabaseFunctions
+  href: api/Supabase.SupabaseFunctions.html#Supabase_SupabaseFunctions__ctor_
+  commentId: Overload:Supabase.SupabaseFunctions.#ctor
+  isSpec: "True"
+  fullName: Supabase.SupabaseFunctions.SupabaseFunctions
+  nameWithType: SupabaseFunctions.SupabaseFunctions
+- uid: Supabase.SupabaseFunctions.Invoke(System.String,Dictionary{System.String,System.Object})
+  name: Invoke(String, Dictionary<String, Object>)
+  href: api/Supabase.SupabaseFunctions.html#Supabase_SupabaseFunctions_Invoke_System_String_Dictionary_System_String_System_Object__
+  commentId: M:Supabase.SupabaseFunctions.Invoke(System.String,Dictionary{System.String,System.Object})
+  name.vb: Invoke(String, Dictionary(Of String, Object))
+  fullName: Supabase.SupabaseFunctions.Invoke(System.String, Dictionary<System.String, System.Object>)
+  fullName.vb: Supabase.SupabaseFunctions.Invoke(System.String, Dictionary(Of System.String, System.Object))
+  nameWithType: SupabaseFunctions.Invoke(String, Dictionary<String, Object>)
+  nameWithType.vb: SupabaseFunctions.Invoke(String, Dictionary(Of String, Object))
+- uid: Supabase.SupabaseFunctions.Invoke*
+  name: Invoke
+  href: api/Supabase.SupabaseFunctions.html#Supabase_SupabaseFunctions_Invoke_
+  commentId: Overload:Supabase.SupabaseFunctions.Invoke
+  isSpec: "True"
+  fullName: Supabase.SupabaseFunctions.Invoke
+  nameWithType: SupabaseFunctions.Invoke
+- uid: Supabase.SupabaseFunctions.Invoke``1(System.String,Dictionary{System.String,System.Object})
+  name: Invoke<T>(String, Dictionary<String, Object>)
+  href: api/Supabase.SupabaseFunctions.html#Supabase_SupabaseFunctions_Invoke__1_System_String_Dictionary_System_String_System_Object__
+  commentId: M:Supabase.SupabaseFunctions.Invoke``1(System.String,Dictionary{System.String,System.Object})
+  name.vb: Invoke(Of T)(String, Dictionary(Of String, Object))
+  fullName: Supabase.SupabaseFunctions.Invoke<T>(System.String, Dictionary<System.String, System.Object>)
+  fullName.vb: Supabase.SupabaseFunctions.Invoke(Of T)(System.String, Dictionary(Of System.String, System.Object))
+  nameWithType: SupabaseFunctions.Invoke<T>(String, Dictionary<String, Object>)
+  nameWithType.vb: SupabaseFunctions.Invoke(Of T)(String, Dictionary(Of String, Object))
+- uid: Supabase.SupabaseFunctions.RawInvoke(System.String,Dictionary{System.String,System.Object})
+  name: RawInvoke(String, Dictionary<String, Object>)
+  href: api/Supabase.SupabaseFunctions.html#Supabase_SupabaseFunctions_RawInvoke_System_String_Dictionary_System_String_System_Object__
+  commentId: M:Supabase.SupabaseFunctions.RawInvoke(System.String,Dictionary{System.String,System.Object})
+  name.vb: RawInvoke(String, Dictionary(Of String, Object))
+  fullName: Supabase.SupabaseFunctions.RawInvoke(System.String, Dictionary<System.String, System.Object>)
+  fullName.vb: Supabase.SupabaseFunctions.RawInvoke(System.String, Dictionary(Of System.String, System.Object))
+  nameWithType: SupabaseFunctions.RawInvoke(String, Dictionary<String, Object>)
+  nameWithType.vb: SupabaseFunctions.RawInvoke(String, Dictionary(Of String, Object))
+- uid: Supabase.SupabaseFunctions.RawInvoke*
+  name: RawInvoke
+  href: api/Supabase.SupabaseFunctions.html#Supabase_SupabaseFunctions_RawInvoke_
+  commentId: Overload:Supabase.SupabaseFunctions.RawInvoke
+  isSpec: "True"
+  fullName: Supabase.SupabaseFunctions.RawInvoke
+  nameWithType: SupabaseFunctions.RawInvoke
 - uid: Supabase.SupabaseModel
   name: SupabaseModel
   href: api/Supabase.SupabaseModel.html
@@ -7507,6 +7809,19 @@ references:
   isSpec: "True"
   fullName: Supabase.SupabaseOptions.AutoRefreshToken
   nameWithType: SupabaseOptions.AutoRefreshToken
+- uid: Supabase.SupabaseOptions.FunctionsUrlFormat
+  name: FunctionsUrlFormat
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_FunctionsUrlFormat
+  commentId: P:Supabase.SupabaseOptions.FunctionsUrlFormat
+  fullName: Supabase.SupabaseOptions.FunctionsUrlFormat
+  nameWithType: SupabaseOptions.FunctionsUrlFormat
+- uid: Supabase.SupabaseOptions.FunctionsUrlFormat*
+  name: FunctionsUrlFormat
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_FunctionsUrlFormat_
+  commentId: Overload:Supabase.SupabaseOptions.FunctionsUrlFormat
+  isSpec: "True"
+  fullName: Supabase.SupabaseOptions.FunctionsUrlFormat
+  nameWithType: SupabaseOptions.FunctionsUrlFormat
 - uid: Supabase.SupabaseOptions.Headers
   name: Headers
   href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_Headers
