@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Postgrest;
 using Postgrest.Models;
@@ -58,6 +59,37 @@ namespace Supabase
             var headers = GetAuthHeaders(supabaseKey, options).MergeLeft(options.Headers);
 
             return new Storage.Client(string.Format(options.StorageUrlFormat, supabaseUrl), headers);
+        }
+
+        /// <summary>
+        /// Supabase Edge functions allow you to deploy and invoke edge functions.
+        /// </summary>
+        /// <param name="supabaseUrl"></param>
+        /// <param name="supabaseKey"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static SupabaseFunctions Functions(string supabaseUrl, string supabaseKey, SupabaseOptions options = null)
+        {
+            if (options == null)
+                options = new SupabaseOptions();
+
+            // See: https://github.com/supabase/supabase-js/blob/09065a65f171bc28a9fd7b831af2c24e5f1a380b/src/SupabaseClient.ts#L77-L83
+            var isPlatform = new Regex(@"/(supabase\.co)|(supabase\.in)/").Match(supabaseUrl);
+
+            string functionsUrl;
+            if (isPlatform.Success)
+            {
+                var parts = supabaseUrl.Split('.');
+                functionsUrl = $"{parts[0]}.functions.{parts[1]}.{parts[2]}";
+            }
+            else
+            {
+                functionsUrl = string.Format(options.FunctionsUrlFormat, supabaseUrl);
+            }
+
+            var headers = GetAuthHeaders(supabaseKey, options).MergeLeft(options.Headers);
+
+            return new SupabaseFunctions(functionsUrl, headers);
         }
 
         /// <summary>

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Postgrest;
 using Postgrest.Models;
 using Postgrest.Responses;
 using Supabase.Gotrue;
+using static Supabase.Functions.Client;
 
 namespace Supabase
 {
@@ -22,8 +24,16 @@ namespace Supabase
             All
         }
 
+        /// <summary>
+        /// Supabase Auth allows you to create and manage user sessions for access to data that is secured by access policies.
+        /// </summary>
         public Gotrue.Client Auth { get; private set; }
         public Realtime.Client Realtime { get; private set; }
+
+        /// <summary>
+        /// Supabase Edge functions allow you to deploy and invoke edge functions.
+        /// </summary>
+        public SupabaseFunctions Functions => new SupabaseFunctions(instance.FunctionsUrl, instance.GetAuthHeaders());
 
         private Postgrest.Client Postgrest() => global::Postgrest.Client.Initialize(instance.RestUrl, new Postgrest.ClientOptions
         {
@@ -46,13 +56,12 @@ namespace Supabase
         }
 
         public string SupabaseKey { get; private set; }
-
         public string SupabaseUrl { get; private set; }
         public string AuthUrl { get; private set; }
         public string RestUrl { get; private set; }
         public string RealtimeUrl { get; private set; }
         public string StorageUrl { get; private set; }
-
+        public string FunctionsUrl { get; private set; }
         public string Schema { get; private set; }
 
         private SupabaseOptions options;
@@ -100,6 +109,20 @@ namespace Supabase
             instance.StorageUrl = string.Format(options.StorageUrlFormat, supabaseUrl);
             instance.Schema = options.Schema;
 
+            // See: https://github.com/supabase/supabase-js/blob/09065a65f171bc28a9fd7b831af2c24e5f1a380b/src/SupabaseClient.ts#L77-L83
+            var isPlatform = new Regex(@"(supabase\.co)|(supabase\.in)").Match(supabaseUrl);
+
+            if (isPlatform.Success)
+            {
+                var parts = supabaseUrl.Split('.');
+                instance.FunctionsUrl = $"{parts[0]}.functions.{parts[1]}.{parts[2]}";
+            }
+            else
+            {
+                instance.FunctionsUrl = string.Format(options.FunctionsUrlFormat, supabaseUrl);
+            }
+
+            // Init Auth
             instance.Auth = await Gotrue.Client.InitializeAsync(new Gotrue.ClientOptions
             {
                 Url = instance.AuthUrl,
@@ -112,6 +135,7 @@ namespace Supabase
             });
             instance.Auth.StateChanged += Auth_StateChanged;
 
+            // Init Realtime
             if (options.ShouldInitializeRealtime)
             {
                 instance.Realtime = Supabase.Realtime.Client.Initialize(instance.RealtimeUrl, new Realtime.ClientOptions
@@ -245,5 +269,7 @@ namespace Supabase
         public string RestUrlFormat { get; set; } = "{0}/rest/v1";
         public string RealtimeUrlFormat { get; set; } = "{0}/realtime/v1";
         public string StorageUrlFormat { get; set; } = "{0}/storage/v1";
+
+        public string FunctionsUrlFormat { get; set; } = "{0}/functions/v1";
     }
 }

@@ -10,3 +10,6 @@
 [submodule "modules/storage-csharp"]
 	path = modules/storage-csharp
 	url = https://github.com/supabase-community/storage-csharp
+[submodule "modules/functions-csharp"]
+	path = modules/functions-csharp
+	url = https://github.com/supabase-community/functions-csharp

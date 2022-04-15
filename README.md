@@ -10,12 +10,6 @@
 <h3 align="center">Stage: Beta</h3>
 
 ---
-### BREAKING CHANGES FOR v0.2.x
-
-**postgrest-csharp**
-- `System.Range` (netstandard2.1) is not available in netstandard2.0, so all `System.Range` calls should be changed to `Postgrest.IntRange` instead.
-- `InsertOptions` has been generalized to `QueryOptions` which allows for setting return `minimal` or `representation`
----
 
 Integrate your [Supabase](https://supabase.io) projects with C#.
 
@@ -29,6 +23,7 @@ API is heavily modeled after the [supabase-js repo](https://github.com/supabase/
 - [x] Integration with [Postgrest](https://github.com/supabase-community/postgrest-csharp)
 - [x] Integration with [Gotrue](https://github.com/supabase-community/supabase-csharp)
 - [x] Integration with [Supabase Storage](https://github.com/supabase-community/storage-csharp)
+- [x] Integration with [Supabase Edge Functions](https://github.com/supabase-community/functions-csharp)
 - [x] Nuget Release
 
 ## Getting Started
@@ -67,6 +62,11 @@ public async void Main()
   table.On(ChannelEventType.Insert, Channel_Inserted);
   table.On(ChannelEventType.Delete, Channel_Deleted);
   table.On(ChannelEventType.Update, Channel_Updated);
+
+  // Invoke an Edge Function
+  var result = await instance.Functions.Invoke("hello", new Dictionary<string, object> { 
+      { "name", "Ronald" } 
+  });
 
   // Run a Remote Stored Procedure:
   await instance.Rpc("my_cool_procedure", params);

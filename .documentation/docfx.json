@@ -1,37 +1,64 @@
 {
-  "metadata": [{
-    "src": [{
-        "files": "Supabase.csproj",
-        "exclude": ["**/bin/**", "**/obj/**"],
-        "src": "../Supabase"
-      },
-      {
-        "files": "Gotrue.csproj",
-        "exclude": ["**/bin/**", "**/obj/**"],
-        "src": "../modules/gotrue-csharp/Gotrue"
-      },
-      {
-        "files": "Realtime.csproj",
-        "exclude": ["**/bin/**", "**/obj/**"],
-        "src": "../modules/realtime-csharp/Realtime"
-      },
-      {
-        "files": "Postgrest.csproj",
-        "exclude": ["**/bin/**", "**/obj/**"],
-        "src": "../modules/postgrest-csharp/Postgrest"
-      },
-      {
-        "files": "Storage.csproj",
-        "exclude": ["**/bin/**", "**/obj/**"],
-        "src": "../modules/storage-csharp/Storage"
-      }
-    ],
-    "dest": "api",
-    "disableGitFeatures": false,
-    "disableDefaultFilter": false
-  }],
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": "Supabase.csproj",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ],
+          "src": "../Supabase"
+        },
+        {
+          "files": "Gotrue.csproj",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ],
+          "src": "../modules/gotrue-csharp/Gotrue"
+        },
+        {
+          "files": "Realtime.csproj",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ],
+          "src": "../modules/realtime-csharp/Realtime"
+        },
+        {
+          "files": "Postgrest.csproj",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ],
+          "src": "../modules/postgrest-csharp/Postgrest"
+        },
+        {
+          "files": "Storage.csproj",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ],
+          "src": "../modules/storage-csharp/Storage"
+        },
+        {
+          "files": "Functions.csproj",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ],
+          "src": "../modules/functions-csharp/Functions"
+        }
+      ],
+      "dest": "api",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false
+    }
+  ],
   "build": {
-    "content": [{
+    "content": [
+      {
         "files": [
           "api/**.yml",
           "api/index.md"
@@ -46,20 +73,24 @@
         ]
       }
     ],
-    "resource": [{
-      "files": [
-        "images/**"
-      ]
-    }],
-    "overwrite": [{
-      "files": [
-        "apidoc/**.md"
-      ],
-      "exclude": [
-        "obj/**",
-        "_site/**"
-      ]
-    }],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "overwrite": [
+      {
+        "files": [
+          "apidoc/**.md"
+        ],
+        "exclude": [
+          "obj/**",
+          "_site/**"
+        ]
+      }
+    ],
     "dest": "_site",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],

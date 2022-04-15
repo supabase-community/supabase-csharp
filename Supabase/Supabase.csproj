@@ -24,6 +24,7 @@
 		<Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
 	</PropertyGroup>
 	<ItemGroup>
+		<PackageReference Include="functions-csharp" Version="1.0.1" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 		<PackageReference Include="postgrest-csharp" Version="2.0.7" />
 		<PackageReference Include="realtime-csharp" Version="3.0.0" />
