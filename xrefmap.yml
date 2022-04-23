@@ -3562,12 +3562,12 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.Update
   nameWithType: Client.Update
-- uid: Supabase.Gotrue.Client.UpdateUserById(System.String,System.String,Supabase.Gotrue.UserAttributes)
-  name: UpdateUserById(String, String, UserAttributes)
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_UpdateUserById_System_String_System_String_Supabase_Gotrue_UserAttributes_
-  commentId: M:Supabase.Gotrue.Client.UpdateUserById(System.String,System.String,Supabase.Gotrue.UserAttributes)
-  fullName: Supabase.Gotrue.Client.UpdateUserById(System.String, System.String, Supabase.Gotrue.UserAttributes)
-  nameWithType: Client.UpdateUserById(String, String, UserAttributes)
+- uid: Supabase.Gotrue.Client.UpdateUserById(System.String,System.String,Supabase.Gotrue.AdminUserAttributes)
+  name: UpdateUserById(String, String, AdminUserAttributes)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_UpdateUserById_System_String_System_String_Supabase_Gotrue_AdminUserAttributes_
+  commentId: M:Supabase.Gotrue.Client.UpdateUserById(System.String,System.String,Supabase.Gotrue.AdminUserAttributes)
+  fullName: Supabase.Gotrue.Client.UpdateUserById(System.String, System.String, Supabase.Gotrue.AdminUserAttributes)
+  nameWithType: Client.UpdateUserById(String, String, AdminUserAttributes)
 - uid: Supabase.Gotrue.Client.UpdateUserById*
   name: UpdateUserById
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_UpdateUserById_
@@ -4393,12 +4393,12 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.StatelessClient.Update
   nameWithType: StatelessClient.Update
-- uid: Supabase.Gotrue.StatelessClient.UpdateUserById(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.String,Supabase.Gotrue.UserAttributes)
-  name: UpdateUserById(String, StatelessClient.StatelessClientOptions, String, UserAttributes)
-  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_UpdateUserById_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_Supabase_Gotrue_UserAttributes_
-  commentId: M:Supabase.Gotrue.StatelessClient.UpdateUserById(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.String,Supabase.Gotrue.UserAttributes)
-  fullName: Supabase.Gotrue.StatelessClient.UpdateUserById(System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions, System.String, Supabase.Gotrue.UserAttributes)
-  nameWithType: StatelessClient.UpdateUserById(String, StatelessClient.StatelessClientOptions, String, UserAttributes)
+- uid: Supabase.Gotrue.StatelessClient.UpdateUserById(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.String,Supabase.Gotrue.AdminUserAttributes)
+  name: UpdateUserById(String, StatelessClient.StatelessClientOptions, String, AdminUserAttributes)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_UpdateUserById_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_Supabase_Gotrue_AdminUserAttributes_
+  commentId: M:Supabase.Gotrue.StatelessClient.UpdateUserById(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.String,Supabase.Gotrue.AdminUserAttributes)
+  fullName: Supabase.Gotrue.StatelessClient.UpdateUserById(System.String, Supabase.Gotrue.StatelessClient.StatelessClientOptions, System.String, Supabase.Gotrue.AdminUserAttributes)
+  nameWithType: StatelessClient.UpdateUserById(String, StatelessClient.StatelessClientOptions, String, AdminUserAttributes)
 - uid: Supabase.Gotrue.StatelessClient.UpdateUserById*
   name: UpdateUserById
   href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_UpdateUserById_
