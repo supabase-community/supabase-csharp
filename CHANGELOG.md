@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 0.4.3 - 2022-5-13
+
+- Update dependency: gotrue-csharp@2.4.4
+
 ## 0.4.2 - 2022-4-30
 
 - Update dependency: gotrue-csharp@2.4.3
