@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 0.4.4 - 2022-5-24
+
+- Update dependency: gotrue-csharp@2.4.5
+- Update dependency: postgrest-csharp@2.0.8
+
 ## 0.4.3 - 2022-5-13
 
 - Update dependency: gotrue-csharp@2.4.4
