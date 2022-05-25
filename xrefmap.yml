@@ -3425,6 +3425,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.SessionRetriever
   nameWithType: Client.SessionRetriever
+- uid: Supabase.Gotrue.Client.SetAuth(System.String)
+  name: SetAuth(String)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SetAuth_System_String_
+  commentId: M:Supabase.Gotrue.Client.SetAuth(System.String)
+  fullName: Supabase.Gotrue.Client.SetAuth(System.String)
+  nameWithType: Client.SetAuth(String)
+- uid: Supabase.Gotrue.Client.SetAuth*
+  name: SetAuth
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SetAuth_
+  commentId: Overload:Supabase.Gotrue.Client.SetAuth
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Client.SetAuth
+  nameWithType: Client.SetAuth
 - uid: Supabase.Gotrue.Client.ShouldPersistSession
   name: ShouldPersistSession
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_ShouldPersistSession
