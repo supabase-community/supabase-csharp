@@ -52,7 +52,7 @@ namespace SupabaseExample
             var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase).Replace("file:", "");
             var imagePath = Path.Combine(basePath, "Assets", "supabase-csharp.png");
 
-            Debug.WriteLine(await bucket.Upload(imagePath, "supabase-csharp.png", new Supabase.Storage.FileOptions { Upsert = true }, (sender, args) => Debug.WriteLine($"Upload Progress: {args.ProgressPercentage}%")));
+            Debug.WriteLine(await bucket.Upload(imagePath, "supabase-csharp.png", new Supabase.Storage.FileOptions { Upsert = true }, (sender, args) => Debug.WriteLine($"Upload Progress: {args}%")));
             Debug.WriteLine(bucket.GetPublicUrl("supabase-csharp.png"));
             Debug.WriteLine(await bucket.CreateSignedUrl("supabase-csharp.png", 3600));
 
@@ -61,7 +61,7 @@ namespace SupabaseExample
             foreach (var item in bucketItems)
                 Debug.WriteLine($"[{item.Id}] {item.Name} - {item.CreatedAt}");
 
-            Debug.WriteLine(await bucket.Download("supabase-csharp.png", Path.Combine(basePath, "testing-download.png"), (sender, args) => Debug.WriteLine($"Download Progress: {args.ProgressPercentage}%")));
+            Debug.WriteLine(await bucket.Download("supabase-csharp.png", Path.Combine(basePath, "testing-download.png"), (sender, args) => Debug.WriteLine($"Download Progress: {args}%")));
 
             await storage.EmptyBucket("testing");
             await storage.DeleteBucket("testing");
