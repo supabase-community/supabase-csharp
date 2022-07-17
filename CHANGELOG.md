@@ -1,5 +1,12 @@
 ﻿# Changelog
 
+## 0.5.0 - 2022-7-17
+
+- Update dependency: postgrest-csharp@2.0.9
+- Update dependency: realtime-csharp@3.0.1
+- Update dependency: supabase-storage-csharp@1.1.0
+    - API Change [Breaking/Minor] Library no longer uses `WebClient` and instead leverages `HttpClient`. Progress events on `Upload` and `Download` are now handled with `EventHandler<float>` instead of `WebClient` EventHandlers.
+
 ## 0.4.4 - 2022-5-24
 
 - Update dependency: gotrue-csharp@2.4.5
