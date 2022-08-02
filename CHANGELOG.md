@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 0.5.1 - 2022-8-1
+
+- Update dependency: postgrest-csharp@2.0.11
+- Update dependency: supabase-storage-csharp@1.1.1
+
 ## 0.5.0 - 2022-7-17
 
 - Update dependency: postgrest-csharp@2.0.9
