@@ -1317,6 +1317,19 @@ references:
   commentId: F:Postgrest.QueryOptions.DuplicateResolutionType.MergeDuplicates
   fullName: Postgrest.QueryOptions.DuplicateResolutionType.MergeDuplicates
   nameWithType: QueryOptions.DuplicateResolutionType.MergeDuplicates
+- uid: Postgrest.QueryOptions.OnConflict
+  name: OnConflict
+  href: api/Postgrest.QueryOptions.html#Postgrest_QueryOptions_OnConflict
+  commentId: P:Postgrest.QueryOptions.OnConflict
+  fullName: Postgrest.QueryOptions.OnConflict
+  nameWithType: QueryOptions.OnConflict
+- uid: Postgrest.QueryOptions.OnConflict*
+  name: OnConflict
+  href: api/Postgrest.QueryOptions.html#Postgrest_QueryOptions_OnConflict_
+  commentId: Overload:Postgrest.QueryOptions.OnConflict
+  isSpec: "True"
+  fullName: Postgrest.QueryOptions.OnConflict
+  nameWithType: QueryOptions.OnConflict
 - uid: Postgrest.QueryOptions.Returning
   name: Returning
   href: api/Postgrest.QueryOptions.html#Postgrest_QueryOptions_Returning
@@ -1982,6 +1995,23 @@ references:
   fullName.vb: Postgrest.Table(Of T).Offset
   nameWithType: Table<T>.Offset
   nameWithType.vb: Table(Of T).Offset
+- uid: Postgrest.Table`1.OnConflict(System.String)
+  name: OnConflict(String)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_OnConflict_System_String_
+  commentId: M:Postgrest.Table`1.OnConflict(System.String)
+  fullName: Postgrest.Table<T>.OnConflict(System.String)
+  fullName.vb: Postgrest.Table(Of T).OnConflict(System.String)
+  nameWithType: Table<T>.OnConflict(String)
+  nameWithType.vb: Table(Of T).OnConflict(String)
+- uid: Postgrest.Table`1.OnConflict*
+  name: OnConflict
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_OnConflict_
+  commentId: Overload:Postgrest.Table`1.OnConflict
+  isSpec: "True"
+  fullName: Postgrest.Table<T>.OnConflict
+  fullName.vb: Postgrest.Table(Of T).OnConflict
+  nameWithType: Table<T>.OnConflict
+  nameWithType.vb: Table(Of T).OnConflict
 - uid: Postgrest.Table`1.Or(List{Postgrest.QueryFilter})
   name: Or(List<QueryFilter>)
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_Or_List_Postgrest_QueryFilter__
@@ -7561,21 +7591,24 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.StorageFileApi.Remove
   nameWithType: StorageFileApi.Remove
-- uid: Supabase.Storage.StorageFileApi.Update(System.Byte[],System.String,Supabase.Storage.FileOptions,UploadProgressChangedEventHandler)
-  name: Update(Byte[], String, FileOptions, UploadProgressChangedEventHandler)
-  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Update_System_Byte___System_String_Supabase_Storage_FileOptions_UploadProgressChangedEventHandler_
-  commentId: M:Supabase.Storage.StorageFileApi.Update(System.Byte[],System.String,Supabase.Storage.FileOptions,UploadProgressChangedEventHandler)
-  name.vb: Update(Byte(), String, FileOptions, UploadProgressChangedEventHandler)
-  fullName: Supabase.Storage.StorageFileApi.Update(System.Byte[], System.String, Supabase.Storage.FileOptions, UploadProgressChangedEventHandler)
-  fullName.vb: Supabase.Storage.StorageFileApi.Update(System.Byte(), System.String, Supabase.Storage.FileOptions, UploadProgressChangedEventHandler)
-  nameWithType: StorageFileApi.Update(Byte[], String, FileOptions, UploadProgressChangedEventHandler)
-  nameWithType.vb: StorageFileApi.Update(Byte(), String, FileOptions, UploadProgressChangedEventHandler)
-- uid: Supabase.Storage.StorageFileApi.Update(System.String,System.String,Supabase.Storage.FileOptions,UploadProgressChangedEventHandler)
-  name: Update(String, String, FileOptions, UploadProgressChangedEventHandler)
-  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Update_System_String_System_String_Supabase_Storage_FileOptions_UploadProgressChangedEventHandler_
-  commentId: M:Supabase.Storage.StorageFileApi.Update(System.String,System.String,Supabase.Storage.FileOptions,UploadProgressChangedEventHandler)
-  fullName: Supabase.Storage.StorageFileApi.Update(System.String, System.String, Supabase.Storage.FileOptions, UploadProgressChangedEventHandler)
-  nameWithType: StorageFileApi.Update(String, String, FileOptions, UploadProgressChangedEventHandler)
+- uid: Supabase.Storage.StorageFileApi.Update(System.Byte[],System.String,Supabase.Storage.FileOptions,EventHandler{System.Single})
+  name: Update(Byte[], String, FileOptions, EventHandler<Single>)
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Update_System_Byte___System_String_Supabase_Storage_FileOptions_EventHandler_System_Single__
+  commentId: M:Supabase.Storage.StorageFileApi.Update(System.Byte[],System.String,Supabase.Storage.FileOptions,EventHandler{System.Single})
+  name.vb: Update(Byte(), String, FileOptions, EventHandler(Of Single))
+  fullName: Supabase.Storage.StorageFileApi.Update(System.Byte[], System.String, Supabase.Storage.FileOptions, EventHandler<System.Single>)
+  fullName.vb: Supabase.Storage.StorageFileApi.Update(System.Byte(), System.String, Supabase.Storage.FileOptions, EventHandler(Of System.Single))
+  nameWithType: StorageFileApi.Update(Byte[], String, FileOptions, EventHandler<Single>)
+  nameWithType.vb: StorageFileApi.Update(Byte(), String, FileOptions, EventHandler(Of Single))
+- uid: Supabase.Storage.StorageFileApi.Update(System.String,System.String,Supabase.Storage.FileOptions,EventHandler{System.Single})
+  name: Update(String, String, FileOptions, EventHandler<Single>)
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Update_System_String_System_String_Supabase_Storage_FileOptions_EventHandler_System_Single__
+  commentId: M:Supabase.Storage.StorageFileApi.Update(System.String,System.String,Supabase.Storage.FileOptions,EventHandler{System.Single})
+  name.vb: Update(String, String, FileOptions, EventHandler(Of Single))
+  fullName: Supabase.Storage.StorageFileApi.Update(System.String, System.String, Supabase.Storage.FileOptions, EventHandler<System.Single>)
+  fullName.vb: Supabase.Storage.StorageFileApi.Update(System.String, System.String, Supabase.Storage.FileOptions, EventHandler(Of System.Single))
+  nameWithType: StorageFileApi.Update(String, String, FileOptions, EventHandler<Single>)
+  nameWithType.vb: StorageFileApi.Update(String, String, FileOptions, EventHandler(Of Single))
 - uid: Supabase.Storage.StorageFileApi.Update*
   name: Update
   href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Update_
