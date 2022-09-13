@@ -1064,15 +1064,15 @@ references:
   isSpec: "True"
   fullName: Postgrest.Models.BaseModel.Delete
   nameWithType: BaseModel.Delete
-- uid: Postgrest.Models.BaseModel.Delete``1
-  name: Delete<T>()
-  href: api/Postgrest.Models.BaseModel.html#Postgrest_Models_BaseModel_Delete__1
-  commentId: M:Postgrest.Models.BaseModel.Delete``1
-  name.vb: Delete(Of T)()
-  fullName: Postgrest.Models.BaseModel.Delete<T>()
-  fullName.vb: Postgrest.Models.BaseModel.Delete(Of T)()
-  nameWithType: BaseModel.Delete<T>()
-  nameWithType.vb: BaseModel.Delete(Of T)()
+- uid: Postgrest.Models.BaseModel.Delete``1(CancellationToken)
+  name: Delete<T>(CancellationToken)
+  href: api/Postgrest.Models.BaseModel.html#Postgrest_Models_BaseModel_Delete__1_CancellationToken_
+  commentId: M:Postgrest.Models.BaseModel.Delete``1(CancellationToken)
+  name.vb: Delete(Of T)(CancellationToken)
+  fullName: Postgrest.Models.BaseModel.Delete<T>(CancellationToken)
+  fullName.vb: Postgrest.Models.BaseModel.Delete(Of T)(CancellationToken)
+  nameWithType: BaseModel.Delete<T>(CancellationToken)
+  nameWithType.vb: BaseModel.Delete(Of T)(CancellationToken)
 - uid: Postgrest.Models.BaseModel.PrimaryKeyColumn
   name: PrimaryKeyColumn
   href: api/Postgrest.Models.BaseModel.html#Postgrest_Models_BaseModel_PrimaryKeyColumn
@@ -1119,15 +1119,15 @@ references:
   isSpec: "True"
   fullName: Postgrest.Models.BaseModel.Update
   nameWithType: BaseModel.Update
-- uid: Postgrest.Models.BaseModel.Update``1
-  name: Update<T>()
-  href: api/Postgrest.Models.BaseModel.html#Postgrest_Models_BaseModel_Update__1
-  commentId: M:Postgrest.Models.BaseModel.Update``1
-  name.vb: Update(Of T)()
-  fullName: Postgrest.Models.BaseModel.Update<T>()
-  fullName.vb: Postgrest.Models.BaseModel.Update(Of T)()
-  nameWithType: BaseModel.Update<T>()
-  nameWithType.vb: BaseModel.Update(Of T)()
+- uid: Postgrest.Models.BaseModel.Update``1(CancellationToken)
+  name: Update<T>(CancellationToken)
+  href: api/Postgrest.Models.BaseModel.html#Postgrest_Models_BaseModel_Update__1_CancellationToken_
+  commentId: M:Postgrest.Models.BaseModel.Update``1(CancellationToken)
+  name.vb: Update(Of T)(CancellationToken)
+  fullName: Postgrest.Models.BaseModel.Update<T>(CancellationToken)
+  fullName.vb: Postgrest.Models.BaseModel.Update(Of T)(CancellationToken)
+  nameWithType: BaseModel.Update<T>(CancellationToken)
+  nameWithType.vb: BaseModel.Update(Of T)(CancellationToken)
 - uid: Postgrest.QueryFilter
   name: QueryFilter
   href: api/Postgrest.QueryFilter.html
@@ -1798,14 +1798,14 @@ references:
   fullName.vb: Postgrest.Table(Of T).Clear
   nameWithType: Table<T>.Clear
   nameWithType.vb: Table(Of T).Clear
-- uid: Postgrest.Table`1.Count(Postgrest.Constants.CountType)
-  name: Count(Constants.CountType)
-  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Count_Postgrest_Constants_CountType_
-  commentId: M:Postgrest.Table`1.Count(Postgrest.Constants.CountType)
-  fullName: Postgrest.Table<T>.Count(Postgrest.Constants.CountType)
-  fullName.vb: Postgrest.Table(Of T).Count(Postgrest.Constants.CountType)
-  nameWithType: Table<T>.Count(Constants.CountType)
-  nameWithType.vb: Table(Of T).Count(Constants.CountType)
+- uid: Postgrest.Table`1.Count(Postgrest.Constants.CountType,CancellationToken)
+  name: Count(Constants.CountType, CancellationToken)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Count_Postgrest_Constants_CountType_CancellationToken_
+  commentId: M:Postgrest.Table`1.Count(Postgrest.Constants.CountType,CancellationToken)
+  fullName: Postgrest.Table<T>.Count(Postgrest.Constants.CountType, CancellationToken)
+  fullName.vb: Postgrest.Table(Of T).Count(Postgrest.Constants.CountType, CancellationToken)
+  nameWithType: Table<T>.Count(Constants.CountType, CancellationToken)
+  nameWithType.vb: Table(Of T).Count(Constants.CountType, CancellationToken)
 - uid: Postgrest.Table`1.Count*
   name: Count
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_Count_
@@ -1815,22 +1815,22 @@ references:
   fullName.vb: Postgrest.Table(Of T).Count
   nameWithType: Table<T>.Count
   nameWithType.vb: Table(Of T).Count
-- uid: Postgrest.Table`1.Delete(`0,Postgrest.QueryOptions)
-  name: Delete(T, QueryOptions)
-  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Delete__0_Postgrest_QueryOptions_
-  commentId: M:Postgrest.Table`1.Delete(`0,Postgrest.QueryOptions)
-  fullName: Postgrest.Table<T>.Delete(T, Postgrest.QueryOptions)
-  fullName.vb: Postgrest.Table(Of T).Delete(T, Postgrest.QueryOptions)
-  nameWithType: Table<T>.Delete(T, QueryOptions)
-  nameWithType.vb: Table(Of T).Delete(T, QueryOptions)
-- uid: Postgrest.Table`1.Delete(Postgrest.QueryOptions)
-  name: Delete(QueryOptions)
-  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Delete_Postgrest_QueryOptions_
-  commentId: M:Postgrest.Table`1.Delete(Postgrest.QueryOptions)
-  fullName: Postgrest.Table<T>.Delete(Postgrest.QueryOptions)
-  fullName.vb: Postgrest.Table(Of T).Delete(Postgrest.QueryOptions)
-  nameWithType: Table<T>.Delete(QueryOptions)
-  nameWithType.vb: Table(Of T).Delete(QueryOptions)
+- uid: Postgrest.Table`1.Delete(`0,Postgrest.QueryOptions,CancellationToken)
+  name: Delete(T, QueryOptions, CancellationToken)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Delete__0_Postgrest_QueryOptions_CancellationToken_
+  commentId: M:Postgrest.Table`1.Delete(`0,Postgrest.QueryOptions,CancellationToken)
+  fullName: Postgrest.Table<T>.Delete(T, Postgrest.QueryOptions, CancellationToken)
+  fullName.vb: Postgrest.Table(Of T).Delete(T, Postgrest.QueryOptions, CancellationToken)
+  nameWithType: Table<T>.Delete(T, QueryOptions, CancellationToken)
+  nameWithType.vb: Table(Of T).Delete(T, QueryOptions, CancellationToken)
+- uid: Postgrest.Table`1.Delete(Postgrest.QueryOptions,CancellationToken)
+  name: Delete(QueryOptions, CancellationToken)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Delete_Postgrest_QueryOptions_CancellationToken_
+  commentId: M:Postgrest.Table`1.Delete(Postgrest.QueryOptions,CancellationToken)
+  fullName: Postgrest.Table<T>.Delete(Postgrest.QueryOptions, CancellationToken)
+  fullName.vb: Postgrest.Table(Of T).Delete(Postgrest.QueryOptions, CancellationToken)
+  nameWithType: Table<T>.Delete(QueryOptions, CancellationToken)
+  nameWithType.vb: Table(Of T).Delete(QueryOptions, CancellationToken)
 - uid: Postgrest.Table`1.Delete*
   name: Delete
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_Delete_
@@ -1857,14 +1857,14 @@ references:
   fullName.vb: Postgrest.Table(Of T).Filter
   nameWithType: Table<T>.Filter
   nameWithType.vb: Table(Of T).Filter
-- uid: Postgrest.Table`1.Get
-  name: Get()
-  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Get
-  commentId: M:Postgrest.Table`1.Get
-  fullName: Postgrest.Table<T>.Get()
-  fullName.vb: Postgrest.Table(Of T).Get()
-  nameWithType: Table<T>.Get()
-  nameWithType.vb: Table(Of T).Get()
+- uid: Postgrest.Table`1.Get(CancellationToken)
+  name: Get(CancellationToken)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Get_CancellationToken_
+  commentId: M:Postgrest.Table`1.Get(CancellationToken)
+  fullName: Postgrest.Table<T>.Get(CancellationToken)
+  fullName.vb: Postgrest.Table(Of T).Get(CancellationToken)
+  nameWithType: Table<T>.Get(CancellationToken)
+  nameWithType.vb: Table(Of T).Get(CancellationToken)
 - uid: Postgrest.Table`1.Get*
   name: Get
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_Get_
@@ -1874,23 +1874,23 @@ references:
   fullName.vb: Postgrest.Table(Of T).Get
   nameWithType: Table<T>.Get
   nameWithType.vb: Table(Of T).Get
-- uid: Postgrest.Table`1.Insert(`0,Postgrest.QueryOptions)
-  name: Insert(T, QueryOptions)
-  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Insert__0_Postgrest_QueryOptions_
-  commentId: M:Postgrest.Table`1.Insert(`0,Postgrest.QueryOptions)
-  fullName: Postgrest.Table<T>.Insert(T, Postgrest.QueryOptions)
-  fullName.vb: Postgrest.Table(Of T).Insert(T, Postgrest.QueryOptions)
-  nameWithType: Table<T>.Insert(T, QueryOptions)
-  nameWithType.vb: Table(Of T).Insert(T, QueryOptions)
-- uid: Postgrest.Table`1.Insert(ICollection{`0},Postgrest.QueryOptions)
-  name: Insert(ICollection<T>, QueryOptions)
-  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Insert_ICollection__0__Postgrest_QueryOptions_
-  commentId: M:Postgrest.Table`1.Insert(ICollection{`0},Postgrest.QueryOptions)
-  name.vb: Insert(ICollection(Of T), QueryOptions)
-  fullName: Postgrest.Table<T>.Insert(ICollection<T>, Postgrest.QueryOptions)
-  fullName.vb: Postgrest.Table(Of T).Insert(ICollection(Of T), Postgrest.QueryOptions)
-  nameWithType: Table<T>.Insert(ICollection<T>, QueryOptions)
-  nameWithType.vb: Table(Of T).Insert(ICollection(Of T), QueryOptions)
+- uid: Postgrest.Table`1.Insert(`0,Postgrest.QueryOptions,CancellationToken)
+  name: Insert(T, QueryOptions, CancellationToken)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Insert__0_Postgrest_QueryOptions_CancellationToken_
+  commentId: M:Postgrest.Table`1.Insert(`0,Postgrest.QueryOptions,CancellationToken)
+  fullName: Postgrest.Table<T>.Insert(T, Postgrest.QueryOptions, CancellationToken)
+  fullName.vb: Postgrest.Table(Of T).Insert(T, Postgrest.QueryOptions, CancellationToken)
+  nameWithType: Table<T>.Insert(T, QueryOptions, CancellationToken)
+  nameWithType.vb: Table(Of T).Insert(T, QueryOptions, CancellationToken)
+- uid: Postgrest.Table`1.Insert(ICollection{`0},Postgrest.QueryOptions,CancellationToken)
+  name: Insert(ICollection<T>, QueryOptions, CancellationToken)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Insert_ICollection__0__Postgrest_QueryOptions_CancellationToken_
+  commentId: M:Postgrest.Table`1.Insert(ICollection{`0},Postgrest.QueryOptions,CancellationToken)
+  name.vb: Insert(ICollection(Of T), QueryOptions, CancellationToken)
+  fullName: Postgrest.Table<T>.Insert(ICollection<T>, Postgrest.QueryOptions, CancellationToken)
+  fullName.vb: Postgrest.Table(Of T).Insert(ICollection(Of T), Postgrest.QueryOptions, CancellationToken)
+  nameWithType: Table<T>.Insert(ICollection<T>, QueryOptions, CancellationToken)
+  nameWithType.vb: Table(Of T).Insert(ICollection(Of T), QueryOptions, CancellationToken)
 - uid: Postgrest.Table`1.Insert*
   name: Insert
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_Insert_
@@ -2097,14 +2097,14 @@ references:
   fullName.vb: Postgrest.Table(Of T).Select
   nameWithType: Table<T>.Select
   nameWithType.vb: Table(Of T).Select
-- uid: Postgrest.Table`1.Single
-  name: Single()
-  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Single
-  commentId: M:Postgrest.Table`1.Single
-  fullName: Postgrest.Table<T>.Single()
-  fullName.vb: Postgrest.Table(Of T).Single()
-  nameWithType: Table<T>.Single()
-  nameWithType.vb: Table(Of T).Single()
+- uid: Postgrest.Table`1.Single(CancellationToken)
+  name: Single(CancellationToken)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Single_CancellationToken_
+  commentId: M:Postgrest.Table`1.Single(CancellationToken)
+  fullName: Postgrest.Table<T>.Single(CancellationToken)
+  fullName.vb: Postgrest.Table(Of T).Single(CancellationToken)
+  nameWithType: Table<T>.Single(CancellationToken)
+  nameWithType.vb: Table(Of T).Single(CancellationToken)
 - uid: Postgrest.Table`1.Single*
   name: Single
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_Single_
@@ -2131,14 +2131,14 @@ references:
   fullName.vb: Postgrest.Table(Of T).TableName
   nameWithType: Table<T>.TableName
   nameWithType.vb: Table(Of T).TableName
-- uid: Postgrest.Table`1.Update(`0,Postgrest.QueryOptions)
-  name: Update(T, QueryOptions)
-  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Update__0_Postgrest_QueryOptions_
-  commentId: M:Postgrest.Table`1.Update(`0,Postgrest.QueryOptions)
-  fullName: Postgrest.Table<T>.Update(T, Postgrest.QueryOptions)
-  fullName.vb: Postgrest.Table(Of T).Update(T, Postgrest.QueryOptions)
-  nameWithType: Table<T>.Update(T, QueryOptions)
-  nameWithType.vb: Table(Of T).Update(T, QueryOptions)
+- uid: Postgrest.Table`1.Update(`0,Postgrest.QueryOptions,CancellationToken)
+  name: Update(T, QueryOptions, CancellationToken)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Update__0_Postgrest_QueryOptions_CancellationToken_
+  commentId: M:Postgrest.Table`1.Update(`0,Postgrest.QueryOptions,CancellationToken)
+  fullName: Postgrest.Table<T>.Update(T, Postgrest.QueryOptions, CancellationToken)
+  fullName.vb: Postgrest.Table(Of T).Update(T, Postgrest.QueryOptions, CancellationToken)
+  nameWithType: Table<T>.Update(T, QueryOptions, CancellationToken)
+  nameWithType.vb: Table(Of T).Update(T, QueryOptions, CancellationToken)
 - uid: Postgrest.Table`1.Update*
   name: Update
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_Update_
@@ -2148,23 +2148,23 @@ references:
   fullName.vb: Postgrest.Table(Of T).Update
   nameWithType: Table<T>.Update
   nameWithType.vb: Table(Of T).Update
-- uid: Postgrest.Table`1.Upsert(`0,Postgrest.QueryOptions)
-  name: Upsert(T, QueryOptions)
-  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Upsert__0_Postgrest_QueryOptions_
-  commentId: M:Postgrest.Table`1.Upsert(`0,Postgrest.QueryOptions)
-  fullName: Postgrest.Table<T>.Upsert(T, Postgrest.QueryOptions)
-  fullName.vb: Postgrest.Table(Of T).Upsert(T, Postgrest.QueryOptions)
-  nameWithType: Table<T>.Upsert(T, QueryOptions)
-  nameWithType.vb: Table(Of T).Upsert(T, QueryOptions)
-- uid: Postgrest.Table`1.Upsert(ICollection{`0},Postgrest.QueryOptions)
-  name: Upsert(ICollection<T>, QueryOptions)
-  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Upsert_ICollection__0__Postgrest_QueryOptions_
-  commentId: M:Postgrest.Table`1.Upsert(ICollection{`0},Postgrest.QueryOptions)
-  name.vb: Upsert(ICollection(Of T), QueryOptions)
-  fullName: Postgrest.Table<T>.Upsert(ICollection<T>, Postgrest.QueryOptions)
-  fullName.vb: Postgrest.Table(Of T).Upsert(ICollection(Of T), Postgrest.QueryOptions)
-  nameWithType: Table<T>.Upsert(ICollection<T>, QueryOptions)
-  nameWithType.vb: Table(Of T).Upsert(ICollection(Of T), QueryOptions)
+- uid: Postgrest.Table`1.Upsert(`0,Postgrest.QueryOptions,CancellationToken)
+  name: Upsert(T, QueryOptions, CancellationToken)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Upsert__0_Postgrest_QueryOptions_CancellationToken_
+  commentId: M:Postgrest.Table`1.Upsert(`0,Postgrest.QueryOptions,CancellationToken)
+  fullName: Postgrest.Table<T>.Upsert(T, Postgrest.QueryOptions, CancellationToken)
+  fullName.vb: Postgrest.Table(Of T).Upsert(T, Postgrest.QueryOptions, CancellationToken)
+  nameWithType: Table<T>.Upsert(T, QueryOptions, CancellationToken)
+  nameWithType.vb: Table(Of T).Upsert(T, QueryOptions, CancellationToken)
+- uid: Postgrest.Table`1.Upsert(ICollection{`0},Postgrest.QueryOptions,CancellationToken)
+  name: Upsert(ICollection<T>, QueryOptions, CancellationToken)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Upsert_ICollection__0__Postgrest_QueryOptions_CancellationToken_
+  commentId: M:Postgrest.Table`1.Upsert(ICollection{`0},Postgrest.QueryOptions,CancellationToken)
+  name.vb: Upsert(ICollection(Of T), QueryOptions, CancellationToken)
+  fullName: Postgrest.Table<T>.Upsert(ICollection<T>, Postgrest.QueryOptions, CancellationToken)
+  fullName.vb: Postgrest.Table(Of T).Upsert(ICollection(Of T), Postgrest.QueryOptions, CancellationToken)
+  nameWithType: Table<T>.Upsert(ICollection<T>, QueryOptions, CancellationToken)
+  nameWithType.vb: Table(Of T).Upsert(ICollection(Of T), QueryOptions, CancellationToken)
 - uid: Postgrest.Table`1.Upsert*
   name: Upsert
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_Upsert_
