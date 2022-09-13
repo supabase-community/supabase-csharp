@@ -7749,15 +7749,15 @@ references:
   isSpec: "True"
   fullName: Supabase.SupabaseModel.Delete
   nameWithType: SupabaseModel.Delete
-- uid: Supabase.SupabaseModel.Delete``1
-  name: Delete<T>()
-  href: api/Supabase.SupabaseModel.html#Supabase_SupabaseModel_Delete__1
-  commentId: M:Supabase.SupabaseModel.Delete``1
-  name.vb: Delete(Of T)()
-  fullName: Supabase.SupabaseModel.Delete<T>()
-  fullName.vb: Supabase.SupabaseModel.Delete(Of T)()
-  nameWithType: SupabaseModel.Delete<T>()
-  nameWithType.vb: SupabaseModel.Delete(Of T)()
+- uid: Supabase.SupabaseModel.Delete``1(CancellationToken)
+  name: Delete<T>(CancellationToken)
+  href: api/Supabase.SupabaseModel.html#Supabase_SupabaseModel_Delete__1_CancellationToken_
+  commentId: M:Supabase.SupabaseModel.Delete``1(CancellationToken)
+  name.vb: Delete(Of T)(CancellationToken)
+  fullName: Supabase.SupabaseModel.Delete<T>(CancellationToken)
+  fullName.vb: Supabase.SupabaseModel.Delete(Of T)(CancellationToken)
+  nameWithType: SupabaseModel.Delete<T>(CancellationToken)
+  nameWithType.vb: SupabaseModel.Delete(Of T)(CancellationToken)
 - uid: Supabase.SupabaseModel.Update*
   name: Update
   href: api/Supabase.SupabaseModel.html#Supabase_SupabaseModel_Update_
@@ -7765,15 +7765,15 @@ references:
   isSpec: "True"
   fullName: Supabase.SupabaseModel.Update
   nameWithType: SupabaseModel.Update
-- uid: Supabase.SupabaseModel.Update``1
-  name: Update<T>()
-  href: api/Supabase.SupabaseModel.html#Supabase_SupabaseModel_Update__1
-  commentId: M:Supabase.SupabaseModel.Update``1
-  name.vb: Update(Of T)()
-  fullName: Supabase.SupabaseModel.Update<T>()
-  fullName.vb: Supabase.SupabaseModel.Update(Of T)()
-  nameWithType: SupabaseModel.Update<T>()
-  nameWithType.vb: SupabaseModel.Update(Of T)()
+- uid: Supabase.SupabaseModel.Update``1(CancellationToken)
+  name: Update<T>(CancellationToken)
+  href: api/Supabase.SupabaseModel.html#Supabase_SupabaseModel_Update__1_CancellationToken_
+  commentId: M:Supabase.SupabaseModel.Update``1(CancellationToken)
+  name.vb: Update(Of T)(CancellationToken)
+  fullName: Supabase.SupabaseModel.Update<T>(CancellationToken)
+  fullName.vb: Supabase.SupabaseModel.Update(Of T)(CancellationToken)
+  nameWithType: SupabaseModel.Update<T>(CancellationToken)
+  nameWithType.vb: SupabaseModel.Update(Of T)(CancellationToken)
 - uid: Supabase.SupabaseOptions
   name: SupabaseOptions
   href: api/Supabase.SupabaseOptions.html
