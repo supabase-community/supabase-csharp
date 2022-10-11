@@ -1,5 +1,12 @@
 ﻿# Changelog
 
+## 0.5.3 - 2022-10-11
+
+- Update dependency: postgrest-csharp@2.1.0
+    - [Minor] Breaking API change: Remove `BaseModel.PrimaryKeyValue` and `BaseModel.PrimaryKeyColumn` in favor of a `PrimaryKey` dictionary with support for composite keys.
+    - Re: [#48](https://github.com/supabase-community/postgrest-csharp/issues/48) - Add support for derived models on `ReferenceAttribute`
+    - Re: [#49](https://github.com/supabase-community/postgrest-csharp/issues/49) - Added `Match(T model)`
+
 ## 0.5.2 - 2022-9-13
 
 - Update dependency: postgrest-csharp@2.0.12
