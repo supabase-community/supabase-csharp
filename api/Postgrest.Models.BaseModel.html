@@ -91,19 +91,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/bc228b515c4c06bff8f5a767a7b67a1c7c4114fd/apiSpec/new?filename=Postgrest_Models_BaseModel_PrimaryKeyColumn.md&amp;value=---%0Auid%3A%20Postgrest.Models.BaseModel.PrimaryKeyColumn%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/apiSpec/new?filename=Postgrest_Models_BaseModel_PrimaryKey.md&amp;value=---%0Auid%3A%20Postgrest.Models.BaseModel.PrimaryKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/bc228b515c4c06bff8f5a767a7b67a1c7c4114fd/Postgrest/Models/BaseModel.cs/#L61">View Source</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/Postgrest/Models/BaseModel.cs/#L39">View Source</a>
   </span>
-  <a id="Postgrest_Models_BaseModel_PrimaryKeyColumn_" data-uid="Postgrest.Models.BaseModel.PrimaryKeyColumn*"></a>
-  <h4 id="Postgrest_Models_BaseModel_PrimaryKeyColumn" data-uid="Postgrest.Models.BaseModel.PrimaryKeyColumn">PrimaryKeyColumn</h4>
-  <div class="markdown level1 summary"><p>Gets the name of the PrimaryKey column on a model's instance as defined by the [PrimaryKey] attribute on a property on the model.</p>
+  <a id="Postgrest_Models_BaseModel_PrimaryKey_" data-uid="Postgrest.Models.BaseModel.PrimaryKey*"></a>
+  <h4 id="Postgrest_Models_BaseModel_PrimaryKey" data-uid="Postgrest.Models.BaseModel.PrimaryKey">PrimaryKey</h4>
+  <div class="markdown level1 summary"><p>Gets the values of the PrimaryKey columns (there can be multiple) on a model's instance as defined by the [PrimaryKey] attributes on a property on the model.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string PrimaryKeyColumn { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;PrimaryKeyAttribute, object&gt; PrimaryKey { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -115,48 +115,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">Dictionary</span>&lt;<a class="xref" href="Postgrest.Attributes.PrimaryKeyAttribute.html">PrimaryKeyAttribute</a>, <span class="xref">System.Object</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/bc228b515c4c06bff8f5a767a7b67a1c7c4114fd/apiSpec/new?filename=Postgrest_Models_BaseModel_PrimaryKeyValue.md&amp;value=---%0Auid%3A%20Postgrest.Models.BaseModel.PrimaryKeyValue%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/apiSpec/new?filename=Postgrest_Models_BaseModel_TableName.md&amp;value=---%0Auid%3A%20Postgrest.Models.BaseModel.TableName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/bc228b515c4c06bff8f5a767a7b67a1c7c4114fd/Postgrest/Models/BaseModel.cs/#L24">View Source</a>
-  </span>
-  <a id="Postgrest_Models_BaseModel_PrimaryKeyValue_" data-uid="Postgrest.Models.BaseModel.PrimaryKeyValue*"></a>
-  <h4 id="Postgrest_Models_BaseModel_PrimaryKeyValue" data-uid="Postgrest.Models.BaseModel.PrimaryKeyValue">PrimaryKeyValue</h4>
-  <div class="markdown level1 summary"><p>Gets the value of the PrimaryKey from a model's instance as defined by the [PrimaryKey] attribute on a property on the model.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object PrimaryKeyValue { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/bc228b515c4c06bff8f5a767a7b67a1c7c4114fd/apiSpec/new?filename=Postgrest_Models_BaseModel_TableName.md&amp;value=---%0Auid%3A%20Postgrest.Models.BaseModel.TableName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/bc228b515c4c06bff8f5a767a7b67a1c7c4114fd/Postgrest/Models/BaseModel.cs/#L45">View Source</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/Postgrest/Models/BaseModel.cs/#L23">View Source</a>
   </span>
   <a id="Postgrest_Models_BaseModel_TableName_" data-uid="Postgrest.Models.BaseModel.TableName*"></a>
   <h4 id="Postgrest_Models_BaseModel_TableName" data-uid="Postgrest.Models.BaseModel.TableName">TableName</h4>
@@ -185,10 +154,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/bc228b515c4c06bff8f5a767a7b67a1c7c4114fd/apiSpec/new?filename=Postgrest_Models_BaseModel_Delete__1_CancellationToken_.md&amp;value=---%0Auid%3A%20Postgrest.Models.BaseModel.Delete%60%601(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/apiSpec/new?filename=Postgrest_Models_BaseModel_Delete__1_CancellationToken_.md&amp;value=---%0Auid%3A%20Postgrest.Models.BaseModel.Delete%60%601(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/bc228b515c4c06bff8f5a767a7b67a1c7c4114fd/Postgrest/Models/BaseModel.cs/#L18">View Source</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/Postgrest/Models/BaseModel.cs/#L20">View Source</a>
   </span>
   <a id="Postgrest_Models_BaseModel_Delete_" data-uid="Postgrest.Models.BaseModel.Delete*"></a>
   <h4 id="Postgrest_Models_BaseModel_Delete__1_CancellationToken_" data-uid="Postgrest.Models.BaseModel.Delete``1(CancellationToken)">Delete&lt;T&gt;(CancellationToken)</h4>
@@ -248,10 +217,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/bc228b515c4c06bff8f5a767a7b67a1c7c4114fd/apiSpec/new?filename=Postgrest_Models_BaseModel_Update__1_CancellationToken_.md&amp;value=---%0Auid%3A%20Postgrest.Models.BaseModel.Update%60%601(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/apiSpec/new?filename=Postgrest_Models_BaseModel_Update__1_CancellationToken_.md&amp;value=---%0Auid%3A%20Postgrest.Models.BaseModel.Update%60%601(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/bc228b515c4c06bff8f5a767a7b67a1c7c4114fd/Postgrest/Models/BaseModel.cs/#L15">View Source</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/Postgrest/Models/BaseModel.cs/#L17">View Source</a>
   </span>
   <a id="Postgrest_Models_BaseModel_Update_" data-uid="Postgrest.Models.BaseModel.Update*"></a>
   <h4 id="Postgrest_Models_BaseModel_Update__1_CancellationToken_" data-uid="Postgrest.Models.BaseModel.Update``1(CancellationToken)">Update&lt;T&gt;(CancellationToken)</h4>
@@ -317,10 +286,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/supabase-community/postgrest-csharp/new/bc228b515c4c06bff8f5a767a7b67a1c7c4114fd/apiSpec/new?filename=Postgrest_Models_BaseModel.md&amp;value=---%0Auid%3A%20Postgrest.Models.BaseModel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/supabase-community/postgrest-csharp/new/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/apiSpec/new?filename=Postgrest_Models_BaseModel.md&amp;value=---%0Auid%3A%20Postgrest.Models.BaseModel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/postgrest-csharp/blob/bc228b515c4c06bff8f5a767a7b67a1c7c4114fd/Postgrest/Models/BaseModel.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/postgrest-csharp/blob/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/Postgrest/Models/BaseModel.cs/#L15" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

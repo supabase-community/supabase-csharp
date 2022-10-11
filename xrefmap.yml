@@ -19,12 +19,12 @@ references:
   commentId: T:Postgrest.Attributes.ColumnAttribute
   fullName: Postgrest.Attributes.ColumnAttribute
   nameWithType: ColumnAttribute
-- uid: Postgrest.Attributes.ColumnAttribute.#ctor(System.String,NullValueHandling)
-  name: ColumnAttribute(String, NullValueHandling)
-  href: api/Postgrest.Attributes.ColumnAttribute.html#Postgrest_Attributes_ColumnAttribute__ctor_System_String_NullValueHandling_
-  commentId: M:Postgrest.Attributes.ColumnAttribute.#ctor(System.String,NullValueHandling)
-  fullName: Postgrest.Attributes.ColumnAttribute.ColumnAttribute(System.String, NullValueHandling)
-  nameWithType: ColumnAttribute.ColumnAttribute(String, NullValueHandling)
+- uid: Postgrest.Attributes.ColumnAttribute.#ctor(System.String,NullValueHandling,System.Boolean,System.Boolean)
+  name: ColumnAttribute(String, NullValueHandling, Boolean, Boolean)
+  href: api/Postgrest.Attributes.ColumnAttribute.html#Postgrest_Attributes_ColumnAttribute__ctor_System_String_NullValueHandling_System_Boolean_System_Boolean_
+  commentId: M:Postgrest.Attributes.ColumnAttribute.#ctor(System.String,NullValueHandling,System.Boolean,System.Boolean)
+  fullName: Postgrest.Attributes.ColumnAttribute.ColumnAttribute(System.String, NullValueHandling, System.Boolean, System.Boolean)
+  nameWithType: ColumnAttribute.ColumnAttribute(String, NullValueHandling, Boolean, Boolean)
 - uid: Postgrest.Attributes.ColumnAttribute.#ctor*
   name: ColumnAttribute
   href: api/Postgrest.Attributes.ColumnAttribute.html#Postgrest_Attributes_ColumnAttribute__ctor_
@@ -45,6 +45,32 @@ references:
   isSpec: "True"
   fullName: Postgrest.Attributes.ColumnAttribute.ColumnName
   nameWithType: ColumnAttribute.ColumnName
+- uid: Postgrest.Attributes.ColumnAttribute.IgnoreOnInsert
+  name: IgnoreOnInsert
+  href: api/Postgrest.Attributes.ColumnAttribute.html#Postgrest_Attributes_ColumnAttribute_IgnoreOnInsert
+  commentId: P:Postgrest.Attributes.ColumnAttribute.IgnoreOnInsert
+  fullName: Postgrest.Attributes.ColumnAttribute.IgnoreOnInsert
+  nameWithType: ColumnAttribute.IgnoreOnInsert
+- uid: Postgrest.Attributes.ColumnAttribute.IgnoreOnInsert*
+  name: IgnoreOnInsert
+  href: api/Postgrest.Attributes.ColumnAttribute.html#Postgrest_Attributes_ColumnAttribute_IgnoreOnInsert_
+  commentId: Overload:Postgrest.Attributes.ColumnAttribute.IgnoreOnInsert
+  isSpec: "True"
+  fullName: Postgrest.Attributes.ColumnAttribute.IgnoreOnInsert
+  nameWithType: ColumnAttribute.IgnoreOnInsert
+- uid: Postgrest.Attributes.ColumnAttribute.IgnoreOnUpdate
+  name: IgnoreOnUpdate
+  href: api/Postgrest.Attributes.ColumnAttribute.html#Postgrest_Attributes_ColumnAttribute_IgnoreOnUpdate
+  commentId: P:Postgrest.Attributes.ColumnAttribute.IgnoreOnUpdate
+  fullName: Postgrest.Attributes.ColumnAttribute.IgnoreOnUpdate
+  nameWithType: ColumnAttribute.IgnoreOnUpdate
+- uid: Postgrest.Attributes.ColumnAttribute.IgnoreOnUpdate*
+  name: IgnoreOnUpdate
+  href: api/Postgrest.Attributes.ColumnAttribute.html#Postgrest_Attributes_ColumnAttribute_IgnoreOnUpdate_
+  commentId: Overload:Postgrest.Attributes.ColumnAttribute.IgnoreOnUpdate
+  isSpec: "True"
+  fullName: Postgrest.Attributes.ColumnAttribute.IgnoreOnUpdate
+  nameWithType: ColumnAttribute.IgnoreOnUpdate
 - uid: Postgrest.Attributes.ColumnAttribute.NullValueHandling
   name: NullValueHandling
   href: api/Postgrest.Attributes.ColumnAttribute.html#Postgrest_Attributes_ColumnAttribute_NullValueHandling
@@ -77,6 +103,45 @@ references:
   isSpec: "True"
   fullName: Postgrest.Attributes.PostgrestContractResolver.CreateProperty
   nameWithType: PostgrestContractResolver.CreateProperty
+- uid: Postgrest.Attributes.PostgrestContractResolver.IsInsert
+  name: IsInsert
+  href: api/Postgrest.Attributes.PostgrestContractResolver.html#Postgrest_Attributes_PostgrestContractResolver_IsInsert
+  commentId: P:Postgrest.Attributes.PostgrestContractResolver.IsInsert
+  fullName: Postgrest.Attributes.PostgrestContractResolver.IsInsert
+  nameWithType: PostgrestContractResolver.IsInsert
+- uid: Postgrest.Attributes.PostgrestContractResolver.IsInsert*
+  name: IsInsert
+  href: api/Postgrest.Attributes.PostgrestContractResolver.html#Postgrest_Attributes_PostgrestContractResolver_IsInsert_
+  commentId: Overload:Postgrest.Attributes.PostgrestContractResolver.IsInsert
+  isSpec: "True"
+  fullName: Postgrest.Attributes.PostgrestContractResolver.IsInsert
+  nameWithType: PostgrestContractResolver.IsInsert
+- uid: Postgrest.Attributes.PostgrestContractResolver.IsUpdate
+  name: IsUpdate
+  href: api/Postgrest.Attributes.PostgrestContractResolver.html#Postgrest_Attributes_PostgrestContractResolver_IsUpdate
+  commentId: P:Postgrest.Attributes.PostgrestContractResolver.IsUpdate
+  fullName: Postgrest.Attributes.PostgrestContractResolver.IsUpdate
+  nameWithType: PostgrestContractResolver.IsUpdate
+- uid: Postgrest.Attributes.PostgrestContractResolver.IsUpdate*
+  name: IsUpdate
+  href: api/Postgrest.Attributes.PostgrestContractResolver.html#Postgrest_Attributes_PostgrestContractResolver_IsUpdate_
+  commentId: Overload:Postgrest.Attributes.PostgrestContractResolver.IsUpdate
+  isSpec: "True"
+  fullName: Postgrest.Attributes.PostgrestContractResolver.IsUpdate
+  nameWithType: PostgrestContractResolver.IsUpdate
+- uid: Postgrest.Attributes.PostgrestContractResolver.SetState(System.Boolean,System.Boolean)
+  name: SetState(Boolean, Boolean)
+  href: api/Postgrest.Attributes.PostgrestContractResolver.html#Postgrest_Attributes_PostgrestContractResolver_SetState_System_Boolean_System_Boolean_
+  commentId: M:Postgrest.Attributes.PostgrestContractResolver.SetState(System.Boolean,System.Boolean)
+  fullName: Postgrest.Attributes.PostgrestContractResolver.SetState(System.Boolean, System.Boolean)
+  nameWithType: PostgrestContractResolver.SetState(Boolean, Boolean)
+- uid: Postgrest.Attributes.PostgrestContractResolver.SetState*
+  name: SetState
+  href: api/Postgrest.Attributes.PostgrestContractResolver.html#Postgrest_Attributes_PostgrestContractResolver_SetState_
+  commentId: Overload:Postgrest.Attributes.PostgrestContractResolver.SetState
+  isSpec: "True"
+  fullName: Postgrest.Attributes.PostgrestContractResolver.SetState
+  nameWithType: PostgrestContractResolver.SetState
 - uid: Postgrest.Attributes.PrimaryKeyAttribute
   name: PrimaryKeyAttribute
   href: api/Postgrest.Attributes.PrimaryKeyAttribute.html
@@ -122,6 +187,116 @@ references:
   isSpec: "True"
   fullName: Postgrest.Attributes.PrimaryKeyAttribute.ShouldInsert
   nameWithType: PrimaryKeyAttribute.ShouldInsert
+- uid: Postgrest.Attributes.ReferenceAttribute
+  name: ReferenceAttribute
+  href: api/Postgrest.Attributes.ReferenceAttribute.html
+  commentId: T:Postgrest.Attributes.ReferenceAttribute
+  fullName: Postgrest.Attributes.ReferenceAttribute
+  nameWithType: ReferenceAttribute
+- uid: Postgrest.Attributes.ReferenceAttribute.#ctor(Type,System.Boolean,System.Boolean,System.Boolean,System.String)
+  name: ReferenceAttribute(Type, Boolean, Boolean, Boolean, String)
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute__ctor_Type_System_Boolean_System_Boolean_System_Boolean_System_String_
+  commentId: M:Postgrest.Attributes.ReferenceAttribute.#ctor(Type,System.Boolean,System.Boolean,System.Boolean,System.String)
+  fullName: Postgrest.Attributes.ReferenceAttribute.ReferenceAttribute(Type, System.Boolean, System.Boolean, System.Boolean, System.String)
+  nameWithType: ReferenceAttribute.ReferenceAttribute(Type, Boolean, Boolean, Boolean, String)
+- uid: Postgrest.Attributes.ReferenceAttribute.#ctor*
+  name: ReferenceAttribute
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute__ctor_
+  commentId: Overload:Postgrest.Attributes.ReferenceAttribute.#ctor
+  isSpec: "True"
+  fullName: Postgrest.Attributes.ReferenceAttribute.ReferenceAttribute
+  nameWithType: ReferenceAttribute.ReferenceAttribute
+- uid: Postgrest.Attributes.ReferenceAttribute.Columns
+  name: Columns
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_Columns
+  commentId: P:Postgrest.Attributes.ReferenceAttribute.Columns
+  fullName: Postgrest.Attributes.ReferenceAttribute.Columns
+  nameWithType: ReferenceAttribute.Columns
+- uid: Postgrest.Attributes.ReferenceAttribute.Columns*
+  name: Columns
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_Columns_
+  commentId: Overload:Postgrest.Attributes.ReferenceAttribute.Columns
+  isSpec: "True"
+  fullName: Postgrest.Attributes.ReferenceAttribute.Columns
+  nameWithType: ReferenceAttribute.Columns
+- uid: Postgrest.Attributes.ReferenceAttribute.IgnoreOnInsert
+  name: IgnoreOnInsert
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_IgnoreOnInsert
+  commentId: P:Postgrest.Attributes.ReferenceAttribute.IgnoreOnInsert
+  fullName: Postgrest.Attributes.ReferenceAttribute.IgnoreOnInsert
+  nameWithType: ReferenceAttribute.IgnoreOnInsert
+- uid: Postgrest.Attributes.ReferenceAttribute.IgnoreOnInsert*
+  name: IgnoreOnInsert
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_IgnoreOnInsert_
+  commentId: Overload:Postgrest.Attributes.ReferenceAttribute.IgnoreOnInsert
+  isSpec: "True"
+  fullName: Postgrest.Attributes.ReferenceAttribute.IgnoreOnInsert
+  nameWithType: ReferenceAttribute.IgnoreOnInsert
+- uid: Postgrest.Attributes.ReferenceAttribute.IgnoreOnUpdate
+  name: IgnoreOnUpdate
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_IgnoreOnUpdate
+  commentId: P:Postgrest.Attributes.ReferenceAttribute.IgnoreOnUpdate
+  fullName: Postgrest.Attributes.ReferenceAttribute.IgnoreOnUpdate
+  nameWithType: ReferenceAttribute.IgnoreOnUpdate
+- uid: Postgrest.Attributes.ReferenceAttribute.IgnoreOnUpdate*
+  name: IgnoreOnUpdate
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_IgnoreOnUpdate_
+  commentId: Overload:Postgrest.Attributes.ReferenceAttribute.IgnoreOnUpdate
+  isSpec: "True"
+  fullName: Postgrest.Attributes.ReferenceAttribute.IgnoreOnUpdate
+  nameWithType: ReferenceAttribute.IgnoreOnUpdate
+- uid: Postgrest.Attributes.ReferenceAttribute.IncludeInQuery
+  name: IncludeInQuery
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_IncludeInQuery
+  commentId: P:Postgrest.Attributes.ReferenceAttribute.IncludeInQuery
+  fullName: Postgrest.Attributes.ReferenceAttribute.IncludeInQuery
+  nameWithType: ReferenceAttribute.IncludeInQuery
+- uid: Postgrest.Attributes.ReferenceAttribute.IncludeInQuery*
+  name: IncludeInQuery
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_IncludeInQuery_
+  commentId: Overload:Postgrest.Attributes.ReferenceAttribute.IncludeInQuery
+  isSpec: "True"
+  fullName: Postgrest.Attributes.ReferenceAttribute.IncludeInQuery
+  nameWithType: ReferenceAttribute.IncludeInQuery
+- uid: Postgrest.Attributes.ReferenceAttribute.Model
+  name: Model
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_Model
+  commentId: P:Postgrest.Attributes.ReferenceAttribute.Model
+  fullName: Postgrest.Attributes.ReferenceAttribute.Model
+  nameWithType: ReferenceAttribute.Model
+- uid: Postgrest.Attributes.ReferenceAttribute.Model*
+  name: Model
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_Model_
+  commentId: Overload:Postgrest.Attributes.ReferenceAttribute.Model
+  isSpec: "True"
+  fullName: Postgrest.Attributes.ReferenceAttribute.Model
+  nameWithType: ReferenceAttribute.Model
+- uid: Postgrest.Attributes.ReferenceAttribute.PropertyName
+  name: PropertyName
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_PropertyName
+  commentId: P:Postgrest.Attributes.ReferenceAttribute.PropertyName
+  fullName: Postgrest.Attributes.ReferenceAttribute.PropertyName
+  nameWithType: ReferenceAttribute.PropertyName
+- uid: Postgrest.Attributes.ReferenceAttribute.PropertyName*
+  name: PropertyName
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_PropertyName_
+  commentId: Overload:Postgrest.Attributes.ReferenceAttribute.PropertyName
+  isSpec: "True"
+  fullName: Postgrest.Attributes.ReferenceAttribute.PropertyName
+  nameWithType: ReferenceAttribute.PropertyName
+- uid: Postgrest.Attributes.ReferenceAttribute.TableName
+  name: TableName
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_TableName
+  commentId: P:Postgrest.Attributes.ReferenceAttribute.TableName
+  fullName: Postgrest.Attributes.ReferenceAttribute.TableName
+  nameWithType: ReferenceAttribute.TableName
+- uid: Postgrest.Attributes.ReferenceAttribute.TableName*
+  name: TableName
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_TableName_
+  commentId: Overload:Postgrest.Attributes.ReferenceAttribute.TableName
+  isSpec: "True"
+  fullName: Postgrest.Attributes.ReferenceAttribute.TableName
+  nameWithType: ReferenceAttribute.TableName
 - uid: Postgrest.Attributes.TableAttribute
   name: TableAttribute
   href: api/Postgrest.Attributes.TableAttribute.html
@@ -1073,32 +1248,19 @@ references:
   fullName.vb: Postgrest.Models.BaseModel.Delete(Of T)(CancellationToken)
   nameWithType: BaseModel.Delete<T>(CancellationToken)
   nameWithType.vb: BaseModel.Delete(Of T)(CancellationToken)
-- uid: Postgrest.Models.BaseModel.PrimaryKeyColumn
-  name: PrimaryKeyColumn
-  href: api/Postgrest.Models.BaseModel.html#Postgrest_Models_BaseModel_PrimaryKeyColumn
-  commentId: P:Postgrest.Models.BaseModel.PrimaryKeyColumn
-  fullName: Postgrest.Models.BaseModel.PrimaryKeyColumn
-  nameWithType: BaseModel.PrimaryKeyColumn
-- uid: Postgrest.Models.BaseModel.PrimaryKeyColumn*
-  name: PrimaryKeyColumn
-  href: api/Postgrest.Models.BaseModel.html#Postgrest_Models_BaseModel_PrimaryKeyColumn_
-  commentId: Overload:Postgrest.Models.BaseModel.PrimaryKeyColumn
+- uid: Postgrest.Models.BaseModel.PrimaryKey
+  name: PrimaryKey
+  href: api/Postgrest.Models.BaseModel.html#Postgrest_Models_BaseModel_PrimaryKey
+  commentId: P:Postgrest.Models.BaseModel.PrimaryKey
+  fullName: Postgrest.Models.BaseModel.PrimaryKey
+  nameWithType: BaseModel.PrimaryKey
+- uid: Postgrest.Models.BaseModel.PrimaryKey*
+  name: PrimaryKey
+  href: api/Postgrest.Models.BaseModel.html#Postgrest_Models_BaseModel_PrimaryKey_
+  commentId: Overload:Postgrest.Models.BaseModel.PrimaryKey
   isSpec: "True"
-  fullName: Postgrest.Models.BaseModel.PrimaryKeyColumn
-  nameWithType: BaseModel.PrimaryKeyColumn
-- uid: Postgrest.Models.BaseModel.PrimaryKeyValue
-  name: PrimaryKeyValue
-  href: api/Postgrest.Models.BaseModel.html#Postgrest_Models_BaseModel_PrimaryKeyValue
-  commentId: P:Postgrest.Models.BaseModel.PrimaryKeyValue
-  fullName: Postgrest.Models.BaseModel.PrimaryKeyValue
-  nameWithType: BaseModel.PrimaryKeyValue
-- uid: Postgrest.Models.BaseModel.PrimaryKeyValue*
-  name: PrimaryKeyValue
-  href: api/Postgrest.Models.BaseModel.html#Postgrest_Models_BaseModel_PrimaryKeyValue_
-  commentId: Overload:Postgrest.Models.BaseModel.PrimaryKeyValue
-  isSpec: "True"
-  fullName: Postgrest.Models.BaseModel.PrimaryKeyValue
-  nameWithType: BaseModel.PrimaryKeyValue
+  fullName: Postgrest.Models.BaseModel.PrimaryKey
+  nameWithType: BaseModel.PrimaryKey
 - uid: Postgrest.Models.BaseModel.TableName
   name: TableName
   href: api/Postgrest.Models.BaseModel.html#Postgrest_Models_BaseModel_TableName
@@ -1798,6 +1960,24 @@ references:
   fullName.vb: Postgrest.Table(Of T).Clear
   nameWithType: Table<T>.Clear
   nameWithType.vb: Table(Of T).Clear
+- uid: Postgrest.Table`1.Columns(System.String[])
+  name: Columns(String[])
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Columns_System_String___
+  commentId: M:Postgrest.Table`1.Columns(System.String[])
+  name.vb: Columns(String())
+  fullName: Postgrest.Table<T>.Columns(System.String[])
+  fullName.vb: Postgrest.Table(Of T).Columns(System.String())
+  nameWithType: Table<T>.Columns(String[])
+  nameWithType.vb: Table(Of T).Columns(String())
+- uid: Postgrest.Table`1.Columns*
+  name: Columns
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Columns_
+  commentId: Overload:Postgrest.Table`1.Columns
+  isSpec: "True"
+  fullName: Postgrest.Table<T>.Columns
+  fullName.vb: Postgrest.Table(Of T).Columns
+  nameWithType: Table<T>.Columns
+  nameWithType.vb: Table(Of T).Columns
 - uid: Postgrest.Table`1.Count(Postgrest.Constants.CountType,CancellationToken)
   name: Count(Constants.CountType, CancellationToken)
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_Count_Postgrest_Constants_CountType_CancellationToken_
@@ -1917,6 +2097,14 @@ references:
   fullName.vb: Postgrest.Table(Of T).Limit
   nameWithType: Table<T>.Limit
   nameWithType.vb: Table(Of T).Limit
+- uid: Postgrest.Table`1.Match(`0)
+  name: Match(T)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Match__0_
+  commentId: M:Postgrest.Table`1.Match(`0)
+  fullName: Postgrest.Table<T>.Match(T)
+  fullName.vb: Postgrest.Table(Of T).Match(T)
+  nameWithType: Table<T>.Match(T)
+  nameWithType.vb: Table(Of T).Match(T)
 - uid: Postgrest.Table`1.Match(Dictionary{System.String,System.String})
   name: Match(Dictionary<String, String>)
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_Match_Dictionary_System_String_System_String__
