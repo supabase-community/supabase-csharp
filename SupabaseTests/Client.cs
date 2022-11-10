@@ -13,9 +13,9 @@ namespace SupabaseTests
     [TestClass]
     public class Client
     {
-        private string password = "I@M@SuperP@ssWord";
-
         private static Random random = new Random();
+
+        private Supabase.Client Instance;
 
         private static string RandomString(int length)
         {
@@ -27,7 +27,8 @@ namespace SupabaseTests
         [TestInitialize]
         public async Task InitializeTest()
         {
-            await InitializeAsync("http://localhost", null, new Supabase.SupabaseOptions
+
+            Instance = new Supabase.Client("http://localhost", null, new Supabase.SupabaseOptions
             {
                 AuthUrlFormat = "{0}:9999",
                 RealtimeUrlFormat = "{0}:4000/socket",
@@ -35,13 +36,14 @@ namespace SupabaseTests
                 ShouldInitializeRealtime = true,
                 AutoConnectRealtime = true
             });
+            await Instance.InitializeAsync();
         }
 
         [TestMethod("Client: Initializes.")]
         public void ClientInitializes()
         {
-            Assert.IsNotNull(Instance.Realtime);
-            Assert.IsNotNull(Instance.Auth);
+            Assert.IsNotNull(Instance.RealtimeClient);
+            Assert.IsNotNull(Instance.AuthClient);
         }
 
         //[TestMethod("Client: Connects to Realtime")]

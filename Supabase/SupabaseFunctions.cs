@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Supabase.Functions.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
@@ -9,31 +10,33 @@ namespace Supabase
 {
     public class SupabaseFunctions
     {
-        private string _functionsUrl;
-        private Dictionary<string, string> _headers = new Dictionary<string, string>();
+        private string functionsUrl;
+        private Dictionary<string, string> headers = new Dictionary<string, string>();
+        private IFunctionsClient client;
 
-        public SupabaseFunctions(string functionsUrl, Dictionary<string, string> headers)
+        public SupabaseFunctions(IFunctionsClient client, string functionsUrl, Dictionary<string, string> headers)
         {
-            _functionsUrl = functionsUrl.TrimEnd('/');
-            _headers = headers;
+            this.client = client;
+            this.functionsUrl = functionsUrl.TrimEnd('/');
+            this.headers = headers;
         }
 
-        public Task<string> Invoke(string functionName, Dictionary<string, object> body = null) => Functions.Client.Invoke($"{_functionsUrl}/{functionName}", options: new InvokeFunctionOptions
+        public Task<string> Invoke(string functionName, Dictionary<string, object>? body = null) => client.Invoke($"{functionsUrl}/{functionName}", options: new InvokeFunctionOptions
         {
-            Headers = _headers,
-            Body = body
+            Headers = headers,
+            Body = body ?? new Dictionary<string, object>()
         });
 
-        public Task<T> Invoke<T>(string functionName, Dictionary<string, object> body = null) => Functions.Client.Invoke<T>($"{_functionsUrl}/{functionName}", options: new InvokeFunctionOptions
+        public Task<T?> Invoke<T>(string functionName, Dictionary<string, object>? body = null) where T : class => client.Invoke<T>($"{functionsUrl}/{functionName}", options: new InvokeFunctionOptions
         {
-            Headers = _headers,
-            Body = body
+            Headers = headers,
+            Body = body ?? new Dictionary<string, object>()
         });
 
-        public Task<HttpContent> RawInvoke(string functionName, Dictionary<string, object> body = null) => Functions.Client.RawInvoke($"{_functionsUrl}/{functionName}", options: new InvokeFunctionOptions
+        public Task<HttpContent> RawInvoke(string functionName, Dictionary<string, object>? body = null) => client.RawInvoke($"{functionsUrl}/{functionName}", options: new InvokeFunctionOptions
         {
-            Headers = _headers,
-            Body = body
+            Headers = headers,
+            Body = body ?? new Dictionary<string, object>()
         });
     }
 }

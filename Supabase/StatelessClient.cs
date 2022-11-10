@@ -16,28 +16,28 @@ namespace Supabase
     /// </summary>
     public static class StatelessClient
     {
-        public static Gotrue.StatelessClient.StatelessClientOptions GetAuthOptions(string supabaseUrl, string supabaseKey = null, SupabaseOptions options = null)
+        public static Gotrue.ClientOptions GetAuthOptions(string supabaseUrl, string? supabaseKey = null, SupabaseOptions? options = null)
         {
             if (options == null)
                 options = new SupabaseOptions();
 
-            var headers = GetAuthHeaders(supabaseKey, options).MergeLeft(options.Headers);
+            var headers = GetAuthHeaders(supabaseKey ?? "", options).MergeLeft(options.Headers);
 
-            return new Gotrue.StatelessClient.StatelessClientOptions
+            return new Gotrue.ClientOptions
             {
                 Url = string.Format(options.AuthUrlFormat, supabaseUrl),
                 Headers = headers
             };
         }
 
-        public static Postgrest.StatelessClientOptions GetRestOptions(string supabaseUrl, string supabaseKey = null, SupabaseOptions options = null)
+        public static Postgrest.ClientOptions GetRestOptions(string? supabaseKey = null, SupabaseOptions? options = null)
         {
             if (options == null)
                 options = new SupabaseOptions();
 
-            var headers = GetAuthHeaders(supabaseKey, options).MergeLeft(options.Headers);
+            var headers = GetAuthHeaders(supabaseKey ?? "", options).MergeLeft(options.Headers);
 
-            return new Postgrest.StatelessClientOptions(string.Format(options.RestUrlFormat, supabaseUrl))
+            return new Postgrest.ClientOptions
             {
                 Schema = options.Schema,
                 Headers = headers
@@ -51,12 +51,12 @@ namespace Supabase
         /// <param name="supabaseKey"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static Storage.Client Storage(string supabaseUrl, string supabaseKey = null, SupabaseOptions options = null)
+        public static Storage.Client Storage(string supabaseUrl, string? supabaseKey = null, SupabaseOptions? options = null)
         {
             if (options == null)
                 options = new SupabaseOptions();
 
-            var headers = GetAuthHeaders(supabaseKey, options).MergeLeft(options.Headers);
+            var headers = GetAuthHeaders(supabaseKey ?? "", options).MergeLeft(options.Headers);
 
             return new Storage.Client(string.Format(options.StorageUrlFormat, supabaseUrl), headers);
         }
@@ -68,7 +68,7 @@ namespace Supabase
         /// <param name="supabaseKey"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static SupabaseFunctions Functions(string supabaseUrl, string supabaseKey, SupabaseOptions options = null)
+        public static SupabaseFunctions Functions(string supabaseUrl, string supabaseKey, SupabaseOptions? options = null)
         {
             if (options == null)
                 options = new SupabaseOptions();
@@ -88,8 +88,9 @@ namespace Supabase
             }
 
             var headers = GetAuthHeaders(supabaseKey, options).MergeLeft(options.Headers);
+            var client = new Functions.Client();
 
-            return new SupabaseFunctions(functionsUrl, headers);
+            return new SupabaseFunctions(client, functionsUrl, headers);
         }
 
         /// <summary>
@@ -97,19 +98,23 @@ namespace Supabase
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static SupabaseTable<T> From<T>(string supabaseUrl, string supabaseKey, SupabaseOptions options = null) where T : BaseModel, new()
+        public static SupabaseTable<T> From<T>(string supabaseUrl, string supabaseKey, SupabaseOptions? options = null) where T : BaseModel, new()
         {
             if (options == null)
                 options = new SupabaseOptions();
 
-            var headers = GetAuthHeaders(supabaseKey, options).MergeLeft(options.Headers);
+            var restUrl = string.Format(options.RestUrlFormat, supabaseUrl);
+            var realtimeUrl = string.Format(options.RealtimeUrlFormat, supabaseUrl).Replace("http", "ws");
 
+            var restOptions = GetRestOptions(supabaseKey, options);
+            restOptions.Headers.MergeLeft(options.Headers);
 
-            return new SupabaseTable<T>(string.Format(options.RestUrlFormat, supabaseUrl), new Postgrest.ClientOptions
-            {
-                Headers = headers,
-                Schema = options.Schema
-            });
+            var realtimeOptions = new Realtime.ClientOptions { Parameters = { ApiKey = supabaseKey } };
+
+            var postgrestClient = new Postgrest.Client(restUrl, restOptions);
+            var realtimeClient = new Realtime.Client(realtimeUrl, realtimeOptions);
+
+            return new SupabaseTable<T>(postgrestClient, realtimeClient, options.Schema);
         }
 
         /// <summary>
@@ -118,12 +123,12 @@ namespace Supabase
         /// <param name="procedureName"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public static Task<BaseResponse> Rpc(string supabaseUrl, string supabaseKey, string procedureName, Dictionary<string, object> parameters, SupabaseOptions options = null)
+        public static Task<BaseResponse> Rpc(string supabaseUrl, string supabaseKey, string procedureName, Dictionary<string, object> parameters, SupabaseOptions? options = null)
         {
             if (options == null)
                 options = new SupabaseOptions();
 
-            return Postgrest.StatelessClient.Rpc(procedureName, parameters, GetRestOptions(supabaseUrl, supabaseKey, options));
+            return new Postgrest.Client(string.Format(options.RestUrlFormat, supabaseUrl), GetRestOptions(supabaseKey, options)).Rpc(procedureName, parameters);
         }
 
 

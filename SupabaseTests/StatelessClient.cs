@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SupabaseTests.Models;
+using static Supabase.Gotrue.Constants;
 using static Supabase.StatelessClient;
 
 namespace SupabaseTests
@@ -22,8 +23,8 @@ namespace SupabaseTests
         [TestMethod("Can access Stateless REST")]
         public async Task CanAccessStatelessRest()
         {
-            var restOptions = GetRestOptions(supabaseUrl, null, options);
-            var result1 = await Postgrest.StatelessClient.Table<Channel>(restOptions).Get();
+            var restOptions = GetRestOptions(null, options);
+            var result1 = await new Postgrest.Client(supabaseUrl, restOptions).Table<Channel>().Get();
 
             var result2 = await From<Channel>(supabaseUrl, null, options).Get();
 
@@ -35,9 +36,9 @@ namespace SupabaseTests
         {
             var gotrueOptions = GetAuthOptions(supabaseUrl, null, options);
 
-            Supabase.Gotrue.StatelessClient.GetApi(gotrueOptions).GetUser("my-user-jwt");
+            var client = new Supabase.Gotrue.Client(gotrueOptions);
 
-            var url = Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Client.Provider.Spotify, gotrueOptions);
+            var url = client.SignIn(Provider.Spotify);
 
             Assert.IsNotNull(url);
         }
