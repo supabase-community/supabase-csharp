@@ -4,13 +4,15 @@ using System.Threading.Tasks;
 using Postgrest;
 using Postgrest.Interfaces;
 using Postgrest.Models;
+using Supabase.Interfaces;
 using Supabase.Realtime;
 using Supabase.Realtime.Interfaces;
 using static Supabase.Client;
 
 namespace Supabase
 {
-    public class SupabaseTable<T> : Table<T> where T : BaseModel, new()
+    public class SupabaseTable<TModel> : Table<TModel>, ISupabaseTable<TModel, Channel>
+        where TModel : BaseModel, new()
     {
         private Channel? channel;
 

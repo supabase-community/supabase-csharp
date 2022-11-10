@@ -1,4 +1,5 @@
 ﻿using Supabase.Functions.Interfaces;
+using Supabase.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -8,7 +9,7 @@ using static Supabase.Functions.Client;
 
 namespace Supabase
 {
-    public class SupabaseFunctions
+    public class SupabaseFunctions : ISupabaseFunctions
     {
         private string functionsUrl;
         private Dictionary<string, string> headers = new Dictionary<string, string>();

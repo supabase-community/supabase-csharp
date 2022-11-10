@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Postgrest;
 using Postgrest.Interfaces;
 using Postgrest.Models;
 using Postgrest.Responses;
@@ -11,10 +8,10 @@ using Storage.Interfaces;
 using Supabase.Functions.Interfaces;
 using Supabase.Gotrue;
 using Supabase.Gotrue.Interfaces;
+using Supabase.Interfaces;
 using Supabase.Realtime;
 using Supabase.Realtime.Interfaces;
 using Supabase.Storage;
-using static Supabase.Functions.Client;
 using static Supabase.Gotrue.Constants;
 
 namespace Supabase
@@ -22,7 +19,7 @@ namespace Supabase
     /// <summary>
     /// A singleton class representing a Supabase Client.
     /// </summary>
-    public class Client
+    public class Client : ISupabaseClient<User, Session, Socket, Channel, Bucket, FileObject>
     {
         public enum ChannelEventType
         {
@@ -194,7 +191,7 @@ namespace Supabase
         /// <param name="supabaseKey"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async Task<Client> InitializeAsync()
+        public async Task<ISupabaseClient<User, Session, Socket, Channel, Bucket, FileObject>> InitializeAsync()
         {
             await AuthClient.RetrieveSessionAsync();
 
@@ -233,9 +230,9 @@ namespace Supabase
         /// <summary>
         /// Gets the Postgrest client to prepare for a query.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TModel"></typeparam>
         /// <returns></returns>
-        public SupabaseTable<T> From<T>() where T : BaseModel, new() => new SupabaseTable<T>(Postgrest, Realtime);
+        public ISupabaseTable<TModel, Channel> From<TModel>() where TModel : BaseModel, new() => new SupabaseTable<TModel>(Postgrest, Realtime);
 
         /// <summary>
         /// Runs a remote procedure.

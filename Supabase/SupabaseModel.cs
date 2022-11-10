@@ -1,8 +1,7 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using Postgrest.Models;
-using Postgrest.Responses;
+﻿using Postgrest.Models;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Supabase
 {
