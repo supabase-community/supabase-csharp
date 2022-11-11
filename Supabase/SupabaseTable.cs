@@ -22,7 +22,7 @@ namespace Supabase
 
         private string schema;
 
-        public SupabaseTable(IPostgrestClient postgrestClient, IRealtimeClient<Socket, Channel> realtimeClient, string schema = "public") : base(postgrestClient.BaseUrl, null, postgrestClient.Options)
+        public SupabaseTable(IPostgrestClient postgrestClient, IRealtimeClient<Socket, Channel> realtimeClient, string schema = "public") : base(postgrestClient.BaseUrl, Postgrest.Client.SerializerSettings(postgrestClient.Options), postgrestClient.Options)
         {
             this.postgrestClient = postgrestClient;
             this.realtimeClient = realtimeClient;

@@ -24,7 +24,7 @@ namespace SupabaseTests
         public async Task CanAccessStatelessRest()
         {
             var restOptions = GetRestOptions(null, options);
-            var result1 = await new Postgrest.Client(supabaseUrl, restOptions).Table<Channel>().Get();
+            var result1 = await new Postgrest.Client(String.Format(options.RestUrlFormat, supabaseUrl), restOptions).Table<Channel>().Get();
 
             var result2 = await From<Channel>(supabaseUrl, null, options).Get();
 

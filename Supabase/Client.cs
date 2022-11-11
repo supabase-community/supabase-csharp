@@ -242,7 +242,6 @@ namespace Supabase
         /// <returns></returns>
         public Task<BaseResponse> Rpc(string procedureName, Dictionary<string, object> parameters) => Postgrest.Rpc(procedureName, parameters);
 
-
         internal Dictionary<string, string> GetAuthHeaders()
         {
             var headers = new Dictionary<string, string>();

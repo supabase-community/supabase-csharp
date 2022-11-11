@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Supabase;
 using Supabase.Realtime;
-using SupabaseTests.Models;
-using static Supabase.Client;
+using SupabaseTests.Stubs;
 
 namespace SupabaseTests
 {
@@ -34,7 +31,7 @@ namespace SupabaseTests
                 RealtimeUrlFormat = "{0}:4000/socket",
                 RestUrlFormat = "{0}:3000",
                 ShouldInitializeRealtime = true,
-                AutoConnectRealtime = true
+                AutoConnectRealtime = true,
             });
             await Instance.InitializeAsync();
         }
@@ -46,29 +43,27 @@ namespace SupabaseTests
             Assert.IsNotNull(Instance.AuthClient);
         }
 
-        //[TestMethod("Client: Connects to Realtime")]
-        //public async Task ClientConnectsToRealtime()
-        //{
-        //    var tsc = new TaskCompletionSource<bool>();
+        [TestMethod("Client: Connects to Realtime")]
+        public async Task ClientConnectsToRealtime()
+        {
+            var tsc = new TaskCompletionSource<bool>();
 
-        //    var email = $"{RandomString(12)}@supabase.io";
-        //    await Instance.Auth.SignUp(email, password);
+            var email = $"{RandomString(12)}@supabase.io";
+            await Instance.Auth.SignUp(email, RandomString(12));
 
-        //    await Instance.Realtime.ConnectAsync();
+            var channel = Instance.Realtime.Channel("realtime", "public", "channels");
 
-        //    var channel = Instance.Realtime.Channel("realtime", "public", "channels");
+            channel.StateChanged += (sender, ev) =>
+            {
+                if (ev.State == Channel.ChannelState.Joined)
+                    tsc.SetResult(true);
+            };
 
-        //    channel.StateChanged += (sender, ev) =>
-        //    {
-        //        if (ev.State == Supabase.Realtime.Channel.ChannelState.Joined)
-        //            tsc.SetResult(true);
-        //    };
+            await channel.Subscribe();
 
-        //    await channel.Subscribe();
-
-        //    var result = await tsc.Task;
-        //    Assert.IsTrue(result);
-        //}
+            var result = await tsc.Task;
+            Assert.IsTrue(result);
+        }
 
         [TestMethod("SupabaseModel: Successfully Updates")]
         public async Task SupabaseModelUpdates()
@@ -99,6 +94,22 @@ namespace SupabaseTests
             var result = await Instance.From<Models.Channel>().Filter("slug", Postgrest.Constants.Operator.Equals, slug).Get();
 
             Assert.AreEqual(0, result.Models.Count);
+        }
+
+        [TestMethod("Supports Dependency Injection for clients via property")]
+        public void SupportsDIForClientsViaProperty()
+        {
+            Instance.AuthClient = new FakeAuthClient();
+            Instance.FunctionsClient = new FakeFunctionsClient();
+            Instance.RealtimeClient = new FakeRealtimeClient();
+            Instance.PostgrestClient = new FakeRestClient();
+            Instance.StorageClient = new FakeStorageClient();
+
+            Assert.ThrowsExceptionAsync<NotImplementedException>(() => Instance.Auth.GetUser(""));
+            Assert.ThrowsExceptionAsync<NotImplementedException>(() => Instance.Functions.Invoke(""));
+            Assert.ThrowsExceptionAsync<NotImplementedException>(() => Instance.Realtime.ConnectAsync());
+            Assert.ThrowsExceptionAsync<NotImplementedException>(() => Instance.Postgrest.Rpc("", null));
+            Assert.ThrowsExceptionAsync<NotImplementedException>(() => Instance.Storage.ListBuckets());
         }
     }
 }
