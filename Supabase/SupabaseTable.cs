@@ -51,16 +51,16 @@ namespace Supabase
             switch (e)
             {
                 case ChannelEventType.Insert:
-                    channel.OnInsert += (sender, args) => action.Invoke(sender, args);
+                    channel.OnInsert += (sender, args) => action?.Invoke(sender, args);
                     break;
                 case ChannelEventType.Update:
-                    channel.OnUpdate += (sender, args) => action.Invoke(sender, args);
+                    channel.OnUpdate += (sender, args) => action?.Invoke(sender, args);
                     break;
                 case ChannelEventType.Delete:
-                    channel.OnDelete += (sender, args) => action.Invoke(sender, args);
+                    channel.OnDelete += (sender, args) => action?.Invoke(sender, args);
                     break;
                 case ChannelEventType.All:
-                    channel.OnMessage += (sender, args) => action.Invoke(sender, args);
+                    channel.OnMessage += (sender, args) => action?.Invoke(sender, args);
                     break;
             }
 

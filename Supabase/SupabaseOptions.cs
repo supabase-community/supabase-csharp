@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Supabase.Interfaces;
+using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Supabase.Gotrue;
 
 namespace Supabase
 {
@@ -18,11 +17,6 @@ namespace Supabase
         public bool AutoRefreshToken { get; set; } = true;
 
         /// <summary>
-        /// Should the Client Initialize Realtime?
-        /// </summary>
-        public bool ShouldInitializeRealtime { get; set; } = false;
-
-        /// <summary>
         /// Should the Client automatically connect to Realtime?
         /// </summary>
         public bool AutoConnectRealtime { get; set; } = false;
@@ -33,19 +27,11 @@ namespace Supabase
         public bool PersistSession { get; set; } = true;
 
         /// <summary>
-        /// Function called to persist the session (probably on a filesystem or cookie)
+        /// Functions passed to Gotrue that handle sessions. 
+        /// 
+        /// **By default these do nothing for persistence.**
         /// </summary>
-        public Func<Session, Task<bool>> SessionPersistor = (Session session) => Task.FromResult<bool>(true);
-
-        /// <summary>
-        /// Function to retrieve a session (probably from the filesystem or cookie)
-        /// </summary>
-        public Func<Task<Session?>> SessionRetriever = () => Task.FromResult<Session?>(null);
-
-        /// <summary>
-        /// Function to destroy a session.
-        /// </summary>
-        public Func<Task<bool>> SessionDestroyer = () => Task.FromResult<bool>(true);
+        public ISupabaseSessionHandler SessionHandler { get; set; } = new DefaultSupabaseSessionHandler();
 
         public Dictionary<string, string> Headers = new Dictionary<string, string>();
 

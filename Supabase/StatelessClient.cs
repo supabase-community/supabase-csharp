@@ -21,7 +21,7 @@ namespace Supabase
             if (options == null)
                 options = new SupabaseOptions();
 
-            var headers = GetAuthHeaders(supabaseKey ?? "", options).MergeLeft(options.Headers);
+            var headers = GetAuthHeaders(supabaseKey, options).MergeLeft(options.Headers);
 
             return new Gotrue.ClientOptions
             {
@@ -35,7 +35,7 @@ namespace Supabase
             if (options == null)
                 options = new SupabaseOptions();
 
-            var headers = GetAuthHeaders(supabaseKey ?? "", options).MergeLeft(options.Headers);
+            var headers = GetAuthHeaders(supabaseKey, options).MergeLeft(options.Headers);
 
             return new Postgrest.ClientOptions
             {
@@ -56,7 +56,7 @@ namespace Supabase
             if (options == null)
                 options = new SupabaseOptions();
 
-            var headers = GetAuthHeaders(supabaseKey ?? "", options).MergeLeft(options.Headers);
+            var headers = GetAuthHeaders(supabaseKey, options).MergeLeft(options.Headers);
 
             return new Storage.Client(string.Format(options.StorageUrlFormat, supabaseUrl), headers);
         }
@@ -132,11 +132,16 @@ namespace Supabase
         }
 
 
-        internal static Dictionary<string, string> GetAuthHeaders(string supabaseKey, SupabaseOptions options)
+        internal static Dictionary<string, string> GetAuthHeaders(string? supabaseKey, SupabaseOptions options)
         {
             var headers = new Dictionary<string, string>();
-            headers["apiKey"] = supabaseKey;
+
             headers["X-Client-Info"] = Util.GetAssemblyVersion();
+
+            if (supabaseKey != null)
+            {
+                headers["apiKey"] = supabaseKey;
+            }
 
             // In Regard To: https://github.com/supabase/supabase-csharp/issues/5
             if (options.Headers.ContainsKey("Authorization"))
@@ -145,8 +150,7 @@ namespace Supabase
             }
             else
             {
-                var bearer = supabaseKey;
-                headers["Authorization"] = $"Bearer {bearer}";
+                headers["Authorization"] = $"Bearer {supabaseKey}";
             }
 
             return headers;

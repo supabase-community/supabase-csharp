@@ -30,7 +30,6 @@ namespace SupabaseTests
                 AuthUrlFormat = "{0}:9999",
                 RealtimeUrlFormat = "{0}:4000/socket",
                 RestUrlFormat = "{0}:3000",
-                ShouldInitializeRealtime = true,
                 AutoConnectRealtime = true,
             });
             await Instance.InitializeAsync();

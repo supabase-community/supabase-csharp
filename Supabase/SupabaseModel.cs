@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Supabase
 {
+    [Obsolete]
     public abstract class SupabaseModel : BaseModel
     {
     }
