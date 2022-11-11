@@ -258,7 +258,7 @@ namespace Supabase
             }
             else
             {
-                var bearer = AuthClient.CurrentSession?.AccessToken ?? supabaseKey;
+                var bearer = AuthClient.CurrentSession?.AccessToken != null ? AuthClient.CurrentSession.AccessToken : supabaseKey;
                 headers["Authorization"] = $"Bearer {bearer}";
             }
 
