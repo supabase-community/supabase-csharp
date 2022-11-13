@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class SupabaseTable&lt;T&gt;
+    <title>Class SupabaseTable&lt;TModel&gt;
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class SupabaseTable&lt;T&gt;
+    <meta name="title" content="Class SupabaseTable&lt;TModel&gt;
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -71,20 +71,25 @@
             <article class="content wrap" id="_content" data-uid="Supabase.SupabaseTable`1">
   
   
-  <h1 id="Supabase_SupabaseTable_1" data-uid="Supabase.SupabaseTable`1" class="text-break">Class SupabaseTable&lt;T&gt;
+  <h1 id="Supabase_SupabaseTable_1" data-uid="Supabase.SupabaseTable`1" class="text-break">Class SupabaseTable&lt;TModel&gt;
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">SupabaseTable&lt;T&gt;</span></div>
+    <div class="level1"><span class="xref">SupabaseTable&lt;TModel&gt;</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Supabase.Interfaces.ISupabaseTable-2.html">ISupabaseTable</a>&lt;TModel, <span class="xref">Channel</span>&gt;</div>
+    <div><span class="xref">IPostgrestTable</span>&lt;TModel&gt;</div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.html">Supabase</a></h6>
   <h6><strong>Assembly</strong>: Supabase.dll</h6>
   <h5 id="Supabase_SupabaseTable_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SupabaseTable&lt;T&gt; : Table&lt;T&gt; where T : BaseModel, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public class SupabaseTable&lt;TModel&gt; : Table&lt;TModel&gt;, ISupabaseTable&lt;TModel, Channel&gt;, IPostgrestTable&lt;TModel&gt; where TModel : BaseModel, new()</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -96,7 +101,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="parametername">T</span></td>
+        <td><span class="parametername">TModel</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -105,33 +110,18 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/release/0.5.3/apiSpec/new?filename=Supabase_SupabaseTable_1__ctor.md&amp;value=---%0Auid%3A%20Supabase.SupabaseTable%601.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_SupabaseTable_1__ctor_IPostgrestClient_IRealtimeClient_Socket_Channel__System_String_.md&amp;value=---%0Auid%3A%20Supabase.SupabaseTable%601.%23ctor(IPostgrestClient%2CIRealtimeClient%7BSocket%2CChannel%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/release/0.5.3/Supabase/SupabaseTable.cs/#L15">View Source</a>
+    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/SupabaseTable.cs/#L25">View Source</a>
   </span>
   <a id="Supabase_SupabaseTable_1__ctor_" data-uid="Supabase.SupabaseTable`1.#ctor*"></a>
-  <h4 id="Supabase_SupabaseTable_1__ctor" data-uid="Supabase.SupabaseTable`1.#ctor">SupabaseTable()</h4>
+  <h4 id="Supabase_SupabaseTable_1__ctor_IPostgrestClient_IRealtimeClient_Socket_Channel__System_String_" data-uid="Supabase.SupabaseTable`1.#ctor(IPostgrestClient,IRealtimeClient{Socket,Channel},System.String)">SupabaseTable(IPostgrestClient, IRealtimeClient&lt;Socket, Channel&gt;, String)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SupabaseTable()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/release/0.5.3/apiSpec/new?filename=Supabase_SupabaseTable_1__ctor_System_String_Postgrest_ClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.SupabaseTable%601.%23ctor(System.String%2CPostgrest.ClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/release/0.5.3/Supabase/SupabaseTable.cs/#L18">View Source</a>
-  </span>
-  <a id="Supabase_SupabaseTable_1__ctor_" data-uid="Supabase.SupabaseTable`1.#ctor*"></a>
-  <h4 id="Supabase_SupabaseTable_1__ctor_System_String_Postgrest_ClientOptions_" data-uid="Supabase.SupabaseTable`1.#ctor(System.String,Postgrest.ClientOptions)">SupabaseTable(String, Postgrest.ClientOptions)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SupabaseTable(string restUrl, Postgrest.ClientOptions options)</code></pre>
+    <pre><code class="lang-csharp hljs">public SupabaseTable(IPostgrestClient postgrestClient, IRealtimeClient&lt;Socket, Channel&gt; realtimeClient, string schema = &quot;public&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -144,13 +134,18 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">restUrl</span></td>
+        <td><span class="xref">IPostgrestClient</span></td>
+        <td><span class="parametername">postgrestClient</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="Postgrest.ClientOptions.html">Postgrest.ClientOptions</a></td>
-        <td><span class="parametername">options</span></td>
+        <td><span class="xref">IRealtimeClient</span>&lt;<span class="xref">Socket</span>, <span class="xref">Channel</span>&gt;</td>
+        <td><span class="parametername">realtimeClient</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">schema</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -159,10 +154,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/release/0.5.3/apiSpec/new?filename=Supabase_SupabaseTable_1_On_Supabase_Client_ChannelEventType_Action_System_Object_SocketResponseEventArgs__.md&amp;value=---%0Auid%3A%20Supabase.SupabaseTable%601.On(Supabase.Client.ChannelEventType%2CAction%7BSystem.Object%2CSocketResponseEventArgs%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_SupabaseTable_1_On_Supabase_Client_ChannelEventType_Action_System_Object_SocketResponseEventArgs__.md&amp;value=---%0Auid%3A%20Supabase.SupabaseTable%601.On(Supabase.Client.ChannelEventType%2CAction%7BSystem.Object%2CSocketResponseEventArgs%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/release/0.5.3/Supabase/SupabaseTable.cs/#L21">View Source</a>
+    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/SupabaseTable.cs/#L32">View Source</a>
   </span>
   <a id="Supabase_SupabaseTable_1_On_" data-uid="Supabase.SupabaseTable`1.On*"></a>
   <h4 id="Supabase_SupabaseTable_1_On_Supabase_Client_ChannelEventType_Action_System_Object_SocketResponseEventArgs__" data-uid="Supabase.SupabaseTable`1.On(Supabase.Client.ChannelEventType,Action{System.Object,SocketResponseEventArgs})">On(Client.ChannelEventType, Action&lt;Object, SocketResponseEventArgs&gt;)</h4>
@@ -209,6 +204,13 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Supabase.Interfaces.ISupabaseTable-2.html">ISupabaseTable&lt;TModel, TChannel&gt;</a>
+  </div>
+  <div>
+      <span class="xref">IPostgrestTable&lt;&gt;</span>
+  </div>
 </article>
           </div>
           
@@ -217,10 +219,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/supabase-community/supabase-csharp/new/release/0.5.3/apiSpec/new?filename=Supabase_SupabaseTable_1.md&amp;value=---%0Auid%3A%20Supabase.SupabaseTable%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_SupabaseTable_1.md&amp;value=---%0Auid%3A%20Supabase.SupabaseTable%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/supabase-csharp/blob/release/0.5.3/Supabase/SupabaseTable.cs/#L11" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/SupabaseTable.cs/#L14" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

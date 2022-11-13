@@ -73,7 +73,7 @@
   
   <h1 id="Postgrest_Client" data-uid="Postgrest.Client" class="text-break">Class Client
   </h1>
-  <div class="markdown level0 summary"><p>A Singleton that represents a single, reusable connection to a Postgrest endpoint. Should be first called with the <code>Initialize()</code> method.</p>
+  <div class="markdown level0 summary"><p>A a single, reusable connection to a Postgrest endpoint.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -81,20 +81,67 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">Client</span></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Postgrest.Interfaces.IPostgrestClient.html">IPostgrestClient</a></div>
+    <div><span class="xref">IGettableHeaders</span></div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Postgrest.html">Postgrest</a></h6>
   <h6><strong>Assembly</strong>: Postgrest.dll</h6>
   <h5 id="Postgrest_Client_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Client : object</code></pre>
+    <pre><code class="lang-csharp hljs">public class Client : object, IPostgrestClient, IGettableHeaders</code></pre>
   </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/5845d4da3a47bd8d4e2b07d0fd693996c307e4cd/apiSpec/new?filename=Postgrest_Client__ctor_System_String_Postgrest_ClientOptions_.md&amp;value=---%0Auid%3A%20Postgrest.Client.%23ctor(System.String%2CPostgrest.ClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/5845d4da3a47bd8d4e2b07d0fd693996c307e4cd/Postgrest/Client.cs/#L67">View Source</a>
+  </span>
+  <a id="Postgrest_Client__ctor_" data-uid="Postgrest.Client.#ctor*"></a>
+  <h4 id="Postgrest_Client__ctor_System_String_Postgrest_ClientOptions_" data-uid="Postgrest.Client.#ctor(System.String,Postgrest.ClientOptions)">Client(String, ClientOptions)</h4>
+  <div class="markdown level1 summary"><p>Should be the first call to this class to initialize a connection with a Postgrest API Server</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Client(string baseUrl, ClientOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">baseUrl</span></td>
+        <td><p>Api Endpoint (ex: &quot;http://localhost:8000&quot;), no trailing slash required.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Postgrest.ClientOptions.html">Postgrest.ClientOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Optional client configuration.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="properties">Properties
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/apiSpec/new?filename=Postgrest_Client_BaseUrl.md&amp;value=---%0Auid%3A%20Postgrest.Client.BaseUrl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/5845d4da3a47bd8d4e2b07d0fd693996c307e4cd/apiSpec/new?filename=Postgrest_Client_BaseUrl.md&amp;value=---%0Auid%3A%20Postgrest.Client.BaseUrl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/Postgrest/Client.cs/#L19">View Source</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/5845d4da3a47bd8d4e2b07d0fd693996c307e4cd/Postgrest/Client.cs/#L47">View Source</a>
   </span>
   <a id="Postgrest_Client_BaseUrl_" data-uid="Postgrest.Client.BaseUrl*"></a>
   <h4 id="Postgrest_Client_BaseUrl" data-uid="Postgrest.Client.BaseUrl">BaseUrl</h4>
@@ -122,19 +169,20 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/apiSpec/new?filename=Postgrest_Client_Instance.md&amp;value=---%0Auid%3A%20Postgrest.Client.Instance%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/5845d4da3a47bd8d4e2b07d0fd693996c307e4cd/apiSpec/new?filename=Postgrest_Client_GetHeaders.md&amp;value=---%0Auid%3A%20Postgrest.Client.GetHeaders%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/Postgrest/Client.cs/#L28">View Source</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/5845d4da3a47bd8d4e2b07d0fd693996c307e4cd/Postgrest/Client.cs/#L59">View Source</a>
   </span>
-  <a id="Postgrest_Client_Instance_" data-uid="Postgrest.Client.Instance*"></a>
-  <h4 id="Postgrest_Client_Instance" data-uid="Postgrest.Client.Instance">Instance</h4>
-  <div class="markdown level1 summary"><p>Returns the Singleton Instance of this Class.</p>
+  <a id="Postgrest_Client_GetHeaders_" data-uid="Postgrest.Client.GetHeaders*"></a>
+  <h4 id="Postgrest_Client_GetHeaders" data-uid="Postgrest.Client.GetHeaders">GetHeaders</h4>
+  <div class="markdown level1 summary"><p>Function that can be set to return dynamic headers.</p>
+<p>Headers specified in the constructor options will ALWAYS take precendece over headers returned by this function.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Client Instance { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Func&lt;Dictionary&lt;string, string&gt;&gt;? GetHeaders { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -146,7 +194,38 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Postgrest.Client.html">Client</a></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Func</span>&lt;<span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/5845d4da3a47bd8d4e2b07d0fd693996c307e4cd/apiSpec/new?filename=Postgrest_Client_Options.md&amp;value=---%0Auid%3A%20Postgrest.Client.Options%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/5845d4da3a47bd8d4e2b07d0fd693996c307e4cd/Postgrest/Client.cs/#L52">View Source</a>
+  </span>
+  <a id="Postgrest_Client_Options_" data-uid="Postgrest.Client.Options*"></a>
+  <h4 id="Postgrest_Client_Options" data-uid="Postgrest.Client.Options">Options</h4>
+  <div class="markdown level1 summary"><p>The Options <a class="xref" href="Postgrest.Client.html">Client</a> was initialized with.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ClientOptions Options { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Postgrest.ClientOptions.html">Postgrest.ClientOptions</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -155,65 +234,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/apiSpec/new?filename=Postgrest_Client_Initialize_System_String_Postgrest_ClientOptions_.md&amp;value=---%0Auid%3A%20Postgrest.Client.Initialize(System.String%2CPostgrest.ClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/5845d4da3a47bd8d4e2b07d0fd693996c307e4cd/apiSpec/new?filename=Postgrest_Client_Rpc_System_String_Dictionary_System_String_System_Object__.md&amp;value=---%0Auid%3A%20Postgrest.Client.Rpc(System.String%2CDictionary%7BSystem.String%2CSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/Postgrest/Client.cs/#L40">View Source</a>
-  </span>
-  <a id="Postgrest_Client_Initialize_" data-uid="Postgrest.Client.Initialize*"></a>
-  <h4 id="Postgrest_Client_Initialize_System_String_Postgrest_ClientOptions_" data-uid="Postgrest.Client.Initialize(System.String,Postgrest.ClientOptions)">Initialize(String, ClientOptions)</h4>
-  <div class="markdown level1 summary"><p>Should be the first call to this class to initialize a connection with a Postgrest API Server</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Client Initialize(string baseUrl, ClientOptions options = null)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">baseUrl</span></td>
-        <td><p>Api Endpoint (ex: &quot;http://localhost:8000&quot;), no trailing slash required.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Postgrest.ClientOptions.html">Postgrest.ClientOptions</a></td>
-        <td><span class="parametername">options</span></td>
-        <td><p>Optional client configuration.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Postgrest.Client.html">Client</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/apiSpec/new?filename=Postgrest_Client_Rpc_System_String_Dictionary_System_String_System_Object__.md&amp;value=---%0Auid%3A%20Postgrest.Client.Rpc(System.String%2CDictionary%7BSystem.String%2CSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/Postgrest/Client.cs/#L68">View Source</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/5845d4da3a47bd8d4e2b07d0fd693996c307e4cd/Postgrest/Client.cs/#L95">View Source</a>
   </span>
   <a id="Postgrest_Client_Rpc_" data-uid="Postgrest.Client.Rpc*"></a>
   <h4 id="Postgrest_Client_Rpc_System_String_Dictionary_System_String_System_Object__" data-uid="Postgrest.Client.Rpc(System.String,Dictionary{System.String,System.Object})">Rpc(String, Dictionary&lt;String, Object&gt;)</h4>
@@ -265,10 +289,60 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/apiSpec/new?filename=Postgrest_Client_Table__1.md&amp;value=---%0Auid%3A%20Postgrest.Client.Table%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/5845d4da3a47bd8d4e2b07d0fd693996c307e4cd/apiSpec/new?filename=Postgrest_Client_SerializerSettings_Postgrest_ClientOptions_.md&amp;value=---%0Auid%3A%20Postgrest.Client.SerializerSettings(Postgrest.ClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/Postgrest/Client.cs/#L59">View Source</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/5845d4da3a47bd8d4e2b07d0fd693996c307e4cd/Postgrest/Client.cs/#L25">View Source</a>
+  </span>
+  <a id="Postgrest_Client_SerializerSettings_" data-uid="Postgrest.Client.SerializerSettings*"></a>
+  <h4 id="Postgrest_Client_SerializerSettings_Postgrest_ClientOptions_" data-uid="Postgrest.Client.SerializerSettings(Postgrest.ClientOptions)">SerializerSettings(ClientOptions)</h4>
+  <div class="markdown level1 summary"><p>Custom Serializer resolvers and converters that will be used for encoding and decoding Postgrest JSON responses.</p>
+<p>By default, Postgrest seems to use a date format that C# and Newtonsoft do not like, so this initial
+configuration handles that.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JsonSerializerSettings SerializerSettings(ClientOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Postgrest.ClientOptions.html">Postgrest.ClientOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">JsonSerializerSettings</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/5845d4da3a47bd8d4e2b07d0fd693996c307e4cd/apiSpec/new?filename=Postgrest_Client_Table__1.md&amp;value=---%0Auid%3A%20Postgrest.Client.Table%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/5845d4da3a47bd8d4e2b07d0fd693996c307e4cd/Postgrest/Client.cs/#L81">View Source</a>
   </span>
   <a id="Postgrest_Client_Table_" data-uid="Postgrest.Client.Table*"></a>
   <h4 id="Postgrest_Client_Table__1" data-uid="Postgrest.Client.Table``1">Table&lt;T&gt;()</h4>
@@ -277,7 +351,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Table&lt;T&gt; Table&lt;T&gt;()
+    <pre><code class="lang-csharp hljs">public IPostgrestTable&lt;T&gt; Table&lt;T&gt;()
     where T : BaseModel, new()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
@@ -290,7 +364,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Postgrest.Table-1.html">Table</a>&lt;T&gt;</td>
+        <td><a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html">IPostgrestTable</a>&lt;T&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -311,6 +385,13 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Postgrest.Interfaces.IPostgrestClient.html">IPostgrestClient</a>
+  </div>
+  <div>
+      <span class="xref">IGettableHeaders</span>
+  </div>
 </article>
           </div>
           
@@ -319,10 +400,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/supabase-community/postgrest-csharp/new/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/apiSpec/new?filename=Postgrest_Client.md&amp;value=---%0Auid%3A%20Postgrest.Client%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/supabase-community/postgrest-csharp/new/5845d4da3a47bd8d4e2b07d0fd693996c307e4cd/apiSpec/new?filename=Postgrest_Client.md&amp;value=---%0Auid%3A%20Postgrest.Client%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/postgrest-csharp/blob/52d9e93e79808ff3fc4eba13da8bfbfa875c6bbe/Postgrest/Client.cs/#L14" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/postgrest-csharp/blob/5845d4da3a47bd8d4e2b07d0fd693996c307e4cd/Postgrest/Client.cs/#L17" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

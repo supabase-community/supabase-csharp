@@ -81,29 +81,33 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">Channel</span></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeChannel.html">IRealtimeChannel</a></div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Realtime.html">Supabase.Realtime</a></h6>
   <h6><strong>Assembly</strong>: Realtime.dll</h6>
   <h5 id="Supabase_Realtime_Channel_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Channel : object</code></pre>
+    <pre><code class="lang-csharp hljs">public class Channel : object, IRealtimeChannel</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel__ctor_System_String_System_String_System_String_System_String_System_String_Dictionary_System_String_System_String__.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.%23ctor(System.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CDictionary%7BSystem.String%2CSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel__ctor_Supabase_Realtime_Interfaces_IRealtimeSocket_Supabase_Realtime_ChannelOptions_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.%23ctor(Supabase.Realtime.Interfaces.IRealtimeSocket%2CSupabase.Realtime.ChannelOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L131">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L123">View Source</a>
   </span>
   <a id="Supabase_Realtime_Channel__ctor_" data-uid="Supabase.Realtime.Channel.#ctor*"></a>
-  <h4 id="Supabase_Realtime_Channel__ctor_System_String_System_String_System_String_System_String_System_String_Dictionary_System_String_System_String__" data-uid="Supabase.Realtime.Channel.#ctor(System.String,System.String,System.String,System.String,System.String,Dictionary{System.String,System.String})">Channel(String, String, String, String, String, Dictionary&lt;String, String&gt;)</h4>
+  <h4 id="Supabase_Realtime_Channel__ctor_Supabase_Realtime_Interfaces_IRealtimeSocket_Supabase_Realtime_ChannelOptions_" data-uid="Supabase.Realtime.Channel.#ctor(Supabase.Realtime.Interfaces.IRealtimeSocket,Supabase.Realtime.ChannelOptions)">Channel(IRealtimeSocket, ChannelOptions)</h4>
   <div class="markdown level1 summary"><p>Initializes a Channel - must call <code>Subscribe()</code> to receive events.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Channel(string database, string schema, string table, string col, string value, Dictionary&lt;string, string&gt; parameters = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Channel(IRealtimeSocket socket, ChannelOptions options)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -116,65 +120,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">database</span></td>
+        <td><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeSocket.html">IRealtimeSocket</a></td>
+        <td><span class="parametername">socket</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">schema</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">table</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">col</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">value</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">parameters</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="fields">Fields
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_Parameters.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Parameters%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L89">View Source</a>
-  </span>
-  <h4 id="Supabase_Realtime_Channel_Parameters" data-uid="Supabase.Realtime.Channel.Parameters">Parameters</h4>
-  <div class="markdown level1 summary"><p>Channel Parameters, passed on the Join Push.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, string&gt; Parameters</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;</td>
+        <td><a class="xref" href="Supabase.Realtime.ChannelOptions.html">ChannelOptions</a></td>
+        <td><span class="parametername">options</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -183,10 +135,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_HasJoinedOnce.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.HasJoinedOnce%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_HasJoinedOnce.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.HasJoinedOnce%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L99">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L95">View Source</a>
   </span>
   <a id="Supabase_Realtime_Channel_HasJoinedOnce_" data-uid="Supabase.Realtime.Channel.HasJoinedOnce*"></a>
   <h4 id="Supabase_Realtime_Channel_HasJoinedOnce" data-uid="Supabase.Realtime.Channel.HasJoinedOnce">HasJoinedOnce</h4>
@@ -214,10 +166,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_IsClosed.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.IsClosed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_IsClosed.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.IsClosed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L70">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L71">View Source</a>
   </span>
   <a id="Supabase_Realtime_Channel_IsClosed_" data-uid="Supabase.Realtime.Channel.IsClosed*"></a>
   <h4 id="Supabase_Realtime_Channel_IsClosed" data-uid="Supabase.Realtime.Channel.IsClosed">IsClosed</h4>
@@ -244,10 +196,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_IsErrored.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.IsErrored%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_IsErrored.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.IsErrored%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L71">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L72">View Source</a>
   </span>
   <a id="Supabase_Realtime_Channel_IsErrored_" data-uid="Supabase.Realtime.Channel.IsErrored*"></a>
   <h4 id="Supabase_Realtime_Channel_IsErrored" data-uid="Supabase.Realtime.Channel.IsErrored">IsErrored</h4>
@@ -274,10 +226,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_IsJoined.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.IsJoined%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_IsJoined.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.IsJoined%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L72">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L73">View Source</a>
   </span>
   <a id="Supabase_Realtime_Channel_IsJoined_" data-uid="Supabase.Realtime.Channel.IsJoined*"></a>
   <h4 id="Supabase_Realtime_Channel_IsJoined" data-uid="Supabase.Realtime.Channel.IsJoined">IsJoined</h4>
@@ -304,10 +256,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_IsJoining.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.IsJoining%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_IsJoining.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.IsJoining%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L73">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L74">View Source</a>
   </span>
   <a id="Supabase_Realtime_Channel_IsJoining_" data-uid="Supabase.Realtime.Channel.IsJoining*"></a>
   <h4 id="Supabase_Realtime_Channel_IsJoining" data-uid="Supabase.Realtime.Channel.IsJoining">IsJoining</h4>
@@ -334,10 +286,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_IsLeaving.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.IsLeaving%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_IsLeaving.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.IsLeaving%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L74">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L75">View Source</a>
   </span>
   <a id="Supabase_Realtime_Channel_IsLeaving_" data-uid="Supabase.Realtime.Channel.IsLeaving*"></a>
   <h4 id="Supabase_Realtime_Channel_IsLeaving" data-uid="Supabase.Realtime.Channel.IsLeaving">IsLeaving</h4>
@@ -364,19 +316,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_Socket.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Socket%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_Options.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Options%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L79">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L85">View Source</a>
   </span>
-  <a id="Supabase_Realtime_Channel_Socket_" data-uid="Supabase.Realtime.Channel.Socket*"></a>
-  <h4 id="Supabase_Realtime_Channel_Socket" data-uid="Supabase.Realtime.Channel.Socket">Socket</h4>
-  <div class="markdown level1 summary"><p>Shorthand accessor for the Client's socket connection.</p>
+  <a id="Supabase_Realtime_Channel_Options_" data-uid="Supabase.Realtime.Channel.Options*"></a>
+  <h4 id="Supabase_Realtime_Channel_Options" data-uid="Supabase.Realtime.Channel.Options">Options</h4>
+  <div class="markdown level1 summary"><p>Options passed to this channel instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Socket Socket { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public ChannelOptions Options { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -388,17 +340,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Supabase.Realtime.Socket.html">Socket</a></td>
+        <td><a class="xref" href="Supabase.Realtime.ChannelOptions.html">ChannelOptions</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_State.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.State%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_State.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.State%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L84">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L80">View Source</a>
   </span>
   <a id="Supabase_Realtime_Channel_State_" data-uid="Supabase.Realtime.Channel.State*"></a>
   <h4 id="Supabase_Realtime_Channel_State" data-uid="Supabase.Realtime.Channel.State">State</h4>
@@ -426,10 +378,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_Topic.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Topic%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_Topic.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Topic%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L94">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L90">View Source</a>
   </span>
   <a id="Supabase_Realtime_Channel_Topic_" data-uid="Supabase.Realtime.Channel.Topic*"></a>
   <h4 id="Supabase_Realtime_Channel_Topic" data-uid="Supabase.Realtime.Channel.Topic">Topic</h4>
@@ -459,10 +411,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_Push_System_String_System_Object_System_Int32_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Push(System.String%2CSystem.Object%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_Push_System_String_System_Object_System_Int32_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Push(System.String%2CSystem.Object%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L241">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L225">View Source</a>
   </span>
   <a id="Supabase_Realtime_Channel_Push_" data-uid="Supabase.Realtime.Channel.Push*"></a>
   <h4 id="Supabase_Realtime_Channel_Push_System_String_System_Object_System_Int32_" data-uid="Supabase.Realtime.Channel.Push(System.String,System.Object,System.Int32)">Push(String, Object, Int32)</h4>
@@ -503,10 +455,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_Rejoin_System_Int32_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Rejoin(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_Rejoin_System_Int32_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Rejoin(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L263">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L247">View Source</a>
   </span>
   <a id="Supabase_Realtime_Channel_Rejoin_" data-uid="Supabase.Realtime.Channel.Rejoin*"></a>
   <h4 id="Supabase_Realtime_Channel_Rejoin_System_Int32_" data-uid="Supabase.Realtime.Channel.Rejoin(System.Int32)">Rejoin(Int32)</h4>
@@ -536,19 +488,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_Subscribe_System_Int32_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Subscribe(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_Subscribe_System_Int32_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Subscribe(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L158">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L142">View Source</a>
   </span>
   <a id="Supabase_Realtime_Channel_Subscribe_" data-uid="Supabase.Realtime.Channel.Subscribe*"></a>
   <h4 id="Supabase_Realtime_Channel_Subscribe_System_Int32_" data-uid="Supabase.Realtime.Channel.Subscribe(System.Int32)">Subscribe(Int32)</h4>
-  <div class="markdown level1 summary"><p>Subscribes to the channel given supplied options/params.</p>
+  <div class="markdown level1 summary"><p>Subscribes to the channel given supplied Options/params.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;Channel&gt; Subscribe(int timeoutMs = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;IRealtimeChannel&gt; Subscribe(int timeoutMs = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -577,17 +529,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Supabase.Realtime.Channel.html">Channel</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeChannel.html">IRealtimeChannel</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_Unsubscribe.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Unsubscribe%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_Unsubscribe.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Unsubscribe%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L223">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L207">View Source</a>
   </span>
   <a id="Supabase_Realtime_Channel_Unsubscribe_" data-uid="Supabase.Realtime.Channel.Unsubscribe*"></a>
   <h4 id="Supabase_Realtime_Channel_Unsubscribe" data-uid="Supabase.Realtime.Channel.Unsubscribe">Unsubscribe()</h4>
@@ -602,10 +554,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_OnClose.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.OnClose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_OnClose.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.OnClose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L68">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L69">View Source</a>
   </span>
   <h4 id="Supabase_Realtime_Channel_OnClose" data-uid="Supabase.Realtime.Channel.OnClose">OnClose</h4>
   <div class="markdown level1 summary"><p>Invoked when the channel is explicitly closed by the client.</p>
@@ -613,7 +565,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ChannelStateChangedEventArgs&gt; OnClose</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ChannelStateChangedEventArgs&gt;? OnClose</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -625,17 +577,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<a class="xref" href="Supabase.Realtime.ChannelStateChangedEventArgs.html">ChannelStateChangedEventArgs</a>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="Supabase.Realtime.ChannelStateChangedEventArgs.html">ChannelStateChangedEventArgs</a>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_OnDelete.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.OnDelete%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_OnDelete.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.OnDelete%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L48">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L49">View Source</a>
   </span>
   <h4 id="Supabase_Realtime_Channel_OnDelete" data-uid="Supabase.Realtime.Channel.OnDelete">OnDelete</h4>
   <div class="markdown level1 summary"><p>Invoked when the <code>DELETE</code> event is raised.</p>
@@ -643,7 +595,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;SocketResponseEventArgs&gt; OnDelete</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;SocketResponseEventArgs&gt;? OnDelete</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -655,17 +607,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<a class="xref" href="Supabase.Realtime.SocketResponseEventArgs.html">SocketResponseEventArgs</a>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="Supabase.Realtime.SocketResponseEventArgs.html">SocketResponseEventArgs</a>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_OnError.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.OnError%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_OnError.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.OnError%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L63">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L64">View Source</a>
   </span>
   <h4 id="Supabase_Realtime_Channel_OnError" data-uid="Supabase.Realtime.Channel.OnError">OnError</h4>
   <div class="markdown level1 summary"><p>Invoked when the socket drops or crashes.</p>
@@ -673,7 +625,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ChannelStateChangedEventArgs&gt; OnError</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ChannelStateChangedEventArgs&gt;? OnError</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -685,17 +637,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<a class="xref" href="Supabase.Realtime.ChannelStateChangedEventArgs.html">ChannelStateChangedEventArgs</a>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="Supabase.Realtime.ChannelStateChangedEventArgs.html">ChannelStateChangedEventArgs</a>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_OnInsert.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.OnInsert%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_OnInsert.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.OnInsert%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L38">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L39">View Source</a>
   </span>
   <h4 id="Supabase_Realtime_Channel_OnInsert" data-uid="Supabase.Realtime.Channel.OnInsert">OnInsert</h4>
   <div class="markdown level1 summary"><p>Invoked when the <code>INSERT</code> event is raised.</p>
@@ -703,7 +655,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;SocketResponseEventArgs&gt; OnInsert</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;SocketResponseEventArgs&gt;? OnInsert</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -715,17 +667,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<a class="xref" href="Supabase.Realtime.SocketResponseEventArgs.html">SocketResponseEventArgs</a>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="Supabase.Realtime.SocketResponseEventArgs.html">SocketResponseEventArgs</a>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_OnMessage.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.OnMessage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_OnMessage.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.OnMessage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L53">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L54">View Source</a>
   </span>
   <h4 id="Supabase_Realtime_Channel_OnMessage" data-uid="Supabase.Realtime.Channel.OnMessage">OnMessage</h4>
   <div class="markdown level1 summary"><p>Invoked anytime a message is decoded within this topic.</p>
@@ -733,7 +685,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;SocketResponseEventArgs&gt; OnMessage</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;SocketResponseEventArgs&gt;? OnMessage</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -745,17 +697,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<a class="xref" href="Supabase.Realtime.SocketResponseEventArgs.html">SocketResponseEventArgs</a>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="Supabase.Realtime.SocketResponseEventArgs.html">SocketResponseEventArgs</a>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_OnUpdate.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.OnUpdate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_OnUpdate.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.OnUpdate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L43">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L44">View Source</a>
   </span>
   <h4 id="Supabase_Realtime_Channel_OnUpdate" data-uid="Supabase.Realtime.Channel.OnUpdate">OnUpdate</h4>
   <div class="markdown level1 summary"><p>Invoked when the <code>UPDATE</code> event is raised.</p>
@@ -763,7 +715,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;SocketResponseEventArgs&gt; OnUpdate</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;SocketResponseEventArgs&gt;? OnUpdate</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -775,17 +727,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<a class="xref" href="Supabase.Realtime.SocketResponseEventArgs.html">SocketResponseEventArgs</a>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="Supabase.Realtime.SocketResponseEventArgs.html">SocketResponseEventArgs</a>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel_StateChanged.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.StateChanged%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel_StateChanged.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.StateChanged%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L58">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L59">View Source</a>
   </span>
   <h4 id="Supabase_Realtime_Channel_StateChanged" data-uid="Supabase.Realtime.Channel.StateChanged">StateChanged</h4>
   <div class="markdown level1 summary"><p>Invoked when this channel listener is closed</p>
@@ -793,7 +745,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ChannelStateChangedEventArgs&gt; StateChanged</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ChannelStateChangedEventArgs&gt;? StateChanged</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -805,11 +757,15 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<a class="xref" href="Supabase.Realtime.ChannelStateChangedEventArgs.html">ChannelStateChangedEventArgs</a>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="Supabase.Realtime.ChannelStateChangedEventArgs.html">ChannelStateChangedEventArgs</a>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeChannel.html">IRealtimeChannel</a>
+  </div>
 </article>
           </div>
           
@@ -818,10 +774,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/supabase-community/realtime-csharp/new/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/apiSpec/new?filename=Supabase_Realtime_Channel.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Channel.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/realtime-csharp/blob/07334bf2c08ba9ba5a6d9284188bd2c98fd76420/Realtime/Channel.cs/#L16" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Channel.cs/#L17" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

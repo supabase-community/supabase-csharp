@@ -81,13 +81,19 @@
     <div class="level1"><a class="xref" href="Supabase.Storage.StorageBucketApi.html">StorageBucketApi</a></div>
     <div class="level2"><span class="xref">Client</span></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Storage.Interfaces.IStorageClient-2.html">IStorageClient</a>&lt;<a class="xref" href="Supabase.Storage.Bucket.html">Bucket</a>, <a class="xref" href="Supabase.Storage.FileObject.html">FileObject</a>&gt;</div>
+    <div><a class="xref" href="Storage.Interfaces.IStorageBucketApi-1.html">IStorageBucketApi</a>&lt;<a class="xref" href="Supabase.Storage.Bucket.html">Bucket</a>&gt;</div>
+    <div><span class="xref">IGettableHeaders</span></div>
+  </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
       <a class="xref" href="Supabase.Storage.StorageBucketApi.html#Supabase_Storage_StorageBucketApi_Url">StorageBucketApi.Url</a>
     </div>
     <div>
-      <a class="xref" href="Supabase.Storage.StorageBucketApi.html#Supabase_Storage_StorageBucketApi_Headers">StorageBucketApi.Headers</a>
+      <a class="xref" href="Supabase.Storage.StorageBucketApi.html#Supabase_Storage_StorageBucketApi__headers">StorageBucketApi._headers</a>
     </div>
     <div>
       <a class="xref" href="Supabase.Storage.StorageBucketApi.html#Supabase_Storage_StorageBucketApi_ListBuckets">StorageBucketApi.ListBuckets()</a>
@@ -112,24 +118,24 @@
   <h6><strong>Assembly</strong>: Storage.dll</h6>
   <h5 id="Supabase_Storage_Client_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Client : StorageBucketApi</code></pre>
+    <pre><code class="lang-csharp hljs">public class Client : StorageBucketApi, IStorageClient&lt;Bucket, FileObject&gt;, IStorageBucketApi&lt;Bucket&gt;, IGettableHeaders</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_Client__ctor_System_String_Dictionary_System_String_System_String__.md&amp;value=---%0Auid%3A%20Supabase.Storage.Client.%23ctor(System.String%2CDictionary%7BSystem.String%2CSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_Client__ctor_System_String_System_Nullable_Dictionary_System_String_System_String___.md&amp;value=---%0Auid%3A%20Supabase.Storage.Client.%23ctor(System.String%2CSystem.Nullable%7BDictionary%7BSystem.String%2CSystem.String%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/Client.cs/#L8">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/Client.cs/#L31">View Source</a>
   </span>
   <a id="Supabase_Storage_Client__ctor_" data-uid="Supabase.Storage.Client.#ctor*"></a>
-  <h4 id="Supabase_Storage_Client__ctor_System_String_Dictionary_System_String_System_String__" data-uid="Supabase.Storage.Client.#ctor(System.String,Dictionary{System.String,System.String})">Client(String, Dictionary&lt;String, String&gt;)</h4>
+  <h4 id="Supabase_Storage_Client__ctor_System_String_System_Nullable_Dictionary_System_String_System_String___" data-uid="Supabase.Storage.Client.#ctor(System.String,System.Nullable{Dictionary{System.String,System.String}})">Client(String, Nullable&lt;Dictionary&lt;String, String&gt;&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Client(string url, Dictionary&lt;string, string&gt; headers)</code></pre>
+    <pre><code class="lang-csharp hljs">public Client(string url, Dictionary&lt;string, string&gt;? headers = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -147,8 +153,72 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
         <td><span class="parametername">headers</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_Client_GetHeaders.md&amp;value=---%0Auid%3A%20Supabase.Storage.Client.GetHeaders%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/Client.cs/#L29">View Source</a>
+  </span>
+  <a id="Supabase_Storage_Client_GetHeaders_" data-uid="Supabase.Storage.Client.GetHeaders*"></a>
+  <h4 id="Supabase_Storage_Client_GetHeaders" data-uid="Supabase.Storage.Client.GetHeaders">GetHeaders</h4>
+  <div class="markdown level1 summary"><p>Function that can be set to return dynamic headers.</p>
+<p>Headers specified in the constructor will ALWAYS take precendece over headers returned by this function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Func&lt;Dictionary&lt;string, string&gt;&gt;? GetHeaders { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Func</span>&lt;<span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_Client_Headers.md&amp;value=---%0Auid%3A%20Supabase.Storage.Client.Headers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/Client.cs/#L12">View Source</a>
+  </span>
+  <a id="Supabase_Storage_Client_Headers_" data-uid="Supabase.Storage.Client.Headers*"></a>
+  <h4 id="Supabase_Storage_Client_Headers" data-uid="Supabase.Storage.Client.Headers">Headers</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, string&gt; Headers { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -157,10 +227,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_Client_From_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Storage.Client.From(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_Client_From_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Storage.Client.From(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/Client.cs/#L16">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/Client.cs/#L39">View Source</a>
   </span>
   <a id="Supabase_Storage_Client_From_" data-uid="Supabase.Storage.Client.From*"></a>
   <h4 id="Supabase_Storage_Client_From_System_String_" data-uid="Supabase.Storage.Client.From(System.String)">From(String)</h4>
@@ -169,7 +239,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StorageFileApi From(string id)</code></pre>
+    <pre><code class="lang-csharp hljs">public IStorageFileApi&lt;FileObject&gt; From(string id)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -199,11 +269,21 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Supabase.Storage.StorageFileApi.html">StorageFileApi</a></td>
+        <td><a class="xref" href="Storage.Interfaces.IStorageFileApi-1.html">IStorageFileApi</a>&lt;<a class="xref" href="Supabase.Storage.FileObject.html">FileObject</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Storage.Interfaces.IStorageClient-2.html">IStorageClient&lt;TBucket, TFileObject&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="Storage.Interfaces.IStorageBucketApi-1.html">IStorageBucketApi&lt;TBucket&gt;</a>
+  </div>
+  <div>
+      <span class="xref">IGettableHeaders</span>
+  </div>
 </article>
           </div>
           
@@ -212,10 +292,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_Client.md&amp;value=---%0Auid%3A%20Supabase.Storage.Client%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_Client.md&amp;value=---%0Auid%3A%20Supabase.Storage.Client%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/Client.cs/#L6" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/Client.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

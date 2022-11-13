@@ -81,11 +81,15 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">StatelessClient</span></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html">IGotrueStatelessClient</a>&lt;<a class="xref" href="Supabase.Gotrue.User.html">User</a>, <a class="xref" href="Supabase.Gotrue.Session.html">Session</a>&gt;</div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Gotrue.html">Supabase.Gotrue</a></h6>
   <h6><strong>Assembly</strong>: Gotrue.dll</h6>
   <h5 id="Supabase_Gotrue_StatelessClient_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class StatelessClient : object</code></pre>
+    <pre><code class="lang-csharp hljs">public class StatelessClient : object, IGotrueStatelessClient&lt;User, Session&gt;</code></pre>
   </div>
   <h5 id="Supabase_Gotrue_StatelessClient_examples"><strong>Examples</strong></h5>
   <p>var options = new StatelessClientOptions { Url = &quot;https://mygotrueurl.com&quot; };
@@ -95,10 +99,10 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_CreateUser_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_AdminUserAttributes_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.CreateUser(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSupabase.Gotrue.AdminUserAttributes)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_CreateUser_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_AdminUserAttributes_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.CreateUser(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSupabase.Gotrue.AdminUserAttributes)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L350">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L395">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_CreateUser_" data-uid="Supabase.Gotrue.StatelessClient.CreateUser*"></a>
   <h4 id="Supabase_Gotrue_StatelessClient_CreateUser_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_AdminUserAttributes_" data-uid="Supabase.Gotrue.StatelessClient.CreateUser(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.AdminUserAttributes)">CreateUser(String, StatelessClient.StatelessClientOptions, AdminUserAttributes)</h4>
@@ -107,7 +111,7 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;User&gt; CreateUser(string jwt, StatelessClient.StatelessClientOptions options, AdminUserAttributes attributes)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;User&gt; CreateUser(string jwt, StatelessClient.StatelessClientOptions options, AdminUserAttributes attributes)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -154,10 +158,10 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_CreateUser_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_System_String_Supabase_Gotrue_AdminUserAttributes_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.CreateUser(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSystem.String%2CSystem.String%2CSupabase.Gotrue.AdminUserAttributes)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_CreateUser_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_System_String_Supabase_Gotrue_AdminUserAttributes_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.CreateUser(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSystem.String%2CSystem.String%2CSupabase.Gotrue.AdminUserAttributes)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L332">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L377">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_CreateUser_" data-uid="Supabase.Gotrue.StatelessClient.CreateUser*"></a>
   <h4 id="Supabase_Gotrue_StatelessClient_CreateUser_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_System_String_Supabase_Gotrue_AdminUserAttributes_" data-uid="Supabase.Gotrue.StatelessClient.CreateUser(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.String,System.String,Supabase.Gotrue.AdminUserAttributes)">CreateUser(String, StatelessClient.StatelessClientOptions, String, String, AdminUserAttributes)</h4>
@@ -166,7 +170,7 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;User&gt; CreateUser(string jwt, StatelessClient.StatelessClientOptions options, string email, string password, AdminUserAttributes attributes = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;User&gt; CreateUser(string jwt, StatelessClient.StatelessClientOptions options, string email, string password, AdminUserAttributes attributes = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -223,10 +227,10 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_DeleteUser_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.DeleteUser(System.String%2CSystem.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_DeleteUser_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.DeleteUser(System.String%2CSystem.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L387">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L432">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_DeleteUser_" data-uid="Supabase.Gotrue.StatelessClient.DeleteUser*"></a>
   <h4 id="Supabase_Gotrue_StatelessClient_DeleteUser_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.DeleteUser(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">DeleteUser(String, String, StatelessClient.StatelessClientOptions)</h4>
@@ -235,7 +239,7 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;bool&gt; DeleteUser(string uid, string jwt, StatelessClient.StatelessClientOptions options)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; DeleteUser(string uid, string jwt, StatelessClient.StatelessClientOptions options)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -282,10 +286,10 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_GetApi_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.GetApi(Supabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_GetApi_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.GetApi(Supabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L25">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L23">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_GetApi_" data-uid="Supabase.Gotrue.StatelessClient.GetApi*"></a>
   <h4 id="Supabase_Gotrue_StatelessClient_GetApi_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.GetApi(Supabase.Gotrue.StatelessClient.StatelessClientOptions)">GetApi(StatelessClient.StatelessClientOptions)</h4>
@@ -293,7 +297,7 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Api GetApi(StatelessClient.StatelessClientOptions options)</code></pre>
+    <pre><code class="lang-csharp hljs">public IGotrueApi&lt;User, Session&gt; GetApi(StatelessClient.StatelessClientOptions options)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -322,17 +326,17 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Supabase.Gotrue.Api.html">Api</a></td>
+        <td><a class="xref" href="Supabase.Gotrue.Interfaces.IGotrueApi-2.html">IGotrueApi</a>&lt;<a class="xref" href="Supabase.Gotrue.User.html">User</a>, <a class="xref" href="Supabase.Gotrue.Session.html">Session</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_GetSessionFromUrl_Uri_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.GetSessionFromUrl(Uri%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_GetSessionFromUrl_Uri_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.GetSessionFromUrl(Uri%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L407">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L452">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_GetSessionFromUrl_" data-uid="Supabase.Gotrue.StatelessClient.GetSessionFromUrl*"></a>
   <h4 id="Supabase_Gotrue_StatelessClient_GetSessionFromUrl_Uri_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.GetSessionFromUrl(Uri,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">GetSessionFromUrl(Uri, StatelessClient.StatelessClientOptions)</h4>
@@ -341,7 +345,7 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;Session&gt; GetSessionFromUrl(Uri uri, StatelessClient.StatelessClientOptions options)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;Session&gt; GetSessionFromUrl(Uri uri, StatelessClient.StatelessClientOptions options)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -382,10 +386,64 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_GetUserById_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.GetUserById(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_GetUser_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.GetUser(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L312">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L357">View Source</a>
+  </span>
+  <a id="Supabase_Gotrue_StatelessClient_GetUser_" data-uid="Supabase.Gotrue.StatelessClient.GetUser*"></a>
+  <h4 id="Supabase_Gotrue_StatelessClient_GetUser_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.GetUser(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">GetUser(String, StatelessClient.StatelessClientOptions)</h4>
+  <div class="markdown level1 summary"><p>Get User details by JWT. Can be used to validate a JWT.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;User&gt; GetUser(string jwt, StatelessClient.StatelessClientOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">jwt</span></td>
+        <td><p>A valid JWT. Must be a JWT that originates from a user.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Supabase.Gotrue.StatelessClient.StatelessClientOptions.html">StatelessClient.StatelessClientOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="Supabase.Gotrue.User.html">User</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_GetUserById_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.GetUserById(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L340">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_GetUserById_" data-uid="Supabase.Gotrue.StatelessClient.GetUserById*"></a>
   <h4 id="Supabase_Gotrue_StatelessClient_GetUserById_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_" data-uid="Supabase.Gotrue.StatelessClient.GetUserById(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.String)">GetUserById(String, StatelessClient.StatelessClientOptions, String)</h4>
@@ -394,7 +452,7 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;User&gt; GetUserById(string jwt, StatelessClient.StatelessClientOptions options, string userId)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;User&gt; GetUserById(string jwt, StatelessClient.StatelessClientOptions options, string userId)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -441,10 +499,10 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_InviteUserByEmail_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.InviteUserByEmail(System.String%2CSystem.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_InviteUserByEmail_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.InviteUserByEmail(System.String%2CSystem.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L250">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L278">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_InviteUserByEmail_" data-uid="Supabase.Gotrue.StatelessClient.InviteUserByEmail*"></a>
   <h4 id="Supabase_Gotrue_StatelessClient_InviteUserByEmail_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.InviteUserByEmail(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">InviteUserByEmail(String, String, StatelessClient.StatelessClientOptions)</h4>
@@ -453,7 +511,7 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;bool&gt; InviteUserByEmail(string email, string jwt, StatelessClient.StatelessClientOptions options)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; InviteUserByEmail(string email, string jwt, StatelessClient.StatelessClientOptions options)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -500,19 +558,19 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_ListUsers_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_System_String_Supabase_Gotrue_Constants_SortOrder_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.ListUsers(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSystem.String%2CSystem.String%2CSupabase.Gotrue.Constants.SortOrder%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_ListUsers_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_Nullable_System_String__System_Nullable_System_String__Supabase_Gotrue_Constants_SortOrder_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.ListUsers(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BSystem.String%7D%2CSupabase.Gotrue.Constants.SortOrder%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L294">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L322">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_ListUsers_" data-uid="Supabase.Gotrue.StatelessClient.ListUsers*"></a>
-  <h4 id="Supabase_Gotrue_StatelessClient_ListUsers_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_System_String_Supabase_Gotrue_Constants_SortOrder_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="Supabase.Gotrue.StatelessClient.ListUsers(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.String,System.String,Supabase.Gotrue.Constants.SortOrder,System.Nullable{System.Int32},System.Nullable{System.Int32})">ListUsers(String, StatelessClient.StatelessClientOptions, String, String, Constants.SortOrder, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <h4 id="Supabase_Gotrue_StatelessClient_ListUsers_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_Nullable_System_String__System_Nullable_System_String__Supabase_Gotrue_Constants_SortOrder_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="Supabase.Gotrue.StatelessClient.ListUsers(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.Nullable{System.String},System.Nullable{System.String},Supabase.Gotrue.Constants.SortOrder,System.Nullable{System.Int32},System.Nullable{System.Int32})">ListUsers(String, StatelessClient.StatelessClientOptions, Nullable&lt;String&gt;, Nullable&lt;String&gt;, Constants.SortOrder, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
   <div class="markdown level1 summary"><p>Lists users</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;UserList&gt; ListUsers(string jwt, StatelessClient.StatelessClientOptions options, string filter = null, string sortBy = null, Constants.SortOrder sortOrder = Constants.SortOrder.Descending, int? page = null, int? perPage = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;UserList&lt;User&gt;&gt; ListUsers(string jwt, StatelessClient.StatelessClientOptions options, string? filter = null, string? sortBy = null, Constants.SortOrder sortOrder = Constants.SortOrder.Descending, int? page = null, int? perPage = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -536,13 +594,13 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><span class="parametername">filter</span></td>
         <td><p>A string for example part of the email</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><span class="parametername">sortBy</span></td>
         <td><p>Snake case string of the given key, currently only created_at is suppported</p>
 </td>
@@ -577,17 +635,17 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Supabase.Gotrue.UserList.html">UserList</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="Supabase.Gotrue.UserList-1.html">UserList</a>&lt;<a class="xref" href="Supabase.Gotrue.User.html">User</a>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_RefreshToken_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.RefreshToken(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_RefreshToken_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.RefreshToken(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L454">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L499">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_RefreshToken_" data-uid="Supabase.Gotrue.StatelessClient.RefreshToken*"></a>
   <h4 id="Supabase_Gotrue_StatelessClient_RefreshToken_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.RefreshToken(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">RefreshToken(String, StatelessClient.StatelessClientOptions)</h4>
@@ -596,7 +654,7 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;Session&gt; RefreshToken(string refreshToken, StatelessClient.StatelessClientOptions options)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;Session&gt; RefreshToken(string refreshToken, StatelessClient.StatelessClientOptions options)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -637,10 +695,10 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_ResetPasswordForEmail_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.ResetPasswordForEmail(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_ResetPasswordForEmail_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.ResetPasswordForEmail(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L270">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L298">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_ResetPasswordForEmail_" data-uid="Supabase.Gotrue.StatelessClient.ResetPasswordForEmail*"></a>
   <h4 id="Supabase_Gotrue_StatelessClient_ResetPasswordForEmail_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.ResetPasswordForEmail(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">ResetPasswordForEmail(String, StatelessClient.StatelessClientOptions)</h4>
@@ -649,7 +707,7 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;bool&gt; ResetPasswordForEmail(string email, StatelessClient.StatelessClientOptions options)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; ResetPasswordForEmail(string email, StatelessClient.StatelessClientOptions options)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -690,10 +748,10 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_SendMagicLink_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignInOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.SendMagicLink(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSupabase.Gotrue.SignInOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_SendMagicLink_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignInOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.SendMagicLink(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSupabase.Gotrue.SignInOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L99">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L97">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_SendMagicLink_" data-uid="Supabase.Gotrue.StatelessClient.SendMagicLink*"></a>
   <h4 id="Supabase_Gotrue_StatelessClient_SendMagicLink_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignInOptions_" data-uid="Supabase.Gotrue.StatelessClient.SendMagicLink(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.SignInOptions)">SendMagicLink(String, StatelessClient.StatelessClientOptions, SignInOptions)</h4>
@@ -702,7 +760,7 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;bool&gt; SendMagicLink(string email, StatelessClient.StatelessClientOptions options, SignInOptions signInOptions = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; SendMagicLink(string email, StatelessClient.StatelessClientOptions options, SignInOptions signInOptions = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -748,21 +806,21 @@ var user = await client.SignIn(&quot;user@email.com&amp;quot;, &quot;fancyPasswo
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_SignIn_Supabase_Gotrue_Client_Provider_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Client.Provider%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_SignIn_Supabase_Gotrue_Constants_Provider_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Constants.Provider%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSystem.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L177">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L178">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_SignIn_" data-uid="Supabase.Gotrue.StatelessClient.SignIn*"></a>
-  <h4 id="Supabase_Gotrue_StatelessClient_SignIn_Supabase_Gotrue_Client_Provider_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_" data-uid="Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Client.Provider,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.String)">SignIn(Client.Provider, StatelessClient.StatelessClientOptions, String)</h4>
-  <div class="markdown level1 summary"><p>Retrieves a Url to redirect to for signing in with a <a class="xref" href="Supabase.Gotrue.Client.Provider.html">Client.Provider</a>.</p>
+  <h4 id="Supabase_Gotrue_StatelessClient_SignIn_Supabase_Gotrue_Constants_Provider_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_Nullable_System_String__" data-uid="Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.Nullable{System.String})">SignIn(Constants.Provider, StatelessClient.StatelessClientOptions, Nullable&lt;String&gt;)</h4>
+  <div class="markdown level1 summary"><p>Retrieves a Url to redirect to for signing in with a <a class="xref" href="Supabase.Gotrue.Constants.Provider.html">Constants.Provider</a>.</p>
 <p>This method will need to be combined with <see cref="!:GetSessionFromUrl(Uri, bool)"></see> when the
 Application receives the Oauth Callback.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string SignIn(Client.Provider provider, StatelessClient.StatelessClientOptions options, string scopes = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public string SignIn(Constants.Provider provider, StatelessClient.StatelessClientOptions options, string? scopes = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -775,7 +833,7 @@ Application receives the Oauth Callback.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Supabase.Gotrue.Client.Provider.html">Client.Provider</a></td>
+        <td><a class="xref" href="Supabase.Gotrue.Constants.Provider.html">Constants.Provider</a></td>
         <td><span class="parametername">provider</span></td>
         <td></td>
       </tr>
@@ -785,7 +843,7 @@ Application receives the Oauth Callback.</p>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><span class="parametername">scopes</span></td>
         <td><p>A space-separated list of scopes granted to the OAuth application.</p>
 </td>
@@ -807,7 +865,7 @@ Application receives the Oauth Callback.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Supabase_Gotrue_StatelessClient_SignIn_Supabase_Gotrue_Client_Provider_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String__examples">Examples</h5>
+  <h5 id="Supabase_Gotrue_StatelessClient_SignIn_Supabase_Gotrue_Constants_Provider_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_Nullable_System_String___examples">Examples</h5>
   <p>var client = Supabase.Gotrue.Client.Initialize(options);
 var url = client.SignIn(Provider.Github);</p>
 <p>// Do Redirect User</p>
@@ -818,19 +876,19 @@ var session = await client.GetSessionFromUri(uri, true);
 
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_SignIn_Supabase_Gotrue_Client_SignInType_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Client.SignInType%2CSystem.String%2CSystem.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_SignIn_Supabase_Gotrue_Constants_SignInType_System_String_System_Nullable_System_String__Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Constants.SignInType%2CSystem.String%2CSystem.Nullable%7BSystem.String%7D%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L117">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L115">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_SignIn_" data-uid="Supabase.Gotrue.StatelessClient.SignIn*"></a>
-  <h4 id="Supabase_Gotrue_StatelessClient_SignIn_Supabase_Gotrue_Client_SignInType_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Client.SignInType,System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">SignIn(Client.SignInType, String, String, StatelessClient.StatelessClientOptions)</h4>
+  <h4 id="Supabase_Gotrue_StatelessClient_SignIn_Supabase_Gotrue_Constants_SignInType_System_String_System_Nullable_System_String__Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Constants.SignInType,System.String,System.Nullable{System.String},Supabase.Gotrue.StatelessClient.StatelessClientOptions)">SignIn(Constants.SignInType, String, Nullable&lt;String&gt;, StatelessClient.StatelessClientOptions)</h4>
   <div class="markdown level1 summary"><p>Log in an existing user, or login via a third-party provider.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;Session&gt; SignIn(Client.SignInType type, string identifierOrToken, string password = null, StatelessClient.StatelessClientOptions options = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;Session&gt; SignIn(Constants.SignInType type, string identifierOrToken, string? password = null, StatelessClient.StatelessClientOptions options = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -843,7 +901,7 @@ var session = await client.GetSessionFromUri(uri, true);
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Supabase.Gotrue.Client.SignInType.html">Client.SignInType</a></td>
+        <td><a class="xref" href="Supabase.Gotrue.Constants.SignInType.html">Constants.SignInType</a></td>
         <td><span class="parametername">type</span></td>
         <td><p>Type of Credentials being passed</p>
 </td>
@@ -855,7 +913,7 @@ var session = await client.GetSessionFromUri(uri, true);
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><span class="parametername">password</span></td>
         <td><p>Password to account (optional if <code>RefreshToken</code>)</p>
 </td>
@@ -884,10 +942,10 @@ var session = await client.GetSessionFromUri(uri, true);
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_SignIn_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignInOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.SignIn(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSupabase.Gotrue.SignInOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_SignIn_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignInOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.SignIn(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSupabase.Gotrue.SignInOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L81">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L79">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_SignIn_" data-uid="Supabase.Gotrue.StatelessClient.SignIn*"></a>
   <h4 id="Supabase_Gotrue_StatelessClient_SignIn_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignInOptions_" data-uid="Supabase.Gotrue.StatelessClient.SignIn(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.SignInOptions)">SignIn(String, StatelessClient.StatelessClientOptions, SignInOptions)</h4>
@@ -896,7 +954,7 @@ var session = await client.GetSessionFromUri(uri, true);
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;bool&gt; SignIn(string email, StatelessClient.StatelessClientOptions options, SignInOptions signInOptions = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; SignIn(string email, StatelessClient.StatelessClientOptions options, SignInOptions signInOptions = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -942,10 +1000,10 @@ var session = await client.GetSessionFromUri(uri, true);
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_SignIn_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.SignIn(System.String%2CSystem.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_SignIn_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.SignIn(System.String%2CSystem.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L107">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L105">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_SignIn_" data-uid="Supabase.Gotrue.StatelessClient.SignIn*"></a>
   <h4 id="Supabase_Gotrue_StatelessClient_SignIn_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.SignIn(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">SignIn(String, String, StatelessClient.StatelessClientOptions)</h4>
@@ -954,7 +1012,7 @@ var session = await client.GetSessionFromUri(uri, true);
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;Session&gt; SignIn(string email, string password, StatelessClient.StatelessClientOptions options)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;Session&gt; SignIn(string email, string password, StatelessClient.StatelessClientOptions options)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1000,10 +1058,10 @@ var session = await client.GetSessionFromUri(uri, true);
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_SignOut_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.SignOut(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_SignOut_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.SignOut(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L187">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L188">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_SignOut_" data-uid="Supabase.Gotrue.StatelessClient.SignOut*"></a>
   <h4 id="Supabase_Gotrue_StatelessClient_SignOut_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.SignOut(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">SignOut(String, StatelessClient.StatelessClientOptions)</h4>
@@ -1014,7 +1072,7 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;bool&gt; SignOut(string jwt, StatelessClient.StatelessClientOptions options)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; SignOut(string jwt, StatelessClient.StatelessClientOptions options)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1055,19 +1113,19 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_SignUp_Supabase_Gotrue_Client_SignUpType_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignUpOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.SignUp(Supabase.Gotrue.Client.SignUpType%2CSystem.String%2CSystem.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSupabase.Gotrue.SignUpOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_SignUp_Supabase_Gotrue_Constants_SignUpType_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignUpOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.SignUp(Supabase.Gotrue.Constants.SignUpType%2CSystem.String%2CSystem.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSupabase.Gotrue.SignUpOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L44">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L42">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_SignUp_" data-uid="Supabase.Gotrue.StatelessClient.SignUp*"></a>
-  <h4 id="Supabase_Gotrue_StatelessClient_SignUp_Supabase_Gotrue_Client_SignUpType_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignUpOptions_" data-uid="Supabase.Gotrue.StatelessClient.SignUp(Supabase.Gotrue.Client.SignUpType,System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.SignUpOptions)">SignUp(Client.SignUpType, String, String, StatelessClient.StatelessClientOptions, SignUpOptions)</h4>
+  <h4 id="Supabase_Gotrue_StatelessClient_SignUp_Supabase_Gotrue_Constants_SignUpType_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignUpOptions_" data-uid="Supabase.Gotrue.StatelessClient.SignUp(Supabase.Gotrue.Constants.SignUpType,System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.SignUpOptions)">SignUp(Constants.SignUpType, String, String, StatelessClient.StatelessClientOptions, SignUpOptions)</h4>
   <div class="markdown level1 summary"><p>Signs up a user</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;Session&gt; SignUp(Client.SignUpType type, string identifier, string password, StatelessClient.StatelessClientOptions options, SignUpOptions signUpOptions = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;Session&gt; SignUp(Constants.SignUpType type, string identifier, string password, StatelessClient.StatelessClientOptions options, SignUpOptions signUpOptions = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1080,7 +1138,7 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Supabase.Gotrue.Client.SignUpType.html">Client.SignUpType</a></td>
+        <td><a class="xref" href="Supabase.Gotrue.Constants.SignUpType.html">Constants.SignUpType</a></td>
         <td><span class="parametername">type</span></td>
         <td><p>Type of signup</p>
 </td>
@@ -1126,10 +1184,10 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_SignUp_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignUpOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.SignUp(System.String%2CSystem.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSupabase.Gotrue.SignUpOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_SignUp_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignUpOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.SignUp(System.String%2CSystem.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSupabase.Gotrue.SignUpOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L34">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L32">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_SignUp_" data-uid="Supabase.Gotrue.StatelessClient.SignUp*"></a>
   <h4 id="Supabase_Gotrue_StatelessClient_SignUp_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignUpOptions_" data-uid="Supabase.Gotrue.StatelessClient.SignUp(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.SignUpOptions)">SignUp(String, String, StatelessClient.StatelessClientOptions, SignUpOptions)</h4>
@@ -1138,7 +1196,7 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;Session&gt; SignUp(string email, string password, StatelessClient.StatelessClientOptions options, SignUpOptions signUpOptions = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;Session&gt; SignUp(string email, string password, StatelessClient.StatelessClientOptions options, SignUpOptions signUpOptions = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1190,10 +1248,10 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_Update_System_String_Supabase_Gotrue_UserAttributes_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.Update(System.String%2CSupabase.Gotrue.UserAttributes%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_Update_System_String_Supabase_Gotrue_UserAttributes_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.Update(System.String%2CSupabase.Gotrue.UserAttributes%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L231">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L259">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_Update_" data-uid="Supabase.Gotrue.StatelessClient.Update*"></a>
   <h4 id="Supabase_Gotrue_StatelessClient_Update_System_String_Supabase_Gotrue_UserAttributes_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.Update(System.String,Supabase.Gotrue.UserAttributes,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">Update(String, UserAttributes, StatelessClient.StatelessClientOptions)</h4>
@@ -1202,7 +1260,7 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;User&gt; Update(string accessToken, UserAttributes attributes, StatelessClient.StatelessClientOptions options)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;User&gt; Update(string accessToken, UserAttributes attributes, StatelessClient.StatelessClientOptions options)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1248,10 +1306,10 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_UpdateUserById_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_Supabase_Gotrue_AdminUserAttributes_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.UpdateUserById(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSystem.String%2CSupabase.Gotrue.AdminUserAttributes)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_UpdateUserById_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_Supabase_Gotrue_AdminUserAttributes_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.UpdateUserById(System.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSystem.String%2CSupabase.Gotrue.AdminUserAttributes)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L369">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L414">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_UpdateUserById_" data-uid="Supabase.Gotrue.StatelessClient.UpdateUserById*"></a>
   <h4 id="Supabase_Gotrue_StatelessClient_UpdateUserById_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_Supabase_Gotrue_AdminUserAttributes_" data-uid="Supabase.Gotrue.StatelessClient.UpdateUserById(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.String,Supabase.Gotrue.AdminUserAttributes)">UpdateUserById(String, StatelessClient.StatelessClientOptions, String, AdminUserAttributes)</h4>
@@ -1260,7 +1318,7 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;User&gt; UpdateUserById(string jwt, StatelessClient.StatelessClientOptions options, string userId, AdminUserAttributes userData)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;User&gt; UpdateUserById(string jwt, StatelessClient.StatelessClientOptions options, string userId, AdminUserAttributes userData)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1312,19 +1370,82 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_VerifyOTP_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.VerifyOTP(System.String%2CSystem.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_VerifyOTP_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_Constants_EmailOtpType_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.VerifyOTP(System.String%2CSystem.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSupabase.Gotrue.Constants.EmailOtpType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L207">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L234">View Source</a>
   </span>
   <a id="Supabase_Gotrue_StatelessClient_VerifyOTP_" data-uid="Supabase.Gotrue.StatelessClient.VerifyOTP*"></a>
-  <h4 id="Supabase_Gotrue_StatelessClient_VerifyOTP_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.VerifyOTP(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">VerifyOTP(String, String, StatelessClient.StatelessClientOptions)</h4>
+  <h4 id="Supabase_Gotrue_StatelessClient_VerifyOTP_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_Constants_EmailOtpType_" data-uid="Supabase.Gotrue.StatelessClient.VerifyOTP(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.Constants.EmailOtpType)">VerifyOTP(String, String, StatelessClient.StatelessClientOptions, Constants.EmailOtpType)</h4>
+  <div class="markdown level1 summary"><p>Log in a user give a user supplied OTP received via email.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Session&gt; VerifyOTP(string email, string token, StatelessClient.StatelessClientOptions options, Constants.EmailOtpType type = Constants.EmailOtpType.MagicLink)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">email</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">token</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Supabase.Gotrue.StatelessClient.StatelessClientOptions.html">StatelessClient.StatelessClientOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Supabase.Gotrue.Constants.EmailOtpType.html">Constants.EmailOtpType</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="Supabase.Gotrue.Session.html">Session</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient_VerifyOTP_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_Constants_MobileOtpType_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient.VerifyOTP(System.String%2CSystem.String%2CSupabase.Gotrue.StatelessClient.StatelessClientOptions%2CSupabase.Gotrue.Constants.MobileOtpType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L208">View Source</a>
+  </span>
+  <a id="Supabase_Gotrue_StatelessClient_VerifyOTP_" data-uid="Supabase.Gotrue.StatelessClient.VerifyOTP*"></a>
+  <h4 id="Supabase_Gotrue_StatelessClient_VerifyOTP_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_Constants_MobileOtpType_" data-uid="Supabase.Gotrue.StatelessClient.VerifyOTP(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.Constants.MobileOtpType)">VerifyOTP(String, String, StatelessClient.StatelessClientOptions, Constants.MobileOtpType)</h4>
   <div class="markdown level1 summary"><p>Log in a user given a User supplied OTP received via mobile.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;Session&gt; VerifyOTP(string phone, string token, StatelessClient.StatelessClientOptions options)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;Session&gt; VerifyOTP(string phone, string token, StatelessClient.StatelessClientOptions options, Constants.MobileOtpType type = Constants.MobileOtpType.SMS)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1353,6 +1474,11 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
         <td><span class="parametername">options</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><a class="xref" href="Supabase.Gotrue.Constants.MobileOtpType.html">Constants.MobileOtpType</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -1370,6 +1496,10 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html">IGotrueStatelessClient&lt;TUser, TSession&gt;</a>
+  </div>
 </article>
           </div>
           
@@ -1378,10 +1508,10 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/supabase-community/gotrue-csharp/new/088d606231d19ac98a0ee145c173f988c29df19a/apiSpec/new?filename=Supabase_Gotrue_StatelessClient.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/supabase-community/gotrue-csharp/new/7ad15ba5491a286df674ab755b40a253100ef698/apiSpec/new?filename=Supabase_Gotrue_StatelessClient.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.StatelessClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/gotrue-csharp/blob/088d606231d19ac98a0ee145c173f988c29df19a/Gotrue/StatelessClient.cs/#L22" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/gotrue-csharp/blob/7ad15ba5491a286df674ab755b40a253100ef698/Gotrue/StatelessClient.cs/#L20" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

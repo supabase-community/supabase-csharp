@@ -80,28 +80,32 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">StorageFileApi</span></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Storage.Interfaces.IStorageFileApi-1.html">IStorageFileApi</a>&lt;<a class="xref" href="Supabase.Storage.FileObject.html">FileObject</a>&gt;</div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Storage.html">Supabase.Storage</a></h6>
   <h6><strong>Assembly</strong>: Storage.dll</h6>
   <h5 id="Supabase_Storage_StorageFileApi_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class StorageFileApi : object</code></pre>
+    <pre><code class="lang-csharp hljs">public class StorageFileApi : object, IStorageFileApi&lt;FileObject&gt;</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_StorageFileApi__ctor_System_String_Dictionary_System_String_System_String__System_String_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.%23ctor(System.String%2CDictionary%7BSystem.String%2CSystem.String%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_StorageFileApi__ctor_System_String_System_Nullable_Dictionary_System_String_System_String___System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.%23ctor(System.String%2CSystem.Nullable%7BDictionary%7BSystem.String%2CSystem.String%7D%7D%2CSystem.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/StorageFileApi.cs/#L19">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/StorageFileApi.cs/#L20">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageFileApi__ctor_" data-uid="Supabase.Storage.StorageFileApi.#ctor*"></a>
-  <h4 id="Supabase_Storage_StorageFileApi__ctor_System_String_Dictionary_System_String_System_String__System_String_" data-uid="Supabase.Storage.StorageFileApi.#ctor(System.String,Dictionary{System.String,System.String},System.String)">StorageFileApi(String, Dictionary&lt;String, String&gt;, String)</h4>
+  <h4 id="Supabase_Storage_StorageFileApi__ctor_System_String_System_Nullable_Dictionary_System_String_System_String___System_Nullable_System_String__" data-uid="Supabase.Storage.StorageFileApi.#ctor(System.String,System.Nullable{Dictionary{System.String,System.String}},System.Nullable{System.String})">StorageFileApi(String, Nullable&lt;Dictionary&lt;String, String&gt;&gt;, Nullable&lt;String&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StorageFileApi(string url, Dictionary&lt;string, string&gt; headers = null, string bucketId = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public StorageFileApi(string url, Dictionary&lt;string, string&gt;? headers = null, string? bucketId = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -119,12 +123,12 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
         <td><span class="parametername">headers</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><span class="parametername">bucketId</span></td>
         <td></td>
       </tr>
@@ -134,10 +138,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_StorageFileApi_BucketId.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.BucketId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_StorageFileApi_BucketId.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.BucketId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/StorageFileApi.cs/#L17">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/StorageFileApi.cs/#L18">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageFileApi_BucketId_" data-uid="Supabase.Storage.StorageFileApi.BucketId*"></a>
   <h4 id="Supabase_Storage_StorageFileApi_BucketId" data-uid="Supabase.Storage.StorageFileApi.BucketId">BucketId</h4>
@@ -145,7 +149,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected string BucketId { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">protected string? BucketId { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -157,17 +161,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Headers.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Headers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Headers.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Headers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/StorageFileApi.cs/#L16">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/StorageFileApi.cs/#L17">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageFileApi_Headers_" data-uid="Supabase.Storage.StorageFileApi.Headers*"></a>
   <h4 id="Supabase_Storage_StorageFileApi_Headers" data-uid="Supabase.Storage.StorageFileApi.Headers">Headers</h4>
@@ -194,10 +198,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Url.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Url%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Url.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Url%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/StorageFileApi.cs/#L15">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/StorageFileApi.cs/#L16">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageFileApi_Url_" data-uid="Supabase.Storage.StorageFileApi.Url*"></a>
   <h4 id="Supabase_Storage_StorageFileApi_Url" data-uid="Supabase.Storage.StorageFileApi.Url">Url</h4>
@@ -226,10 +230,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_StorageFileApi_CreateSignedUrl_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.CreateSignedUrl(System.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_StorageFileApi_CreateSignedUrl_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.CreateSignedUrl(System.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/StorageFileApi.cs/#L40">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/StorageFileApi.cs/#L41">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageFileApi_CreateSignedUrl_" data-uid="Supabase.Storage.StorageFileApi.CreateSignedUrl*"></a>
   <h4 id="Supabase_Storage_StorageFileApi_CreateSignedUrl_System_String_System_Int32_" data-uid="Supabase.Storage.StorageFileApi.CreateSignedUrl(System.String,System.Int32)">CreateSignedUrl(String, Int32)</h4>
@@ -281,10 +285,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_StorageFileApi_CreateSignedUrls_List_System_String__System_Int32_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.CreateSignedUrls(List%7BSystem.String%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_StorageFileApi_CreateSignedUrls_List_System_String__System_Int32_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.CreateSignedUrls(List%7BSystem.String%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/StorageFileApi.cs/#L54">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/StorageFileApi.cs/#L55">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageFileApi_CreateSignedUrls_" data-uid="Supabase.Storage.StorageFileApi.CreateSignedUrls*"></a>
   <h4 id="Supabase_Storage_StorageFileApi_CreateSignedUrls_List_System_String__System_Int32_" data-uid="Supabase.Storage.StorageFileApi.CreateSignedUrls(List{System.String},System.Int32)">CreateSignedUrls(List&lt;String&gt;, Int32)</h4>
@@ -293,7 +297,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;List&lt;CreateSignedUrlsResponse&gt;&gt; CreateSignedUrls(List&lt;string&gt; paths, int expiresIn)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;List&lt;CreateSignedUrlsResponse&gt;?&gt; CreateSignedUrls(List&lt;string&gt; paths, int expiresIn)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -329,26 +333,26 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="Supabase.Storage.CreateSignedUrlsResponse.html">CreateSignedUrlsResponse</a>&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.Nullable</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="Supabase.Storage.CreateSignedUrlsResponse.html">CreateSignedUrlsResponse</a>&gt;&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Download_System_String_EventHandler_System_Single__.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Download(System.String%2CEventHandler%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Download_System_String_System_Nullable_EventHandler_System_Single___.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Download(System.String%2CSystem.Nullable%7BEventHandler%7BSystem.Single%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/StorageFileApi.cs/#L235">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/StorageFileApi.cs/#L243">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageFileApi_Download_" data-uid="Supabase.Storage.StorageFileApi.Download*"></a>
-  <h4 id="Supabase_Storage_StorageFileApi_Download_System_String_EventHandler_System_Single__" data-uid="Supabase.Storage.StorageFileApi.Download(System.String,EventHandler{System.Single})">Download(String, EventHandler&lt;Single&gt;)</h4>
+  <h4 id="Supabase_Storage_StorageFileApi_Download_System_String_System_Nullable_EventHandler_System_Single___" data-uid="Supabase.Storage.StorageFileApi.Download(System.String,System.Nullable{EventHandler{System.Single}})">Download(String, Nullable&lt;EventHandler&lt;Single&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Downloads a byte array to be used programmatically.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;byte[]&gt; Download(string supabasePath, EventHandler&lt;float&gt; onProgress = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;byte[]&gt; Download(string supabasePath, EventHandler&lt;float&gt;? onProgress = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -366,7 +370,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<span class="xref">System.Single</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">EventHandler</span>&lt;<span class="xref">System.Single</span>&gt;&gt;</td>
         <td><span class="parametername">onProgress</span></td>
         <td></td>
       </tr>
@@ -389,19 +393,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Download_System_String_System_String_EventHandler_System_Single__.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Download(System.String%2CSystem.String%2CEventHandler%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Download_System_String_System_String_System_Nullable_EventHandler_System_Single___.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Download(System.String%2CSystem.String%2CSystem.Nullable%7BEventHandler%7BSystem.Single%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/StorageFileApi.cs/#L205">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/StorageFileApi.cs/#L213">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageFileApi_Download_" data-uid="Supabase.Storage.StorageFileApi.Download*"></a>
-  <h4 id="Supabase_Storage_StorageFileApi_Download_System_String_System_String_EventHandler_System_Single__" data-uid="Supabase.Storage.StorageFileApi.Download(System.String,System.String,EventHandler{System.Single})">Download(String, String, EventHandler&lt;Single&gt;)</h4>
+  <h4 id="Supabase_Storage_StorageFileApi_Download_System_String_System_String_System_Nullable_EventHandler_System_Single___" data-uid="Supabase.Storage.StorageFileApi.Download(System.String,System.String,System.Nullable{EventHandler{System.Single}})">Download(String, String, Nullable&lt;EventHandler&lt;Single&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Downloads a file and saves it to a local path.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;string&gt; Download(string supabasePath, string localPath, EventHandler&lt;float&gt; onProgress = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;string&gt; Download(string supabasePath, string localPath, EventHandler&lt;float&gt;? onProgress = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -424,7 +428,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<span class="xref">System.Single</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">EventHandler</span>&lt;<span class="xref">System.Single</span>&gt;&gt;</td>
         <td><span class="parametername">onProgress</span></td>
         <td></td>
       </tr>
@@ -447,10 +451,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_StorageFileApi_GetPublicUrl_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.GetPublicUrl(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_StorageFileApi_GetPublicUrl_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.GetPublicUrl(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/StorageFileApi.cs/#L72">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/StorageFileApi.cs/#L76">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageFileApi_GetPublicUrl_" data-uid="Supabase.Storage.StorageFileApi.GetPublicUrl*"></a>
   <h4 id="Supabase_Storage_StorageFileApi_GetPublicUrl_System_String_" data-uid="Supabase.Storage.StorageFileApi.GetPublicUrl(System.String)">GetPublicUrl(String)</h4>
@@ -495,10 +499,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_StorageFileApi_List_System_String_Supabase_Storage_SearchOptions_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.List(System.String%2CSupabase.Storage.SearchOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_StorageFileApi_List_System_String_Supabase_Storage_SearchOptions_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.List(System.String%2CSupabase.Storage.SearchOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/StorageFileApi.cs/#L80">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/StorageFileApi.cs/#L84">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageFileApi_List_" data-uid="Supabase.Storage.StorageFileApi.List*"></a>
   <h4 id="Supabase_Storage_StorageFileApi_List_System_String_Supabase_Storage_SearchOptions_" data-uid="Supabase.Storage.StorageFileApi.List(System.String,Supabase.Storage.SearchOptions)">List(String, SearchOptions)</h4>
@@ -507,7 +511,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;List&lt;FileObject&gt;&gt; List(string path = &quot;&quot;, SearchOptions options = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;List&lt;FileObject&gt;?&gt; List(string path = &quot;&quot;, SearchOptions options = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -541,17 +545,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="Supabase.Storage.FileObject.html">FileObject</a>&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.Nullable</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="Supabase.Storage.FileObject.html">FileObject</a>&gt;&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Move_System_String_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Move(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Move_System_String_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Move(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/StorageFileApi.cs/#L184">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/StorageFileApi.cs/#L192">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageFileApi_Move_" data-uid="Supabase.Storage.StorageFileApi.Move*"></a>
   <h4 id="Supabase_Storage_StorageFileApi_Move_System_String_System_String_" data-uid="Supabase.Storage.StorageFileApi.Move(System.String,System.String)">Move(String, String)</h4>
@@ -603,10 +607,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Remove_List_System_String__.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Remove(List%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Remove_List_System_String__.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Remove(List%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/StorageFileApi.cs/#L259">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/StorageFileApi.cs/#L267">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageFileApi_Remove_" data-uid="Supabase.Storage.StorageFileApi.Remove*"></a>
   <h4 id="Supabase_Storage_StorageFileApi_Remove_List_System_String__" data-uid="Supabase.Storage.StorageFileApi.Remove(List{System.String})">Remove(List&lt;String&gt;)</h4>
@@ -615,7 +619,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;List&lt;FileObject&gt;&gt; Remove(List&lt;string&gt; paths)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;List&lt;FileObject&gt;?&gt; Remove(List&lt;string&gt; paths)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -645,26 +649,26 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="Supabase.Storage.FileObject.html">FileObject</a>&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.Nullable</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="Supabase.Storage.FileObject.html">FileObject</a>&gt;&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Update_System_Byte___System_String_Supabase_Storage_FileOptions_EventHandler_System_Single__.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Update(System.Byte%5B%5D%2CSystem.String%2CSupabase.Storage.FileOptions%2CEventHandler%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Update_System_Byte___System_String_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Update(System.Byte%5B%5D%2CSystem.String%2CSupabase.Storage.FileOptions%2CSystem.Nullable%7BEventHandler%7BSystem.Single%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/StorageFileApi.cs/#L167">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/StorageFileApi.cs/#L175">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageFileApi_Update_" data-uid="Supabase.Storage.StorageFileApi.Update*"></a>
-  <h4 id="Supabase_Storage_StorageFileApi_Update_System_Byte___System_String_Supabase_Storage_FileOptions_EventHandler_System_Single__" data-uid="Supabase.Storage.StorageFileApi.Update(System.Byte[],System.String,Supabase.Storage.FileOptions,EventHandler{System.Single})">Update(Byte[], String, FileOptions, EventHandler&lt;Single&gt;)</h4>
+  <h4 id="Supabase_Storage_StorageFileApi_Update_System_Byte___System_String_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___" data-uid="Supabase.Storage.StorageFileApi.Update(System.Byte[],System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}})">Update(Byte[], String, FileOptions, Nullable&lt;EventHandler&lt;Single&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Replaces an existing file at the specified path with a new one.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;string&gt; Update(byte[] data, string supabasePath, FileOptions options = null, EventHandler&lt;float&gt; onProgress = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;string&gt; Update(byte[] data, string supabasePath, FileOptions options = null, EventHandler&lt;float&gt;? onProgress = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -694,7 +698,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<span class="xref">System.Single</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">EventHandler</span>&lt;<span class="xref">System.Single</span>&gt;&gt;</td>
         <td><span class="parametername">onProgress</span></td>
         <td></td>
       </tr>
@@ -717,19 +721,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Update_System_String_System_String_Supabase_Storage_FileOptions_EventHandler_System_Single__.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Update(System.String%2CSystem.String%2CSupabase.Storage.FileOptions%2CEventHandler%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Update_System_String_System_String_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Update(System.String%2CSystem.String%2CSupabase.Storage.FileOptions%2CSystem.Nullable%7BEventHandler%7BSystem.Single%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/StorageFileApi.cs/#L149">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/StorageFileApi.cs/#L157">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageFileApi_Update_" data-uid="Supabase.Storage.StorageFileApi.Update*"></a>
-  <h4 id="Supabase_Storage_StorageFileApi_Update_System_String_System_String_Supabase_Storage_FileOptions_EventHandler_System_Single__" data-uid="Supabase.Storage.StorageFileApi.Update(System.String,System.String,Supabase.Storage.FileOptions,EventHandler{System.Single})">Update(String, String, FileOptions, EventHandler&lt;Single&gt;)</h4>
+  <h4 id="Supabase_Storage_StorageFileApi_Update_System_String_System_String_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___" data-uid="Supabase.Storage.StorageFileApi.Update(System.String,System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}})">Update(String, String, FileOptions, Nullable&lt;EventHandler&lt;Single&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Replaces an existing file at the specified path with a new one.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;string&gt; Update(string localFilePath, string supabasePath, FileOptions options = null, EventHandler&lt;float&gt; onProgress = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;string&gt; Update(string localFilePath, string supabasePath, FileOptions options = null, EventHandler&lt;float&gt;? onProgress = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -760,7 +764,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<span class="xref">System.Single</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">EventHandler</span>&lt;<span class="xref">System.Single</span>&gt;&gt;</td>
         <td><span class="parametername">onProgress</span></td>
         <td></td>
       </tr>
@@ -783,19 +787,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Upload_System_Byte___System_String_Supabase_Storage_FileOptions_EventHandler_System_Single__System_Boolean_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Upload(System.Byte%5B%5D%2CSystem.String%2CSupabase.Storage.FileOptions%2CEventHandler%7BSystem.Single%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Upload_System_Byte___System_String_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___System_Boolean_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Upload(System.Byte%5B%5D%2CSystem.String%2CSupabase.Storage.FileOptions%2CSystem.Nullable%7BEventHandler%7BSystem.Single%7D%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/StorageFileApi.cs/#L126">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/StorageFileApi.cs/#L134">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageFileApi_Upload_" data-uid="Supabase.Storage.StorageFileApi.Upload*"></a>
-  <h4 id="Supabase_Storage_StorageFileApi_Upload_System_Byte___System_String_Supabase_Storage_FileOptions_EventHandler_System_Single__System_Boolean_" data-uid="Supabase.Storage.StorageFileApi.Upload(System.Byte[],System.String,Supabase.Storage.FileOptions,EventHandler{System.Single},System.Boolean)">Upload(Byte[], String, FileOptions, EventHandler&lt;Single&gt;, Boolean)</h4>
+  <h4 id="Supabase_Storage_StorageFileApi_Upload_System_Byte___System_String_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___System_Boolean_" data-uid="Supabase.Storage.StorageFileApi.Upload(System.Byte[],System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}},System.Boolean)">Upload(Byte[], String, FileOptions, Nullable&lt;EventHandler&lt;Single&gt;&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Uploads a byte array to an existing bucket.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;string&gt; Upload(byte[] data, string supabasePath, FileOptions options = null, EventHandler&lt;float&gt; onProgress = null, bool inferContentType = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;string&gt; Upload(byte[] data, string supabasePath, FileOptions options = null, EventHandler&lt;float&gt;? onProgress = null, bool inferContentType = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -824,7 +828,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<span class="xref">System.Single</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">EventHandler</span>&lt;<span class="xref">System.Single</span>&gt;&gt;</td>
         <td><span class="parametername">onProgress</span></td>
         <td></td>
       </tr>
@@ -852,19 +856,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Upload_System_String_System_String_Supabase_Storage_FileOptions_EventHandler_System_Single__System_Boolean_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Upload(System.String%2CSystem.String%2CSupabase.Storage.FileOptions%2CEventHandler%7BSystem.Single%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_StorageFileApi_Upload_System_String_System_String_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___System_Boolean_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi.Upload(System.String%2CSystem.String%2CSupabase.Storage.FileOptions%2CSystem.Nullable%7BEventHandler%7BSystem.Single%7D%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/StorageFileApi.cs/#L103">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/StorageFileApi.cs/#L111">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageFileApi_Upload_" data-uid="Supabase.Storage.StorageFileApi.Upload*"></a>
-  <h4 id="Supabase_Storage_StorageFileApi_Upload_System_String_System_String_Supabase_Storage_FileOptions_EventHandler_System_Single__System_Boolean_" data-uid="Supabase.Storage.StorageFileApi.Upload(System.String,System.String,Supabase.Storage.FileOptions,EventHandler{System.Single},System.Boolean)">Upload(String, String, FileOptions, EventHandler&lt;Single&gt;, Boolean)</h4>
+  <h4 id="Supabase_Storage_StorageFileApi_Upload_System_String_System_String_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___System_Boolean_" data-uid="Supabase.Storage.StorageFileApi.Upload(System.String,System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}},System.Boolean)">Upload(String, String, FileOptions, Nullable&lt;EventHandler&lt;Single&gt;&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Uploads a file to an existing bucket.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;string&gt; Upload(string localFilePath, string supabasePath, FileOptions options = null, EventHandler&lt;float&gt; onProgress = null, bool inferContentType = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;string&gt; Upload(string localFilePath, string supabasePath, FileOptions options = null, EventHandler&lt;float&gt;? onProgress = null, bool inferContentType = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -894,7 +898,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<span class="xref">System.Single</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">EventHandler</span>&lt;<span class="xref">System.Single</span>&gt;&gt;</td>
         <td><span class="parametername">onProgress</span></td>
         <td></td>
       </tr>
@@ -920,6 +924,10 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Storage.Interfaces.IStorageFileApi-1.html">IStorageFileApi&lt;TFileObject&gt;</a>
+  </div>
 </article>
           </div>
           
@@ -928,10 +936,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/supabase-community/storage-csharp/new/c87d0084c2130e5def08f5fc46a525c132b9ce5f/apiSpec/new?filename=Supabase_Storage_StorageFileApi.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/supabase-community/storage-csharp/new/b3fc157d841df5f52694e758eb40972938006874/apiSpec/new?filename=Supabase_Storage_StorageFileApi.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageFileApi%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/storage-csharp/blob/c87d0084c2130e5def08f5fc46a525c132b9ce5f/Storage/StorageFileApi.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/storage-csharp/blob/b3fc157d841df5f52694e758eb40972938006874/Storage/StorageFileApi.cs/#L14" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
