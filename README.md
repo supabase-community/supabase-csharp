@@ -9,6 +9,32 @@
 </p>
 ---
 
+## BREAKING CHANGES MOVING FROM v0.5.X to v0.6.X
+
+- `Client` is no longer a singleton, singleton interactions (if desired) are left to the developer to implement.
+- `Client` supports injection of dependent clients after initialization via property:
+  - `Auth`
+  - `Functions`
+  - `Realtime`
+  - `Postgrest`
+  - `Storage`
+- `SupabaseModel` contains no logic but remains for backwards compatibility. (Marked `Obsolete`)
+- `ClientOptions.ShouldInitializeRealtime` was removed (no longer auto initialized)
+- `ClientOptions` now references an `ISupabaseSessionHandler` which specifies expected functionality for session persistence on Gotrue (replaces `ClientOptions.SessionPersistor`, `ClientOptions.SessionRetriever`, and `ClientOptions.SessionDestroyer`).
+
+In Short:
+```c#
+// What was:
+await Supabase.Client.InitializeAsync(url, key, new Supabase.SupabaseOptions { AutoConnectRealtime = true, ShouldInitializeRealtime = true });
+var supabase = Supabase.Client.Instance
+
+// Becomes:
+var supabase = new Supabase.Client(url, key, new Supabase.SupabaseOptions { AutoConnectRealtime = true });
+await supabase.InitializeAsync();
+```
+
+---
+
 Integrate your [Supabase](https://supabase.io) projects with C#.
 
 Includes C# features to make supabase function more like an ORM - specifically the ability to leverage **strongly typed models**.

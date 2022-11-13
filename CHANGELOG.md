@@ -1,5 +1,32 @@
 ﻿# Changelog
 
+## 0.6.0 - 2022-11-12
+
+[BREAKING CHANGES]
+- `Client` is no longer a singleton, singleton interactions (if desired) are left to the developer to implement.
+- `Client` supports injection of dependent clients after initialization via property:
+  - `Auth`
+  - `Functions`
+  - `Realtime`
+  - `Postgrest`
+  - `Storage`
+- `SupabaseModel` contains no logic but remains for backwards compatibility. (Marked `Obsolete`)
+- `ClientOptions.ShouldInitializeRealtime` was removed (no longer auto initialized)
+- `ClientOptions` now references an `ISupabaseSessionHandler` which specifies expected functionality for session persistence on Gotrue (replaces `ClientOptions.SessionPersistor`, `ClientOptions.SessionRetriever`, and `ClientOptions.SessionDestroyer`).
+- `supabase-csharp` and all child libraries now have support `nullity`
+
+Other Changes:
+- Update dependency: functions-csharp@1.2.1
+- Update dependency: gotrue-csharp@3.0.2
+- Update dependency: postgrest-csharp@3.0.2
+- Update dependency: realtime-csharp@4.0.1
+- Update dependency: supabase-storage-csharp@1.2.3
+- Update dependency: supabase-core@0.0.2
+
+Big thank you to [@veleek](https://github.com/veleek) for his insight into these changes.
+
+Re: [#35](https://github.com/supabase-community/supabase-csharp/issues/35), [#34](https://github.com/supabase-community/supabase-csharp/issues/34), [#23](https://github.com/supabase-community/supabase-csharp/issues/23), [#36](https://github.com/supabase-community/supabase-csharp/pull/36)  
+
 ## 0.5.3 - 2022-10-11
 
 - Update dependency: postgrest-csharp@2.1.0
