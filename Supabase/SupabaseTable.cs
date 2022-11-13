@@ -36,13 +36,13 @@ namespace Supabase
                 var parameters = new Dictionary<string, string>();
 
                 // In regard to: https://github.com/supabase/supabase-js/pull/270
-                var headers = postgrestClient.Options.Headers;
-                if (headers.ContainsKey("Authorization"))
+                var headers = postgrestClient?.GetHeaders?.Invoke();
+                if (headers != null && headers.ContainsKey("Authorization"))
                 {
                     parameters.Add("user_token", headers["Authorization"].Split(' ')[1]);
                 }
 
-                channel = realtimeClient.Channel("realtime", this.schema, TableName, parameters: parameters);
+                channel = realtimeClient.Channel("realtime", schema, TableName, parameters: parameters);
             }
 
             if (realtimeClient.Socket == null || !realtimeClient.Socket.IsConnected)

@@ -10,6 +10,9 @@ namespace Supabase
     /// </summary>
     public class SupabaseOptions
     {
+        /// <summary>
+        /// Schema to be used in Postgres / Realtime
+        /// </summary>
         public string Schema = "public";
 
         /// <summary>

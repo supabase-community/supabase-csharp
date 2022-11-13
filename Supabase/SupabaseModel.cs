@@ -7,6 +7,5 @@ namespace Supabase
 {
     [Obsolete]
     public abstract class SupabaseModel : BaseModel
-    {
-    }
+    {}
 }

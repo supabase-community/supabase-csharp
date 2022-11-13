@@ -5,6 +5,7 @@ using Postgrest.Interfaces;
 using Postgrest.Models;
 using Postgrest.Responses;
 using Storage.Interfaces;
+using Supabase.Core;
 using Supabase.Functions.Interfaces;
 using Supabase.Gotrue;
 using Supabase.Gotrue.Interfaces;
@@ -103,6 +104,15 @@ namespace Supabase
         private string? supabaseKey;
         private SupabaseOptions options;
 
+        /// <summary>
+        /// Constructor supplied for dependency injection support.
+        /// </summary>
+        /// <param name="auth"></param>
+        /// <param name="realtime"></param>
+        /// <param name="functions"></param>
+        /// <param name="postgrest"></param>
+        /// <param name="storage"></param>
+        /// <param name="options"></param>
         public Client(IGotrueClient<User, Session> auth, IRealtimeClient<Socket, Channel> realtime, IFunctionsClient functions, IPostgrestClient postgrest, IStorageClient<Bucket, FileObject> storage, SupabaseOptions options)
         {
             _auth = auth;
@@ -113,6 +123,12 @@ namespace Supabase
             this.options = options;
         }
 
+        /// <summary>
+        /// Creates a new Supabase Client.
+        /// </summary>
+        /// <param name="supabaseUrl"></param>
+        /// <param name="supabaseKey"></param>
+        /// <param name="options"></param>
         public Client(string supabaseUrl, string? supabaseKey, SupabaseOptions? options = null)
         {
             this.supabaseKey = supabaseKey;
@@ -177,12 +193,8 @@ namespace Supabase
 
 
         /// <summary>
-        /// Initializes a Supabase Client.
+        /// Attempts to retrieve the session from Gotrue (set in <see cref="SupabaseOptions"/>) and connects to realtime (if `options.AutoConnectRealtime` is set)
         /// </summary>
-        /// <param name="supabaseUrl"></param>
-        /// <param name="supabaseKey"></param>
-        /// <param name="options"></param>
-        /// <returns></returns>
         public async Task<ISupabaseClient<User, Session, Socket, Channel, Bucket, FileObject>> InitializeAsync()
         {
             await Auth.RetrieveSessionAsync();
@@ -234,7 +246,7 @@ namespace Supabase
         {
             var headers = new Dictionary<string, string>();
 
-            headers["X-Client-Info"] = Util.GetAssemblyVersion();
+            headers["X-Client-Info"] = Util.GetAssemblyVersion(typeof(Client));
 
             if (supabaseKey != null)
             {
