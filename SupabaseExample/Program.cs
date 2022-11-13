@@ -14,18 +14,10 @@ namespace SupabaseExample
             var url = Environment.GetEnvironmentVariable("SUPABASE_URL");
             var key = Environment.GetEnvironmentVariable("SUPABASE_KEY");
 
-            await Supabase.Client.InitializeAsync(url, key, new Supabase.SupabaseOptions { AutoConnectRealtime = true, ShouldInitializeRealtime = true });
+            var supabase = new Supabase.Client(url, key, new Supabase.SupabaseOptions { AutoConnectRealtime = true });
+            await supabase.InitializeAsync();
 
-            try
-            {
-                var instance = Supabase.Client.Instance;
-            }
-            catch (Exception ex)
-            {
-                // Handle exception here
-            }
-
-            var reference = Supabase.Client.Instance.From<Models.Channel>();
+            var reference = supabase.From<Models.Channel>();
 
             await reference.On(Supabase.Client.ChannelEventType.All, (sender, ev) =>
             {
@@ -37,9 +29,9 @@ namespace SupabaseExample
             //await reference.Insert(new Models.Channel { Slug = GenerateName(10), InsertedAt = DateTime.Now });
 
             #region Storage
-            var storage = Supabase.Client.Instance.Storage;
+            var storage = supabase.Storage;
 
-            var exists = (await storage.GetBucket("testing") != null);
+            var exists = await storage.GetBucket("testing") != null;
             if (!exists)
                 await storage.CreateBucket("testing", new Supabase.Storage.BucketUpsertOptions { Public = true });
 
@@ -49,7 +41,7 @@ namespace SupabaseExample
                 Debug.WriteLine($"[{b.Id}] {b.Name}");
 
             var bucket = storage.From("testing");
-            var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase).Replace("file:", "");
+            var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase).Replace("file:", "").Replace("C:\\", "");
             var imagePath = Path.Combine(basePath, "Assets", "supabase-csharp.png");
 
             Debug.WriteLine(await bucket.Upload(imagePath, "supabase-csharp.png", new Supabase.Storage.FileOptions { Upsert = true }, (sender, args) => Debug.WriteLine($"Upload Progress: {args}%")));

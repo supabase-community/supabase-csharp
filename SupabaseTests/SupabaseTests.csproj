@@ -17,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="db\" />
     <Folder Include="Models\" />
     <Folder Include="Assets\" />
   </ItemGroup>

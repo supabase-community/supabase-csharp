@@ -8,7 +8,7 @@ using System.Text;
 namespace SupabaseExample.Models
 {
     [Table("movie")]
-    public class Movie : SupabaseModel
+    public class Movie : BaseModel
     {
         [PrimaryKey("id", false)]
         public int Id { get; set; }
@@ -25,7 +25,7 @@ namespace SupabaseExample.Models
     }
 
     [Table("person")]
-    public class Person : SupabaseModel
+    public class Person : BaseModel
     {
         [PrimaryKey("id", false)]
         public int Id { get; set; }
@@ -44,7 +44,7 @@ namespace SupabaseExample.Models
     }
 
     [Table("profile")]
-    public class Profile : SupabaseModel
+    public class Profile : BaseModel
     {
         [Column("email")]
         public string Email { get; set; }

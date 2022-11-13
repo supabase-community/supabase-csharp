@@ -7,7 +7,7 @@ using Supabase;
 namespace SupabaseTests.Models
 {
     [Table("users")]
-    public class User : SupabaseModel
+    public class User : BaseModel
     {
         [JsonProperty("username")]
         public string Username { get; set; }

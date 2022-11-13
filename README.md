@@ -7,8 +7,6 @@
     <img src="https://img.shields.io/nuget/vpre/supabase-csharp"/>
   </a>
 </p>
-<h3 align="center">Stage: Beta</h3>
-
 ---
 
 Integrate your [Supabase](https://supabase.io) projects with C#.
@@ -42,40 +40,35 @@ public async void Main()
   var url = Environment.GetEnvironmentVariable("SUPABASE_URL");
   var key = Environment.GetEnvironmentVariable("SUPABASE_KEY");
 
-  await Supabase.Client.InitializeAsync(url, key);
+  var client = new Supabase.Client(url, key);
+  await client.InitializeAsync();
   // That's it - forreal. Crazy right?
 
-  // The Supabase Instance can be accessed at any time using:
-  //  Supabase.Client.Instance {.Realtime|.Auth|etc.}
-  // For ease of readability we'll use this:
-  var instance = Supabase.Client.Instance;
-
   // Access Postgrest using:
-  var channels = await instance.From<Channel>().Get();
+  var channels = await client.From<Channel>().Get();
 
   // Access Auth using:
-  await instance.Auth.SignIn(email, password);
-  Debug.WriteLine(instance.Auth.CurrentUser.Id);
+  await client.Auth.SignIn(email, password);
+  Debug.WriteLine(client.Auth.CurrentUser.Id);
 
   // Interested in Realtime Events?
-  var table = await instance.From<Channel>();
+  var table = await client.From<Channel>();
   table.On(ChannelEventType.Insert, Channel_Inserted);
   table.On(ChannelEventType.Delete, Channel_Deleted);
   table.On(ChannelEventType.Update, Channel_Updated);
 
   // Invoke an Edge Function
-  var result = await instance.Functions.Invoke("hello", new Dictionary<string, object> { 
+  var result = await client.Functions.Invoke("hello", new Dictionary<string, object> { 
       { "name", "Ronald" } 
   });
 
   // Run a Remote Stored Procedure:
-  await instance.Rpc("my_cool_procedure", params);
+  await client.Rpc("my_cool_procedure", params);
 
   // Interact with Supabase Storage
-  var storage = Supabase.Client.Instance.Storage
-  await storage.CreateBucket("testing")
+  await client.Storage.CreateBucket("testing")
 
-  var bucket = storage.From("testing");
+  var bucket = client.Storage.From("testing");
 
   var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase).Replace("file:", "");
   var imagePath = Path.Combine(basePath, "Assets", "supabase-csharp.png");
