@@ -10,6 +10,7 @@ namespace SupabaseTests.Stubs
     internal class FakeStorageClient : IStorageClient<Bucket, FileObject>
     {
         public Dictionary<string, string> Headers { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Func<Dictionary<string, string>> GetHeaders { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public Task<string> CreateBucket(string id, BucketUpsertOptions options = null)
         {

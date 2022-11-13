@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Supabase.Gotrue;
 using SupabaseTests.Models;
 using static Supabase.Gotrue.Constants;
 using static Supabase.StatelessClient;
@@ -34,7 +35,7 @@ namespace SupabaseTests
         [TestMethod("Can access Stateless GoTrue")]
         public void CanAccessStatelessGotrue()
         {
-            var gotrueOptions = GetAuthOptions(supabaseUrl, null, options);
+            var gotrueOptions = GetAuthOptions<Session>(supabaseUrl, null, options);
 
             var client = new Supabase.Gotrue.Client(gotrueOptions);
 
@@ -56,7 +57,7 @@ namespace SupabaseTests
                 }
             };
 
-            var gotrueOptions = GetAuthOptions(supabaseUrl, "456", options);
+            var gotrueOptions = GetAuthOptions<Session>(supabaseUrl, "456", options);
 
             Assert.AreEqual("Bearer 123", gotrueOptions.Headers["Authorization"]);
         }

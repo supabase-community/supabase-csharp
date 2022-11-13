@@ -15,6 +15,8 @@ namespace SupabaseTests.Stubs
 
         public ClientOptions Options => throw new NotImplementedException();
 
+        public Func<Dictionary<string, string>> GetHeaders { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public Task<BaseResponse> Rpc(string procedureName, Dictionary<string, object> parameters)
         {
             throw new NotImplementedException();

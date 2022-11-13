@@ -1,4 +1,5 @@
-﻿using Supabase.Interfaces;
+﻿using Supabase.Gotrue;
+using Supabase.Interfaces;
 using System;
 using System.Collections.Generic;
 

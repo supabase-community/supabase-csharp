@@ -13,6 +13,8 @@ namespace SupabaseTests.Stubs
 
         public User CurrentUser => throw new NotImplementedException();
 
+        public Func<Dictionary<string, string>> GetHeaders { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public event EventHandler<ClientStateChanged> StateChanged;
 
         public Task<User> CreateUser(string jwt, AdminUserAttributes attributes)

@@ -13,3 +13,6 @@
 [submodule "modules/functions-csharp"]
 	path = modules/functions-csharp
 	url = https://github.com/supabase-community/functions-csharp
+[submodule "modules/core-csharp"]
+	path = modules/core-csharp
+	url = git@github.com:supabase-community/core-csharp.git

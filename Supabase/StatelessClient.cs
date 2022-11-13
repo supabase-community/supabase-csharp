@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 using Postgrest;
 using Postgrest.Models;
 using Postgrest.Responses;
+using Storage.Interfaces;
 using Supabase.Extensions;
+using Supabase.Functions.Interfaces;
 using Supabase.Gotrue;
+using Supabase.Storage;
 
 namespace Supabase
 {
@@ -16,14 +19,15 @@ namespace Supabase
     /// </summary>
     public static class StatelessClient
     {
-        public static Gotrue.ClientOptions GetAuthOptions(string supabaseUrl, string? supabaseKey = null, SupabaseOptions? options = null)
+        public static Gotrue.ClientOptions<TSession> GetAuthOptions<TSession>(string supabaseUrl, string? supabaseKey = null, SupabaseOptions? options = null)
+            where TSession : Session
         {
             if (options == null)
                 options = new SupabaseOptions();
 
             var headers = GetAuthHeaders(supabaseKey, options).MergeLeft(options.Headers);
 
-            return new Gotrue.ClientOptions
+            return new Gotrue.ClientOptions<TSession>
             {
                 Url = string.Format(options.AuthUrlFormat, supabaseUrl),
                 Headers = headers
@@ -51,7 +55,7 @@ namespace Supabase
         /// <param name="supabaseKey"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static Storage.Client Storage(string supabaseUrl, string? supabaseKey = null, SupabaseOptions? options = null)
+        public static IStorageClient<Bucket, FileObject> Storage(string supabaseUrl, string? supabaseKey = null, SupabaseOptions? options = null)
         {
             if (options == null)
                 options = new SupabaseOptions();
@@ -68,7 +72,7 @@ namespace Supabase
         /// <param name="supabaseKey"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static SupabaseFunctions Functions(string supabaseUrl, string supabaseKey, SupabaseOptions? options = null)
+        public static IFunctionsClient Functions(string supabaseUrl, string supabaseKey, SupabaseOptions? options = null)
         {
             if (options == null)
                 options = new SupabaseOptions();
@@ -88,9 +92,10 @@ namespace Supabase
             }
 
             var headers = GetAuthHeaders(supabaseKey, options).MergeLeft(options.Headers);
-            var client = new Functions.Client();
+            var client = new Functions.Client(functionsUrl);
+            client.GetHeaders = () => headers;
 
-            return new SupabaseFunctions(client, functionsUrl, headers);
+            return client;
         }
 
         /// <summary>

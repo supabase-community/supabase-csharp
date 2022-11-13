@@ -38,8 +38,8 @@ namespace SupabaseTests
         [TestMethod("Client: Initializes.")]
         public void ClientInitializes()
         {
-            Assert.IsNotNull(Instance.RealtimeClient);
-            Assert.IsNotNull(Instance.AuthClient);
+            Assert.IsNotNull(Instance.Realtime);
+            Assert.IsNotNull(Instance.Auth);
         }
 
         [TestMethod("Client: Connects to Realtime")]
@@ -98,11 +98,11 @@ namespace SupabaseTests
         [TestMethod("Supports Dependency Injection for clients via property")]
         public void SupportsDIForClientsViaProperty()
         {
-            Instance.AuthClient = new FakeAuthClient();
-            Instance.FunctionsClient = new FakeFunctionsClient();
-            Instance.RealtimeClient = new FakeRealtimeClient();
-            Instance.PostgrestClient = new FakeRestClient();
-            Instance.StorageClient = new FakeStorageClient();
+            Instance.Auth = new FakeAuthClient();
+            Instance.Functions = new FakeFunctionsClient();
+            Instance.Realtime = new FakeRealtimeClient();
+            Instance.Postgrest = new FakeRestClient();
+            Instance.Storage = new FakeStorageClient();
 
             Assert.ThrowsExceptionAsync<NotImplementedException>(() => Instance.Auth.GetUser(""));
             Assert.ThrowsExceptionAsync<NotImplementedException>(() => Instance.Functions.Invoke(""));

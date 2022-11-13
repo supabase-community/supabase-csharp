@@ -11,12 +11,12 @@ namespace Supabase.Interfaces
         /// <summary>
         /// Function called to persist the session (probably on a filesystem or cookie)
         /// </summary>
-        Task<bool> SessionPersistor(Session session);
+        Task<bool> SessionPersistor<TSession>(TSession session) where TSession : Session;
 
         /// <summary>
         /// Function to retrieve a session (probably from the filesystem or cookie)
         /// </summary>
-        Task<Session?> SessionRetriever();
+        Task<TSession?> SessionRetriever<TSession>() where TSession : Session;
 
         /// <summary>
         /// Function to destroy a session.

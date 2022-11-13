@@ -9,6 +9,8 @@ namespace SupabaseTests.Stubs
 {
     internal class FakeFunctionsClient : IFunctionsClient
     {
+        public Func<Dictionary<string, string>> GetHeaders { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public Task<string> Invoke(string url, string token = null, Supabase.Functions.Client.InvokeFunctionOptions options = null)
         {
             throw new NotImplementedException();

@@ -6,12 +6,12 @@ namespace Supabase
 {
     public class DefaultSupabaseSessionHandler : ISupabaseSessionHandler
     {
-        public Task<bool> SessionPersistor(Session session) => Task.FromResult<bool>(true);
+        public Task<bool> SessionPersistor<TSession>(TSession session) where TSession : Session => Task.FromResult(true);
 
 
-        public Task<Session?> SessionRetriever() => Task.FromResult<Session?>(null);
+        public Task<TSession?> SessionRetriever<TSession>() where TSession : Session => Task.FromResult<TSession?>(null);
 
 
-        public Task<bool> SessionDestroyer() => Task.FromResult<bool>(true);
+        public Task<bool> SessionDestroyer() => Task.FromResult(true);
     }
 }
