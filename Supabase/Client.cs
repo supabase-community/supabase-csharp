@@ -101,14 +101,18 @@ namespace Supabase
         private IStorageClient<Bucket, FileObject> _storage;
 
         private string? supabaseKey;
-        private string authUrl;
-        private string restUrl;
-        private string realtimeUrl;
-        private string storageUrl;
-        private string functionsUrl;
-        private string schema;
-
         private SupabaseOptions options;
+
+        public Client(IGotrueClient<User, Session> auth, IRealtimeClient<Socket, Channel> realtime, IFunctionsClient functions, IPostgrestClient postgrest, IStorageClient<Bucket, FileObject> storage, string? supabaseKey, SupabaseOptions options)
+        {
+            _auth = auth;
+            _realtime = realtime;
+            _functions = functions;
+            _postgrest = postgrest;
+            _storage = storage;
+            this.supabaseKey = supabaseKey;
+            this.options = options;
+        }
 
         public Client(string supabaseUrl, string? supabaseKey, SupabaseOptions? options = null)
         {
@@ -118,15 +122,16 @@ namespace Supabase
             options ??= new SupabaseOptions();
             this.options = options;
 
-            authUrl = string.Format(options.AuthUrlFormat, supabaseUrl);
-            restUrl = string.Format(options.RestUrlFormat, supabaseUrl);
-            realtimeUrl = string.Format(options.RealtimeUrlFormat, supabaseUrl).Replace("http", "ws");
-            storageUrl = string.Format(options.StorageUrlFormat, supabaseUrl);
-            schema = options.Schema;
+            var authUrl = string.Format(options.AuthUrlFormat, supabaseUrl);
+            var restUrl = string.Format(options.RestUrlFormat, supabaseUrl);
+            var realtimeUrl = string.Format(options.RealtimeUrlFormat, supabaseUrl).Replace("http", "ws");
+            var storageUrl = string.Format(options.StorageUrlFormat, supabaseUrl);
+            var schema = options.Schema;
 
             // See: https://github.com/supabase/supabase-js/blob/09065a65f171bc28a9fd7b831af2c24e5f1a380b/src/SupabaseClient.ts#L77-L83
             var isPlatform = new Regex(@"(supabase\.co)|(supabase\.in)").Match(supabaseUrl);
 
+            string? functionsUrl;
             if (isPlatform.Success)
             {
                 var parts = supabaseUrl.Split('.');
