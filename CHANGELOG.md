@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 0.6.1 - 2022-11-12
+
+- [Hotfix] `GetHeaders` was not passing properly to `SupabaseTable` and `Gotrue.Api`
+
 ## 0.6.0 - 2022-11-12
 
 [BREAKING CHANGES]
