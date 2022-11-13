@@ -7,6 +7,7 @@
     <img src="https://img.shields.io/nuget/vpre/supabase-csharp"/>
   </a>
 </p>
+
 ---
 
 ## BREAKING CHANGES MOVING FROM v0.5.X to v0.6.X
