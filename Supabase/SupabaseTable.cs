@@ -25,6 +25,8 @@ namespace Supabase
         public SupabaseTable(IPostgrestClient postgrestClient, IRealtimeClient<Socket, Channel> realtimeClient, string schema = "public") : base(postgrestClient.BaseUrl, Postgrest.Client.SerializerSettings(postgrestClient.Options), postgrestClient.Options)
         {
             this.postgrestClient = postgrestClient;
+            GetHeaders = postgrestClient.GetHeaders;
+
             this.realtimeClient = realtimeClient;
             this.schema = schema;
         }
