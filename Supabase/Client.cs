@@ -103,20 +103,18 @@ namespace Supabase
         private string? supabaseKey;
         private SupabaseOptions options;
 
-        public Client(IGotrueClient<User, Session> auth, IRealtimeClient<Socket, Channel> realtime, IFunctionsClient functions, IPostgrestClient postgrest, IStorageClient<Bucket, FileObject> storage, string? supabaseKey, SupabaseOptions options)
+        public Client(IGotrueClient<User, Session> auth, IRealtimeClient<Socket, Channel> realtime, IFunctionsClient functions, IPostgrestClient postgrest, IStorageClient<Bucket, FileObject> storage, SupabaseOptions options)
         {
             _auth = auth;
             _realtime = realtime;
             _functions = functions;
             _postgrest = postgrest;
             _storage = storage;
-            this.supabaseKey = supabaseKey;
             this.options = options;
         }
 
         public Client(string supabaseUrl, string? supabaseKey, SupabaseOptions? options = null)
         {
-
             this.supabaseKey = supabaseKey;
 
             options ??= new SupabaseOptions();
@@ -205,11 +203,7 @@ namespace Supabase
                 case AuthState.SignedIn:
                 case AuthState.TokenRefreshed:
                     if (Auth.CurrentSession?.AccessToken != null)
-                    {
                         Realtime.SetAuth(Auth.CurrentSession.AccessToken);
-                    }
-                    _postgrest.Options.Headers = GetAuthHeaders();
-                    _storage.Headers = GetAuthHeaders();
                     break;
 
                 // Remove Realtime Subscriptions on Auth Signout.
