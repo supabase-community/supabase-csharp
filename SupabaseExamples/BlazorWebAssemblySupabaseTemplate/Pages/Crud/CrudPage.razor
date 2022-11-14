@@ -1,0 +1,110 @@
+@page "/crud"
+@using Dtos
+
+@inject DatabaseService DatabaseService
+@inject NavigationManager NavigationManager
+@inject ISnackbar Snackbar
+
+<div class="pa-16">
+
+    <MudText Typo="Typo.h5">Lists</MudText>
+    <br>
+    <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors" ValidationDelay="0">
+        <MudCard>
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <h4>New item</h4>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudTextField Label="Titulo" @bind-Value="model.Titulo" For="@(() => model.Titulo)" Required="true"
+                    Immediate="true" />
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto"
+                    OnClick="OnClickSave">
+                    @if (_processingNewItem)
+                    {
+                        <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
+                        <MudText Class="ms-2">Processing</MudText>
+                    }
+                    else
+                    {
+                        <MudText>Save</MudText>
+                    }
+                </MudButton>
+            </MudCardActions>
+
+        </MudCard>
+    </MudForm>
+
+    <br>
+
+    @if (_listaListFiltered == null)
+    {
+        <MudSimpleTable>
+            <thead>
+                <tr>                    
+                    <th>Título</th>
+                    <th>Action</th>                    
+                </tr>
+            </thead>
+            <tbody>                
+                <tr>                    
+                    <td><MudSkeleton /></td>
+                    <td><MudSkeleton /></td>
+                </tr>                
+            </tbody>
+        </MudSimpleTable>
+    }
+    else if (_listaListFiltered.Count == 0)
+    {
+        <MudSimpleTable>
+            <thead>
+                <tr>                    
+                    <th>Título</th>
+                    <th>Action</th>                    
+                </tr>
+            </thead>
+            <tbody>                
+                <MudText Typo="Typo.h5">There is no items in this table.</MudText>
+            </tbody>
+        </MudSimpleTable>
+    }
+    else
+    {
+        <MudTable Items="@_listaListFiltered" @ref="table" Elevation="1" Bordered="false" Striped="true" Hover="true"
+        SortLabel="Sort By" T="Lista">
+            <ToolBarContent>
+                <MudTextField T="string" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
+                IconSize="MudBlazor.Size.Medium" Class="mt-0" Clearable="true"
+                ValueChanged="@(s=>OnValueChangedSearch(s))" Placeholder="Search" />
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh>
+                    <MudTableSortLabel SortBy="new Func<Lista, object>(x=>x.Titulo)">
+                        Título
+                    </MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    Action
+                </MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="Título">@context?.Titulo</MudTd>
+                <MudTd DataLabel="Action">
+                    @* <MudIconButton Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                        Size="MudBlazor.Size.Small"
+                        OnClick="@( (e) => {NavigationManager.NavigateTo($"/listaitems/{context?.Lista?.Id}");})"
+                        /> *@
+                    <MudIconButton Icon="@Icons.Material.Filled.Delete" aria-label="delete" Size="MudBlazor.Size.Small"
+                    OnClick="@(async (e) => {await OnClickDelete(context);})" />
+                </MudTd>
+            </RowTemplate>
+            <PagerContent>
+                <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+            </PagerContent>
+        </MudTable>
+    }
+
+</div>
