@@ -51,6 +51,12 @@ API is heavily modeled after the [supabase-js repo](https://github.com/supabase/
 - [x] Integration with [Supabase Edge Functions](https://github.com/supabase-community/functions-csharp)
 - [x] Nuget Release
 
+## Projects / Examples / Templates
+
+- [Blazor WASM Template using Supabase](https://github.com/rhuanbarros/BlazorWebAssemblySupabaseTemplate) by [@rhuanbarros](https://github.com/rhuanbarros) 
+
+(Create a PR to list your work here!)
+
 ## Getting Started
 
 Care has been taken to make API interactions mirror - as much as possible - the Javascript API. However, there are some places
