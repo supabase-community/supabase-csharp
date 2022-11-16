@@ -12,34 +12,34 @@ public partial class CrudPage
     }
 
     // ---------------- SELECT TABLE
-    private IReadOnlyList<Lista>? _listaList { get; set; }
-    private IReadOnlyList<Lista>? _listaListFiltered { get; set; }
-    private MudTable<Lista>? table;
+    private IReadOnlyList<Todo>? _todoList { get; set; }
+    private IReadOnlyList<Todo>? _todoListFiltered { get; set; }
+    private MudTable<Todo>? table;
     protected async Task GetTable()
     {
         // await Task.Delay(10000);
-        IReadOnlyList<Lista> listas = await DatabaseService.From<Lista>();
-        _listaList = listas;
-        _listaListFiltered = listas;
+        IReadOnlyList<Todo> todos = await DatabaseService.From<Todo>();
+        _todoList = todos;
+        _todoListFiltered = todos;
         await InvokeAsync(StateHasChanged);
     }
 
     // ---------------- SEARCH
     private void OnValueChangedSearch(string text)
     {
-        _listaListFiltered = _listaList?.Where(row => row.Titulo.Contains(text)).ToList();
+        _todoListFiltered = _todoList?.Where(row => row.Title.Contains(text)).ToList();
     }
     
     // ---------------- DELETE
-    private async Task OnClickDelete(Lista item)
+    private async Task OnClickDelete(Todo item)
     {
-        await DatabaseService.Delete<Lista>(item);        
+        await DatabaseService.Delete<Todo>(item);        
         await GetTable();
     }
 
     // ---------------- CREATE NEW
 
-    protected Lista model = new();
+    protected Todo model = new();
     private bool success = false;
     string[] errors = { };
     MudForm? form;
@@ -47,7 +47,7 @@ public partial class CrudPage
     private async Task OnClickSave()
     {
         _processingNewItem = true;
-        await DatabaseService.Insert<Lista>(model);
+        await DatabaseService.Insert<Todo>(model);
         model = new();
         await GetTable();
         success = false;
