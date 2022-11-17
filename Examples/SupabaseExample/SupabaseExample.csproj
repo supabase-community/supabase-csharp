@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Supabase\Supabase.csproj" />
+    <ProjectReference Include="..\..\Supabase\Supabase.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
