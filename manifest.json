@@ -581,6 +581,114 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Core.Attributes.MapToAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Core.Attributes.MapToAttribute.html",
+          "hash": "IpIfozpAIa/06+NpwNoKDw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Core.Attributes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Core.Attributes.html",
+          "hash": "98V7AOAcF0Ni6HLg7cqpfg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Core.Extensions.DictionaryExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Core.Extensions.DictionaryExtensions.html",
+          "hash": "bMKnSZh9/OD4PN38LxL1kg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Core.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Core.Extensions.html",
+          "hash": "WCTgtqlKSsu1W+KRqeP7bQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Core.Helpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Core.Helpers.html",
+          "hash": "duNz/U08Zbw6DQoTYybLEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Core.Interfaces.IGettableHeaders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Core.Interfaces.IGettableHeaders.html",
+          "hash": "WNDwzbZX/KcWg0kN2ryXMw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Core.Interfaces.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Core.Interfaces.html",
+          "hash": "CdxV5MHF1SFkPJabLKy0+Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Core.Util.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Core.Util.html",
+          "hash": "xLzRx6G9+EWjplaz2yVsJw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Core.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Core.html",
+          "hash": "8R/kunFnBEAXl6yOfVzLrw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Supabase.DefaultSupabaseSessionHandler.yml",
       "output": {
         ".html": {
@@ -1845,7 +1953,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "W9WZlejly5+uw+E6XUDH8A=="
+          "hash": "faGO0SFi4ug3RNOuaEbiJQ=="
         }
       },
       "is_incremental": false,
@@ -1920,7 +2028,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 152,
+          "total_file_count": 161,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

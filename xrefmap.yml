@@ -3553,6 +3553,198 @@ references:
   isSpec: "True"
   fullName: Supabase.Client.Storage
   nameWithType: Client.Storage
+- uid: Supabase.Core
+  name: Supabase.Core
+  href: api/Supabase.Core.html
+  commentId: N:Supabase.Core
+  fullName: Supabase.Core
+  nameWithType: Supabase.Core
+- uid: Supabase.Core.Attributes
+  name: Supabase.Core.Attributes
+  href: api/Supabase.Core.Attributes.html
+  commentId: N:Supabase.Core.Attributes
+  fullName: Supabase.Core.Attributes
+  nameWithType: Supabase.Core.Attributes
+- uid: Supabase.Core.Attributes.MapToAttribute
+  name: MapToAttribute
+  href: api/Supabase.Core.Attributes.MapToAttribute.html
+  commentId: T:Supabase.Core.Attributes.MapToAttribute
+  fullName: Supabase.Core.Attributes.MapToAttribute
+  nameWithType: MapToAttribute
+- uid: Supabase.Core.Attributes.MapToAttribute.#ctor(System.String,System.Nullable{System.String})
+  name: MapToAttribute(String, Nullable<String>)
+  href: api/Supabase.Core.Attributes.MapToAttribute.html#Supabase_Core_Attributes_MapToAttribute__ctor_System_String_System_Nullable_System_String__
+  commentId: M:Supabase.Core.Attributes.MapToAttribute.#ctor(System.String,System.Nullable{System.String})
+  name.vb: MapToAttribute(String, Nullable(Of String))
+  fullName: Supabase.Core.Attributes.MapToAttribute.MapToAttribute(System.String, System.Nullable<System.String>)
+  fullName.vb: Supabase.Core.Attributes.MapToAttribute.MapToAttribute(System.String, System.Nullable(Of System.String))
+  nameWithType: MapToAttribute.MapToAttribute(String, Nullable<String>)
+  nameWithType.vb: MapToAttribute.MapToAttribute(String, Nullable(Of String))
+- uid: Supabase.Core.Attributes.MapToAttribute.#ctor*
+  name: MapToAttribute
+  href: api/Supabase.Core.Attributes.MapToAttribute.html#Supabase_Core_Attributes_MapToAttribute__ctor_
+  commentId: Overload:Supabase.Core.Attributes.MapToAttribute.#ctor
+  isSpec: "True"
+  fullName: Supabase.Core.Attributes.MapToAttribute.MapToAttribute
+  nameWithType: MapToAttribute.MapToAttribute
+- uid: Supabase.Core.Attributes.MapToAttribute.Formatter
+  name: Formatter
+  href: api/Supabase.Core.Attributes.MapToAttribute.html#Supabase_Core_Attributes_MapToAttribute_Formatter
+  commentId: P:Supabase.Core.Attributes.MapToAttribute.Formatter
+  fullName: Supabase.Core.Attributes.MapToAttribute.Formatter
+  nameWithType: MapToAttribute.Formatter
+- uid: Supabase.Core.Attributes.MapToAttribute.Formatter*
+  name: Formatter
+  href: api/Supabase.Core.Attributes.MapToAttribute.html#Supabase_Core_Attributes_MapToAttribute_Formatter_
+  commentId: Overload:Supabase.Core.Attributes.MapToAttribute.Formatter
+  isSpec: "True"
+  fullName: Supabase.Core.Attributes.MapToAttribute.Formatter
+  nameWithType: MapToAttribute.Formatter
+- uid: Supabase.Core.Attributes.MapToAttribute.Mapping
+  name: Mapping
+  href: api/Supabase.Core.Attributes.MapToAttribute.html#Supabase_Core_Attributes_MapToAttribute_Mapping
+  commentId: P:Supabase.Core.Attributes.MapToAttribute.Mapping
+  fullName: Supabase.Core.Attributes.MapToAttribute.Mapping
+  nameWithType: MapToAttribute.Mapping
+- uid: Supabase.Core.Attributes.MapToAttribute.Mapping*
+  name: Mapping
+  href: api/Supabase.Core.Attributes.MapToAttribute.html#Supabase_Core_Attributes_MapToAttribute_Mapping_
+  commentId: Overload:Supabase.Core.Attributes.MapToAttribute.Mapping
+  isSpec: "True"
+  fullName: Supabase.Core.Attributes.MapToAttribute.Mapping
+  nameWithType: MapToAttribute.Mapping
+- uid: Supabase.Core.Extensions
+  name: Supabase.Core.Extensions
+  href: api/Supabase.Core.Extensions.html
+  commentId: N:Supabase.Core.Extensions
+  fullName: Supabase.Core.Extensions
+  nameWithType: Supabase.Core.Extensions
+- uid: Supabase.Core.Extensions.DictionaryExtensions
+  name: DictionaryExtensions
+  href: api/Supabase.Core.Extensions.DictionaryExtensions.html
+  commentId: T:Supabase.Core.Extensions.DictionaryExtensions
+  fullName: Supabase.Core.Extensions.DictionaryExtensions
+  nameWithType: DictionaryExtensions
+- uid: Supabase.Core.Extensions.DictionaryExtensions.MergeLeft*
+  name: MergeLeft
+  href: api/Supabase.Core.Extensions.DictionaryExtensions.html#Supabase_Core_Extensions_DictionaryExtensions_MergeLeft_
+  commentId: Overload:Supabase.Core.Extensions.DictionaryExtensions.MergeLeft
+  isSpec: "True"
+  fullName: Supabase.Core.Extensions.DictionaryExtensions.MergeLeft
+  nameWithType: DictionaryExtensions.MergeLeft
+- uid: Supabase.Core.Extensions.DictionaryExtensions.MergeLeft``3(``0,IDictionary{``1,``2}[])
+  name: MergeLeft<T, K, V>(T, IDictionary<K, V>[])
+  href: api/Supabase.Core.Extensions.DictionaryExtensions.html#Supabase_Core_Extensions_DictionaryExtensions_MergeLeft__3___0_IDictionary___1___2____
+  commentId: M:Supabase.Core.Extensions.DictionaryExtensions.MergeLeft``3(``0,IDictionary{``1,``2}[])
+  name.vb: MergeLeft(Of T, K, V)(T, IDictionary(Of K, V)())
+  fullName: Supabase.Core.Extensions.DictionaryExtensions.MergeLeft<T, K, V>(T, IDictionary<K, V>[])
+  fullName.vb: Supabase.Core.Extensions.DictionaryExtensions.MergeLeft(Of T, K, V)(T, IDictionary(Of K, V)())
+  nameWithType: DictionaryExtensions.MergeLeft<T, K, V>(T, IDictionary<K, V>[])
+  nameWithType.vb: DictionaryExtensions.MergeLeft(Of T, K, V)(T, IDictionary(Of K, V)())
+- uid: Supabase.Core.Helpers
+  name: Helpers
+  href: api/Supabase.Core.Helpers.html
+  commentId: T:Supabase.Core.Helpers
+  fullName: Supabase.Core.Helpers
+  nameWithType: Helpers
+- uid: Supabase.Core.Helpers.GetCustomAttribute*
+  name: GetCustomAttribute
+  href: api/Supabase.Core.Helpers.html#Supabase_Core_Helpers_GetCustomAttribute_
+  commentId: Overload:Supabase.Core.Helpers.GetCustomAttribute
+  isSpec: "True"
+  fullName: Supabase.Core.Helpers.GetCustomAttribute
+  nameWithType: Helpers.GetCustomAttribute
+- uid: Supabase.Core.Helpers.GetCustomAttribute``1(System.Object)
+  name: GetCustomAttribute<T>(Object)
+  href: api/Supabase.Core.Helpers.html#Supabase_Core_Helpers_GetCustomAttribute__1_System_Object_
+  commentId: M:Supabase.Core.Helpers.GetCustomAttribute``1(System.Object)
+  name.vb: GetCustomAttribute(Of T)(Object)
+  fullName: Supabase.Core.Helpers.GetCustomAttribute<T>(System.Object)
+  fullName.vb: Supabase.Core.Helpers.GetCustomAttribute(Of T)(System.Object)
+  nameWithType: Helpers.GetCustomAttribute<T>(Object)
+  nameWithType.vb: Helpers.GetCustomAttribute(Of T)(Object)
+- uid: Supabase.Core.Helpers.GetCustomAttribute``1(Type)
+  name: GetCustomAttribute<T>(Type)
+  href: api/Supabase.Core.Helpers.html#Supabase_Core_Helpers_GetCustomAttribute__1_Type_
+  commentId: M:Supabase.Core.Helpers.GetCustomAttribute``1(Type)
+  name.vb: GetCustomAttribute(Of T)(Type)
+  fullName: Supabase.Core.Helpers.GetCustomAttribute<T>(Type)
+  fullName.vb: Supabase.Core.Helpers.GetCustomAttribute(Of T)(Type)
+  nameWithType: Helpers.GetCustomAttribute<T>(Type)
+  nameWithType.vb: Helpers.GetCustomAttribute(Of T)(Type)
+- uid: Supabase.Core.Helpers.GetMappedToAttr(Enum)
+  name: GetMappedToAttr(Enum)
+  href: api/Supabase.Core.Helpers.html#Supabase_Core_Helpers_GetMappedToAttr_Enum_
+  commentId: M:Supabase.Core.Helpers.GetMappedToAttr(Enum)
+  fullName: Supabase.Core.Helpers.GetMappedToAttr(Enum)
+  nameWithType: Helpers.GetMappedToAttr(Enum)
+- uid: Supabase.Core.Helpers.GetMappedToAttr*
+  name: GetMappedToAttr
+  href: api/Supabase.Core.Helpers.html#Supabase_Core_Helpers_GetMappedToAttr_
+  commentId: Overload:Supabase.Core.Helpers.GetMappedToAttr
+  isSpec: "True"
+  fullName: Supabase.Core.Helpers.GetMappedToAttr
+  nameWithType: Helpers.GetMappedToAttr
+- uid: Supabase.Core.Helpers.GetPropertyValue*
+  name: GetPropertyValue
+  href: api/Supabase.Core.Helpers.html#Supabase_Core_Helpers_GetPropertyValue_
+  commentId: Overload:Supabase.Core.Helpers.GetPropertyValue
+  isSpec: "True"
+  fullName: Supabase.Core.Helpers.GetPropertyValue
+  nameWithType: Helpers.GetPropertyValue
+- uid: Supabase.Core.Helpers.GetPropertyValue``1(System.Object,System.String)
+  name: GetPropertyValue<T>(Object, String)
+  href: api/Supabase.Core.Helpers.html#Supabase_Core_Helpers_GetPropertyValue__1_System_Object_System_String_
+  commentId: M:Supabase.Core.Helpers.GetPropertyValue``1(System.Object,System.String)
+  name.vb: GetPropertyValue(Of T)(Object, String)
+  fullName: Supabase.Core.Helpers.GetPropertyValue<T>(System.Object, System.String)
+  fullName.vb: Supabase.Core.Helpers.GetPropertyValue(Of T)(System.Object, System.String)
+  nameWithType: Helpers.GetPropertyValue<T>(Object, String)
+  nameWithType.vb: Helpers.GetPropertyValue(Of T)(Object, String)
+- uid: Supabase.Core.Interfaces
+  name: Supabase.Core.Interfaces
+  href: api/Supabase.Core.Interfaces.html
+  commentId: N:Supabase.Core.Interfaces
+  fullName: Supabase.Core.Interfaces
+  nameWithType: Supabase.Core.Interfaces
+- uid: Supabase.Core.Interfaces.IGettableHeaders
+  name: IGettableHeaders
+  href: api/Supabase.Core.Interfaces.IGettableHeaders.html
+  commentId: T:Supabase.Core.Interfaces.IGettableHeaders
+  fullName: Supabase.Core.Interfaces.IGettableHeaders
+  nameWithType: IGettableHeaders
+- uid: Supabase.Core.Interfaces.IGettableHeaders.GetHeaders
+  name: GetHeaders
+  href: api/Supabase.Core.Interfaces.IGettableHeaders.html#Supabase_Core_Interfaces_IGettableHeaders_GetHeaders
+  commentId: P:Supabase.Core.Interfaces.IGettableHeaders.GetHeaders
+  fullName: Supabase.Core.Interfaces.IGettableHeaders.GetHeaders
+  nameWithType: IGettableHeaders.GetHeaders
+- uid: Supabase.Core.Interfaces.IGettableHeaders.GetHeaders*
+  name: GetHeaders
+  href: api/Supabase.Core.Interfaces.IGettableHeaders.html#Supabase_Core_Interfaces_IGettableHeaders_GetHeaders_
+  commentId: Overload:Supabase.Core.Interfaces.IGettableHeaders.GetHeaders
+  isSpec: "True"
+  fullName: Supabase.Core.Interfaces.IGettableHeaders.GetHeaders
+  nameWithType: IGettableHeaders.GetHeaders
+- uid: Supabase.Core.Util
+  name: Util
+  href: api/Supabase.Core.Util.html
+  commentId: T:Supabase.Core.Util
+  fullName: Supabase.Core.Util
+  nameWithType: Util
+- uid: Supabase.Core.Util.GetAssemblyVersion(Type)
+  name: GetAssemblyVersion(Type)
+  href: api/Supabase.Core.Util.html#Supabase_Core_Util_GetAssemblyVersion_Type_
+  commentId: M:Supabase.Core.Util.GetAssemblyVersion(Type)
+  fullName: Supabase.Core.Util.GetAssemblyVersion(Type)
+  nameWithType: Util.GetAssemblyVersion(Type)
+- uid: Supabase.Core.Util.GetAssemblyVersion*
+  name: GetAssemblyVersion
+  href: api/Supabase.Core.Util.html#Supabase_Core_Util_GetAssemblyVersion_
+  commentId: Overload:Supabase.Core.Util.GetAssemblyVersion
+  isSpec: "True"
+  fullName: Supabase.Core.Util.GetAssemblyVersion
+  nameWithType: Util.GetAssemblyVersion
 - uid: Supabase.DefaultSupabaseSessionHandler
   name: DefaultSupabaseSessionHandler
   href: api/Supabase.DefaultSupabaseSessionHandler.html
