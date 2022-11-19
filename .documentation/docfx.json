@@ -49,6 +49,14 @@
             "**/obj/**"
           ],
           "src": "../modules/functions-csharp/Functions"
+        },
+        {
+          "files": "Core.csproj",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ],
+          "src": "../modules/core-csharp/Core"
         }
       ],
       "dest": "api",
