@@ -23,17 +23,15 @@ public class DatabaseService
         ILogger<DatabaseService> logger
     ) : base()
     {
-        logger.LogInformation("CONSTRUCTOR: DatabaseService");
+        logger.LogInformation("------------------- CONSTRUCTOR -------------------");
 
         this.client = client;
         customAuthStateProvider = CustomAuthStateProvider;
         this.localStorage = localStorage;
         this.logger = logger;
 
-        if( client.Postgrest == null)
-        {
-            client.InitializeAsync();
-        }
+        client.InitializeAsync();
+        client.Auth.RetrieveSessionAsync();
     }
 
     public async Task<IReadOnlyList<TModel>> From<TModel>() where TModel : BaseModel, new()

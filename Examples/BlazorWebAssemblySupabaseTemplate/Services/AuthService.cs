@@ -22,17 +22,15 @@ public class AuthService
         ILogger<AuthService> logger
     ) : base()
     {
-        logger.LogInformation("CONSTRUCTOR: AuthService");
+        logger.LogInformation("------------------- CONSTRUCTOR -------------------");
 
         this.client = client;
         customAuthStateProvider = CustomAuthStateProvider;
         this.localStorage = localStorage;
         this.logger = logger;
 
-        if( client.Auth == null)
-        {
-            client.InitializeAsync();
-        }        
+        client.InitializeAsync();
+        client.Auth.RetrieveSessionAsync();
     }
 
     public async Task Login(string email, string password)
@@ -42,9 +40,12 @@ public class AuthService
         Session? session = await client.Auth.SignIn(email, password);
 
         logger.LogInformation("------------------- User logged in -------------------");
-        logger.LogInformation($"instance.Auth.CurrentUser.Id {client?.Auth?.CurrentUser?.Id}");
+        // logger.LogInformation($"instance.Auth.CurrentUser.Id {client?.Auth?.CurrentUser?.Id}");
         logger.LogInformation($"client.Auth.CurrentUser.Email {client?.Auth?.CurrentUser?.Email}");
         
+        logger.LogInformation($"session?.User?.Id {session?.User?.Id}");
+        await localStorage.SetItemAsStringAsync("user_id", session?.User?.Id);
+
         await localStorage.SetItemAsStringAsync("token", session?.AccessToken);
         await customAuthStateProvider.GetAuthenticationStateAsync();
     }

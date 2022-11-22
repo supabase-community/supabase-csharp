@@ -37,7 +37,24 @@ builder.Services.AddAuthorizationCore();
 var url = "https://pylnesfgmytjegzzculn.supabase.co";
 var key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB5bG5lc2ZnbXl0amVnenpjdWxuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjgyOTMwMzcsImV4cCI6MTk4Mzg2OTAzN30.kI29Q_qYWDH5SD6oi5NTwHG6Pxy1e1AUfR8s_ga45lE";
 
-builder.Services.AddScoped<ISupabaseClient<User, Session, Socket, Channel, Bucket, FileObject>>(args => new Supabase.Client(url, key, new Supabase.SupabaseOptions { AutoConnectRealtime = true }));
+builder.Services.AddScoped<ISupabaseClient<User, Session, Socket, Channel, Bucket, FileObject>>(
+    provider => new Supabase.Client(
+        url,
+        key,
+        new Supabase.SupabaseOptions
+        {
+            AutoRefreshToken = true,
+            AutoConnectRealtime = true,
+            PersistSession = true,
+            SessionHandler = new CustomSupabaseSessionHandler(
+                provider.GetRequiredService<ILocalStorageService>(),
+                provider.GetRequiredService<ILogger<CustomSupabaseSessionHandler>>()
+            )
+        }
+    )
+);
+
+// builder.Services.AddScoped<ISupabaseClient<User, Session, Socket, Channel, Bucket, FileObject>>(args => new Supabase.Client(url, key, new Supabase.SupabaseOptions { AutoConnectRealtime = true }));
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<DatabaseService>();
 
