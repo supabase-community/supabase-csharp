@@ -1,3 +1,17 @@
+#TODO
+    - CustomSupabaseSessionHandler not working.
+        - how to test: 
+            - Logout
+            - Login
+            - Access Crud table private RLS page
+            - Insert some row
+            - you will see the row displayed below
+            - press F5 on the browser
+            - the rows will disapear
+        - Maybe i created CustomSupabaseSessionHandler wrong. But it seem like that the token is not being sent with the headers...
+
+    - create policy to insert that check if the user_id is the same of the user logged in trying to insert.
+
 # Credits
     https://github.com/supabase-community/supabase-csharp
     https://github.com/patrickgod/BlazorAuthenticationTutorial
