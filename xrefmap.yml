@@ -2472,14 +2472,15 @@ references:
   fullName.vb: Postgrest.Responses.ModeledResponse(Of T)
   nameWithType: ModeledResponse<T>
   nameWithType.vb: ModeledResponse(Of T)
-- uid: Postgrest.Responses.ModeledResponse`1.#ctor(Postgrest.Responses.BaseResponse,JsonSerializerSettings,System.Boolean)
-  name: ModeledResponse(BaseResponse, JsonSerializerSettings, Boolean)
-  href: api/Postgrest.Responses.ModeledResponse-1.html#Postgrest_Responses_ModeledResponse_1__ctor_Postgrest_Responses_BaseResponse_JsonSerializerSettings_System_Boolean_
-  commentId: M:Postgrest.Responses.ModeledResponse`1.#ctor(Postgrest.Responses.BaseResponse,JsonSerializerSettings,System.Boolean)
-  fullName: Postgrest.Responses.ModeledResponse<T>.ModeledResponse(Postgrest.Responses.BaseResponse, JsonSerializerSettings, System.Boolean)
-  fullName.vb: Postgrest.Responses.ModeledResponse(Of T).ModeledResponse(Postgrest.Responses.BaseResponse, JsonSerializerSettings, System.Boolean)
-  nameWithType: ModeledResponse<T>.ModeledResponse(BaseResponse, JsonSerializerSettings, Boolean)
-  nameWithType.vb: ModeledResponse(Of T).ModeledResponse(BaseResponse, JsonSerializerSettings, Boolean)
+- uid: Postgrest.Responses.ModeledResponse`1.#ctor(Postgrest.Responses.BaseResponse,JsonSerializerSettings,System.Nullable{Func{Dictionary{System.String,System.String}}},System.Boolean)
+  name: ModeledResponse(BaseResponse, JsonSerializerSettings, Nullable<Func<Dictionary<String, String>>>, Boolean)
+  href: api/Postgrest.Responses.ModeledResponse-1.html#Postgrest_Responses_ModeledResponse_1__ctor_Postgrest_Responses_BaseResponse_JsonSerializerSettings_System_Nullable_Func_Dictionary_System_String_System_String____System_Boolean_
+  commentId: M:Postgrest.Responses.ModeledResponse`1.#ctor(Postgrest.Responses.BaseResponse,JsonSerializerSettings,System.Nullable{Func{Dictionary{System.String,System.String}}},System.Boolean)
+  name.vb: ModeledResponse(BaseResponse, JsonSerializerSettings, Nullable(Of Func(Of Dictionary(Of String, String))), Boolean)
+  fullName: Postgrest.Responses.ModeledResponse<T>.ModeledResponse(Postgrest.Responses.BaseResponse, JsonSerializerSettings, System.Nullable<Func<Dictionary<System.String, System.String>>>, System.Boolean)
+  fullName.vb: Postgrest.Responses.ModeledResponse(Of T).ModeledResponse(Postgrest.Responses.BaseResponse, JsonSerializerSettings, System.Nullable(Of Func(Of Dictionary(Of System.String, System.String))), System.Boolean)
+  nameWithType: ModeledResponse<T>.ModeledResponse(BaseResponse, JsonSerializerSettings, Nullable<Func<Dictionary<String, String>>>, Boolean)
+  nameWithType.vb: ModeledResponse(Of T).ModeledResponse(BaseResponse, JsonSerializerSettings, Nullable(Of Func(Of Dictionary(Of String, String))), Boolean)
 - uid: Postgrest.Responses.ModeledResponse`1.#ctor*
   name: ModeledResponse
   href: api/Postgrest.Responses.ModeledResponse-1.html#Postgrest_Responses_ModeledResponse_1__ctor_
