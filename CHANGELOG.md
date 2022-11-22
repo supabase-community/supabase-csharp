@@ -2,7 +2,7 @@
 
 ## 0.6.2 - 2022-11-22
 
-- Update depedency: postgrest-csharp@3.0.3
+- Update depedency: postgrest-csharp@3.0.4
   - `GetHeaders` is now passed to `ModeledResponse` and `BaseModel` so that the default `Update` and `Delete` methods use the latest credentials
   - `GetHeaders` is used in `Rpc` calls (re: [#39](https://github.com/supabase-community/supabase-csharp/issues/39))
 
