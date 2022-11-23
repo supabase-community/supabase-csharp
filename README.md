@@ -53,7 +53,7 @@ API is heavily modeled after the [supabase-js repo](https://github.com/supabase/
 
 ## Projects / Examples / Templates
 
-- [Blazor WASM Template using Supabase](SupabaseExamples/BlazorWebAssemblySupabaseTemplate) [Live demo](https://blazorwasmsupabasetemplate.web.app/) by [@rhuanbarros](https://github.com/rhuanbarros) 
+- [Blazor WASM Template using Supabase](/Examples/BlazorWebAssemblySupabaseTemplate) [Live demo](https://blazorwasmsupabasetemplate.web.app/) by [@rhuanbarros](https://github.com/rhuanbarros) 
 
 (Create a PR to list your work here!)
 
