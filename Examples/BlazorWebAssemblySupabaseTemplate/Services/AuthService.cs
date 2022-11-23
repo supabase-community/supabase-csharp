@@ -10,13 +10,13 @@ namespace BlazorWebAssemblySupabaseTemplate.Services;
 
 public class AuthService
 {
-    private readonly ISupabaseClient<User, Session, Socket, Channel, Bucket, FileObject> client;
+    private readonly Supabase.Client client;
     private readonly AuthenticationStateProvider customAuthStateProvider;
     private readonly ILocalStorageService localStorage;
     private readonly ILogger<AuthService> logger;
 
     public AuthService(
-        ISupabaseClient<User, Session, Socket, Channel, Bucket, FileObject> client,
+		 Supabase.Client client,
         AuthenticationStateProvider CustomAuthStateProvider, 
         ILocalStorageService localStorage,
         ILogger<AuthService> logger
@@ -28,9 +28,6 @@ public class AuthService
         customAuthStateProvider = CustomAuthStateProvider;
         this.localStorage = localStorage;
         this.logger = logger;
-
-        client.InitializeAsync();
-        client.Auth.RetrieveSessionAsync();
     }
 
     public async Task Login(string email, string password)
@@ -42,17 +39,13 @@ public class AuthService
         logger.LogInformation("------------------- User logged in -------------------");
         // logger.LogInformation($"instance.Auth.CurrentUser.Id {client?.Auth?.CurrentUser?.Id}");
         logger.LogInformation($"client.Auth.CurrentUser.Email {client?.Auth?.CurrentUser?.Email}");
-        
-        logger.LogInformation($"session?.User?.Id {session?.User?.Id}");
-        await localStorage.SetItemAsStringAsync("user_id", session?.User?.Id);
 
-        await localStorage.SetItemAsStringAsync("token", session?.AccessToken);
         await customAuthStateProvider.GetAuthenticationStateAsync();
     }
     
     public async Task Logout()
     {
-        await localStorage.RemoveItemAsync("token");
+        await client.Auth.SignOut();
         await customAuthStateProvider.GetAuthenticationStateAsync();
     }
 
