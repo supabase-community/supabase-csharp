@@ -36,8 +36,11 @@
         @* ********************************** MENU ********************************** *@
 
         <MudNavMenu Color="Color.Secondary">
-            <MudNavLink Href="/crud" Match="NavLinkMatch.Prefix" Icon="@Icons.Filled.Storage">
+            <MudNavLink Href="/crud" Match="NavLinkMatch.All" Icon="@Icons.Filled.Storage">
                 Crud table
+            </MudNavLink>
+            <MudNavLink Href="/crud-private" Match="NavLinkMatch.All" Icon="@Icons.Filled.Storage">
+                Crud table private RLS
             </MudNavLink>
         </MudNavMenu>
 

@@ -1,0 +1,118 @@
+@page "/crud-private"
+@using Dtos
+@using Blazored.LocalStorage
+
+@inject DatabaseService DatabaseService
+@inject NavigationManager NavigationManager
+@inject ISnackbar Snackbar
+@inject ILocalStorageService localStorage
+
+<div class="pa-16">
+
+    <MudText Typo="Typo.h5">Todos private by RLS</MudText>
+    <br>
+    <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors" ValidationDelay="0">
+        <MudCard>
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <h4>New item</h4>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudTextField Label="Title" @bind-Value="model.Title" For="@(() => model.Title)" Required="true"
+                    Immediate="true" />
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto"
+                    OnClick="OnClickSave">
+                    @if (_processingNewItem)
+                    {
+                        <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
+                        <MudText Class="ms-2">Processing</MudText>
+                    }
+                    else
+                    {
+                        <MudText>Save</MudText>
+                    }
+                </MudButton>
+            </MudCardActions>
+
+        </MudCard>
+    </MudForm>
+
+    <br>
+
+    @if (_todoListFiltered == null)
+    {
+        <MudSimpleTable>
+            <thead>
+                <tr>    
+                    <th>Title</th>
+                    <th>Action</th>    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>    
+                    <td><MudSkeleton /></td>
+                    <td><MudSkeleton /></td>
+                </tr>
+            </tbody>
+        </MudSimpleTable>
+    }
+    else if (_todoListFiltered.Count == 0)
+    {
+        <MudSimpleTable>
+            <thead>
+                <tr>    
+                    <th>Title</th>
+                    <th>Action</th>    
+                </tr>
+            </thead>
+            <tbody>
+                <br>
+                <MudText Typo="Typo.body1" Align="Align.Center">There is no items in this table.</MudText>
+                <br>
+            </tbody>
+        </MudSimpleTable>
+    }
+    else
+    {
+        <MudTable Items="@_todoListFiltered" @ref="table" Elevation="1" Bordered="false" Striped="true" Hover="true"
+        SortLabel="Sort By" T="TodoPrivate">
+            <ToolBarContent>
+                <MudTextField T="string" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
+                IconSize="MudBlazor.Size.Medium" Class="mt-0" Clearable="true"
+                ValueChanged="@(s=>OnValueChangedSearch(s))" Placeholder="Search" />
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh>
+                    <MudTableSortLabel SortBy="new Func<TodoPrivate, object>(x=>x.Title)">
+                        Title
+                    </MudTableSortLabel>
+                    <MudTableSortLabel SortBy="new Func<TodoPrivate, object>(x=>x.User_id)">
+                        User_id
+                    </MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    Action
+                </MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="Title">@context?.Title</MudTd>
+                <MudTd DataLabel="User_id">@context?.User_id</MudTd>
+                <MudTd DataLabel="Action">
+                    @* <MudIconButton Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                        Size="MudBlazor.Size.Small"
+                        OnClick="@( (e) => {NavigationManager.NavigateTo($"/todoitems/{context?.Todo?.Id}");})"
+                        /> *@
+                    <MudIconButton Icon="@Icons.Material.Filled.Delete" aria-label="delete" Size="MudBlazor.Size.Small"
+                    OnClick="@(async (e) => {await OnClickDelete(context);})" />
+                </MudTd>
+            </RowTemplate>
+            <PagerContent>
+                <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+            </PagerContent>
+        </MudTable>
+    }
+
+</div>
