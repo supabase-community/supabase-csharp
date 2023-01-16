@@ -1299,6 +1299,15 @@ references:
   fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Clear
   nameWithType: IPostgrestTable<T>.Clear
   nameWithType.vb: IPostgrestTable(Of T).Clear
+- uid: Postgrest.Interfaces.IPostgrestTable`1.Columns(Expression{Func{`0,System.Object[]}})
+  name: Columns(Expression<Func<T, Object[]>>)
+  href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Columns_Expression_Func__0_System_Object_____
+  commentId: M:Postgrest.Interfaces.IPostgrestTable`1.Columns(Expression{Func{`0,System.Object[]}})
+  name.vb: Columns(Expression(Of Func(Of T, Object())))
+  fullName: Postgrest.Interfaces.IPostgrestTable<T>.Columns(Expression<Func<T, System.Object[]>>)
+  fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Columns(Expression(Of Func(Of T, System.Object())))
+  nameWithType: IPostgrestTable<T>.Columns(Expression<Func<T, Object[]>>)
+  nameWithType.vb: IPostgrestTable(Of T).Columns(Expression(Of Func(Of T, Object())))
 - uid: Postgrest.Interfaces.IPostgrestTable`1.Columns(System.String[])
   name: Columns(String[])
   href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Columns_System_String___
@@ -1359,6 +1368,15 @@ references:
   fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Delete
   nameWithType: IPostgrestTable<T>.Delete
   nameWithType.vb: IPostgrestTable(Of T).Delete
+- uid: Postgrest.Interfaces.IPostgrestTable`1.Filter(Expression{Func{`0,System.Object}},Postgrest.Constants.Operator,System.Object)
+  name: Filter(Expression<Func<T, Object>>, Constants.Operator, Object)
+  href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Filter_Expression_Func__0_System_Object___Postgrest_Constants_Operator_System_Object_
+  commentId: M:Postgrest.Interfaces.IPostgrestTable`1.Filter(Expression{Func{`0,System.Object}},Postgrest.Constants.Operator,System.Object)
+  name.vb: Filter(Expression(Of Func(Of T, Object)), Constants.Operator, Object)
+  fullName: Postgrest.Interfaces.IPostgrestTable<T>.Filter(Expression<Func<T, System.Object>>, Postgrest.Constants.Operator, System.Object)
+  fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Filter(Expression(Of Func(Of T, System.Object)), Postgrest.Constants.Operator, System.Object)
+  nameWithType: IPostgrestTable<T>.Filter(Expression<Func<T, Object>>, Constants.Operator, Object)
+  nameWithType.vb: IPostgrestTable(Of T).Filter(Expression(Of Func(Of T, Object)), Constants.Operator, Object)
 - uid: Postgrest.Interfaces.IPostgrestTable`1.Filter(System.String,Postgrest.Constants.Operator,System.Object)
   name: Filter(String, Constants.Operator, Object)
   href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Filter_System_String_Postgrest_Constants_Operator_System_Object_
@@ -1524,6 +1542,15 @@ references:
   fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Offset
   nameWithType: IPostgrestTable<T>.Offset
   nameWithType.vb: IPostgrestTable(Of T).Offset
+- uid: Postgrest.Interfaces.IPostgrestTable`1.OnConflict(Expression{Func{`0,System.Object}})
+  name: OnConflict(Expression<Func<T, Object>>)
+  href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_OnConflict_Expression_Func__0_System_Object___
+  commentId: M:Postgrest.Interfaces.IPostgrestTable`1.OnConflict(Expression{Func{`0,System.Object}})
+  name.vb: OnConflict(Expression(Of Func(Of T, Object)))
+  fullName: Postgrest.Interfaces.IPostgrestTable<T>.OnConflict(Expression<Func<T, System.Object>>)
+  fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).OnConflict(Expression(Of Func(Of T, System.Object)))
+  nameWithType: IPostgrestTable<T>.OnConflict(Expression<Func<T, Object>>)
+  nameWithType.vb: IPostgrestTable(Of T).OnConflict(Expression(Of Func(Of T, Object)))
 - uid: Postgrest.Interfaces.IPostgrestTable`1.OnConflict(System.String)
   name: OnConflict(String)
   href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_OnConflict_System_String_
@@ -1559,6 +1586,15 @@ references:
   fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Or
   nameWithType: IPostgrestTable<T>.Or
   nameWithType.vb: IPostgrestTable(Of T).Or
+- uid: Postgrest.Interfaces.IPostgrestTable`1.Order(Expression{Func{`0,System.Object}},Postgrest.Constants.Ordering,Postgrest.Constants.NullPosition)
+  name: Order(Expression<Func<T, Object>>, Constants.Ordering, Constants.NullPosition)
+  href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Order_Expression_Func__0_System_Object___Postgrest_Constants_Ordering_Postgrest_Constants_NullPosition_
+  commentId: M:Postgrest.Interfaces.IPostgrestTable`1.Order(Expression{Func{`0,System.Object}},Postgrest.Constants.Ordering,Postgrest.Constants.NullPosition)
+  name.vb: Order(Expression(Of Func(Of T, Object)), Constants.Ordering, Constants.NullPosition)
+  fullName: Postgrest.Interfaces.IPostgrestTable<T>.Order(Expression<Func<T, System.Object>>, Postgrest.Constants.Ordering, Postgrest.Constants.NullPosition)
+  fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Order(Expression(Of Func(Of T, System.Object)), Postgrest.Constants.Ordering, Postgrest.Constants.NullPosition)
+  nameWithType: IPostgrestTable<T>.Order(Expression<Func<T, Object>>, Constants.Ordering, Constants.NullPosition)
+  nameWithType.vb: IPostgrestTable(Of T).Order(Expression(Of Func(Of T, Object)), Constants.Ordering, Constants.NullPosition)
 - uid: Postgrest.Interfaces.IPostgrestTable`1.Order(System.String,Postgrest.Constants.Ordering,Postgrest.Constants.NullPosition)
   name: Order(String, Constants.Ordering, Constants.NullPosition)
   href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Order_System_String_Postgrest_Constants_Ordering_Postgrest_Constants_NullPosition_
@@ -1609,6 +1645,15 @@ references:
   fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Range
   nameWithType: IPostgrestTable<T>.Range
   nameWithType.vb: IPostgrestTable(Of T).Range
+- uid: Postgrest.Interfaces.IPostgrestTable`1.Select(Expression{Func{`0,System.Object[]}})
+  name: Select(Expression<Func<T, Object[]>>)
+  href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Select_Expression_Func__0_System_Object_____
+  commentId: M:Postgrest.Interfaces.IPostgrestTable`1.Select(Expression{Func{`0,System.Object[]}})
+  name.vb: Select(Expression(Of Func(Of T, Object())))
+  fullName: Postgrest.Interfaces.IPostgrestTable<T>.Select(Expression<Func<T, System.Object[]>>)
+  fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Select(Expression(Of Func(Of T, System.Object())))
+  nameWithType: IPostgrestTable<T>.Select(Expression<Func<T, Object[]>>)
+  nameWithType.vb: IPostgrestTable(Of T).Select(Expression(Of Func(Of T, Object())))
 - uid: Postgrest.Interfaces.IPostgrestTable`1.Select(System.String)
   name: Select(String)
   href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Select_System_String_
@@ -1626,6 +1671,24 @@ references:
   fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Select
   nameWithType: IPostgrestTable<T>.Select
   nameWithType.vb: IPostgrestTable(Of T).Select
+- uid: Postgrest.Interfaces.IPostgrestTable`1.Set(Expression{Func{`0,KeyValuePair{System.Object,System.Object}}})
+  name: Set(Expression<Func<T, KeyValuePair<Object, Object>>>)
+  href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Set_Expression_Func__0_KeyValuePair_System_Object_System_Object____
+  commentId: M:Postgrest.Interfaces.IPostgrestTable`1.Set(Expression{Func{`0,KeyValuePair{System.Object,System.Object}}})
+  name.vb: Set(Expression(Of Func(Of T, KeyValuePair(Of Object, Object))))
+  fullName: Postgrest.Interfaces.IPostgrestTable<T>.Set(Expression<Func<T, KeyValuePair<System.Object, System.Object>>>)
+  fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Set(Expression(Of Func(Of T, KeyValuePair(Of System.Object, System.Object))))
+  nameWithType: IPostgrestTable<T>.Set(Expression<Func<T, KeyValuePair<Object, Object>>>)
+  nameWithType.vb: IPostgrestTable(Of T).Set(Expression(Of Func(Of T, KeyValuePair(Of Object, Object))))
+- uid: Postgrest.Interfaces.IPostgrestTable`1.Set*
+  name: Set
+  href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Set_
+  commentId: Overload:Postgrest.Interfaces.IPostgrestTable`1.Set
+  isSpec: "True"
+  fullName: Postgrest.Interfaces.IPostgrestTable<T>.Set
+  fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Set
+  nameWithType: IPostgrestTable<T>.Set
+  nameWithType.vb: IPostgrestTable(Of T).Set
 - uid: Postgrest.Interfaces.IPostgrestTable`1.Single(CancellationToken)
   name: Single(CancellationToken)
   href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Single_CancellationToken_
@@ -1668,6 +1731,14 @@ references:
   fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Update(T, Postgrest.QueryOptions, CancellationToken)
   nameWithType: IPostgrestTable<T>.Update(T, QueryOptions, CancellationToken)
   nameWithType.vb: IPostgrestTable(Of T).Update(T, QueryOptions, CancellationToken)
+- uid: Postgrest.Interfaces.IPostgrestTable`1.Update(Postgrest.QueryOptions,CancellationToken)
+  name: Update(QueryOptions, CancellationToken)
+  href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Update_Postgrest_QueryOptions_CancellationToken_
+  commentId: M:Postgrest.Interfaces.IPostgrestTable`1.Update(Postgrest.QueryOptions,CancellationToken)
+  fullName: Postgrest.Interfaces.IPostgrestTable<T>.Update(Postgrest.QueryOptions, CancellationToken)
+  fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Update(Postgrest.QueryOptions, CancellationToken)
+  nameWithType: IPostgrestTable<T>.Update(QueryOptions, CancellationToken)
+  nameWithType.vb: IPostgrestTable(Of T).Update(QueryOptions, CancellationToken)
 - uid: Postgrest.Interfaces.IPostgrestTable`1.Update*
   name: Update
   href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Update_
@@ -1703,6 +1774,24 @@ references:
   fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Upsert
   nameWithType: IPostgrestTable<T>.Upsert
   nameWithType.vb: IPostgrestTable(Of T).Upsert
+- uid: Postgrest.Interfaces.IPostgrestTable`1.Where(Expression{Func{`0,System.Boolean}})
+  name: Where(Expression<Func<T, Boolean>>)
+  href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Where_Expression_Func__0_System_Boolean___
+  commentId: M:Postgrest.Interfaces.IPostgrestTable`1.Where(Expression{Func{`0,System.Boolean}})
+  name.vb: Where(Expression(Of Func(Of T, Boolean)))
+  fullName: Postgrest.Interfaces.IPostgrestTable<T>.Where(Expression<Func<T, System.Boolean>>)
+  fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Where(Expression(Of Func(Of T, System.Boolean)))
+  nameWithType: IPostgrestTable<T>.Where(Expression<Func<T, Boolean>>)
+  nameWithType.vb: IPostgrestTable(Of T).Where(Expression(Of Func(Of T, Boolean)))
+- uid: Postgrest.Interfaces.IPostgrestTable`1.Where*
+  name: Where
+  href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Where_
+  commentId: Overload:Postgrest.Interfaces.IPostgrestTable`1.Where
+  isSpec: "True"
+  fullName: Postgrest.Interfaces.IPostgrestTable<T>.Where
+  fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Where
+  nameWithType: IPostgrestTable<T>.Where
+  nameWithType.vb: IPostgrestTable(Of T).Where
 - uid: Postgrest.IntRange
   name: IntRange
   href: api/Postgrest.IntRange.html
@@ -2585,6 +2674,15 @@ references:
   fullName.vb: Postgrest.Table(Of T).Clear
   nameWithType: Table<T>.Clear
   nameWithType.vb: Table(Of T).Clear
+- uid: Postgrest.Table`1.Columns(Expression{Func{`0,System.Object[]}})
+  name: Columns(Expression<Func<T, Object[]>>)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Columns_Expression_Func__0_System_Object_____
+  commentId: M:Postgrest.Table`1.Columns(Expression{Func{`0,System.Object[]}})
+  name.vb: Columns(Expression(Of Func(Of T, Object())))
+  fullName: Postgrest.Table<T>.Columns(Expression<Func<T, System.Object[]>>)
+  fullName.vb: Postgrest.Table(Of T).Columns(Expression(Of Func(Of T, System.Object())))
+  nameWithType: Table<T>.Columns(Expression<Func<T, Object[]>>)
+  nameWithType.vb: Table(Of T).Columns(Expression(Of Func(Of T, Object())))
 - uid: Postgrest.Table`1.Columns(System.String[])
   name: Columns(String[])
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_Columns_System_String___
@@ -2645,6 +2743,15 @@ references:
   fullName.vb: Postgrest.Table(Of T).Delete
   nameWithType: Table<T>.Delete
   nameWithType.vb: Table(Of T).Delete
+- uid: Postgrest.Table`1.Filter(Expression{Func{`0,System.Object}},Postgrest.Constants.Operator,System.Object)
+  name: Filter(Expression<Func<T, Object>>, Constants.Operator, Object)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Filter_Expression_Func__0_System_Object___Postgrest_Constants_Operator_System_Object_
+  commentId: M:Postgrest.Table`1.Filter(Expression{Func{`0,System.Object}},Postgrest.Constants.Operator,System.Object)
+  name.vb: Filter(Expression(Of Func(Of T, Object)), Constants.Operator, Object)
+  fullName: Postgrest.Table<T>.Filter(Expression<Func<T, System.Object>>, Postgrest.Constants.Operator, System.Object)
+  fullName.vb: Postgrest.Table(Of T).Filter(Expression(Of Func(Of T, System.Object)), Postgrest.Constants.Operator, System.Object)
+  nameWithType: Table<T>.Filter(Expression<Func<T, Object>>, Constants.Operator, Object)
+  nameWithType.vb: Table(Of T).Filter(Expression(Of Func(Of T, Object)), Constants.Operator, Object)
 - uid: Postgrest.Table`1.Filter(System.String,Postgrest.Constants.Operator,System.Object)
   name: Filter(String, Constants.Operator, Object)
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_Filter_System_String_Postgrest_Constants_Operator_System_Object_
@@ -2844,6 +2951,15 @@ references:
   fullName.vb: Postgrest.Table(Of T).Offset
   nameWithType: Table<T>.Offset
   nameWithType.vb: Table(Of T).Offset
+- uid: Postgrest.Table`1.OnConflict(Expression{Func{`0,System.Object}})
+  name: OnConflict(Expression<Func<T, Object>>)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_OnConflict_Expression_Func__0_System_Object___
+  commentId: M:Postgrest.Table`1.OnConflict(Expression{Func{`0,System.Object}})
+  name.vb: OnConflict(Expression(Of Func(Of T, Object)))
+  fullName: Postgrest.Table<T>.OnConflict(Expression<Func<T, System.Object>>)
+  fullName.vb: Postgrest.Table(Of T).OnConflict(Expression(Of Func(Of T, System.Object)))
+  nameWithType: Table<T>.OnConflict(Expression<Func<T, Object>>)
+  nameWithType.vb: Table(Of T).OnConflict(Expression(Of Func(Of T, Object)))
 - uid: Postgrest.Table`1.OnConflict(System.String)
   name: OnConflict(String)
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_OnConflict_System_String_
@@ -2879,6 +2995,15 @@ references:
   fullName.vb: Postgrest.Table(Of T).Or
   nameWithType: Table<T>.Or
   nameWithType.vb: Table(Of T).Or
+- uid: Postgrest.Table`1.Order(Expression{Func{`0,System.Object}},Postgrest.Constants.Ordering,Postgrest.Constants.NullPosition)
+  name: Order(Expression<Func<T, Object>>, Constants.Ordering, Constants.NullPosition)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Order_Expression_Func__0_System_Object___Postgrest_Constants_Ordering_Postgrest_Constants_NullPosition_
+  commentId: M:Postgrest.Table`1.Order(Expression{Func{`0,System.Object}},Postgrest.Constants.Ordering,Postgrest.Constants.NullPosition)
+  name.vb: Order(Expression(Of Func(Of T, Object)), Constants.Ordering, Constants.NullPosition)
+  fullName: Postgrest.Table<T>.Order(Expression<Func<T, System.Object>>, Postgrest.Constants.Ordering, Postgrest.Constants.NullPosition)
+  fullName.vb: Postgrest.Table(Of T).Order(Expression(Of Func(Of T, System.Object)), Postgrest.Constants.Ordering, Postgrest.Constants.NullPosition)
+  nameWithType: Table<T>.Order(Expression<Func<T, Object>>, Constants.Ordering, Constants.NullPosition)
+  nameWithType.vb: Table(Of T).Order(Expression(Of Func(Of T, Object)), Constants.Ordering, Constants.NullPosition)
 - uid: Postgrest.Table`1.Order(System.String,Postgrest.Constants.Ordering,Postgrest.Constants.NullPosition)
   name: Order(String, Constants.Ordering, Constants.NullPosition)
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_Order_System_String_Postgrest_Constants_Ordering_Postgrest_Constants_NullPosition_
@@ -2929,6 +3054,15 @@ references:
   fullName.vb: Postgrest.Table(Of T).Range
   nameWithType: Table<T>.Range
   nameWithType.vb: Table(Of T).Range
+- uid: Postgrest.Table`1.Select(Expression{Func{`0,System.Object[]}})
+  name: Select(Expression<Func<T, Object[]>>)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Select_Expression_Func__0_System_Object_____
+  commentId: M:Postgrest.Table`1.Select(Expression{Func{`0,System.Object[]}})
+  name.vb: Select(Expression(Of Func(Of T, Object())))
+  fullName: Postgrest.Table<T>.Select(Expression<Func<T, System.Object[]>>)
+  fullName.vb: Postgrest.Table(Of T).Select(Expression(Of Func(Of T, System.Object())))
+  nameWithType: Table<T>.Select(Expression<Func<T, Object[]>>)
+  nameWithType.vb: Table(Of T).Select(Expression(Of Func(Of T, Object())))
 - uid: Postgrest.Table`1.Select(System.String)
   name: Select(String)
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_Select_System_String_
@@ -2946,6 +3080,24 @@ references:
   fullName.vb: Postgrest.Table(Of T).Select
   nameWithType: Table<T>.Select
   nameWithType.vb: Table(Of T).Select
+- uid: Postgrest.Table`1.Set(Expression{Func{`0,KeyValuePair{System.Object,System.Object}}})
+  name: Set(Expression<Func<T, KeyValuePair<Object, Object>>>)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Set_Expression_Func__0_KeyValuePair_System_Object_System_Object____
+  commentId: M:Postgrest.Table`1.Set(Expression{Func{`0,KeyValuePair{System.Object,System.Object}}})
+  name.vb: Set(Expression(Of Func(Of T, KeyValuePair(Of Object, Object))))
+  fullName: Postgrest.Table<T>.Set(Expression<Func<T, KeyValuePair<System.Object, System.Object>>>)
+  fullName.vb: Postgrest.Table(Of T).Set(Expression(Of Func(Of T, KeyValuePair(Of System.Object, System.Object))))
+  nameWithType: Table<T>.Set(Expression<Func<T, KeyValuePair<Object, Object>>>)
+  nameWithType.vb: Table(Of T).Set(Expression(Of Func(Of T, KeyValuePair(Of Object, Object))))
+- uid: Postgrest.Table`1.Set*
+  name: Set
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Set_
+  commentId: Overload:Postgrest.Table`1.Set
+  isSpec: "True"
+  fullName: Postgrest.Table<T>.Set
+  fullName.vb: Postgrest.Table(Of T).Set
+  nameWithType: Table<T>.Set
+  nameWithType.vb: Table(Of T).Set
 - uid: Postgrest.Table`1.Single(CancellationToken)
   name: Single(CancellationToken)
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_Single_CancellationToken_
@@ -2988,6 +3140,14 @@ references:
   fullName.vb: Postgrest.Table(Of T).Update(T, Postgrest.QueryOptions, CancellationToken)
   nameWithType: Table<T>.Update(T, QueryOptions, CancellationToken)
   nameWithType.vb: Table(Of T).Update(T, QueryOptions, CancellationToken)
+- uid: Postgrest.Table`1.Update(Postgrest.QueryOptions,CancellationToken)
+  name: Update(QueryOptions, CancellationToken)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Update_Postgrest_QueryOptions_CancellationToken_
+  commentId: M:Postgrest.Table`1.Update(Postgrest.QueryOptions,CancellationToken)
+  fullName: Postgrest.Table<T>.Update(Postgrest.QueryOptions, CancellationToken)
+  fullName.vb: Postgrest.Table(Of T).Update(Postgrest.QueryOptions, CancellationToken)
+  nameWithType: Table<T>.Update(QueryOptions, CancellationToken)
+  nameWithType.vb: Table(Of T).Update(QueryOptions, CancellationToken)
 - uid: Postgrest.Table`1.Update*
   name: Update
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_Update_
@@ -3023,6 +3183,24 @@ references:
   fullName.vb: Postgrest.Table(Of T).Upsert
   nameWithType: Table<T>.Upsert
   nameWithType.vb: Table(Of T).Upsert
+- uid: Postgrest.Table`1.Where(Expression{Func{`0,System.Boolean}})
+  name: Where(Expression<Func<T, Boolean>>)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Where_Expression_Func__0_System_Boolean___
+  commentId: M:Postgrest.Table`1.Where(Expression{Func{`0,System.Boolean}})
+  name.vb: Where(Expression(Of Func(Of T, Boolean)))
+  fullName: Postgrest.Table<T>.Where(Expression<Func<T, System.Boolean>>)
+  fullName.vb: Postgrest.Table(Of T).Where(Expression(Of Func(Of T, System.Boolean)))
+  nameWithType: Table<T>.Where(Expression<Func<T, Boolean>>)
+  nameWithType.vb: Table(Of T).Where(Expression(Of Func(Of T, Boolean)))
+- uid: Postgrest.Table`1.Where*
+  name: Where
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Where_
+  commentId: Overload:Postgrest.Table`1.Where
+  isSpec: "True"
+  fullName: Postgrest.Table<T>.Where
+  fullName.vb: Postgrest.Table(Of T).Where
+  nameWithType: Table<T>.Where
+  nameWithType.vb: Table(Of T).Where
 - uid: Storage.Interfaces
   name: Storage.Interfaces
   href: api/Storage.Interfaces.html
