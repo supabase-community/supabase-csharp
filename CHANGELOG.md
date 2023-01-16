@@ -1,8 +1,14 @@
 ﻿# Changelog
 
+## 0.7.0 - 2023-01-16
+
+- Update dependency: postgrest-csharp@3.1.0
+    - [Minor] Breaking API Change: `PrimaryKey` attribute defaults to `shouldInsert: false` as most uses will have the Database generate the primary key.
+    - Merged [#60](https://github.com/supabase-community/postgrest-csharp/pull/60) which Added linq support for `Select`, `Where`, `OnConflict`, `Columns`, `Order`, `Update`, `Set`, and `Delete`
+
 ## 0.6.2 - 2022-11-22
 
-- Update depedency: postgrest-csharp@3.0.4
+- Update dependency: postgrest-csharp@3.0.4
   - `GetHeaders` is now passed to `ModeledResponse` and `BaseModel` so that the default `Update` and `Delete` methods use the latest credentials
   - `GetHeaders` is used in `Rpc` calls (re: [#39](https://github.com/supabase-community/supabase-csharp/issues/39))
 
