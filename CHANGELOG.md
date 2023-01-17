@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 0.7.1 - 2023-01-17
+
+- Update dependency: postgrest-csharp@3.1.1
+    - Fix issue from supabase-community/supabase-csharp#48 where boolean model properties would not be evaluated in predicate expressions
+
 ## 0.7.0 - 2023-01-16
 
 - Update dependency: postgrest-csharp@3.1.0
