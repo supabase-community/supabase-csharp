@@ -1680,6 +1680,15 @@ references:
   fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Set(Expression(Of Func(Of T, KeyValuePair(Of System.Object, System.Object))))
   nameWithType: IPostgrestTable<T>.Set(Expression<Func<T, KeyValuePair<Object, Object>>>)
   nameWithType.vb: IPostgrestTable(Of T).Set(Expression(Of Func(Of T, KeyValuePair(Of Object, Object))))
+- uid: Postgrest.Interfaces.IPostgrestTable`1.Set(Expression{Func{`0,System.Object}},System.Object)
+  name: Set(Expression<Func<T, Object>>, Object)
+  href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Set_Expression_Func__0_System_Object___System_Object_
+  commentId: M:Postgrest.Interfaces.IPostgrestTable`1.Set(Expression{Func{`0,System.Object}},System.Object)
+  name.vb: Set(Expression(Of Func(Of T, Object)), Object)
+  fullName: Postgrest.Interfaces.IPostgrestTable<T>.Set(Expression<Func<T, System.Object>>, System.Object)
+  fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Set(Expression(Of Func(Of T, System.Object)), System.Object)
+  nameWithType: IPostgrestTable<T>.Set(Expression<Func<T, Object>>, Object)
+  nameWithType.vb: IPostgrestTable(Of T).Set(Expression(Of Func(Of T, Object)), Object)
 - uid: Postgrest.Interfaces.IPostgrestTable`1.Set*
   name: Set
   href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Set_
@@ -3089,6 +3098,15 @@ references:
   fullName.vb: Postgrest.Table(Of T).Set(Expression(Of Func(Of T, KeyValuePair(Of System.Object, System.Object))))
   nameWithType: Table<T>.Set(Expression<Func<T, KeyValuePair<Object, Object>>>)
   nameWithType.vb: Table(Of T).Set(Expression(Of Func(Of T, KeyValuePair(Of Object, Object))))
+- uid: Postgrest.Table`1.Set(Expression{Func{`0,System.Object}},System.Object)
+  name: Set(Expression<Func<T, Object>>, Object)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Set_Expression_Func__0_System_Object___System_Object_
+  commentId: M:Postgrest.Table`1.Set(Expression{Func{`0,System.Object}},System.Object)
+  name.vb: Set(Expression(Of Func(Of T, Object)), Object)
+  fullName: Postgrest.Table<T>.Set(Expression<Func<T, System.Object>>, System.Object)
+  fullName.vb: Postgrest.Table(Of T).Set(Expression(Of Func(Of T, System.Object)), System.Object)
+  nameWithType: Table<T>.Set(Expression<Func<T, Object>>, Object)
+  nameWithType.vb: Table(Of T).Set(Expression(Of Func(Of T, Object)), Object)
 - uid: Postgrest.Table`1.Set*
   name: Set
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_Set_
