@@ -31,7 +31,7 @@
 	<ItemGroup>
 		<PackageReference Include="functions-csharp" Version="1.2.1" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-		<PackageReference Include="postgrest-csharp" Version="3.1.0" />
+		<PackageReference Include="postgrest-csharp" Version="3.1.1" />
 		<PackageReference Include="realtime-csharp" Version="4.0.1" />
 		<PackageReference Include="gotrue-csharp" Version="3.0.3" />
 		<PackageReference Include="supabase-core" Version="0.0.2" />
