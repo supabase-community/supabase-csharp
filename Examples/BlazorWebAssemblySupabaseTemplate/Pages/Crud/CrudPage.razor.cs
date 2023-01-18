@@ -33,7 +33,8 @@ public partial class CrudPage
     // ---------------- DELETE
     private async Task OnClickDelete(Todo item)
     {
-        await DatabaseService.Delete<Todo>(item);        
+        await DatabaseService.SoftDelete(item);
+
         await GetTable();
     }
 

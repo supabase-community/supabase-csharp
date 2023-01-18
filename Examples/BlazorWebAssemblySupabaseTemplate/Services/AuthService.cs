@@ -16,7 +16,7 @@ public class AuthService
     private readonly ILogger<AuthService> logger;
 
     public AuthService(
-		 Supabase.Client client,
+        Supabase.Client client,
         AuthenticationStateProvider CustomAuthStateProvider, 
         ILocalStorageService localStorage,
         ILogger<AuthService> logger
