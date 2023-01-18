@@ -12,25 +12,26 @@ public class CustomAuthStateProvider : AuthenticationStateProvider
 {
     private readonly ILocalStorageService _localStorage;
     private readonly Supabase.Client _client;
-    // private readonly IHttpClientFactory httpClientFactory;
 
-    // private readonly HttpClient _http;
+    private readonly ILogger<CustomAuthStateProvider> _logger;
 
     public CustomAuthStateProvider(
         ILocalStorageService localStorage,
-        Supabase.Client client
-        // IHttpClientFactory httpClientFactory
-        // HttpClient http
+        Supabase.Client client,
+        ILogger<CustomAuthStateProvider> logger
     )
     {
+        logger.LogInformation("------------------- CONSTRUCTOR -------------------");
+
         _localStorage = localStorage;
-        _client = client;  
-        // this.httpClientFactory = httpClientFactory;
-        // _http = http;
+        _client = client;
+        _logger = logger;
     }
 
     public override async Task<AuthenticationState> GetAuthenticationStateAsync()
     {
+        _logger.LogInformation("------------------- GetAuthenticationStateAsync -------------------");
+
         // Sets client auth and connects to realtime (if enabled)
         await _client.InitializeAsync();
 
