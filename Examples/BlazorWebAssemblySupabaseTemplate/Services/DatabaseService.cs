@@ -6,6 +6,7 @@ using Supabase.Gotrue;
 using Supabase.Interfaces;
 using Supabase.Realtime;
 using Supabase.Storage;
+using static Postgrest.Constants;
 
 namespace BlazorWebAssemblySupabaseTemplate.Services;
 
@@ -17,7 +18,7 @@ public class DatabaseService
 	private readonly ILogger<DatabaseService> logger;
 
 	public DatabaseService(
-		 Supabase.Client client,
+		Supabase.Client client,
 		AuthenticationStateProvider CustomAuthStateProvider,
 		ILocalStorageService localStorage,
 		ILogger<DatabaseService> logger
@@ -31,22 +32,41 @@ public class DatabaseService
 		this.logger = logger;
 	}
 
-	public async Task<IReadOnlyList<TModel>> From<TModel>() where TModel : BaseModel, new()
+	public async Task<IReadOnlyList<TModel>> From<TModel>() where TModel : BaseModelApp, new()
 	{
-		Postgrest.Responses.ModeledResponse<TModel> modeledResponse = await client.From<TModel>().Get();
+		Postgrest.Responses.ModeledResponse<TModel> modeledResponse = await client
+			.From<TModel>()
+			.Where(x => x.SoftDeleted == false)
+			.Get();
 		return modeledResponse.Models;
 	}
 
-	public async Task<List<TModel>> Delete<TModel>(TModel item) where TModel : BaseModel, new()
+	public async Task<List<TModel>> Delete<TModel>(TModel item) where TModel : BaseModelApp, new()
 	{
-		Postgrest.Responses.ModeledResponse<TModel> modeledResponse = await client.From<TModel>().Delete(item);
+		Postgrest.Responses.ModeledResponse<TModel> modeledResponse = await client
+			.From<TModel>()
+			.Delete(item);
 		return modeledResponse.Models;
 	}
 
-	public async Task<List<TModel>> Insert<TModel>(TModel item) where TModel : BaseModel, new()
+	public async Task<List<TModel>> Insert<TModel>(TModel item) where TModel : BaseModelApp, new()
 	{
-		Postgrest.Responses.ModeledResponse<TModel> modeledResponse = await client.From<TModel>().Insert(item);
+		Postgrest.Responses.ModeledResponse<TModel> modeledResponse = await client
+			.From<TModel>()
+			.Insert(item);
 		return modeledResponse.Models;
 	}
+
+	public async Task<List<TModel>> SoftDelete<TModel>(TModel item) where TModel : BaseModelApp, new()
+    {
+        Postgrest.Responses.ModeledResponse<TModel> modeledResponse = await client.Postgrest
+			.Table<TModel>()
+            .Set(x => x.SoftDeleted, true)
+            .Set(x => x.SoftDeletedAt, DateTime.Now)
+            .Where(x => x.Id == item.Id)
+            // .Filter(x => x.Id, Operator.Equals, item.Id)
+            .Update();
+        return modeledResponse.Models;
+    }
 
 }
