@@ -36,7 +36,7 @@ public class DatabaseService
 	{
 		Postgrest.Responses.ModeledResponse<TModel> modeledResponse = await client
 			.From<TModel>()
-			.Filter("SoftDeleted", Postgrest.Constants.Operator.Equals, "false")
+			.Where(x => x.SoftDeleted == false)
 			.Get();
 		return modeledResponse.Models;
 	}
@@ -61,8 +61,8 @@ public class DatabaseService
     {
         Postgrest.Responses.ModeledResponse<TModel> modeledResponse = await client.Postgrest
 			.Table<TModel>()
-            .Set(x => new KeyValuePair<object,object>(x.SoftDeleted, true))
-            .Set(x => new KeyValuePair<object,object>(x.SoftDeletedAt, DateTime.Now))
+            .Set(x => x.SoftDeleted, true)
+            .Set(x => x.SoftDeletedAt, DateTime.Now)
             .Where(x => x.Id == item.Id)
             // .Filter(x => x.Id, Operator.Equals, item.Id)
             .Update();
