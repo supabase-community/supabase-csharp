@@ -23,7 +23,7 @@ public class CustomSupabaseSessionHandler : ISupabaseSessionHandler
     public async Task<bool> SessionDestroyer()
     {
         logger.LogInformation("------------------- SessionDestroyer -------------------");
-        await localStorage.RemoveItemAsync(SESSION_KEY); 
+        await localStorage.RemoveItemAsync(SESSION_KEY);
         return true;
     }
 
@@ -37,6 +37,32 @@ public class CustomSupabaseSessionHandler : ISupabaseSessionHandler
     public async Task<TSession?> SessionRetriever<TSession>() where TSession : Session
     {
         logger.LogInformation("------------------- SessionRetriever -------------------");
-        return (TSession?) await localStorage.GetItemAsync<Session>(SESSION_KEY);
+
+        // Session session = await localStorage.GetItemAsync<Session>(SESSION_KEY);
+        Session2 session = await localStorage.GetItemAsync<Session2>(SESSION_KEY); // work around
+
+        Console.WriteLine("session.CreatedAt");
+        Console.WriteLine(session?.CreatedAt);
+        Console.WriteLine("session.ExpiresAt");
+        Console.WriteLine(session?.ExpiresAt());
+
+        if(session?.ExpiresAt() <= DateTime.Now)
+            return null;
+        else
+            return (TSession?) await localStorage.GetItemAsync<Session>(SESSION_KEY);
     }
+
 }
+
+public class Session2
+{
+    public string? AccessToken { get; set; }
+    public int ExpiresIn { get; set; }
+    public string? RefreshToken { get; set; }
+    public string? TokenType { get; set; }
+    public User? User { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public DateTime ExpiresAt() => new DateTime(CreatedAt.Ticks).AddSeconds(ExpiresIn);
+}
+
+
