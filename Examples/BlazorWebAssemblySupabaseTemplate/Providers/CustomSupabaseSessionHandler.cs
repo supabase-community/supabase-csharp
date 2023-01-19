@@ -8,16 +8,19 @@ public class CustomSupabaseSessionHandler : ISupabaseSessionHandler
 {
     private readonly ILocalStorageService localStorage;
     private readonly ILogger<CustomSupabaseSessionHandler> logger;
+    private readonly Supabase.Client client;
     private static string SESSION_KEY = "SUPABASE_SESSION";
 
     public CustomSupabaseSessionHandler(
         ILocalStorageService localStorage,
-        ILogger<CustomSupabaseSessionHandler> logger
+        ILogger<CustomSupabaseSessionHandler> logger,
+        Supabase.Client client
     )
     {
         logger.LogInformation("------------------- CONSTRUCTOR -------------------");
         this.localStorage = localStorage;
         this.logger = logger;
+        this.client = client;
     }
 
     public async Task<bool> SessionDestroyer()
@@ -38,18 +41,18 @@ public class CustomSupabaseSessionHandler : ISupabaseSessionHandler
     {
         logger.LogInformation("------------------- SessionRetriever -------------------");
 
-        // Session session = await localStorage.GetItemAsync<Session>(SESSION_KEY);
-        Session2 session = await localStorage.GetItemAsync<Session2>(SESSION_KEY); // work around
-
-        Console.WriteLine("session.CreatedAt");
-        Console.WriteLine(session?.CreatedAt);
-        Console.WriteLine("session.ExpiresAt");
-        Console.WriteLine(session?.ExpiresAt());
-
-        if(session?.ExpiresAt() <= DateTime.Now)
-            return null;
+        Session session = await localStorage.GetItemAsync<Session>(SESSION_KEY);
+        
+        if( await client.Auth.GetUser(session?.AccessToken) is not null )
+            return (TSession?)session;
         else
-            return (TSession?) await localStorage.GetItemAsync<Session>(SESSION_KEY);
+            return null;
+
+        // if(session?.ExpiresAt() <= DateTime.Now)
+        //     return null;
+        // else
+        //     return (TSession?) await localStorage.GetItemAsync<Session>(SESSION_KEY);
+        // return null;
     }
 
 }
