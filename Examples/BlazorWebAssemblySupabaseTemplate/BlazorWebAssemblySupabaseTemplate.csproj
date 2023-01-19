@@ -9,12 +9,12 @@
 
   <ItemGroup>
     <PackageReference Include="Blazored.LocalStorage" Version="4.3.0" />
+    <PackageReference Include="gotrue-csharp" Version="3.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.0" PrivateAssets="all" />
     <PackageReference Include="MudBlazor" Version="6.1.0" />
     <PackageReference Include="supabase-csharp" Version="0.7.1" />
-    <!-- <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" /> -->
   </ItemGroup>
 
   <ItemGroup>
