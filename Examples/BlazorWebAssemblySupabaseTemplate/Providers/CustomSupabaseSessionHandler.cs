@@ -8,19 +8,16 @@ public class CustomSupabaseSessionHandler : ISupabaseSessionHandler
 {
     private readonly ILocalStorageService localStorage;
     private readonly ILogger<CustomSupabaseSessionHandler> logger;
-    private readonly Supabase.Client client;
     private static string SESSION_KEY = "SUPABASE_SESSION";
 
     public CustomSupabaseSessionHandler(
         ILocalStorageService localStorage,
-        ILogger<CustomSupabaseSessionHandler> logger,
-        Supabase.Client client
+        ILogger<CustomSupabaseSessionHandler> logger
     )
     {
         logger.LogInformation("------------------- CONSTRUCTOR -------------------");
         this.localStorage = localStorage;
         this.logger = logger;
-        this.client = client;
     }
 
     public async Task<bool> SessionDestroyer()
@@ -43,29 +40,16 @@ public class CustomSupabaseSessionHandler : ISupabaseSessionHandler
 
         Session session = await localStorage.GetItemAsync<Session>(SESSION_KEY);
         
-        if( await client.Auth.GetUser(session?.AccessToken) is not null )
-            return (TSession?)session;
-        else
-            return null;
-
-        // if(session?.ExpiresAt() <= DateTime.Now)
-        //     return null;
+        // it didn't work, I think because of the race condition pointed few months ago by Joseph
+        // if( await client.Auth.GetUser(session?.AccessToken) is not null )
+        //     return (TSession?)session;
         // else
-        //     return (TSession?) await localStorage.GetItemAsync<Session>(SESSION_KEY);
-        // return null;
+        //     return null;
+
+        if(session?.ExpiresAt() <= DateTime.Now)
+            return null;
+        else
+            return (TSession?) await localStorage.GetItemAsync<Session>(SESSION_KEY);
     }
 
 }
-
-public class Session2
-{
-    public string? AccessToken { get; set; }
-    public int ExpiresIn { get; set; }
-    public string? RefreshToken { get; set; }
-    public string? TokenType { get; set; }
-    public User? User { get; set; }
-    public DateTime CreatedAt { get; set; }
-    public DateTime ExpiresAt() => new DateTime(CreatedAt.Ticks).AddSeconds(ExpiresIn);
-}
-
-

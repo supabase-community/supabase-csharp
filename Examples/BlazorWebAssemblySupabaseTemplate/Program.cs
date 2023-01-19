@@ -47,8 +47,7 @@ builder.Services.AddScoped<Supabase.Client>(
 			PersistSession = true,
 			SessionHandler = new CustomSupabaseSessionHandler(
 				provider.GetRequiredService<ILocalStorageService>(),
-				provider.GetRequiredService<ILogger<CustomSupabaseSessionHandler>>(),
-				provider.GetRequiredService<Supabase.Client>()
+				provider.GetRequiredService<ILogger<CustomSupabaseSessionHandler>>()
 			)
 		}
 	)
