@@ -46,6 +46,7 @@ public class CustomSupabaseSessionHandler : ISupabaseSessionHandler
         // else
         //     return null;
 
+        // fix JWT already expired
         if(session?.ExpiresAt() <= DateTime.Now)
             return null;
         else
