@@ -49,4 +49,10 @@ public class AuthService
         await customAuthStateProvider.GetAuthenticationStateAsync();
     }
 
+    public async Task<User?> GetUser()
+    {
+        Session? session = await client.Auth.RetrieveSessionAsync();
+        return session?.User;
+    }
+
 }

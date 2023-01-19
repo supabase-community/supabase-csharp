@@ -29,9 +29,9 @@ CREATE POLICY "Users can DELETE if own row"
     TO authenticated
     USING ( auth.uid() = user_id );
 
-CREATE POLICY "Users can SELECT if authenticated"
+CREATE POLICY "Users can INSERT only if own uuid"
     ON "public"."TodoPrivate" 
     AS PERMISSIVE
     FOR INSERT
     TO authenticated
-    WITH CHECK (true);
+    WITH CHECK (auth.uid() = user_id);
