@@ -1,5 +1,13 @@
 ﻿# Changelog
 
+## 0.7.2 - 2023-01-27
+
+- Update dependency: gotrue-csharp@3.0.4
+    - Makes `Session.CreatedAt` a publicly settable property, which should fix incorrect dates on retrieved `Session`s.
+- Update dependency: postgrest-csharp@3.1.2
+    - Fix [#61](https://github.com/supabase-community/postgrest-csharp/issues/61) which did not correctly parse Linq `Where` when encountering a nullable type.
+    - Add missing support for transforming for `== null` and `!= null`
+
 ## 0.7.1 - 2023-01-17
 
 - Update dependency: postgrest-csharp@3.1.1
