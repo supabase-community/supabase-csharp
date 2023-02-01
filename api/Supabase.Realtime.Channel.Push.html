@@ -68,10 +68,10 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Supabase.Realtime.Push">
+            <article class="content wrap" id="_content" data-uid="Supabase.Realtime.Channel.Push">
   
   
-  <h1 id="Supabase_Realtime_Push" data-uid="Supabase.Realtime.Push" class="text-break">Class Push
+  <h1 id="Supabase_Realtime_Channel_Push" data-uid="Supabase.Realtime.Channel.Push" class="text-break">Class Push
   </h1>
   <div class="markdown level0 summary"><p>Class representation of a single request sent to the Socket server.</p>
 <p><code>Push</code> also adds additional functionality for retrying, timeouts, and listeners
@@ -85,31 +85,31 @@ for its associated response from the server.</p>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimePush-2.html">IRealtimePush</a>&lt;<a class="xref" href="Supabase.Realtime.Channel.html">Channel</a>, <a class="xref" href="Supabase.Realtime.SocketResponse.html">SocketResponse</a>&gt;</div>
+    <div><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimePush-2.html">IRealtimePush</a>&lt;<a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>, <a class="xref" href="Supabase.Realtime.Socket.SocketResponse.html">SocketResponse</a>&gt;</div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Realtime.html">Supabase.Realtime</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Realtime.Channel.html">Supabase.Realtime.Channel</a></h6>
   <h6><strong>Assembly</strong>: Realtime.dll</h6>
-  <h5 id="Supabase_Realtime_Push_syntax">Syntax</h5>
+  <h5 id="Supabase_Realtime_Channel_Push_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Push : object, IRealtimePush&lt;Channel, SocketResponse&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class Push : object, IRealtimePush&lt;RealtimeChannel, SocketResponse&gt;</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Push__ctor_Supabase_Realtime_Interfaces_IRealtimeSocket_Supabase_Realtime_Channel_System_String_System_Nullable_System_Object__System_Int32_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Push.%23ctor(Supabase.Realtime.Interfaces.IRealtimeSocket%2CSupabase.Realtime.Channel%2CSystem.String%2CSystem.Nullable%7BSystem.Object%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/7b2d949ee694700b991e641d907e74caeda9bdbb/apiSpec/new?filename=Supabase_Realtime_Channel_Push__ctor_Supabase_Realtime_Interfaces_IRealtimeSocket_Supabase_Realtime_RealtimeChannel_System_String_System_Nullable_System_String__System_Nullable_System_Object__System_Int32_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Push.%23ctor(Supabase.Realtime.Interfaces.IRealtimeSocket%2CSupabase.Realtime.RealtimeChannel%2CSystem.String%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BSystem.Object%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Push.cs/#L69">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/7b2d949ee694700b991e641d907e74caeda9bdbb/Realtime/Channel/Push.cs/#L72">View Source</a>
   </span>
-  <a id="Supabase_Realtime_Push__ctor_" data-uid="Supabase.Realtime.Push.#ctor*"></a>
-  <h4 id="Supabase_Realtime_Push__ctor_Supabase_Realtime_Interfaces_IRealtimeSocket_Supabase_Realtime_Channel_System_String_System_Nullable_System_Object__System_Int32_" data-uid="Supabase.Realtime.Push.#ctor(Supabase.Realtime.Interfaces.IRealtimeSocket,Supabase.Realtime.Channel,System.String,System.Nullable{System.Object},System.Int32)">Push(IRealtimeSocket, Channel, String, Nullable&lt;Object&gt;, Int32)</h4>
+  <a id="Supabase_Realtime_Channel_Push__ctor_" data-uid="Supabase.Realtime.Channel.Push.#ctor*"></a>
+  <h4 id="Supabase_Realtime_Channel_Push__ctor_Supabase_Realtime_Interfaces_IRealtimeSocket_Supabase_Realtime_RealtimeChannel_System_String_System_Nullable_System_String__System_Nullable_System_Object__System_Int32_" data-uid="Supabase.Realtime.Channel.Push.#ctor(Supabase.Realtime.Interfaces.IRealtimeSocket,Supabase.Realtime.RealtimeChannel,System.String,System.Nullable{System.String},System.Nullable{System.Object},System.Int32)">Push(IRealtimeSocket, RealtimeChannel, String, Nullable&lt;String&gt;, Nullable&lt;Object&gt;, Int32)</h4>
   <div class="markdown level1 summary"><p>Initilizes a single request that will be <code>Pushed</code> to the Socket server.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Push(IRealtimeSocket socket, Channel channel, string eventName, object? payload, int timeoutMs = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Push(IRealtimeSocket socket, RealtimeChannel channel, string eventName, string? type = null, object? payload = null, int timeoutMs = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -127,13 +127,18 @@ for its associated response from the server.</p>
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="Supabase.Realtime.Channel.html">Channel</a></td>
+        <td><a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a></td>
         <td><span class="parametername">channel</span></td>
         <td></td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">eventName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">type</span></td>
         <td></td>
       </tr>
       <tr>
@@ -152,19 +157,19 @@ for its associated response from the server.</p>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Push_Channel.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Push.Channel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/7b2d949ee694700b991e641d907e74caeda9bdbb/apiSpec/new?filename=Supabase_Realtime_Channel_Push_Channel.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Push.Channel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Push.cs/#L34">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/7b2d949ee694700b991e641d907e74caeda9bdbb/Realtime/Channel/Push.cs/#L35">View Source</a>
   </span>
-  <a id="Supabase_Realtime_Push_Channel_" data-uid="Supabase.Realtime.Push.Channel*"></a>
-  <h4 id="Supabase_Realtime_Push_Channel" data-uid="Supabase.Realtime.Push.Channel">Channel</h4>
+  <a id="Supabase_Realtime_Channel_Push_Channel_" data-uid="Supabase.Realtime.Channel.Push.Channel*"></a>
+  <h4 id="Supabase_Realtime_Channel_Push_Channel" data-uid="Supabase.Realtime.Channel.Push.Channel">Channel</h4>
   <div class="markdown level1 summary"><p>The associated channel.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Channel Channel { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public RealtimeChannel Channel { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -176,20 +181,20 @@ for its associated response from the server.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Supabase.Realtime.Channel.html">Channel</a></td>
+        <td><a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Push_EventName.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Push.EventName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/7b2d949ee694700b991e641d907e74caeda9bdbb/apiSpec/new?filename=Supabase_Realtime_Channel_Push_EventName.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Push.EventName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Push.cs/#L39">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/7b2d949ee694700b991e641d907e74caeda9bdbb/Realtime/Channel/Push.cs/#L42">View Source</a>
   </span>
-  <a id="Supabase_Realtime_Push_EventName_" data-uid="Supabase.Realtime.Push.EventName*"></a>
-  <h4 id="Supabase_Realtime_Push_EventName" data-uid="Supabase.Realtime.Push.EventName">EventName</h4>
+  <a id="Supabase_Realtime_Channel_Push_EventName_" data-uid="Supabase.Realtime.Channel.Push.EventName*"></a>
+  <h4 id="Supabase_Realtime_Channel_Push_EventName" data-uid="Supabase.Realtime.Channel.Push.EventName">EventName</h4>
   <div class="markdown level1 summary"><p>The event requested.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -214,13 +219,13 @@ for its associated response from the server.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Push_IsSent.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Push.IsSent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/7b2d949ee694700b991e641d907e74caeda9bdbb/apiSpec/new?filename=Supabase_Realtime_Channel_Push_IsSent.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Push.IsSent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Push.cs/#L18">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/7b2d949ee694700b991e641d907e74caeda9bdbb/Realtime/Channel/Push.cs/#L19">View Source</a>
   </span>
-  <a id="Supabase_Realtime_Push_IsSent_" data-uid="Supabase.Realtime.Push.IsSent*"></a>
-  <h4 id="Supabase_Realtime_Push_IsSent" data-uid="Supabase.Realtime.Push.IsSent">IsSent</h4>
+  <a id="Supabase_Realtime_Channel_Push_IsSent_" data-uid="Supabase.Realtime.Channel.Push.IsSent*"></a>
+  <h4 id="Supabase_Realtime_Channel_Push_IsSent" data-uid="Supabase.Realtime.Channel.Push.IsSent">IsSent</h4>
   <div class="markdown level1 summary"><p>Flag representing the <code>sent</code> state of a request.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -245,13 +250,13 @@ for its associated response from the server.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Push_Message.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Push.Message%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/7b2d949ee694700b991e641d907e74caeda9bdbb/apiSpec/new?filename=Supabase_Realtime_Channel_Push_Message.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Push.Message%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Push.cs/#L49">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/7b2d949ee694700b991e641d907e74caeda9bdbb/Realtime/Channel/Push.cs/#L52">View Source</a>
   </span>
-  <a id="Supabase_Realtime_Push_Message_" data-uid="Supabase.Realtime.Push.Message*"></a>
-  <h4 id="Supabase_Realtime_Push_Message" data-uid="Supabase.Realtime.Push.Message">Message</h4>
+  <a id="Supabase_Realtime_Channel_Push_Message_" data-uid="Supabase.Realtime.Channel.Push.Message*"></a>
+  <h4 id="Supabase_Realtime_Channel_Push_Message" data-uid="Supabase.Realtime.Channel.Push.Message">Message</h4>
   <div class="markdown level1 summary"><p>Represents the Pushed (sent) Message</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -269,20 +274,20 @@ for its associated response from the server.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Supabase.Realtime.SocketRequest.html">SocketRequest</a></td>
+        <td><a class="xref" href="Supabase.Realtime.Socket.SocketRequest.html">SocketRequest</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Push_Payload.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Push.Payload%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/7b2d949ee694700b991e641d907e74caeda9bdbb/apiSpec/new?filename=Supabase_Realtime_Channel_Push_Payload.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Push.Payload%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Push.cs/#L44">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/7b2d949ee694700b991e641d907e74caeda9bdbb/Realtime/Channel/Push.cs/#L47">View Source</a>
   </span>
-  <a id="Supabase_Realtime_Push_Payload_" data-uid="Supabase.Realtime.Push.Payload*"></a>
-  <h4 id="Supabase_Realtime_Push_Payload" data-uid="Supabase.Realtime.Push.Payload">Payload</h4>
+  <a id="Supabase_Realtime_Channel_Push_Payload_" data-uid="Supabase.Realtime.Channel.Push.Payload*"></a>
+  <h4 id="Supabase_Realtime_Channel_Push_Payload" data-uid="Supabase.Realtime.Channel.Push.Payload">Payload</h4>
   <div class="markdown level1 summary"><p>Payload of data to be sent.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -307,13 +312,13 @@ for its associated response from the server.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Push_Ref.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Push.Ref%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/7b2d949ee694700b991e641d907e74caeda9bdbb/apiSpec/new?filename=Supabase_Realtime_Channel_Push_Ref.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Push.Ref%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Push.cs/#L54">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/7b2d949ee694700b991e641d907e74caeda9bdbb/Realtime/Channel/Push.cs/#L57">View Source</a>
   </span>
-  <a id="Supabase_Realtime_Push_Ref_" data-uid="Supabase.Realtime.Push.Ref*"></a>
-  <h4 id="Supabase_Realtime_Push_Ref" data-uid="Supabase.Realtime.Push.Ref">Ref</h4>
+  <a id="Supabase_Realtime_Channel_Push_Ref_" data-uid="Supabase.Realtime.Channel.Push.Ref*"></a>
+  <h4 id="Supabase_Realtime_Channel_Push_Ref" data-uid="Supabase.Realtime.Channel.Push.Ref">Ref</h4>
   <div class="markdown level1 summary"><p>Ref Of this Message</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -338,13 +343,13 @@ for its associated response from the server.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Push_Response.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Push.Response%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/7b2d949ee694700b991e641d907e74caeda9bdbb/apiSpec/new?filename=Supabase_Realtime_Channel_Push_Response.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Push.Response%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Push.cs/#L29">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/7b2d949ee694700b991e641d907e74caeda9bdbb/Realtime/Channel/Push.cs/#L30">View Source</a>
   </span>
-  <a id="Supabase_Realtime_Push_Response_" data-uid="Supabase.Realtime.Push.Response*"></a>
-  <h4 id="Supabase_Realtime_Push_Response" data-uid="Supabase.Realtime.Push.Response">Response</h4>
+  <a id="Supabase_Realtime_Channel_Push_Response_" data-uid="Supabase.Realtime.Channel.Push.Response*"></a>
+  <h4 id="Supabase_Realtime_Channel_Push_Response" data-uid="Supabase.Realtime.Channel.Push.Response">Response</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -366,17 +371,47 @@ for its associated response from the server.</p>
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/7b2d949ee694700b991e641d907e74caeda9bdbb/apiSpec/new?filename=Supabase_Realtime_Channel_Push_Type.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Push.Type%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/7b2d949ee694700b991e641d907e74caeda9bdbb/Realtime/Channel/Push.cs/#L37">View Source</a>
+  </span>
+  <a id="Supabase_Realtime_Channel_Push_Type_" data-uid="Supabase.Realtime.Channel.Push.Type*"></a>
+  <h4 id="Supabase_Realtime_Channel_Push_Type" data-uid="Supabase.Realtime.Channel.Push.Type">Type</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Type { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Push_Resend_System_Int32_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Push.Resend(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/7b2d949ee694700b991e641d907e74caeda9bdbb/apiSpec/new?filename=Supabase_Realtime_Channel_Push_Resend_System_Int32_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Push.Resend(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Push.cs/#L89">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/7b2d949ee694700b991e641d907e74caeda9bdbb/Realtime/Channel/Push.cs/#L94">View Source</a>
   </span>
-  <a id="Supabase_Realtime_Push_Resend_" data-uid="Supabase.Realtime.Push.Resend*"></a>
-  <h4 id="Supabase_Realtime_Push_Resend_System_Int32_" data-uid="Supabase.Realtime.Push.Resend(System.Int32)">Resend(Int32)</h4>
+  <a id="Supabase_Realtime_Channel_Push_Resend_" data-uid="Supabase.Realtime.Channel.Push.Resend*"></a>
+  <h4 id="Supabase_Realtime_Channel_Push_Resend_System_Int32_" data-uid="Supabase.Realtime.Channel.Push.Resend(System.Int32)">Resend(Int32)</h4>
   <div class="markdown level1 summary"><p>Resends a <code>Push</code> request.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -403,13 +438,13 @@ for its associated response from the server.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Push_Send.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Push.Send%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/7b2d949ee694700b991e641d907e74caeda9bdbb/apiSpec/new?filename=Supabase_Realtime_Channel_Push_Send.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Push.Send%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Push.cs/#L102">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/7b2d949ee694700b991e641d907e74caeda9bdbb/Realtime/Channel/Push.cs/#L107">View Source</a>
   </span>
-  <a id="Supabase_Realtime_Push_Send_" data-uid="Supabase.Realtime.Push.Send*"></a>
-  <h4 id="Supabase_Realtime_Push_Send" data-uid="Supabase.Realtime.Push.Send">Send()</h4>
+  <a id="Supabase_Realtime_Channel_Push_Send_" data-uid="Supabase.Realtime.Channel.Push.Send*"></a>
+  <h4 id="Supabase_Realtime_Channel_Push_Send" data-uid="Supabase.Realtime.Channel.Push.Send">Send()</h4>
   <div class="markdown level1 summary"><p>Sends a <code>Push</code> request and initializes the Timeout timer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -421,12 +456,12 @@ for its associated response from the server.</p>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Push_OnMessage.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Push.OnMessage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/7b2d949ee694700b991e641d907e74caeda9bdbb/apiSpec/new?filename=Supabase_Realtime_Channel_Push_OnMessage.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Push.OnMessage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Push.cs/#L23">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/7b2d949ee694700b991e641d907e74caeda9bdbb/Realtime/Channel/Push.cs/#L24">View Source</a>
   </span>
-  <h4 id="Supabase_Realtime_Push_OnMessage" data-uid="Supabase.Realtime.Push.OnMessage">OnMessage</h4>
+  <h4 id="Supabase_Realtime_Channel_Push_OnMessage" data-uid="Supabase.Realtime.Channel.Push.OnMessage">OnMessage</h4>
   <div class="markdown level1 summary"><p>Invoked when the server has responded to a request.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -444,19 +479,19 @@ for its associated response from the server.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="Supabase.Realtime.SocketResponseEventArgs.html">SocketResponseEventArgs</a>&gt;&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="Supabase.Realtime.Socket.SocketResponseEventArgs.html">SocketResponseEventArgs</a>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Push_OnTimeout.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Push.OnTimeout%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/new/7b2d949ee694700b991e641d907e74caeda9bdbb/apiSpec/new?filename=Supabase_Realtime_Channel_Push_OnTimeout.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Push.OnTimeout%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Push.cs/#L28">View Source</a>
+    <a href="https://github.com/supabase-community/realtime-csharp/blob/7b2d949ee694700b991e641d907e74caeda9bdbb/Realtime/Channel/Push.cs/#L29">View Source</a>
   </span>
-  <h4 id="Supabase_Realtime_Push_OnTimeout" data-uid="Supabase.Realtime.Push.OnTimeout">OnTimeout</h4>
+  <h4 id="Supabase_Realtime_Channel_Push_OnTimeout" data-uid="Supabase.Realtime.Channel.Push.OnTimeout">OnTimeout</h4>
   <div class="markdown level1 summary"><p>Invoked when this <code>Push</code> has not been responded to within the timeout interval.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -491,10 +526,10 @@ for its associated response from the server.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/supabase-community/realtime-csharp/new/ffb1b55b7f13de69c70cf080916978fc25c9823a/apiSpec/new?filename=Supabase_Realtime_Push.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Push%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/supabase-community/realtime-csharp/new/7b2d949ee694700b991e641d907e74caeda9bdbb/apiSpec/new?filename=Supabase_Realtime_Channel_Push.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Channel.Push%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/realtime-csharp/blob/ffb1b55b7f13de69c70cf080916978fc25c9823a/Realtime/Push.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/realtime-csharp/blob/7b2d949ee694700b991e641d907e74caeda9bdbb/Realtime/Channel/Push.cs/#L14" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

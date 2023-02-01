@@ -82,14 +82,14 @@
   </div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="Supabase.Interfaces.ISupabaseTable-2.html">ISupabaseTable</a>&lt;TModel, <span class="xref">Channel</span>&gt;</div>
+    <div><a class="xref" href="Supabase.Interfaces.ISupabaseTable-2.html">ISupabaseTable</a>&lt;TModel, <span class="xref">RealtimeChannel</span>&gt;</div>
     <div><span class="xref">IPostgrestTable</span>&lt;TModel&gt;</div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.html">Supabase</a></h6>
   <h6><strong>Assembly</strong>: Supabase.dll</h6>
   <h5 id="Supabase_SupabaseTable_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SupabaseTable&lt;TModel&gt; : Table&lt;TModel&gt;, ISupabaseTable&lt;TModel, Channel&gt;, IPostgrestTable&lt;TModel&gt; where TModel : BaseModel, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public class SupabaseTable&lt;TModel&gt; : Table&lt;TModel&gt;, ISupabaseTable&lt;TModel, RealtimeChannel&gt;, IPostgrestTable&lt;TModel&gt; where TModel : BaseModel, new()</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -110,18 +110,18 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_SupabaseTable_1__ctor_IPostgrestClient_IRealtimeClient_Socket_Channel__System_String_.md&amp;value=---%0Auid%3A%20Supabase.SupabaseTable%601.%23ctor(IPostgrestClient%2CIRealtimeClient%7BSocket%2CChannel%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_SupabaseTable_1__ctor_IPostgrestClient_IRealtimeClient_RealtimeSocket_RealtimeChannel__System_String_.md&amp;value=---%0Auid%3A%20Supabase.SupabaseTable%601.%23ctor(IPostgrestClient%2CIRealtimeClient%7BRealtimeSocket%2CRealtimeChannel%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/SupabaseTable.cs/#L25">View Source</a>
+    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/SupabaseTable.cs/#L27">View Source</a>
   </span>
   <a id="Supabase_SupabaseTable_1__ctor_" data-uid="Supabase.SupabaseTable`1.#ctor*"></a>
-  <h4 id="Supabase_SupabaseTable_1__ctor_IPostgrestClient_IRealtimeClient_Socket_Channel__System_String_" data-uid="Supabase.SupabaseTable`1.#ctor(IPostgrestClient,IRealtimeClient{Socket,Channel},System.String)">SupabaseTable(IPostgrestClient, IRealtimeClient&lt;Socket, Channel&gt;, String)</h4>
+  <h4 id="Supabase_SupabaseTable_1__ctor_IPostgrestClient_IRealtimeClient_RealtimeSocket_RealtimeChannel__System_String_" data-uid="Supabase.SupabaseTable`1.#ctor(IPostgrestClient,IRealtimeClient{RealtimeSocket,RealtimeChannel},System.String)">SupabaseTable(IPostgrestClient, IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt;, String)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SupabaseTable(IPostgrestClient postgrestClient, IRealtimeClient&lt;Socket, Channel&gt; realtimeClient, string schema = &quot;public&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public SupabaseTable(IPostgrestClient postgrestClient, IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt; realtimeClient, string schema = &quot;public&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -139,7 +139,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">IRealtimeClient</span>&lt;<span class="xref">Socket</span>, <span class="xref">Channel</span>&gt;</td>
+        <td><span class="xref">IRealtimeClient</span>&lt;<span class="xref">RealtimeSocket</span>, <span class="xref">RealtimeChannel</span>&gt;</td>
         <td><span class="parametername">realtimeClient</span></td>
         <td></td>
       </tr>
@@ -154,18 +154,18 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_SupabaseTable_1_On_Supabase_Client_ChannelEventType_Action_System_Object_SocketResponseEventArgs__.md&amp;value=---%0Auid%3A%20Supabase.SupabaseTable%601.On(Supabase.Client.ChannelEventType%2CAction%7BSystem.Object%2CSocketResponseEventArgs%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_SupabaseTable_1_On_Supabase_Client_ChannelEventType_Action_System_Object_PostgresChangesEventArgs__.md&amp;value=---%0Auid%3A%20Supabase.SupabaseTable%601.On(Supabase.Client.ChannelEventType%2CAction%7BSystem.Object%2CPostgresChangesEventArgs%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/SupabaseTable.cs/#L34">View Source</a>
+    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/SupabaseTable.cs/#L36">View Source</a>
   </span>
   <a id="Supabase_SupabaseTable_1_On_" data-uid="Supabase.SupabaseTable`1.On*"></a>
-  <h4 id="Supabase_SupabaseTable_1_On_Supabase_Client_ChannelEventType_Action_System_Object_SocketResponseEventArgs__" data-uid="Supabase.SupabaseTable`1.On(Supabase.Client.ChannelEventType,Action{System.Object,SocketResponseEventArgs})">On(Client.ChannelEventType, Action&lt;Object, SocketResponseEventArgs&gt;)</h4>
+  <h4 id="Supabase_SupabaseTable_1_On_Supabase_Client_ChannelEventType_Action_System_Object_PostgresChangesEventArgs__" data-uid="Supabase.SupabaseTable`1.On(Supabase.Client.ChannelEventType,Action{System.Object,PostgresChangesEventArgs})">On(Client.ChannelEventType, Action&lt;Object, PostgresChangesEventArgs&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;Channel&gt; On(Client.ChannelEventType e, Action&lt;object, SocketResponseEventArgs&gt; action)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;RealtimeChannel&gt; On(Client.ChannelEventType e, Action&lt;object, PostgresChangesEventArgs&gt; action)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -183,7 +183,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">Action</span>&lt;<span class="xref">System.Object</span>, <span class="xref">SocketResponseEventArgs</span>&gt;</td>
+        <td><span class="xref">Action</span>&lt;<span class="xref">System.Object</span>, <span class="xref">PostgresChangesEventArgs</span>&gt;</td>
         <td><span class="parametername">action</span></td>
         <td></td>
       </tr>
@@ -199,7 +199,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">Channel</span>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">RealtimeChannel</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -222,7 +222,7 @@
                     <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_SupabaseTable_1.md&amp;value=---%0Auid%3A%20Supabase.SupabaseTable%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/SupabaseTable.cs/#L14" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/SupabaseTable.cs/#L16" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

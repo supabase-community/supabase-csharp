@@ -77,62 +77,45 @@
   <div class="markdown level0 remarks"></div>
     <h3 id="classes">Classes
   </h3>
-      <h4><a class="xref" href="Supabase.Realtime.Channel.html">Channel</a></h4>
-      <section><p>Class representation of a channel subscription</p>
-</section>
-      <h4><a class="xref" href="Supabase.Realtime.ChannelOptions.html">ChannelOptions</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Supabase.Realtime.ChannelStateChangedEventArgs.html">ChannelStateChangedEventArgs</a></h4>
-      <section></section>
       <h4><a class="xref" href="Supabase.Realtime.Client.html">Client</a></h4>
       <section><p>Singleton that represents a Client connection to a Realtime Server.</p>
-<p>It maintains a singular Websocket with asynchronous listeners (Channels).</p>
+<p>It maintains a singular Websocket with asynchronous listeners (RealtimeChannels).</p>
 </section>
       <h4><a class="xref" href="Supabase.Realtime.ClientOptions.html">ClientOptions</a></h4>
       <section></section>
       <h4><a class="xref" href="Supabase.Realtime.Constants.html">Constants</a></h4>
       <section></section>
-      <h4><a class="xref" href="Supabase.Realtime.PheonixResponse.html">PheonixResponse</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Supabase.Realtime.Push.html">Push</a></h4>
-      <section><p>Class representation of a single request sent to the Socket server.</p>
-<p><code>Push</code> also adds additional functionality for retrying, timeouts, and listeners
-for its associated response from the server.</p>
+      <h4><a class="xref" href="Supabase.Realtime.RealtimeBroadcast-1.html">RealtimeBroadcast&lt;TBroadcastModel&gt;</a></h4>
+      <section><p>Represents a realtime broadcast client.</p>
+<p>Broadcast follows the publish-subscribe pattern where a client publishes messages to a channel with a unique identifier.
+Other clients can elect to receive the message in real-time by subscribing to the channel with the same unique identifier. If these clients are online and subscribed then they will receive the message.</p>
+<p>Broadcast works by connecting your client to the nearest Realtime server, which will communicate with other servers to relay messages to other clients.
+A common use-case is sharing a user's cursor position with other clients in an online game.</p>
 </section>
-      <h4><a class="xref" href="Supabase.Realtime.PushTimeoutException.html">PushTimeoutException</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Supabase.Realtime.Socket.html">Socket</a></h4>
+      <h4><a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a></h4>
+      <section><p>Class representation of a channel subscription</p>
+</section>
+      <h4><a class="xref" href="Supabase.Realtime.RealtimePresence-1.html">RealtimePresence&lt;TPresenceModel&gt;</a></h4>
+      <section><p>Represents a realtime presence client.</p>
+<p>When a client subscribes to a channel, it will immediately receive the channel's latest state in a single message.
+Clients are free to come-and-go as they please, and as long as they are all subscribed to the same channel then they will all have the same Presence state as each other.
+If a client is suddenly disconnected (for example, they go offline), their state will be automatically removed from the shared state.</p>
+</section>
+      <h4><a class="xref" href="Supabase.Realtime.RealtimeSocket.html">RealtimeSocket</a></h4>
       <section><p>Socket connection handler.</p>
 </section>
-      <h4><a class="xref" href="Supabase.Realtime.SocketOptionsParameters.html">SocketOptionsParameters</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Supabase.Realtime.SocketRequest.html">SocketRequest</a></h4>
-      <section><p>Representation of a Socket Request.</p>
-</section>
-      <h4><a class="xref" href="Supabase.Realtime.SocketResponse.html">SocketResponse</a></h4>
-      <section><p>Representation of a Socket Response.</p>
-</section>
-      <h4><a class="xref" href="Supabase.Realtime.SocketResponse-1.html">SocketResponse&lt;T&gt;</a></h4>
-      <section><p>A SocketResponse with support for Generically typed Payload</p>
-</section>
-      <h4><a class="xref" href="Supabase.Realtime.SocketResponseEventArgs.html">SocketResponseEventArgs</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Supabase.Realtime.SocketResponsePayload.html">SocketResponsePayload</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Supabase.Realtime.SocketResponsePayload-1.html">SocketResponsePayload&lt;T&gt;</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Supabase.Realtime.SocketStateChangedEventArgs.html">SocketStateChangedEventArgs</a></h4>
-      <section></section>
     <h3 id="enums">Enums
   </h3>
-      <h4><a class="xref" href="Supabase.Realtime.Channel.ChannelState.html">Channel.ChannelState</a></h4>
+      <h4><a class="xref" href="Supabase.Realtime.Constants.ChannelEventName.html">Constants.ChannelEventName</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Supabase.Realtime.Constants.ChannelState.html">Constants.ChannelState</a></h4>
       <section><p>Channel state with associated string representations.</p>
 </section>
       <h4><a class="xref" href="Supabase.Realtime.Constants.EventType.html">Constants.EventType</a></h4>
       <section></section>
-      <h4><a class="xref" href="Supabase.Realtime.Constants.SocketStates.html">Constants.SocketStates</a></h4>
+      <h4><a class="xref" href="Supabase.Realtime.Constants.PresenceListenEventTypes.html">Constants.PresenceListenEventTypes</a></h4>
       <section></section>
-      <h4><a class="xref" href="Supabase.Realtime.SocketStateChangedEventArgs.ConnectionState.html">SocketStateChangedEventArgs.ConnectionState</a></h4>
+      <h4><a class="xref" href="Supabase.Realtime.Constants.SocketStates.html">Constants.SocketStates</a></h4>
       <section></section>
 </article>
           </div>
