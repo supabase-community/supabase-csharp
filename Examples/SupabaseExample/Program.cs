@@ -21,7 +21,7 @@ namespace SupabaseExample
 
             await reference.On(Supabase.Client.ChannelEventType.All, (sender, ev) =>
             {
-                Debug.WriteLine($"[{ev.Response.Event}]:{ev.Response.Topic}:{ev.Response.Payload.Record}");
+                Debug.WriteLine($"[{ev.Response.Event}]:{ev.Response.Topic}:{ev.Response.Payload.Data}");
             });
 
             var channels = await reference.Get();
