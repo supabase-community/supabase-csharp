@@ -2,6 +2,7 @@
 using Postgrest.Models;
 using Supabase.Realtime;
 using Supabase.Realtime.Interfaces;
+using Supabase.Realtime.PostgresChanges;
 using System;
 using System.Threading.Tasks;
 
@@ -11,6 +12,6 @@ namespace Supabase.Interfaces
         where TModel : BaseModel, new()
         where TChannel : IRealtimeChannel
     {
-        Task<TChannel> On(Client.ChannelEventType e, Action<object, SocketResponseEventArgs> action);
+        Task<TChannel> On(Client.ChannelEventType e, Action<object, PostgresChangesEventArgs> action);
     }
 }

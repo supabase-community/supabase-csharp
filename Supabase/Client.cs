@@ -20,7 +20,7 @@ namespace Supabase
     /// <summary>
     /// A singleton class representing a Supabase Client.
     /// </summary>
-    public class Client : ISupabaseClient<User, Session, Socket, Channel, Bucket, FileObject>
+    public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeChannel, Bucket, FileObject>
     {
         public enum ChannelEventType
         {
@@ -54,7 +54,7 @@ namespace Supabase
         /// <summary>
         /// Supabase Realtime allows for realtime feedback on database changes.
         /// </summary>
-        public IRealtimeClient<Socket, Channel> Realtime
+        public IRealtimeClient<RealtimeSocket, RealtimeChannel> Realtime
         {
             get
             {
@@ -62,14 +62,14 @@ namespace Supabase
             }
             set
             {
-                // Disconnect from previous socket (if applicable)
+                // Disconnect from previous RealtimeSocket (if applicable)
                 if (_realtime != null)
                     _realtime.Disconnect();
 
                 _realtime = value;
             }
         }
-        private IRealtimeClient<Socket, Channel> _realtime;
+        private IRealtimeClient<RealtimeSocket, RealtimeChannel> _realtime;
 
         /// <summary>
         /// Supabase Edge functions allow you to deploy and invoke edge functions.
@@ -113,7 +113,7 @@ namespace Supabase
         /// <param name="postgrest"></param>
         /// <param name="storage"></param>
         /// <param name="options"></param>
-        public Client(IGotrueClient<User, Session> auth, IRealtimeClient<Socket, Channel> realtime, IFunctionsClient functions, IPostgrestClient postgrest, IStorageClient<Bucket, FileObject> storage, SupabaseOptions options)
+        public Client(IGotrueClient<User, Session> auth, IRealtimeClient<RealtimeSocket, RealtimeChannel> realtime, IFunctionsClient functions, IPostgrestClient postgrest, IStorageClient<Bucket, FileObject> storage, SupabaseOptions options)
         {
             _auth = auth;
             _realtime = realtime;
@@ -195,7 +195,7 @@ namespace Supabase
         /// <summary>
         /// Attempts to retrieve the session from Gotrue (set in <see cref="SupabaseOptions"/>) and connects to realtime (if `options.AutoConnectRealtime` is set)
         /// </summary>
-        public async Task<ISupabaseClient<User, Session, Socket, Channel, Bucket, FileObject>> InitializeAsync()
+        public async Task<ISupabaseClient<User, Session, RealtimeSocket, RealtimeChannel, Bucket, FileObject>> InitializeAsync()
         {
             await Auth.RetrieveSessionAsync();
 
@@ -232,7 +232,7 @@ namespace Supabase
         /// </summary>
         /// <typeparam name="TModel"></typeparam>
         /// <returns></returns>
-        public ISupabaseTable<TModel, Channel> From<TModel>() where TModel : BaseModel, new() => new SupabaseTable<TModel>(Postgrest, Realtime);
+        public ISupabaseTable<TModel, RealtimeChannel> From<TModel>() where TModel : BaseModel, new() => new SupabaseTable<TModel>(Postgrest, Realtime);
 
         /// <summary>
         /// Runs a remote procedure.

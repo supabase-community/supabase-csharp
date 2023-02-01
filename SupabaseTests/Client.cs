@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Supabase.Realtime;
 using SupabaseTests.Stubs;
+using static Supabase.Realtime.Constants;
 
 namespace SupabaseTests
 {
@@ -54,7 +55,7 @@ namespace SupabaseTests
 
             channel.StateChanged += (sender, ev) =>
             {
-                if (ev.State == Channel.ChannelState.Joined)
+                if (ev.State == ChannelState.Joined)
                     tsc.SetResult(true);
             };
 

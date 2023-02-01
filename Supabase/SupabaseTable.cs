@@ -7,22 +7,24 @@ using Postgrest.Models;
 using Supabase.Interfaces;
 using Supabase.Realtime;
 using Supabase.Realtime.Interfaces;
+using Supabase.Realtime.PostgresChanges;
+using Supabase.Realtime.Socket;
 using static Supabase.Client;
 
 namespace Supabase
 {
-    public class SupabaseTable<TModel> : Table<TModel>, ISupabaseTable<TModel, Channel>
+    public class SupabaseTable<TModel> : Table<TModel>, ISupabaseTable<TModel, RealtimeChannel>
         where TModel : BaseModel, new()
     {
-        private Channel? channel;
+        private RealtimeChannel? Channel;
 
         private IPostgrestClient postgrestClient;
 
-        private IRealtimeClient<Socket, Channel> realtimeClient;
+        private IRealtimeClient<RealtimeSocket, RealtimeChannel> realtimeClient;
 
         private string schema;
 
-        public SupabaseTable(IPostgrestClient postgrestClient, IRealtimeClient<Socket, Channel> realtimeClient, string schema = "public") : base(postgrestClient.BaseUrl, Postgrest.Client.SerializerSettings(postgrestClient.Options), postgrestClient.Options)
+        public SupabaseTable(IPostgrestClient postgrestClient, IRealtimeClient<RealtimeSocket, RealtimeChannel> realtimeClient, string schema = "public") : base(postgrestClient.BaseUrl, Postgrest.Client.SerializerSettings(postgrestClient.Options), postgrestClient.Options)
         {
             this.postgrestClient = postgrestClient;
             GetHeaders = postgrestClient.GetHeaders;
@@ -31,9 +33,9 @@ namespace Supabase
             this.schema = schema;
         }
 
-        public async Task<Channel> On(ChannelEventType e, Action<object, SocketResponseEventArgs> action)
+        public async Task<RealtimeChannel> On(ChannelEventType e, Action<object, PostgresChangesEventArgs> action)
         {
-            if (channel == null)
+            if (Channel == null)
             {
                 var parameters = new Dictionary<string, string>();
 
@@ -44,7 +46,7 @@ namespace Supabase
                     parameters.Add("user_token", headers["Authorization"].Split(' ')[1]);
                 }
 
-                channel = realtimeClient.Channel("realtime", schema, TableName, parameters: parameters);
+                Channel = realtimeClient.Channel("realtime", schema, TableName, parameters: parameters);
             }
 
             if (realtimeClient.Socket == null || !realtimeClient.Socket.IsConnected)
@@ -53,26 +55,26 @@ namespace Supabase
             switch (e)
             {
                 case ChannelEventType.Insert:
-                    channel.OnInsert += (sender, args) => action?.Invoke(sender, args);
+                    Channel.OnInsert += (sender, args) => action?.Invoke(sender, args);
                     break;
                 case ChannelEventType.Update:
-                    channel.OnUpdate += (sender, args) => action?.Invoke(sender, args);
+                    Channel.OnUpdate += (sender, args) => action?.Invoke(sender, args);
                     break;
                 case ChannelEventType.Delete:
-                    channel.OnDelete += (sender, args) => action?.Invoke(sender, args);
+                    Channel.OnDelete += (sender, args) => action?.Invoke(sender, args);
                     break;
                 case ChannelEventType.All:
-                    channel.OnMessage += (sender, args) => action?.Invoke(sender, args);
+                    Channel.OnPostgresChange += (sender, args) => action?.Invoke(sender, args);
                     break;
             }
 
             try
             {
-                await channel.Subscribe();
+                await Channel.Subscribe();
             }
             catch { }
 
-            return channel;
+            return Channel;
         }
     }
 }
