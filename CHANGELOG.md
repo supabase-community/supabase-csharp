@@ -1,5 +1,25 @@
 ﻿# Changelog
 
+## 0.8.0 - 2023-01-31
+
+- Update dependency: realtime-csharp@5.0.0
+    - Re: [#21](https://github.com/supabase-community/realtime-csharp/pull/21) Provide API for `presence`, `broadcast` and `postgres_changes`
+	    - [Major, New] `Channel.PostgresChanges` event will receive the wildcard `*` changes event, not `Channel.OnMessage`.
+	    - [Major] `Channel.OnInsert`, `Channel.OnUpdate`, and `Channel.OnDelete` now conform to the server's payload of `Response.Payload.**Data**`
+	    - [Major] `Channel.OnInsert`, `Channel.OnUpdate`, and `Channel.OnDelete` now return `PostgresChangesEventArgs`
+	    - [Minor] Rename `Channel` to `RealtimeChannel`
+	    - Supports better handling of disconnects in `RealtimeSocket` and adds a `Client.OnReconnect` event.
+	    - [Minor] Moves `ChannelOptions` to `Channel.ChannelOptions`
+	    - [Minor] Moves `ChannelStateChangedEventArgs` to `Channel.ChannelStateChangedEventArgs`
+	    - [Minor] Moves `Push` to `Channel.Push`
+	    - [Minor] Moves `Channel.ChannelState` to `Constants.ChannelState`
+	    - [Minor] Moves `SocketResponse`, `SocketRequest`, `SocketResponsePayload`, `SocketResponseEventArgs`, and `SocketStateChangedEventArgs` to `Socket` namespace.
+	    - [New] Adds `RealtimeBroadcast`
+	    - [New] Adds `RealtimePresence`
+	    - [Improvement] Better handling of disconnection/reconnection
+- Update dependency: postgrest-csharp@3.1.3
+    - Another fix for [#61](https://github.com/supabase-community/postgrest-csharp/issues/61) which futher typechecks nullable values.
+
 ## 0.7.2 - 2023-01-27
 
 - Update dependency: gotrue-csharp@3.0.4

@@ -15,8 +15,8 @@
 		<Title>Supabase</Title>
 		<PackageIconUrl>https://avatars.githubusercontent.com/u/54469796?s=200&amp;v=4</PackageIconUrl>
 		<PackageTags>supabase</PackageTags>
-		<ReleaseVersion>0.7.2</ReleaseVersion>
-		<PackageVersion>0.7.2</PackageVersion>
+		<ReleaseVersion>0.8.0</ReleaseVersion>
+		<PackageVersion>0.8.0</PackageVersion>
 		<PackageReleaseNotes></PackageReleaseNotes>
 	</PropertyGroup>
 	<PropertyGroup>
@@ -25,7 +25,7 @@
 		<WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Version)' == '' ">
-		<VersionPrefix Condition=" '$(VersionPrefix)' == '' ">0.7.2</VersionPrefix>
+		<VersionPrefix Condition=" '$(VersionPrefix)' == '' ">0.8.0</VersionPrefix>
 		<Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
 	</PropertyGroup>
 	<ItemGroup>
