@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 0.8.1 - 2023-02-06
+
+- Update dependency: realtime-csharp@5.0.1
+    - Re: [#22](https://github.com/supabase-community/realtime-csharp/issues/22) - `SerializerSettings` were not being passed to `PostgresChangesResponse` - Thanks [@Shenrak](https://github.com/Shenrak) for the help debugging!
+
 ## 0.8.0 - 2023-01-31
 
 - Update dependency: realtime-csharp@5.0.0
