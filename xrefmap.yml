@@ -11816,12 +11816,6 @@ references:
   isSpec: "True"
   fullName: Supabase.Realtime.Socket.SocketResponse.Ref
   nameWithType: SocketResponse.Ref
-- uid: Supabase.Realtime.Socket.SocketResponse.serializerSettings
-  name: serializerSettings
-  href: api/Supabase.Realtime.Socket.SocketResponse.html#Supabase_Realtime_Socket_SocketResponse_serializerSettings
-  commentId: F:Supabase.Realtime.Socket.SocketResponse.serializerSettings
-  fullName: Supabase.Realtime.Socket.SocketResponse.serializerSettings
-  nameWithType: SocketResponse.serializerSettings
 - uid: Supabase.Realtime.Socket.SocketResponse.Topic
   name: Topic
   href: api/Supabase.Realtime.Socket.SocketResponse.html#Supabase_Realtime_Socket_SocketResponse_Topic
