@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 0.8.2 - 2023-02-26
+
+- Update dependency: supabase-storage-csharp@1.2.4
+    - `UploadOrUpdate` now appropriately throws request exceptions
+
 ## 0.8.1 - 2023-02-06
 
 - Update dependency: realtime-csharp@5.0.1
