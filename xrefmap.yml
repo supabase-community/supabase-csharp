@@ -12630,6 +12630,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.ErrorResponse.Message
   nameWithType: ErrorResponse.Message
+- uid: Supabase.Storage.ErrorResponse.StatusCode
+  name: StatusCode
+  href: api/Supabase.Storage.ErrorResponse.html#Supabase_Storage_ErrorResponse_StatusCode
+  commentId: P:Supabase.Storage.ErrorResponse.StatusCode
+  fullName: Supabase.Storage.ErrorResponse.StatusCode
+  nameWithType: ErrorResponse.StatusCode
+- uid: Supabase.Storage.ErrorResponse.StatusCode*
+  name: StatusCode
+  href: api/Supabase.Storage.ErrorResponse.html#Supabase_Storage_ErrorResponse_StatusCode_
+  commentId: Overload:Supabase.Storage.ErrorResponse.StatusCode
+  isSpec: "True"
+  fullName: Supabase.Storage.ErrorResponse.StatusCode
+  nameWithType: ErrorResponse.StatusCode
 - uid: Supabase.Storage.FileObject
   name: FileObject
   href: api/Supabase.Storage.FileObject.html
