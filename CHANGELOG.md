@@ -1,5 +1,13 @@
 ﻿# Changelog
 
+## 0.8.3 - 2023-02-26
+
+- Update dependency: supabase-storage-csharp@1.2.5
+    - Provides fix for [supabase-community/supabase-csharp#54](https://github.com/supabase-community/supabase-csharp/issues/54) - Dynamic headers were always being overwritten by initialized token headers, so the storage client would not receive user's access token as expected.
+    - Provides fix for upload progress not reporting in [supabase-community/storage-csharp#3](https://github.com/supabase-community/storage-csharp/issues/3)
+- Update dependency: gotrue-csharp@3.0.5
+    - Fixes [#44](https://github.com/supabase-community/gotrue-csharp/issues/44) - refresh timer should automatically reattempt (interval of 5s) for HTTP exceptions - gracefully exits on invalid refresh and triggers an `AuthState.Changed` event
+
 ## 0.8.2 - 2023-02-26
 
 - Update dependency: supabase-storage-csharp@1.2.4
