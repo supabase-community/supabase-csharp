@@ -12534,32 +12534,6 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.Client.From
   nameWithType: Client.From
-- uid: Supabase.Storage.Client.GetHeaders
-  name: GetHeaders
-  href: api/Supabase.Storage.Client.html#Supabase_Storage_Client_GetHeaders
-  commentId: P:Supabase.Storage.Client.GetHeaders
-  fullName: Supabase.Storage.Client.GetHeaders
-  nameWithType: Client.GetHeaders
-- uid: Supabase.Storage.Client.GetHeaders*
-  name: GetHeaders
-  href: api/Supabase.Storage.Client.html#Supabase_Storage_Client_GetHeaders_
-  commentId: Overload:Supabase.Storage.Client.GetHeaders
-  isSpec: "True"
-  fullName: Supabase.Storage.Client.GetHeaders
-  nameWithType: Client.GetHeaders
-- uid: Supabase.Storage.Client.Headers
-  name: Headers
-  href: api/Supabase.Storage.Client.html#Supabase_Storage_Client_Headers
-  commentId: P:Supabase.Storage.Client.Headers
-  fullName: Supabase.Storage.Client.Headers
-  nameWithType: Client.Headers
-- uid: Supabase.Storage.Client.Headers*
-  name: Headers
-  href: api/Supabase.Storage.Client.html#Supabase_Storage_Client_Headers_
-  commentId: Overload:Supabase.Storage.Client.Headers
-  isSpec: "True"
-  fullName: Supabase.Storage.Client.Headers
-  nameWithType: Client.Headers
 - uid: Supabase.Storage.CreateSignedUrlResponse
   name: CreateSignedUrlResponse
   href: api/Supabase.Storage.CreateSignedUrlResponse.html
@@ -12928,6 +12902,12 @@ references:
   commentId: F:Supabase.Storage.StorageBucketApi._headers
   fullName: Supabase.Storage.StorageBucketApi._headers
   nameWithType: StorageBucketApi._headers
+- uid: Supabase.Storage.StorageBucketApi._initializedHeaders
+  name: _initializedHeaders
+  href: api/Supabase.Storage.StorageBucketApi.html#Supabase_Storage_StorageBucketApi__initializedHeaders
+  commentId: F:Supabase.Storage.StorageBucketApi._initializedHeaders
+  fullName: Supabase.Storage.StorageBucketApi._initializedHeaders
+  nameWithType: StorageBucketApi._initializedHeaders
 - uid: Supabase.Storage.StorageBucketApi.CreateBucket(System.String,Supabase.Storage.BucketUpsertOptions)
   name: CreateBucket(String, BucketUpsertOptions)
   href: api/Supabase.Storage.StorageBucketApi.html#Supabase_Storage_StorageBucketApi_CreateBucket_System_String_Supabase_Storage_BucketUpsertOptions_
@@ -12980,6 +12960,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.StorageBucketApi.GetBucket
   nameWithType: StorageBucketApi.GetBucket
+- uid: Supabase.Storage.StorageBucketApi.GetHeaders
+  name: GetHeaders
+  href: api/Supabase.Storage.StorageBucketApi.html#Supabase_Storage_StorageBucketApi_GetHeaders
+  commentId: P:Supabase.Storage.StorageBucketApi.GetHeaders
+  fullName: Supabase.Storage.StorageBucketApi.GetHeaders
+  nameWithType: StorageBucketApi.GetHeaders
+- uid: Supabase.Storage.StorageBucketApi.GetHeaders*
+  name: GetHeaders
+  href: api/Supabase.Storage.StorageBucketApi.html#Supabase_Storage_StorageBucketApi_GetHeaders_
+  commentId: Overload:Supabase.Storage.StorageBucketApi.GetHeaders
+  isSpec: "True"
+  fullName: Supabase.Storage.StorageBucketApi.GetHeaders
+  nameWithType: StorageBucketApi.GetHeaders
 - uid: Supabase.Storage.StorageBucketApi.Headers
   name: Headers
   href: api/Supabase.Storage.StorageBucketApi.html#Supabase_Storage_StorageBucketApi_Headers

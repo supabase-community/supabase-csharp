@@ -84,21 +84,22 @@
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="Storage.Interfaces.IStorageBucketApi-1.html">IStorageBucketApi</a>&lt;<a class="xref" href="Supabase.Storage.Bucket.html">Bucket</a>&gt;</div>
+    <div><span class="xref">IGettableHeaders</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Storage.html">Supabase.Storage</a></h6>
   <h6><strong>Assembly</strong>: Storage.dll</h6>
   <h5 id="Supabase_Storage_StorageBucketApi_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class StorageBucketApi : object, IStorageBucketApi&lt;Bucket&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class StorageBucketApi : object, IStorageBucketApi&lt;Bucket&gt;, IGettableHeaders</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/cb336a2413c5dcda0387a35723e8ca00bcd92328/apiSpec/new?filename=Supabase_Storage_StorageBucketApi__ctor_System_String_System_Nullable_Dictionary_System_String_System_String___.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi.%23ctor(System.String%2CSystem.Nullable%7BDictionary%7BSystem.String%2CSystem.String%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/apiSpec/new?filename=Supabase_Storage_StorageBucketApi__ctor_System_String_System_Nullable_Dictionary_System_String_System_String___.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi.%23ctor(System.String%2CSystem.Nullable%7BDictionary%7BSystem.String%2CSystem.String%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/cb336a2413c5dcda0387a35723e8ca00bcd92328/Storage/StorageBucketApi.cs/#L28">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/Storage/StorageBucketApi.cs/#L43">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageBucketApi__ctor_" data-uid="Supabase.Storage.StorageBucketApi.#ctor*"></a>
   <h4 id="Supabase_Storage_StorageBucketApi__ctor_System_String_System_Nullable_Dictionary_System_String_System_String___" data-uid="Supabase.Storage.StorageBucketApi.#ctor(System.String,System.Nullable{Dictionary{System.String,System.String}})">StorageBucketApi(String, Nullable&lt;Dictionary&lt;String, String&gt;&gt;)</h4>
@@ -134,10 +135,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/cb336a2413c5dcda0387a35723e8ca00bcd92328/apiSpec/new?filename=Supabase_Storage_StorageBucketApi__headers.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi._headers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/apiSpec/new?filename=Supabase_Storage_StorageBucketApi__headers.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi._headers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/cb336a2413c5dcda0387a35723e8ca00bcd92328/Storage/StorageBucketApi.cs/#L15">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/Storage/StorageBucketApi.cs/#L17">View Source</a>
   </span>
   <h4 id="Supabase_Storage_StorageBucketApi__headers" data-uid="Supabase.Storage.StorageBucketApi._headers">_headers</h4>
   <div class="markdown level1 summary"></div>
@@ -161,14 +162,75 @@
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/storage-csharp/new/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/apiSpec/new?filename=Supabase_Storage_StorageBucketApi__initializedHeaders.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi._initializedHeaders%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/storage-csharp/blob/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/Storage/StorageBucketApi.cs/#L16">View Source</a>
+  </span>
+  <h4 id="Supabase_Storage_StorageBucketApi__initializedHeaders" data-uid="Supabase.Storage.StorageBucketApi._initializedHeaders">_initializedHeaders</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Dictionary&lt;string, string&gt; _initializedHeaders</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="properties">Properties
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/cb336a2413c5dcda0387a35723e8ca00bcd92328/apiSpec/new?filename=Supabase_Storage_StorageBucketApi_Headers.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi.Headers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/apiSpec/new?filename=Supabase_Storage_StorageBucketApi_GetHeaders.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi.GetHeaders%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/cb336a2413c5dcda0387a35723e8ca00bcd92328/Storage/StorageBucketApi.cs/#L16">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/Storage/StorageBucketApi.cs/#L41">View Source</a>
+  </span>
+  <a id="Supabase_Storage_StorageBucketApi_GetHeaders_" data-uid="Supabase.Storage.StorageBucketApi.GetHeaders*"></a>
+  <h4 id="Supabase_Storage_StorageBucketApi_GetHeaders" data-uid="Supabase.Storage.StorageBucketApi.GetHeaders">GetHeaders</h4>
+  <div class="markdown level1 summary"><p>Function that can be set to return dynamic headers.</p>
+<p>Headers specified in the constructor will ALWAYS take precendece over headers returned by this function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Func&lt;Dictionary&lt;string, string&gt;&gt;? GetHeaders { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Func</span>&lt;<span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/storage-csharp/new/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/apiSpec/new?filename=Supabase_Storage_StorageBucketApi_Headers.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi.Headers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/storage-csharp/blob/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/Storage/StorageBucketApi.cs/#L18">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageBucketApi_Headers_" data-uid="Supabase.Storage.StorageBucketApi.Headers*"></a>
   <h4 id="Supabase_Storage_StorageBucketApi_Headers" data-uid="Supabase.Storage.StorageBucketApi.Headers">Headers</h4>
@@ -195,10 +257,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/cb336a2413c5dcda0387a35723e8ca00bcd92328/apiSpec/new?filename=Supabase_Storage_StorageBucketApi_Url.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi.Url%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/apiSpec/new?filename=Supabase_Storage_StorageBucketApi_Url.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi.Url%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/cb336a2413c5dcda0387a35723e8ca00bcd92328/Storage/StorageBucketApi.cs/#L13">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/Storage/StorageBucketApi.cs/#L14">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageBucketApi_Url_" data-uid="Supabase.Storage.StorageBucketApi.Url*"></a>
   <h4 id="Supabase_Storage_StorageBucketApi_Url" data-uid="Supabase.Storage.StorageBucketApi.Url">Url</h4>
@@ -227,10 +289,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/cb336a2413c5dcda0387a35723e8ca00bcd92328/apiSpec/new?filename=Supabase_Storage_StorageBucketApi_CreateBucket_System_String_Supabase_Storage_BucketUpsertOptions_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi.CreateBucket(System.String%2CSupabase.Storage.BucketUpsertOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/apiSpec/new?filename=Supabase_Storage_StorageBucketApi_CreateBucket_System_String_Supabase_Storage_BucketUpsertOptions_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi.CreateBucket(System.String%2CSupabase.Storage.BucketUpsertOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/cb336a2413c5dcda0387a35723e8ca00bcd92328/Storage/StorageBucketApi.cs/#L71">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/Storage/StorageBucketApi.cs/#L87">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageBucketApi_CreateBucket_" data-uid="Supabase.Storage.StorageBucketApi.CreateBucket*"></a>
   <h4 id="Supabase_Storage_StorageBucketApi_CreateBucket_System_String_Supabase_Storage_BucketUpsertOptions_" data-uid="Supabase.Storage.StorageBucketApi.CreateBucket(System.String,Supabase.Storage.BucketUpsertOptions)">CreateBucket(String, BucketUpsertOptions)</h4>
@@ -281,10 +343,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/cb336a2413c5dcda0387a35723e8ca00bcd92328/apiSpec/new?filename=Supabase_Storage_StorageBucketApi_DeleteBucket_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi.DeleteBucket(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/apiSpec/new?filename=Supabase_Storage_StorageBucketApi_DeleteBucket_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi.DeleteBucket(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/cb336a2413c5dcda0387a35723e8ca00bcd92328/Storage/StorageBucketApi.cs/#L120">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/Storage/StorageBucketApi.cs/#L136">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageBucketApi_DeleteBucket_" data-uid="Supabase.Storage.StorageBucketApi.DeleteBucket*"></a>
   <h4 id="Supabase_Storage_StorageBucketApi_DeleteBucket_System_String_" data-uid="Supabase.Storage.StorageBucketApi.DeleteBucket(System.String)">DeleteBucket(String)</h4>
@@ -330,10 +392,10 @@ You must first <a class="xref" href="Supabase.Storage.StorageBucketApi.html#Supa
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/cb336a2413c5dcda0387a35723e8ca00bcd92328/apiSpec/new?filename=Supabase_Storage_StorageBucketApi_EmptyBucket_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi.EmptyBucket(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/apiSpec/new?filename=Supabase_Storage_StorageBucketApi_EmptyBucket_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi.EmptyBucket(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/cb336a2413c5dcda0387a35723e8ca00bcd92328/Storage/StorageBucketApi.cs/#L108">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/Storage/StorageBucketApi.cs/#L124">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageBucketApi_EmptyBucket_" data-uid="Supabase.Storage.StorageBucketApi.EmptyBucket*"></a>
   <h4 id="Supabase_Storage_StorageBucketApi_EmptyBucket_System_String_" data-uid="Supabase.Storage.StorageBucketApi.EmptyBucket(System.String)">EmptyBucket(String)</h4>
@@ -378,10 +440,10 @@ You must first <a class="xref" href="Supabase.Storage.StorageBucketApi.html#Supa
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/cb336a2413c5dcda0387a35723e8ca00bcd92328/apiSpec/new?filename=Supabase_Storage_StorageBucketApi_GetBucket_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi.GetBucket(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/apiSpec/new?filename=Supabase_Storage_StorageBucketApi_GetBucket_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi.GetBucket(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/cb336a2413c5dcda0387a35723e8ca00bcd92328/Storage/StorageBucketApi.cs/#L51">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/Storage/StorageBucketApi.cs/#L67">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageBucketApi_GetBucket_" data-uid="Supabase.Storage.StorageBucketApi.GetBucket*"></a>
   <h4 id="Supabase_Storage_StorageBucketApi_GetBucket_System_String_" data-uid="Supabase.Storage.StorageBucketApi.GetBucket(System.String)">GetBucket(String)</h4>
@@ -426,10 +488,10 @@ You must first <a class="xref" href="Supabase.Storage.StorageBucketApi.html#Supa
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/cb336a2413c5dcda0387a35723e8ca00bcd92328/apiSpec/new?filename=Supabase_Storage_StorageBucketApi_ListBuckets.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi.ListBuckets%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/apiSpec/new?filename=Supabase_Storage_StorageBucketApi_ListBuckets.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi.ListBuckets%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/cb336a2413c5dcda0387a35723e8ca00bcd92328/Storage/StorageBucketApi.cs/#L40">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/Storage/StorageBucketApi.cs/#L56">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageBucketApi_ListBuckets_" data-uid="Supabase.Storage.StorageBucketApi.ListBuckets*"></a>
   <h4 id="Supabase_Storage_StorageBucketApi_ListBuckets" data-uid="Supabase.Storage.StorageBucketApi.ListBuckets">ListBuckets()</h4>
@@ -457,10 +519,10 @@ You must first <a class="xref" href="Supabase.Storage.StorageBucketApi.html#Supa
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/cb336a2413c5dcda0387a35723e8ca00bcd92328/apiSpec/new?filename=Supabase_Storage_StorageBucketApi_UpdateBucket_System_String_Supabase_Storage_BucketUpsertOptions_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi.UpdateBucket(System.String%2CSupabase.Storage.BucketUpsertOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/apiSpec/new?filename=Supabase_Storage_StorageBucketApi_UpdateBucket_System_String_Supabase_Storage_BucketUpsertOptions_.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi.UpdateBucket(System.String%2CSupabase.Storage.BucketUpsertOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/cb336a2413c5dcda0387a35723e8ca00bcd92328/Storage/StorageBucketApi.cs/#L90">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/Storage/StorageBucketApi.cs/#L106">View Source</a>
   </span>
   <a id="Supabase_Storage_StorageBucketApi_UpdateBucket_" data-uid="Supabase.Storage.StorageBucketApi.UpdateBucket*"></a>
   <h4 id="Supabase_Storage_StorageBucketApi_UpdateBucket_System_String_Supabase_Storage_BucketUpsertOptions_" data-uid="Supabase.Storage.StorageBucketApi.UpdateBucket(System.String,Supabase.Storage.BucketUpsertOptions)">UpdateBucket(String, BucketUpsertOptions)</h4>
@@ -512,6 +574,9 @@ You must first <a class="xref" href="Supabase.Storage.StorageBucketApi.html#Supa
   <div>
       <a class="xref" href="Storage.Interfaces.IStorageBucketApi-1.html">IStorageBucketApi&lt;TBucket&gt;</a>
   </div>
+  <div>
+      <span class="xref">IGettableHeaders</span>
+  </div>
 </article>
           </div>
           
@@ -520,10 +585,10 @@ You must first <a class="xref" href="Supabase.Storage.StorageBucketApi.html#Supa
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/supabase-community/storage-csharp/new/cb336a2413c5dcda0387a35723e8ca00bcd92328/apiSpec/new?filename=Supabase_Storage_StorageBucketApi.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/supabase-community/storage-csharp/new/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/apiSpec/new?filename=Supabase_Storage_StorageBucketApi.md&amp;value=---%0Auid%3A%20Supabase.Storage.StorageBucketApi%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/storage-csharp/blob/cb336a2413c5dcda0387a35723e8ca00bcd92328/Storage/StorageBucketApi.cs/#L11" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/storage-csharp/blob/624b0e0e462e696f739fe6d08a0dcddbe1ba3b98/Storage/StorageBucketApi.cs/#L12" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
