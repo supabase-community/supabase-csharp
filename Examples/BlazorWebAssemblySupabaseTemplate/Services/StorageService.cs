@@ -32,6 +32,7 @@ public class StorageService
     {
         var bucket = Storage.From(bucketName);
 
+        // TODO: verify if there is a better way to do it
         // Maybe this isn't a good way to do it
         byte[] bytesData = await StreamToBytesAsync(streamData);
 
