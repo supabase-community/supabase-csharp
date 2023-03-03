@@ -39,6 +39,11 @@ namespace Supabase
 
         public Dictionary<string, string> Headers = new Dictionary<string, string>();
 
+        /// <summary>
+        /// Specifies Options passed to the StorageClient.
+        /// </summary>
+        public Storage.ClientOptions StorageClientOptions { get; set; } = new Storage.ClientOptions();
+
         public string AuthUrlFormat { get; set; } = "{0}/auth/v1";
         public string RestUrlFormat { get; set; } = "{0}/rest/v1";
         public string RealtimeUrlFormat { get; set; } = "{0}/realtime/v1";

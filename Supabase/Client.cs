@@ -187,7 +187,7 @@ namespace Supabase
             _functions = new Functions.Client(functionsUrl);
             _functions.GetHeaders = () => GetAuthHeaders();
 
-            _storage = new Storage.Client(storageUrl);
+            _storage = new Storage.Client(storageUrl, options.StorageClientOptions);
             _storage.GetHeaders = () => GetAuthHeaders();
         }
 
