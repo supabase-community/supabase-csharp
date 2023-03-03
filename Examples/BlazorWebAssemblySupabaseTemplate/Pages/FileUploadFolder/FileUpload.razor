@@ -27,6 +27,71 @@
                     </ButtonTemplate>
                 </MudFileUpload>
 
+
+                <br>
+                <MudText Typo="Typo.h6">List of files uploaded</MudText>
+                <br>
+
+                @if (fileObjects == null)
+                {
+                    <MudSimpleTable>
+                        <thead>
+                            <tr>    
+                                <th>Title</th>
+                                <th>Action</th>    
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>    
+                                <td><MudSkeleton /></td>
+                                <td><MudSkeleton /></td>
+                            </tr>
+                        </tbody>
+                    </MudSimpleTable>
+                }
+                else if (fileObjects.Count <= 1)
+                {
+                    <MudSimpleTable>
+                        <thead>
+                            <tr>    
+                                <th>Title</th>
+                                <th>Action</th>    
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <br>
+                            <MudText Typo="Typo.body1" Align="Align.Center">There is no items in this table.</MudText>
+                            <br>
+                        </tbody>
+                    </MudSimpleTable>
+                
+                } else
+                {
+                    <MudSimpleTable Hover="true" Elevation="3">
+                        <thead>
+                            <tr>
+                                <th>File name</th>
+                                <th>Created At</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var row in fileObjects)
+                            {
+                                if (row.Name != ".emptyFolderPlaceholder")
+                                {
+                                    <tr>
+                                        <td>@row.Name</td>
+                                        <td>@row.CreatedAt</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </MudSimpleTable>
+                }
+
+
+
+
             </Authorized>
             <NotAuthorized>
                 <MudText Typo="Typo.body1">You need to be logged in to upload a file.</MudText>
