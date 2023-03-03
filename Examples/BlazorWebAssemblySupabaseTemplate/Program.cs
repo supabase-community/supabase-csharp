@@ -56,5 +56,6 @@ builder.Services.AddScoped<Supabase.Client>(
 // builder.Services.AddScoped<ISupabaseClient<User, Session, Socket, Channel, Bucket, FileObject>>(args => new Supabase.Client(url, key, new Supabase.SupabaseOptions { AutoConnectRealtime = true }));
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<DatabaseService>();
+builder.Services.AddScoped<StorageService>();
 
 await builder.Build().RunAsync();

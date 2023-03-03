@@ -46,6 +46,7 @@ public class AuthService
     public async Task Logout()
     {
         await client.Auth.SignOut();
+        await localStorage.RemoveItemAsync("token");
         await customAuthStateProvider.GetAuthenticationStateAsync();
     }
 

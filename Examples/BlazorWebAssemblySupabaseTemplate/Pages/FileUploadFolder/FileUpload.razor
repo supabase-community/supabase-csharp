@@ -1,0 +1,41 @@
+@page "/uploadfile"
+
+@using MudBlazor
+
+@inject StorageService StorageService
+
+<div class="pa-16">
+
+    <MudText Typo="Typo.h5">File upload example</MudText>
+    <br>
+    <br>
+
+    <MudPaper Class="pa-4" Outlined="true">
+        <AuthorizeView>
+            <Authorized>
+
+                <MudFileUpload T="IBrowserFile" FilesChanged="UploadFilesAsync">
+                    <ButtonTemplate Context="contextUpload">
+                        <MudButton HtmlTag="label"
+                                Variant="Variant.Filled"
+                                Color="Color.Primary"
+                                StartIcon="@Icons.Material.Filled.CloudUpload"
+                                for="@contextUpload">
+                            Upload Files
+                        </MudButton>
+                    </ButtonTemplate>
+                </MudFileUpload>
+
+            </Authorized>
+            <NotAuthorized>
+                <MudText Typo="Typo.body1">You need to be logged in to upload a file.</MudText>
+                <br>
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" Link="/login">Login</MudButton>
+            </NotAuthorized>
+        </AuthorizeView>
+    </MudPaper>
+
+    
+
+
+</div>
