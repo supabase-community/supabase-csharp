@@ -3338,6 +3338,23 @@ references:
   fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket).ListBuckets
   nameWithType: IStorageBucketApi<TBucket>.ListBuckets
   nameWithType.vb: IStorageBucketApi(Of TBucket).ListBuckets
+- uid: Storage.Interfaces.IStorageBucketApi`1.Options
+  name: Options
+  href: api/Storage.Interfaces.IStorageBucketApi-1.html#Storage_Interfaces_IStorageBucketApi_1_Options
+  commentId: P:Storage.Interfaces.IStorageBucketApi`1.Options
+  fullName: Storage.Interfaces.IStorageBucketApi<TBucket>.Options
+  fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket).Options
+  nameWithType: IStorageBucketApi<TBucket>.Options
+  nameWithType.vb: IStorageBucketApi(Of TBucket).Options
+- uid: Storage.Interfaces.IStorageBucketApi`1.Options*
+  name: Options
+  href: api/Storage.Interfaces.IStorageBucketApi-1.html#Storage_Interfaces_IStorageBucketApi_1_Options_
+  commentId: Overload:Storage.Interfaces.IStorageBucketApi`1.Options
+  isSpec: "True"
+  fullName: Storage.Interfaces.IStorageBucketApi<TBucket>.Options
+  fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket).Options
+  nameWithType: IStorageBucketApi<TBucket>.Options
+  nameWithType.vb: IStorageBucketApi(Of TBucket).Options
 - uid: Storage.Interfaces.IStorageBucketApi`1.UpdateBucket(System.String,Supabase.Storage.BucketUpsertOptions)
   name: UpdateBucket(String, BucketUpsertOptions)
   href: api/Storage.Interfaces.IStorageBucketApi-1.html#Storage_Interfaces_IStorageBucketApi_1_UpdateBucket_System_String_Supabase_Storage_BucketUpsertOptions_
@@ -3503,6 +3520,23 @@ references:
   fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).Move
   nameWithType: IStorageFileApi<TFileObject>.Move
   nameWithType.vb: IStorageFileApi(Of TFileObject).Move
+- uid: Storage.Interfaces.IStorageFileApi`1.Options
+  name: Options
+  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_Options
+  commentId: P:Storage.Interfaces.IStorageFileApi`1.Options
+  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.Options
+  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).Options
+  nameWithType: IStorageFileApi<TFileObject>.Options
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Options
+- uid: Storage.Interfaces.IStorageFileApi`1.Options*
+  name: Options
+  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_Options_
+  commentId: Overload:Storage.Interfaces.IStorageFileApi`1.Options
+  isSpec: "True"
+  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.Options
+  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).Options
+  nameWithType: IStorageFileApi<TFileObject>.Options
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Options
 - uid: Storage.Interfaces.IStorageFileApi`1.Remove(List{System.String})
   name: Remove(List<String>)
   href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_Remove_List_System_String__
@@ -8270,12 +8304,15 @@ references:
   commentId: T:Supabase.Realtime.Channel.ChannelOptions
   fullName: Supabase.Realtime.Channel.ChannelOptions
   nameWithType: ChannelOptions
-- uid: Supabase.Realtime.Channel.ChannelOptions.#ctor(Supabase.Realtime.ClientOptions,JsonSerializerSettings)
-  name: ChannelOptions(ClientOptions, JsonSerializerSettings)
-  href: api/Supabase.Realtime.Channel.ChannelOptions.html#Supabase_Realtime_Channel_ChannelOptions__ctor_Supabase_Realtime_ClientOptions_JsonSerializerSettings_
-  commentId: M:Supabase.Realtime.Channel.ChannelOptions.#ctor(Supabase.Realtime.ClientOptions,JsonSerializerSettings)
-  fullName: Supabase.Realtime.Channel.ChannelOptions.ChannelOptions(Supabase.Realtime.ClientOptions, JsonSerializerSettings)
-  nameWithType: ChannelOptions.ChannelOptions(ClientOptions, JsonSerializerSettings)
+- uid: Supabase.Realtime.Channel.ChannelOptions.#ctor(Supabase.Realtime.ClientOptions,Func{System.Nullable{System.String}},JsonSerializerSettings)
+  name: ChannelOptions(ClientOptions, Func<Nullable<String>>, JsonSerializerSettings)
+  href: api/Supabase.Realtime.Channel.ChannelOptions.html#Supabase_Realtime_Channel_ChannelOptions__ctor_Supabase_Realtime_ClientOptions_Func_System_Nullable_System_String___JsonSerializerSettings_
+  commentId: M:Supabase.Realtime.Channel.ChannelOptions.#ctor(Supabase.Realtime.ClientOptions,Func{System.Nullable{System.String}},JsonSerializerSettings)
+  name.vb: ChannelOptions(ClientOptions, Func(Of Nullable(Of String)), JsonSerializerSettings)
+  fullName: Supabase.Realtime.Channel.ChannelOptions.ChannelOptions(Supabase.Realtime.ClientOptions, Func<System.Nullable<System.String>>, JsonSerializerSettings)
+  fullName.vb: Supabase.Realtime.Channel.ChannelOptions.ChannelOptions(Supabase.Realtime.ClientOptions, Func(Of System.Nullable(Of System.String)), JsonSerializerSettings)
+  nameWithType: ChannelOptions.ChannelOptions(ClientOptions, Func<Nullable<String>>, JsonSerializerSettings)
+  nameWithType.vb: ChannelOptions.ChannelOptions(ClientOptions, Func(Of Nullable(Of String)), JsonSerializerSettings)
 - uid: Supabase.Realtime.Channel.ChannelOptions.#ctor*
   name: ChannelOptions
   href: api/Supabase.Realtime.Channel.ChannelOptions.html#Supabase_Realtime_Channel_ChannelOptions__ctor_
@@ -8309,6 +8346,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Realtime.Channel.ChannelOptions.Parameters
   nameWithType: ChannelOptions.Parameters
+- uid: Supabase.Realtime.Channel.ChannelOptions.RetrieveAccessToken
+  name: RetrieveAccessToken
+  href: api/Supabase.Realtime.Channel.ChannelOptions.html#Supabase_Realtime_Channel_ChannelOptions_RetrieveAccessToken
+  commentId: P:Supabase.Realtime.Channel.ChannelOptions.RetrieveAccessToken
+  fullName: Supabase.Realtime.Channel.ChannelOptions.RetrieveAccessToken
+  nameWithType: ChannelOptions.RetrieveAccessToken
+- uid: Supabase.Realtime.Channel.ChannelOptions.RetrieveAccessToken*
+  name: RetrieveAccessToken
+  href: api/Supabase.Realtime.Channel.ChannelOptions.html#Supabase_Realtime_Channel_ChannelOptions_RetrieveAccessToken_
+  commentId: Overload:Supabase.Realtime.Channel.ChannelOptions.RetrieveAccessToken
+  isSpec: "True"
+  fullName: Supabase.Realtime.Channel.ChannelOptions.RetrieveAccessToken
+  nameWithType: ChannelOptions.RetrieveAccessToken
 - uid: Supabase.Realtime.Channel.ChannelOptions.SerializerSettings
   name: SerializerSettings
   href: api/Supabase.Realtime.Channel.ChannelOptions.html#Supabase_Realtime_Channel_ChannelOptions_SerializerSettings
@@ -8987,6 +9037,12 @@ references:
   commentId: F:Supabase.Realtime.Constants.EventType.Insert
   fullName: Supabase.Realtime.Constants.EventType.Insert
   nameWithType: Constants.EventType.Insert
+- uid: Supabase.Realtime.Constants.EventType.Internal
+  name: Internal
+  href: api/Supabase.Realtime.Constants.EventType.html#Supabase_Realtime_Constants_EventType_Internal
+  commentId: F:Supabase.Realtime.Constants.EventType.Internal
+  fullName: Supabase.Realtime.Constants.EventType.Internal
+  nameWithType: Constants.EventType.Internal
 - uid: Supabase.Realtime.Constants.EventType.PostgresChanges
   name: PostgresChanges
   href: api/Supabase.Realtime.Constants.EventType.html#Supabase_Realtime_Constants_EventType_PostgresChanges
@@ -9005,6 +9061,12 @@ references:
   commentId: F:Supabase.Realtime.Constants.EventType.PresenceState
   fullName: Supabase.Realtime.Constants.EventType.PresenceState
   nameWithType: Constants.EventType.PresenceState
+- uid: Supabase.Realtime.Constants.EventType.System
+  name: System
+  href: api/Supabase.Realtime.Constants.EventType.html#Supabase_Realtime_Constants_EventType_System
+  commentId: F:Supabase.Realtime.Constants.EventType.System
+  fullName: Supabase.Realtime.Constants.EventType.System
+  nameWithType: Constants.EventType.System
 - uid: Supabase.Realtime.Constants.EventType.Unknown
   name: Unknown
   href: api/Supabase.Realtime.Constants.EventType.html#Supabase_Realtime_Constants_EventType_Unknown
@@ -11693,6 +11755,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Realtime.Socket.SocketRequest.Event
   nameWithType: SocketRequest.Event
+- uid: Supabase.Realtime.Socket.SocketRequest.JoinRef
+  name: JoinRef
+  href: api/Supabase.Realtime.Socket.SocketRequest.html#Supabase_Realtime_Socket_SocketRequest_JoinRef
+  commentId: P:Supabase.Realtime.Socket.SocketRequest.JoinRef
+  fullName: Supabase.Realtime.Socket.SocketRequest.JoinRef
+  nameWithType: SocketRequest.JoinRef
+- uid: Supabase.Realtime.Socket.SocketRequest.JoinRef*
+  name: JoinRef
+  href: api/Supabase.Realtime.Socket.SocketRequest.html#Supabase_Realtime_Socket_SocketRequest_JoinRef_
+  commentId: Overload:Supabase.Realtime.Socket.SocketRequest.JoinRef
+  isSpec: "True"
+  fullName: Supabase.Realtime.Socket.SocketRequest.JoinRef
+  nameWithType: SocketRequest.JoinRef
 - uid: Supabase.Realtime.Socket.SocketRequest.Payload
   name: Payload
   href: api/Supabase.Realtime.Socket.SocketRequest.html#Supabase_Realtime_Socket_SocketRequest_Payload
@@ -11966,6 +12041,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Realtime.Socket.SocketResponsePayload._type
   nameWithType: SocketResponsePayload._type
+- uid: Supabase.Realtime.Socket.SocketResponsePayload.Channel
+  name: Channel
+  href: api/Supabase.Realtime.Socket.SocketResponsePayload.html#Supabase_Realtime_Socket_SocketResponsePayload_Channel
+  commentId: P:Supabase.Realtime.Socket.SocketResponsePayload.Channel
+  fullName: Supabase.Realtime.Socket.SocketResponsePayload.Channel
+  nameWithType: SocketResponsePayload.Channel
+- uid: Supabase.Realtime.Socket.SocketResponsePayload.Channel*
+  name: Channel
+  href: api/Supabase.Realtime.Socket.SocketResponsePayload.html#Supabase_Realtime_Socket_SocketResponsePayload_Channel_
+  commentId: Overload:Supabase.Realtime.Socket.SocketResponsePayload.Channel
+  isSpec: "True"
+  fullName: Supabase.Realtime.Socket.SocketResponsePayload.Channel
+  nameWithType: SocketResponsePayload.Channel
 - uid: Supabase.Realtime.Socket.SocketResponsePayload.Columns
   name: Columns
   href: api/Supabase.Realtime.Socket.SocketResponsePayload.html#Supabase_Realtime_Socket_SocketResponsePayload_Columns
@@ -12005,6 +12093,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Realtime.Socket.SocketResponsePayload.Errors
   nameWithType: SocketResponsePayload.Errors
+- uid: Supabase.Realtime.Socket.SocketResponsePayload.Extension
+  name: Extension
+  href: api/Supabase.Realtime.Socket.SocketResponsePayload.html#Supabase_Realtime_Socket_SocketResponsePayload_Extension
+  commentId: P:Supabase.Realtime.Socket.SocketResponsePayload.Extension
+  fullName: Supabase.Realtime.Socket.SocketResponsePayload.Extension
+  nameWithType: SocketResponsePayload.Extension
+- uid: Supabase.Realtime.Socket.SocketResponsePayload.Extension*
+  name: Extension
+  href: api/Supabase.Realtime.Socket.SocketResponsePayload.html#Supabase_Realtime_Socket_SocketResponsePayload_Extension_
+  commentId: Overload:Supabase.Realtime.Socket.SocketResponsePayload.Extension
+  isSpec: "True"
+  fullName: Supabase.Realtime.Socket.SocketResponsePayload.Extension
+  nameWithType: SocketResponsePayload.Extension
 - uid: Supabase.Realtime.Socket.SocketResponsePayload.Joins
   name: Joins
   href: api/Supabase.Realtime.Socket.SocketResponsePayload.html#Supabase_Realtime_Socket_SocketResponsePayload_Joins
@@ -12031,6 +12132,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Realtime.Socket.SocketResponsePayload.Leaves
   nameWithType: SocketResponsePayload.Leaves
+- uid: Supabase.Realtime.Socket.SocketResponsePayload.Message
+  name: Message
+  href: api/Supabase.Realtime.Socket.SocketResponsePayload.html#Supabase_Realtime_Socket_SocketResponsePayload_Message
+  commentId: P:Supabase.Realtime.Socket.SocketResponsePayload.Message
+  fullName: Supabase.Realtime.Socket.SocketResponsePayload.Message
+  nameWithType: SocketResponsePayload.Message
+- uid: Supabase.Realtime.Socket.SocketResponsePayload.Message*
+  name: Message
+  href: api/Supabase.Realtime.Socket.SocketResponsePayload.html#Supabase_Realtime_Socket_SocketResponsePayload_Message_
+  commentId: Overload:Supabase.Realtime.Socket.SocketResponsePayload.Message
+  isSpec: "True"
+  fullName: Supabase.Realtime.Socket.SocketResponsePayload.Message
+  nameWithType: SocketResponsePayload.Message
 - uid: Supabase.Realtime.Socket.SocketResponsePayload.OldRecord
   name: OldRecord
   href: api/Supabase.Realtime.Socket.SocketResponsePayload.html#Supabase_Realtime_Socket_SocketResponsePayload_OldRecord
@@ -12505,6 +12619,15 @@ references:
   commentId: T:Supabase.Storage.Client
   fullName: Supabase.Storage.Client
   nameWithType: Client
+- uid: Supabase.Storage.Client.#ctor(System.String,Supabase.Storage.ClientOptions,System.Nullable{Dictionary{System.String,System.String}})
+  name: Client(String, ClientOptions, Nullable<Dictionary<String, String>>)
+  href: api/Supabase.Storage.Client.html#Supabase_Storage_Client__ctor_System_String_Supabase_Storage_ClientOptions_System_Nullable_Dictionary_System_String_System_String___
+  commentId: M:Supabase.Storage.Client.#ctor(System.String,Supabase.Storage.ClientOptions,System.Nullable{Dictionary{System.String,System.String}})
+  name.vb: Client(String, ClientOptions, Nullable(Of Dictionary(Of String, String)))
+  fullName: Supabase.Storage.Client.Client(System.String, Supabase.Storage.ClientOptions, System.Nullable<Dictionary<System.String, System.String>>)
+  fullName.vb: Supabase.Storage.Client.Client(System.String, Supabase.Storage.ClientOptions, System.Nullable(Of Dictionary(Of System.String, System.String)))
+  nameWithType: Client.Client(String, ClientOptions, Nullable<Dictionary<String, String>>)
+  nameWithType.vb: Client.Client(String, ClientOptions, Nullable(Of Dictionary(Of String, String)))
 - uid: Supabase.Storage.Client.#ctor(System.String,System.Nullable{Dictionary{System.String,System.String}})
   name: Client(String, Nullable<Dictionary<String, String>>)
   href: api/Supabase.Storage.Client.html#Supabase_Storage_Client__ctor_System_String_System_Nullable_Dictionary_System_String_System_String___
@@ -12534,6 +12657,30 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.Client.From
   nameWithType: Client.From
+- uid: Supabase.Storage.ClientOptions
+  name: ClientOptions
+  href: api/Supabase.Storage.ClientOptions.html
+  commentId: T:Supabase.Storage.ClientOptions
+  fullName: Supabase.Storage.ClientOptions
+  nameWithType: ClientOptions
+- uid: Supabase.Storage.ClientOptions.HttpDownloadTimeout
+  name: HttpDownloadTimeout
+  href: api/Supabase.Storage.ClientOptions.html#Supabase_Storage_ClientOptions_HttpDownloadTimeout
+  commentId: F:Supabase.Storage.ClientOptions.HttpDownloadTimeout
+  fullName: Supabase.Storage.ClientOptions.HttpDownloadTimeout
+  nameWithType: ClientOptions.HttpDownloadTimeout
+- uid: Supabase.Storage.ClientOptions.HttpRequestTimeout
+  name: HttpRequestTimeout
+  href: api/Supabase.Storage.ClientOptions.html#Supabase_Storage_ClientOptions_HttpRequestTimeout
+  commentId: F:Supabase.Storage.ClientOptions.HttpRequestTimeout
+  fullName: Supabase.Storage.ClientOptions.HttpRequestTimeout
+  nameWithType: ClientOptions.HttpRequestTimeout
+- uid: Supabase.Storage.ClientOptions.HttpUploadTimeout
+  name: HttpUploadTimeout
+  href: api/Supabase.Storage.ClientOptions.html#Supabase_Storage_ClientOptions_HttpUploadTimeout
+  commentId: F:Supabase.Storage.ClientOptions.HttpUploadTimeout
+  fullName: Supabase.Storage.ClientOptions.HttpUploadTimeout
+  nameWithType: ClientOptions.HttpUploadTimeout
 - uid: Supabase.Storage.CreateSignedUrlResponse
   name: CreateSignedUrlResponse
   href: api/Supabase.Storage.CreateSignedUrlResponse.html
@@ -12880,6 +13027,15 @@ references:
   commentId: T:Supabase.Storage.StorageBucketApi
   fullName: Supabase.Storage.StorageBucketApi
   nameWithType: StorageBucketApi
+- uid: Supabase.Storage.StorageBucketApi.#ctor(System.String,Supabase.Storage.ClientOptions,System.Nullable{Dictionary{System.String,System.String}})
+  name: StorageBucketApi(String, ClientOptions, Nullable<Dictionary<String, String>>)
+  href: api/Supabase.Storage.StorageBucketApi.html#Supabase_Storage_StorageBucketApi__ctor_System_String_Supabase_Storage_ClientOptions_System_Nullable_Dictionary_System_String_System_String___
+  commentId: M:Supabase.Storage.StorageBucketApi.#ctor(System.String,Supabase.Storage.ClientOptions,System.Nullable{Dictionary{System.String,System.String}})
+  name.vb: StorageBucketApi(String, ClientOptions, Nullable(Of Dictionary(Of String, String)))
+  fullName: Supabase.Storage.StorageBucketApi.StorageBucketApi(System.String, Supabase.Storage.ClientOptions, System.Nullable<Dictionary<System.String, System.String>>)
+  fullName.vb: Supabase.Storage.StorageBucketApi.StorageBucketApi(System.String, Supabase.Storage.ClientOptions, System.Nullable(Of Dictionary(Of System.String, System.String)))
+  nameWithType: StorageBucketApi.StorageBucketApi(String, ClientOptions, Nullable<Dictionary<String, String>>)
+  nameWithType.vb: StorageBucketApi.StorageBucketApi(String, ClientOptions, Nullable(Of Dictionary(Of String, String)))
 - uid: Supabase.Storage.StorageBucketApi.#ctor(System.String,System.Nullable{Dictionary{System.String,System.String}})
   name: StorageBucketApi(String, Nullable<Dictionary<String, String>>)
   href: api/Supabase.Storage.StorageBucketApi.html#Supabase_Storage_StorageBucketApi__ctor_System_String_System_Nullable_Dictionary_System_String_System_String___
@@ -12999,6 +13155,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.StorageBucketApi.ListBuckets
   nameWithType: StorageBucketApi.ListBuckets
+- uid: Supabase.Storage.StorageBucketApi.Options
+  name: Options
+  href: api/Supabase.Storage.StorageBucketApi.html#Supabase_Storage_StorageBucketApi_Options
+  commentId: P:Supabase.Storage.StorageBucketApi.Options
+  fullName: Supabase.Storage.StorageBucketApi.Options
+  nameWithType: StorageBucketApi.Options
+- uid: Supabase.Storage.StorageBucketApi.Options*
+  name: Options
+  href: api/Supabase.Storage.StorageBucketApi.html#Supabase_Storage_StorageBucketApi_Options_
+  commentId: Overload:Supabase.Storage.StorageBucketApi.Options
+  isSpec: "True"
+  fullName: Supabase.Storage.StorageBucketApi.Options
+  nameWithType: StorageBucketApi.Options
 - uid: Supabase.Storage.StorageBucketApi.UpdateBucket(System.String,Supabase.Storage.BucketUpsertOptions)
   name: UpdateBucket(String, BucketUpsertOptions)
   href: api/Supabase.Storage.StorageBucketApi.html#Supabase_Storage_StorageBucketApi_UpdateBucket_System_String_Supabase_Storage_BucketUpsertOptions_
@@ -13040,6 +13209,15 @@ references:
   fullName.vb: Supabase.Storage.StorageFileApi.StorageFileApi(System.String, System.Nullable(Of Dictionary(Of System.String, System.String)), System.Nullable(Of System.String))
   nameWithType: StorageFileApi.StorageFileApi(String, Nullable<Dictionary<String, String>>, Nullable<String>)
   nameWithType.vb: StorageFileApi.StorageFileApi(String, Nullable(Of Dictionary(Of String, String)), Nullable(Of String))
+- uid: Supabase.Storage.StorageFileApi.#ctor(System.String,System.String,Supabase.Storage.ClientOptions,System.Nullable{Dictionary{System.String,System.String}})
+  name: StorageFileApi(String, String, ClientOptions, Nullable<Dictionary<String, String>>)
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi__ctor_System_String_System_String_Supabase_Storage_ClientOptions_System_Nullable_Dictionary_System_String_System_String___
+  commentId: M:Supabase.Storage.StorageFileApi.#ctor(System.String,System.String,Supabase.Storage.ClientOptions,System.Nullable{Dictionary{System.String,System.String}})
+  name.vb: StorageFileApi(String, String, ClientOptions, Nullable(Of Dictionary(Of String, String)))
+  fullName: Supabase.Storage.StorageFileApi.StorageFileApi(System.String, System.String, Supabase.Storage.ClientOptions, System.Nullable<Dictionary<System.String, System.String>>)
+  fullName.vb: Supabase.Storage.StorageFileApi.StorageFileApi(System.String, System.String, Supabase.Storage.ClientOptions, System.Nullable(Of Dictionary(Of System.String, System.String)))
+  nameWithType: StorageFileApi.StorageFileApi(String, String, ClientOptions, Nullable<Dictionary<String, String>>)
+  nameWithType.vb: StorageFileApi.StorageFileApi(String, String, ClientOptions, Nullable(Of Dictionary(Of String, String)))
 - uid: Supabase.Storage.StorageFileApi.#ctor*
   name: StorageFileApi
   href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi__ctor_
@@ -13166,6 +13344,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.StorageFileApi.Move
   nameWithType: StorageFileApi.Move
+- uid: Supabase.Storage.StorageFileApi.Options
+  name: Options
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Options
+  commentId: P:Supabase.Storage.StorageFileApi.Options
+  fullName: Supabase.Storage.StorageFileApi.Options
+  nameWithType: StorageFileApi.Options
+- uid: Supabase.Storage.StorageFileApi.Options*
+  name: Options
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Options_
+  commentId: Overload:Supabase.Storage.StorageFileApi.Options
+  isSpec: "True"
+  fullName: Supabase.Storage.StorageFileApi.Options
+  nameWithType: StorageFileApi.Options
 - uid: Supabase.Storage.StorageFileApi.Remove(List{System.String})
   name: Remove(List<String>)
   href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Remove_List_System_String__

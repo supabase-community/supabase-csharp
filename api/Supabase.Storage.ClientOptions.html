@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class FileOptions
+    <title>Class ClientOptions
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class FileOptions
+    <meta name="title" content="Class ClientOptions
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -68,42 +68,44 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Supabase.Storage.FileOptions">
+            <article class="content wrap" id="_content" data-uid="Supabase.Storage.ClientOptions">
   
   
-  <h1 id="Supabase_Storage_FileOptions" data-uid="Supabase.Storage.FileOptions" class="text-break">Class FileOptions
+  <h1 id="Supabase_Storage_ClientOptions" data-uid="Supabase.Storage.ClientOptions" class="text-break">Class ClientOptions
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Options that can be passed into the Storage Client</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">FileOptions</span></div>
+    <div class="level1"><span class="xref">ClientOptions</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Storage.html">Supabase.Storage</a></h6>
   <h6><strong>Assembly</strong>: Storage.dll</h6>
-  <h5 id="Supabase_Storage_FileOptions_syntax">Syntax</h5>
+  <h5 id="Supabase_Storage_ClientOptions_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class FileOptions : object</code></pre>
+    <pre><code class="lang-csharp hljs">public class ClientOptions : object</code></pre>
   </div>
-  <h3 id="properties">Properties
+  <h3 id="fields">Fields
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/f00029e60bee26044617c5545d4a2a91ac40b2bc/apiSpec/new?filename=Supabase_Storage_FileOptions_CacheControl.md&amp;value=---%0Auid%3A%20Supabase.Storage.FileOptions.CacheControl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/f00029e60bee26044617c5545d4a2a91ac40b2bc/apiSpec/new?filename=Supabase_Storage_ClientOptions_HttpDownloadTimeout.md&amp;value=---%0Auid%3A%20Supabase.Storage.ClientOptions.HttpDownloadTimeout%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/f00029e60bee26044617c5545d4a2a91ac40b2bc/Storage/FileOptions.cs/#L8">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/f00029e60bee26044617c5545d4a2a91ac40b2bc/Storage/ClientOptions.cs/#L23">View Source</a>
   </span>
-  <a id="Supabase_Storage_FileOptions_CacheControl_" data-uid="Supabase.Storage.FileOptions.CacheControl*"></a>
-  <h4 id="Supabase_Storage_FileOptions_CacheControl" data-uid="Supabase.Storage.FileOptions.CacheControl">CacheControl</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="Supabase_Storage_ClientOptions_HttpDownloadTimeout" data-uid="Supabase.Storage.ClientOptions.HttpDownloadTimeout">HttpDownloadTimeout</h4>
+  <div class="markdown level1 summary"><p>The timespan to wait before an HTTP Upload Timesout
+See: <a href="https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient.timeout?view=net-7.0">https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient.timeout?view=net-7.0</a></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string CacheControl { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public TimeSpan HttpDownloadTimeout</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -113,27 +115,28 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">TimeSpan</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/f00029e60bee26044617c5545d4a2a91ac40b2bc/apiSpec/new?filename=Supabase_Storage_FileOptions_ContentType.md&amp;value=---%0Auid%3A%20Supabase.Storage.FileOptions.ContentType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/f00029e60bee26044617c5545d4a2a91ac40b2bc/apiSpec/new?filename=Supabase_Storage_ClientOptions_HttpRequestTimeout.md&amp;value=---%0Auid%3A%20Supabase.Storage.ClientOptions.HttpRequestTimeout%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/f00029e60bee26044617c5545d4a2a91ac40b2bc/Storage/FileOptions.cs/#L11">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/f00029e60bee26044617c5545d4a2a91ac40b2bc/Storage/ClientOptions.cs/#L29">View Source</a>
   </span>
-  <a id="Supabase_Storage_FileOptions_ContentType_" data-uid="Supabase.Storage.FileOptions.ContentType*"></a>
-  <h4 id="Supabase_Storage_FileOptions_ContentType" data-uid="Supabase.Storage.FileOptions.ContentType">ContentType</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="Supabase_Storage_ClientOptions_HttpRequestTimeout" data-uid="Supabase.Storage.ClientOptions.HttpRequestTimeout">HttpRequestTimeout</h4>
+  <div class="markdown level1 summary"><p>The timespan to wait before an HTTP Client request times out.
+See: <a href="https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient.timeout?view=net-7.0">https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient.timeout?view=net-7.0</a></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ContentType { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public TimeSpan HttpRequestTimeout</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -143,27 +146,28 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">TimeSpan</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/f00029e60bee26044617c5545d4a2a91ac40b2bc/apiSpec/new?filename=Supabase_Storage_FileOptions_Upsert.md&amp;value=---%0Auid%3A%20Supabase.Storage.FileOptions.Upsert%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/f00029e60bee26044617c5545d4a2a91ac40b2bc/apiSpec/new?filename=Supabase_Storage_ClientOptions_HttpUploadTimeout.md&amp;value=---%0Auid%3A%20Supabase.Storage.ClientOptions.HttpUploadTimeout%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/f00029e60bee26044617c5545d4a2a91ac40b2bc/Storage/FileOptions.cs/#L14">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/f00029e60bee26044617c5545d4a2a91ac40b2bc/Storage/ClientOptions.cs/#L17">View Source</a>
   </span>
-  <a id="Supabase_Storage_FileOptions_Upsert_" data-uid="Supabase.Storage.FileOptions.Upsert*"></a>
-  <h4 id="Supabase_Storage_FileOptions_Upsert" data-uid="Supabase.Storage.FileOptions.Upsert">Upsert</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="Supabase_Storage_ClientOptions_HttpUploadTimeout" data-uid="Supabase.Storage.ClientOptions.HttpUploadTimeout">HttpUploadTimeout</h4>
+  <div class="markdown level1 summary"><p>The timespan to wait before an HTTP Upload Timesout
+See: <a href="https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient.timeout?view=net-7.0">https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient.timeout?view=net-7.0</a></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Upsert { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public TimeSpan HttpUploadTimeout</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -173,7 +177,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="xref">TimeSpan</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -186,10 +190,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/supabase-community/storage-csharp/new/f00029e60bee26044617c5545d4a2a91ac40b2bc/apiSpec/new?filename=Supabase_Storage_FileOptions.md&amp;value=---%0Auid%3A%20Supabase.Storage.FileOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/supabase-community/storage-csharp/new/f00029e60bee26044617c5545d4a2a91ac40b2bc/apiSpec/new?filename=Supabase_Storage_ClientOptions.md&amp;value=---%0Auid%3A%20Supabase.Storage.ClientOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/storage-csharp/blob/f00029e60bee26044617c5545d4a2a91ac40b2bc/Storage/FileOptions.cs/#L6" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/storage-csharp/blob/f00029e60bee26044617c5545d4a2a91ac40b2bc/Storage/ClientOptions.cs/#L11" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
