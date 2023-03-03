@@ -68,8 +68,10 @@ public partial class CrudPagePrivate
     {
         if (UserLoggedIn is not null && UserLoggedIn?.Id is not null)
         {
-            // model.User_id = UserLoggedIn?.Id;
-            model.User_id = "f05fad82-1d40-4a73-ae19-a325c73048f1";
+            System.Console.WriteLine("UserLoggedIn?.Id");
+            System.Console.WriteLine(UserLoggedIn?.Id);
+
+            model.User_id = UserLoggedIn?.Id;
 
             _processingNewItem = true;
             try
