@@ -13373,6 +13373,19 @@ references:
   isSpec: "True"
   fullName: Supabase.SupabaseOptions.SessionHandler
   nameWithType: SupabaseOptions.SessionHandler
+- uid: Supabase.SupabaseOptions.StorageClientOptions
+  name: StorageClientOptions
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_StorageClientOptions
+  commentId: P:Supabase.SupabaseOptions.StorageClientOptions
+  fullName: Supabase.SupabaseOptions.StorageClientOptions
+  nameWithType: SupabaseOptions.StorageClientOptions
+- uid: Supabase.SupabaseOptions.StorageClientOptions*
+  name: StorageClientOptions
+  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_StorageClientOptions_
+  commentId: Overload:Supabase.SupabaseOptions.StorageClientOptions
+  isSpec: "True"
+  fullName: Supabase.SupabaseOptions.StorageClientOptions
+  nameWithType: SupabaseOptions.StorageClientOptions
 - uid: Supabase.SupabaseOptions.StorageUrlFormat
   name: StorageUrlFormat
   href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_StorageUrlFormat
