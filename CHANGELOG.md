@@ -1,5 +1,13 @@
 ﻿# Changelog
 
+## 0.8.4 - 2023-03-03
+
+- Update dependency: supabase-storage-csharp@1.2.7
+    - Re: [#4](https://github.com/supabase-community/storage-csharp/issues/4) Implementation for `ClientOptions` which supports specifying Upload, Download, and Request timeouts.
+- Update dependency: realtime-csharp@5.0.2
+    - Re: [#24](https://github.com/supabase-community/realtime-csharp/issues/24) - Fixes join failing until reconnect happened + adds access token push on channel join. Big thank you to [@Honeyhead](https://github.com/honeyhead) for the help debugging and identifying!
+
+
 ## 0.8.3 - 2023-02-26
 
 - Update dependency: supabase-storage-csharp@1.2.5
