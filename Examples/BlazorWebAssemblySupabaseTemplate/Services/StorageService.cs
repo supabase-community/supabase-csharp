@@ -36,10 +36,10 @@ public class StorageService
 
         string fileExtesion = fileName.Split(".").Last();
 
-        String saveName = "File_"+DateTime.Now;
+        String saveName = "File_" + DateTime.Now;
 
         saveName = saveName.Replace("/", "_").Replace(" ", "_").Replace(":", "_");
-        saveName = saveName + "."+ fileExtesion;
+        saveName = saveName + "." + fileExtesion;
 
         // Console.WriteLine("saveName");
         // Console.WriteLine(saveName);
@@ -60,4 +60,8 @@ public class StorageService
         return bytes;
     }
 
+    public async Task<List<Supabase.Storage.FileObject>?> GetFilesFromBucket(String bucketName)
+    {
+        return await Storage.From(bucketName).List();
+    }
 }
