@@ -28,14 +28,23 @@ public class StorageService
         Storage = client.Storage;
     }
 
-    public async Task<string> UploadFile(String bucketName, Stream streamData, String saveName)
+    public async Task<string> UploadFile(String bucketName, Stream streamData, String fileName)
     {
         var bucket = Storage.From(bucketName);
 
         byte[] bytesData = await StreamToBytesAsync(streamData);
 
+        string fileExtesion = fileName.Split(".").Last();
+
+        String saveName = "File_"+DateTime.Now;
+
+        saveName = saveName.Replace("/", "_").Replace(" ", "_").Replace(":", "_");
+        saveName = saveName + "."+ fileExtesion;
+
+        // Console.WriteLine("saveName");
+        // Console.WriteLine(saveName);
+
         return await bucket.Upload(bytesData, saveName);
-        // return await bucket.Upload(new Byte[] { 0x0, 0x0, 0x0 }, saveName);
     }
 
     public async Task<byte[]> StreamToBytesAsync(Stream streamData)
