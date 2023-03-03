@@ -32,6 +32,7 @@ public class StorageService
     {
         var bucket = Storage.From(bucketName);
 
+        // Maybe this isn't a good way to do it
         byte[] bytesData = await StreamToBytesAsync(streamData);
 
         string fileExtesion = fileName.Split(".").Last();

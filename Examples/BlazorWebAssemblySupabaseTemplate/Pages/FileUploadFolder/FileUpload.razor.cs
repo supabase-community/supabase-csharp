@@ -19,16 +19,27 @@ public partial class FileUpload
         fileObjects = await StorageService.GetFilesFromBucket("userfiles");
     }
 
+    static long maxFileSizeInMB = 15;
+    long maxFileSize = 1024 * maxFileSizeInMB;
     private async Task UploadFilesAsync(IBrowserFile file)
     {
         Console.WriteLine("file.Name");
         Console.WriteLine(file.Name);
 
-        string filename = await StorageService.UploadFile("userfiles", file.OpenReadStream(), file.Name);
+        try
+        {
+            Stream streamData = file.OpenReadStream(maxFileSize);            
 
-        Snackbar.Add( "File uploaded: "+filename.Split("/").Last() );
+            string filename = await StorageService.UploadFile("userfiles", streamData, file.Name);
 
-        await GetFilesFromBucket();
-        await InvokeAsync(StateHasChanged);
+            Snackbar.Add( "File uploaded: "+filename.Split("/").Last() );
+
+            await GetFilesFromBucket();
+            await InvokeAsync(StateHasChanged);
+        }
+        catch (System.IO.IOException ex)
+        {
+            Snackbar.Add( "Error: Max file size exceeded." );
+        }
     }
 }
