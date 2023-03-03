@@ -12,7 +12,9 @@ namespace SupabaseTests.Stubs
         public Dictionary<string, string> Headers { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public Func<Dictionary<string, string>> GetHeaders { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public Task<string> CreateBucket(string id, BucketUpsertOptions options = null)
+		public ClientOptions Options => throw new NotImplementedException();
+
+		public Task<string> CreateBucket(string id, BucketUpsertOptions options = null)
         {
             throw new NotImplementedException();
         }

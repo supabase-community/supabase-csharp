@@ -1,5 +1,31 @@
 ﻿# Changelog
 
+## 0.8.4 - 2023-03-03
+
+- Update dependency: supabase-storage-csharp@1.2.7
+    - Re: [#4](https://github.com/supabase-community/storage-csharp/issues/4) Implementation for `ClientOptions` which supports specifying Upload, Download, and Request timeouts.
+- Update dependency: realtime-csharp@5.0.2
+    - Re: [#24](https://github.com/supabase-community/realtime-csharp/issues/24) - Fixes join failing until reconnect happened + adds access token push on channel join. Big thank you to [@Honeyhead](https://github.com/honeyhead) for the help debugging and identifying!
+
+
+## 0.8.3 - 2023-02-26
+
+- Update dependency: supabase-storage-csharp@1.2.5
+    - Provides fix for [supabase-community/supabase-csharp#54](https://github.com/supabase-community/supabase-csharp/issues/54) - Dynamic headers were always being overwritten by initialized token headers, so the storage client would not receive user's access token as expected.
+    - Provides fix for upload progress not reporting in [supabase-community/storage-csharp#3](https://github.com/supabase-community/storage-csharp/issues/3)
+- Update dependency: gotrue-csharp@3.0.5
+    - Fixes [#44](https://github.com/supabase-community/gotrue-csharp/issues/44) - refresh timer should automatically reattempt (interval of 5s) for HTTP exceptions - gracefully exits on invalid refresh and triggers an `AuthState.Changed` event
+
+## 0.8.2 - 2023-02-26
+
+- Update dependency: supabase-storage-csharp@1.2.4
+    - `UploadOrUpdate` now appropriately throws request exceptions
+
+## 0.8.1 - 2023-02-06
+
+- Update dependency: realtime-csharp@5.0.1
+    - Re: [#22](https://github.com/supabase-community/realtime-csharp/issues/22) - `SerializerSettings` were not being passed to `PostgresChangesResponse` - Thanks [@Shenrak](https://github.com/Shenrak) for the help debugging!
+
 ## 0.8.0 - 2023-01-31
 
 - Update dependency: realtime-csharp@5.0.0
