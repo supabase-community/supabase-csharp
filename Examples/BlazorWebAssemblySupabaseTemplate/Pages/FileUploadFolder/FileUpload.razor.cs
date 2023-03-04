@@ -20,7 +20,7 @@ public partial class FileUpload
     }
 
     static long maxFileSizeInMB = 15;
-    long maxFileSize = 1024 * maxFileSizeInMB;
+    long maxFileSize = 1024 * 1024 * maxFileSizeInMB;
     private async Task UploadFilesAsync(IBrowserFile file)
     {
         Console.WriteLine("file.Name");
