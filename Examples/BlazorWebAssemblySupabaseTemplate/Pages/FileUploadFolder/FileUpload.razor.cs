@@ -1,13 +1,13 @@
 using BlazorWebAssemblySupabaseTemplate.Dtos;
 using BlazorWebAssemblySupabaseTemplate.Services;
 using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.JSInterop;
 using MudBlazor;
 
 namespace BlazorWebAssemblySupabaseTemplate.Pages.FileUploadFolder;
 
 public partial class FileUpload
 {
-
     protected override async Task OnInitializedAsync()
     {
         await GetFilesFromBucket();
@@ -41,5 +41,17 @@ public partial class FileUpload
         {
             Snackbar.Add( "Error: Max file size exceeded." );
         }
+    }
+
+    private async Task DownloadClick(Supabase.Storage.FileObject row)
+    {
+        bool? result = await DialogService.ShowMessageBox(
+            "Warning", 
+            "The download feature is disabled because of security risks, but it could be tested with your own risk by downloading the source code and running it. "
+            );
+
+        // byte[] downloadedBytes = await StorageService.DownloadFile("userfiles", row.Name);
+
+        // await JS.InvokeVoidAsync("downloadFileFromStream", row.Name, downloadedBytes);
     }
 }

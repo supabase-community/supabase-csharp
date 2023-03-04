@@ -4,6 +4,8 @@
 
 @inject StorageService StorageService
 @inject ISnackbar Snackbar
+@inject IJSRuntime JS
+@inject IDialogService DialogService
 
 <div class="pa-16">
 
@@ -82,7 +84,11 @@
                                 if (row.Name != ".emptyFolderPlaceholder")
                                 {
                                     <tr>
-                                        <td>@row.Name</td>
+                                        <td>
+                                            <MudIconButton Icon="@Icons.Material.Filled.Download" aria-label="download" Size="MudBlazor.Size.Small"
+                                                OnClick="@(async (e) => {await DownloadClick(row);})" />
+                                            @row.Name
+                                        </td>
                                         <td>@row.CreatedAt</td>
                                     </tr>
                                 }

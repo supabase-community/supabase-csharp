@@ -66,4 +66,10 @@ public class StorageService
     {
         return await Storage.From(bucketName).List();
     }
+
+    public async Task<byte[]> DownloadFile(String bucketName, String fileName)
+    {
+        var bucket = Storage.From(bucketName);
+        return await bucket.Download(fileName);
+    }
 }
