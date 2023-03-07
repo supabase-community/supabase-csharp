@@ -1,13 +1,23 @@
 using BlazorWebAssemblySupabaseTemplate.Dtos;
 using BlazorWebAssemblySupabaseTemplate.Services;
+using Microsoft.AspNetCore.Components;
 using MudBlazor;
+using Supabase.Gotrue;
 
 namespace BlazorWebAssemblySupabaseTemplate.Pages.CrudPrivate;
 
 public partial class CrudPagePrivate
 {
+    [Inject]
+    protected AuthService AuthService { get; set; }
+    [Inject]
+    protected IDialogService DialogService { get; set; }
+
+    protected User? UserLoggedIn { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
+        UserLoggedIn = await AuthService.GetUser();
         await GetTable();
     }
 
@@ -29,12 +39,22 @@ public partial class CrudPagePrivate
     {
         _todoListFiltered = _todoList?.Where(row => row.Title.Contains(text)).ToList();
     }
-    
+
     // ---------------- DELETE
     private async Task OnClickDelete(TodoPrivate item)
     {
-        await DatabaseService.Delete<TodoPrivate>(item);        
-        await GetTable();
+        if (UserLoggedIn is not null)
+        {
+            await DatabaseService.SoftDelete(item);
+            await GetTable();
+        }
+        else
+        {
+            await DialogService.ShowMessageBox(
+                "Warning",
+                "You need to be logged In to create or change an item in this table."
+            );
+        }
     }
 
     // ---------------- CREATE NEW
@@ -46,14 +66,37 @@ public partial class CrudPagePrivate
     private bool _processingNewItem = false;
     private async Task OnClickSave()
     {
-        string user_id = await localStorage.GetItemAsync<string>("user_id");
-        
-        model.User_id = user_id;
-        _processingNewItem = true;
-        await DatabaseService.Insert<TodoPrivate>(model);
-        model = new();
-        await GetTable();
-        success = false;
-        _processingNewItem = false;
+        if (UserLoggedIn is not null && UserLoggedIn?.Id is not null)
+        {
+            System.Console.WriteLine("UserLoggedIn?.Id");
+            System.Console.WriteLine(UserLoggedIn?.Id);
+
+            model.User_id = UserLoggedIn?.Id;
+
+            _processingNewItem = true;
+            try
+            {
+                await DatabaseService.Insert<TodoPrivate>(model);
+                model = new();
+                await GetTable();
+            }
+            catch (System.Exception ex)
+            {
+                await DialogService.ShowMessageBox(
+                    "Warning",
+                    "This request was not completed because of some problem. Error message: "
+                    +ex.Message
+                );
+            }
+            success = false;
+            _processingNewItem = false;
+        }
+        else
+        {
+            await DialogService.ShowMessageBox(
+                "Warning",
+                "You need to be logged In to create or change an item in this table."
+            );
+        }
     }
 }

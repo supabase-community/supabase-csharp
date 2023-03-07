@@ -23,7 +23,7 @@ public class CustomSupabaseSessionHandler : ISupabaseSessionHandler
     public async Task<bool> SessionDestroyer()
     {
         logger.LogInformation("------------------- SessionDestroyer -------------------");
-        await localStorage.RemoveItemAsync(SESSION_KEY); 
+        await localStorage.RemoveItemAsync(SESSION_KEY);
         return true;
     }
 
@@ -37,6 +37,20 @@ public class CustomSupabaseSessionHandler : ISupabaseSessionHandler
     public async Task<TSession?> SessionRetriever<TSession>() where TSession : Session
     {
         logger.LogInformation("------------------- SessionRetriever -------------------");
-        return (TSession?) await localStorage.GetItemAsync<Session>(SESSION_KEY);
+
+        Session session = await localStorage.GetItemAsync<Session>(SESSION_KEY);
+        
+        // it didn't work, I think because of the race condition pointed few months ago by Joseph
+        // if( await client.Auth.GetUser(session?.AccessToken) is not null )
+        //     return (TSession?)session;
+        // else
+        //     return null;
+
+        // fix JWT already expired
+        if(session?.ExpiresAt() <= DateTime.Now)
+            return null;
+        else
+            return (TSession?) await localStorage.GetItemAsync<Session>(SESSION_KEY);
     }
+
 }

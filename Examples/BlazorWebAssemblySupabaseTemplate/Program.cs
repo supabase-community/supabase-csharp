@@ -17,12 +17,6 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-// builder.Services.AddHttpClient("BaseHttpClient", httpClient =>
-//     {
-//         httpClient.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
-//     }
-// );
-
 builder.Services.AddMudServices();
 builder.Services.AddBlazoredLocalStorage();
 
@@ -31,7 +25,8 @@ builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>(
 	provider => new CustomAuthStateProvider(
 		provider.GetRequiredService<ILocalStorageService>(),
-		provider.GetRequiredService<Supabase.Client>()
+		provider.GetRequiredService<Supabase.Client>(),
+		provider.GetRequiredService<ILogger<CustomAuthStateProvider>>()
 	)
 )
 	;
@@ -61,5 +56,6 @@ builder.Services.AddScoped<Supabase.Client>(
 // builder.Services.AddScoped<ISupabaseClient<User, Session, Socket, Channel, Bucket, FileObject>>(args => new Supabase.Client(url, key, new Supabase.SupabaseOptions { AutoConnectRealtime = true }));
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<DatabaseService>();
+builder.Services.AddScoped<StorageService>();
 
 await builder.Build().RunAsync();

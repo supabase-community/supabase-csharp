@@ -30,3 +30,24 @@
         at async onInstall (service-worker.js:22:5)
 
     -----> This is because of old files in cache in the browser. Clear cache by clicking in the clear button (just ctrl + f5 doesn't work) and after press ctrl + f5. This will solve.
+
+
+
+# JWT ERROR
+    - WHEN CLICK IN LOGOUT BUTTON OR TRY TO GET DATA FROM DATABASE, BUT THE JWT IS ALREADY EXPIRED:
+        - this problem only happens when login, close the app, later, after token expired, the app is open again.
+        - I set the JWT expiry limit to 180 just to test this.
+
+        blazor.webassembly.js:1 crit: Microsoft.AspNetCore.Components.WebAssembly.Rendering.WebAssemblyRenderer[100]
+            Unhandled exception rendering component: {"code":401,"msg":"invalid JWT: unable to parse or verify signature, token is expired by 22m22s"}
+        Supabase.Gotrue.RequestException: {"code":401,"msg":"invalid JWT: unable to parse or verify signature, token is expired by 22m22s"}
+        at Supabase.Gotrue.Helpers.MakeRequest(HttpMethod method, String url, Object data, Dictionary`2 headers)
+        at Supabase.Gotrue.Client.SignOut()
+        at BlazorWebAssemblySupabaseTemplate.Services.AuthService.Logout()
+        at BlazorWebAssemblySupabaseTemplate.Shared.MainLayout.OnClickLogout()
+        at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+        at MudBlazor.MudChip.OnClickHandler(MouseEventArgs ev)
+        at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+        at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task , ComponentState )
+
+
