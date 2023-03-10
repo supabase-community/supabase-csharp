@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 0.8.5 - 2023-03-10
+
+- Update dependency: realtime-csharp@5.0.3
+    - Re: [#25](https://github.com/supabase-community/realtime-csharp/issues/25) - Support Channel being resubscribed after having been unsubscribed, fixes rejoin timer being erroneously called on channel `Unsubscribe`. Thanks [@Kuffs2205](https://github.com/Kuffs2205)!
+
 ## 0.8.4 - 2023-03-03
 
 - Update dependency: supabase-storage-csharp@1.2.7
