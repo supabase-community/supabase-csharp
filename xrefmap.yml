@@ -12976,6 +12976,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.SearchOptions.Offset
   nameWithType: SearchOptions.Offset
+- uid: Supabase.Storage.SearchOptions.Search
+  name: Search
+  href: api/Supabase.Storage.SearchOptions.html#Supabase_Storage_SearchOptions_Search
+  commentId: P:Supabase.Storage.SearchOptions.Search
+  fullName: Supabase.Storage.SearchOptions.Search
+  nameWithType: SearchOptions.Search
+- uid: Supabase.Storage.SearchOptions.Search*
+  name: Search
+  href: api/Supabase.Storage.SearchOptions.html#Supabase_Storage_SearchOptions_Search_
+  commentId: Overload:Supabase.Storage.SearchOptions.Search
+  isSpec: "True"
+  fullName: Supabase.Storage.SearchOptions.Search
+  nameWithType: SearchOptions.Search
 - uid: Supabase.Storage.SearchOptions.SortBy
   name: SortBy
   href: api/Supabase.Storage.SearchOptions.html#Supabase_Storage_SearchOptions_SortBy
