@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 0.8.6 - 2023-03-23
+
+- Update dependency: supabse-storage-csharp@1.2.8
+    - [Merge #5](https://github.com/supabase-community/storage-csharp/pull/5) Added search string as an optional search parameter. Thanks [@ElectroKnight22](https://github.com/ElectroKnight22)!
+
 ## 0.8.5 - 2023-03-10
 
 - Update dependency: realtime-csharp@5.0.3
