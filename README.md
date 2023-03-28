@@ -28,6 +28,8 @@ Documentation can be found [below](#getting-started), on the [Supabase Developer
 
 ## Getting Started
 
+If you prefer video format: [@Milan Jovanović](https://www.youtube.com/@MilanJovanovicTech) has created a [video crash course to get started](https://www.youtube.com/watch?v=uviVTDtYeeE)!
+
 Care has been taken to mirror, as much as possible, the [Javascript Supabase API](https://github.com/supabase/supabase-js). As this is an unofficial client, there are times where this client lags behind the offical client. **If there are missing features, please open an issue or pull request!**
 
 1. To get started, create a new project in the [Supabase Admin Panel](https://app.supabase.io).
