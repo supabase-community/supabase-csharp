@@ -8,19 +8,7 @@
   </a>
 </p>
 
----
-
-## BREAKING CHANGES MOVING FROM v0.7.X to v0.8.X
-
-See [CHANGELOG](https://github.com/supabase-community/supabase-csharp/blob/master/CHANGELOG.md) for details.
-
----
-
-Integrate your [Supabase](https://supabase.io) projects with C#.
-
-Includes C# features to make supabase function more like an ORM - specifically the ability to leverage **strongly typed models**.
-
-API is heavily modeled after the [supabase-js repo](https://github.com/supabase/supabase-js) and [postgrest-js repo](https://github.com/supabase/postgrest-js).
+Documentation can be found [below](#getting-started), on the [Supabase Developer Documentation](https://supabase.com/docs/reference/csharp) and additionally in the [Generated API Docs](https://supabase-community.github.io/supabase-csharp/api/Supabase.Client.html).
 
 ## Status
 
@@ -29,97 +17,141 @@ API is heavily modeled after the [supabase-js repo](https://github.com/supabase/
 - [x] Integration with [Gotrue](https://github.com/supabase-community/gotrue-csharp)
 - [x] Integration with [Supabase Storage](https://github.com/supabase-community/storage-csharp)
 - [x] Integration with [Supabase Edge Functions](https://github.com/supabase-community/functions-csharp)
-- [x] Nuget Release
+- [x] [Nuget Release](https://www.nuget.org/packages/supabase-csharp)
 
 ## Projects / Examples / Templates
 
-- [Blazor WASM Template using Supabase](/Examples/BlazorWebAssemblySupabaseTemplate) [Live demo](https://blazorwasmsupabasetemplate.web.app/) by [@rhuanbarros](https://github.com/rhuanbarros) 
+- Blazor WASM Template using Supabase - [Repo](/Examples/BlazorWebAssemblySupabaseTemplate) / [Live demo](https://blazorwasmsupabasetemplate.web.app/) by [@rhuanbarros](https://github.com/rhuanbarros)
+- Realtime Example using Supabase Realtime Presence - [Repo](https://github.com/supabase-community/realtime-csharp/tree/master/Examples/PresenceExample) / [Live demo](https://multiplayer-csharp.azurewebsites.net/)
 
 (Create a PR to list your work here!)
 
 ## Getting Started
 
-Care has been taken to make API interactions mirror - as much as possible - the Javascript API. However, there are some places
-where Supabase-csharp deviates to make use of C# goodies that Javascript doesn't have.
+Care has been taken to mirror, as much as possible, the [Javascript Supabase API](https://github.com/supabase/supabase-js). As this is an unofficial client, there are times where this client lags behind the offical client. **If there are missing features, please open an issue or pull request!**
 
-Getting started is pretty easy!
+1. To get started, create a new project in the [Supabase Admin Panel](https://app.supabase.io).
+2. Grab your Supabase URL and Supabase Public Key from the Admin Panel (Settings -> API Keys).
+3. Initialize the client!
 
-Grab your API URL and Public Key from the Supabase admin panel.
+_Note: `supabase-csharp` has some APIs that require the `service_key` rather than the `public_key` (for instance: the administration of users, bypassing database roles, etc.). If you are using the `service_key` **be sure it is not exposed client side.** Additionally, if you need to use both a service account and a public/user account, please do so using a separate client instance for each._
+
+### Initializing a Client
+
+Initializing a barebones client is pretty simple.
 
 ```c#
-public async void Main()
+var supabase = new Supabase.Client(SUPABASE_URL, SUPABASE_KEY);
+await supabase.InitializeAsync();
+```
+
+Or, using options:
+
+```c#
+var options = new SupabaseOptions
 {
-  // Make sure you set these (or similar)
-  var url = Environment.GetEnvironmentVariable("SUPABASE_URL");
-  var key = Environment.GetEnvironmentVariable("SUPABASE_KEY");
+    AutoConnectRealtime = true
+};
+var supabase = new Supabase.Client(SUPABASE_URL, SUPABASE_KEY, options);
 
-  var client = new Supabase.Client(url, key);
-  await client.InitializeAsync();
-  // That's it - forreal. Crazy right?
+// Calling InitializeAsync will automatically attempt a socket connection if specified in the options.
+await supabase.InitializeAsync();
+```
 
-  // Access Postgrest using:
-  var channels = await client.From<Channel>().Get();
+### Using the Client
 
-  // Access Auth using:
-  await client.Auth.SignIn(email, password);
-  Debug.WriteLine(client.Auth.CurrentUser.Id);
+As for actually using the client, each service is listed as a property on `Supabase.Client`. Some services have helpers to make interactions easier. Properties are provided for every client in the event that advanced customization of the client is needed.
 
-  // Interested in Realtime Events?
-  var table = await client.From<Channel>();
-  table.On(ChannelEventType.Insert, Channel_Inserted);
-  table.On(ChannelEventType.Delete, Channel_Deleted);
-  table.On(ChannelEventType.Update, Channel_Updated);
+1. `Supabase.Postgrest`
+   - Is better accessed using `supabase.From<ModelName>()` as it provides a wrapper class with some helpful accessors (see below)
+2. `Supabase.Realtime`
+   - If used for listening to `postgres_changes` can be accessed using: `supabase.From<ModelName>().On(listenerType, (eventType, data) => {})`
+   - Otherwise, use `Supabase.Realtime.Channel("channel_name")` for `Broadcast` and `Presence` listeners.
 
-  // Invoke an Edge Function
-  var result = await client.Functions.Invoke("hello", new Dictionary<string, object> { 
-      { "name", "Ronald" } 
-  });
+```c#
+// Get the Auth Client
+var auth = supabase.Auth;
+// Get the Postgrest Client for a Model
+var table = supabase.From<TModel>();
+// Invoke an RPC Call
+await supabase.Rpc("hello_world", null);
+// Invoke a Supabase Function
+await supabase.Functions.Invoke("custom_function");
+// Get the Storage Client
+var storageBucket = supabase.Storage.From("bucket_name");
+// Use syntax for broadcast, presence, and postgres_changes
+var realtime = supabase.Realtime.Channel("room_1");
+// Alternatively, shortcut syntax for postgres_changes
+var postgres_changes = supabase.From<TModel>().On(ChannelEventType.All, (type, changes) =>
+{
+  switch (type)
+  {
+      case ChannelEventType.Insert:
+          break;
+      case ChannelEventType.Update:
+          break;
+      case ChannelEventType.Delete:
+          break;
+  }
+});
+```
 
-  // Run a Remote Stored Procedure:
-  await client.Rpc("my_cool_procedure", params);
+**Notes**
 
-  // Interact with Supabase Storage
-  await client.Storage.CreateBucket("testing")
+- Be aware that many of the supabase features require permissions for proper access from a client. This is **especially true** for `realtime`, `postgres`, and `storage`. If you are having problems getting the client to pull data, **verify that you have proper permissions for the logged in user.**
+- Connection to `Supabase.Realtime` is, by default, not enabled automatically, this can be changed in options.
+- When logging in using the `Supabase.Auth` (Gotrue) client, state is managed internally. The currently logged in user's token will be passed to all the Supabase features automatically (via header injection).
+- Token refresh enabled by default and is handled by a timer on the Gotrue client.
+- Client libraries [listed above](#status) have additional information in their readme files.
 
-  var bucket = client.Storage.From("testing");
+Of course, there are options available to customize the client. Which can be found in `Supabase.SupabaseOptions`.
 
-  var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase).Replace("file:", "");
-  var imagePath = Path.Combine(basePath, "Assets", "supabase-csharp.png");
+### Initializing a Client (with Gotrue/Auth Session Persistence)
 
-  await bucket.Upload(imagePath, "supabase-csharp.png");
+You can specify a session handler to persist user sessions in your app. For example:
 
-  // If bucket is public, get url
-  bucket.GetPublicUrl("supabase-csharp.png"));
+`CustomSessionHandler.cs`
 
-  // If bucket is private, generate url
-  await bucket.CreateSignedUrl("supabase-csharp.png", 3600));
+```c#
+class CustomSessionHandler : Supabase.Interfaces.ISupabaseSessionHandler
+{
+    public Task<bool> SessionDestroyer()
+    {
+        // Destroy Session on Filesystem or in browser storage
+        throw new NotImplementedException();
+    }
 
-  // Download it!
-  await bucket.Download("supabase-csharp.png", Path.Combine(basePath, "testing-download.png"));
+    public Task<bool> SessionPersistor<TSession>(TSession session) where TSession : Session
+    {
+        // Persist Session in Filesystem or in browser storage
+        // JsonConvert.SerializeObject(session) will be helpful here!
+        throw new NotImplementedException();
+    }
+
+    public Task<TSession> SessionRetriever<TSession>() where TSession : Session
+    {
+        // Retrieve Session from Filesystem or from browser storage
+        // JsonConvert.DeserializeObject<TSession>(value) will be helpful here!
+        throw new NotImplementedException();
+    }
 }
 ```
 
-### Models:
+Then initialize using the specified handler:
 
-Supabase-csharp is _heavily_ dependent on Models deriving from `SupabaseModel` (which derive from Postgrest-chsharp's `BaseModel`). To interact with the API, one must have the associated model specified.
-
-Leverage `Table`,`PrimaryKey`, and `Column` attributes to specify names of classes/properties that are different from their C# Versions.
+`Main.cs`
 
 ```c#
-[Table("messages")]
-public class Message : SupabaseModel
+var options = new SupabaseOptions
 {
-    // `ShouldInsert` Set to false so-as to honor DB generated key
-    // If the primary key was set by the application, this could be omitted.
-    [PrimaryKey("id", false)]
-    public int Id { get; set; }
+    // ....
+    SessionHandler = new CustomSessionHandler()
+};
 
-    [Column("username")]
-    public string UserName { get; set; }
+var supabase = new Supabase.Client(SUPABASE_URL, SUPABASE_KEY, options);
 
-    [Column("channel_id")]
-    public int ChannelId { get; set; }
-}
+// Calling InitializeAsync will automatically invoke the SessionHandler to setup the internal session state
+await supabase.InitializeAsync();
 ```
 
 ## Package made possible through the efforts of:
