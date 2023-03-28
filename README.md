@@ -71,16 +71,22 @@ As for actually using the client, each service is listed as a property on `Supab
 ```c#
 // Get the Auth Client
 var auth = supabase.Auth;
+
 // Get the Postgrest Client for a Model
 var table = supabase.From<TModel>();
+
 // Invoke an RPC Call
 await supabase.Rpc("hello_world", null);
+
 // Invoke a Supabase Function
 await supabase.Functions.Invoke("custom_function");
+
 // Get the Storage Client
 var storageBucket = supabase.Storage.From("bucket_name");
+
 // Use syntax for broadcast, presence, and postgres_changes
 var realtime = supabase.Realtime.Channel("room_1");
+
 // Alternatively, shortcut syntax for postgres_changes
 var postgres_changes = supabase.From<TModel>().On(ChannelEventType.All, (type, changes) =>
 {
