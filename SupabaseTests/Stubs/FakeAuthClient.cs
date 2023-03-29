@@ -102,6 +102,11 @@ namespace SupabaseTests.Stubs
             throw new NotImplementedException();
         }
 
+        public Task<string> SignIn(Constants.Provider provider, string scopes = null, SignInOptions options = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Session> SignInWithPassword(string email, string password)
         {
             throw new NotImplementedException();
