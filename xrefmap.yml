@@ -4420,15 +4420,15 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Api.GetHeaders
   nameWithType: Api.GetHeaders
-- uid: Supabase.Gotrue.Api.GetUrlForProvider(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String})
-  name: GetUrlForProvider(Constants.Provider, Nullable<String>)
-  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_GetUrlForProvider_Supabase_Gotrue_Constants_Provider_System_Nullable_System_String__
-  commentId: M:Supabase.Gotrue.Api.GetUrlForProvider(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String})
-  name.vb: GetUrlForProvider(Constants.Provider, Nullable(Of String))
-  fullName: Supabase.Gotrue.Api.GetUrlForProvider(Supabase.Gotrue.Constants.Provider, System.Nullable<System.String>)
-  fullName.vb: Supabase.Gotrue.Api.GetUrlForProvider(Supabase.Gotrue.Constants.Provider, System.Nullable(Of System.String))
-  nameWithType: Api.GetUrlForProvider(Constants.Provider, Nullable<String>)
-  nameWithType.vb: Api.GetUrlForProvider(Constants.Provider, Nullable(Of String))
+- uid: Supabase.Gotrue.Api.GetUrlForProvider(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String},Supabase.Gotrue.SignInOptions)
+  name: GetUrlForProvider(Constants.Provider, Nullable<String>, SignInOptions)
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_GetUrlForProvider_Supabase_Gotrue_Constants_Provider_System_Nullable_System_String__Supabase_Gotrue_SignInOptions_
+  commentId: M:Supabase.Gotrue.Api.GetUrlForProvider(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String},Supabase.Gotrue.SignInOptions)
+  name.vb: GetUrlForProvider(Constants.Provider, Nullable(Of String), SignInOptions)
+  fullName: Supabase.Gotrue.Api.GetUrlForProvider(Supabase.Gotrue.Constants.Provider, System.Nullable<System.String>, Supabase.Gotrue.SignInOptions)
+  fullName.vb: Supabase.Gotrue.Api.GetUrlForProvider(Supabase.Gotrue.Constants.Provider, System.Nullable(Of System.String), Supabase.Gotrue.SignInOptions)
+  nameWithType: Api.GetUrlForProvider(Constants.Provider, Nullable<String>, SignInOptions)
+  nameWithType.vb: Api.GetUrlForProvider(Constants.Provider, Nullable(Of String), SignInOptions)
 - uid: Supabase.Gotrue.Api.GetUrlForProvider*
   name: GetUrlForProvider
   href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_GetUrlForProvider_
@@ -5022,15 +5022,15 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.ShouldPersistSession
   nameWithType: Client.ShouldPersistSession
-- uid: Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String})
-  name: SignIn(Constants.Provider, Nullable<String>)
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignIn_Supabase_Gotrue_Constants_Provider_System_Nullable_System_String__
-  commentId: M:Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String})
-  name.vb: SignIn(Constants.Provider, Nullable(Of String))
-  fullName: Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Constants.Provider, System.Nullable<System.String>)
-  fullName.vb: Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Constants.Provider, System.Nullable(Of System.String))
-  nameWithType: Client.SignIn(Constants.Provider, Nullable<String>)
-  nameWithType.vb: Client.SignIn(Constants.Provider, Nullable(Of String))
+- uid: Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String},Supabase.Gotrue.SignInOptions)
+  name: SignIn(Constants.Provider, Nullable<String>, SignInOptions)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignIn_Supabase_Gotrue_Constants_Provider_System_Nullable_System_String__Supabase_Gotrue_SignInOptions_
+  commentId: M:Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String},Supabase.Gotrue.SignInOptions)
+  name.vb: SignIn(Constants.Provider, Nullable(Of String), SignInOptions)
+  fullName: Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Constants.Provider, System.Nullable<System.String>, Supabase.Gotrue.SignInOptions)
+  fullName.vb: Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Constants.Provider, System.Nullable(Of System.String), Supabase.Gotrue.SignInOptions)
+  nameWithType: Client.SignIn(Constants.Provider, Nullable<String>, SignInOptions)
+  nameWithType.vb: Client.SignIn(Constants.Provider, Nullable(Of String), SignInOptions)
 - uid: Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Constants.SignInType,System.String,System.Nullable{System.String},System.Nullable{System.String})
   name: SignIn(Constants.SignInType, String, Nullable<String>, Nullable<String>)
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignIn_Supabase_Gotrue_Constants_SignInType_System_String_System_Nullable_System_String__System_Nullable_System_String__
@@ -5729,15 +5729,15 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).DeleteUser
   nameWithType: IGotrueApi<TUser, TSession>.DeleteUser
   nameWithType.vb: IGotrueApi(Of TUser, TSession).DeleteUser
-- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.GetUrlForProvider(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String})
-  name: GetUrlForProvider(Constants.Provider, Nullable<String>)
-  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_GetUrlForProvider_Supabase_Gotrue_Constants_Provider_System_Nullable_System_String__
-  commentId: M:Supabase.Gotrue.Interfaces.IGotrueApi`2.GetUrlForProvider(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String})
-  name.vb: GetUrlForProvider(Constants.Provider, Nullable(Of String))
-  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.GetUrlForProvider(Supabase.Gotrue.Constants.Provider, System.Nullable<System.String>)
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).GetUrlForProvider(Supabase.Gotrue.Constants.Provider, System.Nullable(Of System.String))
-  nameWithType: IGotrueApi<TUser, TSession>.GetUrlForProvider(Constants.Provider, Nullable<String>)
-  nameWithType.vb: IGotrueApi(Of TUser, TSession).GetUrlForProvider(Constants.Provider, Nullable(Of String))
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.GetUrlForProvider(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String},Supabase.Gotrue.SignInOptions)
+  name: GetUrlForProvider(Constants.Provider, Nullable<String>, SignInOptions)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_GetUrlForProvider_Supabase_Gotrue_Constants_Provider_System_Nullable_System_String__Supabase_Gotrue_SignInOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueApi`2.GetUrlForProvider(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String},Supabase.Gotrue.SignInOptions)
+  name.vb: GetUrlForProvider(Constants.Provider, Nullable(Of String), SignInOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.GetUrlForProvider(Supabase.Gotrue.Constants.Provider, System.Nullable<System.String>, Supabase.Gotrue.SignInOptions)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).GetUrlForProvider(Supabase.Gotrue.Constants.Provider, System.Nullable(Of System.String), Supabase.Gotrue.SignInOptions)
+  nameWithType: IGotrueApi<TUser, TSession>.GetUrlForProvider(Constants.Provider, Nullable<String>, SignInOptions)
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).GetUrlForProvider(Constants.Provider, Nullable(Of String), SignInOptions)
 - uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.GetUrlForProvider*
   name: GetUrlForProvider
   href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_GetUrlForProvider_
@@ -6293,15 +6293,15 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).SetAuth
   nameWithType: IGotrueClient<TUser, TSession>.SetAuth
   nameWithType.vb: IGotrueClient(Of TUser, TSession).SetAuth
-- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.SignIn(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String})
-  name: SignIn(Constants.Provider, Nullable<String>)
-  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_SignIn_Supabase_Gotrue_Constants_Provider_System_Nullable_System_String__
-  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.SignIn(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String})
-  name.vb: SignIn(Constants.Provider, Nullable(Of String))
-  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.SignIn(Supabase.Gotrue.Constants.Provider, System.Nullable<System.String>)
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).SignIn(Supabase.Gotrue.Constants.Provider, System.Nullable(Of System.String))
-  nameWithType: IGotrueClient<TUser, TSession>.SignIn(Constants.Provider, Nullable<String>)
-  nameWithType.vb: IGotrueClient(Of TUser, TSession).SignIn(Constants.Provider, Nullable(Of String))
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.SignIn(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String},Supabase.Gotrue.SignInOptions)
+  name: SignIn(Constants.Provider, Nullable<String>, SignInOptions)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_SignIn_Supabase_Gotrue_Constants_Provider_System_Nullable_System_String__Supabase_Gotrue_SignInOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.SignIn(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String},Supabase.Gotrue.SignInOptions)
+  name.vb: SignIn(Constants.Provider, Nullable(Of String), SignInOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.SignIn(Supabase.Gotrue.Constants.Provider, System.Nullable<System.String>, Supabase.Gotrue.SignInOptions)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).SignIn(Supabase.Gotrue.Constants.Provider, System.Nullable(Of System.String), Supabase.Gotrue.SignInOptions)
+  nameWithType: IGotrueClient<TUser, TSession>.SignIn(Constants.Provider, Nullable<String>, SignInOptions)
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).SignIn(Constants.Provider, Nullable(Of String), SignInOptions)
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.SignIn(Supabase.Gotrue.Constants.SignInType,System.String,System.Nullable{System.String},System.Nullable{System.String})
   name: SignIn(Constants.SignInType, String, Nullable<String>, Nullable<String>)
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_SignIn_Supabase_Gotrue_Constants_SignInType_System_String_System_Nullable_System_String__System_Nullable_System_String__
