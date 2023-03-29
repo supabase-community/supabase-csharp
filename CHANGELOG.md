@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 0.8.8 - 2023-03-29
+
+- Update dependency: gotrue-csharp@3.0.6
+    - Supports adding `SignInOptions` (i.e. `RedirectTo`) on `OAuth Provider` SignIn requests.
+
 ## 0.8.7 - 2023-03-23
 
 - Update dependency: realtime-csharp@5.0.4
