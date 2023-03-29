@@ -90,13 +90,15 @@ var storageBucket = supabase.Storage.From("bucket_name");
 var realtime = supabase.Realtime.Channel("room_1");
 
 // Alternatively, shortcut syntax for postgres_changes
-var postgres_changes = supabase.From<TModel>().On(ChannelEventType.All, (type, changes) =>
+var postgres_changes = supabase.From<TModel>().On(ChannelEventType.All, (type, args) =>
 {
   switch (type)
   {
       case ChannelEventType.Insert:
+          var model = args.Response.Model<TModel>();
           break;
       case ChannelEventType.Update:
+          var model = args.Response.Model<TModel>();
           break;
       case ChannelEventType.Delete:
           break;
