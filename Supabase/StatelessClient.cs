@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using Postgrest;
 using Postgrest.Models;
 using Postgrest.Responses;
-using Storage.Interfaces;
 using Supabase.Core;
 using Supabase.Extensions;
 using Supabase.Functions.Interfaces;
 using Supabase.Gotrue;
 using Supabase.Storage;
+using Supabase.Storage.Interfaces;
 
 namespace Supabase
 {

@@ -1,13 +1,13 @@
 ﻿using Postgrest.Interfaces;
 using Postgrest.Models;
 using Postgrest.Responses;
-using Storage.Interfaces;
 using Supabase.Functions.Interfaces;
 using Supabase.Gotrue;
 using Supabase.Gotrue.Interfaces;
 using Supabase.Realtime;
 using Supabase.Realtime.Interfaces;
 using Supabase.Storage;
+using Supabase.Storage.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
