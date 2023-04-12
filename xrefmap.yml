@@ -3221,394 +3221,6 @@ references:
   fullName.vb: Postgrest.Table(Of T).Where
   nameWithType: Table<T>.Where
   nameWithType.vb: Table(Of T).Where
-- uid: Storage.Interfaces
-  name: Storage.Interfaces
-  href: api/Storage.Interfaces.html
-  commentId: N:Storage.Interfaces
-  fullName: Storage.Interfaces
-  nameWithType: Storage.Interfaces
-- uid: Storage.Interfaces.IStorageBucketApi`1
-  name: IStorageBucketApi<TBucket>
-  href: api/Storage.Interfaces.IStorageBucketApi-1.html
-  commentId: T:Storage.Interfaces.IStorageBucketApi`1
-  name.vb: IStorageBucketApi(Of TBucket)
-  fullName: Storage.Interfaces.IStorageBucketApi<TBucket>
-  fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket)
-  nameWithType: IStorageBucketApi<TBucket>
-  nameWithType.vb: IStorageBucketApi(Of TBucket)
-- uid: Storage.Interfaces.IStorageBucketApi`1.CreateBucket(System.String,Supabase.Storage.BucketUpsertOptions)
-  name: CreateBucket(String, BucketUpsertOptions)
-  href: api/Storage.Interfaces.IStorageBucketApi-1.html#Storage_Interfaces_IStorageBucketApi_1_CreateBucket_System_String_Supabase_Storage_BucketUpsertOptions_
-  commentId: M:Storage.Interfaces.IStorageBucketApi`1.CreateBucket(System.String,Supabase.Storage.BucketUpsertOptions)
-  fullName: Storage.Interfaces.IStorageBucketApi<TBucket>.CreateBucket(System.String, Supabase.Storage.BucketUpsertOptions)
-  fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket).CreateBucket(System.String, Supabase.Storage.BucketUpsertOptions)
-  nameWithType: IStorageBucketApi<TBucket>.CreateBucket(String, BucketUpsertOptions)
-  nameWithType.vb: IStorageBucketApi(Of TBucket).CreateBucket(String, BucketUpsertOptions)
-- uid: Storage.Interfaces.IStorageBucketApi`1.CreateBucket*
-  name: CreateBucket
-  href: api/Storage.Interfaces.IStorageBucketApi-1.html#Storage_Interfaces_IStorageBucketApi_1_CreateBucket_
-  commentId: Overload:Storage.Interfaces.IStorageBucketApi`1.CreateBucket
-  isSpec: "True"
-  fullName: Storage.Interfaces.IStorageBucketApi<TBucket>.CreateBucket
-  fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket).CreateBucket
-  nameWithType: IStorageBucketApi<TBucket>.CreateBucket
-  nameWithType.vb: IStorageBucketApi(Of TBucket).CreateBucket
-- uid: Storage.Interfaces.IStorageBucketApi`1.DeleteBucket(System.String)
-  name: DeleteBucket(String)
-  href: api/Storage.Interfaces.IStorageBucketApi-1.html#Storage_Interfaces_IStorageBucketApi_1_DeleteBucket_System_String_
-  commentId: M:Storage.Interfaces.IStorageBucketApi`1.DeleteBucket(System.String)
-  fullName: Storage.Interfaces.IStorageBucketApi<TBucket>.DeleteBucket(System.String)
-  fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket).DeleteBucket(System.String)
-  nameWithType: IStorageBucketApi<TBucket>.DeleteBucket(String)
-  nameWithType.vb: IStorageBucketApi(Of TBucket).DeleteBucket(String)
-- uid: Storage.Interfaces.IStorageBucketApi`1.DeleteBucket*
-  name: DeleteBucket
-  href: api/Storage.Interfaces.IStorageBucketApi-1.html#Storage_Interfaces_IStorageBucketApi_1_DeleteBucket_
-  commentId: Overload:Storage.Interfaces.IStorageBucketApi`1.DeleteBucket
-  isSpec: "True"
-  fullName: Storage.Interfaces.IStorageBucketApi<TBucket>.DeleteBucket
-  fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket).DeleteBucket
-  nameWithType: IStorageBucketApi<TBucket>.DeleteBucket
-  nameWithType.vb: IStorageBucketApi(Of TBucket).DeleteBucket
-- uid: Storage.Interfaces.IStorageBucketApi`1.EmptyBucket(System.String)
-  name: EmptyBucket(String)
-  href: api/Storage.Interfaces.IStorageBucketApi-1.html#Storage_Interfaces_IStorageBucketApi_1_EmptyBucket_System_String_
-  commentId: M:Storage.Interfaces.IStorageBucketApi`1.EmptyBucket(System.String)
-  fullName: Storage.Interfaces.IStorageBucketApi<TBucket>.EmptyBucket(System.String)
-  fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket).EmptyBucket(System.String)
-  nameWithType: IStorageBucketApi<TBucket>.EmptyBucket(String)
-  nameWithType.vb: IStorageBucketApi(Of TBucket).EmptyBucket(String)
-- uid: Storage.Interfaces.IStorageBucketApi`1.EmptyBucket*
-  name: EmptyBucket
-  href: api/Storage.Interfaces.IStorageBucketApi-1.html#Storage_Interfaces_IStorageBucketApi_1_EmptyBucket_
-  commentId: Overload:Storage.Interfaces.IStorageBucketApi`1.EmptyBucket
-  isSpec: "True"
-  fullName: Storage.Interfaces.IStorageBucketApi<TBucket>.EmptyBucket
-  fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket).EmptyBucket
-  nameWithType: IStorageBucketApi<TBucket>.EmptyBucket
-  nameWithType.vb: IStorageBucketApi(Of TBucket).EmptyBucket
-- uid: Storage.Interfaces.IStorageBucketApi`1.GetBucket(System.String)
-  name: GetBucket(String)
-  href: api/Storage.Interfaces.IStorageBucketApi-1.html#Storage_Interfaces_IStorageBucketApi_1_GetBucket_System_String_
-  commentId: M:Storage.Interfaces.IStorageBucketApi`1.GetBucket(System.String)
-  fullName: Storage.Interfaces.IStorageBucketApi<TBucket>.GetBucket(System.String)
-  fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket).GetBucket(System.String)
-  nameWithType: IStorageBucketApi<TBucket>.GetBucket(String)
-  nameWithType.vb: IStorageBucketApi(Of TBucket).GetBucket(String)
-- uid: Storage.Interfaces.IStorageBucketApi`1.GetBucket*
-  name: GetBucket
-  href: api/Storage.Interfaces.IStorageBucketApi-1.html#Storage_Interfaces_IStorageBucketApi_1_GetBucket_
-  commentId: Overload:Storage.Interfaces.IStorageBucketApi`1.GetBucket
-  isSpec: "True"
-  fullName: Storage.Interfaces.IStorageBucketApi<TBucket>.GetBucket
-  fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket).GetBucket
-  nameWithType: IStorageBucketApi<TBucket>.GetBucket
-  nameWithType.vb: IStorageBucketApi(Of TBucket).GetBucket
-- uid: Storage.Interfaces.IStorageBucketApi`1.Headers
-  name: Headers
-  href: api/Storage.Interfaces.IStorageBucketApi-1.html#Storage_Interfaces_IStorageBucketApi_1_Headers
-  commentId: P:Storage.Interfaces.IStorageBucketApi`1.Headers
-  fullName: Storage.Interfaces.IStorageBucketApi<TBucket>.Headers
-  fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket).Headers
-  nameWithType: IStorageBucketApi<TBucket>.Headers
-  nameWithType.vb: IStorageBucketApi(Of TBucket).Headers
-- uid: Storage.Interfaces.IStorageBucketApi`1.Headers*
-  name: Headers
-  href: api/Storage.Interfaces.IStorageBucketApi-1.html#Storage_Interfaces_IStorageBucketApi_1_Headers_
-  commentId: Overload:Storage.Interfaces.IStorageBucketApi`1.Headers
-  isSpec: "True"
-  fullName: Storage.Interfaces.IStorageBucketApi<TBucket>.Headers
-  fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket).Headers
-  nameWithType: IStorageBucketApi<TBucket>.Headers
-  nameWithType.vb: IStorageBucketApi(Of TBucket).Headers
-- uid: Storage.Interfaces.IStorageBucketApi`1.ListBuckets
-  name: ListBuckets()
-  href: api/Storage.Interfaces.IStorageBucketApi-1.html#Storage_Interfaces_IStorageBucketApi_1_ListBuckets
-  commentId: M:Storage.Interfaces.IStorageBucketApi`1.ListBuckets
-  fullName: Storage.Interfaces.IStorageBucketApi<TBucket>.ListBuckets()
-  fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket).ListBuckets()
-  nameWithType: IStorageBucketApi<TBucket>.ListBuckets()
-  nameWithType.vb: IStorageBucketApi(Of TBucket).ListBuckets()
-- uid: Storage.Interfaces.IStorageBucketApi`1.ListBuckets*
-  name: ListBuckets
-  href: api/Storage.Interfaces.IStorageBucketApi-1.html#Storage_Interfaces_IStorageBucketApi_1_ListBuckets_
-  commentId: Overload:Storage.Interfaces.IStorageBucketApi`1.ListBuckets
-  isSpec: "True"
-  fullName: Storage.Interfaces.IStorageBucketApi<TBucket>.ListBuckets
-  fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket).ListBuckets
-  nameWithType: IStorageBucketApi<TBucket>.ListBuckets
-  nameWithType.vb: IStorageBucketApi(Of TBucket).ListBuckets
-- uid: Storage.Interfaces.IStorageBucketApi`1.Options
-  name: Options
-  href: api/Storage.Interfaces.IStorageBucketApi-1.html#Storage_Interfaces_IStorageBucketApi_1_Options
-  commentId: P:Storage.Interfaces.IStorageBucketApi`1.Options
-  fullName: Storage.Interfaces.IStorageBucketApi<TBucket>.Options
-  fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket).Options
-  nameWithType: IStorageBucketApi<TBucket>.Options
-  nameWithType.vb: IStorageBucketApi(Of TBucket).Options
-- uid: Storage.Interfaces.IStorageBucketApi`1.Options*
-  name: Options
-  href: api/Storage.Interfaces.IStorageBucketApi-1.html#Storage_Interfaces_IStorageBucketApi_1_Options_
-  commentId: Overload:Storage.Interfaces.IStorageBucketApi`1.Options
-  isSpec: "True"
-  fullName: Storage.Interfaces.IStorageBucketApi<TBucket>.Options
-  fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket).Options
-  nameWithType: IStorageBucketApi<TBucket>.Options
-  nameWithType.vb: IStorageBucketApi(Of TBucket).Options
-- uid: Storage.Interfaces.IStorageBucketApi`1.UpdateBucket(System.String,Supabase.Storage.BucketUpsertOptions)
-  name: UpdateBucket(String, BucketUpsertOptions)
-  href: api/Storage.Interfaces.IStorageBucketApi-1.html#Storage_Interfaces_IStorageBucketApi_1_UpdateBucket_System_String_Supabase_Storage_BucketUpsertOptions_
-  commentId: M:Storage.Interfaces.IStorageBucketApi`1.UpdateBucket(System.String,Supabase.Storage.BucketUpsertOptions)
-  fullName: Storage.Interfaces.IStorageBucketApi<TBucket>.UpdateBucket(System.String, Supabase.Storage.BucketUpsertOptions)
-  fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket).UpdateBucket(System.String, Supabase.Storage.BucketUpsertOptions)
-  nameWithType: IStorageBucketApi<TBucket>.UpdateBucket(String, BucketUpsertOptions)
-  nameWithType.vb: IStorageBucketApi(Of TBucket).UpdateBucket(String, BucketUpsertOptions)
-- uid: Storage.Interfaces.IStorageBucketApi`1.UpdateBucket*
-  name: UpdateBucket
-  href: api/Storage.Interfaces.IStorageBucketApi-1.html#Storage_Interfaces_IStorageBucketApi_1_UpdateBucket_
-  commentId: Overload:Storage.Interfaces.IStorageBucketApi`1.UpdateBucket
-  isSpec: "True"
-  fullName: Storage.Interfaces.IStorageBucketApi<TBucket>.UpdateBucket
-  fullName.vb: Storage.Interfaces.IStorageBucketApi(Of TBucket).UpdateBucket
-  nameWithType: IStorageBucketApi<TBucket>.UpdateBucket
-  nameWithType.vb: IStorageBucketApi(Of TBucket).UpdateBucket
-- uid: Storage.Interfaces.IStorageClient`2
-  name: IStorageClient<TBucket, TFileObject>
-  href: api/Storage.Interfaces.IStorageClient-2.html
-  commentId: T:Storage.Interfaces.IStorageClient`2
-  name.vb: IStorageClient(Of TBucket, TFileObject)
-  fullName: Storage.Interfaces.IStorageClient<TBucket, TFileObject>
-  fullName.vb: Storage.Interfaces.IStorageClient(Of TBucket, TFileObject)
-  nameWithType: IStorageClient<TBucket, TFileObject>
-  nameWithType.vb: IStorageClient(Of TBucket, TFileObject)
-- uid: Storage.Interfaces.IStorageClient`2.From(System.String)
-  name: From(String)
-  href: api/Storage.Interfaces.IStorageClient-2.html#Storage_Interfaces_IStorageClient_2_From_System_String_
-  commentId: M:Storage.Interfaces.IStorageClient`2.From(System.String)
-  fullName: Storage.Interfaces.IStorageClient<TBucket, TFileObject>.From(System.String)
-  fullName.vb: Storage.Interfaces.IStorageClient(Of TBucket, TFileObject).From(System.String)
-  nameWithType: IStorageClient<TBucket, TFileObject>.From(String)
-  nameWithType.vb: IStorageClient(Of TBucket, TFileObject).From(String)
-- uid: Storage.Interfaces.IStorageClient`2.From*
-  name: From
-  href: api/Storage.Interfaces.IStorageClient-2.html#Storage_Interfaces_IStorageClient_2_From_
-  commentId: Overload:Storage.Interfaces.IStorageClient`2.From
-  isSpec: "True"
-  fullName: Storage.Interfaces.IStorageClient<TBucket, TFileObject>.From
-  fullName.vb: Storage.Interfaces.IStorageClient(Of TBucket, TFileObject).From
-  nameWithType: IStorageClient<TBucket, TFileObject>.From
-  nameWithType.vb: IStorageClient(Of TBucket, TFileObject).From
-- uid: Storage.Interfaces.IStorageFileApi`1
-  name: IStorageFileApi<TFileObject>
-  href: api/Storage.Interfaces.IStorageFileApi-1.html
-  commentId: T:Storage.Interfaces.IStorageFileApi`1
-  name.vb: IStorageFileApi(Of TFileObject)
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject)
-  nameWithType: IStorageFileApi<TFileObject>
-  nameWithType.vb: IStorageFileApi(Of TFileObject)
-- uid: Storage.Interfaces.IStorageFileApi`1.CreateSignedUrl(System.String,System.Int32)
-  name: CreateSignedUrl(String, Int32)
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_CreateSignedUrl_System_String_System_Int32_
-  commentId: M:Storage.Interfaces.IStorageFileApi`1.CreateSignedUrl(System.String,System.Int32)
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.CreateSignedUrl(System.String, System.Int32)
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).CreateSignedUrl(System.String, System.Int32)
-  nameWithType: IStorageFileApi<TFileObject>.CreateSignedUrl(String, Int32)
-  nameWithType.vb: IStorageFileApi(Of TFileObject).CreateSignedUrl(String, Int32)
-- uid: Storage.Interfaces.IStorageFileApi`1.CreateSignedUrl*
-  name: CreateSignedUrl
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_CreateSignedUrl_
-  commentId: Overload:Storage.Interfaces.IStorageFileApi`1.CreateSignedUrl
-  isSpec: "True"
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.CreateSignedUrl
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).CreateSignedUrl
-  nameWithType: IStorageFileApi<TFileObject>.CreateSignedUrl
-  nameWithType.vb: IStorageFileApi(Of TFileObject).CreateSignedUrl
-- uid: Storage.Interfaces.IStorageFileApi`1.CreateSignedUrls(List{System.String},System.Int32)
-  name: CreateSignedUrls(List<String>, Int32)
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_CreateSignedUrls_List_System_String__System_Int32_
-  commentId: M:Storage.Interfaces.IStorageFileApi`1.CreateSignedUrls(List{System.String},System.Int32)
-  name.vb: CreateSignedUrls(List(Of String), Int32)
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.CreateSignedUrls(List<System.String>, System.Int32)
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).CreateSignedUrls(List(Of System.String), System.Int32)
-  nameWithType: IStorageFileApi<TFileObject>.CreateSignedUrls(List<String>, Int32)
-  nameWithType.vb: IStorageFileApi(Of TFileObject).CreateSignedUrls(List(Of String), Int32)
-- uid: Storage.Interfaces.IStorageFileApi`1.CreateSignedUrls*
-  name: CreateSignedUrls
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_CreateSignedUrls_
-  commentId: Overload:Storage.Interfaces.IStorageFileApi`1.CreateSignedUrls
-  isSpec: "True"
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.CreateSignedUrls
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).CreateSignedUrls
-  nameWithType: IStorageFileApi<TFileObject>.CreateSignedUrls
-  nameWithType.vb: IStorageFileApi(Of TFileObject).CreateSignedUrls
-- uid: Storage.Interfaces.IStorageFileApi`1.Download(System.String,System.Nullable{EventHandler{System.Single}})
-  name: Download(String, Nullable<EventHandler<Single>>)
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_Download_System_String_System_Nullable_EventHandler_System_Single___
-  commentId: M:Storage.Interfaces.IStorageFileApi`1.Download(System.String,System.Nullable{EventHandler{System.Single}})
-  name.vb: Download(String, Nullable(Of EventHandler(Of Single)))
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.Download(System.String, System.Nullable<EventHandler<System.Single>>)
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).Download(System.String, System.Nullable(Of EventHandler(Of System.Single)))
-  nameWithType: IStorageFileApi<TFileObject>.Download(String, Nullable<EventHandler<Single>>)
-  nameWithType.vb: IStorageFileApi(Of TFileObject).Download(String, Nullable(Of EventHandler(Of Single)))
-- uid: Storage.Interfaces.IStorageFileApi`1.Download(System.String,System.String,System.Nullable{EventHandler{System.Single}})
-  name: Download(String, String, Nullable<EventHandler<Single>>)
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_Download_System_String_System_String_System_Nullable_EventHandler_System_Single___
-  commentId: M:Storage.Interfaces.IStorageFileApi`1.Download(System.String,System.String,System.Nullable{EventHandler{System.Single}})
-  name.vb: Download(String, String, Nullable(Of EventHandler(Of Single)))
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.Download(System.String, System.String, System.Nullable<EventHandler<System.Single>>)
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).Download(System.String, System.String, System.Nullable(Of EventHandler(Of System.Single)))
-  nameWithType: IStorageFileApi<TFileObject>.Download(String, String, Nullable<EventHandler<Single>>)
-  nameWithType.vb: IStorageFileApi(Of TFileObject).Download(String, String, Nullable(Of EventHandler(Of Single)))
-- uid: Storage.Interfaces.IStorageFileApi`1.Download*
-  name: Download
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_Download_
-  commentId: Overload:Storage.Interfaces.IStorageFileApi`1.Download
-  isSpec: "True"
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.Download
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).Download
-  nameWithType: IStorageFileApi<TFileObject>.Download
-  nameWithType.vb: IStorageFileApi(Of TFileObject).Download
-- uid: Storage.Interfaces.IStorageFileApi`1.GetPublicUrl(System.String)
-  name: GetPublicUrl(String)
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_GetPublicUrl_System_String_
-  commentId: M:Storage.Interfaces.IStorageFileApi`1.GetPublicUrl(System.String)
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.GetPublicUrl(System.String)
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).GetPublicUrl(System.String)
-  nameWithType: IStorageFileApi<TFileObject>.GetPublicUrl(String)
-  nameWithType.vb: IStorageFileApi(Of TFileObject).GetPublicUrl(String)
-- uid: Storage.Interfaces.IStorageFileApi`1.GetPublicUrl*
-  name: GetPublicUrl
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_GetPublicUrl_
-  commentId: Overload:Storage.Interfaces.IStorageFileApi`1.GetPublicUrl
-  isSpec: "True"
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.GetPublicUrl
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).GetPublicUrl
-  nameWithType: IStorageFileApi<TFileObject>.GetPublicUrl
-  nameWithType.vb: IStorageFileApi(Of TFileObject).GetPublicUrl
-- uid: Storage.Interfaces.IStorageFileApi`1.List(System.String,Supabase.Storage.SearchOptions)
-  name: List(String, SearchOptions)
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_List_System_String_Supabase_Storage_SearchOptions_
-  commentId: M:Storage.Interfaces.IStorageFileApi`1.List(System.String,Supabase.Storage.SearchOptions)
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.List(System.String, Supabase.Storage.SearchOptions)
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).List(System.String, Supabase.Storage.SearchOptions)
-  nameWithType: IStorageFileApi<TFileObject>.List(String, SearchOptions)
-  nameWithType.vb: IStorageFileApi(Of TFileObject).List(String, SearchOptions)
-- uid: Storage.Interfaces.IStorageFileApi`1.List*
-  name: List
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_List_
-  commentId: Overload:Storage.Interfaces.IStorageFileApi`1.List
-  isSpec: "True"
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.List
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).List
-  nameWithType: IStorageFileApi<TFileObject>.List
-  nameWithType.vb: IStorageFileApi(Of TFileObject).List
-- uid: Storage.Interfaces.IStorageFileApi`1.Move(System.String,System.String)
-  name: Move(String, String)
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_Move_System_String_System_String_
-  commentId: M:Storage.Interfaces.IStorageFileApi`1.Move(System.String,System.String)
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.Move(System.String, System.String)
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).Move(System.String, System.String)
-  nameWithType: IStorageFileApi<TFileObject>.Move(String, String)
-  nameWithType.vb: IStorageFileApi(Of TFileObject).Move(String, String)
-- uid: Storage.Interfaces.IStorageFileApi`1.Move*
-  name: Move
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_Move_
-  commentId: Overload:Storage.Interfaces.IStorageFileApi`1.Move
-  isSpec: "True"
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.Move
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).Move
-  nameWithType: IStorageFileApi<TFileObject>.Move
-  nameWithType.vb: IStorageFileApi(Of TFileObject).Move
-- uid: Storage.Interfaces.IStorageFileApi`1.Options
-  name: Options
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_Options
-  commentId: P:Storage.Interfaces.IStorageFileApi`1.Options
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.Options
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).Options
-  nameWithType: IStorageFileApi<TFileObject>.Options
-  nameWithType.vb: IStorageFileApi(Of TFileObject).Options
-- uid: Storage.Interfaces.IStorageFileApi`1.Options*
-  name: Options
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_Options_
-  commentId: Overload:Storage.Interfaces.IStorageFileApi`1.Options
-  isSpec: "True"
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.Options
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).Options
-  nameWithType: IStorageFileApi<TFileObject>.Options
-  nameWithType.vb: IStorageFileApi(Of TFileObject).Options
-- uid: Storage.Interfaces.IStorageFileApi`1.Remove(List{System.String})
-  name: Remove(List<String>)
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_Remove_List_System_String__
-  commentId: M:Storage.Interfaces.IStorageFileApi`1.Remove(List{System.String})
-  name.vb: Remove(List(Of String))
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.Remove(List<System.String>)
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).Remove(List(Of System.String))
-  nameWithType: IStorageFileApi<TFileObject>.Remove(List<String>)
-  nameWithType.vb: IStorageFileApi(Of TFileObject).Remove(List(Of String))
-- uid: Storage.Interfaces.IStorageFileApi`1.Remove*
-  name: Remove
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_Remove_
-  commentId: Overload:Storage.Interfaces.IStorageFileApi`1.Remove
-  isSpec: "True"
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.Remove
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).Remove
-  nameWithType: IStorageFileApi<TFileObject>.Remove
-  nameWithType.vb: IStorageFileApi(Of TFileObject).Remove
-- uid: Storage.Interfaces.IStorageFileApi`1.Update(System.Byte[],System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}})
-  name: Update(Byte[], String, FileOptions, Nullable<EventHandler<Single>>)
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_Update_System_Byte___System_String_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___
-  commentId: M:Storage.Interfaces.IStorageFileApi`1.Update(System.Byte[],System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}})
-  name.vb: Update(Byte(), String, FileOptions, Nullable(Of EventHandler(Of Single)))
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.Update(System.Byte[], System.String, Supabase.Storage.FileOptions, System.Nullable<EventHandler<System.Single>>)
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).Update(System.Byte(), System.String, Supabase.Storage.FileOptions, System.Nullable(Of EventHandler(Of System.Single)))
-  nameWithType: IStorageFileApi<TFileObject>.Update(Byte[], String, FileOptions, Nullable<EventHandler<Single>>)
-  nameWithType.vb: IStorageFileApi(Of TFileObject).Update(Byte(), String, FileOptions, Nullable(Of EventHandler(Of Single)))
-- uid: Storage.Interfaces.IStorageFileApi`1.Update(System.String,System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}})
-  name: Update(String, String, FileOptions, Nullable<EventHandler<Single>>)
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_Update_System_String_System_String_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___
-  commentId: M:Storage.Interfaces.IStorageFileApi`1.Update(System.String,System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}})
-  name.vb: Update(String, String, FileOptions, Nullable(Of EventHandler(Of Single)))
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.Update(System.String, System.String, Supabase.Storage.FileOptions, System.Nullable<EventHandler<System.Single>>)
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).Update(System.String, System.String, Supabase.Storage.FileOptions, System.Nullable(Of EventHandler(Of System.Single)))
-  nameWithType: IStorageFileApi<TFileObject>.Update(String, String, FileOptions, Nullable<EventHandler<Single>>)
-  nameWithType.vb: IStorageFileApi(Of TFileObject).Update(String, String, FileOptions, Nullable(Of EventHandler(Of Single)))
-- uid: Storage.Interfaces.IStorageFileApi`1.Update*
-  name: Update
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_Update_
-  commentId: Overload:Storage.Interfaces.IStorageFileApi`1.Update
-  isSpec: "True"
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.Update
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).Update
-  nameWithType: IStorageFileApi<TFileObject>.Update
-  nameWithType.vb: IStorageFileApi(Of TFileObject).Update
-- uid: Storage.Interfaces.IStorageFileApi`1.Upload(System.Byte[],System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}},System.Boolean)
-  name: Upload(Byte[], String, FileOptions, Nullable<EventHandler<Single>>, Boolean)
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_Upload_System_Byte___System_String_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___System_Boolean_
-  commentId: M:Storage.Interfaces.IStorageFileApi`1.Upload(System.Byte[],System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}},System.Boolean)
-  name.vb: Upload(Byte(), String, FileOptions, Nullable(Of EventHandler(Of Single)), Boolean)
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.Upload(System.Byte[], System.String, Supabase.Storage.FileOptions, System.Nullable<EventHandler<System.Single>>, System.Boolean)
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).Upload(System.Byte(), System.String, Supabase.Storage.FileOptions, System.Nullable(Of EventHandler(Of System.Single)), System.Boolean)
-  nameWithType: IStorageFileApi<TFileObject>.Upload(Byte[], String, FileOptions, Nullable<EventHandler<Single>>, Boolean)
-  nameWithType.vb: IStorageFileApi(Of TFileObject).Upload(Byte(), String, FileOptions, Nullable(Of EventHandler(Of Single)), Boolean)
-- uid: Storage.Interfaces.IStorageFileApi`1.Upload(System.String,System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}},System.Boolean)
-  name: Upload(String, String, FileOptions, Nullable<EventHandler<Single>>, Boolean)
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_Upload_System_String_System_String_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___System_Boolean_
-  commentId: M:Storage.Interfaces.IStorageFileApi`1.Upload(System.String,System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}},System.Boolean)
-  name.vb: Upload(String, String, FileOptions, Nullable(Of EventHandler(Of Single)), Boolean)
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.Upload(System.String, System.String, Supabase.Storage.FileOptions, System.Nullable<EventHandler<System.Single>>, System.Boolean)
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).Upload(System.String, System.String, Supabase.Storage.FileOptions, System.Nullable(Of EventHandler(Of System.Single)), System.Boolean)
-  nameWithType: IStorageFileApi<TFileObject>.Upload(String, String, FileOptions, Nullable<EventHandler<Single>>, Boolean)
-  nameWithType.vb: IStorageFileApi(Of TFileObject).Upload(String, String, FileOptions, Nullable(Of EventHandler(Of Single)), Boolean)
-- uid: Storage.Interfaces.IStorageFileApi`1.Upload*
-  name: Upload
-  href: api/Storage.Interfaces.IStorageFileApi-1.html#Storage_Interfaces_IStorageFileApi_1_Upload_
-  commentId: Overload:Storage.Interfaces.IStorageFileApi`1.Upload
-  isSpec: "True"
-  fullName: Storage.Interfaces.IStorageFileApi<TFileObject>.Upload
-  fullName.vb: Storage.Interfaces.IStorageFileApi(Of TFileObject).Upload
-  nameWithType: IStorageFileApi<TFileObject>.Upload
-  nameWithType.vb: IStorageFileApi(Of TFileObject).Upload
 - uid: Supabase
   name: Supabase
   href: api/Supabase.html
@@ -4407,6 +4019,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Api.DeleteUser
   nameWithType: Api.DeleteUser
+- uid: Supabase.Gotrue.Api.ExchangeCodeForSession(System.String,System.String)
+  name: ExchangeCodeForSession(String, String)
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_ExchangeCodeForSession_System_String_System_String_
+  commentId: M:Supabase.Gotrue.Api.ExchangeCodeForSession(System.String,System.String)
+  fullName: Supabase.Gotrue.Api.ExchangeCodeForSession(System.String, System.String)
+  nameWithType: Api.ExchangeCodeForSession(String, String)
+- uid: Supabase.Gotrue.Api.ExchangeCodeForSession*
+  name: ExchangeCodeForSession
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_ExchangeCodeForSession_
+  commentId: Overload:Supabase.Gotrue.Api.ExchangeCodeForSession
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Api.ExchangeCodeForSession
+  nameWithType: Api.ExchangeCodeForSession
 - uid: Supabase.Gotrue.Api.GetHeaders
   name: GetHeaders
   href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_GetHeaders
@@ -4420,22 +4045,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Api.GetHeaders
   nameWithType: Api.GetHeaders
-- uid: Supabase.Gotrue.Api.GetUrlForProvider(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String},Supabase.Gotrue.SignInOptions)
-  name: GetUrlForProvider(Constants.Provider, Nullable<String>, SignInOptions)
-  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_GetUrlForProvider_Supabase_Gotrue_Constants_Provider_System_Nullable_System_String__Supabase_Gotrue_SignInOptions_
-  commentId: M:Supabase.Gotrue.Api.GetUrlForProvider(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String},Supabase.Gotrue.SignInOptions)
-  name.vb: GetUrlForProvider(Constants.Provider, Nullable(Of String), SignInOptions)
-  fullName: Supabase.Gotrue.Api.GetUrlForProvider(Supabase.Gotrue.Constants.Provider, System.Nullable<System.String>, Supabase.Gotrue.SignInOptions)
-  fullName.vb: Supabase.Gotrue.Api.GetUrlForProvider(Supabase.Gotrue.Constants.Provider, System.Nullable(Of System.String), Supabase.Gotrue.SignInOptions)
-  nameWithType: Api.GetUrlForProvider(Constants.Provider, Nullable<String>, SignInOptions)
-  nameWithType.vb: Api.GetUrlForProvider(Constants.Provider, Nullable(Of String), SignInOptions)
-- uid: Supabase.Gotrue.Api.GetUrlForProvider*
-  name: GetUrlForProvider
-  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_GetUrlForProvider_
-  commentId: Overload:Supabase.Gotrue.Api.GetUrlForProvider
+- uid: Supabase.Gotrue.Api.GetUriForProvider(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.SignInOptions)
+  name: GetUriForProvider(Constants.Provider, SignInOptions)
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_GetUriForProvider_Supabase_Gotrue_Constants_Provider_Supabase_Gotrue_SignInOptions_
+  commentId: M:Supabase.Gotrue.Api.GetUriForProvider(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.SignInOptions)
+  fullName: Supabase.Gotrue.Api.GetUriForProvider(Supabase.Gotrue.Constants.Provider, Supabase.Gotrue.SignInOptions)
+  nameWithType: Api.GetUriForProvider(Constants.Provider, SignInOptions)
+- uid: Supabase.Gotrue.Api.GetUriForProvider*
+  name: GetUriForProvider
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_GetUriForProvider_
+  commentId: Overload:Supabase.Gotrue.Api.GetUriForProvider
   isSpec: "True"
-  fullName: Supabase.Gotrue.Api.GetUrlForProvider
-  nameWithType: Api.GetUrlForProvider
+  fullName: Supabase.Gotrue.Api.GetUriForProvider
+  nameWithType: Api.GetUriForProvider
 - uid: Supabase.Gotrue.Api.GetUser(System.String)
   name: GetUser(String)
   href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_GetUser_System_String_
@@ -4824,6 +4446,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.DeleteUser
   nameWithType: Client.DeleteUser
+- uid: Supabase.Gotrue.Client.ExchangeCodeForSession(System.String,System.String)
+  name: ExchangeCodeForSession(String, String)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_ExchangeCodeForSession_System_String_System_String_
+  commentId: M:Supabase.Gotrue.Client.ExchangeCodeForSession(System.String,System.String)
+  fullName: Supabase.Gotrue.Client.ExchangeCodeForSession(System.String, System.String)
+  nameWithType: Client.ExchangeCodeForSession(String, String)
+- uid: Supabase.Gotrue.Client.ExchangeCodeForSession*
+  name: ExchangeCodeForSession
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_ExchangeCodeForSession_
+  commentId: Overload:Supabase.Gotrue.Client.ExchangeCodeForSession
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Client.ExchangeCodeForSession
+  nameWithType: Client.ExchangeCodeForSession
 - uid: Supabase.Gotrue.Client.GetHeaders
   name: GetHeaders
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_GetHeaders
@@ -5022,15 +4657,12 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.ShouldPersistSession
   nameWithType: Client.ShouldPersistSession
-- uid: Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String},Supabase.Gotrue.SignInOptions)
-  name: SignIn(Constants.Provider, Nullable<String>, SignInOptions)
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignIn_Supabase_Gotrue_Constants_Provider_System_Nullable_System_String__Supabase_Gotrue_SignInOptions_
-  commentId: M:Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String},Supabase.Gotrue.SignInOptions)
-  name.vb: SignIn(Constants.Provider, Nullable(Of String), SignInOptions)
-  fullName: Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Constants.Provider, System.Nullable<System.String>, Supabase.Gotrue.SignInOptions)
-  fullName.vb: Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Constants.Provider, System.Nullable(Of System.String), Supabase.Gotrue.SignInOptions)
-  nameWithType: Client.SignIn(Constants.Provider, Nullable<String>, SignInOptions)
-  nameWithType.vb: Client.SignIn(Constants.Provider, Nullable(Of String), SignInOptions)
+- uid: Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.SignInOptions)
+  name: SignIn(Constants.Provider, SignInOptions)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignIn_Supabase_Gotrue_Constants_Provider_Supabase_Gotrue_SignInOptions_
+  commentId: M:Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.SignInOptions)
+  fullName: Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Constants.Provider, Supabase.Gotrue.SignInOptions)
+  nameWithType: Client.SignIn(Constants.Provider, SignInOptions)
 - uid: Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Constants.SignInType,System.String,System.Nullable{System.String},System.Nullable{System.String})
   name: SignIn(Constants.SignInType, String, Nullable<String>, Nullable<String>)
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignIn_Supabase_Gotrue_Constants_SignInType_System_String_System_Nullable_System_String__System_Nullable_System_String__
@@ -5422,6 +5054,24 @@ references:
   commentId: F:Supabase.Gotrue.Constants.MobileOtpType.SMS
   fullName: Supabase.Gotrue.Constants.MobileOtpType.SMS
   nameWithType: Constants.MobileOtpType.SMS
+- uid: Supabase.Gotrue.Constants.OAuthFlowType
+  name: Constants.OAuthFlowType
+  href: api/Supabase.Gotrue.Constants.OAuthFlowType.html
+  commentId: T:Supabase.Gotrue.Constants.OAuthFlowType
+  fullName: Supabase.Gotrue.Constants.OAuthFlowType
+  nameWithType: Constants.OAuthFlowType
+- uid: Supabase.Gotrue.Constants.OAuthFlowType.Implicit
+  name: Implicit
+  href: api/Supabase.Gotrue.Constants.OAuthFlowType.html#Supabase_Gotrue_Constants_OAuthFlowType_Implicit
+  commentId: F:Supabase.Gotrue.Constants.OAuthFlowType.Implicit
+  fullName: Supabase.Gotrue.Constants.OAuthFlowType.Implicit
+  nameWithType: Constants.OAuthFlowType.Implicit
+- uid: Supabase.Gotrue.Constants.OAuthFlowType.PKCE
+  name: PKCE
+  href: api/Supabase.Gotrue.Constants.OAuthFlowType.html#Supabase_Gotrue_Constants_OAuthFlowType_PKCE
+  commentId: F:Supabase.Gotrue.Constants.OAuthFlowType.PKCE
+  fullName: Supabase.Gotrue.Constants.OAuthFlowType.PKCE
+  nameWithType: Constants.OAuthFlowType.PKCE
 - uid: Supabase.Gotrue.Constants.Provider
   name: Constants.Provider
   href: api/Supabase.Gotrue.Constants.Provider.html
@@ -5729,24 +5379,40 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).DeleteUser
   nameWithType: IGotrueApi<TUser, TSession>.DeleteUser
   nameWithType.vb: IGotrueApi(Of TUser, TSession).DeleteUser
-- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.GetUrlForProvider(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String},Supabase.Gotrue.SignInOptions)
-  name: GetUrlForProvider(Constants.Provider, Nullable<String>, SignInOptions)
-  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_GetUrlForProvider_Supabase_Gotrue_Constants_Provider_System_Nullable_System_String__Supabase_Gotrue_SignInOptions_
-  commentId: M:Supabase.Gotrue.Interfaces.IGotrueApi`2.GetUrlForProvider(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String},Supabase.Gotrue.SignInOptions)
-  name.vb: GetUrlForProvider(Constants.Provider, Nullable(Of String), SignInOptions)
-  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.GetUrlForProvider(Supabase.Gotrue.Constants.Provider, System.Nullable<System.String>, Supabase.Gotrue.SignInOptions)
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).GetUrlForProvider(Supabase.Gotrue.Constants.Provider, System.Nullable(Of System.String), Supabase.Gotrue.SignInOptions)
-  nameWithType: IGotrueApi<TUser, TSession>.GetUrlForProvider(Constants.Provider, Nullable<String>, SignInOptions)
-  nameWithType.vb: IGotrueApi(Of TUser, TSession).GetUrlForProvider(Constants.Provider, Nullable(Of String), SignInOptions)
-- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.GetUrlForProvider*
-  name: GetUrlForProvider
-  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_GetUrlForProvider_
-  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueApi`2.GetUrlForProvider
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.ExchangeCodeForSession(System.String,System.String)
+  name: ExchangeCodeForSession(String, String)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_ExchangeCodeForSession_System_String_System_String_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueApi`2.ExchangeCodeForSession(System.String,System.String)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.ExchangeCodeForSession(System.String, System.String)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).ExchangeCodeForSession(System.String, System.String)
+  nameWithType: IGotrueApi<TUser, TSession>.ExchangeCodeForSession(String, String)
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).ExchangeCodeForSession(String, String)
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.ExchangeCodeForSession*
+  name: ExchangeCodeForSession
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_ExchangeCodeForSession_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueApi`2.ExchangeCodeForSession
   isSpec: "True"
-  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.GetUrlForProvider
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).GetUrlForProvider
-  nameWithType: IGotrueApi<TUser, TSession>.GetUrlForProvider
-  nameWithType.vb: IGotrueApi(Of TUser, TSession).GetUrlForProvider
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.ExchangeCodeForSession
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).ExchangeCodeForSession
+  nameWithType: IGotrueApi<TUser, TSession>.ExchangeCodeForSession
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).ExchangeCodeForSession
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.GetUriForProvider(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.SignInOptions)
+  name: GetUriForProvider(Constants.Provider, SignInOptions)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_GetUriForProvider_Supabase_Gotrue_Constants_Provider_Supabase_Gotrue_SignInOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueApi`2.GetUriForProvider(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.SignInOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.GetUriForProvider(Supabase.Gotrue.Constants.Provider, Supabase.Gotrue.SignInOptions)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).GetUriForProvider(Supabase.Gotrue.Constants.Provider, Supabase.Gotrue.SignInOptions)
+  nameWithType: IGotrueApi<TUser, TSession>.GetUriForProvider(Constants.Provider, SignInOptions)
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).GetUriForProvider(Constants.Provider, SignInOptions)
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.GetUriForProvider*
+  name: GetUriForProvider
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_GetUriForProvider_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueApi`2.GetUriForProvider
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.GetUriForProvider
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).GetUriForProvider
+  nameWithType: IGotrueApi<TUser, TSession>.GetUriForProvider
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).GetUriForProvider
 - uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.GetUser(System.String)
   name: GetUser(String)
   href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_GetUser_System_String_
@@ -6122,6 +5788,23 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).DeleteUser
   nameWithType: IGotrueClient<TUser, TSession>.DeleteUser
   nameWithType.vb: IGotrueClient(Of TUser, TSession).DeleteUser
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.ExchangeCodeForSession(System.String,System.String)
+  name: ExchangeCodeForSession(String, String)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_ExchangeCodeForSession_System_String_System_String_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.ExchangeCodeForSession(System.String,System.String)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.ExchangeCodeForSession(System.String, System.String)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).ExchangeCodeForSession(System.String, System.String)
+  nameWithType: IGotrueClient<TUser, TSession>.ExchangeCodeForSession(String, String)
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).ExchangeCodeForSession(String, String)
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.ExchangeCodeForSession*
+  name: ExchangeCodeForSession
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_ExchangeCodeForSession_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.ExchangeCodeForSession
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.ExchangeCodeForSession
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).ExchangeCodeForSession
+  nameWithType: IGotrueClient<TUser, TSession>.ExchangeCodeForSession
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).ExchangeCodeForSession
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.GetSessionFromUrl(Uri,System.Boolean)
   name: GetSessionFromUrl(Uri, Boolean)
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_GetSessionFromUrl_Uri_System_Boolean_
@@ -6293,15 +5976,14 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).SetAuth
   nameWithType: IGotrueClient<TUser, TSession>.SetAuth
   nameWithType.vb: IGotrueClient(Of TUser, TSession).SetAuth
-- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.SignIn(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String},Supabase.Gotrue.SignInOptions)
-  name: SignIn(Constants.Provider, Nullable<String>, SignInOptions)
-  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_SignIn_Supabase_Gotrue_Constants_Provider_System_Nullable_System_String__Supabase_Gotrue_SignInOptions_
-  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.SignIn(Supabase.Gotrue.Constants.Provider,System.Nullable{System.String},Supabase.Gotrue.SignInOptions)
-  name.vb: SignIn(Constants.Provider, Nullable(Of String), SignInOptions)
-  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.SignIn(Supabase.Gotrue.Constants.Provider, System.Nullable<System.String>, Supabase.Gotrue.SignInOptions)
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).SignIn(Supabase.Gotrue.Constants.Provider, System.Nullable(Of System.String), Supabase.Gotrue.SignInOptions)
-  nameWithType: IGotrueClient<TUser, TSession>.SignIn(Constants.Provider, Nullable<String>, SignInOptions)
-  nameWithType.vb: IGotrueClient(Of TUser, TSession).SignIn(Constants.Provider, Nullable(Of String), SignInOptions)
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.SignIn(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.SignInOptions)
+  name: SignIn(Constants.Provider, SignInOptions)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_SignIn_Supabase_Gotrue_Constants_Provider_Supabase_Gotrue_SignInOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.SignIn(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.SignInOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.SignIn(Supabase.Gotrue.Constants.Provider, Supabase.Gotrue.SignInOptions)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).SignIn(Supabase.Gotrue.Constants.Provider, Supabase.Gotrue.SignInOptions)
+  nameWithType: IGotrueClient<TUser, TSession>.SignIn(Constants.Provider, SignInOptions)
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).SignIn(Constants.Provider, SignInOptions)
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.SignIn(Supabase.Gotrue.Constants.SignInType,System.String,System.Nullable{System.String},System.Nullable{System.String})
   name: SignIn(Constants.SignInType, String, Nullable<String>, Nullable<String>)
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_SignIn_Supabase_Gotrue_Constants_SignInType_System_String_System_Nullable_System_String__System_Nullable_System_String__
@@ -6667,15 +6349,14 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).SendMagicLink
   nameWithType: IGotrueStatelessClient<TUser, TSession>.SendMagicLink
   nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).SendMagicLink
-- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.SignIn(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.Nullable{System.String})
-  name: SignIn(Constants.Provider, StatelessClient.StatelessClientOptions, Nullable<String>)
-  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_SignIn_Supabase_Gotrue_Constants_Provider_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_Nullable_System_String__
-  commentId: M:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.SignIn(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.Nullable{System.String})
-  name.vb: SignIn(Constants.Provider, StatelessClient.StatelessClientOptions, Nullable(Of String))
-  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.SignIn(Supabase.Gotrue.Constants.Provider, Supabase.Gotrue.StatelessClient.StatelessClientOptions, System.Nullable<System.String>)
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).SignIn(Supabase.Gotrue.Constants.Provider, Supabase.Gotrue.StatelessClient.StatelessClientOptions, System.Nullable(Of System.String))
-  nameWithType: IGotrueStatelessClient<TUser, TSession>.SignIn(Constants.Provider, StatelessClient.StatelessClientOptions, Nullable<String>)
-  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).SignIn(Constants.Provider, StatelessClient.StatelessClientOptions, Nullable(Of String))
+- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.SignIn(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.SignInOptions)
+  name: SignIn(Constants.Provider, StatelessClient.StatelessClientOptions, SignInOptions)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_SignIn_Supabase_Gotrue_Constants_Provider_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignInOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.SignIn(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.SignInOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.SignIn(Supabase.Gotrue.Constants.Provider, Supabase.Gotrue.StatelessClient.StatelessClientOptions, Supabase.Gotrue.SignInOptions)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).SignIn(Supabase.Gotrue.Constants.Provider, Supabase.Gotrue.StatelessClient.StatelessClientOptions, Supabase.Gotrue.SignInOptions)
+  nameWithType: IGotrueStatelessClient<TUser, TSession>.SignIn(Constants.Provider, StatelessClient.StatelessClientOptions, SignInOptions)
+  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).SignIn(Constants.Provider, StatelessClient.StatelessClientOptions, SignInOptions)
 - uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.SignIn(Supabase.Gotrue.Constants.SignInType,System.String,System.Nullable{System.String},Supabase.Gotrue.StatelessClient.StatelessClientOptions)
   name: SignIn(Constants.SignInType, String, Nullable<String>, StatelessClient.StatelessClientOptions)
   href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_SignIn_Supabase_Gotrue_Constants_SignInType_System_String_System_Nullable_System_String__Supabase_Gotrue_StatelessClient_StatelessClientOptions_
@@ -6856,6 +6537,51 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.InvalidEmailOrPasswordException.Response
   nameWithType: InvalidEmailOrPasswordException.Response
+- uid: Supabase.Gotrue.ProviderAuthState
+  name: ProviderAuthState
+  href: api/Supabase.Gotrue.ProviderAuthState.html
+  commentId: T:Supabase.Gotrue.ProviderAuthState
+  fullName: Supabase.Gotrue.ProviderAuthState
+  nameWithType: ProviderAuthState
+- uid: Supabase.Gotrue.ProviderAuthState.#ctor(Uri)
+  name: ProviderAuthState(Uri)
+  href: api/Supabase.Gotrue.ProviderAuthState.html#Supabase_Gotrue_ProviderAuthState__ctor_Uri_
+  commentId: M:Supabase.Gotrue.ProviderAuthState.#ctor(Uri)
+  fullName: Supabase.Gotrue.ProviderAuthState.ProviderAuthState(Uri)
+  nameWithType: ProviderAuthState.ProviderAuthState(Uri)
+- uid: Supabase.Gotrue.ProviderAuthState.#ctor*
+  name: ProviderAuthState
+  href: api/Supabase.Gotrue.ProviderAuthState.html#Supabase_Gotrue_ProviderAuthState__ctor_
+  commentId: Overload:Supabase.Gotrue.ProviderAuthState.#ctor
+  isSpec: "True"
+  fullName: Supabase.Gotrue.ProviderAuthState.ProviderAuthState
+  nameWithType: ProviderAuthState.ProviderAuthState
+- uid: Supabase.Gotrue.ProviderAuthState.PKCEVerifier
+  name: PKCEVerifier
+  href: api/Supabase.Gotrue.ProviderAuthState.html#Supabase_Gotrue_ProviderAuthState_PKCEVerifier
+  commentId: P:Supabase.Gotrue.ProviderAuthState.PKCEVerifier
+  fullName: Supabase.Gotrue.ProviderAuthState.PKCEVerifier
+  nameWithType: ProviderAuthState.PKCEVerifier
+- uid: Supabase.Gotrue.ProviderAuthState.PKCEVerifier*
+  name: PKCEVerifier
+  href: api/Supabase.Gotrue.ProviderAuthState.html#Supabase_Gotrue_ProviderAuthState_PKCEVerifier_
+  commentId: Overload:Supabase.Gotrue.ProviderAuthState.PKCEVerifier
+  isSpec: "True"
+  fullName: Supabase.Gotrue.ProviderAuthState.PKCEVerifier
+  nameWithType: ProviderAuthState.PKCEVerifier
+- uid: Supabase.Gotrue.ProviderAuthState.Uri
+  name: Uri
+  href: api/Supabase.Gotrue.ProviderAuthState.html#Supabase_Gotrue_ProviderAuthState_Uri
+  commentId: P:Supabase.Gotrue.ProviderAuthState.Uri
+  fullName: Supabase.Gotrue.ProviderAuthState.Uri
+  nameWithType: ProviderAuthState.Uri
+- uid: Supabase.Gotrue.ProviderAuthState.Uri*
+  name: Uri
+  href: api/Supabase.Gotrue.ProviderAuthState.html#Supabase_Gotrue_ProviderAuthState_Uri_
+  commentId: Overload:Supabase.Gotrue.ProviderAuthState.Uri
+  isSpec: "True"
+  fullName: Supabase.Gotrue.ProviderAuthState.Uri
+  nameWithType: ProviderAuthState.Uri
 - uid: Supabase.Gotrue.RequestException
   name: RequestException
   href: api/Supabase.Gotrue.RequestException.html
@@ -7061,6 +6787,32 @@ references:
   commentId: T:Supabase.Gotrue.SignInOptions
   fullName: Supabase.Gotrue.SignInOptions
   nameWithType: SignInOptions
+- uid: Supabase.Gotrue.SignInOptions.FlowType
+  name: FlowType
+  href: api/Supabase.Gotrue.SignInOptions.html#Supabase_Gotrue_SignInOptions_FlowType
+  commentId: P:Supabase.Gotrue.SignInOptions.FlowType
+  fullName: Supabase.Gotrue.SignInOptions.FlowType
+  nameWithType: SignInOptions.FlowType
+- uid: Supabase.Gotrue.SignInOptions.FlowType*
+  name: FlowType
+  href: api/Supabase.Gotrue.SignInOptions.html#Supabase_Gotrue_SignInOptions_FlowType_
+  commentId: Overload:Supabase.Gotrue.SignInOptions.FlowType
+  isSpec: "True"
+  fullName: Supabase.Gotrue.SignInOptions.FlowType
+  nameWithType: SignInOptions.FlowType
+- uid: Supabase.Gotrue.SignInOptions.QueryParams
+  name: QueryParams
+  href: api/Supabase.Gotrue.SignInOptions.html#Supabase_Gotrue_SignInOptions_QueryParams
+  commentId: P:Supabase.Gotrue.SignInOptions.QueryParams
+  fullName: Supabase.Gotrue.SignInOptions.QueryParams
+  nameWithType: SignInOptions.QueryParams
+- uid: Supabase.Gotrue.SignInOptions.QueryParams*
+  name: QueryParams
+  href: api/Supabase.Gotrue.SignInOptions.html#Supabase_Gotrue_SignInOptions_QueryParams_
+  commentId: Overload:Supabase.Gotrue.SignInOptions.QueryParams
+  isSpec: "True"
+  fullName: Supabase.Gotrue.SignInOptions.QueryParams
+  nameWithType: SignInOptions.QueryParams
 - uid: Supabase.Gotrue.SignInOptions.RedirectTo
   name: RedirectTo
   href: api/Supabase.Gotrue.SignInOptions.html#Supabase_Gotrue_SignInOptions_RedirectTo
@@ -7074,6 +6826,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.SignInOptions.RedirectTo
   nameWithType: SignInOptions.RedirectTo
+- uid: Supabase.Gotrue.SignInOptions.Scopes
+  name: Scopes
+  href: api/Supabase.Gotrue.SignInOptions.html#Supabase_Gotrue_SignInOptions_Scopes
+  commentId: P:Supabase.Gotrue.SignInOptions.Scopes
+  fullName: Supabase.Gotrue.SignInOptions.Scopes
+  nameWithType: SignInOptions.Scopes
+- uid: Supabase.Gotrue.SignInOptions.Scopes*
+  name: Scopes
+  href: api/Supabase.Gotrue.SignInOptions.html#Supabase_Gotrue_SignInOptions_Scopes_
+  commentId: Overload:Supabase.Gotrue.SignInOptions.Scopes
+  isSpec: "True"
+  fullName: Supabase.Gotrue.SignInOptions.Scopes
+  nameWithType: SignInOptions.Scopes
 - uid: Supabase.Gotrue.SignUpOptions
   name: SignUpOptions
   href: api/Supabase.Gotrue.SignUpOptions.html
@@ -7251,15 +7016,12 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.StatelessClient.SendMagicLink
   nameWithType: StatelessClient.SendMagicLink
-- uid: Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.Nullable{System.String})
-  name: SignIn(Constants.Provider, StatelessClient.StatelessClientOptions, Nullable<String>)
-  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignIn_Supabase_Gotrue_Constants_Provider_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_Nullable_System_String__
-  commentId: M:Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.Nullable{System.String})
-  name.vb: SignIn(Constants.Provider, StatelessClient.StatelessClientOptions, Nullable(Of String))
-  fullName: Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Constants.Provider, Supabase.Gotrue.StatelessClient.StatelessClientOptions, System.Nullable<System.String>)
-  fullName.vb: Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Constants.Provider, Supabase.Gotrue.StatelessClient.StatelessClientOptions, System.Nullable(Of System.String))
-  nameWithType: StatelessClient.SignIn(Constants.Provider, StatelessClient.StatelessClientOptions, Nullable<String>)
-  nameWithType.vb: StatelessClient.SignIn(Constants.Provider, StatelessClient.StatelessClientOptions, Nullable(Of String))
+- uid: Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.SignInOptions)
+  name: SignIn(Constants.Provider, StatelessClient.StatelessClientOptions, SignInOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignIn_Supabase_Gotrue_Constants_Provider_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignInOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.SignInOptions)
+  fullName: Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Constants.Provider, Supabase.Gotrue.StatelessClient.StatelessClientOptions, Supabase.Gotrue.SignInOptions)
+  nameWithType: StatelessClient.SignIn(Constants.Provider, StatelessClient.StatelessClientOptions, SignInOptions)
 - uid: Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Constants.SignInType,System.String,System.Nullable{System.String},Supabase.Gotrue.StatelessClient.StatelessClientOptions)
   name: SignIn(Constants.SignInType, String, Nullable<String>, StatelessClient.StatelessClientOptions)
   href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_SignIn_Supabase_Gotrue_Constants_SignInType_System_String_System_Nullable_System_String__Supabase_Gotrue_StatelessClient_StatelessClientOptions_
@@ -12516,6 +12278,19 @@ references:
   commentId: T:Supabase.Storage.Bucket
   fullName: Supabase.Storage.Bucket
   nameWithType: Bucket
+- uid: Supabase.Storage.Bucket.AllowedMimes
+  name: AllowedMimes
+  href: api/Supabase.Storage.Bucket.html#Supabase_Storage_Bucket_AllowedMimes
+  commentId: P:Supabase.Storage.Bucket.AllowedMimes
+  fullName: Supabase.Storage.Bucket.AllowedMimes
+  nameWithType: Bucket.AllowedMimes
+- uid: Supabase.Storage.Bucket.AllowedMimes*
+  name: AllowedMimes
+  href: api/Supabase.Storage.Bucket.html#Supabase_Storage_Bucket_AllowedMimes_
+  commentId: Overload:Supabase.Storage.Bucket.AllowedMimes
+  isSpec: "True"
+  fullName: Supabase.Storage.Bucket.AllowedMimes
+  nameWithType: Bucket.AllowedMimes
 - uid: Supabase.Storage.Bucket.CreatedAt
   name: CreatedAt
   href: api/Supabase.Storage.Bucket.html#Supabase_Storage_Bucket_CreatedAt
@@ -12529,6 +12304,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.Bucket.CreatedAt
   nameWithType: Bucket.CreatedAt
+- uid: Supabase.Storage.Bucket.FileSizeLimit
+  name: FileSizeLimit
+  href: api/Supabase.Storage.Bucket.html#Supabase_Storage_Bucket_FileSizeLimit
+  commentId: P:Supabase.Storage.Bucket.FileSizeLimit
+  fullName: Supabase.Storage.Bucket.FileSizeLimit
+  nameWithType: Bucket.FileSizeLimit
+- uid: Supabase.Storage.Bucket.FileSizeLimit*
+  name: FileSizeLimit
+  href: api/Supabase.Storage.Bucket.html#Supabase_Storage_Bucket_FileSizeLimit_
+  commentId: Overload:Supabase.Storage.Bucket.FileSizeLimit
+  isSpec: "True"
+  fullName: Supabase.Storage.Bucket.FileSizeLimit
+  nameWithType: Bucket.FileSizeLimit
 - uid: Supabase.Storage.Bucket.Id
   name: Id
   href: api/Supabase.Storage.Bucket.html#Supabase_Storage_Bucket_Id
@@ -12600,6 +12388,32 @@ references:
   commentId: T:Supabase.Storage.BucketUpsertOptions
   fullName: Supabase.Storage.BucketUpsertOptions
   nameWithType: BucketUpsertOptions
+- uid: Supabase.Storage.BucketUpsertOptions.AllowedMimes
+  name: AllowedMimes
+  href: api/Supabase.Storage.BucketUpsertOptions.html#Supabase_Storage_BucketUpsertOptions_AllowedMimes
+  commentId: P:Supabase.Storage.BucketUpsertOptions.AllowedMimes
+  fullName: Supabase.Storage.BucketUpsertOptions.AllowedMimes
+  nameWithType: BucketUpsertOptions.AllowedMimes
+- uid: Supabase.Storage.BucketUpsertOptions.AllowedMimes*
+  name: AllowedMimes
+  href: api/Supabase.Storage.BucketUpsertOptions.html#Supabase_Storage_BucketUpsertOptions_AllowedMimes_
+  commentId: Overload:Supabase.Storage.BucketUpsertOptions.AllowedMimes
+  isSpec: "True"
+  fullName: Supabase.Storage.BucketUpsertOptions.AllowedMimes
+  nameWithType: BucketUpsertOptions.AllowedMimes
+- uid: Supabase.Storage.BucketUpsertOptions.FileSizeLimit
+  name: FileSizeLimit
+  href: api/Supabase.Storage.BucketUpsertOptions.html#Supabase_Storage_BucketUpsertOptions_FileSizeLimit
+  commentId: P:Supabase.Storage.BucketUpsertOptions.FileSizeLimit
+  fullName: Supabase.Storage.BucketUpsertOptions.FileSizeLimit
+  nameWithType: BucketUpsertOptions.FileSizeLimit
+- uid: Supabase.Storage.BucketUpsertOptions.FileSizeLimit*
+  name: FileSizeLimit
+  href: api/Supabase.Storage.BucketUpsertOptions.html#Supabase_Storage_BucketUpsertOptions_FileSizeLimit_
+  commentId: Overload:Supabase.Storage.BucketUpsertOptions.FileSizeLimit
+  isSpec: "True"
+  fullName: Supabase.Storage.BucketUpsertOptions.FileSizeLimit
+  nameWithType: BucketUpsertOptions.FileSizeLimit
 - uid: Supabase.Storage.BucketUpsertOptions.Public
   name: Public
   href: api/Supabase.Storage.BucketUpsertOptions.html#Supabase_Storage_BucketUpsertOptions_Public
@@ -12764,6 +12578,31 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.ErrorResponse.StatusCode
   nameWithType: ErrorResponse.StatusCode
+- uid: Supabase.Storage.Extensions
+  name: Supabase.Storage.Extensions
+  href: api/Supabase.Storage.Extensions.html
+  commentId: N:Supabase.Storage.Extensions
+  fullName: Supabase.Storage.Extensions
+  nameWithType: Supabase.Storage.Extensions
+- uid: Supabase.Storage.Extensions.TransformOptionsExtension
+  name: TransformOptionsExtension
+  href: api/Supabase.Storage.Extensions.TransformOptionsExtension.html
+  commentId: T:Supabase.Storage.Extensions.TransformOptionsExtension
+  fullName: Supabase.Storage.Extensions.TransformOptionsExtension
+  nameWithType: TransformOptionsExtension
+- uid: Supabase.Storage.Extensions.TransformOptionsExtension.ToQueryCollection(Supabase.Storage.TransformOptions)
+  name: ToQueryCollection(TransformOptions)
+  href: api/Supabase.Storage.Extensions.TransformOptionsExtension.html#Supabase_Storage_Extensions_TransformOptionsExtension_ToQueryCollection_Supabase_Storage_TransformOptions_
+  commentId: M:Supabase.Storage.Extensions.TransformOptionsExtension.ToQueryCollection(Supabase.Storage.TransformOptions)
+  fullName: Supabase.Storage.Extensions.TransformOptionsExtension.ToQueryCollection(Supabase.Storage.TransformOptions)
+  nameWithType: TransformOptionsExtension.ToQueryCollection(TransformOptions)
+- uid: Supabase.Storage.Extensions.TransformOptionsExtension.ToQueryCollection*
+  name: ToQueryCollection
+  href: api/Supabase.Storage.Extensions.TransformOptionsExtension.html#Supabase_Storage_Extensions_TransformOptionsExtension_ToQueryCollection_
+  commentId: Overload:Supabase.Storage.Extensions.TransformOptionsExtension.ToQueryCollection
+  isSpec: "True"
+  fullName: Supabase.Storage.Extensions.TransformOptionsExtension.ToQueryCollection
+  nameWithType: TransformOptionsExtension.ToQueryCollection
 - uid: Supabase.Storage.FileObject
   name: FileObject
   href: api/Supabase.Storage.FileObject.html
@@ -12944,6 +12783,455 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.GenericResponse.Message
   nameWithType: GenericResponse.Message
+- uid: Supabase.Storage.Interfaces
+  name: Supabase.Storage.Interfaces
+  href: api/Supabase.Storage.Interfaces.html
+  commentId: N:Supabase.Storage.Interfaces
+  fullName: Supabase.Storage.Interfaces
+  nameWithType: Supabase.Storage.Interfaces
+- uid: Supabase.Storage.Interfaces.IStorageBucketApi`1
+  name: IStorageBucketApi<TBucket>
+  href: api/Supabase.Storage.Interfaces.IStorageBucketApi-1.html
+  commentId: T:Supabase.Storage.Interfaces.IStorageBucketApi`1
+  name.vb: IStorageBucketApi(Of TBucket)
+  fullName: Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>
+  fullName.vb: Supabase.Storage.Interfaces.IStorageBucketApi(Of TBucket)
+  nameWithType: IStorageBucketApi<TBucket>
+  nameWithType.vb: IStorageBucketApi(Of TBucket)
+- uid: Supabase.Storage.Interfaces.IStorageBucketApi`1.CreateBucket(System.String,Supabase.Storage.BucketUpsertOptions)
+  name: CreateBucket(String, BucketUpsertOptions)
+  href: api/Supabase.Storage.Interfaces.IStorageBucketApi-1.html#Supabase_Storage_Interfaces_IStorageBucketApi_1_CreateBucket_System_String_Supabase_Storage_BucketUpsertOptions_
+  commentId: M:Supabase.Storage.Interfaces.IStorageBucketApi`1.CreateBucket(System.String,Supabase.Storage.BucketUpsertOptions)
+  fullName: Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.CreateBucket(System.String, Supabase.Storage.BucketUpsertOptions)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageBucketApi(Of TBucket).CreateBucket(System.String, Supabase.Storage.BucketUpsertOptions)
+  nameWithType: IStorageBucketApi<TBucket>.CreateBucket(String, BucketUpsertOptions)
+  nameWithType.vb: IStorageBucketApi(Of TBucket).CreateBucket(String, BucketUpsertOptions)
+- uid: Supabase.Storage.Interfaces.IStorageBucketApi`1.CreateBucket*
+  name: CreateBucket
+  href: api/Supabase.Storage.Interfaces.IStorageBucketApi-1.html#Supabase_Storage_Interfaces_IStorageBucketApi_1_CreateBucket_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageBucketApi`1.CreateBucket
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.CreateBucket
+  fullName.vb: Supabase.Storage.Interfaces.IStorageBucketApi(Of TBucket).CreateBucket
+  nameWithType: IStorageBucketApi<TBucket>.CreateBucket
+  nameWithType.vb: IStorageBucketApi(Of TBucket).CreateBucket
+- uid: Supabase.Storage.Interfaces.IStorageBucketApi`1.DeleteBucket(System.String)
+  name: DeleteBucket(String)
+  href: api/Supabase.Storage.Interfaces.IStorageBucketApi-1.html#Supabase_Storage_Interfaces_IStorageBucketApi_1_DeleteBucket_System_String_
+  commentId: M:Supabase.Storage.Interfaces.IStorageBucketApi`1.DeleteBucket(System.String)
+  fullName: Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.DeleteBucket(System.String)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageBucketApi(Of TBucket).DeleteBucket(System.String)
+  nameWithType: IStorageBucketApi<TBucket>.DeleteBucket(String)
+  nameWithType.vb: IStorageBucketApi(Of TBucket).DeleteBucket(String)
+- uid: Supabase.Storage.Interfaces.IStorageBucketApi`1.DeleteBucket*
+  name: DeleteBucket
+  href: api/Supabase.Storage.Interfaces.IStorageBucketApi-1.html#Supabase_Storage_Interfaces_IStorageBucketApi_1_DeleteBucket_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageBucketApi`1.DeleteBucket
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.DeleteBucket
+  fullName.vb: Supabase.Storage.Interfaces.IStorageBucketApi(Of TBucket).DeleteBucket
+  nameWithType: IStorageBucketApi<TBucket>.DeleteBucket
+  nameWithType.vb: IStorageBucketApi(Of TBucket).DeleteBucket
+- uid: Supabase.Storage.Interfaces.IStorageBucketApi`1.EmptyBucket(System.String)
+  name: EmptyBucket(String)
+  href: api/Supabase.Storage.Interfaces.IStorageBucketApi-1.html#Supabase_Storage_Interfaces_IStorageBucketApi_1_EmptyBucket_System_String_
+  commentId: M:Supabase.Storage.Interfaces.IStorageBucketApi`1.EmptyBucket(System.String)
+  fullName: Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.EmptyBucket(System.String)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageBucketApi(Of TBucket).EmptyBucket(System.String)
+  nameWithType: IStorageBucketApi<TBucket>.EmptyBucket(String)
+  nameWithType.vb: IStorageBucketApi(Of TBucket).EmptyBucket(String)
+- uid: Supabase.Storage.Interfaces.IStorageBucketApi`1.EmptyBucket*
+  name: EmptyBucket
+  href: api/Supabase.Storage.Interfaces.IStorageBucketApi-1.html#Supabase_Storage_Interfaces_IStorageBucketApi_1_EmptyBucket_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageBucketApi`1.EmptyBucket
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.EmptyBucket
+  fullName.vb: Supabase.Storage.Interfaces.IStorageBucketApi(Of TBucket).EmptyBucket
+  nameWithType: IStorageBucketApi<TBucket>.EmptyBucket
+  nameWithType.vb: IStorageBucketApi(Of TBucket).EmptyBucket
+- uid: Supabase.Storage.Interfaces.IStorageBucketApi`1.GetBucket(System.String)
+  name: GetBucket(String)
+  href: api/Supabase.Storage.Interfaces.IStorageBucketApi-1.html#Supabase_Storage_Interfaces_IStorageBucketApi_1_GetBucket_System_String_
+  commentId: M:Supabase.Storage.Interfaces.IStorageBucketApi`1.GetBucket(System.String)
+  fullName: Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.GetBucket(System.String)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageBucketApi(Of TBucket).GetBucket(System.String)
+  nameWithType: IStorageBucketApi<TBucket>.GetBucket(String)
+  nameWithType.vb: IStorageBucketApi(Of TBucket).GetBucket(String)
+- uid: Supabase.Storage.Interfaces.IStorageBucketApi`1.GetBucket*
+  name: GetBucket
+  href: api/Supabase.Storage.Interfaces.IStorageBucketApi-1.html#Supabase_Storage_Interfaces_IStorageBucketApi_1_GetBucket_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageBucketApi`1.GetBucket
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.GetBucket
+  fullName.vb: Supabase.Storage.Interfaces.IStorageBucketApi(Of TBucket).GetBucket
+  nameWithType: IStorageBucketApi<TBucket>.GetBucket
+  nameWithType.vb: IStorageBucketApi(Of TBucket).GetBucket
+- uid: Supabase.Storage.Interfaces.IStorageBucketApi`1.Headers
+  name: Headers
+  href: api/Supabase.Storage.Interfaces.IStorageBucketApi-1.html#Supabase_Storage_Interfaces_IStorageBucketApi_1_Headers
+  commentId: P:Supabase.Storage.Interfaces.IStorageBucketApi`1.Headers
+  fullName: Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.Headers
+  fullName.vb: Supabase.Storage.Interfaces.IStorageBucketApi(Of TBucket).Headers
+  nameWithType: IStorageBucketApi<TBucket>.Headers
+  nameWithType.vb: IStorageBucketApi(Of TBucket).Headers
+- uid: Supabase.Storage.Interfaces.IStorageBucketApi`1.Headers*
+  name: Headers
+  href: api/Supabase.Storage.Interfaces.IStorageBucketApi-1.html#Supabase_Storage_Interfaces_IStorageBucketApi_1_Headers_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageBucketApi`1.Headers
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.Headers
+  fullName.vb: Supabase.Storage.Interfaces.IStorageBucketApi(Of TBucket).Headers
+  nameWithType: IStorageBucketApi<TBucket>.Headers
+  nameWithType.vb: IStorageBucketApi(Of TBucket).Headers
+- uid: Supabase.Storage.Interfaces.IStorageBucketApi`1.ListBuckets
+  name: ListBuckets()
+  href: api/Supabase.Storage.Interfaces.IStorageBucketApi-1.html#Supabase_Storage_Interfaces_IStorageBucketApi_1_ListBuckets
+  commentId: M:Supabase.Storage.Interfaces.IStorageBucketApi`1.ListBuckets
+  fullName: Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.ListBuckets()
+  fullName.vb: Supabase.Storage.Interfaces.IStorageBucketApi(Of TBucket).ListBuckets()
+  nameWithType: IStorageBucketApi<TBucket>.ListBuckets()
+  nameWithType.vb: IStorageBucketApi(Of TBucket).ListBuckets()
+- uid: Supabase.Storage.Interfaces.IStorageBucketApi`1.ListBuckets*
+  name: ListBuckets
+  href: api/Supabase.Storage.Interfaces.IStorageBucketApi-1.html#Supabase_Storage_Interfaces_IStorageBucketApi_1_ListBuckets_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageBucketApi`1.ListBuckets
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.ListBuckets
+  fullName.vb: Supabase.Storage.Interfaces.IStorageBucketApi(Of TBucket).ListBuckets
+  nameWithType: IStorageBucketApi<TBucket>.ListBuckets
+  nameWithType.vb: IStorageBucketApi(Of TBucket).ListBuckets
+- uid: Supabase.Storage.Interfaces.IStorageBucketApi`1.Options
+  name: Options
+  href: api/Supabase.Storage.Interfaces.IStorageBucketApi-1.html#Supabase_Storage_Interfaces_IStorageBucketApi_1_Options
+  commentId: P:Supabase.Storage.Interfaces.IStorageBucketApi`1.Options
+  fullName: Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.Options
+  fullName.vb: Supabase.Storage.Interfaces.IStorageBucketApi(Of TBucket).Options
+  nameWithType: IStorageBucketApi<TBucket>.Options
+  nameWithType.vb: IStorageBucketApi(Of TBucket).Options
+- uid: Supabase.Storage.Interfaces.IStorageBucketApi`1.Options*
+  name: Options
+  href: api/Supabase.Storage.Interfaces.IStorageBucketApi-1.html#Supabase_Storage_Interfaces_IStorageBucketApi_1_Options_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageBucketApi`1.Options
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.Options
+  fullName.vb: Supabase.Storage.Interfaces.IStorageBucketApi(Of TBucket).Options
+  nameWithType: IStorageBucketApi<TBucket>.Options
+  nameWithType.vb: IStorageBucketApi(Of TBucket).Options
+- uid: Supabase.Storage.Interfaces.IStorageBucketApi`1.UpdateBucket(System.String,Supabase.Storage.BucketUpsertOptions)
+  name: UpdateBucket(String, BucketUpsertOptions)
+  href: api/Supabase.Storage.Interfaces.IStorageBucketApi-1.html#Supabase_Storage_Interfaces_IStorageBucketApi_1_UpdateBucket_System_String_Supabase_Storage_BucketUpsertOptions_
+  commentId: M:Supabase.Storage.Interfaces.IStorageBucketApi`1.UpdateBucket(System.String,Supabase.Storage.BucketUpsertOptions)
+  fullName: Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.UpdateBucket(System.String, Supabase.Storage.BucketUpsertOptions)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageBucketApi(Of TBucket).UpdateBucket(System.String, Supabase.Storage.BucketUpsertOptions)
+  nameWithType: IStorageBucketApi<TBucket>.UpdateBucket(String, BucketUpsertOptions)
+  nameWithType.vb: IStorageBucketApi(Of TBucket).UpdateBucket(String, BucketUpsertOptions)
+- uid: Supabase.Storage.Interfaces.IStorageBucketApi`1.UpdateBucket*
+  name: UpdateBucket
+  href: api/Supabase.Storage.Interfaces.IStorageBucketApi-1.html#Supabase_Storage_Interfaces_IStorageBucketApi_1_UpdateBucket_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageBucketApi`1.UpdateBucket
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.UpdateBucket
+  fullName.vb: Supabase.Storage.Interfaces.IStorageBucketApi(Of TBucket).UpdateBucket
+  nameWithType: IStorageBucketApi<TBucket>.UpdateBucket
+  nameWithType.vb: IStorageBucketApi(Of TBucket).UpdateBucket
+- uid: Supabase.Storage.Interfaces.IStorageClient`2
+  name: IStorageClient<TBucket, TFileObject>
+  href: api/Supabase.Storage.Interfaces.IStorageClient-2.html
+  commentId: T:Supabase.Storage.Interfaces.IStorageClient`2
+  name.vb: IStorageClient(Of TBucket, TFileObject)
+  fullName: Supabase.Storage.Interfaces.IStorageClient<TBucket, TFileObject>
+  fullName.vb: Supabase.Storage.Interfaces.IStorageClient(Of TBucket, TFileObject)
+  nameWithType: IStorageClient<TBucket, TFileObject>
+  nameWithType.vb: IStorageClient(Of TBucket, TFileObject)
+- uid: Supabase.Storage.Interfaces.IStorageClient`2.From(System.String)
+  name: From(String)
+  href: api/Supabase.Storage.Interfaces.IStorageClient-2.html#Supabase_Storage_Interfaces_IStorageClient_2_From_System_String_
+  commentId: M:Supabase.Storage.Interfaces.IStorageClient`2.From(System.String)
+  fullName: Supabase.Storage.Interfaces.IStorageClient<TBucket, TFileObject>.From(System.String)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageClient(Of TBucket, TFileObject).From(System.String)
+  nameWithType: IStorageClient<TBucket, TFileObject>.From(String)
+  nameWithType.vb: IStorageClient(Of TBucket, TFileObject).From(String)
+- uid: Supabase.Storage.Interfaces.IStorageClient`2.From*
+  name: From
+  href: api/Supabase.Storage.Interfaces.IStorageClient-2.html#Supabase_Storage_Interfaces_IStorageClient_2_From_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageClient`2.From
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageClient<TBucket, TFileObject>.From
+  fullName.vb: Supabase.Storage.Interfaces.IStorageClient(Of TBucket, TFileObject).From
+  nameWithType: IStorageClient<TBucket, TFileObject>.From
+  nameWithType.vb: IStorageClient(Of TBucket, TFileObject).From
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1
+  name: IStorageFileApi<TFileObject>
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html
+  commentId: T:Supabase.Storage.Interfaces.IStorageFileApi`1
+  name.vb: IStorageFileApi(Of TFileObject)
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject)
+  nameWithType: IStorageFileApi<TFileObject>
+  nameWithType.vb: IStorageFileApi(Of TFileObject)
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.CreateSignedUrl(System.String,System.Int32,Supabase.Storage.TransformOptions)
+  name: CreateSignedUrl(String, Int32, TransformOptions)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_CreateSignedUrl_System_String_System_Int32_Supabase_Storage_TransformOptions_
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.CreateSignedUrl(System.String,System.Int32,Supabase.Storage.TransformOptions)
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.CreateSignedUrl(System.String, System.Int32, Supabase.Storage.TransformOptions)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).CreateSignedUrl(System.String, System.Int32, Supabase.Storage.TransformOptions)
+  nameWithType: IStorageFileApi<TFileObject>.CreateSignedUrl(String, Int32, TransformOptions)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).CreateSignedUrl(String, Int32, TransformOptions)
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.CreateSignedUrl*
+  name: CreateSignedUrl
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_CreateSignedUrl_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageFileApi`1.CreateSignedUrl
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.CreateSignedUrl
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).CreateSignedUrl
+  nameWithType: IStorageFileApi<TFileObject>.CreateSignedUrl
+  nameWithType.vb: IStorageFileApi(Of TFileObject).CreateSignedUrl
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.CreateSignedUrls(List{System.String},System.Int32)
+  name: CreateSignedUrls(List<String>, Int32)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_CreateSignedUrls_List_System_String__System_Int32_
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.CreateSignedUrls(List{System.String},System.Int32)
+  name.vb: CreateSignedUrls(List(Of String), Int32)
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.CreateSignedUrls(List<System.String>, System.Int32)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).CreateSignedUrls(List(Of System.String), System.Int32)
+  nameWithType: IStorageFileApi<TFileObject>.CreateSignedUrls(List<String>, Int32)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).CreateSignedUrls(List(Of String), Int32)
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.CreateSignedUrls*
+  name: CreateSignedUrls
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_CreateSignedUrls_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageFileApi`1.CreateSignedUrls
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.CreateSignedUrls
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).CreateSignedUrls
+  nameWithType: IStorageFileApi<TFileObject>.CreateSignedUrls
+  nameWithType.vb: IStorageFileApi(Of TFileObject).CreateSignedUrls
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.CreateUploadSignedUrl(System.String)
+  name: CreateUploadSignedUrl(String)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_CreateUploadSignedUrl_System_String_
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.CreateUploadSignedUrl(System.String)
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.CreateUploadSignedUrl(System.String)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).CreateUploadSignedUrl(System.String)
+  nameWithType: IStorageFileApi<TFileObject>.CreateUploadSignedUrl(String)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).CreateUploadSignedUrl(String)
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.CreateUploadSignedUrl*
+  name: CreateUploadSignedUrl
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_CreateUploadSignedUrl_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageFileApi`1.CreateUploadSignedUrl
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.CreateUploadSignedUrl
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).CreateUploadSignedUrl
+  nameWithType: IStorageFileApi<TFileObject>.CreateUploadSignedUrl
+  nameWithType.vb: IStorageFileApi(Of TFileObject).CreateUploadSignedUrl
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.Download(System.String,System.Nullable{EventHandler{System.Single}})
+  name: Download(String, Nullable<EventHandler<Single>>)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_Download_System_String_System_Nullable_EventHandler_System_Single___
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.Download(System.String,System.Nullable{EventHandler{System.Single}})
+  name.vb: Download(String, Nullable(Of EventHandler(Of Single)))
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Download(System.String, System.Nullable<EventHandler<System.Single>>)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).Download(System.String, System.Nullable(Of EventHandler(Of System.Single)))
+  nameWithType: IStorageFileApi<TFileObject>.Download(String, Nullable<EventHandler<Single>>)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Download(String, Nullable(Of EventHandler(Of Single)))
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.Download(System.String,System.String,Supabase.Storage.TransformOptions,System.Nullable{EventHandler{System.Single}})
+  name: Download(String, String, TransformOptions, Nullable<EventHandler<Single>>)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_Download_System_String_System_String_Supabase_Storage_TransformOptions_System_Nullable_EventHandler_System_Single___
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.Download(System.String,System.String,Supabase.Storage.TransformOptions,System.Nullable{EventHandler{System.Single}})
+  name.vb: Download(String, String, TransformOptions, Nullable(Of EventHandler(Of Single)))
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Download(System.String, System.String, Supabase.Storage.TransformOptions, System.Nullable<EventHandler<System.Single>>)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).Download(System.String, System.String, Supabase.Storage.TransformOptions, System.Nullable(Of EventHandler(Of System.Single)))
+  nameWithType: IStorageFileApi<TFileObject>.Download(String, String, TransformOptions, Nullable<EventHandler<Single>>)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Download(String, String, TransformOptions, Nullable(Of EventHandler(Of Single)))
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.Download(System.String,System.String,System.Nullable{EventHandler{System.Single}})
+  name: Download(String, String, Nullable<EventHandler<Single>>)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_Download_System_String_System_String_System_Nullable_EventHandler_System_Single___
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.Download(System.String,System.String,System.Nullable{EventHandler{System.Single}})
+  name.vb: Download(String, String, Nullable(Of EventHandler(Of Single)))
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Download(System.String, System.String, System.Nullable<EventHandler<System.Single>>)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).Download(System.String, System.String, System.Nullable(Of EventHandler(Of System.Single)))
+  nameWithType: IStorageFileApi<TFileObject>.Download(String, String, Nullable<EventHandler<Single>>)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Download(String, String, Nullable(Of EventHandler(Of Single)))
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.Download*
+  name: Download
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_Download_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageFileApi`1.Download
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Download
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).Download
+  nameWithType: IStorageFileApi<TFileObject>.Download
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Download
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.GetPublicUrl(System.String,Supabase.Storage.TransformOptions)
+  name: GetPublicUrl(String, TransformOptions)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_GetPublicUrl_System_String_Supabase_Storage_TransformOptions_
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.GetPublicUrl(System.String,Supabase.Storage.TransformOptions)
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.GetPublicUrl(System.String, Supabase.Storage.TransformOptions)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).GetPublicUrl(System.String, Supabase.Storage.TransformOptions)
+  nameWithType: IStorageFileApi<TFileObject>.GetPublicUrl(String, TransformOptions)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).GetPublicUrl(String, TransformOptions)
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.GetPublicUrl*
+  name: GetPublicUrl
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_GetPublicUrl_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageFileApi`1.GetPublicUrl
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.GetPublicUrl
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).GetPublicUrl
+  nameWithType: IStorageFileApi<TFileObject>.GetPublicUrl
+  nameWithType.vb: IStorageFileApi(Of TFileObject).GetPublicUrl
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.List(System.String,Supabase.Storage.SearchOptions)
+  name: List(String, SearchOptions)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_List_System_String_Supabase_Storage_SearchOptions_
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.List(System.String,Supabase.Storage.SearchOptions)
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.List(System.String, Supabase.Storage.SearchOptions)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).List(System.String, Supabase.Storage.SearchOptions)
+  nameWithType: IStorageFileApi<TFileObject>.List(String, SearchOptions)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).List(String, SearchOptions)
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.List*
+  name: List
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_List_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageFileApi`1.List
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.List
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).List
+  nameWithType: IStorageFileApi<TFileObject>.List
+  nameWithType.vb: IStorageFileApi(Of TFileObject).List
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.Move(System.String,System.String)
+  name: Move(String, String)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_Move_System_String_System_String_
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.Move(System.String,System.String)
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Move(System.String, System.String)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).Move(System.String, System.String)
+  nameWithType: IStorageFileApi<TFileObject>.Move(String, String)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Move(String, String)
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.Move*
+  name: Move
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_Move_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageFileApi`1.Move
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Move
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).Move
+  nameWithType: IStorageFileApi<TFileObject>.Move
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Move
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.Options
+  name: Options
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_Options
+  commentId: P:Supabase.Storage.Interfaces.IStorageFileApi`1.Options
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Options
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).Options
+  nameWithType: IStorageFileApi<TFileObject>.Options
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Options
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.Options*
+  name: Options
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_Options_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageFileApi`1.Options
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Options
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).Options
+  nameWithType: IStorageFileApi<TFileObject>.Options
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Options
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.Remove(List{System.String})
+  name: Remove(List<String>)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_Remove_List_System_String__
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.Remove(List{System.String})
+  name.vb: Remove(List(Of String))
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Remove(List<System.String>)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).Remove(List(Of System.String))
+  nameWithType: IStorageFileApi<TFileObject>.Remove(List<String>)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Remove(List(Of String))
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.Remove(System.String)
+  name: Remove(String)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_Remove_System_String_
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.Remove(System.String)
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Remove(System.String)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).Remove(System.String)
+  nameWithType: IStorageFileApi<TFileObject>.Remove(String)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Remove(String)
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.Remove*
+  name: Remove
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_Remove_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageFileApi`1.Remove
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Remove
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).Remove
+  nameWithType: IStorageFileApi<TFileObject>.Remove
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Remove
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.Update(System.Byte[],System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}})
+  name: Update(Byte[], String, FileOptions, Nullable<EventHandler<Single>>)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_Update_System_Byte___System_String_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.Update(System.Byte[],System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}})
+  name.vb: Update(Byte(), String, FileOptions, Nullable(Of EventHandler(Of Single)))
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Update(System.Byte[], System.String, Supabase.Storage.FileOptions, System.Nullable<EventHandler<System.Single>>)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).Update(System.Byte(), System.String, Supabase.Storage.FileOptions, System.Nullable(Of EventHandler(Of System.Single)))
+  nameWithType: IStorageFileApi<TFileObject>.Update(Byte[], String, FileOptions, Nullable<EventHandler<Single>>)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Update(Byte(), String, FileOptions, Nullable(Of EventHandler(Of Single)))
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.Update(System.String,System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}})
+  name: Update(String, String, FileOptions, Nullable<EventHandler<Single>>)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_Update_System_String_System_String_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.Update(System.String,System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}})
+  name.vb: Update(String, String, FileOptions, Nullable(Of EventHandler(Of Single)))
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Update(System.String, System.String, Supabase.Storage.FileOptions, System.Nullable<EventHandler<System.Single>>)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).Update(System.String, System.String, Supabase.Storage.FileOptions, System.Nullable(Of EventHandler(Of System.Single)))
+  nameWithType: IStorageFileApi<TFileObject>.Update(String, String, FileOptions, Nullable<EventHandler<Single>>)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Update(String, String, FileOptions, Nullable(Of EventHandler(Of Single)))
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.Update*
+  name: Update
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_Update_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageFileApi`1.Update
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Update
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).Update
+  nameWithType: IStorageFileApi<TFileObject>.Update
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Update
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.Upload(System.Byte[],System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}},System.Boolean)
+  name: Upload(Byte[], String, FileOptions, Nullable<EventHandler<Single>>, Boolean)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_Upload_System_Byte___System_String_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___System_Boolean_
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.Upload(System.Byte[],System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}},System.Boolean)
+  name.vb: Upload(Byte(), String, FileOptions, Nullable(Of EventHandler(Of Single)), Boolean)
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Upload(System.Byte[], System.String, Supabase.Storage.FileOptions, System.Nullable<EventHandler<System.Single>>, System.Boolean)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).Upload(System.Byte(), System.String, Supabase.Storage.FileOptions, System.Nullable(Of EventHandler(Of System.Single)), System.Boolean)
+  nameWithType: IStorageFileApi<TFileObject>.Upload(Byte[], String, FileOptions, Nullable<EventHandler<Single>>, Boolean)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Upload(Byte(), String, FileOptions, Nullable(Of EventHandler(Of Single)), Boolean)
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.Upload(System.String,System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}},System.Boolean)
+  name: Upload(String, String, FileOptions, Nullable<EventHandler<Single>>, Boolean)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_Upload_System_String_System_String_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___System_Boolean_
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.Upload(System.String,System.String,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}},System.Boolean)
+  name.vb: Upload(String, String, FileOptions, Nullable(Of EventHandler(Of Single)), Boolean)
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Upload(System.String, System.String, Supabase.Storage.FileOptions, System.Nullable<EventHandler<System.Single>>, System.Boolean)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).Upload(System.String, System.String, Supabase.Storage.FileOptions, System.Nullable(Of EventHandler(Of System.Single)), System.Boolean)
+  nameWithType: IStorageFileApi<TFileObject>.Upload(String, String, FileOptions, Nullable<EventHandler<Single>>, Boolean)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Upload(String, String, FileOptions, Nullable(Of EventHandler(Of Single)), Boolean)
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.Upload*
+  name: Upload
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_Upload_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageFileApi`1.Upload
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Upload
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).Upload
+  nameWithType: IStorageFileApi<TFileObject>.Upload
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Upload
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.UploadToSignedUrl(System.Byte[],Supabase.Storage.UploadSignedUrl,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}},System.Boolean)
+  name: UploadToSignedUrl(Byte[], UploadSignedUrl, FileOptions, Nullable<EventHandler<Single>>, Boolean)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_UploadToSignedUrl_System_Byte___Supabase_Storage_UploadSignedUrl_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___System_Boolean_
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.UploadToSignedUrl(System.Byte[],Supabase.Storage.UploadSignedUrl,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}},System.Boolean)
+  name.vb: UploadToSignedUrl(Byte(), UploadSignedUrl, FileOptions, Nullable(Of EventHandler(Of Single)), Boolean)
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.UploadToSignedUrl(System.Byte[], Supabase.Storage.UploadSignedUrl, Supabase.Storage.FileOptions, System.Nullable<EventHandler<System.Single>>, System.Boolean)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).UploadToSignedUrl(System.Byte(), Supabase.Storage.UploadSignedUrl, Supabase.Storage.FileOptions, System.Nullable(Of EventHandler(Of System.Single)), System.Boolean)
+  nameWithType: IStorageFileApi<TFileObject>.UploadToSignedUrl(Byte[], UploadSignedUrl, FileOptions, Nullable<EventHandler<Single>>, Boolean)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).UploadToSignedUrl(Byte(), UploadSignedUrl, FileOptions, Nullable(Of EventHandler(Of Single)), Boolean)
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.UploadToSignedUrl(System.String,Supabase.Storage.UploadSignedUrl,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}},System.Boolean)
+  name: UploadToSignedUrl(String, UploadSignedUrl, FileOptions, Nullable<EventHandler<Single>>, Boolean)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_UploadToSignedUrl_System_String_Supabase_Storage_UploadSignedUrl_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___System_Boolean_
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.UploadToSignedUrl(System.String,Supabase.Storage.UploadSignedUrl,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}},System.Boolean)
+  name.vb: UploadToSignedUrl(String, UploadSignedUrl, FileOptions, Nullable(Of EventHandler(Of Single)), Boolean)
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.UploadToSignedUrl(System.String, Supabase.Storage.UploadSignedUrl, Supabase.Storage.FileOptions, System.Nullable<EventHandler<System.Single>>, System.Boolean)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).UploadToSignedUrl(System.String, Supabase.Storage.UploadSignedUrl, Supabase.Storage.FileOptions, System.Nullable(Of EventHandler(Of System.Single)), System.Boolean)
+  nameWithType: IStorageFileApi<TFileObject>.UploadToSignedUrl(String, UploadSignedUrl, FileOptions, Nullable<EventHandler<Single>>, Boolean)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).UploadToSignedUrl(String, UploadSignedUrl, FileOptions, Nullable(Of EventHandler(Of Single)), Boolean)
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.UploadToSignedUrl*
+  name: UploadToSignedUrl
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_UploadToSignedUrl_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageFileApi`1.UploadToSignedUrl
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.UploadToSignedUrl
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).UploadToSignedUrl
+  nameWithType: IStorageFileApi<TFileObject>.UploadToSignedUrl
+  nameWithType.vb: IStorageFileApi(Of TFileObject).UploadToSignedUrl
 - uid: Supabase.Storage.SearchOptions
   name: SearchOptions
   href: api/Supabase.Storage.SearchOptions.html
@@ -13251,12 +13539,12 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.StorageFileApi.BucketId
   nameWithType: StorageFileApi.BucketId
-- uid: Supabase.Storage.StorageFileApi.CreateSignedUrl(System.String,System.Int32)
-  name: CreateSignedUrl(String, Int32)
-  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_CreateSignedUrl_System_String_System_Int32_
-  commentId: M:Supabase.Storage.StorageFileApi.CreateSignedUrl(System.String,System.Int32)
-  fullName: Supabase.Storage.StorageFileApi.CreateSignedUrl(System.String, System.Int32)
-  nameWithType: StorageFileApi.CreateSignedUrl(String, Int32)
+- uid: Supabase.Storage.StorageFileApi.CreateSignedUrl(System.String,System.Int32,Supabase.Storage.TransformOptions)
+  name: CreateSignedUrl(String, Int32, TransformOptions)
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_CreateSignedUrl_System_String_System_Int32_Supabase_Storage_TransformOptions_
+  commentId: M:Supabase.Storage.StorageFileApi.CreateSignedUrl(System.String,System.Int32,Supabase.Storage.TransformOptions)
+  fullName: Supabase.Storage.StorageFileApi.CreateSignedUrl(System.String, System.Int32, Supabase.Storage.TransformOptions)
+  nameWithType: StorageFileApi.CreateSignedUrl(String, Int32, TransformOptions)
 - uid: Supabase.Storage.StorageFileApi.CreateSignedUrl*
   name: CreateSignedUrl
   href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_CreateSignedUrl_
@@ -13280,6 +13568,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.StorageFileApi.CreateSignedUrls
   nameWithType: StorageFileApi.CreateSignedUrls
+- uid: Supabase.Storage.StorageFileApi.CreateUploadSignedUrl(System.String)
+  name: CreateUploadSignedUrl(String)
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_CreateUploadSignedUrl_System_String_
+  commentId: M:Supabase.Storage.StorageFileApi.CreateUploadSignedUrl(System.String)
+  fullName: Supabase.Storage.StorageFileApi.CreateUploadSignedUrl(System.String)
+  nameWithType: StorageFileApi.CreateUploadSignedUrl(String)
+- uid: Supabase.Storage.StorageFileApi.CreateUploadSignedUrl*
+  name: CreateUploadSignedUrl
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_CreateUploadSignedUrl_
+  commentId: Overload:Supabase.Storage.StorageFileApi.CreateUploadSignedUrl
+  isSpec: "True"
+  fullName: Supabase.Storage.StorageFileApi.CreateUploadSignedUrl
+  nameWithType: StorageFileApi.CreateUploadSignedUrl
 - uid: Supabase.Storage.StorageFileApi.Download(System.String,System.Nullable{EventHandler{System.Single}})
   name: Download(String, Nullable<EventHandler<Single>>)
   href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Download_System_String_System_Nullable_EventHandler_System_Single___
@@ -13289,6 +13590,15 @@ references:
   fullName.vb: Supabase.Storage.StorageFileApi.Download(System.String, System.Nullable(Of EventHandler(Of System.Single)))
   nameWithType: StorageFileApi.Download(String, Nullable<EventHandler<Single>>)
   nameWithType.vb: StorageFileApi.Download(String, Nullable(Of EventHandler(Of Single)))
+- uid: Supabase.Storage.StorageFileApi.Download(System.String,System.String,Supabase.Storage.TransformOptions,System.Nullable{EventHandler{System.Single}})
+  name: Download(String, String, TransformOptions, Nullable<EventHandler<Single>>)
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Download_System_String_System_String_Supabase_Storage_TransformOptions_System_Nullable_EventHandler_System_Single___
+  commentId: M:Supabase.Storage.StorageFileApi.Download(System.String,System.String,Supabase.Storage.TransformOptions,System.Nullable{EventHandler{System.Single}})
+  name.vb: Download(String, String, TransformOptions, Nullable(Of EventHandler(Of Single)))
+  fullName: Supabase.Storage.StorageFileApi.Download(System.String, System.String, Supabase.Storage.TransformOptions, System.Nullable<EventHandler<System.Single>>)
+  fullName.vb: Supabase.Storage.StorageFileApi.Download(System.String, System.String, Supabase.Storage.TransformOptions, System.Nullable(Of EventHandler(Of System.Single)))
+  nameWithType: StorageFileApi.Download(String, String, TransformOptions, Nullable<EventHandler<Single>>)
+  nameWithType.vb: StorageFileApi.Download(String, String, TransformOptions, Nullable(Of EventHandler(Of Single)))
 - uid: Supabase.Storage.StorageFileApi.Download(System.String,System.String,System.Nullable{EventHandler{System.Single}})
   name: Download(String, String, Nullable<EventHandler<Single>>)
   href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Download_System_String_System_String_System_Nullable_EventHandler_System_Single___
@@ -13305,12 +13615,12 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.StorageFileApi.Download
   nameWithType: StorageFileApi.Download
-- uid: Supabase.Storage.StorageFileApi.GetPublicUrl(System.String)
-  name: GetPublicUrl(String)
-  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_GetPublicUrl_System_String_
-  commentId: M:Supabase.Storage.StorageFileApi.GetPublicUrl(System.String)
-  fullName: Supabase.Storage.StorageFileApi.GetPublicUrl(System.String)
-  nameWithType: StorageFileApi.GetPublicUrl(String)
+- uid: Supabase.Storage.StorageFileApi.GetPublicUrl(System.String,Supabase.Storage.TransformOptions)
+  name: GetPublicUrl(String, TransformOptions)
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_GetPublicUrl_System_String_Supabase_Storage_TransformOptions_
+  commentId: M:Supabase.Storage.StorageFileApi.GetPublicUrl(System.String,Supabase.Storage.TransformOptions)
+  fullName: Supabase.Storage.StorageFileApi.GetPublicUrl(System.String, Supabase.Storage.TransformOptions)
+  nameWithType: StorageFileApi.GetPublicUrl(String, TransformOptions)
 - uid: Supabase.Storage.StorageFileApi.GetPublicUrl*
   name: GetPublicUrl
   href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_GetPublicUrl_
@@ -13379,6 +13689,12 @@ references:
   fullName.vb: Supabase.Storage.StorageFileApi.Remove(List(Of System.String))
   nameWithType: StorageFileApi.Remove(List<String>)
   nameWithType.vb: StorageFileApi.Remove(List(Of String))
+- uid: Supabase.Storage.StorageFileApi.Remove(System.String)
+  name: Remove(String)
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Remove_System_String_
+  commentId: M:Supabase.Storage.StorageFileApi.Remove(System.String)
+  fullName: Supabase.Storage.StorageFileApi.Remove(System.String)
+  nameWithType: StorageFileApi.Remove(String)
 - uid: Supabase.Storage.StorageFileApi.Remove*
   name: Remove
   href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Remove_
@@ -13436,6 +13752,31 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.StorageFileApi.Upload
   nameWithType: StorageFileApi.Upload
+- uid: Supabase.Storage.StorageFileApi.UploadToSignedUrl(System.Byte[],Supabase.Storage.UploadSignedUrl,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}},System.Boolean)
+  name: UploadToSignedUrl(Byte[], UploadSignedUrl, FileOptions, Nullable<EventHandler<Single>>, Boolean)
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_UploadToSignedUrl_System_Byte___Supabase_Storage_UploadSignedUrl_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___System_Boolean_
+  commentId: M:Supabase.Storage.StorageFileApi.UploadToSignedUrl(System.Byte[],Supabase.Storage.UploadSignedUrl,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}},System.Boolean)
+  name.vb: UploadToSignedUrl(Byte(), UploadSignedUrl, FileOptions, Nullable(Of EventHandler(Of Single)), Boolean)
+  fullName: Supabase.Storage.StorageFileApi.UploadToSignedUrl(System.Byte[], Supabase.Storage.UploadSignedUrl, Supabase.Storage.FileOptions, System.Nullable<EventHandler<System.Single>>, System.Boolean)
+  fullName.vb: Supabase.Storage.StorageFileApi.UploadToSignedUrl(System.Byte(), Supabase.Storage.UploadSignedUrl, Supabase.Storage.FileOptions, System.Nullable(Of EventHandler(Of System.Single)), System.Boolean)
+  nameWithType: StorageFileApi.UploadToSignedUrl(Byte[], UploadSignedUrl, FileOptions, Nullable<EventHandler<Single>>, Boolean)
+  nameWithType.vb: StorageFileApi.UploadToSignedUrl(Byte(), UploadSignedUrl, FileOptions, Nullable(Of EventHandler(Of Single)), Boolean)
+- uid: Supabase.Storage.StorageFileApi.UploadToSignedUrl(System.String,Supabase.Storage.UploadSignedUrl,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}},System.Boolean)
+  name: UploadToSignedUrl(String, UploadSignedUrl, FileOptions, Nullable<EventHandler<Single>>, Boolean)
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_UploadToSignedUrl_System_String_Supabase_Storage_UploadSignedUrl_Supabase_Storage_FileOptions_System_Nullable_EventHandler_System_Single___System_Boolean_
+  commentId: M:Supabase.Storage.StorageFileApi.UploadToSignedUrl(System.String,Supabase.Storage.UploadSignedUrl,Supabase.Storage.FileOptions,System.Nullable{EventHandler{System.Single}},System.Boolean)
+  name.vb: UploadToSignedUrl(String, UploadSignedUrl, FileOptions, Nullable(Of EventHandler(Of Single)), Boolean)
+  fullName: Supabase.Storage.StorageFileApi.UploadToSignedUrl(System.String, Supabase.Storage.UploadSignedUrl, Supabase.Storage.FileOptions, System.Nullable<EventHandler<System.Single>>, System.Boolean)
+  fullName.vb: Supabase.Storage.StorageFileApi.UploadToSignedUrl(System.String, Supabase.Storage.UploadSignedUrl, Supabase.Storage.FileOptions, System.Nullable(Of EventHandler(Of System.Single)), System.Boolean)
+  nameWithType: StorageFileApi.UploadToSignedUrl(String, UploadSignedUrl, FileOptions, Nullable<EventHandler<Single>>, Boolean)
+  nameWithType.vb: StorageFileApi.UploadToSignedUrl(String, UploadSignedUrl, FileOptions, Nullable(Of EventHandler(Of Single)), Boolean)
+- uid: Supabase.Storage.StorageFileApi.UploadToSignedUrl*
+  name: UploadToSignedUrl
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_UploadToSignedUrl_
+  commentId: Overload:Supabase.Storage.StorageFileApi.UploadToSignedUrl
+  isSpec: "True"
+  fullName: Supabase.Storage.StorageFileApi.UploadToSignedUrl
+  nameWithType: StorageFileApi.UploadToSignedUrl
 - uid: Supabase.Storage.StorageFileApi.Url
   name: Url
   href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Url
@@ -13449,6 +13790,159 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.StorageFileApi.Url
   nameWithType: StorageFileApi.Url
+- uid: Supabase.Storage.TransformOptions
+  name: TransformOptions
+  href: api/Supabase.Storage.TransformOptions.html
+  commentId: T:Supabase.Storage.TransformOptions
+  fullName: Supabase.Storage.TransformOptions
+  nameWithType: TransformOptions
+- uid: Supabase.Storage.TransformOptions.Format
+  name: Format
+  href: api/Supabase.Storage.TransformOptions.html#Supabase_Storage_TransformOptions_Format
+  commentId: P:Supabase.Storage.TransformOptions.Format
+  fullName: Supabase.Storage.TransformOptions.Format
+  nameWithType: TransformOptions.Format
+- uid: Supabase.Storage.TransformOptions.Format*
+  name: Format
+  href: api/Supabase.Storage.TransformOptions.html#Supabase_Storage_TransformOptions_Format_
+  commentId: Overload:Supabase.Storage.TransformOptions.Format
+  isSpec: "True"
+  fullName: Supabase.Storage.TransformOptions.Format
+  nameWithType: TransformOptions.Format
+- uid: Supabase.Storage.TransformOptions.Height
+  name: Height
+  href: api/Supabase.Storage.TransformOptions.html#Supabase_Storage_TransformOptions_Height
+  commentId: P:Supabase.Storage.TransformOptions.Height
+  fullName: Supabase.Storage.TransformOptions.Height
+  nameWithType: TransformOptions.Height
+- uid: Supabase.Storage.TransformOptions.Height*
+  name: Height
+  href: api/Supabase.Storage.TransformOptions.html#Supabase_Storage_TransformOptions_Height_
+  commentId: Overload:Supabase.Storage.TransformOptions.Height
+  isSpec: "True"
+  fullName: Supabase.Storage.TransformOptions.Height
+  nameWithType: TransformOptions.Height
+- uid: Supabase.Storage.TransformOptions.Quality
+  name: Quality
+  href: api/Supabase.Storage.TransformOptions.html#Supabase_Storage_TransformOptions_Quality
+  commentId: P:Supabase.Storage.TransformOptions.Quality
+  fullName: Supabase.Storage.TransformOptions.Quality
+  nameWithType: TransformOptions.Quality
+- uid: Supabase.Storage.TransformOptions.Quality*
+  name: Quality
+  href: api/Supabase.Storage.TransformOptions.html#Supabase_Storage_TransformOptions_Quality_
+  commentId: Overload:Supabase.Storage.TransformOptions.Quality
+  isSpec: "True"
+  fullName: Supabase.Storage.TransformOptions.Quality
+  nameWithType: TransformOptions.Quality
+- uid: Supabase.Storage.TransformOptions.Resize
+  name: Resize
+  href: api/Supabase.Storage.TransformOptions.html#Supabase_Storage_TransformOptions_Resize
+  commentId: P:Supabase.Storage.TransformOptions.Resize
+  fullName: Supabase.Storage.TransformOptions.Resize
+  nameWithType: TransformOptions.Resize
+- uid: Supabase.Storage.TransformOptions.Resize*
+  name: Resize
+  href: api/Supabase.Storage.TransformOptions.html#Supabase_Storage_TransformOptions_Resize_
+  commentId: Overload:Supabase.Storage.TransformOptions.Resize
+  isSpec: "True"
+  fullName: Supabase.Storage.TransformOptions.Resize
+  nameWithType: TransformOptions.Resize
+- uid: Supabase.Storage.TransformOptions.ResizeType
+  name: TransformOptions.ResizeType
+  href: api/Supabase.Storage.TransformOptions.ResizeType.html
+  commentId: T:Supabase.Storage.TransformOptions.ResizeType
+  fullName: Supabase.Storage.TransformOptions.ResizeType
+  nameWithType: TransformOptions.ResizeType
+- uid: Supabase.Storage.TransformOptions.ResizeType.Contain
+  name: Contain
+  href: api/Supabase.Storage.TransformOptions.ResizeType.html#Supabase_Storage_TransformOptions_ResizeType_Contain
+  commentId: F:Supabase.Storage.TransformOptions.ResizeType.Contain
+  fullName: Supabase.Storage.TransformOptions.ResizeType.Contain
+  nameWithType: TransformOptions.ResizeType.Contain
+- uid: Supabase.Storage.TransformOptions.ResizeType.Cover
+  name: Cover
+  href: api/Supabase.Storage.TransformOptions.ResizeType.html#Supabase_Storage_TransformOptions_ResizeType_Cover
+  commentId: F:Supabase.Storage.TransformOptions.ResizeType.Cover
+  fullName: Supabase.Storage.TransformOptions.ResizeType.Cover
+  nameWithType: TransformOptions.ResizeType.Cover
+- uid: Supabase.Storage.TransformOptions.ResizeType.Fill
+  name: Fill
+  href: api/Supabase.Storage.TransformOptions.ResizeType.html#Supabase_Storage_TransformOptions_ResizeType_Fill
+  commentId: F:Supabase.Storage.TransformOptions.ResizeType.Fill
+  fullName: Supabase.Storage.TransformOptions.ResizeType.Fill
+  nameWithType: TransformOptions.ResizeType.Fill
+- uid: Supabase.Storage.TransformOptions.Width
+  name: Width
+  href: api/Supabase.Storage.TransformOptions.html#Supabase_Storage_TransformOptions_Width
+  commentId: P:Supabase.Storage.TransformOptions.Width
+  fullName: Supabase.Storage.TransformOptions.Width
+  nameWithType: TransformOptions.Width
+- uid: Supabase.Storage.TransformOptions.Width*
+  name: Width
+  href: api/Supabase.Storage.TransformOptions.html#Supabase_Storage_TransformOptions_Width_
+  commentId: Overload:Supabase.Storage.TransformOptions.Width
+  isSpec: "True"
+  fullName: Supabase.Storage.TransformOptions.Width
+  nameWithType: TransformOptions.Width
+- uid: Supabase.Storage.UploadSignedUrl
+  name: UploadSignedUrl
+  href: api/Supabase.Storage.UploadSignedUrl.html
+  commentId: T:Supabase.Storage.UploadSignedUrl
+  fullName: Supabase.Storage.UploadSignedUrl
+  nameWithType: UploadSignedUrl
+- uid: Supabase.Storage.UploadSignedUrl.#ctor(Uri,System.String,System.String)
+  name: UploadSignedUrl(Uri, String, String)
+  href: api/Supabase.Storage.UploadSignedUrl.html#Supabase_Storage_UploadSignedUrl__ctor_Uri_System_String_System_String_
+  commentId: M:Supabase.Storage.UploadSignedUrl.#ctor(Uri,System.String,System.String)
+  fullName: Supabase.Storage.UploadSignedUrl.UploadSignedUrl(Uri, System.String, System.String)
+  nameWithType: UploadSignedUrl.UploadSignedUrl(Uri, String, String)
+- uid: Supabase.Storage.UploadSignedUrl.#ctor*
+  name: UploadSignedUrl
+  href: api/Supabase.Storage.UploadSignedUrl.html#Supabase_Storage_UploadSignedUrl__ctor_
+  commentId: Overload:Supabase.Storage.UploadSignedUrl.#ctor
+  isSpec: "True"
+  fullName: Supabase.Storage.UploadSignedUrl.UploadSignedUrl
+  nameWithType: UploadSignedUrl.UploadSignedUrl
+- uid: Supabase.Storage.UploadSignedUrl.Key
+  name: Key
+  href: api/Supabase.Storage.UploadSignedUrl.html#Supabase_Storage_UploadSignedUrl_Key
+  commentId: P:Supabase.Storage.UploadSignedUrl.Key
+  fullName: Supabase.Storage.UploadSignedUrl.Key
+  nameWithType: UploadSignedUrl.Key
+- uid: Supabase.Storage.UploadSignedUrl.Key*
+  name: Key
+  href: api/Supabase.Storage.UploadSignedUrl.html#Supabase_Storage_UploadSignedUrl_Key_
+  commentId: Overload:Supabase.Storage.UploadSignedUrl.Key
+  isSpec: "True"
+  fullName: Supabase.Storage.UploadSignedUrl.Key
+  nameWithType: UploadSignedUrl.Key
+- uid: Supabase.Storage.UploadSignedUrl.SignedUrl
+  name: SignedUrl
+  href: api/Supabase.Storage.UploadSignedUrl.html#Supabase_Storage_UploadSignedUrl_SignedUrl
+  commentId: P:Supabase.Storage.UploadSignedUrl.SignedUrl
+  fullName: Supabase.Storage.UploadSignedUrl.SignedUrl
+  nameWithType: UploadSignedUrl.SignedUrl
+- uid: Supabase.Storage.UploadSignedUrl.SignedUrl*
+  name: SignedUrl
+  href: api/Supabase.Storage.UploadSignedUrl.html#Supabase_Storage_UploadSignedUrl_SignedUrl_
+  commentId: Overload:Supabase.Storage.UploadSignedUrl.SignedUrl
+  isSpec: "True"
+  fullName: Supabase.Storage.UploadSignedUrl.SignedUrl
+  nameWithType: UploadSignedUrl.SignedUrl
+- uid: Supabase.Storage.UploadSignedUrl.Token
+  name: Token
+  href: api/Supabase.Storage.UploadSignedUrl.html#Supabase_Storage_UploadSignedUrl_Token
+  commentId: P:Supabase.Storage.UploadSignedUrl.Token
+  fullName: Supabase.Storage.UploadSignedUrl.Token
+  nameWithType: UploadSignedUrl.Token
+- uid: Supabase.Storage.UploadSignedUrl.Token*
+  name: Token
+  href: api/Supabase.Storage.UploadSignedUrl.html#Supabase_Storage_UploadSignedUrl_Token_
+  commentId: Overload:Supabase.Storage.UploadSignedUrl.Token
+  isSpec: "True"
+  fullName: Supabase.Storage.UploadSignedUrl.Token
+  nameWithType: UploadSignedUrl.Token
 - uid: Supabase.SupabaseModel
   name: SupabaseModel
   href: api/Supabase.SupabaseModel.html

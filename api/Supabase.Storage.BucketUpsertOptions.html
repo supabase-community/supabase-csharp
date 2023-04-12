@@ -90,14 +90,80 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/95d6ce53a97f683d317ce0c10e5fd6adc3f01814/apiSpec/new?filename=Supabase_Storage_BucketUpsertOptions_Public.md&amp;value=---%0Auid%3A%20Supabase.Storage.BucketUpsertOptions.Public%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/storage-csharp/new/165f7507d70698053de9f689dfba9d026152d3dc/apiSpec/new?filename=Supabase_Storage_BucketUpsertOptions_AllowedMimes.md&amp;value=---%0Auid%3A%20Supabase.Storage.BucketUpsertOptions.AllowedMimes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/95d6ce53a97f683d317ce0c10e5fd6adc3f01814/Storage/StorageBucketApi.cs/#L154">View Source</a>
+    <a href="https://github.com/supabase-community/storage-csharp/blob/165f7507d70698053de9f689dfba9d026152d3dc/Storage/BucketUpsertOptions.cs/#L28">View Source</a>
+  </span>
+  <a id="Supabase_Storage_BucketUpsertOptions_AllowedMimes_" data-uid="Supabase.Storage.BucketUpsertOptions.AllowedMimes*"></a>
+  <h4 id="Supabase_Storage_BucketUpsertOptions_AllowedMimes" data-uid="Supabase.Storage.BucketUpsertOptions.AllowedMimes">AllowedMimes</h4>
+  <div class="markdown level1 summary"><p>Specifies the allowed mime types that this bucket can accept during upload.</p>
+<p>Expects a List of values such as: ['image/jpeg', 'image/png', etc]</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt;? AllowedMimes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">List</span>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/storage-csharp/new/165f7507d70698053de9f689dfba9d026152d3dc/apiSpec/new?filename=Supabase_Storage_BucketUpsertOptions_FileSizeLimit.md&amp;value=---%0Auid%3A%20Supabase.Storage.BucketUpsertOptions.FileSizeLimit%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/storage-csharp/blob/165f7507d70698053de9f689dfba9d026152d3dc/Storage/BucketUpsertOptions.cs/#L20">View Source</a>
+  </span>
+  <a id="Supabase_Storage_BucketUpsertOptions_FileSizeLimit_" data-uid="Supabase.Storage.BucketUpsertOptions.FileSizeLimit*"></a>
+  <h4 id="Supabase_Storage_BucketUpsertOptions_FileSizeLimit" data-uid="Supabase.Storage.BucketUpsertOptions.FileSizeLimit">FileSizeLimit</h4>
+  <div class="markdown level1 summary"><p>Specifies the file size limit that this bucket can accept during upload.</p>
+<p>Expects a string value following a format like: '1kb', '50mb', '150kb', etc.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? FileSizeLimit { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/storage-csharp/new/165f7507d70698053de9f689dfba9d026152d3dc/apiSpec/new?filename=Supabase_Storage_BucketUpsertOptions_Public.md&amp;value=---%0Auid%3A%20Supabase.Storage.BucketUpsertOptions.Public%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/storage-csharp/blob/165f7507d70698053de9f689dfba9d026152d3dc/Storage/BucketUpsertOptions.cs/#L12">View Source</a>
   </span>
   <a id="Supabase_Storage_BucketUpsertOptions_Public_" data-uid="Supabase.Storage.BucketUpsertOptions.Public*"></a>
   <h4 id="Supabase_Storage_BucketUpsertOptions_Public" data-uid="Supabase.Storage.BucketUpsertOptions.Public">Public</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The visibility of the bucket. Public buckets don't require an authorization token to download objects,
+but still require a valid token for all other operations. By default, buckets are private.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -126,10 +192,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/supabase-community/storage-csharp/new/95d6ce53a97f683d317ce0c10e5fd6adc3f01814/apiSpec/new?filename=Supabase_Storage_BucketUpsertOptions.md&amp;value=---%0Auid%3A%20Supabase.Storage.BucketUpsertOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/supabase-community/storage-csharp/new/165f7507d70698053de9f689dfba9d026152d3dc/apiSpec/new?filename=Supabase_Storage_BucketUpsertOptions.md&amp;value=---%0Auid%3A%20Supabase.Storage.BucketUpsertOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/storage-csharp/blob/95d6ce53a97f683d317ce0c10e5fd6adc3f01814/Storage/StorageBucketApi.cs/#L152" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/storage-csharp/blob/165f7507d70698053de9f689dfba9d026152d3dc/Storage/BucketUpsertOptions.cs/#L6" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

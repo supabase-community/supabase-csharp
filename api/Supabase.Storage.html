@@ -78,7 +78,8 @@
     <h3 id="classes">Classes
   </h3>
       <h4><a class="xref" href="Supabase.Storage.BadRequestException.html">BadRequestException</a></h4>
-      <section></section>
+      <section><p>If you see this error, it is likely due to permissions. Verify the supplied token has access to the requested resource.</p>
+</section>
       <h4><a class="xref" href="Supabase.Storage.Bucket.html">Bucket</a></h4>
       <section></section>
       <h4><a class="xref" href="Supabase.Storage.BucketUpsertOptions.html">BucketUpsertOptions</a></h4>
@@ -108,6 +109,21 @@
       <section></section>
       <h4><a class="xref" href="Supabase.Storage.StorageFileApi.html">StorageFileApi</a></h4>
       <section></section>
+      <h4><a class="xref" href="Supabase.Storage.TransformOptions.html">TransformOptions</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Supabase.Storage.UploadSignedUrl.html">UploadSignedUrl</a></h4>
+      <section><p>Represents a Generated Upload Signed Url - can be used to upload a file without needing a logged in token or user.</p>
+</section>
+    <h3 id="enums">Enums
+  </h3>
+      <h4><a class="xref" href="Supabase.Storage.TransformOptions.ResizeType.html">TransformOptions.ResizeType</a></h4>
+      <section><p>The resize mode can be cover, contain or fill. Defaults to cover.</p>
+<ul>
+<li>Cover resizes the image to maintain it's aspect ratio while filling the entire width and height.</li>
+<li>Contain resizes the image to maintain it's aspect ratio while fitting the entire image within the width and height.</li>
+<li>Fill resizes the image to fill the entire width and height.If the object's aspect ratio does not match the width and height, the image will be stretched to fit.</li>
+</ul>
+</section>
 </article>
           </div>
           
