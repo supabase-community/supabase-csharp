@@ -21,6 +21,7 @@ Documentation can be found [below](#getting-started), on the [Supabase Developer
 
 ## Projects / Examples / Templates
 
+- Supabase + Unity + Apple Native Sign-in - [Video](https://www.youtube.com/watch?v=S0hTwtsUWcM) by [@wiverson](https://github.com/wiverson)
 - Blazor WASM Template using Supabase - [Repo](/Examples/BlazorWebAssemblySupabaseTemplate) / [Live demo](https://blazorwasmsupabasetemplate.web.app/) by [@rhuanbarros](https://github.com/rhuanbarros)
 - Realtime Example using Supabase Realtime Presence - [Repo](https://github.com/supabase-community/realtime-csharp/tree/master/Examples/PresenceExample) / [Live demo](https://multiplayer-csharp.azurewebsites.net/)
 
