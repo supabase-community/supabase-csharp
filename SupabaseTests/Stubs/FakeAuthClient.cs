@@ -117,6 +117,11 @@ namespace SupabaseTests.Stubs
 			throw new NotImplementedException();
 		}
 
+		public Task<Session> SignInWithIdToken(Constants.Provider provider, string idToken, string nonce = null, string captchaToken = null)
+		{
+			throw new NotImplementedException();
+		}
+
 		public Task<Session> SignInWithPassword(string email, string password)
         {
             throw new NotImplementedException();
