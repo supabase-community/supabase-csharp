@@ -4191,6 +4191,22 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Api.SignInWithEmail
   nameWithType: Api.SignInWithEmail
+- uid: Supabase.Gotrue.Api.SignInWithIdToken(Supabase.Gotrue.Constants.Provider,System.String,System.Nullable{System.String},System.Nullable{System.String})
+  name: SignInWithIdToken(Constants.Provider, String, Nullable<String>, Nullable<String>)
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SignInWithIdToken_Supabase_Gotrue_Constants_Provider_System_String_System_Nullable_System_String__System_Nullable_System_String__
+  commentId: M:Supabase.Gotrue.Api.SignInWithIdToken(Supabase.Gotrue.Constants.Provider,System.String,System.Nullable{System.String},System.Nullable{System.String})
+  name.vb: SignInWithIdToken(Constants.Provider, String, Nullable(Of String), Nullable(Of String))
+  fullName: Supabase.Gotrue.Api.SignInWithIdToken(Supabase.Gotrue.Constants.Provider, System.String, System.Nullable<System.String>, System.Nullable<System.String>)
+  fullName.vb: Supabase.Gotrue.Api.SignInWithIdToken(Supabase.Gotrue.Constants.Provider, System.String, System.Nullable(Of System.String), System.Nullable(Of System.String))
+  nameWithType: Api.SignInWithIdToken(Constants.Provider, String, Nullable<String>, Nullable<String>)
+  nameWithType.vb: Api.SignInWithIdToken(Constants.Provider, String, Nullable(Of String), Nullable(Of String))
+- uid: Supabase.Gotrue.Api.SignInWithIdToken*
+  name: SignInWithIdToken
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SignInWithIdToken_
+  commentId: Overload:Supabase.Gotrue.Api.SignInWithIdToken
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Api.SignInWithIdToken
+  nameWithType: Api.SignInWithIdToken
 - uid: Supabase.Gotrue.Api.SignInWithPhone(System.String,System.String)
   name: SignInWithPhone(String, String)
   href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SignInWithPhone_System_String_System_String_
@@ -4308,51 +4324,6 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Api.VerifyMobileOTP
   nameWithType: Api.VerifyMobileOTP
-- uid: Supabase.Gotrue.BadRequestException
-  name: BadRequestException
-  href: api/Supabase.Gotrue.BadRequestException.html
-  commentId: T:Supabase.Gotrue.BadRequestException
-  fullName: Supabase.Gotrue.BadRequestException
-  nameWithType: BadRequestException
-- uid: Supabase.Gotrue.BadRequestException.#ctor(Supabase.Gotrue.RequestException)
-  name: BadRequestException(RequestException)
-  href: api/Supabase.Gotrue.BadRequestException.html#Supabase_Gotrue_BadRequestException__ctor_Supabase_Gotrue_RequestException_
-  commentId: M:Supabase.Gotrue.BadRequestException.#ctor(Supabase.Gotrue.RequestException)
-  fullName: Supabase.Gotrue.BadRequestException.BadRequestException(Supabase.Gotrue.RequestException)
-  nameWithType: BadRequestException.BadRequestException(RequestException)
-- uid: Supabase.Gotrue.BadRequestException.#ctor*
-  name: BadRequestException
-  href: api/Supabase.Gotrue.BadRequestException.html#Supabase_Gotrue_BadRequestException__ctor_
-  commentId: Overload:Supabase.Gotrue.BadRequestException.#ctor
-  isSpec: "True"
-  fullName: Supabase.Gotrue.BadRequestException.BadRequestException
-  nameWithType: BadRequestException.BadRequestException
-- uid: Supabase.Gotrue.BadRequestException.Content
-  name: Content
-  href: api/Supabase.Gotrue.BadRequestException.html#Supabase_Gotrue_BadRequestException_Content
-  commentId: P:Supabase.Gotrue.BadRequestException.Content
-  fullName: Supabase.Gotrue.BadRequestException.Content
-  nameWithType: BadRequestException.Content
-- uid: Supabase.Gotrue.BadRequestException.Content*
-  name: Content
-  href: api/Supabase.Gotrue.BadRequestException.html#Supabase_Gotrue_BadRequestException_Content_
-  commentId: Overload:Supabase.Gotrue.BadRequestException.Content
-  isSpec: "True"
-  fullName: Supabase.Gotrue.BadRequestException.Content
-  nameWithType: BadRequestException.Content
-- uid: Supabase.Gotrue.BadRequestException.Response
-  name: Response
-  href: api/Supabase.Gotrue.BadRequestException.html#Supabase_Gotrue_BadRequestException_Response
-  commentId: P:Supabase.Gotrue.BadRequestException.Response
-  fullName: Supabase.Gotrue.BadRequestException.Response
-  nameWithType: BadRequestException.Response
-- uid: Supabase.Gotrue.BadRequestException.Response*
-  name: Response
-  href: api/Supabase.Gotrue.BadRequestException.html#Supabase_Gotrue_BadRequestException_Response_
-  commentId: Overload:Supabase.Gotrue.BadRequestException.Response
-  isSpec: "True"
-  fullName: Supabase.Gotrue.BadRequestException.Response
-  nameWithType: BadRequestException.Response
 - uid: Supabase.Gotrue.Client
   name: Client
   href: api/Supabase.Gotrue.Client.html
@@ -4691,6 +4662,22 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.SignIn
   nameWithType: Client.SignIn
+- uid: Supabase.Gotrue.Client.SignInWithIdToken(Supabase.Gotrue.Constants.Provider,System.String,System.Nullable{System.String},System.Nullable{System.String})
+  name: SignInWithIdToken(Constants.Provider, String, Nullable<String>, Nullable<String>)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignInWithIdToken_Supabase_Gotrue_Constants_Provider_System_String_System_Nullable_System_String__System_Nullable_System_String__
+  commentId: M:Supabase.Gotrue.Client.SignInWithIdToken(Supabase.Gotrue.Constants.Provider,System.String,System.Nullable{System.String},System.Nullable{System.String})
+  name.vb: SignInWithIdToken(Constants.Provider, String, Nullable(Of String), Nullable(Of String))
+  fullName: Supabase.Gotrue.Client.SignInWithIdToken(Supabase.Gotrue.Constants.Provider, System.String, System.Nullable<System.String>, System.Nullable<System.String>)
+  fullName.vb: Supabase.Gotrue.Client.SignInWithIdToken(Supabase.Gotrue.Constants.Provider, System.String, System.Nullable(Of System.String), System.Nullable(Of System.String))
+  nameWithType: Client.SignInWithIdToken(Constants.Provider, String, Nullable<String>, Nullable<String>)
+  nameWithType.vb: Client.SignInWithIdToken(Constants.Provider, String, Nullable(Of String), Nullable(Of String))
+- uid: Supabase.Gotrue.Client.SignInWithIdToken*
+  name: SignInWithIdToken
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignInWithIdToken_
+  commentId: Overload:Supabase.Gotrue.Client.SignInWithIdToken
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Client.SignInWithIdToken
+  nameWithType: Client.SignInWithIdToken
 - uid: Supabase.Gotrue.Client.SignInWithPassword(System.String,System.String)
   name: SignInWithPassword(String, String)
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignInWithPassword_System_String_System_String_
@@ -5240,96 +5227,301 @@ references:
   commentId: F:Supabase.Gotrue.Constants.STORAGE_KEY
   fullName: Supabase.Gotrue.Constants.STORAGE_KEY
   nameWithType: Constants.STORAGE_KEY
-- uid: Supabase.Gotrue.ExistingUserException
+- uid: Supabase.Gotrue.Exceptions
+  name: Supabase.Gotrue.Exceptions
+  href: api/Supabase.Gotrue.Exceptions.html
+  commentId: N:Supabase.Gotrue.Exceptions
+  fullName: Supabase.Gotrue.Exceptions
+  nameWithType: Supabase.Gotrue.Exceptions
+- uid: Supabase.Gotrue.Exceptions.BadRequestException
+  name: BadRequestException
+  href: api/Supabase.Gotrue.Exceptions.BadRequestException.html
+  commentId: T:Supabase.Gotrue.Exceptions.BadRequestException
+  fullName: Supabase.Gotrue.Exceptions.BadRequestException
+  nameWithType: BadRequestException
+- uid: Supabase.Gotrue.Exceptions.BadRequestException.#ctor(Supabase.Gotrue.RequestException)
+  name: BadRequestException(RequestException)
+  href: api/Supabase.Gotrue.Exceptions.BadRequestException.html#Supabase_Gotrue_Exceptions_BadRequestException__ctor_Supabase_Gotrue_RequestException_
+  commentId: M:Supabase.Gotrue.Exceptions.BadRequestException.#ctor(Supabase.Gotrue.RequestException)
+  fullName: Supabase.Gotrue.Exceptions.BadRequestException.BadRequestException(Supabase.Gotrue.RequestException)
+  nameWithType: BadRequestException.BadRequestException(RequestException)
+- uid: Supabase.Gotrue.Exceptions.BadRequestException.#ctor*
+  name: BadRequestException
+  href: api/Supabase.Gotrue.Exceptions.BadRequestException.html#Supabase_Gotrue_Exceptions_BadRequestException__ctor_
+  commentId: Overload:Supabase.Gotrue.Exceptions.BadRequestException.#ctor
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Exceptions.BadRequestException.BadRequestException
+  nameWithType: BadRequestException.BadRequestException
+- uid: Supabase.Gotrue.Exceptions.BadRequestException.Content
+  name: Content
+  href: api/Supabase.Gotrue.Exceptions.BadRequestException.html#Supabase_Gotrue_Exceptions_BadRequestException_Content
+  commentId: P:Supabase.Gotrue.Exceptions.BadRequestException.Content
+  fullName: Supabase.Gotrue.Exceptions.BadRequestException.Content
+  nameWithType: BadRequestException.Content
+- uid: Supabase.Gotrue.Exceptions.BadRequestException.Content*
+  name: Content
+  href: api/Supabase.Gotrue.Exceptions.BadRequestException.html#Supabase_Gotrue_Exceptions_BadRequestException_Content_
+  commentId: Overload:Supabase.Gotrue.Exceptions.BadRequestException.Content
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Exceptions.BadRequestException.Content
+  nameWithType: BadRequestException.Content
+- uid: Supabase.Gotrue.Exceptions.BadRequestException.Response
+  name: Response
+  href: api/Supabase.Gotrue.Exceptions.BadRequestException.html#Supabase_Gotrue_Exceptions_BadRequestException_Response
+  commentId: P:Supabase.Gotrue.Exceptions.BadRequestException.Response
+  fullName: Supabase.Gotrue.Exceptions.BadRequestException.Response
+  nameWithType: BadRequestException.Response
+- uid: Supabase.Gotrue.Exceptions.BadRequestException.Response*
+  name: Response
+  href: api/Supabase.Gotrue.Exceptions.BadRequestException.html#Supabase_Gotrue_Exceptions_BadRequestException_Response_
+  commentId: Overload:Supabase.Gotrue.Exceptions.BadRequestException.Response
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Exceptions.BadRequestException.Response
+  nameWithType: BadRequestException.Response
+- uid: Supabase.Gotrue.Exceptions.ExistingUserException
   name: ExistingUserException
-  href: api/Supabase.Gotrue.ExistingUserException.html
-  commentId: T:Supabase.Gotrue.ExistingUserException
-  fullName: Supabase.Gotrue.ExistingUserException
+  href: api/Supabase.Gotrue.Exceptions.ExistingUserException.html
+  commentId: T:Supabase.Gotrue.Exceptions.ExistingUserException
+  fullName: Supabase.Gotrue.Exceptions.ExistingUserException
   nameWithType: ExistingUserException
-- uid: Supabase.Gotrue.ExistingUserException.#ctor(Supabase.Gotrue.RequestException)
+- uid: Supabase.Gotrue.Exceptions.ExistingUserException.#ctor(Supabase.Gotrue.RequestException)
   name: ExistingUserException(RequestException)
-  href: api/Supabase.Gotrue.ExistingUserException.html#Supabase_Gotrue_ExistingUserException__ctor_Supabase_Gotrue_RequestException_
-  commentId: M:Supabase.Gotrue.ExistingUserException.#ctor(Supabase.Gotrue.RequestException)
-  fullName: Supabase.Gotrue.ExistingUserException.ExistingUserException(Supabase.Gotrue.RequestException)
+  href: api/Supabase.Gotrue.Exceptions.ExistingUserException.html#Supabase_Gotrue_Exceptions_ExistingUserException__ctor_Supabase_Gotrue_RequestException_
+  commentId: M:Supabase.Gotrue.Exceptions.ExistingUserException.#ctor(Supabase.Gotrue.RequestException)
+  fullName: Supabase.Gotrue.Exceptions.ExistingUserException.ExistingUserException(Supabase.Gotrue.RequestException)
   nameWithType: ExistingUserException.ExistingUserException(RequestException)
-- uid: Supabase.Gotrue.ExistingUserException.#ctor*
+- uid: Supabase.Gotrue.Exceptions.ExistingUserException.#ctor*
   name: ExistingUserException
-  href: api/Supabase.Gotrue.ExistingUserException.html#Supabase_Gotrue_ExistingUserException__ctor_
-  commentId: Overload:Supabase.Gotrue.ExistingUserException.#ctor
+  href: api/Supabase.Gotrue.Exceptions.ExistingUserException.html#Supabase_Gotrue_Exceptions_ExistingUserException__ctor_
+  commentId: Overload:Supabase.Gotrue.Exceptions.ExistingUserException.#ctor
   isSpec: "True"
-  fullName: Supabase.Gotrue.ExistingUserException.ExistingUserException
+  fullName: Supabase.Gotrue.Exceptions.ExistingUserException.ExistingUserException
   nameWithType: ExistingUserException.ExistingUserException
-- uid: Supabase.Gotrue.ExistingUserException.Content
+- uid: Supabase.Gotrue.Exceptions.ExistingUserException.Content
   name: Content
-  href: api/Supabase.Gotrue.ExistingUserException.html#Supabase_Gotrue_ExistingUserException_Content
-  commentId: P:Supabase.Gotrue.ExistingUserException.Content
-  fullName: Supabase.Gotrue.ExistingUserException.Content
+  href: api/Supabase.Gotrue.Exceptions.ExistingUserException.html#Supabase_Gotrue_Exceptions_ExistingUserException_Content
+  commentId: P:Supabase.Gotrue.Exceptions.ExistingUserException.Content
+  fullName: Supabase.Gotrue.Exceptions.ExistingUserException.Content
   nameWithType: ExistingUserException.Content
-- uid: Supabase.Gotrue.ExistingUserException.Content*
+- uid: Supabase.Gotrue.Exceptions.ExistingUserException.Content*
   name: Content
-  href: api/Supabase.Gotrue.ExistingUserException.html#Supabase_Gotrue_ExistingUserException_Content_
-  commentId: Overload:Supabase.Gotrue.ExistingUserException.Content
+  href: api/Supabase.Gotrue.Exceptions.ExistingUserException.html#Supabase_Gotrue_Exceptions_ExistingUserException_Content_
+  commentId: Overload:Supabase.Gotrue.Exceptions.ExistingUserException.Content
   isSpec: "True"
-  fullName: Supabase.Gotrue.ExistingUserException.Content
+  fullName: Supabase.Gotrue.Exceptions.ExistingUserException.Content
   nameWithType: ExistingUserException.Content
-- uid: Supabase.Gotrue.ExistingUserException.Response
+- uid: Supabase.Gotrue.Exceptions.ExistingUserException.Response
   name: Response
-  href: api/Supabase.Gotrue.ExistingUserException.html#Supabase_Gotrue_ExistingUserException_Response
-  commentId: P:Supabase.Gotrue.ExistingUserException.Response
-  fullName: Supabase.Gotrue.ExistingUserException.Response
+  href: api/Supabase.Gotrue.Exceptions.ExistingUserException.html#Supabase_Gotrue_Exceptions_ExistingUserException_Response
+  commentId: P:Supabase.Gotrue.Exceptions.ExistingUserException.Response
+  fullName: Supabase.Gotrue.Exceptions.ExistingUserException.Response
   nameWithType: ExistingUserException.Response
-- uid: Supabase.Gotrue.ExistingUserException.Response*
+- uid: Supabase.Gotrue.Exceptions.ExistingUserException.Response*
   name: Response
-  href: api/Supabase.Gotrue.ExistingUserException.html#Supabase_Gotrue_ExistingUserException_Response_
-  commentId: Overload:Supabase.Gotrue.ExistingUserException.Response
+  href: api/Supabase.Gotrue.Exceptions.ExistingUserException.html#Supabase_Gotrue_Exceptions_ExistingUserException_Response_
+  commentId: Overload:Supabase.Gotrue.Exceptions.ExistingUserException.Response
   isSpec: "True"
-  fullName: Supabase.Gotrue.ExistingUserException.Response
+  fullName: Supabase.Gotrue.Exceptions.ExistingUserException.Response
   nameWithType: ExistingUserException.Response
-- uid: Supabase.Gotrue.ForbiddenException
+- uid: Supabase.Gotrue.Exceptions.ForbiddenException
   name: ForbiddenException
-  href: api/Supabase.Gotrue.ForbiddenException.html
-  commentId: T:Supabase.Gotrue.ForbiddenException
-  fullName: Supabase.Gotrue.ForbiddenException
+  href: api/Supabase.Gotrue.Exceptions.ForbiddenException.html
+  commentId: T:Supabase.Gotrue.Exceptions.ForbiddenException
+  fullName: Supabase.Gotrue.Exceptions.ForbiddenException
   nameWithType: ForbiddenException
-- uid: Supabase.Gotrue.ForbiddenException.#ctor(Supabase.Gotrue.RequestException)
+- uid: Supabase.Gotrue.Exceptions.ForbiddenException.#ctor(Supabase.Gotrue.RequestException)
   name: ForbiddenException(RequestException)
-  href: api/Supabase.Gotrue.ForbiddenException.html#Supabase_Gotrue_ForbiddenException__ctor_Supabase_Gotrue_RequestException_
-  commentId: M:Supabase.Gotrue.ForbiddenException.#ctor(Supabase.Gotrue.RequestException)
-  fullName: Supabase.Gotrue.ForbiddenException.ForbiddenException(Supabase.Gotrue.RequestException)
+  href: api/Supabase.Gotrue.Exceptions.ForbiddenException.html#Supabase_Gotrue_Exceptions_ForbiddenException__ctor_Supabase_Gotrue_RequestException_
+  commentId: M:Supabase.Gotrue.Exceptions.ForbiddenException.#ctor(Supabase.Gotrue.RequestException)
+  fullName: Supabase.Gotrue.Exceptions.ForbiddenException.ForbiddenException(Supabase.Gotrue.RequestException)
   nameWithType: ForbiddenException.ForbiddenException(RequestException)
-- uid: Supabase.Gotrue.ForbiddenException.#ctor*
+- uid: Supabase.Gotrue.Exceptions.ForbiddenException.#ctor*
   name: ForbiddenException
-  href: api/Supabase.Gotrue.ForbiddenException.html#Supabase_Gotrue_ForbiddenException__ctor_
-  commentId: Overload:Supabase.Gotrue.ForbiddenException.#ctor
+  href: api/Supabase.Gotrue.Exceptions.ForbiddenException.html#Supabase_Gotrue_Exceptions_ForbiddenException__ctor_
+  commentId: Overload:Supabase.Gotrue.Exceptions.ForbiddenException.#ctor
   isSpec: "True"
-  fullName: Supabase.Gotrue.ForbiddenException.ForbiddenException
+  fullName: Supabase.Gotrue.Exceptions.ForbiddenException.ForbiddenException
   nameWithType: ForbiddenException.ForbiddenException
-- uid: Supabase.Gotrue.ForbiddenException.Content
+- uid: Supabase.Gotrue.Exceptions.ForbiddenException.Content
   name: Content
-  href: api/Supabase.Gotrue.ForbiddenException.html#Supabase_Gotrue_ForbiddenException_Content
-  commentId: P:Supabase.Gotrue.ForbiddenException.Content
-  fullName: Supabase.Gotrue.ForbiddenException.Content
+  href: api/Supabase.Gotrue.Exceptions.ForbiddenException.html#Supabase_Gotrue_Exceptions_ForbiddenException_Content
+  commentId: P:Supabase.Gotrue.Exceptions.ForbiddenException.Content
+  fullName: Supabase.Gotrue.Exceptions.ForbiddenException.Content
   nameWithType: ForbiddenException.Content
-- uid: Supabase.Gotrue.ForbiddenException.Content*
+- uid: Supabase.Gotrue.Exceptions.ForbiddenException.Content*
   name: Content
-  href: api/Supabase.Gotrue.ForbiddenException.html#Supabase_Gotrue_ForbiddenException_Content_
-  commentId: Overload:Supabase.Gotrue.ForbiddenException.Content
+  href: api/Supabase.Gotrue.Exceptions.ForbiddenException.html#Supabase_Gotrue_Exceptions_ForbiddenException_Content_
+  commentId: Overload:Supabase.Gotrue.Exceptions.ForbiddenException.Content
   isSpec: "True"
-  fullName: Supabase.Gotrue.ForbiddenException.Content
+  fullName: Supabase.Gotrue.Exceptions.ForbiddenException.Content
   nameWithType: ForbiddenException.Content
-- uid: Supabase.Gotrue.ForbiddenException.Response
+- uid: Supabase.Gotrue.Exceptions.ForbiddenException.Response
   name: Response
-  href: api/Supabase.Gotrue.ForbiddenException.html#Supabase_Gotrue_ForbiddenException_Response
-  commentId: P:Supabase.Gotrue.ForbiddenException.Response
-  fullName: Supabase.Gotrue.ForbiddenException.Response
+  href: api/Supabase.Gotrue.Exceptions.ForbiddenException.html#Supabase_Gotrue_Exceptions_ForbiddenException_Response
+  commentId: P:Supabase.Gotrue.Exceptions.ForbiddenException.Response
+  fullName: Supabase.Gotrue.Exceptions.ForbiddenException.Response
   nameWithType: ForbiddenException.Response
-- uid: Supabase.Gotrue.ForbiddenException.Response*
+- uid: Supabase.Gotrue.Exceptions.ForbiddenException.Response*
   name: Response
-  href: api/Supabase.Gotrue.ForbiddenException.html#Supabase_Gotrue_ForbiddenException_Response_
-  commentId: Overload:Supabase.Gotrue.ForbiddenException.Response
+  href: api/Supabase.Gotrue.Exceptions.ForbiddenException.html#Supabase_Gotrue_Exceptions_ForbiddenException_Response_
+  commentId: Overload:Supabase.Gotrue.Exceptions.ForbiddenException.Response
   isSpec: "True"
-  fullName: Supabase.Gotrue.ForbiddenException.Response
+  fullName: Supabase.Gotrue.Exceptions.ForbiddenException.Response
   nameWithType: ForbiddenException.Response
+- uid: Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException
+  name: InvalidEmailOrPasswordException
+  href: api/Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.html
+  commentId: T:Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException
+  fullName: Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException
+  nameWithType: InvalidEmailOrPasswordException
+- uid: Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.#ctor(Supabase.Gotrue.RequestException)
+  name: InvalidEmailOrPasswordException(RequestException)
+  href: api/Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.html#Supabase_Gotrue_Exceptions_InvalidEmailOrPasswordException__ctor_Supabase_Gotrue_RequestException_
+  commentId: M:Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.#ctor(Supabase.Gotrue.RequestException)
+  fullName: Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.InvalidEmailOrPasswordException(Supabase.Gotrue.RequestException)
+  nameWithType: InvalidEmailOrPasswordException.InvalidEmailOrPasswordException(RequestException)
+- uid: Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.#ctor*
+  name: InvalidEmailOrPasswordException
+  href: api/Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.html#Supabase_Gotrue_Exceptions_InvalidEmailOrPasswordException__ctor_
+  commentId: Overload:Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.#ctor
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.InvalidEmailOrPasswordException
+  nameWithType: InvalidEmailOrPasswordException.InvalidEmailOrPasswordException
+- uid: Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.Content
+  name: Content
+  href: api/Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.html#Supabase_Gotrue_Exceptions_InvalidEmailOrPasswordException_Content
+  commentId: P:Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.Content
+  fullName: Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.Content
+  nameWithType: InvalidEmailOrPasswordException.Content
+- uid: Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.Content*
+  name: Content
+  href: api/Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.html#Supabase_Gotrue_Exceptions_InvalidEmailOrPasswordException_Content_
+  commentId: Overload:Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.Content
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.Content
+  nameWithType: InvalidEmailOrPasswordException.Content
+- uid: Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.Response
+  name: Response
+  href: api/Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.html#Supabase_Gotrue_Exceptions_InvalidEmailOrPasswordException_Response
+  commentId: P:Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.Response
+  fullName: Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.Response
+  nameWithType: InvalidEmailOrPasswordException.Response
+- uid: Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.Response*
+  name: Response
+  href: api/Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.html#Supabase_Gotrue_Exceptions_InvalidEmailOrPasswordException_Response_
+  commentId: Overload:Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.Response
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Exceptions.InvalidEmailOrPasswordException.Response
+  nameWithType: InvalidEmailOrPasswordException.Response
+- uid: Supabase.Gotrue.Exceptions.InvalidProviderException
+  name: InvalidProviderException
+  href: api/Supabase.Gotrue.Exceptions.InvalidProviderException.html
+  commentId: T:Supabase.Gotrue.Exceptions.InvalidProviderException
+  fullName: Supabase.Gotrue.Exceptions.InvalidProviderException
+  nameWithType: InvalidProviderException
+- uid: Supabase.Gotrue.Exceptions.InvalidProviderException.#ctor(System.String)
+  name: InvalidProviderException(String)
+  href: api/Supabase.Gotrue.Exceptions.InvalidProviderException.html#Supabase_Gotrue_Exceptions_InvalidProviderException__ctor_System_String_
+  commentId: M:Supabase.Gotrue.Exceptions.InvalidProviderException.#ctor(System.String)
+  fullName: Supabase.Gotrue.Exceptions.InvalidProviderException.InvalidProviderException(System.String)
+  nameWithType: InvalidProviderException.InvalidProviderException(String)
+- uid: Supabase.Gotrue.Exceptions.InvalidProviderException.#ctor*
+  name: InvalidProviderException
+  href: api/Supabase.Gotrue.Exceptions.InvalidProviderException.html#Supabase_Gotrue_Exceptions_InvalidProviderException__ctor_
+  commentId: Overload:Supabase.Gotrue.Exceptions.InvalidProviderException.#ctor
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Exceptions.InvalidProviderException.InvalidProviderException
+  nameWithType: InvalidProviderException.InvalidProviderException
+- uid: Supabase.Gotrue.Exceptions.UnauthorizedException
+  name: UnauthorizedException
+  href: api/Supabase.Gotrue.Exceptions.UnauthorizedException.html
+  commentId: T:Supabase.Gotrue.Exceptions.UnauthorizedException
+  fullName: Supabase.Gotrue.Exceptions.UnauthorizedException
+  nameWithType: UnauthorizedException
+- uid: Supabase.Gotrue.Exceptions.UnauthorizedException.#ctor(Supabase.Gotrue.RequestException)
+  name: UnauthorizedException(RequestException)
+  href: api/Supabase.Gotrue.Exceptions.UnauthorizedException.html#Supabase_Gotrue_Exceptions_UnauthorizedException__ctor_Supabase_Gotrue_RequestException_
+  commentId: M:Supabase.Gotrue.Exceptions.UnauthorizedException.#ctor(Supabase.Gotrue.RequestException)
+  fullName: Supabase.Gotrue.Exceptions.UnauthorizedException.UnauthorizedException(Supabase.Gotrue.RequestException)
+  nameWithType: UnauthorizedException.UnauthorizedException(RequestException)
+- uid: Supabase.Gotrue.Exceptions.UnauthorizedException.#ctor*
+  name: UnauthorizedException
+  href: api/Supabase.Gotrue.Exceptions.UnauthorizedException.html#Supabase_Gotrue_Exceptions_UnauthorizedException__ctor_
+  commentId: Overload:Supabase.Gotrue.Exceptions.UnauthorizedException.#ctor
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Exceptions.UnauthorizedException.UnauthorizedException
+  nameWithType: UnauthorizedException.UnauthorizedException
+- uid: Supabase.Gotrue.Exceptions.UnauthorizedException.Content
+  name: Content
+  href: api/Supabase.Gotrue.Exceptions.UnauthorizedException.html#Supabase_Gotrue_Exceptions_UnauthorizedException_Content
+  commentId: P:Supabase.Gotrue.Exceptions.UnauthorizedException.Content
+  fullName: Supabase.Gotrue.Exceptions.UnauthorizedException.Content
+  nameWithType: UnauthorizedException.Content
+- uid: Supabase.Gotrue.Exceptions.UnauthorizedException.Content*
+  name: Content
+  href: api/Supabase.Gotrue.Exceptions.UnauthorizedException.html#Supabase_Gotrue_Exceptions_UnauthorizedException_Content_
+  commentId: Overload:Supabase.Gotrue.Exceptions.UnauthorizedException.Content
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Exceptions.UnauthorizedException.Content
+  nameWithType: UnauthorizedException.Content
+- uid: Supabase.Gotrue.Exceptions.UnauthorizedException.Response
+  name: Response
+  href: api/Supabase.Gotrue.Exceptions.UnauthorizedException.html#Supabase_Gotrue_Exceptions_UnauthorizedException_Response
+  commentId: P:Supabase.Gotrue.Exceptions.UnauthorizedException.Response
+  fullName: Supabase.Gotrue.Exceptions.UnauthorizedException.Response
+  nameWithType: UnauthorizedException.Response
+- uid: Supabase.Gotrue.Exceptions.UnauthorizedException.Response*
+  name: Response
+  href: api/Supabase.Gotrue.Exceptions.UnauthorizedException.html#Supabase_Gotrue_Exceptions_UnauthorizedException_Response_
+  commentId: Overload:Supabase.Gotrue.Exceptions.UnauthorizedException.Response
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Exceptions.UnauthorizedException.Response
+  nameWithType: UnauthorizedException.Response
+- uid: Supabase.Gotrue.Helpers
+  name: Helpers
+  href: api/Supabase.Gotrue.Helpers.html
+  commentId: T:Supabase.Gotrue.Helpers
+  fullName: Supabase.Gotrue.Helpers
+  nameWithType: Helpers
+- uid: Supabase.Gotrue.Helpers.GenerateNonce
+  name: GenerateNonce()
+  href: api/Supabase.Gotrue.Helpers.html#Supabase_Gotrue_Helpers_GenerateNonce
+  commentId: M:Supabase.Gotrue.Helpers.GenerateNonce
+  fullName: Supabase.Gotrue.Helpers.GenerateNonce()
+  nameWithType: Helpers.GenerateNonce()
+- uid: Supabase.Gotrue.Helpers.GenerateNonce*
+  name: GenerateNonce
+  href: api/Supabase.Gotrue.Helpers.html#Supabase_Gotrue_Helpers_GenerateNonce_
+  commentId: Overload:Supabase.Gotrue.Helpers.GenerateNonce
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Helpers.GenerateNonce
+  nameWithType: Helpers.GenerateNonce
+- uid: Supabase.Gotrue.Helpers.GeneratePKCENonceVerifier(System.String)
+  name: GeneratePKCENonceVerifier(String)
+  href: api/Supabase.Gotrue.Helpers.html#Supabase_Gotrue_Helpers_GeneratePKCENonceVerifier_System_String_
+  commentId: M:Supabase.Gotrue.Helpers.GeneratePKCENonceVerifier(System.String)
+  fullName: Supabase.Gotrue.Helpers.GeneratePKCENonceVerifier(System.String)
+  nameWithType: Helpers.GeneratePKCENonceVerifier(String)
+- uid: Supabase.Gotrue.Helpers.GeneratePKCENonceVerifier*
+  name: GeneratePKCENonceVerifier
+  href: api/Supabase.Gotrue.Helpers.html#Supabase_Gotrue_Helpers_GeneratePKCENonceVerifier_
+  commentId: Overload:Supabase.Gotrue.Helpers.GeneratePKCENonceVerifier
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Helpers.GeneratePKCENonceVerifier
+  nameWithType: Helpers.GeneratePKCENonceVerifier
+- uid: Supabase.Gotrue.Helpers.GenerateSHA256NonceFromRawNonce(System.String)
+  name: GenerateSHA256NonceFromRawNonce(String)
+  href: api/Supabase.Gotrue.Helpers.html#Supabase_Gotrue_Helpers_GenerateSHA256NonceFromRawNonce_System_String_
+  commentId: M:Supabase.Gotrue.Helpers.GenerateSHA256NonceFromRawNonce(System.String)
+  fullName: Supabase.Gotrue.Helpers.GenerateSHA256NonceFromRawNonce(System.String)
+  nameWithType: Helpers.GenerateSHA256NonceFromRawNonce(String)
+- uid: Supabase.Gotrue.Helpers.GenerateSHA256NonceFromRawNonce*
+  name: GenerateSHA256NonceFromRawNonce
+  href: api/Supabase.Gotrue.Helpers.html#Supabase_Gotrue_Helpers_GenerateSHA256NonceFromRawNonce_
+  commentId: Overload:Supabase.Gotrue.Helpers.GenerateSHA256NonceFromRawNonce
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Helpers.GenerateSHA256NonceFromRawNonce
+  nameWithType: Helpers.GenerateSHA256NonceFromRawNonce
 - uid: Supabase.Gotrue.Interfaces
   name: Supabase.Gotrue.Interfaces
   href: api/Supabase.Gotrue.Interfaces.html
@@ -5567,6 +5759,24 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).SignInWithEmail
   nameWithType: IGotrueApi<TUser, TSession>.SignInWithEmail
   nameWithType.vb: IGotrueApi(Of TUser, TSession).SignInWithEmail
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInWithIdToken(Supabase.Gotrue.Constants.Provider,System.String,System.Nullable{System.String},System.Nullable{System.String})
+  name: SignInWithIdToken(Constants.Provider, String, Nullable<String>, Nullable<String>)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_SignInWithIdToken_Supabase_Gotrue_Constants_Provider_System_String_System_Nullable_System_String__System_Nullable_System_String__
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInWithIdToken(Supabase.Gotrue.Constants.Provider,System.String,System.Nullable{System.String},System.Nullable{System.String})
+  name.vb: SignInWithIdToken(Constants.Provider, String, Nullable(Of String), Nullable(Of String))
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.SignInWithIdToken(Supabase.Gotrue.Constants.Provider, System.String, System.Nullable<System.String>, System.Nullable<System.String>)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).SignInWithIdToken(Supabase.Gotrue.Constants.Provider, System.String, System.Nullable(Of System.String), System.Nullable(Of System.String))
+  nameWithType: IGotrueApi<TUser, TSession>.SignInWithIdToken(Constants.Provider, String, Nullable<String>, Nullable<String>)
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).SignInWithIdToken(Constants.Provider, String, Nullable(Of String), Nullable(Of String))
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInWithIdToken*
+  name: SignInWithIdToken
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_SignInWithIdToken_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInWithIdToken
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.SignInWithIdToken
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).SignInWithIdToken
+  nameWithType: IGotrueApi<TUser, TSession>.SignInWithIdToken
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).SignInWithIdToken
 - uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInWithPhone(System.String,System.String)
   name: SignInWithPhone(String, String)
   href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_SignInWithPhone_System_String_System_String_
@@ -6018,6 +6228,24 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).SignIn
   nameWithType: IGotrueClient<TUser, TSession>.SignIn
   nameWithType.vb: IGotrueClient(Of TUser, TSession).SignIn
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.SignInWithIdToken(Supabase.Gotrue.Constants.Provider,System.String,System.Nullable{System.String},System.Nullable{System.String})
+  name: SignInWithIdToken(Constants.Provider, String, Nullable<String>, Nullable<String>)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_SignInWithIdToken_Supabase_Gotrue_Constants_Provider_System_String_System_Nullable_System_String__System_Nullable_System_String__
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.SignInWithIdToken(Supabase.Gotrue.Constants.Provider,System.String,System.Nullable{System.String},System.Nullable{System.String})
+  name.vb: SignInWithIdToken(Constants.Provider, String, Nullable(Of String), Nullable(Of String))
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.SignInWithIdToken(Supabase.Gotrue.Constants.Provider, System.String, System.Nullable<System.String>, System.Nullable<System.String>)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).SignInWithIdToken(Supabase.Gotrue.Constants.Provider, System.String, System.Nullable(Of System.String), System.Nullable(Of System.String))
+  nameWithType: IGotrueClient<TUser, TSession>.SignInWithIdToken(Constants.Provider, String, Nullable<String>, Nullable<String>)
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).SignInWithIdToken(Constants.Provider, String, Nullable(Of String), Nullable(Of String))
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.SignInWithIdToken*
+  name: SignInWithIdToken
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_SignInWithIdToken_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.SignInWithIdToken
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.SignInWithIdToken
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).SignInWithIdToken
+  nameWithType: IGotrueClient<TUser, TSession>.SignInWithIdToken
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).SignInWithIdToken
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.SignInWithPassword(System.String,System.String)
   name: SignInWithPassword(String, String)
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_SignInWithPassword_System_String_System_String_
@@ -6492,51 +6720,6 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).VerifyOTP
   nameWithType: IGotrueStatelessClient<TUser, TSession>.VerifyOTP
   nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).VerifyOTP
-- uid: Supabase.Gotrue.InvalidEmailOrPasswordException
-  name: InvalidEmailOrPasswordException
-  href: api/Supabase.Gotrue.InvalidEmailOrPasswordException.html
-  commentId: T:Supabase.Gotrue.InvalidEmailOrPasswordException
-  fullName: Supabase.Gotrue.InvalidEmailOrPasswordException
-  nameWithType: InvalidEmailOrPasswordException
-- uid: Supabase.Gotrue.InvalidEmailOrPasswordException.#ctor(Supabase.Gotrue.RequestException)
-  name: InvalidEmailOrPasswordException(RequestException)
-  href: api/Supabase.Gotrue.InvalidEmailOrPasswordException.html#Supabase_Gotrue_InvalidEmailOrPasswordException__ctor_Supabase_Gotrue_RequestException_
-  commentId: M:Supabase.Gotrue.InvalidEmailOrPasswordException.#ctor(Supabase.Gotrue.RequestException)
-  fullName: Supabase.Gotrue.InvalidEmailOrPasswordException.InvalidEmailOrPasswordException(Supabase.Gotrue.RequestException)
-  nameWithType: InvalidEmailOrPasswordException.InvalidEmailOrPasswordException(RequestException)
-- uid: Supabase.Gotrue.InvalidEmailOrPasswordException.#ctor*
-  name: InvalidEmailOrPasswordException
-  href: api/Supabase.Gotrue.InvalidEmailOrPasswordException.html#Supabase_Gotrue_InvalidEmailOrPasswordException__ctor_
-  commentId: Overload:Supabase.Gotrue.InvalidEmailOrPasswordException.#ctor
-  isSpec: "True"
-  fullName: Supabase.Gotrue.InvalidEmailOrPasswordException.InvalidEmailOrPasswordException
-  nameWithType: InvalidEmailOrPasswordException.InvalidEmailOrPasswordException
-- uid: Supabase.Gotrue.InvalidEmailOrPasswordException.Content
-  name: Content
-  href: api/Supabase.Gotrue.InvalidEmailOrPasswordException.html#Supabase_Gotrue_InvalidEmailOrPasswordException_Content
-  commentId: P:Supabase.Gotrue.InvalidEmailOrPasswordException.Content
-  fullName: Supabase.Gotrue.InvalidEmailOrPasswordException.Content
-  nameWithType: InvalidEmailOrPasswordException.Content
-- uid: Supabase.Gotrue.InvalidEmailOrPasswordException.Content*
-  name: Content
-  href: api/Supabase.Gotrue.InvalidEmailOrPasswordException.html#Supabase_Gotrue_InvalidEmailOrPasswordException_Content_
-  commentId: Overload:Supabase.Gotrue.InvalidEmailOrPasswordException.Content
-  isSpec: "True"
-  fullName: Supabase.Gotrue.InvalidEmailOrPasswordException.Content
-  nameWithType: InvalidEmailOrPasswordException.Content
-- uid: Supabase.Gotrue.InvalidEmailOrPasswordException.Response
-  name: Response
-  href: api/Supabase.Gotrue.InvalidEmailOrPasswordException.html#Supabase_Gotrue_InvalidEmailOrPasswordException_Response
-  commentId: P:Supabase.Gotrue.InvalidEmailOrPasswordException.Response
-  fullName: Supabase.Gotrue.InvalidEmailOrPasswordException.Response
-  nameWithType: InvalidEmailOrPasswordException.Response
-- uid: Supabase.Gotrue.InvalidEmailOrPasswordException.Response*
-  name: Response
-  href: api/Supabase.Gotrue.InvalidEmailOrPasswordException.html#Supabase_Gotrue_InvalidEmailOrPasswordException_Response_
-  commentId: Overload:Supabase.Gotrue.InvalidEmailOrPasswordException.Response
-  isSpec: "True"
-  fullName: Supabase.Gotrue.InvalidEmailOrPasswordException.Response
-  nameWithType: InvalidEmailOrPasswordException.Response
 - uid: Supabase.Gotrue.ProviderAuthState
   name: ProviderAuthState
   href: api/Supabase.Gotrue.ProviderAuthState.html
@@ -7165,51 +7348,6 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.StatelessClient.VerifyOTP
   nameWithType: StatelessClient.VerifyOTP
-- uid: Supabase.Gotrue.UnauthorizedException
-  name: UnauthorizedException
-  href: api/Supabase.Gotrue.UnauthorizedException.html
-  commentId: T:Supabase.Gotrue.UnauthorizedException
-  fullName: Supabase.Gotrue.UnauthorizedException
-  nameWithType: UnauthorizedException
-- uid: Supabase.Gotrue.UnauthorizedException.#ctor(Supabase.Gotrue.RequestException)
-  name: UnauthorizedException(RequestException)
-  href: api/Supabase.Gotrue.UnauthorizedException.html#Supabase_Gotrue_UnauthorizedException__ctor_Supabase_Gotrue_RequestException_
-  commentId: M:Supabase.Gotrue.UnauthorizedException.#ctor(Supabase.Gotrue.RequestException)
-  fullName: Supabase.Gotrue.UnauthorizedException.UnauthorizedException(Supabase.Gotrue.RequestException)
-  nameWithType: UnauthorizedException.UnauthorizedException(RequestException)
-- uid: Supabase.Gotrue.UnauthorizedException.#ctor*
-  name: UnauthorizedException
-  href: api/Supabase.Gotrue.UnauthorizedException.html#Supabase_Gotrue_UnauthorizedException__ctor_
-  commentId: Overload:Supabase.Gotrue.UnauthorizedException.#ctor
-  isSpec: "True"
-  fullName: Supabase.Gotrue.UnauthorizedException.UnauthorizedException
-  nameWithType: UnauthorizedException.UnauthorizedException
-- uid: Supabase.Gotrue.UnauthorizedException.Content
-  name: Content
-  href: api/Supabase.Gotrue.UnauthorizedException.html#Supabase_Gotrue_UnauthorizedException_Content
-  commentId: P:Supabase.Gotrue.UnauthorizedException.Content
-  fullName: Supabase.Gotrue.UnauthorizedException.Content
-  nameWithType: UnauthorizedException.Content
-- uid: Supabase.Gotrue.UnauthorizedException.Content*
-  name: Content
-  href: api/Supabase.Gotrue.UnauthorizedException.html#Supabase_Gotrue_UnauthorizedException_Content_
-  commentId: Overload:Supabase.Gotrue.UnauthorizedException.Content
-  isSpec: "True"
-  fullName: Supabase.Gotrue.UnauthorizedException.Content
-  nameWithType: UnauthorizedException.Content
-- uid: Supabase.Gotrue.UnauthorizedException.Response
-  name: Response
-  href: api/Supabase.Gotrue.UnauthorizedException.html#Supabase_Gotrue_UnauthorizedException_Response
-  commentId: P:Supabase.Gotrue.UnauthorizedException.Response
-  fullName: Supabase.Gotrue.UnauthorizedException.Response
-  nameWithType: UnauthorizedException.Response
-- uid: Supabase.Gotrue.UnauthorizedException.Response*
-  name: Response
-  href: api/Supabase.Gotrue.UnauthorizedException.html#Supabase_Gotrue_UnauthorizedException_Response_
-  commentId: Overload:Supabase.Gotrue.UnauthorizedException.Response
-  isSpec: "True"
-  fullName: Supabase.Gotrue.UnauthorizedException.Response
-  nameWithType: UnauthorizedException.Response
 - uid: Supabase.Gotrue.User
   name: User
   href: api/Supabase.Gotrue.User.html
@@ -13021,6 +13159,15 @@ references:
   fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).CreateUploadSignedUrl
   nameWithType: IStorageFileApi<TFileObject>.CreateUploadSignedUrl
   nameWithType.vb: IStorageFileApi(Of TFileObject).CreateUploadSignedUrl
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.Download(System.String,Supabase.Storage.TransformOptions,System.Nullable{EventHandler{System.Single}})
+  name: Download(String, TransformOptions, Nullable<EventHandler<Single>>)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_Download_System_String_Supabase_Storage_TransformOptions_System_Nullable_EventHandler_System_Single___
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.Download(System.String,Supabase.Storage.TransformOptions,System.Nullable{EventHandler{System.Single}})
+  name.vb: Download(String, TransformOptions, Nullable(Of EventHandler(Of Single)))
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Download(System.String, Supabase.Storage.TransformOptions, System.Nullable<EventHandler<System.Single>>)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).Download(System.String, Supabase.Storage.TransformOptions, System.Nullable(Of EventHandler(Of System.Single)))
+  nameWithType: IStorageFileApi<TFileObject>.Download(String, TransformOptions, Nullable<EventHandler<Single>>)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).Download(String, TransformOptions, Nullable(Of EventHandler(Of Single)))
 - uid: Supabase.Storage.Interfaces.IStorageFileApi`1.Download(System.String,System.Nullable{EventHandler{System.Single}})
   name: Download(String, Nullable<EventHandler<Single>>)
   href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_Download_System_String_System_Nullable_EventHandler_System_Single___
@@ -13057,6 +13204,33 @@ references:
   fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).Download
   nameWithType: IStorageFileApi<TFileObject>.Download
   nameWithType.vb: IStorageFileApi(Of TFileObject).Download
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.DownloadPublicFile(System.String,Supabase.Storage.TransformOptions,System.Nullable{EventHandler{System.Single}})
+  name: DownloadPublicFile(String, TransformOptions, Nullable<EventHandler<Single>>)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_DownloadPublicFile_System_String_Supabase_Storage_TransformOptions_System_Nullable_EventHandler_System_Single___
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.DownloadPublicFile(System.String,Supabase.Storage.TransformOptions,System.Nullable{EventHandler{System.Single}})
+  name.vb: DownloadPublicFile(String, TransformOptions, Nullable(Of EventHandler(Of Single)))
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.DownloadPublicFile(System.String, Supabase.Storage.TransformOptions, System.Nullable<EventHandler<System.Single>>)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).DownloadPublicFile(System.String, Supabase.Storage.TransformOptions, System.Nullable(Of EventHandler(Of System.Single)))
+  nameWithType: IStorageFileApi<TFileObject>.DownloadPublicFile(String, TransformOptions, Nullable<EventHandler<Single>>)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).DownloadPublicFile(String, TransformOptions, Nullable(Of EventHandler(Of Single)))
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.DownloadPublicFile(System.String,System.String,Supabase.Storage.TransformOptions,System.Nullable{EventHandler{System.Single}})
+  name: DownloadPublicFile(String, String, TransformOptions, Nullable<EventHandler<Single>>)
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_DownloadPublicFile_System_String_System_String_Supabase_Storage_TransformOptions_System_Nullable_EventHandler_System_Single___
+  commentId: M:Supabase.Storage.Interfaces.IStorageFileApi`1.DownloadPublicFile(System.String,System.String,Supabase.Storage.TransformOptions,System.Nullable{EventHandler{System.Single}})
+  name.vb: DownloadPublicFile(String, String, TransformOptions, Nullable(Of EventHandler(Of Single)))
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.DownloadPublicFile(System.String, System.String, Supabase.Storage.TransformOptions, System.Nullable<EventHandler<System.Single>>)
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).DownloadPublicFile(System.String, System.String, Supabase.Storage.TransformOptions, System.Nullable(Of EventHandler(Of System.Single)))
+  nameWithType: IStorageFileApi<TFileObject>.DownloadPublicFile(String, String, TransformOptions, Nullable<EventHandler<Single>>)
+  nameWithType.vb: IStorageFileApi(Of TFileObject).DownloadPublicFile(String, String, TransformOptions, Nullable(Of EventHandler(Of Single)))
+- uid: Supabase.Storage.Interfaces.IStorageFileApi`1.DownloadPublicFile*
+  name: DownloadPublicFile
+  href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_DownloadPublicFile_
+  commentId: Overload:Supabase.Storage.Interfaces.IStorageFileApi`1.DownloadPublicFile
+  isSpec: "True"
+  fullName: Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.DownloadPublicFile
+  fullName.vb: Supabase.Storage.Interfaces.IStorageFileApi(Of TFileObject).DownloadPublicFile
+  nameWithType: IStorageFileApi<TFileObject>.DownloadPublicFile
+  nameWithType.vb: IStorageFileApi(Of TFileObject).DownloadPublicFile
 - uid: Supabase.Storage.Interfaces.IStorageFileApi`1.GetPublicUrl(System.String,Supabase.Storage.TransformOptions)
   name: GetPublicUrl(String, TransformOptions)
   href: api/Supabase.Storage.Interfaces.IStorageFileApi-1.html#Supabase_Storage_Interfaces_IStorageFileApi_1_GetPublicUrl_System_String_Supabase_Storage_TransformOptions_
@@ -13581,6 +13755,15 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.StorageFileApi.CreateUploadSignedUrl
   nameWithType: StorageFileApi.CreateUploadSignedUrl
+- uid: Supabase.Storage.StorageFileApi.Download(System.String,Supabase.Storage.TransformOptions,System.Nullable{EventHandler{System.Single}})
+  name: Download(String, TransformOptions, Nullable<EventHandler<Single>>)
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Download_System_String_Supabase_Storage_TransformOptions_System_Nullable_EventHandler_System_Single___
+  commentId: M:Supabase.Storage.StorageFileApi.Download(System.String,Supabase.Storage.TransformOptions,System.Nullable{EventHandler{System.Single}})
+  name.vb: Download(String, TransformOptions, Nullable(Of EventHandler(Of Single)))
+  fullName: Supabase.Storage.StorageFileApi.Download(System.String, Supabase.Storage.TransformOptions, System.Nullable<EventHandler<System.Single>>)
+  fullName.vb: Supabase.Storage.StorageFileApi.Download(System.String, Supabase.Storage.TransformOptions, System.Nullable(Of EventHandler(Of System.Single)))
+  nameWithType: StorageFileApi.Download(String, TransformOptions, Nullable<EventHandler<Single>>)
+  nameWithType.vb: StorageFileApi.Download(String, TransformOptions, Nullable(Of EventHandler(Of Single)))
 - uid: Supabase.Storage.StorageFileApi.Download(System.String,System.Nullable{EventHandler{System.Single}})
   name: Download(String, Nullable<EventHandler<Single>>)
   href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_Download_System_String_System_Nullable_EventHandler_System_Single___
@@ -13615,6 +13798,31 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.StorageFileApi.Download
   nameWithType: StorageFileApi.Download
+- uid: Supabase.Storage.StorageFileApi.DownloadPublicFile(System.String,Supabase.Storage.TransformOptions,System.Nullable{EventHandler{System.Single}})
+  name: DownloadPublicFile(String, TransformOptions, Nullable<EventHandler<Single>>)
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_DownloadPublicFile_System_String_Supabase_Storage_TransformOptions_System_Nullable_EventHandler_System_Single___
+  commentId: M:Supabase.Storage.StorageFileApi.DownloadPublicFile(System.String,Supabase.Storage.TransformOptions,System.Nullable{EventHandler{System.Single}})
+  name.vb: DownloadPublicFile(String, TransformOptions, Nullable(Of EventHandler(Of Single)))
+  fullName: Supabase.Storage.StorageFileApi.DownloadPublicFile(System.String, Supabase.Storage.TransformOptions, System.Nullable<EventHandler<System.Single>>)
+  fullName.vb: Supabase.Storage.StorageFileApi.DownloadPublicFile(System.String, Supabase.Storage.TransformOptions, System.Nullable(Of EventHandler(Of System.Single)))
+  nameWithType: StorageFileApi.DownloadPublicFile(String, TransformOptions, Nullable<EventHandler<Single>>)
+  nameWithType.vb: StorageFileApi.DownloadPublicFile(String, TransformOptions, Nullable(Of EventHandler(Of Single)))
+- uid: Supabase.Storage.StorageFileApi.DownloadPublicFile(System.String,System.String,Supabase.Storage.TransformOptions,System.Nullable{EventHandler{System.Single}})
+  name: DownloadPublicFile(String, String, TransformOptions, Nullable<EventHandler<Single>>)
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_DownloadPublicFile_System_String_System_String_Supabase_Storage_TransformOptions_System_Nullable_EventHandler_System_Single___
+  commentId: M:Supabase.Storage.StorageFileApi.DownloadPublicFile(System.String,System.String,Supabase.Storage.TransformOptions,System.Nullable{EventHandler{System.Single}})
+  name.vb: DownloadPublicFile(String, String, TransformOptions, Nullable(Of EventHandler(Of Single)))
+  fullName: Supabase.Storage.StorageFileApi.DownloadPublicFile(System.String, System.String, Supabase.Storage.TransformOptions, System.Nullable<EventHandler<System.Single>>)
+  fullName.vb: Supabase.Storage.StorageFileApi.DownloadPublicFile(System.String, System.String, Supabase.Storage.TransformOptions, System.Nullable(Of EventHandler(Of System.Single)))
+  nameWithType: StorageFileApi.DownloadPublicFile(String, String, TransformOptions, Nullable<EventHandler<Single>>)
+  nameWithType.vb: StorageFileApi.DownloadPublicFile(String, String, TransformOptions, Nullable(Of EventHandler(Of Single)))
+- uid: Supabase.Storage.StorageFileApi.DownloadPublicFile*
+  name: DownloadPublicFile
+  href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_DownloadPublicFile_
+  commentId: Overload:Supabase.Storage.StorageFileApi.DownloadPublicFile
+  isSpec: "True"
+  fullName: Supabase.Storage.StorageFileApi.DownloadPublicFile
+  nameWithType: StorageFileApi.DownloadPublicFile
 - uid: Supabase.Storage.StorageFileApi.GetPublicUrl(System.String,Supabase.Storage.TransformOptions)
   name: GetPublicUrl(String, TransformOptions)
   href: api/Supabase.Storage.StorageFileApi.html#Supabase_Storage_StorageFileApi_GetPublicUrl_System_String_Supabase_Storage_TransformOptions_
