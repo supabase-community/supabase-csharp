@@ -20,7 +20,7 @@ namespace Supabase
     /// </summary>
     public static class StatelessClient
     {
-        public static Gotrue.ClientOptions<TSession> GetAuthOptions<TSession>(string supabaseUrl, string? supabaseKey = null, SupabaseOptions? options = null)
+        public static Gotrue.ClientOptions GetAuthOptions<TSession>(string supabaseUrl, string? supabaseKey = null, SupabaseOptions? options = null)
             where TSession : Session
         {
             if (options == null)
@@ -28,7 +28,7 @@ namespace Supabase
 
             var headers = GetAuthHeaders(supabaseKey, options).MergeLeft(options.Headers);
 
-            return new Gotrue.ClientOptions<TSession>
+            return new Gotrue.ClientOptions
             {
                 Url = string.Format(options.AuthUrlFormat, supabaseUrl),
                 Headers = headers

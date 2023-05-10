@@ -15,7 +15,12 @@ namespace SupabaseTests.Stubs
 
         public Func<Dictionary<string, string>> GetHeaders { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public event EventHandler<ClientStateChanged> StateChanged;
+        public void SetPersistence(IGotrueSessionPersistence<Session> persistence) {
+            throw new NotImplementedException(); }
+        public void AddStateChangedListener(IGotrueClient<User, Session>.AuthEventHandler authEventHandler) { throw new NotImplementedException(); }
+        public void RemoveStateChangedListener(IGotrueClient<User, Session>.AuthEventHandler authEventHandler) { throw new NotImplementedException(); }
+        public void ClearStateChangedListeners() { throw new NotImplementedException(); }
+        public void NotifyAuthStateChange(Constants.AuthState stateChanged) { throw new NotImplementedException(); }
 
         public Task<User> CreateUser(string jwt, AdminUserAttributes attributes)
         {
@@ -102,6 +107,9 @@ namespace SupabaseTests.Stubs
             throw new NotImplementedException();
         }
 
+        public Task<PasswordlessSignInState> SignInWithOtp(SignInWithPasswordlessEmailOptions options) { throw new NotImplementedException(); }
+        public Task<PasswordlessSignInState> SignInWithOtp(SignInWithPasswordlessPhoneOptions options) { throw new NotImplementedException(); }
+
         public Task<string> SignIn(Constants.Provider provider, string scopes = null, SignInOptions options = null)
         {
             throw new NotImplementedException();
@@ -111,6 +119,10 @@ namespace SupabaseTests.Stubs
         {
             throw new NotImplementedException();
         }
+
+        public Task<ProviderAuthState> SignIn(Constants.Provider provider, SignInOptions options = null) { throw new NotImplementedException(); }
+        public Task<Session> SignInWithIdToken(Constants.Provider provider, string idToken, string nonce = null, string captchaToken = null) { throw new NotImplementedException(); }
+        public Task<Session> ExchangeCodeForSession(string codeVerifier, string authCode) { throw new NotImplementedException(); }
 
         public Task SignOut()
         {
