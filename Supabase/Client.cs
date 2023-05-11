@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Postgrest.Interfaces;
 using Postgrest.Models;
 using Postgrest.Responses;
-using Storage.Interfaces;
 using Supabase.Core;
 using Supabase.Functions.Interfaces;
 using Supabase.Gotrue;
@@ -14,6 +13,7 @@ using Supabase.Interfaces;
 using Supabase.Realtime;
 using Supabase.Realtime.Interfaces;
 using Supabase.Storage;
+using Supabase.Storage.Interfaces;
 using static Supabase.Gotrue.Constants;
 
 namespace Supabase

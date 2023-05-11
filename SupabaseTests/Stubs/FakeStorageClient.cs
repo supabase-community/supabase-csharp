@@ -1,5 +1,5 @@
-﻿using Storage.Interfaces;
-using Supabase.Storage;
+﻿using Supabase.Storage;
+using Supabase.Storage.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -37,7 +37,12 @@ namespace SupabaseTests.Stubs
             throw new NotImplementedException();
         }
 
-        public Task<Session> GetSessionFromUrl(Uri uri, bool storeSession = true)
+		public Task<Session> ExchangeCodeForSession(string codeVerifier, string authCode)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task<Session> GetSessionFromUrl(Uri uri, bool storeSession = true)
         {
             throw new NotImplementedException();
         }
@@ -115,7 +120,17 @@ namespace SupabaseTests.Stubs
             throw new NotImplementedException();
         }
 
-        public Task<Session> SignInWithPassword(string email, string password)
+		public Task<ProviderAuthState> SignIn(Constants.Provider provider, SignInOptions options = null)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task<Session> SignInWithIdToken(Constants.Provider provider, string idToken, string nonce = null, string captchaToken = null)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task<Session> SignInWithPassword(string email, string password)
         {
             throw new NotImplementedException();
         }

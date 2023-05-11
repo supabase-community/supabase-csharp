@@ -1,5 +1,25 @@
 ﻿# Changelog
 
+## 0.9.1 - 2023-04-28
+
+- Update dependency: gotrue-csharp@3.1.1
+    - Implements `SignInWithIdToken` for Apple/Google signing from LW7. A HUGE thank you to [@wiverson](https://github.com/wiverson)!
+- Update dependency: realtime-csharp@5.0.5
+    - Re: [#27](https://github.com/supabase-community/realtime-csharp/issues/27) `PostgresChangesOptions` was not setting `listenType` in constructor. Thanks [@Kuffs2205](https://github.com/Kuffs2205)
+- Update dependency: supabase-storage-csharp@1.2.10
+    - Re: [#7](https://github.com/supabase-community/storage-csharp/issues/7) Implements a `DownloadPublicFile` method.
+
+## 0.9.0 - 2023-04-12
+
+- Update dependency: gotrue-csharp@3.1.0
+    - [Minor] Implements PKCE auth flow. SignIn using a provider now returns an instance of `ProviderAuthState` rather than a `string`.
+
+- Update dependency: supabase-storage-csharp@1.2.9
+    - Implements storage features from LW7:
+        - feat: custom file size limit and mime types at bucket level [supabase/storage-js#151](https://github.com/supabase/storage-js/pull/151) file size and mime type limits per bucket
+        - feat: quality option, image transformation [supabase/storage-js#145](https://github.com/supabase/storage-js/pull/152) quality option for image transformations
+        - feat: format option for webp support [supabase/storage-js#142](https://github.com/supabase/storage-js/pull/142) format option for image transformation
+
 ## 0.8.8 - 2023-03-29
 
 - Update dependency: gotrue-csharp@3.0.6
