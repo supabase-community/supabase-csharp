@@ -21,8 +21,8 @@ namespace SupabaseTests.Stubs
 
         public void SetPersistence(IGotrueSessionPersistence<Session> persistence) {
             throw new NotImplementedException(); }
-        public void AddStateChangedListener(IGotrueClient<User, Session>.AuthEventHandler authEventHandler) { throw new NotImplementedException(); }
-        public void RemoveStateChangedListener(IGotrueClient<User, Session>.AuthEventHandler authEventHandler) { throw new NotImplementedException(); }
+        public void AddStateChangedListener(IGotrueClient<User, Session>.AuthEventHandler authEventHandler) { }
+        public void RemoveStateChangedListener(IGotrueClient<User, Session>.AuthEventHandler authEventHandler) { }
         public void ClearStateChangedListeners() { throw new NotImplementedException(); }
         public void NotifyAuthStateChange(Constants.AuthState stateChanged) { throw new NotImplementedException(); }
 

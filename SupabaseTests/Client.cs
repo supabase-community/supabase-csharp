@@ -50,7 +50,8 @@ namespace SupabaseTests
 
             var email = $"{RandomString(12)}@supabase.io";
             await _instance.Auth.SignUp(email, RandomString(12));
-
+            await _instance.InitializeAsync();
+            
             var channel = _instance.Realtime.Channel("realtime", "public", "channels");
 
             channel.StateChanged += (sender, ev) =>
