@@ -2,7 +2,6 @@
 using Supabase.Gotrue.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SupabaseTests.Stubs
@@ -36,11 +35,6 @@ namespace SupabaseTests.Stubs
         {
             throw new NotImplementedException();
         }
-
-		public Task<Session> ExchangeCodeForSession(string codeVerifier, string authCode)
-		{
-			throw new NotImplementedException();
-		}
 
 		public Task<Session> GetSessionFromUrl(Uri uri, bool storeSession = true)
         {
@@ -115,22 +109,7 @@ namespace SupabaseTests.Stubs
         public Task<PasswordlessSignInState> SignInWithOtp(SignInWithPasswordlessEmailOptions options) { throw new NotImplementedException(); }
         public Task<PasswordlessSignInState> SignInWithOtp(SignInWithPasswordlessPhoneOptions options) { throw new NotImplementedException(); }
 
-        public Task<string> SignIn(Constants.Provider provider, string scopes = null, SignInOptions options = null)
-        {
-            throw new NotImplementedException();
-        }
-
-		public Task<ProviderAuthState> SignIn(Constants.Provider provider, SignInOptions options = null)
-		{
-			throw new NotImplementedException();
-		}
-
-		public Task<Session> SignInWithIdToken(Constants.Provider provider, string idToken, string nonce = null, string captchaToken = null)
-		{
-			throw new NotImplementedException();
-		}
-
-		public Task<Session> SignInWithPassword(string email, string password)
+        public Task<Session> SignInWithPassword(string email, string password)
         {
             throw new NotImplementedException();
         }

@@ -11,36 +11,36 @@ namespace SupabaseTests
     [TestClass]
     public class Client
     {
-        private static Random random = new Random();
+        private static readonly Random Random = new Random();
 
-        private Supabase.Client Instance;
+        private Supabase.Client _instance;
 
         private static string RandomString(int length)
         {
             const string chars = "abcdefghijklmnopqrstuvwxyz0123456789";
             return new string(Enumerable.Repeat(chars, length)
-              .Select(s => s[random.Next(s.Length)]).ToArray());
+              .Select(s => s[Random.Next(s.Length)]).ToArray());
         }
 
         [TestInitialize]
         public async Task InitializeTest()
         {
 
-            Instance = new Supabase.Client("http://localhost", null, new Supabase.SupabaseOptions
+            _instance = new Supabase.Client("http://localhost", null, new Supabase.SupabaseOptions
             {
                 AuthUrlFormat = "{0}:9999",
                 RealtimeUrlFormat = "{0}:4000/socket",
                 RestUrlFormat = "{0}:3000",
                 AutoConnectRealtime = true,
             });
-            await Instance.InitializeAsync();
+            await _instance.InitializeAsync();
         }
 
         [TestMethod("Client: Initializes.")]
         public void ClientInitializes()
         {
-            Assert.IsNotNull(Instance.Realtime);
-            Assert.IsNotNull(Instance.Auth);
+            Assert.IsNotNull(_instance.Realtime);
+            Assert.IsNotNull(_instance.Auth);
         }
 
         [TestMethod("Client: Connects to Realtime")]
@@ -49,9 +49,9 @@ namespace SupabaseTests
             var tsc = new TaskCompletionSource<bool>();
 
             var email = $"{RandomString(12)}@supabase.io";
-            await Instance.Auth.SignUp(email, RandomString(12));
+            await _instance.Auth.SignUp(email, RandomString(12));
 
-            var channel = Instance.Realtime.Channel("realtime", "public", "channels");
+            var channel = _instance.Realtime.Channel("realtime", "public", "channels");
 
             channel.StateChanged += (sender, ev) =>
             {
@@ -69,7 +69,7 @@ namespace SupabaseTests
         public async Task SupabaseModelUpdates()
         {
             var model = new Models.Channel { Slug = Guid.NewGuid().ToString() };
-            var insertResult = await Instance.From<Models.Channel>().Insert(model);
+            var insertResult = await _instance.From<Models.Channel>().Insert(model);
             var newChannel = insertResult.Models.FirstOrDefault();
 
             var newSlug = $"Updated Slug @ {DateTime.Now.ToLocalTime()}";
@@ -86,12 +86,12 @@ namespace SupabaseTests
             var slug = Guid.NewGuid().ToString();
             var model = new Models.Channel { Slug = slug };
 
-            var insertResult = await Instance.From<Models.Channel>().Insert(model);
+            var insertResult = await _instance.From<Models.Channel>().Insert(model);
             var newChannel = insertResult.Models.FirstOrDefault();
 
             await newChannel.Delete<Models.Channel>();
 
-            var result = await Instance.From<Models.Channel>().Filter("slug", Postgrest.Constants.Operator.Equals, slug).Get();
+            var result = await _instance.From<Models.Channel>().Filter("slug", Postgrest.Constants.Operator.Equals, slug).Get();
 
             Assert.AreEqual(0, result.Models.Count);
         }
@@ -99,17 +99,17 @@ namespace SupabaseTests
         [TestMethod("Supports Dependency Injection for clients via property")]
         public void SupportsDIForClientsViaProperty()
         {
-            Instance.Auth = new FakeAuthClient();
-            Instance.Functions = new FakeFunctionsClient();
-            Instance.Realtime = new FakeRealtimeClient();
-            Instance.Postgrest = new FakeRestClient();
-            Instance.Storage = new FakeStorageClient();
+            _instance.Auth = new FakeAuthClient();
+            _instance.Functions = new FakeFunctionsClient();
+            _instance.Realtime = new FakeRealtimeClient();
+            _instance.Postgrest = new FakeRestClient();
+            _instance.Storage = new FakeStorageClient();
 
-            Assert.ThrowsExceptionAsync<NotImplementedException>(() => Instance.Auth.GetUser(""));
-            Assert.ThrowsExceptionAsync<NotImplementedException>(() => Instance.Functions.Invoke(""));
-            Assert.ThrowsExceptionAsync<NotImplementedException>(() => Instance.Realtime.ConnectAsync());
-            Assert.ThrowsExceptionAsync<NotImplementedException>(() => Instance.Postgrest.Rpc("", null));
-            Assert.ThrowsExceptionAsync<NotImplementedException>(() => Instance.Storage.ListBuckets());
+            Assert.ThrowsExceptionAsync<NotImplementedException>(() => _instance.Auth.GetUser(""));
+            Assert.ThrowsExceptionAsync<NotImplementedException>(() => _instance.Functions.Invoke(""));
+            Assert.ThrowsExceptionAsync<NotImplementedException>(() => _instance.Realtime.ConnectAsync());
+            Assert.ThrowsExceptionAsync<NotImplementedException>(() => _instance.Postgrest.Rpc("", null));
+            Assert.ThrowsExceptionAsync<NotImplementedException>(() => _instance.Storage.ListBuckets());
         }
     }
 }
