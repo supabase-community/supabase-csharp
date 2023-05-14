@@ -8,7 +8,6 @@ using Supabase.Interfaces;
 using Supabase.Realtime;
 using Supabase.Realtime.Interfaces;
 using Supabase.Realtime.PostgresChanges;
-using Supabase.Realtime.Socket;
 using static Supabase.Client;
 
 namespace Supabase

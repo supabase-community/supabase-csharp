@@ -1,7 +1,6 @@
 ﻿using Supabase.Gotrue;
-using Supabase.Interfaces;
-using System;
 using System.Collections.Generic;
+using Supabase.Gotrue.Interfaces;
 
 namespace Supabase
 {

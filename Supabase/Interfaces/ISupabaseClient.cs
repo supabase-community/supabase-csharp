@@ -4,7 +4,6 @@ using Postgrest.Responses;
 using Supabase.Functions.Interfaces;
 using Supabase.Gotrue;
 using Supabase.Gotrue.Interfaces;
-using Supabase.Realtime;
 using Supabase.Realtime.Interfaces;
 using Supabase.Storage;
 using Supabase.Storage.Interfaces;

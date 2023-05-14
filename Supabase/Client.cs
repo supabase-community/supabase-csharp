@@ -36,15 +36,11 @@ namespace Supabase
         /// </summary>
         public IGotrueClient<User, Session> Auth
         {
-            get
-            {
-                return _auth;
-            }
+            get => _auth;
             set
             {
                 // Remove existing internal state listener (if applicable)
-                if (_auth != null)
-                    _auth.RemoveStateChangedListener(Auth_StateChanged);
+                _auth.RemoveStateChangedListener(Auth_StateChanged);
 
                 _auth = value;
                 _auth.AddStateChangedListener(Auth_StateChanged);
@@ -57,16 +53,11 @@ namespace Supabase
         /// </summary>
         public IRealtimeClient<RealtimeSocket, RealtimeChannel> Realtime
         {
-            get
-            {
-                return _realtime;
-            }
+            get => _realtime;
             set
             {
                 // Disconnect from previous RealtimeSocket (if applicable)
-                if (_realtime != null)
-                    _realtime.Disconnect();
-
+                _realtime.Disconnect();
                 _realtime = value;
             }
         }
@@ -102,8 +93,8 @@ namespace Supabase
         }
         private IStorageClient<Bucket, FileObject> _storage;
 
-        private string? supabaseKey;
-        private SupabaseOptions options;
+        private readonly string? _supabaseKey;
+        private readonly SupabaseOptions _options;
 
         /// <summary>
         /// Constructor supplied for dependency injection support.
@@ -121,7 +112,7 @@ namespace Supabase
             _functions = functions;
             _postgrest = postgrest;
             _storage = storage;
-            this.options = options;
+            _options = options;
         }
 
         /// <summary>
@@ -132,16 +123,14 @@ namespace Supabase
         /// <param name="options"></param>
         public Client(string supabaseUrl, string? supabaseKey, SupabaseOptions? options = null)
         {
-            this.supabaseKey = supabaseKey;
+            _supabaseKey = supabaseKey;
+            _options = options ?? new SupabaseOptions();
 
-            options ??= new SupabaseOptions();
-            this.options = options;
-
-            var authUrl = string.Format(options.AuthUrlFormat, supabaseUrl);
-            var restUrl = string.Format(options.RestUrlFormat, supabaseUrl);
-            var realtimeUrl = string.Format(options.RealtimeUrlFormat, supabaseUrl).Replace("http", "ws");
-            var storageUrl = string.Format(options.StorageUrlFormat, supabaseUrl);
-            var schema = options.Schema;
+            var authUrl = string.Format(_options.AuthUrlFormat, supabaseUrl);
+            var restUrl = string.Format(_options.RestUrlFormat, supabaseUrl);
+            var realtimeUrl = string.Format(_options.RealtimeUrlFormat, supabaseUrl).Replace("http", "ws");
+            var storageUrl = string.Format(_options.StorageUrlFormat, supabaseUrl);
+            var schema = _options.Schema;
 
             // See: https://github.com/supabase/supabase-js/blob/09065a65f171bc28a9fd7b831af2c24e5f1a380b/src/SupabaseClient.ts#L77-L83
             var isPlatform = new Regex(@"(supabase\.co)|(supabase\.in)").Match(supabaseUrl);
@@ -154,37 +143,38 @@ namespace Supabase
             }
             else
             {
-                functionsUrl = string.Format(options.FunctionsUrlFormat, supabaseUrl);
+                functionsUrl = string.Format(_options.FunctionsUrlFormat, supabaseUrl);
             }
 
             // Init Auth
             var gotrueOptions = new Gotrue.ClientOptions
             {
                 Url = authUrl,
-                AutoRefreshToken = options.AutoRefreshToken,
+                AutoRefreshToken = _options.AutoRefreshToken
             };
 
             _auth = new Gotrue.Client(gotrueOptions);
+            _auth.SetPersistence(_options.SessionHandler);
             _auth.AddStateChangedListener(Auth_StateChanged);
-            _auth.GetHeaders = () => GetAuthHeaders();
+            _auth.GetHeaders = GetAuthHeaders;
 
             // Init Realtime
 
             var realtimeOptions = new Realtime.ClientOptions
             {
-                Parameters = { ApiKey = this.supabaseKey }
+                Parameters = { ApiKey = _supabaseKey }
             };
 
             _realtime = new Realtime.Client(realtimeUrl, realtimeOptions);
 
             _postgrest = new Postgrest.Client(restUrl, new Postgrest.ClientOptions { Schema = schema });
-            _postgrest.GetHeaders = () => GetAuthHeaders();
+            _postgrest.GetHeaders = GetAuthHeaders;
 
             _functions = new Functions.Client(functionsUrl);
-            _functions.GetHeaders = () => GetAuthHeaders();
+            _functions.GetHeaders = GetAuthHeaders;
 
-            _storage = new Storage.Client(storageUrl, options.StorageClientOptions);
-            _storage.GetHeaders = () => GetAuthHeaders();
+            _storage = new Storage.Client(storageUrl, _options.StorageClientOptions);
+            _storage.GetHeaders = GetAuthHeaders;
         }
 
 
@@ -195,10 +185,9 @@ namespace Supabase
         {
             await Auth.RetrieveSessionAsync();
 
-            if (options.AutoConnectRealtime)
-            {
+            if (_options.AutoConnectRealtime)
                 await Realtime.ConnectAsync();
-            }
+
             return this;
         }
 
@@ -216,8 +205,9 @@ namespace Supabase
 
                 // Remove Realtime Subscriptions on Auth Signout.
                 case AuthState.SignedOut:
-                    foreach (var subscription in Realtime.Subscriptions.Values)
-                        subscription.Unsubscribe();
+                    if (Realtime.Subscriptions.Values != null)
+                        foreach (var subscription in Realtime.Subscriptions.Values)
+                            subscription.Unsubscribe();
                     Realtime.Disconnect();
                     break;
                 case AuthState.UserUpdated: break;
@@ -247,19 +237,19 @@ namespace Supabase
 
             headers["X-Client-Info"] = Util.GetAssemblyVersion(typeof(Client));
 
-            if (supabaseKey != null)
+            if (_supabaseKey != null)
             {
-                headers["apiKey"] = supabaseKey;
+                headers["apiKey"] = _supabaseKey;
             }
 
             // In Regard To: https://github.com/supabase/supabase-csharp/issues/5
-            if (options.Headers.ContainsKey("Authorization"))
+            if (_options.Headers.TryGetValue("Authorization", out var header))
             {
-                headers["Authorization"] = options.Headers["Authorization"];
+                headers["Authorization"] = header;
             }
             else
             {
-                var bearer = Auth.CurrentSession?.AccessToken != null ? Auth.CurrentSession.AccessToken : supabaseKey;
+                var bearer = Auth.CurrentSession?.AccessToken ?? _supabaseKey;
                 headers["Authorization"] = $"Bearer {bearer}";
             }
 
