@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Postgrest.Interfaces;
@@ -43,10 +44,10 @@ namespace Supabase
             {
                 // Remove existing internal state listener (if applicable)
                 if (_auth != null)
-                    _auth.StateChanged -= Auth_StateChanged;
+                    _auth.RemoveStateChangedListener(Auth_StateChanged);
 
                 _auth = value;
-                _auth.StateChanged += Auth_StateChanged;
+                _auth.AddStateChangedListener(Auth_StateChanged);
             }
         }
         private IGotrueClient<User, Session> _auth;
@@ -157,20 +158,15 @@ namespace Supabase
             }
 
             // Init Auth
-            var gotrueOptions = new Gotrue.ClientOptions<Session>
+            var gotrueOptions = new Gotrue.ClientOptions
             {
                 Url = authUrl,
                 AutoRefreshToken = options.AutoRefreshToken,
-                PersistSession = options.PersistSession,
-                SessionDestroyer = options.SessionHandler.SessionDestroyer,
-                SessionPersistor = options.SessionHandler.SessionPersistor,
-                SessionRetriever = options.SessionHandler.SessionRetriever<Session>
             };
 
             _auth = new Gotrue.Client(gotrueOptions);
-            _auth.StateChanged += Auth_StateChanged;
+            _auth.AddStateChangedListener(Auth_StateChanged);
             _auth.GetHeaders = () => GetAuthHeaders();
-
 
             // Init Realtime
 
@@ -206,9 +202,9 @@ namespace Supabase
             return this;
         }
 
-        private void Auth_StateChanged(object sender, ClientStateChanged e)
+        private void Auth_StateChanged(object sender, AuthState e)
         {
-            switch (e.State)
+            switch (e)
             {
                 // Pass new Auth down to Realtime
                 // Ref: https://github.com/supabase-community/supabase-csharp/issues/12
@@ -224,6 +220,9 @@ namespace Supabase
                         subscription.Unsubscribe();
                     Realtime.Disconnect();
                     break;
+                case AuthState.UserUpdated: break;
+                case AuthState.PasswordRecovery: break;
+                default: throw new ArgumentOutOfRangeException(nameof(e), e, null);
             }
         }
 
