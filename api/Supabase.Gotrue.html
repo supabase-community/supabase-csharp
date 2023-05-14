@@ -83,28 +83,46 @@
       <h4><a class="xref" href="Supabase.Gotrue.Api.html">Api</a></h4>
       <section></section>
       <h4><a class="xref" href="Supabase.Gotrue.Client.html">Client</a></h4>
-      <section><p>The Gotrue Instance</p>
+      <section><p>GoTrue stateful Client.</p>
+<p>This class is best used as a long-lived singleton object in your application. You can attach listeners
+to be notified of changes to the user log in state, a persistence system for sessions across application
+launches, and more. It includes a (optional, on by default) background thread that runs to refresh the
+user's session token.</p>
+<p>Check out the test suite for examples of use.</p>
 </section>
-      <h4><a class="xref" href="Supabase.Gotrue.ClientOptions-1.html">ClientOptions&lt;TSession&gt;</a></h4>
-      <section><p>Class represention options available to the <a class="xref" href="Supabase.Gotrue.Client.html">Client</a>.</p>
-</section>
-      <h4><a class="xref" href="Supabase.Gotrue.ClientStateChanged.html">ClientStateChanged</a></h4>
-      <section><p>Class representing a state change on the <a class="xref" href="Supabase.Gotrue.Client.html">Client</a>.</p>
+      <h4><a class="xref" href="Supabase.Gotrue.ClientOptions.html">ClientOptions</a></h4>
+      <section><p>Class representation options available to the <a class="xref" href="Supabase.Gotrue.Client.html">Client</a>.</p>
 </section>
       <h4><a class="xref" href="Supabase.Gotrue.Constants.html">Constants</a></h4>
       <section></section>
+      <h4><a class="xref" href="Supabase.Gotrue.DebugNotification.html">DebugNotification</a></h4>
+      <section></section>
       <h4><a class="xref" href="Supabase.Gotrue.Helpers.html">Helpers</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Supabase.Gotrue.PasswordlessSignInState.html">PasswordlessSignInState</a></h4>
+      <section><p>A utility class that represents a successful response from a request to send a user
+Passwordless Sign In.</p>
+</section>
+      <h4><a class="xref" href="Supabase.Gotrue.PersistenceListener.html">PersistenceListener</a></h4>
       <section></section>
       <h4><a class="xref" href="Supabase.Gotrue.ProviderAuthState.html">ProviderAuthState</a></h4>
       <section><p>Represents an OAuth Provider's URI and Parameters.</p>
 <p>For use with Provider Auth, PKCE Auth, and ID Token auth.</p>
 </section>
-      <h4><a class="xref" href="Supabase.Gotrue.RequestException.html">RequestException</a></h4>
-      <section></section>
       <h4><a class="xref" href="Supabase.Gotrue.Session.html">Session</a></h4>
       <section><p>Represents a Gotrue Session</p>
 </section>
+      <h4><a class="xref" href="Supabase.Gotrue.Settings.html">Settings</a></h4>
+      <section></section>
       <h4><a class="xref" href="Supabase.Gotrue.SignInOptions.html">SignInOptions</a></h4>
+      <section><p>Options used for signing in a user.</p>
+</section>
+      <h4><a class="xref" href="Supabase.Gotrue.SignInWithPasswordlessEmailOptions.html">SignInWithPasswordlessEmailOptions</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Supabase.Gotrue.SignInWithPasswordlessOptions.html">SignInWithPasswordlessOptions</a></h4>
+      <section><p>Options used for signing in a user with passwordless Options</p>
+</section>
+      <h4><a class="xref" href="Supabase.Gotrue.SignInWithPasswordlessPhoneOptions.html">SignInWithPasswordlessPhoneOptions</a></h4>
       <section></section>
       <h4><a class="xref" href="Supabase.Gotrue.SignUpOptions.html">SignUpOptions</a></h4>
       <section><p>Options used for signing up a user.</p>
@@ -113,7 +131,7 @@
       <section><p>A Stateless Gotrue Client</p>
 </section>
       <h4><a class="xref" href="Supabase.Gotrue.StatelessClient.StatelessClientOptions.html">StatelessClient.StatelessClientOptions</a></h4>
-      <section><p>Class represention options available to the <a class="xref" href="Supabase.Gotrue.Client.html">Client</a>.</p>
+      <section><p>Class representation options available to the <a class="xref" href="Supabase.Gotrue.Client.html">Client</a>.</p>
 </section>
       <h4><a class="xref" href="Supabase.Gotrue.User.html">User</a></h4>
       <section><p>Represents a Gotrue User
@@ -153,6 +171,8 @@ Ref: <a href="https://supabase.github.io/gotrue-js/modules.html#Provider">https:
       <section><p>Specifies the functionality expected from the <code>SignUp</code> method</p>
 </section>
       <h4><a class="xref" href="Supabase.Gotrue.Constants.SortOrder.html">Constants.SortOrder</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Supabase.Gotrue.SignInWithPasswordlessPhoneOptions.MessagingChannel.html">SignInWithPasswordlessPhoneOptions.MessagingChannel</a></h4>
       <section></section>
 </article>
           </div>

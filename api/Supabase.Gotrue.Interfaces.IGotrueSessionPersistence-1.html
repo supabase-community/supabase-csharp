@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class DefaultSupabaseSessionHandler
+    <title>Interface IGotrueSessionPersistence&lt;TSession&gt;
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class DefaultSupabaseSessionHandler
+    <meta name="title" content="Interface IGotrueSessionPersistence&lt;TSession&gt;
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -68,56 +68,68 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Supabase.DefaultSupabaseSessionHandler">
+            <article class="content wrap" id="_content" data-uid="Supabase.Gotrue.Interfaces.IGotrueSessionPersistence`1">
   
   
-  <h1 id="Supabase_DefaultSupabaseSessionHandler" data-uid="Supabase.DefaultSupabaseSessionHandler" class="text-break">Class DefaultSupabaseSessionHandler
+  <h1 id="Supabase_Gotrue_Interfaces_IGotrueSessionPersistence_1" data-uid="Supabase.Gotrue.Interfaces.IGotrueSessionPersistence`1" class="text-break">Interface IGotrueSessionPersistence&lt;TSession&gt;
   </h1>
-  <div class="markdown level0 summary"><p>Represents the default session handler for Gotrue - it does nothing by default.</p>
+  <div class="markdown level0 summary"><p>Interface for session persistence. As a reminder, make sure you handle exceptions and
+other error conditions in your implementation.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">DefaultSupabaseSessionHandler</span></div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.html">Supabase</a></h6>
-  <h6><strong>Assembly</strong>: Supabase.dll</h6>
-  <h5 id="Supabase_DefaultSupabaseSessionHandler_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Gotrue.Interfaces.html">Supabase.Gotrue.Interfaces</a></h6>
+  <h6><strong>Assembly</strong>: Gotrue.dll</h6>
+  <h5 id="Supabase_Gotrue_Interfaces_IGotrueSessionPersistence_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DefaultSupabaseSessionHandler : IGotrueSessionPersistence&lt;Session&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IGotrueSessionPersistence&lt;TSession&gt;
+    where TSession : Session</code></pre>
   </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSession</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/release/0.10.0/apiSpec/new?filename=Supabase_DefaultSupabaseSessionHandler_DestroySession.md&amp;value=---%0Auid%3A%20Supabase.DefaultSupabaseSessionHandler.DestroySession%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/apiSpec/new?filename=Supabase_Gotrue_Interfaces_IGotrueSessionPersistence_1_DestroySession.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.Interfaces.IGotrueSessionPersistence%601.DestroySession%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/release/0.10.0/Supabase/DefaultSupabaseSessionHandler.cs/#L15">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/Gotrue/Interfaces/IGotrueSessionPersistence.cs/#L11">View Source</a>
   </span>
-  <a id="Supabase_DefaultSupabaseSessionHandler_DestroySession_" data-uid="Supabase.DefaultSupabaseSessionHandler.DestroySession*"></a>
-  <h4 id="Supabase_DefaultSupabaseSessionHandler_DestroySession" data-uid="Supabase.DefaultSupabaseSessionHandler.DestroySession">DestroySession()</h4>
+  <a id="Supabase_Gotrue_Interfaces_IGotrueSessionPersistence_1_DestroySession_" data-uid="Supabase.Gotrue.Interfaces.IGotrueSessionPersistence`1.DestroySession*"></a>
+  <h4 id="Supabase_Gotrue_Interfaces_IGotrueSessionPersistence_1_DestroySession" data-uid="Supabase.Gotrue.Interfaces.IGotrueSessionPersistence`1.DestroySession">DestroySession()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void DestroySession()</code></pre>
+    <pre><code class="lang-csharp hljs">void DestroySession()</code></pre>
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/release/0.10.0/apiSpec/new?filename=Supabase_DefaultSupabaseSessionHandler_LoadSession.md&amp;value=---%0Auid%3A%20Supabase.DefaultSupabaseSessionHandler.LoadSession%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/apiSpec/new?filename=Supabase_Gotrue_Interfaces_IGotrueSessionPersistence_1_LoadSession.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.Interfaces.IGotrueSessionPersistence%601.LoadSession%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/release/0.10.0/Supabase/DefaultSupabaseSessionHandler.cs/#L19">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/Gotrue/Interfaces/IGotrueSessionPersistence.cs/#L13">View Source</a>
   </span>
-  <a id="Supabase_DefaultSupabaseSessionHandler_LoadSession_" data-uid="Supabase.DefaultSupabaseSessionHandler.LoadSession*"></a>
-  <h4 id="Supabase_DefaultSupabaseSessionHandler_LoadSession" data-uid="Supabase.DefaultSupabaseSessionHandler.LoadSession">LoadSession()</h4>
+  <a id="Supabase_Gotrue_Interfaces_IGotrueSessionPersistence_1_LoadSession_" data-uid="Supabase.Gotrue.Interfaces.IGotrueSessionPersistence`1.LoadSession*"></a>
+  <h4 id="Supabase_Gotrue_Interfaces_IGotrueSessionPersistence_1_LoadSession" data-uid="Supabase.Gotrue.Interfaces.IGotrueSessionPersistence`1.LoadSession">LoadSession()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Session? LoadSession()</code></pre>
+    <pre><code class="lang-csharp hljs">TSession LoadSession()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -129,25 +141,25 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Session</span>&gt;</td>
+        <td><span class="xref">TSession</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/release/0.10.0/apiSpec/new?filename=Supabase_DefaultSupabaseSessionHandler_SaveSession_Session_.md&amp;value=---%0Auid%3A%20Supabase.DefaultSupabaseSessionHandler.SaveSession(Session)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/apiSpec/new?filename=Supabase_Gotrue_Interfaces_IGotrueSessionPersistence_1_SaveSession__0_.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.Interfaces.IGotrueSessionPersistence%601.SaveSession(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/release/0.10.0/Supabase/DefaultSupabaseSessionHandler.cs/#L11">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/Gotrue/Interfaces/IGotrueSessionPersistence.cs/#L9">View Source</a>
   </span>
-  <a id="Supabase_DefaultSupabaseSessionHandler_SaveSession_" data-uid="Supabase.DefaultSupabaseSessionHandler.SaveSession*"></a>
-  <h4 id="Supabase_DefaultSupabaseSessionHandler_SaveSession_Session_" data-uid="Supabase.DefaultSupabaseSessionHandler.SaveSession(Session)">SaveSession(Session)</h4>
+  <a id="Supabase_Gotrue_Interfaces_IGotrueSessionPersistence_1_SaveSession_" data-uid="Supabase.Gotrue.Interfaces.IGotrueSessionPersistence`1.SaveSession*"></a>
+  <h4 id="Supabase_Gotrue_Interfaces_IGotrueSessionPersistence_1_SaveSession__0_" data-uid="Supabase.Gotrue.Interfaces.IGotrueSessionPersistence`1.SaveSession(`0)">SaveSession(TSession)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SaveSession(Session session)</code></pre>
+    <pre><code class="lang-csharp hljs">void SaveSession(TSession session)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -160,7 +172,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Session</span></td>
+        <td><span class="xref">TSession</span></td>
         <td><span class="parametername">session</span></td>
         <td></td>
       </tr>
@@ -174,10 +186,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/supabase-community/supabase-csharp/new/release/0.10.0/apiSpec/new?filename=Supabase_DefaultSupabaseSessionHandler.md&amp;value=---%0Auid%3A%20Supabase.DefaultSupabaseSessionHandler%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/supabase-community/gotrue-csharp/new/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/apiSpec/new?filename=Supabase_Gotrue_Interfaces_IGotrueSessionPersistence_1.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.Interfaces.IGotrueSessionPersistence%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/supabase-csharp/blob/release/0.10.0/Supabase/DefaultSupabaseSessionHandler.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/gotrue-csharp/blob/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/Gotrue/Interfaces/IGotrueSessionPersistence.cs/#L7" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

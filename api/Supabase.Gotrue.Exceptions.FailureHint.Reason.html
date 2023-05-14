@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class ErrorResponse
+    <title>Enum FailureHint.Reason
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class ErrorResponse
+    <meta name="title" content="Enum FailureHint.Reason
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -68,67 +68,79 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Supabase.Gotrue.Responses.ErrorResponse">
+            <article class="content wrap" id="_content" data-uid="Supabase.Gotrue.Exceptions.FailureHint.Reason">
   
   
-  <h1 id="Supabase_Gotrue_Responses_ErrorResponse" data-uid="Supabase.Gotrue.Responses.ErrorResponse" class="text-break">Class ErrorResponse
+  <h1 id="Supabase_Gotrue_Exceptions_FailureHint_Reason" data-uid="Supabase.Gotrue.Exceptions.FailureHint.Reason" class="text-break">Enum FailureHint.Reason
   </h1>
-  <div class="markdown level0 summary"><p>A representation of Postgrest's API error response.</p>
-</div>
+  <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><a class="xref" href="Supabase.Gotrue.Responses.BaseResponse.html">BaseResponse</a></div>
-    <div class="level2"><span class="xref">ErrorResponse</span></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="Supabase.Gotrue.Responses.BaseResponse.html#Supabase_Gotrue_Responses_BaseResponse_ResponseMessage">BaseResponse.ResponseMessage</a>
-    </div>
-    <div>
-      <a class="xref" href="Supabase.Gotrue.Responses.BaseResponse.html#Supabase_Gotrue_Responses_BaseResponse_Content">BaseResponse.Content</a>
-    </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Gotrue.Responses.html">Supabase.Gotrue.Responses</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Gotrue.Exceptions.html">Supabase.Gotrue.Exceptions</a></h6>
   <h6><strong>Assembly</strong>: Gotrue.dll</h6>
-  <h5 id="Supabase_Gotrue_Responses_ErrorResponse_syntax">Syntax</h5>
+  <h5 id="Supabase_Gotrue_Exceptions_FailureHint_Reason_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ErrorResponse : BaseResponse</code></pre>
+    <pre><code class="lang-csharp hljs">public enum Reason : int</code></pre>
   </div>
-  <h3 id="properties">Properties
+  <h3 id="fields">Fields
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/3a29cf1cc015bc65446ea30f3e8f9922156f8cbd/apiSpec/new?filename=Supabase_Gotrue_Responses_ErrorResponse_Message.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.Responses.ErrorResponse.Message%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/3a29cf1cc015bc65446ea30f3e8f9922156f8cbd/Gotrue/Responses/ErrorResponse.cs/#L11">View Source</a>
-  </span>
-  <a id="Supabase_Gotrue_Responses_ErrorResponse_Message_" data-uid="Supabase.Gotrue.Responses.ErrorResponse.Message*"></a>
-  <h4 id="Supabase_Gotrue_Responses_ErrorResponse_Message" data-uid="Supabase.Gotrue.Responses.ErrorResponse.Message">Message</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? Message { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
-        <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
-    </thead>
+    <thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_AdminTokenRequired">AdminTokenRequired</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_InvalidRefreshToken">InvalidRefreshToken</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_Unknown">Unknown</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserAlreadyRegistered">UserAlreadyRegistered</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserBadEmailAddress">UserBadEmailAddress</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserBadLogin">UserBadLogin</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserBadMultiple">UserBadMultiple</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserBadPassword">UserBadPassword</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserBadPhoneNumber">UserBadPhoneNumber</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserEmailNotConfirmed">UserEmailNotConfirmed</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserMissingInformation">UserMissingInformation</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserTooManyRequests">UserTooManyRequests</td>
         <td></td>
       </tr>
     </tbody>
-  </table>
+  </thead></thead></table>
 </article>
           </div>
           
@@ -137,10 +149,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/supabase-community/gotrue-csharp/new/3a29cf1cc015bc65446ea30f3e8f9922156f8cbd/apiSpec/new?filename=Supabase_Gotrue_Responses_ErrorResponse.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.Responses.ErrorResponse%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/supabase-community/gotrue-csharp/new/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/apiSpec/new?filename=Supabase_Gotrue_Exceptions_FailureHint_Reason.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.Exceptions.FailureHint.Reason%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/gotrue-csharp/blob/3a29cf1cc015bc65446ea30f3e8f9922156f8cbd/Gotrue/Responses/ErrorResponse.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/gotrue-csharp/blob/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/Gotrue/Exceptions/FailureReason.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

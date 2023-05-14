@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class UploadSignedUrl
+    <title>Class ClientOptions
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class UploadSignedUrl
+    <meta name="title" content="Class ClientOptions
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -68,65 +68,53 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Supabase.Storage.UploadSignedUrl">
+            <article class="content wrap" id="_content" data-uid="Supabase.Gotrue.ClientOptions">
   
   
-  <h1 id="Supabase_Storage_UploadSignedUrl" data-uid="Supabase.Storage.UploadSignedUrl" class="text-break">Class UploadSignedUrl
+  <h1 id="Supabase_Gotrue_ClientOptions" data-uid="Supabase.Gotrue.ClientOptions" class="text-break">Class ClientOptions
   </h1>
-  <div class="markdown level0 summary"><p>Represents a Generated Upload Signed Url - can be used to upload a file without needing a logged in token or user.</p>
+  <div class="markdown level0 summary"><p>Class representation options available to the <a class="xref" href="Supabase.Gotrue.Client.html">Client</a>.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">UploadSignedUrl</span></div>
+    <div class="level1"><span class="xref">ClientOptions</span></div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Storage.html">Supabase.Storage</a></h6>
-  <h6><strong>Assembly</strong>: Storage.dll</h6>
-  <h5 id="Supabase_Storage_UploadSignedUrl_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Gotrue.html">Supabase.Gotrue</a></h6>
+  <h6><strong>Assembly</strong>: Gotrue.dll</h6>
+  <h5 id="Supabase_Gotrue_ClientOptions_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class UploadSignedUrl : object</code></pre>
+    <pre><code class="lang-csharp hljs">public class ClientOptions : object</code></pre>
   </div>
-  <h3 id="constructors">Constructors
+  <h3 id="fields">Fields
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/8ef62bc671d9e8ca97209bd8e995ff1ad9ada1e1/apiSpec/new?filename=Supabase_Storage_UploadSignedUrl__ctor_Uri_System_String_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Storage.UploadSignedUrl.%23ctor(Uri%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/apiSpec/new?filename=Supabase_Gotrue_ClientOptions_Headers.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.ClientOptions.Headers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/8ef62bc671d9e8ca97209bd8e995ff1ad9ada1e1/Storage/UploadSignedUrl.cs/#L24">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/Gotrue/ClientOptions.cs/#L20">View Source</a>
   </span>
-  <a id="Supabase_Storage_UploadSignedUrl__ctor_" data-uid="Supabase.Storage.UploadSignedUrl.#ctor*"></a>
-  <h4 id="Supabase_Storage_UploadSignedUrl__ctor_Uri_System_String_System_String_" data-uid="Supabase.Storage.UploadSignedUrl.#ctor(Uri,System.String,System.String)">UploadSignedUrl(Uri, String, String)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="Supabase_Gotrue_ClientOptions_Headers" data-uid="Supabase.Gotrue.ClientOptions.Headers">Headers</h4>
+  <div class="markdown level1 summary"><p>Headers to be sent with subsequent requests.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public UploadSignedUrl(Uri signedUrl, string token, string key)</code></pre>
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, string&gt; Headers</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Uri</span></td>
-        <td><span class="parametername">signedUrl</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">token</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">key</span></td>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -135,19 +123,21 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/8ef62bc671d9e8ca97209bd8e995ff1ad9ada1e1/apiSpec/new?filename=Supabase_Storage_UploadSignedUrl_Key.md&amp;value=---%0Auid%3A%20Supabase.Storage.UploadSignedUrl.Key%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/apiSpec/new?filename=Supabase_Gotrue_ClientOptions_AllowUnconfirmedUserSessions.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.ClientOptions.AllowUnconfirmedUserSessions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/8ef62bc671d9e8ca97209bd8e995ff1ad9ada1e1/Storage/UploadSignedUrl.cs/#L22">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/Gotrue/ClientOptions.cs/#L33">View Source</a>
   </span>
-  <a id="Supabase_Storage_UploadSignedUrl_Key_" data-uid="Supabase.Storage.UploadSignedUrl.Key*"></a>
-  <h4 id="Supabase_Storage_UploadSignedUrl_Key" data-uid="Supabase.Storage.UploadSignedUrl.Key">Key</h4>
-  <div class="markdown level1 summary"><p>The Key that can be uploaded to (the supabase filename)</p>
+  <a id="Supabase_Gotrue_ClientOptions_AllowUnconfirmedUserSessions_" data-uid="Supabase.Gotrue.ClientOptions.AllowUnconfirmedUserSessions*"></a>
+  <h4 id="Supabase_Gotrue_ClientOptions_AllowUnconfirmedUserSessions" data-uid="Supabase.Gotrue.ClientOptions.AllowUnconfirmedUserSessions">AllowUnconfirmedUserSessions</h4>
+  <div class="markdown level1 summary"><p>Very unlikely this flag needs to be changed except in very specific contexts.</p>
+<p>Enables tests to be E2E tests to be run without requiring users to have
+confirmed emails - mirrors the Gotrue server's configuration.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Key { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool AllowUnconfirmedUserSessions { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -159,26 +149,26 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Boolean</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/8ef62bc671d9e8ca97209bd8e995ff1ad9ada1e1/apiSpec/new?filename=Supabase_Storage_UploadSignedUrl_SignedUrl.md&amp;value=---%0Auid%3A%20Supabase.Storage.UploadSignedUrl.SignedUrl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/apiSpec/new?filename=Supabase_Gotrue_ClientOptions_AutoRefreshToken.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.ClientOptions.AutoRefreshToken%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/8ef62bc671d9e8ca97209bd8e995ff1ad9ada1e1/Storage/UploadSignedUrl.cs/#L12">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/Gotrue/ClientOptions.cs/#L25">View Source</a>
   </span>
-  <a id="Supabase_Storage_UploadSignedUrl_SignedUrl_" data-uid="Supabase.Storage.UploadSignedUrl.SignedUrl*"></a>
-  <h4 id="Supabase_Storage_UploadSignedUrl_SignedUrl" data-uid="Supabase.Storage.UploadSignedUrl.SignedUrl">SignedUrl</h4>
-  <div class="markdown level1 summary"><p>The Full Signed Url</p>
+  <a id="Supabase_Gotrue_ClientOptions_AutoRefreshToken_" data-uid="Supabase.Gotrue.ClientOptions.AutoRefreshToken*"></a>
+  <h4 id="Supabase_Gotrue_ClientOptions_AutoRefreshToken" data-uid="Supabase.Gotrue.ClientOptions.AutoRefreshToken">AutoRefreshToken</h4>
+  <div class="markdown level1 summary"><p>Should the Client automatically handle refreshing the User's Token?</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Uri SignedUrl { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool AutoRefreshToken { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -190,26 +180,26 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Uri</span></td>
+        <td><span class="xref">System.Boolean</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/storage-csharp/new/8ef62bc671d9e8ca97209bd8e995ff1ad9ada1e1/apiSpec/new?filename=Supabase_Storage_UploadSignedUrl_Token.md&amp;value=---%0Auid%3A%20Supabase.Storage.UploadSignedUrl.Token%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/new/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/apiSpec/new?filename=Supabase_Gotrue_ClientOptions_Url.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.ClientOptions.Url%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/storage-csharp/blob/8ef62bc671d9e8ca97209bd8e995ff1ad9ada1e1/Storage/UploadSignedUrl.cs/#L17">View Source</a>
+    <a href="https://github.com/supabase-community/gotrue-csharp/blob/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/Gotrue/ClientOptions.cs/#L15">View Source</a>
   </span>
-  <a id="Supabase_Storage_UploadSignedUrl_Token_" data-uid="Supabase.Storage.UploadSignedUrl.Token*"></a>
-  <h4 id="Supabase_Storage_UploadSignedUrl_Token" data-uid="Supabase.Storage.UploadSignedUrl.Token">Token</h4>
-  <div class="markdown level1 summary"><p>The generated token</p>
+  <a id="Supabase_Gotrue_ClientOptions_Url_" data-uid="Supabase.Gotrue.ClientOptions.Url*"></a>
+  <h4 id="Supabase_Gotrue_ClientOptions_Url" data-uid="Supabase.Gotrue.ClientOptions.Url">Url</h4>
+  <div class="markdown level1 summary"><p>Gotrue Endpoint</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Token { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Url { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -234,10 +224,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/supabase-community/storage-csharp/new/8ef62bc671d9e8ca97209bd8e995ff1ad9ada1e1/apiSpec/new?filename=Supabase_Storage_UploadSignedUrl.md&amp;value=---%0Auid%3A%20Supabase.Storage.UploadSignedUrl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/supabase-community/gotrue-csharp/new/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/apiSpec/new?filename=Supabase_Gotrue_ClientOptions.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.ClientOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/storage-csharp/blob/8ef62bc671d9e8ca97209bd8e995ff1ad9ada1e1/Storage/UploadSignedUrl.cs/#L7" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/gotrue-csharp/blob/c12caf01b6ec00c88e1eeb489b2e5ea6ef999522/Gotrue/ClientOptions.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
