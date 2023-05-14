@@ -1,20 +1,24 @@
-﻿using System.Threading.Tasks;
-using Supabase.Gotrue;
-using Supabase.Interfaces;
+﻿using Supabase.Gotrue;
+using Supabase.Gotrue.Interfaces;
 
 namespace Supabase
 {
     /// <summary>
     /// Represents the default session handler for Gotrue - it does nothing by default.
     /// </summary>
-    public class DefaultSupabaseSessionHandler : ISupabaseSessionHandler
+    public class DefaultSupabaseSessionHandler : IGotrueSessionPersistence<Session>
     {
-        public Task<bool> SessionPersistor<TSession>(TSession session) where TSession : Session => Task.FromResult(true);
+        public void SaveSession(Session session)
+        {
+        }
 
+        public void DestroySession()
+        {
+        }
 
-        public Task<TSession?> SessionRetriever<TSession>() where TSession : Session => Task.FromResult<TSession?>(null);
-
-
-        public Task<bool> SessionDestroyer() => Task.FromResult(true);
+        public Session? LoadSession()
+        {
+            return null;
+        }
     }
 }

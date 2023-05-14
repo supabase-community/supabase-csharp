@@ -23,7 +23,7 @@ namespace Supabase
         /// <summary>
         /// Should the Client automatically connect to Realtime?
         /// </summary>
-        public bool AutoConnectRealtime { get; set; } = false;
+        public bool AutoConnectRealtime { get; set; }
 
         /// <summary>
         /// Should the Client call <see cref="SessionPersistor"/>, <see cref="SessionRetriever"/>, and <see cref="SessionDestroyer"/>?
@@ -35,7 +35,7 @@ namespace Supabase
         /// 
         /// **By default these do nothing for persistence.**
         /// </summary>
-        public ISupabaseSessionHandler SessionHandler { get; set; } = new DefaultSupabaseSessionHandler();
+        public IGotrueSessionPersistence<Session> SessionHandler { get; set; } = new DefaultSupabaseSessionHandler();
 
         public Dictionary<string, string> Headers = new Dictionary<string, string>();
 
