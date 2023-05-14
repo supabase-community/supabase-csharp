@@ -8,6 +8,11 @@ namespace SupabaseTests.Stubs
 {
     internal class FakeAuthClient : IGotrueClient<User, Session>
     {
+        public Task<Settings> Settings()
+        {
+            throw new NotImplementedException();
+        }
+
         public Session CurrentSession => throw new NotImplementedException();
 
         public User CurrentUser => throw new NotImplementedException();
@@ -149,6 +154,16 @@ namespace SupabaseTests.Stubs
         }
 
         public Task<Session> VerifyOTP(string email, string token, Constants.EmailOtpType type = Constants.EmailOtpType.MagicLink)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddDebugListener(Action<string, Exception> logDebug)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LoadSession()
         {
             throw new NotImplementedException();
         }
