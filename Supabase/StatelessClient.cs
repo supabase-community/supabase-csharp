@@ -6,7 +6,6 @@ using Postgrest.Responses;
 using Supabase.Core;
 using Supabase.Extensions;
 using Supabase.Functions.Interfaces;
-using Supabase.Gotrue;
 using Supabase.Storage;
 using Supabase.Storage.Interfaces;
 
@@ -17,11 +16,16 @@ namespace Supabase
     /// </summary>
     public static class StatelessClient
     {
-        public static Gotrue.ClientOptions GetAuthOptions<TSession>(string supabaseUrl, string? supabaseKey = null, SupabaseOptions? options = null)
-            where TSession : Session
+        /// <summary>
+        /// Returns an instance of <see cref="Gotrue.ClientOptions"/> given a provided url and key.
+        /// </summary>
+        /// <param name="supabaseUrl"></param>
+        /// <param name="supabaseKey"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static Gotrue.ClientOptions GetAuthOptions(string supabaseUrl, string? supabaseKey = null, SupabaseOptions? options = null)
         {
-            if (options == null)
-                options = new SupabaseOptions();
+            options ??= new SupabaseOptions();
 
             var headers = GetAuthHeaders(supabaseKey, options).MergeLeft(options.Headers);
 
@@ -32,10 +36,15 @@ namespace Supabase
             };
         }
 
+        /// <summary>
+        /// Returns an instance of <see cref="Postgrest.ClientOptions"/> for a given supabase key.
+        /// </summary>
+        /// <param name="supabaseKey"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public static Postgrest.ClientOptions GetRestOptions(string? supabaseKey = null, SupabaseOptions? options = null)
         {
-            if (options == null)
-                options = new SupabaseOptions();
+            options ??= new SupabaseOptions();
 
             var headers = GetAuthHeaders(supabaseKey, options).MergeLeft(options.Headers);
 
@@ -55,8 +64,7 @@ namespace Supabase
         /// <returns></returns>
         public static IStorageClient<Bucket, FileObject> Storage(string supabaseUrl, string? supabaseKey = null, SupabaseOptions? options = null)
         {
-            if (options == null)
-                options = new SupabaseOptions();
+            options ??= new SupabaseOptions();
 
             var headers = GetAuthHeaders(supabaseKey, options).MergeLeft(options.Headers);
 
@@ -72,8 +80,7 @@ namespace Supabase
         /// <returns></returns>
         public static IFunctionsClient Functions(string supabaseUrl, string supabaseKey, SupabaseOptions? options = null)
         {
-            if (options == null)
-                options = new SupabaseOptions();
+            options ??= new SupabaseOptions();
 
             // See: https://github.com/supabase/supabase-js/blob/09065a65f171bc28a9fd7b831af2c24e5f1a380b/src/SupabaseClient.ts#L77-L83
             var isPlatform = new Regex(@"/(supabase\.co)|(supabase\.in)/").Match(supabaseUrl);
@@ -103,8 +110,7 @@ namespace Supabase
         /// <returns></returns>
         public static SupabaseTable<T> From<T>(string supabaseUrl, string supabaseKey, SupabaseOptions? options = null) where T : BaseModel, new()
         {
-            if (options == null)
-                options = new SupabaseOptions();
+            options ??= new SupabaseOptions();
 
             var restUrl = string.Format(options.RestUrlFormat, supabaseUrl);
             var realtimeUrl = string.Format(options.RealtimeUrlFormat, supabaseUrl).Replace("http", "ws");
@@ -123,13 +129,15 @@ namespace Supabase
         /// <summary>
         /// Runs a remote procedure.
         /// </summary>
+        /// <param name="supabaseUrl"></param>
+        /// <param name="supabaseKey"></param>
         /// <param name="procedureName"></param>
         /// <param name="parameters"></param>
+        /// <param name="options"></param>
         /// <returns></returns>
         public static Task<BaseResponse> Rpc(string supabaseUrl, string supabaseKey, string procedureName, Dictionary<string, object> parameters, SupabaseOptions? options = null)
         {
-            if (options == null)
-                options = new SupabaseOptions();
+            options ??= new SupabaseOptions();
 
             return new Postgrest.Client(string.Format(options.RestUrlFormat, supabaseUrl), GetRestOptions(supabaseKey, options)).Rpc(procedureName, parameters);
         }
@@ -147,9 +155,9 @@ namespace Supabase
             }
 
             // In Regard To: https://github.com/supabase/supabase-csharp/issues/5
-            if (options.Headers.ContainsKey("Authorization"))
+            if (options.Headers.TryGetValue("Authorization", out var header))
             {
-                headers["Authorization"] = options.Headers["Authorization"];
+                headers["Authorization"] = header;
             }
             else
             {

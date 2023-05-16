@@ -25,7 +25,7 @@ namespace Supabase
         public bool AutoConnectRealtime { get; set; }
 
         /// <summary>
-        /// Should the Client call <see cref="SessionPersistor"/>, <see cref="SessionRetriever"/>, and <see cref="SessionDestroyer"/>?
+        /// Should the Client call <see cref="SessionHandler"/>?
         /// </summary>
         public bool PersistSession { get; set; } = true;
 
@@ -36,6 +36,10 @@ namespace Supabase
         /// </summary>
         public IGotrueSessionPersistence<Session> SessionHandler { get; set; } = new DefaultSupabaseSessionHandler();
 
+        /// <summary>
+        /// Headers that allow manual specifications of an "Authorization" to be passed to the supabase client.
+        /// This is unlikely to be used.
+        /// </summary>
         public Dictionary<string, string> Headers = new Dictionary<string, string>();
 
         /// <summary>
@@ -43,11 +47,29 @@ namespace Supabase
         /// </summary>
         public Storage.ClientOptions StorageClientOptions { get; set; } = new Storage.ClientOptions();
 
+        /// <summary>
+        /// The Supabase Auth Url Format
+        /// </summary>
         public string AuthUrlFormat { get; set; } = "{0}/auth/v1";
+        
+        /// <summary>
+        /// The Supabase Postgrest Url Format
+        /// </summary>
         public string RestUrlFormat { get; set; } = "{0}/rest/v1";
+        
+        /// <summary>
+        /// The Supabase Realtime Url Format
+        /// </summary>
         public string RealtimeUrlFormat { get; set; } = "{0}/realtime/v1";
+        
+        /// <summary>
+        /// The Supabase Storage Url Format
+        /// </summary>
         public string StorageUrlFormat { get; set; } = "{0}/storage/v1";
 
+        /// <summary>
+        /// The Supabase Functions Url Format
+        /// </summary>
         public string FunctionsUrlFormat { get; set; } = "{0}/functions/v1";
     }
 }

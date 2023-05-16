@@ -17,12 +17,14 @@
 		<PackageTags>supabase</PackageTags>
 		<ReleaseVersion>0.10.0</ReleaseVersion>
 		<PackageVersion>0.10.0</PackageVersion>
-		<PackageReleaseNotes></PackageReleaseNotes>
 	</PropertyGroup>
 	<PropertyGroup>
 		<Nullable>enable</Nullable>
 		<LangVersion>8.0</LangVersion>
 		<WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>
+	</PropertyGroup>
+	<PropertyGroup>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Version)' == '' ">
 		<VersionPrefix Condition=" '$(VersionPrefix)' == '' ">0.10.0</VersionPrefix>

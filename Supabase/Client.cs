@@ -23,6 +23,9 @@ namespace Supabase
     /// </summary>
     public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeChannel, Bucket, FileObject>
     {
+        /// <summary>
+        /// Realtime Channel event types for a postgrest listener
+        /// </summary>
         public enum ChannelEventType
         {
             Insert,
@@ -46,6 +49,7 @@ namespace Supabase
                 _auth.AddStateChangedListener(Auth_StateChanged);
             }
         }
+
         private IGotrueClient<User, Session> _auth;
 
         /// <summary>
@@ -61,6 +65,7 @@ namespace Supabase
                 _realtime = value;
             }
         }
+
         private IRealtimeClient<RealtimeSocket, RealtimeChannel> _realtime;
 
         /// <summary>
@@ -71,6 +76,7 @@ namespace Supabase
             get => _functions;
             set => _functions = value;
         }
+
         private IFunctionsClient _functions;
 
         /// <summary>
@@ -81,6 +87,7 @@ namespace Supabase
             get => _postgrest;
             set => _postgrest = value;
         }
+
         private IPostgrestClient _postgrest;
 
         /// <summary>
@@ -91,6 +98,7 @@ namespace Supabase
             get => _storage;
             set => _storage = value;
         }
+
         private IStorageClient<Bucket, FileObject> _storage;
 
         private readonly string? _supabaseKey;
@@ -105,7 +113,9 @@ namespace Supabase
         /// <param name="postgrest"></param>
         /// <param name="storage"></param>
         /// <param name="options"></param>
-        public Client(IGotrueClient<User, Session> auth, IRealtimeClient<RealtimeSocket, RealtimeChannel> realtime, IFunctionsClient functions, IPostgrestClient postgrest, IStorageClient<Bucket, FileObject> storage, SupabaseOptions options)
+        public Client(IGotrueClient<User, Session> auth, IRealtimeClient<RealtimeSocket, RealtimeChannel> realtime,
+            IFunctionsClient functions, IPostgrestClient postgrest, IStorageClient<Bucket, FileObject> storage,
+            SupabaseOptions options)
         {
             _auth = auth;
             _realtime = realtime;
@@ -181,7 +191,8 @@ namespace Supabase
         /// <summary>
         /// Attempts to retrieve the session from Gotrue (set in <see cref="SupabaseOptions"/>) and connects to realtime (if `options.AutoConnectRealtime` is set)
         /// </summary>
-        public async Task<ISupabaseClient<User, Session, RealtimeSocket, RealtimeChannel, Bucket, FileObject>> InitializeAsync()
+        public async Task<ISupabaseClient<User, Session, RealtimeSocket, RealtimeChannel, Bucket, FileObject>>
+            InitializeAsync()
         {
             await Auth.RetrieveSessionAsync();
 
@@ -221,7 +232,8 @@ namespace Supabase
         /// </summary>
         /// <typeparam name="TModel"></typeparam>
         /// <returns></returns>
-        public ISupabaseTable<TModel, RealtimeChannel> From<TModel>() where TModel : BaseModel, new() => new SupabaseTable<TModel>(Postgrest, Realtime);
+        public ISupabaseTable<TModel, RealtimeChannel> From<TModel>() where TModel : BaseModel, new() =>
+            new SupabaseTable<TModel>(Postgrest, Realtime);
 
         /// <summary>
         /// Runs a remote procedure.
@@ -229,7 +241,8 @@ namespace Supabase
         /// <param name="procedureName"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public Task<BaseResponse> Rpc(string procedureName, Dictionary<string, object> parameters) => _postgrest.Rpc(procedureName, parameters);
+        public Task<BaseResponse> Rpc(string procedureName, Dictionary<string, object> parameters) =>
+            _postgrest.Rpc(procedureName, parameters);
 
         internal Dictionary<string, string> GetAuthHeaders()
         {
