@@ -73,7 +73,8 @@
   
   <h1 id="Supabase_Interfaces_ISupabaseFunctions" data-uid="Supabase.Interfaces.ISupabaseFunctions" class="text-break">Interface ISupabaseFunctions
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Contract representing a wrapper <see cref="!:Functions"></see> client.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Interfaces.html">Supabase.Interfaces</a></h6>
   <h6><strong>Assembly</strong>: Supabase.dll</h6>
@@ -88,11 +89,12 @@
     <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Interfaces_ISupabaseFunctions_Invoke_System_String_System_Nullable_Dictionary_System_String_System_Object___.md&amp;value=---%0Auid%3A%20Supabase.Interfaces.ISupabaseFunctions.Invoke(System.String%2CSystem.Nullable%7BDictionary%7BSystem.String%2CSystem.Object%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Interfaces/ISupabaseFunctions.cs/#L9">View Source</a>
+    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Interfaces/ISupabaseFunctions.cs/#L19">View Source</a>
   </span>
   <a id="Supabase_Interfaces_ISupabaseFunctions_Invoke_" data-uid="Supabase.Interfaces.ISupabaseFunctions.Invoke*"></a>
   <h4 id="Supabase_Interfaces_ISupabaseFunctions_Invoke_System_String_System_Nullable_Dictionary_System_String_System_Object___" data-uid="Supabase.Interfaces.ISupabaseFunctions.Invoke(System.String,System.Nullable{Dictionary{System.String,System.Object}})">Invoke(String, Nullable&lt;Dictionary&lt;String, Object&gt;&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Invoke a supabase function</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -131,7 +133,8 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td></td>
+        <td><p>String content from invoke</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -140,11 +143,12 @@
     <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Interfaces_ISupabaseFunctions_Invoke__1_System_String_System_Nullable_Dictionary_System_String_System_Object___.md&amp;value=---%0Auid%3A%20Supabase.Interfaces.ISupabaseFunctions.Invoke%60%601(System.String%2CSystem.Nullable%7BDictionary%7BSystem.String%2CSystem.Object%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Interfaces/ISupabaseFunctions.cs/#L10">View Source</a>
+    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Interfaces/ISupabaseFunctions.cs/#L28">View Source</a>
   </span>
   <a id="Supabase_Interfaces_ISupabaseFunctions_Invoke_" data-uid="Supabase.Interfaces.ISupabaseFunctions.Invoke*"></a>
   <h4 id="Supabase_Interfaces_ISupabaseFunctions_Invoke__1_System_String_System_Nullable_Dictionary_System_String_System_Object___" data-uid="Supabase.Interfaces.ISupabaseFunctions.Invoke``1(System.String,System.Nullable{Dictionary{System.String,System.Object}})">Invoke&lt;T&gt;(String, Nullable&lt;Dictionary&lt;String, Object&gt;&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Invoke a supabase function and deserialize data to a provided model.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -184,7 +188,8 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span>&lt;T&gt;</td>
-        <td></td>
+        <td><p>The deserialized Model</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -199,7 +204,8 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>Model representing data that is compatible with <see cref="!:Newtonsoft"></see></p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -208,11 +214,12 @@
     <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Interfaces_ISupabaseFunctions_RawInvoke_System_String_System_Nullable_Dictionary_System_String_System_Object___.md&amp;value=---%0Auid%3A%20Supabase.Interfaces.ISupabaseFunctions.RawInvoke(System.String%2CSystem.Nullable%7BDictionary%7BSystem.String%2CSystem.Object%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Interfaces/ISupabaseFunctions.cs/#L11">View Source</a>
+    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Interfaces/ISupabaseFunctions.cs/#L36">View Source</a>
   </span>
   <a id="Supabase_Interfaces_ISupabaseFunctions_RawInvoke_" data-uid="Supabase.Interfaces.ISupabaseFunctions.RawInvoke*"></a>
   <h4 id="Supabase_Interfaces_ISupabaseFunctions_RawInvoke_System_String_System_Nullable_Dictionary_System_String_System_Object___" data-uid="Supabase.Interfaces.ISupabaseFunctions.RawInvoke(System.String,System.Nullable{Dictionary{System.String,System.Object}})">RawInvoke(String, Nullable&lt;Dictionary&lt;String, Object&gt;&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Invoke a supabase function and return the <see cref="!:HttpContent"></see> for the developer to parse.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -251,7 +258,8 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span>&lt;<span class="xref">HttpContent</span>&gt;</td>
-        <td></td>
+        <td><p>The HTTP Content</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -266,7 +274,7 @@
                     <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Interfaces_ISupabaseFunctions.md&amp;value=---%0Auid%3A%20Supabase.Interfaces.ISupabaseFunctions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Interfaces/ISupabaseFunctions.cs/#L7" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Interfaces/ISupabaseFunctions.cs/#L11" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

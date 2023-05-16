@@ -12813,6 +12813,15 @@ references:
   isSpec: "True"
   fullName: Supabase.StatelessClient.Functions
   nameWithType: StatelessClient.Functions
+- uid: Supabase.StatelessClient.GetAuthOptions(System.String,System.Nullable{System.String},Supabase.SupabaseOptions)
+  name: GetAuthOptions(String, Nullable<String>, SupabaseOptions)
+  href: api/Supabase.StatelessClient.html#Supabase_StatelessClient_GetAuthOptions_System_String_System_Nullable_System_String__Supabase_SupabaseOptions_
+  commentId: M:Supabase.StatelessClient.GetAuthOptions(System.String,System.Nullable{System.String},Supabase.SupabaseOptions)
+  name.vb: GetAuthOptions(String, Nullable(Of String), SupabaseOptions)
+  fullName: Supabase.StatelessClient.GetAuthOptions(System.String, System.Nullable<System.String>, Supabase.SupabaseOptions)
+  fullName.vb: Supabase.StatelessClient.GetAuthOptions(System.String, System.Nullable(Of System.String), Supabase.SupabaseOptions)
+  nameWithType: StatelessClient.GetAuthOptions(String, Nullable<String>, SupabaseOptions)
+  nameWithType.vb: StatelessClient.GetAuthOptions(String, Nullable(Of String), SupabaseOptions)
 - uid: Supabase.StatelessClient.GetAuthOptions*
   name: GetAuthOptions
   href: api/Supabase.StatelessClient.html#Supabase_StatelessClient_GetAuthOptions_
@@ -12820,15 +12829,6 @@ references:
   isSpec: "True"
   fullName: Supabase.StatelessClient.GetAuthOptions
   nameWithType: StatelessClient.GetAuthOptions
-- uid: Supabase.StatelessClient.GetAuthOptions``1(System.String,System.Nullable{System.String},Supabase.SupabaseOptions)
-  name: GetAuthOptions<TSession>(String, Nullable<String>, SupabaseOptions)
-  href: api/Supabase.StatelessClient.html#Supabase_StatelessClient_GetAuthOptions__1_System_String_System_Nullable_System_String__Supabase_SupabaseOptions_
-  commentId: M:Supabase.StatelessClient.GetAuthOptions``1(System.String,System.Nullable{System.String},Supabase.SupabaseOptions)
-  name.vb: GetAuthOptions(Of TSession)(String, Nullable(Of String), SupabaseOptions)
-  fullName: Supabase.StatelessClient.GetAuthOptions<TSession>(System.String, System.Nullable<System.String>, Supabase.SupabaseOptions)
-  fullName.vb: Supabase.StatelessClient.GetAuthOptions(Of TSession)(System.String, System.Nullable(Of System.String), Supabase.SupabaseOptions)
-  nameWithType: StatelessClient.GetAuthOptions<TSession>(String, Nullable<String>, SupabaseOptions)
-  nameWithType.vb: StatelessClient.GetAuthOptions(Of TSession)(String, Nullable(Of String), SupabaseOptions)
 - uid: Supabase.StatelessClient.GetRestOptions(System.Nullable{System.String},Supabase.SupabaseOptions)
   name: GetRestOptions(Nullable<String>, SupabaseOptions)
   href: api/Supabase.StatelessClient.html#Supabase_StatelessClient_GetRestOptions_System_Nullable_System_String__Supabase_SupabaseOptions_

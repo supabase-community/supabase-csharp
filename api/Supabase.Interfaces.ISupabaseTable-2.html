@@ -73,7 +73,8 @@
   
   <h1 id="Supabase_Interfaces_ISupabaseTable_2" data-uid="Supabase.Interfaces.ISupabaseTable`2" class="text-break">Interface ISupabaseTable&lt;TModel, TChannel&gt;
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Contract representing a supabase wrapped postgrest <see cref="!:IPostgrestTable&lt;T>"></see></p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Interfaces.html">Supabase.Interfaces</a></h6>
   <h6><strong>Assembly</strong>: Supabase.dll</h6>
@@ -93,11 +94,13 @@
     <tbody>
       <tr>
         <td><span class="parametername">TModel</span></td>
-        <td></td>
+        <td><p>Model that inherits from <see cref="!:BaseModel"></see> that represents this Table</p>
+</td>
       </tr>
       <tr>
         <td><span class="parametername">TChannel</span></td>
-        <td></td>
+        <td><p>Class that implements <see cref="!:IRealtimeChannel"></see></p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -108,15 +111,16 @@
     <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Interfaces_ISupabaseTable_2_On_Supabase_Client_ChannelEventType_Action_System_Object_PostgresChangesEventArgs__.md&amp;value=---%0Auid%3A%20Supabase.Interfaces.ISupabaseTable%602.On(Supabase.Client.ChannelEventType%2CAction%7BSystem.Object%2CPostgresChangesEventArgs%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Interfaces/ISupabaseTable.cs/#L14">View Source</a>
+    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Interfaces/ISupabaseTable.cs/#L25">View Source</a>
   </span>
   <a id="Supabase_Interfaces_ISupabaseTable_2_On_" data-uid="Supabase.Interfaces.ISupabaseTable`2.On*"></a>
   <h4 id="Supabase_Interfaces_ISupabaseTable_2_On_Supabase_Client_ChannelEventType_Action_System_Object_PostgresChangesEventArgs__" data-uid="Supabase.Interfaces.ISupabaseTable`2.On(Supabase.Client.ChannelEventType,Action{System.Object,PostgresChangesEventArgs})">On(Client.ChannelEventType, Action&lt;Object, PostgresChangesEventArgs&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Add a realtime listener to this table.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;TChannel&gt; On(Client.ChannelEventType e, Action&lt;object, PostgresChangesEventArgs&gt; action)</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;TChannel&gt; On(Client.ChannelEventType eventType, Action&lt;object, PostgresChangesEventArgs&gt; action)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -130,7 +134,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Supabase.Client.ChannelEventType.html">Client.ChannelEventType</a></td>
-        <td><span class="parametername">e</span></td>
+        <td><span class="parametername">eventType</span></td>
         <td></td>
       </tr>
       <tr>
@@ -166,7 +170,7 @@
                     <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Interfaces_ISupabaseTable_2.md&amp;value=---%0Auid%3A%20Supabase.Interfaces.ISupabaseTable%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Interfaces/ISupabaseTable.cs/#L10" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Interfaces/ISupabaseTable.cs/#L15" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
