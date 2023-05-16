@@ -25,11 +25,6 @@ namespace Supabase
         public bool AutoConnectRealtime { get; set; }
 
         /// <summary>
-        /// Should the Client call <see cref="SessionHandler"/>?
-        /// </summary>
-        public bool PersistSession { get; set; } = true;
-
-        /// <summary>
         /// Functions passed to Gotrue that handle sessions. 
         /// 
         /// **By default these do nothing for persistence.**
