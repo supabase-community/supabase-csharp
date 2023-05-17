@@ -14845,19 +14845,6 @@ references:
   commentId: F:Supabase.SupabaseOptions.Headers
   fullName: Supabase.SupabaseOptions.Headers
   nameWithType: SupabaseOptions.Headers
-- uid: Supabase.SupabaseOptions.PersistSession
-  name: PersistSession
-  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_PersistSession
-  commentId: P:Supabase.SupabaseOptions.PersistSession
-  fullName: Supabase.SupabaseOptions.PersistSession
-  nameWithType: SupabaseOptions.PersistSession
-- uid: Supabase.SupabaseOptions.PersistSession*
-  name: PersistSession
-  href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_PersistSession_
-  commentId: Overload:Supabase.SupabaseOptions.PersistSession
-  isSpec: "True"
-  fullName: Supabase.SupabaseOptions.PersistSession
-  nameWithType: SupabaseOptions.PersistSession
 - uid: Supabase.SupabaseOptions.RealtimeUrlFormat
   name: RealtimeUrlFormat
   href: api/Supabase.SupabaseOptions.html#Supabase_SupabaseOptions_RealtimeUrlFormat
