@@ -68,7 +68,7 @@ As for actually using the client, each service is listed as a property on `Supab
 1. `Supabase.Postgrest`
    - Is better accessed using `supabase.From<ModelName>()` as it provides a wrapper class with some helpful accessors (see below)
 2. `Supabase.Realtime`
-   - If used for listening to `postgres_changes` can be accessed using: `supabase.From<ModelName>().On(listenerType, (eventType, data) => {})`
+   - If used for listening to `postgres_changes` can be accessed using: `supabase.From<ModelName>().On(listenerType, (sender, response) => {})`
    - Otherwise, use `Supabase.Realtime.Channel("channel_name")` for `Broadcast` and `Presence` listeners.
 
 ```c#
@@ -91,19 +91,19 @@ var storageBucket = supabase.Storage.From("bucket_name");
 var realtime = supabase.Realtime.Channel("room_1");
 
 // Alternatively, shortcut syntax for postgres_changes
-var postgres_changes = supabase.From<TModel>().On(ChannelEventType.All, (type, args) =>
+await supabase.From<TModel>().On(ListenType.All, (sender, response) =>
 {
-  switch (type)
-  {
-      case ChannelEventType.Insert:
-          var model = args.Response.Model<TModel>();
-          break;
-      case ChannelEventType.Update:
-          var model = args.Response.Model<TModel>();
-          break;
-      case ChannelEventType.Delete:
-          break;
-  }
+    switch (response.Event)
+    {
+        case Constants.EventType.Insert:
+            break;
+        case Constants.EventType.Update:
+            break;
+        case Constants.EventType.Delete:
+            break;
+    }
+
+    Debug.WriteLine($"[{response.Event}]:{response.Topic}:{response.Payload.Data}");
 });
 ```
 
@@ -124,22 +124,22 @@ You can specify a session handler to persist user sessions in your app. For exam
 `CustomSessionHandler.cs`
 
 ```c#
-class CustomSessionHandler : Supabase.Interfaces.ISupabaseSessionHandler
+class CustomSessionHandler : IGotrueSessionPersistence<Session>
 {
-    public Task<bool> SessionDestroyer()
-    {
-        // Destroy Session on Filesystem or in browser storage
-        throw new NotImplementedException();
-    }
-
-    public Task<bool> SessionPersistor<TSession>(TSession session) where TSession : Session
+    public void SaveSession(Session session)
     {
         // Persist Session in Filesystem or in browser storage
         // JsonConvert.SerializeObject(session) will be helpful here!
         throw new NotImplementedException();
     }
 
-    public Task<TSession> SessionRetriever<TSession>() where TSession : Session
+    public void DestroySession()
+    {
+        // Destroy Session on Filesystem or in browser storage
+        throw new NotImplementedException();
+    }
+
+    public Session LoadSession()
     {
         // Retrieve Session from Filesystem or from browser storage
         // JsonConvert.DeserializeObject<TSession>(value) will be helpful here!

@@ -3,10 +3,14 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
+using Supabase.Gotrue;
+using Supabase.Gotrue.Interfaces;
 using static Supabase.Realtime.PostgresChanges.PostgresChangesOptions;
+using Constants = Supabase.Realtime.Constants;
 
 namespace SupabaseExample
 {
+    
     class Program
     {
         static async Task Main(string[] args)
@@ -23,6 +27,15 @@ namespace SupabaseExample
             await reference.On(ListenType.All,
                 (sender, response) =>
                 {
+                    switch (response.Event)
+                    {
+                        case Constants.EventType.Insert:
+                            break;
+                        case Constants.EventType.Update:
+                            break;
+                        case Constants.EventType.Delete:
+                            break;
+                    }
                     Debug.WriteLine($"[{response.Event}]:{response.Topic}:{response.Payload.Data}");
                 });
 
@@ -64,6 +77,7 @@ namespace SupabaseExample
 
             await storage.EmptyBucket("testing");
             await storage.DeleteBucket("testing");
+            
 
             #endregion
         }

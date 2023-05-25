@@ -24,17 +24,6 @@ namespace Supabase
     public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeChannel, Bucket, FileObject>
     {
         /// <summary>
-        /// Realtime Channel event types for a postgrest listener
-        /// </summary>
-        public enum ChannelEventType
-        {
-            Insert,
-            Update,
-            Delete,
-            All
-        }
-
-        /// <summary>
         /// Supabase Auth allows you to create and manage user sessions for access to data that is secured by access policies.
         /// </summary>
         public IGotrueClient<User, Session> Auth
@@ -214,7 +203,7 @@ namespace Supabase
                         Realtime.SetAuth(Auth.CurrentSession.AccessToken);
                     break;
 
-                // Remove Realtime Subscriptions on Auth Signout.
+                // Remove Realtime Subscriptions on Auth Sign-out.
                 case AuthState.SignedOut:
                     if (Realtime.Subscriptions.Values != null)
                         foreach (var subscription in Realtime.Subscriptions.Values)
@@ -246,9 +235,10 @@ namespace Supabase
 
         internal Dictionary<string, string> GetAuthHeaders()
         {
-            var headers = new Dictionary<string, string>();
-
-            headers["X-Client-Info"] = Util.GetAssemblyVersion(typeof(Client));
+            var headers = new Dictionary<string, string>
+            {
+                ["X-Client-Info"] = Util.GetAssemblyVersion(typeof(Client))
+            };
 
             if (_supabaseKey != null)
             {
