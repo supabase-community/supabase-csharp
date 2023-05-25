@@ -82,9 +82,11 @@
 <p>It maintains a singular Websocket with asynchronous listeners (RealtimeChannels).</p>
 </section>
       <h4><a class="xref" href="Supabase.Realtime.ClientOptions.html">ClientOptions</a></h4>
-      <section></section>
+      <section><p>Options used when initializing a <a class="xref" href="Supabase.Realtime.Client.html">Client</a></p>
+</section>
       <h4><a class="xref" href="Supabase.Realtime.Constants.html">Constants</a></h4>
-      <section></section>
+      <section><p>Shared constants for Realtime</p>
+</section>
       <h4><a class="xref" href="Supabase.Realtime.RealtimeBroadcast-1.html">RealtimeBroadcast&lt;TBroadcastModel&gt;</a></h4>
       <section><p>Represents a realtime broadcast client.</p>
 <p>Broadcast follows the publish-subscribe pattern where a client publishes messages to a channel with a unique identifier.
@@ -107,16 +109,21 @@ If a client is suddenly disconnected (for example, they go offline), their state
     <h3 id="enums">Enums
   </h3>
       <h4><a class="xref" href="Supabase.Realtime.Constants.ChannelEventName.html">Constants.ChannelEventName</a></h4>
-      <section></section>
+      <section><p>Mapping for event names that can be used with <a class="xref" href="Supabase.Realtime.RealtimeChannel.html#Supabase_Realtime_RealtimeChannel_Push_System_String_System_Nullable_System_String__System_Nullable_System_Object__System_Int32_">Push(String, Nullable&lt;String&gt;, Nullable&lt;Object&gt;, Int32)</a> to send arbitrary data.
+This is unlikely to be used by the developer.</p>
+</section>
       <h4><a class="xref" href="Supabase.Realtime.Constants.ChannelState.html">Constants.ChannelState</a></h4>
-      <section><p>Channel state with associated string representations.</p>
+      <section><p>Mapping of channel states, used with <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a></p>
 </section>
       <h4><a class="xref" href="Supabase.Realtime.Constants.EventType.html">Constants.EventType</a></h4>
-      <section></section>
+      <section><p>A channel event type used and parsed in a <a class="xref" href="Supabase.Realtime.Socket.SocketResponse.html">SocketResponse</a></p>
+</section>
       <h4><a class="xref" href="Supabase.Realtime.Constants.PresenceListenEventTypes.html">Constants.PresenceListenEventTypes</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Supabase.Realtime.Constants.SocketStates.html">Constants.SocketStates</a></h4>
-      <section></section>
+      <section><p>Map of Presence listener types, used with: <a class="xref" href="Supabase.Realtime.RealtimePresence-1.html">RealtimePresence&lt;TPresenceModel&gt;</a></p>
+</section>
+      <h4><a class="xref" href="Supabase.Realtime.Constants.SocketState.html">Constants.SocketState</a></h4>
+      <section><p>The Current Socket state, used in <a class="xref" href="Supabase.Realtime.RealtimeSocket.html">RealtimeSocket</a></p>
+</section>
 </article>
           </div>
           

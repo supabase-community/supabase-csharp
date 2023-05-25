@@ -78,19 +78,75 @@
     <h3 id="interfaces">Interfaces
   </h3>
       <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeBroadcast.html">IRealtimeBroadcast</a></h4>
-      <section></section>
+      <section><p>A contract representing a realtime broadcast</p>
+</section>
       <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeChannel.html">IRealtimeChannel</a></h4>
-      <section></section>
+      <section><p>A contract representing a realtime channel</p>
+</section>
       <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.html">IRealtimeClient&lt;TSocket, TChannel&gt;</a></h4>
-      <section></section>
+      <section><p>Contract representing a Realtime Client</p>
+</section>
+      <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeDebugger.html">IRealtimeDebugger</a></h4>
+      <section><p>Contract representing an internal debugger.</p>
+</section>
       <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimePresence.html">IRealtimePresence</a></h4>
-      <section></section>
+      <section><p>Contract representing a Realtime Presence class</p>
+</section>
       <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimePush-2.html">IRealtimePush&lt;TChannel, TSocketResponse&gt;</a></h4>
-      <section></section>
+      <section><p>Contract representing a &quot;Push&quot; or an outgoing message to the socket server</p>
+</section>
       <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeSocket.html">IRealtimeSocket</a></h4>
-      <section></section>
+      <section><p>Contract for a realtime socket.</p>
+</section>
       <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeSocketResponse.html">IRealtimeSocketResponse</a></h4>
-      <section></section>
+      <section><p>Contract for a socket response</p>
+</section>
+    <h3 id="enums">Enums
+  </h3>
+      <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimePresence.EventType.html">IRealtimePresence.EventType</a></h4>
+      <section><p>Mapping of presence event types</p>
+</section>
+    <h3 id="delegates">Delegates
+  </h3>
+      <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeBroadcast.BroadcastEventHandler.html">IRealtimeBroadcast.BroadcastEventHandler</a></h4>
+      <section><p>A delegate for broadcast events</p>
+</section>
+      <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeChannel.ErrorEventHandler.html">IRealtimeChannel.ErrorEventHandler</a></h4>
+      <section><p>Delegate for errors on this channel</p>
+</section>
+      <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeChannel.MessageReceivedHandler.html">IRealtimeChannel.MessageReceivedHandler</a></h4>
+      <section><p>Delegate for messages received on this channel</p>
+</section>
+      <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeChannel.PostgresChangesHandler.html">IRealtimeChannel.PostgresChangesHandler</a></h4>
+      <section><p>Delegate for postgres changes</p>
+</section>
+      <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeChannel.StateChangedHandler.html">IRealtimeChannel.StateChangedHandler</a></h4>
+      <section><p>Delegate for channel state changes</p>
+</section>
+      <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.SocketStateEventHandler.html">IRealtimeClient&lt;TSocket, TChannel&gt;.SocketStateEventHandler</a></h4>
+      <section><p>Delegate for handling a socket state event, this can be seen as synonymous with the Client's state.</p>
+</section>
+      <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeDebugger.DebugEventHandler.html">IRealtimeDebugger.DebugEventHandler</a></h4>
+      <section><p>A debug event handler</p>
+</section>
+      <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimePresence.PresenceEventHandler.html">IRealtimePresence.PresenceEventHandler</a></h4>
+      <section><p>Delegate for a presence event.</p>
+</section>
+      <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimePush-2.MessageEventHandler.html">IRealtimePush&lt;TChannel, TSocketResponse&gt;.MessageEventHandler</a></h4>
+      <section><p>Delegate for a message event.</p>
+</section>
+      <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeSocket.ErrorEventHandler.html">IRealtimeSocket.ErrorEventHandler</a></h4>
+      <section><p>Delegate for errors on this socket</p>
+</section>
+      <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeSocket.HeartbeatEventHandler.html">IRealtimeSocket.HeartbeatEventHandler</a></h4>
+      <section><p>Delegate for handling a heartbeat event.</p>
+</section>
+      <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeSocket.MessageEventHandler.html">IRealtimeSocket.MessageEventHandler</a></h4>
+      <section><p>Delegate for handling message received events.</p>
+</section>
+      <h4><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeSocket.StateEventHandler.html">IRealtimeSocket.StateEventHandler</a></h4>
+      <section><p>Delegate for handling socket state changes.</p>
+</section>
 </article>
           </div>
           
