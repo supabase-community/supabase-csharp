@@ -1,10 +1,8 @@
 @page "/uploadfile"
 
-@using MudBlazor
-
 @inject StorageService StorageService
 @inject ISnackbar Snackbar
-@inject IJSRuntime JS
+@inject IJSRuntime Js
 @inject IDialogService DialogService
 
 <div class="pa-16">
@@ -28,7 +26,7 @@
                         </MudButton>
                     </ButtonTemplate>
                 </MudFileUpload>
-                <MudText Typo="Typo.caption">Max file size: @maxFileSizeInMB MB</MudText>
+                <MudText Typo="Typo.caption">Max file size: @_maxFileSizeInMb MB</MudText>
 
 
                 <br>
@@ -36,7 +34,7 @@
                 <MudText Typo="Typo.h6">List of files uploaded</MudText>
                 <br>
 
-                @if (fileObjects == null)
+                @if (FileObjects == null)
                 {
                     <MudSimpleTable>
                         <thead>
@@ -53,7 +51,7 @@
                         </tbody>
                     </MudSimpleTable>
                 }
-                else if (fileObjects.Count <= 1)
+                else if (FileObjects.Count <= 1)
                 {
                     <MudSimpleTable>
                         <thead>
@@ -79,14 +77,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var row in fileObjects)
+                            @foreach (var row in FileObjects)
                             {
                                 if (row.Name != ".emptyFolderPlaceholder")
                                 {
                                     <tr>
                                         <td>
-                                            <MudIconButton Icon="@Icons.Material.Filled.Download" aria-label="download" Size="MudBlazor.Size.Small"
-                                                OnClick="@(async (e) => {await DownloadClick(row);})" />
+                                            <MudIconButton Icon="@Icons.Material.Filled.Download" aria-label="download" Size="Size.Small"
+                                                OnClick="@(async (_) => {await DownloadClick(row);})" />
                                             @row.Name
                                         </td>
                                         <td>@row.CreatedAt</td>

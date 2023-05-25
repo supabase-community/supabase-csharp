@@ -2,37 +2,37 @@
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
 using MudBlazor;
-using Postgrest;
+using Supabase.Functions;
 
 namespace BlazorWebAssemblySupabaseTemplate.Services;
 
 public class DatabaseService
 {
-	private readonly Supabase.Client client;
-	private readonly AuthenticationStateProvider customAuthStateProvider;
-	private readonly ILocalStorageService localStorage;
-	private readonly ILogger<DatabaseService> logger;
-    private readonly IDialogService DialogService;
+	private readonly Supabase.Client _client;
+	private readonly AuthenticationStateProvider _customAuthStateProvider;
+	private readonly ILocalStorageService _localStorage;
+	private readonly ILogger<DatabaseService> _logger;
+    private readonly IDialogService _dialogService;
 
     public DatabaseService(
         Supabase.Client client,
-        AuthenticationStateProvider CustomAuthStateProvider,
+        AuthenticationStateProvider customAuthStateProvider,
         ILocalStorageService localStorage,
         ILogger<DatabaseService> logger,
-        IDialogService dialogService) : base()
+        IDialogService dialogService)
     {
         logger.LogInformation("------------------- CONSTRUCTOR -------------------");
 
-        this.client = client;
-        customAuthStateProvider = CustomAuthStateProvider;
-        this.localStorage = localStorage;
-        this.logger = logger;
-        DialogService = dialogService;
+        _client = client;
+        _customAuthStateProvider = customAuthStateProvider;
+        _localStorage = localStorage;
+        _logger = logger;
+        _dialogService = dialogService;
     }
 
     public async Task<IReadOnlyList<TModel>> From<TModel>() where TModel : BaseModelApp, new()
 	{
-		Postgrest.Responses.ModeledResponse<TModel> modeledResponse = await client
+		var modeledResponse = await _client
 			.From<TModel>()
 			.Where(x => x.SoftDeleted == false)
 			.Get();
@@ -41,7 +41,7 @@ public class DatabaseService
 
 	public async Task<List<TModel>> Delete<TModel>(TModel item) where TModel : BaseModelApp, new()
 	{
-		Postgrest.Responses.ModeledResponse<TModel> modeledResponse = await client
+		var modeledResponse = await _client
 			.From<TModel>()
 			.Delete(item);
 		return modeledResponse.Models;
@@ -52,21 +52,21 @@ public class DatabaseService
 		Postgrest.Responses.ModeledResponse<TModel> modeledResponse;
 		try
 		{
-			modeledResponse = await client
+			modeledResponse = await _client
 				.From<TModel>()
 				.Insert(item);			
 			
 			return modeledResponse.Models;
 		}
-		catch (RequestException ex)
+		catch (Client.RequestException ex)
 		{
 			if(ex.Response?.StatusCode == HttpStatusCode.Forbidden)
-				await DialogService.ShowMessageBox(
+				await _dialogService.ShowMessageBox(
 					"Warning",
 					"This database resquest was forbidden."
 				);
 			else		
-				await DialogService.ShowMessageBox(
+				await _dialogService.ShowMessageBox(
 					"Warning",
 					"This request was not completed because of some problem with the http request. \n "
 					+ex.Response?.RequestMessage
@@ -78,7 +78,7 @@ public class DatabaseService
 
 	public async Task<List<TModel>> SoftDelete<TModel>(TModel item) where TModel : BaseModelApp, new()
     {
-        Postgrest.Responses.ModeledResponse<TModel> modeledResponse = await client.Postgrest
+        var modeledResponse = await _client.Postgrest
 			.Table<TModel>()
             .Set(x => x.SoftDeleted, true)
             .Set(x => x.SoftDeletedAt, DateTime.Now)
@@ -87,5 +87,4 @@ public class DatabaseService
             .Update();
         return modeledResponse.Models;
     }
-
 }
