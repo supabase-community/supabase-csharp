@@ -557,23 +557,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Client.ChannelEventType.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Client.ChannelEventType.html",
-          "hash": "BXmyvYmo3FeBlv5iPKC/Xg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/Supabase.Client.yml",
       "output": {
         ".html": {
           "relative_path": "api/Supabase.Client.html",
-          "hash": "6YCdZ7XcdXEHmmzEadWBfw=="
+          "hash": "2d8PbKrrQgeEC/5/+kt2WQ=="
         }
       },
       "is_incremental": false,
@@ -2709,7 +2697,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Supabase.html",
-          "hash": "o0NJ8hJfhGQnQGJf7Ya8jw=="
+          "hash": "ENaFsaRkSYwxTjGJ53XhDw=="
         }
       },
       "is_incremental": false,
@@ -2733,7 +2721,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "QOMHNPMLYgrD9MReai9YzA=="
+          "hash": "tE7EG9A3Y1sLELnG4tzIpg=="
         }
       },
       "is_incremental": false,
@@ -2808,7 +2796,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 226,
+          "total_file_count": 225,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

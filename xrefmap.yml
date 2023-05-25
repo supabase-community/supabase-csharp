@@ -3479,36 +3479,6 @@ references:
   isSpec: "True"
   fullName: Supabase.Client.Auth
   nameWithType: Client.Auth
-- uid: Supabase.Client.ChannelEventType
-  name: Client.ChannelEventType
-  href: api/Supabase.Client.ChannelEventType.html
-  commentId: T:Supabase.Client.ChannelEventType
-  fullName: Supabase.Client.ChannelEventType
-  nameWithType: Client.ChannelEventType
-- uid: Supabase.Client.ChannelEventType.All
-  name: All
-  href: api/Supabase.Client.ChannelEventType.html#Supabase_Client_ChannelEventType_All
-  commentId: F:Supabase.Client.ChannelEventType.All
-  fullName: Supabase.Client.ChannelEventType.All
-  nameWithType: Client.ChannelEventType.All
-- uid: Supabase.Client.ChannelEventType.Delete
-  name: Delete
-  href: api/Supabase.Client.ChannelEventType.html#Supabase_Client_ChannelEventType_Delete
-  commentId: F:Supabase.Client.ChannelEventType.Delete
-  fullName: Supabase.Client.ChannelEventType.Delete
-  nameWithType: Client.ChannelEventType.Delete
-- uid: Supabase.Client.ChannelEventType.Insert
-  name: Insert
-  href: api/Supabase.Client.ChannelEventType.html#Supabase_Client_ChannelEventType_Insert
-  commentId: F:Supabase.Client.ChannelEventType.Insert
-  fullName: Supabase.Client.ChannelEventType.Insert
-  nameWithType: Client.ChannelEventType.Insert
-- uid: Supabase.Client.ChannelEventType.Update
-  name: Update
-  href: api/Supabase.Client.ChannelEventType.html#Supabase_Client_ChannelEventType_Update
-  commentId: F:Supabase.Client.ChannelEventType.Update
-  fullName: Supabase.Client.ChannelEventType.Update
-  nameWithType: Client.ChannelEventType.Update
 - uid: Supabase.Client.From*
   name: From
   href: api/Supabase.Client.html#Supabase_Client_From_
