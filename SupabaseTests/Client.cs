@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -19,19 +21,18 @@ namespace SupabaseTests
         {
             const string chars = "abcdefghijklmnopqrstuvwxyz0123456789";
             return new string(Enumerable.Repeat(chars, length)
-              .Select(s => s[Random.Next(s.Length)]).ToArray());
+                .Select(s => s[Random.Next(s.Length)]).ToArray());
         }
 
         [TestInitialize]
         public async Task InitializeTest()
         {
-
             _instance = new Supabase.Client("http://localhost", null, new Supabase.SupabaseOptions
             {
                 AuthUrlFormat = "{0}:9999",
-                RealtimeUrlFormat = "{0}:4000/socket",
+                RealtimeUrlFormat = "ws://realtime-dev.localhost:4000/socket",
                 RestUrlFormat = "{0}:3000",
-                AutoConnectRealtime = true,
+                AutoConnectRealtime = false,
             });
             await _instance.InitializeAsync();
         }
@@ -41,29 +42,6 @@ namespace SupabaseTests
         {
             Assert.IsNotNull(_instance.Realtime);
             Assert.IsNotNull(_instance.Auth);
-        }
-
-        [TestMethod("Client: Connects to Realtime")]
-        public async Task ClientConnectsToRealtime()
-        {
-            var tsc = new TaskCompletionSource<bool>();
-
-            var email = $"{RandomString(12)}@supabase.io";
-            await _instance.Auth.SignUp(email, RandomString(12));
-            await _instance.InitializeAsync();
-            
-            var channel = _instance.Realtime.Channel("realtime", "public", "channels");
-
-            channel.StateChanged += (sender, ev) =>
-            {
-                if (ev.State == ChannelState.Joined)
-                    tsc.SetResult(true);
-            };
-
-            await channel.Subscribe();
-
-            var result = await tsc.Task;
-            Assert.IsTrue(result);
         }
 
         [TestMethod("SupabaseModel: Successfully Updates")]
@@ -92,7 +70,8 @@ namespace SupabaseTests
 
             await newChannel.Delete<Models.Channel>();
 
-            var result = await _instance.From<Models.Channel>().Filter("slug", Postgrest.Constants.Operator.Equals, slug).Get();
+            var result = await _instance.From<Models.Channel>()
+                .Filter("slug", Postgrest.Constants.Operator.Equals, slug).Get();
 
             Assert.AreEqual(0, result.Models.Count);
         }

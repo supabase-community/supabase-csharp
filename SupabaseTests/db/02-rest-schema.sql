@@ -7,3 +7,4 @@ CREATE TABLE public.channels (
   slug text
 );
 ALTER TABLE public.channels REPLICA IDENTITY FULL;
+ALTER publication supabase_realtime add table public.channels;

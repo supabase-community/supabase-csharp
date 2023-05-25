@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
+using static Supabase.Realtime.PostgresChanges.PostgresChangesOptions;
 
 namespace SupabaseExample
 {
@@ -19,16 +20,18 @@ namespace SupabaseExample
 
             var reference = supabase.From<Models.Channel>();
 
-            await reference.On(Supabase.Client.ChannelEventType.All, (sender, ev) =>
-            {
-                Debug.WriteLine($"[{ev.Response.Event}]:{ev.Response.Topic}:{ev.Response.Payload.Data}");
-            });
+            await reference.On(ListenType.All,
+                (sender, response) =>
+                {
+                    Debug.WriteLine($"[{response.Event}]:{response.Topic}:{response.Payload.Data}");
+                });
 
             var channels = await reference.Get();
 
             //await reference.Insert(new Models.Channel { Slug = GenerateName(10), InsertedAt = DateTime.Now });
 
             #region Storage
+
             var storage = supabase.Storage;
 
             var exists = await storage.GetBucket("testing") != null;
@@ -41,10 +44,13 @@ namespace SupabaseExample
                 Debug.WriteLine($"[{b.Id}] {b.Name}");
 
             var bucket = storage.From("testing");
-            var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase).Replace("file:", "").Replace("C:\\", "");
+            var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase).Replace("file:", "")
+                .Replace("C:\\", "");
             var imagePath = Path.Combine(basePath, "Assets", "supabase-csharp.png");
 
-            Debug.WriteLine(await bucket.Upload(imagePath, "supabase-csharp.png", new Supabase.Storage.FileOptions { Upsert = true }, (sender, args) => Debug.WriteLine($"Upload Progress: {args}%")));
+            Debug.WriteLine(await bucket.Upload(imagePath, "supabase-csharp.png",
+                new Supabase.Storage.FileOptions { Upsert = true },
+                (sender, args) => Debug.WriteLine($"Upload Progress: {args}%")));
             Debug.WriteLine(bucket.GetPublicUrl("supabase-csharp.png"));
             Debug.WriteLine(await bucket.CreateSignedUrl("supabase-csharp.png", 3600));
 
@@ -53,10 +59,12 @@ namespace SupabaseExample
             foreach (var item in bucketItems)
                 Debug.WriteLine($"[{item.Id}] {item.Name} - {item.CreatedAt}");
 
-            Debug.WriteLine(await bucket.Download("supabase-csharp.png", Path.Combine(basePath, "testing-download.png"), (sender, args) => Debug.WriteLine($"Download Progress: {args}%")));
+            Debug.WriteLine(await bucket.Download("supabase-csharp.png", Path.Combine(basePath, "testing-download.png"),
+                (sender, args) => Debug.WriteLine($"Download Progress: {args}%")));
 
             await storage.EmptyBucket("testing");
             await storage.DeleteBucket("testing");
+
             #endregion
         }
 
@@ -64,12 +72,17 @@ namespace SupabaseExample
         static string GenerateName(int len)
         {
             Random r = new Random();
-            string[] consonants = { "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "l", "n", "p", "q", "r", "s", "sh", "zh", "t", "v", "w", "x" };
+            string[] consonants =
+            {
+                "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "l", "n", "p", "q", "r", "s", "sh", "zh", "t", "v",
+                "w", "x"
+            };
             string[] vowels = { "a", "e", "i", "o", "u", "ae", "y" };
             string Name = "";
             Name += consonants[r.Next(consonants.Length)].ToUpper();
             Name += vowels[r.Next(vowels.Length)];
-            int b = 2; //b tells how many times a new letter has been added. It's 2 right now because the first two letters are already in the name.
+            int
+                b = 2; //b tells how many times a new letter has been added. It's 2 right now because the first two letters are already in the name.
             while (b < len)
             {
                 Name += consonants[r.Next(consonants.Length)];

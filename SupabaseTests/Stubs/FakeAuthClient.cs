@@ -123,6 +123,11 @@ namespace SupabaseTests.Stubs
         public Task<Session> SignInWithIdToken(Constants.Provider provider, string idToken, string nonce = null, string captchaToken = null) { throw new NotImplementedException(); }
         public Task<Session> ExchangeCodeForSession(string codeVerifier, string authCode) { throw new NotImplementedException(); }
 
+        public Task<bool> Reauthenticate()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task SignOut()
         {
             throw new NotImplementedException();
