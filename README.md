@@ -39,6 +39,16 @@ Care has been taken to mirror, as much as possible, the [Javascript Supabase API
 
 _Note: `supabase-csharp` has some APIs that require the `service_key` rather than the `public_key` (for instance: the administration of users, bypassing database roles, etc.). If you are using the `service_key` **be sure it is not exposed client side.** Additionally, if you need to use both a service account and a public/user account, please do so using a separate client instance for each._
 
+#### Note for Projects defaulting to `System.Text.Json` (i.e. Blazor WASM):
+You will need to install NewtonsoftJson support:
+```bash
+dotnet add package Microsoft.AspNetCore.Mvc.NewtonsoftJson --version 7.0.5
+```
+And include the following in your initialization code:
+```c#
+builder.Services.AddControllers().AddNewtonsoftJson();
+````
+
 ### Initializing a Client
 
 Initializing a barebones client is pretty simple.
