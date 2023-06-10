@@ -16,6 +16,7 @@ namespace SupabaseTests.Stubs
         public Session CurrentSession => throw new NotImplementedException();
 
         public User CurrentUser => throw new NotImplementedException();
+        public ClientOptions Options { get; }
 
         public Func<Dictionary<string, string>> GetHeaders { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
