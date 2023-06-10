@@ -3924,51 +3924,151 @@ references:
   isSpec: "True"
   fullName: Supabase.Functions.Client.RawInvoke
   nameWithType: Client.RawInvoke
-- uid: Supabase.Functions.Client.RequestException
-  name: Client.RequestException
-  href: api/Supabase.Functions.Client.RequestException.html
-  commentId: T:Supabase.Functions.Client.RequestException
-  fullName: Supabase.Functions.Client.RequestException
-  nameWithType: Client.RequestException
-- uid: Supabase.Functions.Client.RequestException.#ctor(HttpResponseMessage,Supabase.Functions.Responses.ErrorResponse)
-  name: RequestException(HttpResponseMessage, ErrorResponse)
-  href: api/Supabase.Functions.Client.RequestException.html#Supabase_Functions_Client_RequestException__ctor_HttpResponseMessage_Supabase_Functions_Responses_ErrorResponse_
-  commentId: M:Supabase.Functions.Client.RequestException.#ctor(HttpResponseMessage,Supabase.Functions.Responses.ErrorResponse)
-  fullName: Supabase.Functions.Client.RequestException.RequestException(HttpResponseMessage, Supabase.Functions.Responses.ErrorResponse)
-  nameWithType: Client.RequestException.RequestException(HttpResponseMessage, ErrorResponse)
-- uid: Supabase.Functions.Client.RequestException.#ctor*
-  name: RequestException
-  href: api/Supabase.Functions.Client.RequestException.html#Supabase_Functions_Client_RequestException__ctor_
-  commentId: Overload:Supabase.Functions.Client.RequestException.#ctor
+- uid: Supabase.Functions.Exceptions
+  name: Supabase.Functions.Exceptions
+  href: api/Supabase.Functions.Exceptions.html
+  commentId: N:Supabase.Functions.Exceptions
+  fullName: Supabase.Functions.Exceptions
+  nameWithType: Supabase.Functions.Exceptions
+- uid: Supabase.Functions.Exceptions.FailureHint
+  name: FailureHint
+  href: api/Supabase.Functions.Exceptions.FailureHint.html
+  commentId: T:Supabase.Functions.Exceptions.FailureHint
+  fullName: Supabase.Functions.Exceptions.FailureHint
+  nameWithType: FailureHint
+- uid: Supabase.Functions.Exceptions.FailureHint.DetectReason(Supabase.Functions.Exceptions.FunctionsException)
+  name: DetectReason(FunctionsException)
+  href: api/Supabase.Functions.Exceptions.FailureHint.html#Supabase_Functions_Exceptions_FailureHint_DetectReason_Supabase_Functions_Exceptions_FunctionsException_
+  commentId: M:Supabase.Functions.Exceptions.FailureHint.DetectReason(Supabase.Functions.Exceptions.FunctionsException)
+  fullName: Supabase.Functions.Exceptions.FailureHint.DetectReason(Supabase.Functions.Exceptions.FunctionsException)
+  nameWithType: FailureHint.DetectReason(FunctionsException)
+- uid: Supabase.Functions.Exceptions.FailureHint.DetectReason*
+  name: DetectReason
+  href: api/Supabase.Functions.Exceptions.FailureHint.html#Supabase_Functions_Exceptions_FailureHint_DetectReason_
+  commentId: Overload:Supabase.Functions.Exceptions.FailureHint.DetectReason
   isSpec: "True"
-  fullName: Supabase.Functions.Client.RequestException.RequestException
-  nameWithType: Client.RequestException.RequestException
-- uid: Supabase.Functions.Client.RequestException.Error
-  name: Error
-  href: api/Supabase.Functions.Client.RequestException.html#Supabase_Functions_Client_RequestException_Error
-  commentId: P:Supabase.Functions.Client.RequestException.Error
-  fullName: Supabase.Functions.Client.RequestException.Error
-  nameWithType: Client.RequestException.Error
-- uid: Supabase.Functions.Client.RequestException.Error*
-  name: Error
-  href: api/Supabase.Functions.Client.RequestException.html#Supabase_Functions_Client_RequestException_Error_
-  commentId: Overload:Supabase.Functions.Client.RequestException.Error
+  fullName: Supabase.Functions.Exceptions.FailureHint.DetectReason
+  nameWithType: FailureHint.DetectReason
+- uid: Supabase.Functions.Exceptions.FailureHint.Reason
+  name: FailureHint.Reason
+  href: api/Supabase.Functions.Exceptions.FailureHint.Reason.html
+  commentId: T:Supabase.Functions.Exceptions.FailureHint.Reason
+  fullName: Supabase.Functions.Exceptions.FailureHint.Reason
+  nameWithType: FailureHint.Reason
+- uid: Supabase.Functions.Exceptions.FailureHint.Reason.Internal
+  name: Internal
+  href: api/Supabase.Functions.Exceptions.FailureHint.Reason.html#Supabase_Functions_Exceptions_FailureHint_Reason_Internal
+  commentId: F:Supabase.Functions.Exceptions.FailureHint.Reason.Internal
+  fullName: Supabase.Functions.Exceptions.FailureHint.Reason.Internal
+  nameWithType: FailureHint.Reason.Internal
+- uid: Supabase.Functions.Exceptions.FailureHint.Reason.NotAuthorized
+  name: NotAuthorized
+  href: api/Supabase.Functions.Exceptions.FailureHint.Reason.html#Supabase_Functions_Exceptions_FailureHint_Reason_NotAuthorized
+  commentId: F:Supabase.Functions.Exceptions.FailureHint.Reason.NotAuthorized
+  fullName: Supabase.Functions.Exceptions.FailureHint.Reason.NotAuthorized
+  nameWithType: FailureHint.Reason.NotAuthorized
+- uid: Supabase.Functions.Exceptions.FailureHint.Reason.Unknown
+  name: Unknown
+  href: api/Supabase.Functions.Exceptions.FailureHint.Reason.html#Supabase_Functions_Exceptions_FailureHint_Reason_Unknown
+  commentId: F:Supabase.Functions.Exceptions.FailureHint.Reason.Unknown
+  fullName: Supabase.Functions.Exceptions.FailureHint.Reason.Unknown
+  nameWithType: FailureHint.Reason.Unknown
+- uid: Supabase.Functions.Exceptions.FunctionsException
+  name: FunctionsException
+  href: api/Supabase.Functions.Exceptions.FunctionsException.html
+  commentId: T:Supabase.Functions.Exceptions.FunctionsException
+  fullName: Supabase.Functions.Exceptions.FunctionsException
+  nameWithType: FunctionsException
+- uid: Supabase.Functions.Exceptions.FunctionsException.#ctor(System.Nullable{System.String})
+  name: FunctionsException(Nullable<String>)
+  href: api/Supabase.Functions.Exceptions.FunctionsException.html#Supabase_Functions_Exceptions_FunctionsException__ctor_System_Nullable_System_String__
+  commentId: M:Supabase.Functions.Exceptions.FunctionsException.#ctor(System.Nullable{System.String})
+  name.vb: FunctionsException(Nullable(Of String))
+  fullName: Supabase.Functions.Exceptions.FunctionsException.FunctionsException(System.Nullable<System.String>)
+  fullName.vb: Supabase.Functions.Exceptions.FunctionsException.FunctionsException(System.Nullable(Of System.String))
+  nameWithType: FunctionsException.FunctionsException(Nullable<String>)
+  nameWithType.vb: FunctionsException.FunctionsException(Nullable(Of String))
+- uid: Supabase.Functions.Exceptions.FunctionsException.#ctor(System.Nullable{System.String},System.Nullable{Exception})
+  name: FunctionsException(Nullable<String>, Nullable<Exception>)
+  href: api/Supabase.Functions.Exceptions.FunctionsException.html#Supabase_Functions_Exceptions_FunctionsException__ctor_System_Nullable_System_String__System_Nullable_Exception__
+  commentId: M:Supabase.Functions.Exceptions.FunctionsException.#ctor(System.Nullable{System.String},System.Nullable{Exception})
+  name.vb: FunctionsException(Nullable(Of String), Nullable(Of Exception))
+  fullName: Supabase.Functions.Exceptions.FunctionsException.FunctionsException(System.Nullable<System.String>, System.Nullable<Exception>)
+  fullName.vb: Supabase.Functions.Exceptions.FunctionsException.FunctionsException(System.Nullable(Of System.String), System.Nullable(Of Exception))
+  nameWithType: FunctionsException.FunctionsException(Nullable<String>, Nullable<Exception>)
+  nameWithType.vb: FunctionsException.FunctionsException(Nullable(Of String), Nullable(Of Exception))
+- uid: Supabase.Functions.Exceptions.FunctionsException.#ctor*
+  name: FunctionsException
+  href: api/Supabase.Functions.Exceptions.FunctionsException.html#Supabase_Functions_Exceptions_FunctionsException__ctor_
+  commentId: Overload:Supabase.Functions.Exceptions.FunctionsException.#ctor
   isSpec: "True"
-  fullName: Supabase.Functions.Client.RequestException.Error
-  nameWithType: Client.RequestException.Error
-- uid: Supabase.Functions.Client.RequestException.Response
+  fullName: Supabase.Functions.Exceptions.FunctionsException.FunctionsException
+  nameWithType: FunctionsException.FunctionsException
+- uid: Supabase.Functions.Exceptions.FunctionsException.AddReason
+  name: AddReason()
+  href: api/Supabase.Functions.Exceptions.FunctionsException.html#Supabase_Functions_Exceptions_FunctionsException_AddReason
+  commentId: M:Supabase.Functions.Exceptions.FunctionsException.AddReason
+  fullName: Supabase.Functions.Exceptions.FunctionsException.AddReason()
+  nameWithType: FunctionsException.AddReason()
+- uid: Supabase.Functions.Exceptions.FunctionsException.AddReason*
+  name: AddReason
+  href: api/Supabase.Functions.Exceptions.FunctionsException.html#Supabase_Functions_Exceptions_FunctionsException_AddReason_
+  commentId: Overload:Supabase.Functions.Exceptions.FunctionsException.AddReason
+  isSpec: "True"
+  fullName: Supabase.Functions.Exceptions.FunctionsException.AddReason
+  nameWithType: FunctionsException.AddReason
+- uid: Supabase.Functions.Exceptions.FunctionsException.Content
+  name: Content
+  href: api/Supabase.Functions.Exceptions.FunctionsException.html#Supabase_Functions_Exceptions_FunctionsException_Content
+  commentId: P:Supabase.Functions.Exceptions.FunctionsException.Content
+  fullName: Supabase.Functions.Exceptions.FunctionsException.Content
+  nameWithType: FunctionsException.Content
+- uid: Supabase.Functions.Exceptions.FunctionsException.Content*
+  name: Content
+  href: api/Supabase.Functions.Exceptions.FunctionsException.html#Supabase_Functions_Exceptions_FunctionsException_Content_
+  commentId: Overload:Supabase.Functions.Exceptions.FunctionsException.Content
+  isSpec: "True"
+  fullName: Supabase.Functions.Exceptions.FunctionsException.Content
+  nameWithType: FunctionsException.Content
+- uid: Supabase.Functions.Exceptions.FunctionsException.Reason
+  name: Reason
+  href: api/Supabase.Functions.Exceptions.FunctionsException.html#Supabase_Functions_Exceptions_FunctionsException_Reason
+  commentId: P:Supabase.Functions.Exceptions.FunctionsException.Reason
+  fullName: Supabase.Functions.Exceptions.FunctionsException.Reason
+  nameWithType: FunctionsException.Reason
+- uid: Supabase.Functions.Exceptions.FunctionsException.Reason*
+  name: Reason
+  href: api/Supabase.Functions.Exceptions.FunctionsException.html#Supabase_Functions_Exceptions_FunctionsException_Reason_
+  commentId: Overload:Supabase.Functions.Exceptions.FunctionsException.Reason
+  isSpec: "True"
+  fullName: Supabase.Functions.Exceptions.FunctionsException.Reason
+  nameWithType: FunctionsException.Reason
+- uid: Supabase.Functions.Exceptions.FunctionsException.Response
   name: Response
-  href: api/Supabase.Functions.Client.RequestException.html#Supabase_Functions_Client_RequestException_Response
-  commentId: P:Supabase.Functions.Client.RequestException.Response
-  fullName: Supabase.Functions.Client.RequestException.Response
-  nameWithType: Client.RequestException.Response
-- uid: Supabase.Functions.Client.RequestException.Response*
+  href: api/Supabase.Functions.Exceptions.FunctionsException.html#Supabase_Functions_Exceptions_FunctionsException_Response
+  commentId: P:Supabase.Functions.Exceptions.FunctionsException.Response
+  fullName: Supabase.Functions.Exceptions.FunctionsException.Response
+  nameWithType: FunctionsException.Response
+- uid: Supabase.Functions.Exceptions.FunctionsException.Response*
   name: Response
-  href: api/Supabase.Functions.Client.RequestException.html#Supabase_Functions_Client_RequestException_Response_
-  commentId: Overload:Supabase.Functions.Client.RequestException.Response
+  href: api/Supabase.Functions.Exceptions.FunctionsException.html#Supabase_Functions_Exceptions_FunctionsException_Response_
+  commentId: Overload:Supabase.Functions.Exceptions.FunctionsException.Response
   isSpec: "True"
-  fullName: Supabase.Functions.Client.RequestException.Response
-  nameWithType: Client.RequestException.Response
+  fullName: Supabase.Functions.Exceptions.FunctionsException.Response
+  nameWithType: FunctionsException.Response
+- uid: Supabase.Functions.Exceptions.FunctionsException.StatusCode
+  name: StatusCode
+  href: api/Supabase.Functions.Exceptions.FunctionsException.html#Supabase_Functions_Exceptions_FunctionsException_StatusCode
+  commentId: P:Supabase.Functions.Exceptions.FunctionsException.StatusCode
+  fullName: Supabase.Functions.Exceptions.FunctionsException.StatusCode
+  nameWithType: FunctionsException.StatusCode
+- uid: Supabase.Functions.Exceptions.FunctionsException.StatusCode*
+  name: StatusCode
+  href: api/Supabase.Functions.Exceptions.FunctionsException.html#Supabase_Functions_Exceptions_FunctionsException_StatusCode_
+  commentId: Overload:Supabase.Functions.Exceptions.FunctionsException.StatusCode
+  isSpec: "True"
+  fullName: Supabase.Functions.Exceptions.FunctionsException.StatusCode
+  nameWithType: FunctionsException.StatusCode
 - uid: Supabase.Functions.Interfaces
   name: Supabase.Functions.Interfaces
   href: api/Supabase.Functions.Interfaces.html
@@ -4060,25 +4160,6 @@ references:
   isSpec: "True"
   fullName: Supabase.Functions.Responses.BaseResponse.ResponseMessage
   nameWithType: BaseResponse.ResponseMessage
-- uid: Supabase.Functions.Responses.ErrorResponse
-  name: ErrorResponse
-  href: api/Supabase.Functions.Responses.ErrorResponse.html
-  commentId: T:Supabase.Functions.Responses.ErrorResponse
-  fullName: Supabase.Functions.Responses.ErrorResponse
-  nameWithType: ErrorResponse
-- uid: Supabase.Functions.Responses.ErrorResponse.Message
-  name: Message
-  href: api/Supabase.Functions.Responses.ErrorResponse.html#Supabase_Functions_Responses_ErrorResponse_Message
-  commentId: P:Supabase.Functions.Responses.ErrorResponse.Message
-  fullName: Supabase.Functions.Responses.ErrorResponse.Message
-  nameWithType: ErrorResponse.Message
-- uid: Supabase.Functions.Responses.ErrorResponse.Message*
-  name: Message
-  href: api/Supabase.Functions.Responses.ErrorResponse.html#Supabase_Functions_Responses_ErrorResponse_Message_
-  commentId: Overload:Supabase.Functions.Responses.ErrorResponse.Message
-  isSpec: "True"
-  fullName: Supabase.Functions.Responses.ErrorResponse.Message
-  nameWithType: ErrorResponse.Message
 - uid: Supabase.Gotrue
   name: Supabase.Gotrue
   href: api/Supabase.Gotrue.html
@@ -5497,12 +5578,24 @@ references:
   commentId: F:Supabase.Gotrue.Exceptions.FailureHint.Reason.AdminTokenRequired
   fullName: Supabase.Gotrue.Exceptions.FailureHint.Reason.AdminTokenRequired
   nameWithType: FailureHint.Reason.AdminTokenRequired
+- uid: Supabase.Gotrue.Exceptions.FailureHint.Reason.BadSessionUrl
+  name: BadSessionUrl
+  href: api/Supabase.Gotrue.Exceptions.FailureHint.Reason.html#Supabase_Gotrue_Exceptions_FailureHint_Reason_BadSessionUrl
+  commentId: F:Supabase.Gotrue.Exceptions.FailureHint.Reason.BadSessionUrl
+  fullName: Supabase.Gotrue.Exceptions.FailureHint.Reason.BadSessionUrl
+  nameWithType: FailureHint.Reason.BadSessionUrl
 - uid: Supabase.Gotrue.Exceptions.FailureHint.Reason.InvalidRefreshToken
   name: InvalidRefreshToken
   href: api/Supabase.Gotrue.Exceptions.FailureHint.Reason.html#Supabase_Gotrue_Exceptions_FailureHint_Reason_InvalidRefreshToken
   commentId: F:Supabase.Gotrue.Exceptions.FailureHint.Reason.InvalidRefreshToken
   fullName: Supabase.Gotrue.Exceptions.FailureHint.Reason.InvalidRefreshToken
   nameWithType: FailureHint.Reason.InvalidRefreshToken
+- uid: Supabase.Gotrue.Exceptions.FailureHint.Reason.NoSessionFound
+  name: NoSessionFound
+  href: api/Supabase.Gotrue.Exceptions.FailureHint.Reason.html#Supabase_Gotrue_Exceptions_FailureHint_Reason_NoSessionFound
+  commentId: F:Supabase.Gotrue.Exceptions.FailureHint.Reason.NoSessionFound
+  fullName: Supabase.Gotrue.Exceptions.FailureHint.Reason.NoSessionFound
+  nameWithType: FailureHint.Reason.NoSessionFound
 - uid: Supabase.Gotrue.Exceptions.FailureHint.Reason.Unknown
   name: Unknown
   href: api/Supabase.Gotrue.Exceptions.FailureHint.Reason.html#Supabase_Gotrue_Exceptions_FailureHint_Reason_Unknown
@@ -5578,6 +5671,15 @@ references:
   fullName.vb: Supabase.Gotrue.Exceptions.GotrueException.GotrueException(System.Nullable(Of System.String))
   nameWithType: GotrueException.GotrueException(Nullable<String>)
   nameWithType.vb: GotrueException.GotrueException(Nullable(Of String))
+- uid: Supabase.Gotrue.Exceptions.GotrueException.#ctor(System.Nullable{System.String},Supabase.Gotrue.Exceptions.FailureHint.Reason)
+  name: GotrueException(Nullable<String>, FailureHint.Reason)
+  href: api/Supabase.Gotrue.Exceptions.GotrueException.html#Supabase_Gotrue_Exceptions_GotrueException__ctor_System_Nullable_System_String__Supabase_Gotrue_Exceptions_FailureHint_Reason_
+  commentId: M:Supabase.Gotrue.Exceptions.GotrueException.#ctor(System.Nullable{System.String},Supabase.Gotrue.Exceptions.FailureHint.Reason)
+  name.vb: GotrueException(Nullable(Of String), FailureHint.Reason)
+  fullName: Supabase.Gotrue.Exceptions.GotrueException.GotrueException(System.Nullable<System.String>, Supabase.Gotrue.Exceptions.FailureHint.Reason)
+  fullName.vb: Supabase.Gotrue.Exceptions.GotrueException.GotrueException(System.Nullable(Of System.String), Supabase.Gotrue.Exceptions.FailureHint.Reason)
+  nameWithType: GotrueException.GotrueException(Nullable<String>, FailureHint.Reason)
+  nameWithType.vb: GotrueException.GotrueException(Nullable(Of String), FailureHint.Reason)
 - uid: Supabase.Gotrue.Exceptions.GotrueException.#ctor(System.Nullable{System.String},System.Nullable{Exception})
   name: GotrueException(Nullable<String>, Nullable<Exception>)
   href: api/Supabase.Gotrue.Exceptions.GotrueException.html#Supabase_Gotrue_Exceptions_GotrueException__ctor_System_Nullable_System_String__System_Nullable_Exception__
@@ -6438,6 +6540,23 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).NotifyAuthStateChange
   nameWithType: IGotrueClient<TUser, TSession>.NotifyAuthStateChange
   nameWithType.vb: IGotrueClient(Of TUser, TSession).NotifyAuthStateChange
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.Options
+  name: Options
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_Options
+  commentId: P:Supabase.Gotrue.Interfaces.IGotrueClient`2.Options
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.Options
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Options
+  nameWithType: IGotrueClient<TUser, TSession>.Options
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).Options
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.Options*
+  name: Options
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_Options_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.Options
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.Options
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Options
+  nameWithType: IGotrueClient<TUser, TSession>.Options
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).Options
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.Reauthenticate
   name: Reauthenticate()
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_Reauthenticate

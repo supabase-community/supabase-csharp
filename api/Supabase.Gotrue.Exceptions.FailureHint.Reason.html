@@ -73,10 +73,11 @@
   
   <h1 id="Supabase_Gotrue_Exceptions_FailureHint_Reason" data-uid="Supabase.Gotrue.Exceptions.FailureHint.Reason" class="text-break">Enum FailureHint.Reason
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Best effort guess at why the exception was thrown.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Gotrue.Exceptions.html">Supabase.Gotrue.Exceptions</a></h6>
-  <h6><strong>Assembly</strong>: Gotrue.dll</h6>
+  <h6><strong>Assembly</strong>: Supabase.Gotrue.dll</h6>
   <h5 id="Supabase_Gotrue_Exceptions_FailureHint_Reason_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public enum Reason : int</code></pre>
@@ -93,51 +94,73 @@
     <tbody>
       <tr>
         <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_AdminTokenRequired">AdminTokenRequired</td>
-        <td></td>
+        <td><p>This operation requires a bearer/service key (do not include this key in a client app)</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_BadSessionUrl">BadSessionUrl</td>
+        <td><p>Something wrong with the URL to session transformation</p>
+</td>
       </tr>
       <tr>
         <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_InvalidRefreshToken">InvalidRefreshToken</td>
-        <td></td>
+        <td><p>The refresh token is invalid.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_NoSessionFound">NoSessionFound</td>
+        <td><p>No/invalid session found</p>
+</td>
       </tr>
       <tr>
         <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_Unknown">Unknown</td>
-        <td></td>
+        <td><p>The reason for the error could not be determined.</p>
+</td>
       </tr>
       <tr>
         <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserAlreadyRegistered">UserAlreadyRegistered</td>
-        <td></td>
+        <td><p>The user is already registered.</p>
+</td>
       </tr>
       <tr>
         <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserBadEmailAddress">UserBadEmailAddress</td>
-        <td></td>
+        <td><p>The user's email address is invalid.</p>
+</td>
       </tr>
       <tr>
         <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserBadLogin">UserBadLogin</td>
-        <td></td>
+        <td><p>The user's login is invalid.</p>
+</td>
       </tr>
       <tr>
         <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserBadMultiple">UserBadMultiple</td>
-        <td></td>
+        <td><p>The user's email address and password are invalid.</p>
+</td>
       </tr>
       <tr>
         <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserBadPassword">UserBadPassword</td>
-        <td></td>
+        <td><p>The user's password is invalid.</p>
+</td>
       </tr>
       <tr>
         <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserBadPhoneNumber">UserBadPhoneNumber</td>
-        <td></td>
+        <td><p>The user's phone number is invalid.</p>
+</td>
       </tr>
       <tr>
         <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserEmailNotConfirmed">UserEmailNotConfirmed</td>
-        <td></td>
+        <td><p>The user's email address has not been confirmed.</p>
+</td>
       </tr>
       <tr>
         <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserMissingInformation">UserMissingInformation</td>
-        <td></td>
+        <td><p>The user's information is incomplete.</p>
+</td>
       </tr>
       <tr>
         <td id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserTooManyRequests">UserTooManyRequests</td>
-        <td></td>
+        <td><p>Server rejected due to number of requests</p>
+</td>
       </tr>
     </tbody>
   </thead></thead></table>
@@ -149,10 +172,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/supabase-community/gotrue-csharp/new/68cfc3e47ee66366bef8168daaffccab1ca7a4f5/apiSpec/new?filename=Supabase_Gotrue_Exceptions_FailureHint_Reason.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.Exceptions.FailureHint.Reason%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/supabase-community/gotrue-csharp/new/a52a33292ea0395ccd92dfbb64ff06b6bd5b310b/apiSpec/new?filename=Supabase_Gotrue_Exceptions_FailureHint_Reason.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.Exceptions.FailureHint.Reason%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/gotrue-csharp/blob/68cfc3e47ee66366bef8168daaffccab1ca7a4f5/Gotrue/Exceptions/FailureReason.cs/#L10" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/gotrue-csharp/blob/a52a33292ea0395ccd92dfbb64ff06b6bd5b310b/Gotrue/Exceptions/FailureReason.cs/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
