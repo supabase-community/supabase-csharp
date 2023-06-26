@@ -16,6 +16,7 @@ namespace SupabaseTests.Stubs
         public Session CurrentSession => throw new NotImplementedException();
 
         public User CurrentUser => throw new NotImplementedException();
+        public ClientOptions Options { get; }
 
         public Func<Dictionary<string, string>> GetHeaders { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
@@ -50,6 +51,18 @@ namespace SupabaseTests.Stubs
         {
             throw new NotImplementedException();
         }
+
+        public void Debug(string message, Exception e = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Shutdown()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Online { get; set; }
 
         public Task<User> GetUserById(string jwt, string userId)
         {
@@ -122,6 +135,11 @@ namespace SupabaseTests.Stubs
         public Task<ProviderAuthState> SignIn(Constants.Provider provider, SignInOptions options = null) { throw new NotImplementedException(); }
         public Task<Session> SignInWithIdToken(Constants.Provider provider, string idToken, string nonce = null, string captchaToken = null) { throw new NotImplementedException(); }
         public Task<Session> ExchangeCodeForSession(string codeVerifier, string authCode) { throw new NotImplementedException(); }
+
+        public Task<bool> Reauthenticate()
+        {
+            throw new NotImplementedException();
+        }
 
         public Task SignOut()
         {

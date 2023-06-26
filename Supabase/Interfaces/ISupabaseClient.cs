@@ -33,6 +33,13 @@ namespace Supabase.Interfaces
         /// The Gotrue Auth Instance
         /// </summary>
         IGotrueClient<TUser, TSession> Auth { get; set; }
+
+        /// <summary>
+        /// Creates a Gotrue Admin Auth Client
+        /// </summary>
+        /// <param name="serviceKey"></param>
+        /// <returns></returns>
+        IGotrueAdminClient<User> AdminAuth(string serviceKey);
         
         /// <summary>
         /// The Supabase Functions Client

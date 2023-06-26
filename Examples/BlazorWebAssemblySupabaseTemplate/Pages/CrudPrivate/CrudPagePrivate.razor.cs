@@ -22,22 +22,22 @@ public partial class CrudPagePrivate
     }
 
     // ---------------- SELECT TABLE
-    private IReadOnlyList<TodoPrivate>? _todoList { get; set; }
-    private IReadOnlyList<TodoPrivate>? _todoListFiltered { get; set; }
-    private MudTable<TodoPrivate>? table;
+    private IReadOnlyList<TodoPrivate>? TodoList { get; set; }
+    private IReadOnlyList<TodoPrivate>? TodoListFiltered { get; set; }
+    private MudTable<TodoPrivate>? _table;
     protected async Task GetTable()
     {
         // await Task.Delay(10000);
         IReadOnlyList<TodoPrivate> todos = await DatabaseService.From<TodoPrivate>();
-        _todoList = todos;
-        _todoListFiltered = todos;
+        TodoList = todos;
+        TodoListFiltered = todos;
         await InvokeAsync(StateHasChanged);
     }
 
     // ---------------- SEARCH
     private void OnValueChangedSearch(string text)
     {
-        _todoListFiltered = _todoList?.Where(row => row.Title.Contains(text)).ToList();
+        TodoListFiltered = TodoList?.Where(row => row.Title.Contains(text)).ToList();
     }
 
     // ---------------- DELETE
@@ -59,28 +59,28 @@ public partial class CrudPagePrivate
 
     // ---------------- CREATE NEW
 
-    protected TodoPrivate model = new();
-    private bool success = false;
-    string[] errors = { };
-    MudForm? form;
+    protected TodoPrivate Model = new();
+    private bool _success = false;
+    string[] _errors = { };
+    MudForm? _form;
     private bool _processingNewItem = false;
     private async Task OnClickSave()
     {
         if (UserLoggedIn is not null && UserLoggedIn?.Id is not null)
         {
-            System.Console.WriteLine("UserLoggedIn?.Id");
-            System.Console.WriteLine(UserLoggedIn?.Id);
+            Console.WriteLine("UserLoggedIn?.Id");
+            Console.WriteLine(UserLoggedIn?.Id);
 
-            model.User_id = UserLoggedIn?.Id;
+            Model.UserId = UserLoggedIn?.Id;
 
             _processingNewItem = true;
             try
             {
-                await DatabaseService.Insert<TodoPrivate>(model);
-                model = new();
+                await DatabaseService.Insert<TodoPrivate>(Model);
+                Model = new();
                 await GetTable();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 await DialogService.ShowMessageBox(
                     "Warning",
@@ -88,7 +88,7 @@ public partial class CrudPagePrivate
                     +ex.Message
                 );
             }
-            success = false;
+            _success = false;
             _processingNewItem = false;
         }
         else

@@ -1,5 +1,18 @@
 ﻿-- Set up reatime
-create publication supabase_realtime for all tables;
+create role anon nologin noinherit;
+create role authenticated nologin noinherit;
+create role service_role nologin noinherit bypassrls;
+
+grant usage on schema public to anon, authenticated, service_role;
+
+alter default privileges in schema public grant all on tables to anon, authenticated, service_role;
+alter default privileges in schema public grant all on functions to anon, authenticated, service_role;
+alter default privileges in schema public grant all on sequences to anon, authenticated, service_role;
+
+create schema if not exists _realtime;
+create schema if not exists realtime;
+
+create publication supabase_realtime with (publish = 'insert, update, delete');
 
 -- Supabase super admin
 create user supabase_admin;
@@ -11,11 +24,6 @@ create schema extensions;
 create extension if not exists "uuid-ossp"      with schema extensions;
 create extension if not exists pgcrypto         with schema extensions;
 -- create extension if not exists pgjwt            with schema extensions;
-
--- Set up auth roles for the developer
-create role anon                nologin noinherit;
-create role authenticated       nologin noinherit; -- "logged in" user: web_user, app_user, etc
-create role service_role        nologin noinherit bypassrls; -- allow developers to create JWT's that bypass their policies
 
 create user authenticator noinherit;
 grant anon              to authenticator;

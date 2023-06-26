@@ -5,7 +5,7 @@
 @inject DatabaseService DatabaseService
 @inject NavigationManager NavigationManager
 @inject ISnackbar Snackbar
-@inject ILocalStorageService localStorage
+@inject ILocalStorageService LocalStorage
 
 <div class="pa-16">
 
@@ -17,7 +17,7 @@
     <MudText Typo="Typo.body2">See the code file <i>DatabasePolicies.sql</i> on GitHub to get to know the policies.</MudText>
 
     <br>
-    <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors" ValidationDelay="0">
+    <MudForm @ref="_form" @bind-IsValid="@_success" @bind-Errors="@_errors" ValidationDelay="0">
         <MudCard>
             <MudCardHeader>
                 <CardHeaderContent>
@@ -25,11 +25,11 @@
                 </CardHeaderContent>
             </MudCardHeader>
             <MudCardContent>
-                <MudTextField Label="Title" @bind-Value="model.Title" For="@(() => model.Title)" Required="true"
+                <MudTextField Label="Title" @bind-Value="Model.Title" For="@(() => Model.Title)" Required="true"
                     Immediate="true" />
             </MudCardContent>
             <MudCardActions>
-                <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto"
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!_success)" Class="ml-auto"
                     OnClick="OnClickSave">
                     @if (_processingNewItem)
                     {
@@ -48,7 +48,7 @@
 
     <br>
 
-    @if (_todoListFiltered == null)
+    @if (TodoListFiltered == null)
     {
         <MudSimpleTable>
             <thead>
@@ -69,7 +69,7 @@
             </tbody>
         </MudSimpleTable>
     }
-    else if (_todoListFiltered.Count == 0)
+    else if (TodoListFiltered.Count == 0)
     {
         <MudSimpleTable>
             <thead>
@@ -87,11 +87,11 @@
     }
     else
     {
-        <MudTable Items="@_todoListFiltered" @ref="table" Elevation="1" Bordered="false" Striped="true" Hover="true"
+        <MudTable Items="@TodoListFiltered" @ref="_table" Elevation="1" Bordered="false" Striped="true" Hover="true"
         SortLabel="Sort By" T="TodoPrivate">
             <ToolBarContent>
                 <MudTextField T="string" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
-                IconSize="MudBlazor.Size.Medium" Class="mt-0" Clearable="true"
+                IconSize="Size.Medium" Class="mt-0" Clearable="true"
                 ValueChanged="@(s=>OnValueChangedSearch(s))" Placeholder="Search" />
             </ToolBarContent>
             <HeaderContent>
@@ -101,7 +101,7 @@
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel SortBy="new Func<TodoPrivate, object>(x=>x.User_id)">
+                    <MudTableSortLabel SortBy="new Func<TodoPrivate, object>(x=>x.UserId)">
                         User_id
                     </MudTableSortLabel>
                 </MudTh>
@@ -111,14 +111,14 @@
             </HeaderContent>
             <RowTemplate>
                 <MudTd DataLabel="Title">@context?.Title</MudTd>
-                <MudTd DataLabel="User_id">@context?.User_id</MudTd>
+                <MudTd DataLabel="User_id">@context?.UserId</MudTd>
                 <MudTd DataLabel="Action">
                     @* <MudIconButton Icon="@Icons.Material.Filled.Edit" aria-label="edit"
                         Size="MudBlazor.Size.Small"
                         OnClick="@( (e) => {NavigationManager.NavigateTo($"/todoitems/{context?.Todo?.Id}");})"
                         /> *@
-                    <MudIconButton Icon="@Icons.Material.Filled.Delete" aria-label="delete" Size="MudBlazor.Size.Small"
-                    OnClick="@(async (e) => {await OnClickDelete(context);})" />
+                    <MudIconButton Icon="@Icons.Material.Filled.Delete" aria-label="delete" Size="Size.Small"
+                    OnClick="@(async (_) => {await OnClickDelete(context);})" />
                 </MudTd>
             </RowTemplate>
             <PagerContent>

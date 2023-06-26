@@ -1,9 +1,8 @@
 ﻿using Postgrest.Interfaces;
 using Postgrest.Models;
 using Supabase.Realtime.Interfaces;
-using Supabase.Realtime.PostgresChanges;
-using System;
 using System.Threading.Tasks;
+using static Supabase.Realtime.PostgresChanges.PostgresChangesOptions;
 
 namespace Supabase.Interfaces
 {
@@ -19,9 +18,9 @@ namespace Supabase.Interfaces
         /// <summary>
         /// Add a realtime listener to this table.
         /// </summary>
-        /// <param name="eventType"></param>
-        /// <param name="action"></param>
+        /// <param name="listenType"></param>
+        /// <param name="handler"></param>
         /// <returns></returns>
-        Task<TChannel> On(Client.ChannelEventType eventType, Action<object, PostgresChangesEventArgs> action);
+        Task<TChannel> On(ListenType listenType, IRealtimeChannel.PostgresChangesHandler handler);
     }
 }

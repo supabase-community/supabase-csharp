@@ -1,5 +1,4 @@
 using Postgrest.Attributes;
-using Postgrest.Models;
 
 namespace BlazorWebAssemblySupabaseTemplate.Dtos;
 

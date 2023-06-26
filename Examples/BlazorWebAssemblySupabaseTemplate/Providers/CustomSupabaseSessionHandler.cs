@@ -1,14 +1,14 @@
 using Blazored.LocalStorage;
 using Supabase.Gotrue;
-using Supabase.Interfaces;
+using Supabase.Gotrue.Interfaces;
 
 namespace BlazorWebAssemblySupabaseTemplate.Providers;
 
-public class CustomSupabaseSessionHandler : ISupabaseSessionHandler
+public class CustomSupabaseSessionHandler : IGotrueSessionPersistence<Session>
 {
-    private readonly ILocalStorageService localStorage;
-    private readonly ILogger<CustomSupabaseSessionHandler> logger;
-    private static string SESSION_KEY = "SUPABASE_SESSION";
+    private readonly ILocalStorageService _localStorage;
+    private readonly ILogger<CustomSupabaseSessionHandler> _logger;
+    private const string SessionKey = "SUPABASE_SESSION";
 
     public CustomSupabaseSessionHandler(
         ILocalStorageService localStorage,
@@ -16,41 +16,27 @@ public class CustomSupabaseSessionHandler : ISupabaseSessionHandler
     )
     {
         logger.LogInformation("------------------- CONSTRUCTOR -------------------");
-        this.localStorage = localStorage;
-        this.logger = logger;
+        _localStorage = localStorage;
+        _logger = logger;
     }
 
-    public async Task<bool> SessionDestroyer()
+    public async void DestroySession()
     {
-        logger.LogInformation("------------------- SessionDestroyer -------------------");
-        await localStorage.RemoveItemAsync(SESSION_KEY);
-        return true;
+        _logger.LogInformation("------------------- SessionDestroyer -------------------");
+        await _localStorage.RemoveItemAsync(SessionKey);
     }
 
-    public async Task<bool> SessionPersistor<TSession>(TSession session) where TSession : Session
+    public async void SaveSession(Session session)
     {
-        logger.LogInformation("------------------- SessionPersistor -------------------");
-        await localStorage.SetItemAsync(SESSION_KEY, session);
-        return true;
+        _logger.LogInformation("------------------- SessionPersistor -------------------");
+        await _localStorage.SetItemAsync(SessionKey, session);
     }
 
-    public async Task<TSession?> SessionRetriever<TSession>() where TSession : Session
+    public Session? LoadSession()
     {
-        logger.LogInformation("------------------- SessionRetriever -------------------");
+        _logger.LogInformation("------------------- SessionRetriever -------------------");
 
-        Session session = await localStorage.GetItemAsync<Session>(SESSION_KEY);
-        
-        // it didn't work, I think because of the race condition pointed few months ago by Joseph
-        // if( await client.Auth.GetUser(session?.AccessToken) is not null )
-        //     return (TSession?)session;
-        // else
-        //     return null;
-
-        // fix JWT already expired
-        if(session?.ExpiresAt() <= DateTime.Now)
-            return null;
-        else
-            return (TSession?) await localStorage.GetItemAsync<Session>(SESSION_KEY);
+        var session = _localStorage.GetItemAsync<Session>(SessionKey).Result;
+        return session?.ExpiresAt() <= DateTime.Now ? null : session;
     }
-
 }

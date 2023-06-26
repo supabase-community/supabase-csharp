@@ -1,58 +1,54 @@
 ﻿using Blazored.LocalStorage;
-using BlazorWebAssemblySupabaseTemplate.Dtos;
 using Microsoft.AspNetCore.Components.Authorization;
 using Supabase.Gotrue;
-using Supabase.Interfaces;
-using Supabase.Realtime;
-using Supabase.Storage;
 
 namespace BlazorWebAssemblySupabaseTemplate.Services;
 
 public class AuthService
 {
-    private readonly Supabase.Client client;
-    private readonly AuthenticationStateProvider customAuthStateProvider;
-    private readonly ILocalStorageService localStorage;
-    private readonly ILogger<AuthService> logger;
+    private readonly Supabase.Client _client;
+    private readonly AuthenticationStateProvider _customAuthStateProvider;
+    private readonly ILocalStorageService _localStorage;
+    private readonly ILogger<AuthService> _logger;
 
     public AuthService(
         Supabase.Client client,
-        AuthenticationStateProvider CustomAuthStateProvider, 
+        AuthenticationStateProvider customAuthStateProvider, 
         ILocalStorageService localStorage,
         ILogger<AuthService> logger
-    ) : base()
+    )
     {
         logger.LogInformation("------------------- CONSTRUCTOR -------------------");
 
-        this.client = client;
-        customAuthStateProvider = CustomAuthStateProvider;
-        this.localStorage = localStorage;
-        this.logger = logger;
+        _client = client;
+        _customAuthStateProvider = customAuthStateProvider;
+        _localStorage = localStorage;
+        _logger = logger;
     }
 
     public async Task Login(string email, string password)
     {
-        logger.LogInformation("METHOD: Login");
+        _logger.LogInformation("METHOD: Login");
         
-        Session? session = await client.Auth.SignIn(email, password);
+        var session = await _client.Auth.SignIn(email, password);
 
-        logger.LogInformation("------------------- User logged in -------------------");
+        _logger.LogInformation("------------------- User logged in -------------------");
         // logger.LogInformation($"instance.Auth.CurrentUser.Id {client?.Auth?.CurrentUser?.Id}");
-        logger.LogInformation($"client.Auth.CurrentUser.Email {client?.Auth?.CurrentUser?.Email}");
+        _logger.LogInformation($"client.Auth.CurrentUser.Email {_client?.Auth?.CurrentUser?.Email}");
 
-        await customAuthStateProvider.GetAuthenticationStateAsync();
+        await _customAuthStateProvider.GetAuthenticationStateAsync();
     }
     
     public async Task Logout()
     {
-        await client.Auth.SignOut();
-        await localStorage.RemoveItemAsync("token");
-        await customAuthStateProvider.GetAuthenticationStateAsync();
+        await _client.Auth.SignOut();
+        await _localStorage.RemoveItemAsync("token");
+        await _customAuthStateProvider.GetAuthenticationStateAsync();
     }
 
     public async Task<User?> GetUser()
     {
-        Session? session = await client.Auth.RetrieveSessionAsync();
+        var session = await _client.Auth.RetrieveSessionAsync();
         return session?.User;
     }
 

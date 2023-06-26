@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Postgrest;
 using Postgrest.Interfaces;
@@ -7,8 +6,8 @@ using Postgrest.Models;
 using Supabase.Interfaces;
 using Supabase.Realtime;
 using Supabase.Realtime.Interfaces;
-using Supabase.Realtime.PostgresChanges;
 using static Supabase.Client;
+using static Supabase.Realtime.PostgresChanges.PostgresChangesOptions;
 
 namespace Supabase
 {
@@ -20,11 +19,8 @@ namespace Supabase
         where TModel : BaseModel, new()
     {
         private RealtimeChannel? _channel;
-
         private readonly IPostgrestClient _postgrestClient;
-
         private readonly IRealtimeClient<RealtimeSocket, RealtimeChannel> _realtimeClient;
-
         private readonly string _schema;
 
         /// <summary>
@@ -33,7 +29,10 @@ namespace Supabase
         /// <param name="postgrestClient"></param>
         /// <param name="realtimeClient"></param>
         /// <param name="schema"></param>
-        public SupabaseTable(IPostgrestClient postgrestClient, IRealtimeClient<RealtimeSocket, RealtimeChannel> realtimeClient, string schema = "public") : base(postgrestClient.BaseUrl, Postgrest.Client.SerializerSettings(postgrestClient.Options), postgrestClient.Options)
+        public SupabaseTable(IPostgrestClient postgrestClient,
+            IRealtimeClient<RealtimeSocket, RealtimeChannel> realtimeClient, string schema = "public") : base(
+            postgrestClient.BaseUrl, Postgrest.Client.SerializerSettings(postgrestClient.Options),
+            postgrestClient.Options)
         {
             _postgrestClient = postgrestClient;
             _realtimeClient = realtimeClient;
@@ -42,7 +41,7 @@ namespace Supabase
         }
 
         /// <inheritdoc />
-        public async Task<RealtimeChannel> On(ChannelEventType eventType, Action<object, PostgresChangesEventArgs> action)
+        public async Task<RealtimeChannel> On(ListenType listenType, IRealtimeChannel.PostgresChangesHandler handler)
         {
             if (_channel == null)
             {
@@ -61,31 +60,9 @@ namespace Supabase
             if (_realtimeClient.Socket == null || !_realtimeClient.Socket.IsConnected)
                 await _realtimeClient.ConnectAsync();
 
-            switch (eventType)
-            {
-                case ChannelEventType.Insert:
-                    _channel.OnInsert += (sender, args) => action?.Invoke(sender, args);
-                    break;
-                case ChannelEventType.Update:
-                    _channel.OnUpdate += (sender, args) => action?.Invoke(sender, args);
-                    break;
-                case ChannelEventType.Delete:
-                    _channel.OnDelete += (sender, args) => action?.Invoke(sender, args);
-                    break;
-                case ChannelEventType.All:
-                    _channel.OnPostgresChange += (sender, args) => action?.Invoke(sender, args);
-                    break;
-            }
+            _channel.AddPostgresChangeHandler(listenType, handler);
 
-            try
-            {
-                await _channel.Subscribe();
-            }
-            catch
-            {
-                // ignored
-            }
-
+            await _channel.Subscribe();
             return _channel;
         }
     }

@@ -1,5 +1,4 @@
 using BlazorWebAssemblySupabaseTemplate.Dtos;
-using BlazorWebAssemblySupabaseTemplate.Services;
 using MudBlazor;
 
 namespace BlazorWebAssemblySupabaseTemplate.Pages.Crud;
@@ -12,22 +11,22 @@ public partial class CrudPage
     }
 
     // ---------------- SELECT TABLE
-    private IReadOnlyList<Todo>? _todoList { get; set; }
-    private IReadOnlyList<Todo>? _todoListFiltered { get; set; }
-    private MudTable<Todo>? table;
+    private IReadOnlyList<Todo>? TodoList { get; set; }
+    private IReadOnlyList<Todo>? TodoListFiltered { get; set; }
+    private MudTable<Todo>? _table;
     protected async Task GetTable()
     {
         // await Task.Delay(10000);
         IReadOnlyList<Todo> todos = await DatabaseService.From<Todo>();
-        _todoList = todos;
-        _todoListFiltered = todos;
+        TodoList = todos;
+        TodoListFiltered = todos;
         await InvokeAsync(StateHasChanged);
     }
 
     // ---------------- SEARCH
     private void OnValueChangedSearch(string text)
     {
-        _todoListFiltered = _todoList?.Where(row => row.Title.Contains(text)).ToList();
+        TodoListFiltered = TodoList?.Where(row => row.Title.Contains(text)).ToList();
     }
     
     // ---------------- DELETE
@@ -40,18 +39,18 @@ public partial class CrudPage
 
     // ---------------- CREATE NEW
 
-    protected Todo model = new();
-    private bool success = false;
-    string[] errors = { };
-    MudForm? form;
+    protected Todo Model = new();
+    private bool _success = false;
+    string[] _errors = { };
+    MudForm? _form;
     private bool _processingNewItem = false;
     private async Task OnClickSave()
     {
         _processingNewItem = true;
-        await DatabaseService.Insert<Todo>(model);
-        model = new();
+        await DatabaseService.Insert<Todo>(Model);
+        Model = new();
         await GetTable();
-        success = false;
+        _success = false;
         _processingNewItem = false;
     }
 }

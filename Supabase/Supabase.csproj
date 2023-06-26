@@ -1,50 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
-		<PackOnBuild>true</PackOnBuild>
-		<PackageId>supabase-csharp</PackageId>
-		<Authors>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Authors>
-		<Description>A C# implementation of the Supabase client</Description>
-		<Copyright>MIT</Copyright>
-		<NeutralLanguage>en-US</NeutralLanguage>
-		<PackageLicenseUrl>https://github.com/supabase/supabase-csharp/blob/master/LICENSE</PackageLicenseUrl>
-		<Owners>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Owners>
-		<PackageProjectUrl>https://github.com/supabase/supabase-csharp</PackageProjectUrl>
-		<Summary>A C# implementation of the Supabase client</Summary>
-		<Title>Supabase</Title>
-		<PackageIconUrl>https://avatars.githubusercontent.com/u/54469796?s=200&amp;v=4</PackageIconUrl>
-		<PackageTags>supabase</PackageTags>
-		<ReleaseVersion>0.10.0</ReleaseVersion>
-		<PackageVersion>0.10.0</PackageVersion>
-	</PropertyGroup>
-	<PropertyGroup>
-		<Nullable>enable</Nullable>
-		<LangVersion>8.0</LangVersion>
-		<WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>
-	</PropertyGroup>
-	<PropertyGroup>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Version)' == '' ">
-		<VersionPrefix Condition=" '$(VersionPrefix)' == '' ">0.10.0</VersionPrefix>
-		<Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
-	</PropertyGroup>
-	<ItemGroup>
-		<PackageReference Include="functions-csharp" Version="1.2.1" />
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-		<PackageReference Include="postgrest-csharp" Version="3.1.3" />
-		<PackageReference Include="gotrue-csharp" Version="4.0.1" />
-		<PackageReference Include="realtime-csharp" Version="5.0.5" />
-		<PackageReference Include="supabase-core" Version="0.0.2" />
-		<PackageReference Include="supabase-storage-csharp" Version="1.3.0" />
-	</ItemGroup>
-	<ItemGroup>
-		<Folder Include="Extensions\" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Remove="MimeMapping" />
-		<None Remove="Extensions\" />
-		<None Remove="supabase-storage-csharp" />
-	</ItemGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <PackOnBuild>true</PackOnBuild>
+        <PackageId>supabase-csharp</PackageId>
+        <Authors>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Authors>
+        <Description>A C# implementation of the Supabase client</Description>
+        <Copyright>MIT</Copyright>
+        <NeutralLanguage>en</NeutralLanguage>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Owners>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Owners>
+        <PackageProjectUrl>https://github.com/supabase-community/supabase-csharp</PackageProjectUrl>
+        <Summary>A C# implementation of the Supabase client</Summary>
+        <Title>Supabase</Title>
+        <PackageTags>supabase</PackageTags>
+        <ReleaseVersion>0.12.0</ReleaseVersion>
+        <PackageVersion>0.12.0</PackageVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageIcon>icon.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <RepositoryUrl>https://github.com/supabase-community/supabase-csharp</RepositoryUrl>
+    </PropertyGroup>
+    <PropertyGroup>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <LangVersion>9.0</LangVersion>
+        <WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>
+    </PropertyGroup>
+    <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Version)' == '' ">
+        <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">0.12.0</VersionPrefix>
+        <Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="functions-csharp" Version="1.3.1" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="postgrest-csharp" Version="3.2.3" />
+        <PackageReference Include="gotrue-csharp" Version="4.1.0" />
+        <PackageReference Include="realtime-csharp" Version="6.0.3" />
+        <PackageReference Include="supabase-core" Version="0.0.3" />
+        <PackageReference Include="supabase-storage-csharp" Version="1.3.2" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Extensions\" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Remove="MimeMapping" />
+        <None Remove="Extensions\" />
+        <None Remove="supabase-storage-csharp" />
+        <None Include="..\.github\icon.png" Pack="true" Link="icon.png" PackagePath="\" />
+        <None Include="..\README.md" Pack="true" Link="README.md" PackagePath="\" />
+    </ItemGroup>
 </Project>

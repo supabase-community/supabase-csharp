@@ -1,8 +1,4 @@
-using BlazorWebAssemblySupabaseTemplate.Dtos;
-using BlazorWebAssemblySupabaseTemplate.Services;
 using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.JSInterop;
-using MudBlazor;
 
 namespace BlazorWebAssemblySupabaseTemplate.Pages.FileUploadFolder;
 
@@ -13,14 +9,14 @@ public partial class FileUpload
         await GetFilesFromBucket();
     }
     
-    public List<Supabase.Storage.FileObject>? fileObjects;
+    public List<Supabase.Storage.FileObject>? FileObjects;
     private async Task GetFilesFromBucket()
     {
-        fileObjects = await StorageService.GetFilesFromBucket("userfiles");
+        FileObjects = await StorageService.GetFilesFromBucket("userfiles");
     }
 
-    static long maxFileSizeInMB = 15;
-    long maxFileSize = 1024 * 1024 * maxFileSizeInMB;
+    static long _maxFileSizeInMb = 15;
+    long _maxFileSize = 1024 * 1024 * _maxFileSizeInMb;
     private async Task UploadFilesAsync(IBrowserFile file)
     {
         Console.WriteLine("file.Name");
@@ -28,16 +24,16 @@ public partial class FileUpload
 
         try
         {
-            Stream streamData = file.OpenReadStream(maxFileSize);            
+            var streamData = file.OpenReadStream(_maxFileSize);            
 
-            string filename = await StorageService.UploadFile("userfiles", streamData, file.Name);
+            var filename = await StorageService.UploadFile("userfiles", streamData, file.Name);
 
             Snackbar.Add( "File uploaded: "+filename.Split("/").Last() );
 
             await GetFilesFromBucket();
             await InvokeAsync(StateHasChanged);
         }
-        catch (System.IO.IOException ex)
+        catch (IOException ex)
         {
             Snackbar.Add( "Error: Max file size exceeded." );
         }
@@ -45,7 +41,7 @@ public partial class FileUpload
 
     private async Task DownloadClick(Supabase.Storage.FileObject row)
     {
-        bool? result = await DialogService.ShowMessageBox(
+        var result = await DialogService.ShowMessageBox(
             "Warning", 
             "The download feature is disabled because of security risks, but it could be tested with your own risk by downloading the source code and running it. "
             );

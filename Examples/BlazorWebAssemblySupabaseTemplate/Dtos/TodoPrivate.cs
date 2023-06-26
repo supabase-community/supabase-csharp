@@ -1,7 +1,4 @@
-using System;
 using Postgrest.Attributes;
-using Postgrest.Models;
-using Supabase;
 
 namespace BlazorWebAssemblySupabaseTemplate.Dtos;
 
@@ -12,5 +9,5 @@ public class TodoPrivate : BaseModelApp
     public string? Title { get; set; }
 
     [Column("user_id")]
-    public string User_id { get; set; }
+    public string UserId { get; set; }
 }

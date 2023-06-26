@@ -24,17 +24,6 @@ namespace Supabase
     public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeChannel, Bucket, FileObject>
     {
         /// <summary>
-        /// Realtime Channel event types for a postgrest listener
-        /// </summary>
-        public enum ChannelEventType
-        {
-            Insert,
-            Update,
-            Delete,
-            All
-        }
-
-        /// <summary>
         /// Supabase Auth allows you to create and manage user sessions for access to data that is secured by access policies.
         /// </summary>
         public IGotrueClient<User, Session> Auth
@@ -51,6 +40,22 @@ namespace Supabase
         }
 
         private IGotrueClient<User, Session> _auth;
+
+        /// <summary>
+        /// Returns a Stateless Gotrue Admin client given a service_key JWT. This should really only be accessed from a
+        /// server environment where a private service_key would remain secure.
+        /// </summary>
+        /// <param name="serviceKey"></param>
+        /// <returns></returns>
+        public IGotrueAdminClient<User> AdminAuth(string serviceKey) =>
+            new AdminClient(serviceKey, new Gotrue.ClientOptions
+            {
+                Url = string.Format(_options.AuthUrlFormat, _supabaseUrl),
+                AutoRefreshToken = _options.AutoRefreshToken
+            })
+            {
+                GetHeaders = GetAuthHeaders,
+            };
 
         /// <summary>
         /// Supabase Realtime allows for realtime feedback on database changes.
@@ -101,6 +106,7 @@ namespace Supabase
 
         private IStorageClient<Bucket, FileObject> _storage;
 
+        private readonly string? _supabaseUrl;
         private readonly string? _supabaseKey;
         private readonly SupabaseOptions _options;
 
@@ -133,6 +139,7 @@ namespace Supabase
         /// <param name="options"></param>
         public Client(string supabaseUrl, string? supabaseKey, SupabaseOptions? options = null)
         {
+            _supabaseUrl = supabaseUrl;
             _supabaseKey = supabaseKey;
             _options = options ?? new SupabaseOptions();
 
@@ -214,7 +221,7 @@ namespace Supabase
                         Realtime.SetAuth(Auth.CurrentSession.AccessToken);
                     break;
 
-                // Remove Realtime Subscriptions on Auth Signout.
+                // Remove Realtime Subscriptions on Auth Sign-out.
                 case AuthState.SignedOut:
                     if (Realtime.Subscriptions.Values != null)
                         foreach (var subscription in Realtime.Subscriptions.Values)
@@ -246,9 +253,10 @@ namespace Supabase
 
         internal Dictionary<string, string> GetAuthHeaders()
         {
-            var headers = new Dictionary<string, string>();
-
-            headers["X-Client-Info"] = Util.GetAssemblyVersion(typeof(Client));
+            var headers = new Dictionary<string, string>
+            {
+                ["X-Client-Info"] = Util.GetAssemblyVersion(typeof(Client))
+            };
 
             if (_supabaseKey != null)
             {

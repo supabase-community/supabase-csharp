@@ -2,12 +2,12 @@ namespace BlazorWebAssemblySupabaseTemplate.Pages.Auth;
 
 public partial class Login
 {
-    protected string email {get; set;} = "cliente1@gmail.com";
-    protected string password {get; set;} = "senhasdadasdaasd";
+    protected string Email {get; set;} = "cliente1@gmail.com";
+    protected string Password {get; set;} = "senhasdadasdaasd";
 
     public async Task OnClickLogin()
     {
-        await AuthService.Login(email, password);
+        await AuthService.Login(Email, Password);
         Snackbar.Add("Login successfull");
         NavigationManager.NavigateTo($"/");
     }
