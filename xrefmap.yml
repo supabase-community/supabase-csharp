@@ -400,15 +400,15 @@ references:
   isSpec: "True"
   fullName: Postgrest.Client.RemoveDebugHandler
   nameWithType: Client.RemoveDebugHandler
-- uid: Postgrest.Client.Rpc(System.String,Dictionary{System.String,System.Object})
-  name: Rpc(String, Dictionary<String, Object>)
-  href: api/Postgrest.Client.html#Postgrest_Client_Rpc_System_String_Dictionary_System_String_System_Object__
-  commentId: M:Postgrest.Client.Rpc(System.String,Dictionary{System.String,System.Object})
-  name.vb: Rpc(String, Dictionary(Of String, Object))
-  fullName: Postgrest.Client.Rpc(System.String, Dictionary<System.String, System.Object>)
-  fullName.vb: Postgrest.Client.Rpc(System.String, Dictionary(Of System.String, System.Object))
-  nameWithType: Client.Rpc(String, Dictionary<String, Object>)
-  nameWithType.vb: Client.Rpc(String, Dictionary(Of String, Object))
+- uid: Postgrest.Client.Rpc(System.String,System.Nullable{Dictionary{System.String,System.Object}})
+  name: Rpc(String, Nullable<Dictionary<String, Object>>)
+  href: api/Postgrest.Client.html#Postgrest_Client_Rpc_System_String_System_Nullable_Dictionary_System_String_System_Object___
+  commentId: M:Postgrest.Client.Rpc(System.String,System.Nullable{Dictionary{System.String,System.Object}})
+  name.vb: Rpc(String, Nullable(Of Dictionary(Of String, Object)))
+  fullName: Postgrest.Client.Rpc(System.String, System.Nullable<Dictionary<System.String, System.Object>>)
+  fullName.vb: Postgrest.Client.Rpc(System.String, System.Nullable(Of Dictionary(Of System.String, System.Object)))
+  nameWithType: Client.Rpc(String, Nullable<Dictionary<String, Object>>)
+  nameWithType.vb: Client.Rpc(String, Nullable(Of Dictionary(Of String, Object)))
 - uid: Postgrest.Client.Rpc*
   name: Rpc
   href: api/Postgrest.Client.html#Postgrest_Client_Rpc_
@@ -451,12 +451,12 @@ references:
   commentId: T:Postgrest.ClientOptions
   fullName: Postgrest.ClientOptions
   nameWithType: ClientOptions
-- uid: Postgrest.ClientOptions.DateTimeFormat
-  name: DateTimeFormat
-  href: api/Postgrest.ClientOptions.html#Postgrest_ClientOptions_DateTimeFormat
-  commentId: F:Postgrest.ClientOptions.DateTimeFormat
-  fullName: Postgrest.ClientOptions.DateTimeFormat
-  nameWithType: ClientOptions.DateTimeFormat
+- uid: Postgrest.ClientOptions.DATE_TIME_FORMAT
+  name: DATE_TIME_FORMAT
+  href: api/Postgrest.ClientOptions.html#Postgrest_ClientOptions_DATE_TIME_FORMAT
+  commentId: F:Postgrest.ClientOptions.DATE_TIME_FORMAT
+  fullName: Postgrest.ClientOptions.DATE_TIME_FORMAT
+  nameWithType: ClientOptions.DATE_TIME_FORMAT
 - uid: Postgrest.ClientOptions.DateTimeStyles
   name: DateTimeStyles
   href: api/Postgrest.ClientOptions.html#Postgrest_ClientOptions_DateTimeStyles
@@ -3466,6 +3466,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Client.Client
   nameWithType: Client.Client
+- uid: Supabase.Client.AdminAuth(System.String)
+  name: AdminAuth(String)
+  href: api/Supabase.Client.html#Supabase_Client_AdminAuth_System_String_
+  commentId: M:Supabase.Client.AdminAuth(System.String)
+  fullName: Supabase.Client.AdminAuth(System.String)
+  nameWithType: Client.AdminAuth(String)
+- uid: Supabase.Client.AdminAuth*
+  name: AdminAuth
+  href: api/Supabase.Client.html#Supabase_Client_AdminAuth_
+  commentId: Overload:Supabase.Client.AdminAuth
+  isSpec: "True"
+  fullName: Supabase.Client.AdminAuth
+  nameWithType: Client.AdminAuth
 - uid: Supabase.Client.Auth
   name: Auth
   href: api/Supabase.Client.html#Supabase_Client_Auth
@@ -4166,6 +4179,164 @@ references:
   commentId: N:Supabase.Gotrue
   fullName: Supabase.Gotrue
   nameWithType: Supabase.Gotrue
+- uid: Supabase.Gotrue.AdminClient
+  name: AdminClient
+  href: api/Supabase.Gotrue.AdminClient.html
+  commentId: T:Supabase.Gotrue.AdminClient
+  fullName: Supabase.Gotrue.AdminClient
+  nameWithType: AdminClient
+- uid: Supabase.Gotrue.AdminClient.#ctor(System.String,Supabase.Gotrue.ClientOptions)
+  name: AdminClient(String, ClientOptions)
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient__ctor_System_String_Supabase_Gotrue_ClientOptions_
+  commentId: M:Supabase.Gotrue.AdminClient.#ctor(System.String,Supabase.Gotrue.ClientOptions)
+  fullName: Supabase.Gotrue.AdminClient.AdminClient(System.String, Supabase.Gotrue.ClientOptions)
+  nameWithType: AdminClient.AdminClient(String, ClientOptions)
+- uid: Supabase.Gotrue.AdminClient.#ctor*
+  name: AdminClient
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient__ctor_
+  commentId: Overload:Supabase.Gotrue.AdminClient.#ctor
+  isSpec: "True"
+  fullName: Supabase.Gotrue.AdminClient.AdminClient
+  nameWithType: AdminClient.AdminClient
+- uid: Supabase.Gotrue.AdminClient.CreateUser(Supabase.Gotrue.AdminUserAttributes)
+  name: CreateUser(AdminUserAttributes)
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_CreateUser_Supabase_Gotrue_AdminUserAttributes_
+  commentId: M:Supabase.Gotrue.AdminClient.CreateUser(Supabase.Gotrue.AdminUserAttributes)
+  fullName: Supabase.Gotrue.AdminClient.CreateUser(Supabase.Gotrue.AdminUserAttributes)
+  nameWithType: AdminClient.CreateUser(AdminUserAttributes)
+- uid: Supabase.Gotrue.AdminClient.CreateUser(System.String,System.String,Supabase.Gotrue.AdminUserAttributes)
+  name: CreateUser(String, String, AdminUserAttributes)
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_CreateUser_System_String_System_String_Supabase_Gotrue_AdminUserAttributes_
+  commentId: M:Supabase.Gotrue.AdminClient.CreateUser(System.String,System.String,Supabase.Gotrue.AdminUserAttributes)
+  fullName: Supabase.Gotrue.AdminClient.CreateUser(System.String, System.String, Supabase.Gotrue.AdminUserAttributes)
+  nameWithType: AdminClient.CreateUser(String, String, AdminUserAttributes)
+- uid: Supabase.Gotrue.AdminClient.CreateUser*
+  name: CreateUser
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_CreateUser_
+  commentId: Overload:Supabase.Gotrue.AdminClient.CreateUser
+  isSpec: "True"
+  fullName: Supabase.Gotrue.AdminClient.CreateUser
+  nameWithType: AdminClient.CreateUser
+- uid: Supabase.Gotrue.AdminClient.DeleteUser(System.String)
+  name: DeleteUser(String)
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_DeleteUser_System_String_
+  commentId: M:Supabase.Gotrue.AdminClient.DeleteUser(System.String)
+  fullName: Supabase.Gotrue.AdminClient.DeleteUser(System.String)
+  nameWithType: AdminClient.DeleteUser(String)
+- uid: Supabase.Gotrue.AdminClient.DeleteUser*
+  name: DeleteUser
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_DeleteUser_
+  commentId: Overload:Supabase.Gotrue.AdminClient.DeleteUser
+  isSpec: "True"
+  fullName: Supabase.Gotrue.AdminClient.DeleteUser
+  nameWithType: AdminClient.DeleteUser
+- uid: Supabase.Gotrue.AdminClient.GetHeaders
+  name: GetHeaders
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_GetHeaders
+  commentId: P:Supabase.Gotrue.AdminClient.GetHeaders
+  fullName: Supabase.Gotrue.AdminClient.GetHeaders
+  nameWithType: AdminClient.GetHeaders
+- uid: Supabase.Gotrue.AdminClient.GetHeaders*
+  name: GetHeaders
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_GetHeaders_
+  commentId: Overload:Supabase.Gotrue.AdminClient.GetHeaders
+  isSpec: "True"
+  fullName: Supabase.Gotrue.AdminClient.GetHeaders
+  nameWithType: AdminClient.GetHeaders
+- uid: Supabase.Gotrue.AdminClient.GetUser(System.String)
+  name: GetUser(String)
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_GetUser_System_String_
+  commentId: M:Supabase.Gotrue.AdminClient.GetUser(System.String)
+  fullName: Supabase.Gotrue.AdminClient.GetUser(System.String)
+  nameWithType: AdminClient.GetUser(String)
+- uid: Supabase.Gotrue.AdminClient.GetUser*
+  name: GetUser
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_GetUser_
+  commentId: Overload:Supabase.Gotrue.AdminClient.GetUser
+  isSpec: "True"
+  fullName: Supabase.Gotrue.AdminClient.GetUser
+  nameWithType: AdminClient.GetUser
+- uid: Supabase.Gotrue.AdminClient.GetUserById(System.String)
+  name: GetUserById(String)
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_GetUserById_System_String_
+  commentId: M:Supabase.Gotrue.AdminClient.GetUserById(System.String)
+  fullName: Supabase.Gotrue.AdminClient.GetUserById(System.String)
+  nameWithType: AdminClient.GetUserById(String)
+- uid: Supabase.Gotrue.AdminClient.GetUserById*
+  name: GetUserById
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_GetUserById_
+  commentId: Overload:Supabase.Gotrue.AdminClient.GetUserById
+  isSpec: "True"
+  fullName: Supabase.Gotrue.AdminClient.GetUserById
+  nameWithType: AdminClient.GetUserById
+- uid: Supabase.Gotrue.AdminClient.InviteUserByEmail(System.String)
+  name: InviteUserByEmail(String)
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_InviteUserByEmail_System_String_
+  commentId: M:Supabase.Gotrue.AdminClient.InviteUserByEmail(System.String)
+  fullName: Supabase.Gotrue.AdminClient.InviteUserByEmail(System.String)
+  nameWithType: AdminClient.InviteUserByEmail(String)
+- uid: Supabase.Gotrue.AdminClient.InviteUserByEmail*
+  name: InviteUserByEmail
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_InviteUserByEmail_
+  commentId: Overload:Supabase.Gotrue.AdminClient.InviteUserByEmail
+  isSpec: "True"
+  fullName: Supabase.Gotrue.AdminClient.InviteUserByEmail
+  nameWithType: AdminClient.InviteUserByEmail
+- uid: Supabase.Gotrue.AdminClient.ListUsers(System.Nullable{System.String},System.Nullable{System.String},Supabase.Gotrue.Constants.SortOrder,System.Nullable{System.Int32},System.Nullable{System.Int32})
+  name: ListUsers(Nullable<String>, Nullable<String>, Constants.SortOrder, Nullable<Int32>, Nullable<Int32>)
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_ListUsers_System_Nullable_System_String__System_Nullable_System_String__Supabase_Gotrue_Constants_SortOrder_System_Nullable_System_Int32__System_Nullable_System_Int32__
+  commentId: M:Supabase.Gotrue.AdminClient.ListUsers(System.Nullable{System.String},System.Nullable{System.String},Supabase.Gotrue.Constants.SortOrder,System.Nullable{System.Int32},System.Nullable{System.Int32})
+  name.vb: ListUsers(Nullable(Of String), Nullable(Of String), Constants.SortOrder, Nullable(Of Int32), Nullable(Of Int32))
+  fullName: Supabase.Gotrue.AdminClient.ListUsers(System.Nullable<System.String>, System.Nullable<System.String>, Supabase.Gotrue.Constants.SortOrder, System.Nullable<System.Int32>, System.Nullable<System.Int32>)
+  fullName.vb: Supabase.Gotrue.AdminClient.ListUsers(System.Nullable(Of System.String), System.Nullable(Of System.String), Supabase.Gotrue.Constants.SortOrder, System.Nullable(Of System.Int32), System.Nullable(Of System.Int32))
+  nameWithType: AdminClient.ListUsers(Nullable<String>, Nullable<String>, Constants.SortOrder, Nullable<Int32>, Nullable<Int32>)
+  nameWithType.vb: AdminClient.ListUsers(Nullable(Of String), Nullable(Of String), Constants.SortOrder, Nullable(Of Int32), Nullable(Of Int32))
+- uid: Supabase.Gotrue.AdminClient.ListUsers*
+  name: ListUsers
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_ListUsers_
+  commentId: Overload:Supabase.Gotrue.AdminClient.ListUsers
+  isSpec: "True"
+  fullName: Supabase.Gotrue.AdminClient.ListUsers
+  nameWithType: AdminClient.ListUsers
+- uid: Supabase.Gotrue.AdminClient.Options
+  name: Options
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_Options
+  commentId: P:Supabase.Gotrue.AdminClient.Options
+  fullName: Supabase.Gotrue.AdminClient.Options
+  nameWithType: AdminClient.Options
+- uid: Supabase.Gotrue.AdminClient.Options*
+  name: Options
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_Options_
+  commentId: Overload:Supabase.Gotrue.AdminClient.Options
+  isSpec: "True"
+  fullName: Supabase.Gotrue.AdminClient.Options
+  nameWithType: AdminClient.Options
+- uid: Supabase.Gotrue.AdminClient.Update(Supabase.Gotrue.UserAttributes)
+  name: Update(UserAttributes)
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_Update_Supabase_Gotrue_UserAttributes_
+  commentId: M:Supabase.Gotrue.AdminClient.Update(Supabase.Gotrue.UserAttributes)
+  fullName: Supabase.Gotrue.AdminClient.Update(Supabase.Gotrue.UserAttributes)
+  nameWithType: AdminClient.Update(UserAttributes)
+- uid: Supabase.Gotrue.AdminClient.Update*
+  name: Update
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_Update_
+  commentId: Overload:Supabase.Gotrue.AdminClient.Update
+  isSpec: "True"
+  fullName: Supabase.Gotrue.AdminClient.Update
+  nameWithType: AdminClient.Update
+- uid: Supabase.Gotrue.AdminClient.UpdateUserById(System.String,Supabase.Gotrue.AdminUserAttributes)
+  name: UpdateUserById(String, AdminUserAttributes)
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_UpdateUserById_System_String_Supabase_Gotrue_AdminUserAttributes_
+  commentId: M:Supabase.Gotrue.AdminClient.UpdateUserById(System.String,Supabase.Gotrue.AdminUserAttributes)
+  fullName: Supabase.Gotrue.AdminClient.UpdateUserById(System.String, Supabase.Gotrue.AdminUserAttributes)
+  nameWithType: AdminClient.UpdateUserById(String, AdminUserAttributes)
+- uid: Supabase.Gotrue.AdminClient.UpdateUserById*
+  name: UpdateUserById
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_UpdateUserById_
+  commentId: Overload:Supabase.Gotrue.AdminClient.UpdateUserById
+  isSpec: "True"
+  fullName: Supabase.Gotrue.AdminClient.UpdateUserById
+  nameWithType: AdminClient.UpdateUserById
 - uid: Supabase.Gotrue.AdminUserAttributes
   name: AdminUserAttributes
   href: api/Supabase.Gotrue.AdminUserAttributes.html
@@ -4673,25 +4844,6 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.ClearStateChangedListeners
   nameWithType: Client.ClearStateChangedListeners
-- uid: Supabase.Gotrue.Client.CreateUser(System.String,Supabase.Gotrue.AdminUserAttributes)
-  name: CreateUser(String, AdminUserAttributes)
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_CreateUser_System_String_Supabase_Gotrue_AdminUserAttributes_
-  commentId: M:Supabase.Gotrue.Client.CreateUser(System.String,Supabase.Gotrue.AdminUserAttributes)
-  fullName: Supabase.Gotrue.Client.CreateUser(System.String, Supabase.Gotrue.AdminUserAttributes)
-  nameWithType: Client.CreateUser(String, AdminUserAttributes)
-- uid: Supabase.Gotrue.Client.CreateUser(System.String,System.String,System.String,Supabase.Gotrue.AdminUserAttributes)
-  name: CreateUser(String, String, String, AdminUserAttributes)
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_CreateUser_System_String_System_String_System_String_Supabase_Gotrue_AdminUserAttributes_
-  commentId: M:Supabase.Gotrue.Client.CreateUser(System.String,System.String,System.String,Supabase.Gotrue.AdminUserAttributes)
-  fullName: Supabase.Gotrue.Client.CreateUser(System.String, System.String, System.String, Supabase.Gotrue.AdminUserAttributes)
-  nameWithType: Client.CreateUser(String, String, String, AdminUserAttributes)
-- uid: Supabase.Gotrue.Client.CreateUser*
-  name: CreateUser
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_CreateUser_
-  commentId: Overload:Supabase.Gotrue.Client.CreateUser
-  isSpec: "True"
-  fullName: Supabase.Gotrue.Client.CreateUser
-  nameWithType: Client.CreateUser
 - uid: Supabase.Gotrue.Client.CurrentSession
   name: CurrentSession
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_CurrentSession
@@ -4718,19 +4870,22 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.CurrentUser
   nameWithType: Client.CurrentUser
-- uid: Supabase.Gotrue.Client.DeleteUser(System.String,System.String)
-  name: DeleteUser(String, String)
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_DeleteUser_System_String_System_String_
-  commentId: M:Supabase.Gotrue.Client.DeleteUser(System.String,System.String)
-  fullName: Supabase.Gotrue.Client.DeleteUser(System.String, System.String)
-  nameWithType: Client.DeleteUser(String, String)
-- uid: Supabase.Gotrue.Client.DeleteUser*
-  name: DeleteUser
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_DeleteUser_
-  commentId: Overload:Supabase.Gotrue.Client.DeleteUser
+- uid: Supabase.Gotrue.Client.Debug(System.String,System.Nullable{Exception})
+  name: Debug(String, Nullable<Exception>)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_Debug_System_String_System_Nullable_Exception__
+  commentId: M:Supabase.Gotrue.Client.Debug(System.String,System.Nullable{Exception})
+  name.vb: Debug(String, Nullable(Of Exception))
+  fullName: Supabase.Gotrue.Client.Debug(System.String, System.Nullable<Exception>)
+  fullName.vb: Supabase.Gotrue.Client.Debug(System.String, System.Nullable(Of Exception))
+  nameWithType: Client.Debug(String, Nullable<Exception>)
+  nameWithType.vb: Client.Debug(String, Nullable(Of Exception))
+- uid: Supabase.Gotrue.Client.Debug*
+  name: Debug
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_Debug_
+  commentId: Overload:Supabase.Gotrue.Client.Debug
   isSpec: "True"
-  fullName: Supabase.Gotrue.Client.DeleteUser
-  nameWithType: Client.DeleteUser
+  fullName: Supabase.Gotrue.Client.Debug
+  nameWithType: Client.Debug
 - uid: Supabase.Gotrue.Client.ExchangeCodeForSession(System.String,System.String)
   name: ExchangeCodeForSession(String, String)
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_ExchangeCodeForSession_System_String_System_String_
@@ -4783,48 +4938,6 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.GetUser
   nameWithType: Client.GetUser
-- uid: Supabase.Gotrue.Client.GetUserById(System.String,System.String)
-  name: GetUserById(String, String)
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_GetUserById_System_String_System_String_
-  commentId: M:Supabase.Gotrue.Client.GetUserById(System.String,System.String)
-  fullName: Supabase.Gotrue.Client.GetUserById(System.String, System.String)
-  nameWithType: Client.GetUserById(String, String)
-- uid: Supabase.Gotrue.Client.GetUserById*
-  name: GetUserById
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_GetUserById_
-  commentId: Overload:Supabase.Gotrue.Client.GetUserById
-  isSpec: "True"
-  fullName: Supabase.Gotrue.Client.GetUserById
-  nameWithType: Client.GetUserById
-- uid: Supabase.Gotrue.Client.InviteUserByEmail(System.String,System.String)
-  name: InviteUserByEmail(String, String)
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_InviteUserByEmail_System_String_System_String_
-  commentId: M:Supabase.Gotrue.Client.InviteUserByEmail(System.String,System.String)
-  fullName: Supabase.Gotrue.Client.InviteUserByEmail(System.String, System.String)
-  nameWithType: Client.InviteUserByEmail(String, String)
-- uid: Supabase.Gotrue.Client.InviteUserByEmail*
-  name: InviteUserByEmail
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_InviteUserByEmail_
-  commentId: Overload:Supabase.Gotrue.Client.InviteUserByEmail
-  isSpec: "True"
-  fullName: Supabase.Gotrue.Client.InviteUserByEmail
-  nameWithType: Client.InviteUserByEmail
-- uid: Supabase.Gotrue.Client.ListUsers(System.String,System.Nullable{System.String},System.Nullable{System.String},Supabase.Gotrue.Constants.SortOrder,System.Nullable{System.Int32},System.Nullable{System.Int32})
-  name: ListUsers(String, Nullable<String>, Nullable<String>, Constants.SortOrder, Nullable<Int32>, Nullable<Int32>)
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_ListUsers_System_String_System_Nullable_System_String__System_Nullable_System_String__Supabase_Gotrue_Constants_SortOrder_System_Nullable_System_Int32__System_Nullable_System_Int32__
-  commentId: M:Supabase.Gotrue.Client.ListUsers(System.String,System.Nullable{System.String},System.Nullable{System.String},Supabase.Gotrue.Constants.SortOrder,System.Nullable{System.Int32},System.Nullable{System.Int32})
-  name.vb: ListUsers(String, Nullable(Of String), Nullable(Of String), Constants.SortOrder, Nullable(Of Int32), Nullable(Of Int32))
-  fullName: Supabase.Gotrue.Client.ListUsers(System.String, System.Nullable<System.String>, System.Nullable<System.String>, Supabase.Gotrue.Constants.SortOrder, System.Nullable<System.Int32>, System.Nullable<System.Int32>)
-  fullName.vb: Supabase.Gotrue.Client.ListUsers(System.String, System.Nullable(Of System.String), System.Nullable(Of System.String), Supabase.Gotrue.Constants.SortOrder, System.Nullable(Of System.Int32), System.Nullable(Of System.Int32))
-  nameWithType: Client.ListUsers(String, Nullable<String>, Nullable<String>, Constants.SortOrder, Nullable<Int32>, Nullable<Int32>)
-  nameWithType.vb: Client.ListUsers(String, Nullable(Of String), Nullable(Of String), Constants.SortOrder, Nullable(Of Int32), Nullable(Of Int32))
-- uid: Supabase.Gotrue.Client.ListUsers*
-  name: ListUsers
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_ListUsers_
-  commentId: Overload:Supabase.Gotrue.Client.ListUsers
-  isSpec: "True"
-  fullName: Supabase.Gotrue.Client.ListUsers
-  nameWithType: Client.ListUsers
 - uid: Supabase.Gotrue.Client.LoadSession
   name: LoadSession()
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_LoadSession
@@ -4851,6 +4964,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.NotifyAuthStateChange
   nameWithType: Client.NotifyAuthStateChange
+- uid: Supabase.Gotrue.Client.Online
+  name: Online
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_Online
+  commentId: P:Supabase.Gotrue.Client.Online
+  fullName: Supabase.Gotrue.Client.Online
+  nameWithType: Client.Online
+- uid: Supabase.Gotrue.Client.Online*
+  name: Online
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_Online_
+  commentId: Overload:Supabase.Gotrue.Client.Online
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Client.Online
+  nameWithType: Client.Online
 - uid: Supabase.Gotrue.Client.Options
   name: Options
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_Options
@@ -4890,6 +5016,25 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.RefreshSession
   nameWithType: Client.RefreshSession
+- uid: Supabase.Gotrue.Client.RefreshToken
+  name: RefreshToken()
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_RefreshToken
+  commentId: M:Supabase.Gotrue.Client.RefreshToken
+  fullName: Supabase.Gotrue.Client.RefreshToken()
+  nameWithType: Client.RefreshToken()
+- uid: Supabase.Gotrue.Client.RefreshToken(System.String)
+  name: RefreshToken(String)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_RefreshToken_System_String_
+  commentId: M:Supabase.Gotrue.Client.RefreshToken(System.String)
+  fullName: Supabase.Gotrue.Client.RefreshToken(System.String)
+  nameWithType: Client.RefreshToken(String)
+- uid: Supabase.Gotrue.Client.RefreshToken*
+  name: RefreshToken
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_RefreshToken_
+  commentId: Overload:Supabase.Gotrue.Client.RefreshToken
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Client.RefreshToken
+  nameWithType: Client.RefreshToken
 - uid: Supabase.Gotrue.Client.RemoveStateChangedListener(Supabase.Gotrue.Interfaces.IGotrueClient{Supabase.Gotrue.User,Supabase.Gotrue.Session}.AuthEventHandler)
   name: RemoveStateChangedListener(IGotrueClient<User, Session>.AuthEventHandler)
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_RemoveStateChangedListener_Supabase_Gotrue_Interfaces_IGotrueClient_Supabase_Gotrue_User_Supabase_Gotrue_Session__AuthEventHandler_
@@ -4987,6 +5132,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.Settings
   nameWithType: Client.Settings
+- uid: Supabase.Gotrue.Client.Shutdown
+  name: Shutdown()
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_Shutdown
+  commentId: M:Supabase.Gotrue.Client.Shutdown
+  fullName: Supabase.Gotrue.Client.Shutdown()
+  nameWithType: Client.Shutdown()
+- uid: Supabase.Gotrue.Client.Shutdown*
+  name: Shutdown
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_Shutdown_
+  commentId: Overload:Supabase.Gotrue.Client.Shutdown
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Client.Shutdown
+  nameWithType: Client.Shutdown
 - uid: Supabase.Gotrue.Client.SignIn(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.SignInOptions)
   name: SignIn(Constants.Provider, SignInOptions)
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignIn_Supabase_Gotrue_Constants_Provider_Supabase_Gotrue_SignInOptions_
@@ -5114,19 +5272,6 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.Update
   nameWithType: Client.Update
-- uid: Supabase.Gotrue.Client.UpdateUserById(System.String,System.String,Supabase.Gotrue.AdminUserAttributes)
-  name: UpdateUserById(String, String, AdminUserAttributes)
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_UpdateUserById_System_String_System_String_Supabase_Gotrue_AdminUserAttributes_
-  commentId: M:Supabase.Gotrue.Client.UpdateUserById(System.String,System.String,Supabase.Gotrue.AdminUserAttributes)
-  fullName: Supabase.Gotrue.Client.UpdateUserById(System.String, System.String, Supabase.Gotrue.AdminUserAttributes)
-  nameWithType: Client.UpdateUserById(String, String, AdminUserAttributes)
-- uid: Supabase.Gotrue.Client.UpdateUserById*
-  name: UpdateUserById
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_UpdateUserById_
-  commentId: Overload:Supabase.Gotrue.Client.UpdateUserById
-  isSpec: "True"
-  fullName: Supabase.Gotrue.Client.UpdateUserById
-  nameWithType: Client.UpdateUserById
 - uid: Supabase.Gotrue.Client.VerifyOTP(System.String,System.String,Supabase.Gotrue.Constants.EmailOtpType)
   name: VerifyOTP(String, String, Constants.EmailOtpType)
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_VerifyOTP_System_String_System_String_Supabase_Gotrue_Constants_EmailOtpType_
@@ -5184,6 +5329,19 @@ references:
   commentId: F:Supabase.Gotrue.ClientOptions.Headers
   fullName: Supabase.Gotrue.ClientOptions.Headers
   nameWithType: ClientOptions.Headers
+- uid: Supabase.Gotrue.ClientOptions.MaximumRefreshWaitTime
+  name: MaximumRefreshWaitTime
+  href: api/Supabase.Gotrue.ClientOptions.html#Supabase_Gotrue_ClientOptions_MaximumRefreshWaitTime
+  commentId: P:Supabase.Gotrue.ClientOptions.MaximumRefreshWaitTime
+  fullName: Supabase.Gotrue.ClientOptions.MaximumRefreshWaitTime
+  nameWithType: ClientOptions.MaximumRefreshWaitTime
+- uid: Supabase.Gotrue.ClientOptions.MaximumRefreshWaitTime*
+  name: MaximumRefreshWaitTime
+  href: api/Supabase.Gotrue.ClientOptions.html#Supabase_Gotrue_ClientOptions_MaximumRefreshWaitTime_
+  commentId: Overload:Supabase.Gotrue.ClientOptions.MaximumRefreshWaitTime
+  isSpec: "True"
+  fullName: Supabase.Gotrue.ClientOptions.MaximumRefreshWaitTime
+  nameWithType: ClientOptions.MaximumRefreshWaitTime
 - uid: Supabase.Gotrue.ClientOptions.Url
   name: Url
   href: api/Supabase.Gotrue.ClientOptions.html#Supabase_Gotrue_ClientOptions_Url
@@ -5221,6 +5379,12 @@ references:
   commentId: F:Supabase.Gotrue.Constants.AuthState.PasswordRecovery
   fullName: Supabase.Gotrue.Constants.AuthState.PasswordRecovery
   nameWithType: Constants.AuthState.PasswordRecovery
+- uid: Supabase.Gotrue.Constants.AuthState.Shutdown
+  name: Shutdown
+  href: api/Supabase.Gotrue.Constants.AuthState.html#Supabase_Gotrue_Constants_AuthState_Shutdown
+  commentId: F:Supabase.Gotrue.Constants.AuthState.Shutdown
+  fullName: Supabase.Gotrue.Constants.AuthState.Shutdown
+  nameWithType: Constants.AuthState.Shutdown
 - uid: Supabase.Gotrue.Constants.AuthState.SignedIn
   name: SignedIn
   href: api/Supabase.Gotrue.Constants.AuthState.html#Supabase_Gotrue_Constants_AuthState_SignedIn
@@ -5584,6 +5748,12 @@ references:
   commentId: F:Supabase.Gotrue.Exceptions.FailureHint.Reason.BadSessionUrl
   fullName: Supabase.Gotrue.Exceptions.FailureHint.Reason.BadSessionUrl
   nameWithType: FailureHint.Reason.BadSessionUrl
+- uid: Supabase.Gotrue.Exceptions.FailureHint.Reason.ExpiredRefreshToken
+  name: ExpiredRefreshToken
+  href: api/Supabase.Gotrue.Exceptions.FailureHint.Reason.html#Supabase_Gotrue_Exceptions_FailureHint_Reason_ExpiredRefreshToken
+  commentId: F:Supabase.Gotrue.Exceptions.FailureHint.Reason.ExpiredRefreshToken
+  fullName: Supabase.Gotrue.Exceptions.FailureHint.Reason.ExpiredRefreshToken
+  nameWithType: FailureHint.Reason.ExpiredRefreshToken
 - uid: Supabase.Gotrue.Exceptions.FailureHint.Reason.InvalidRefreshToken
   name: InvalidRefreshToken
   href: api/Supabase.Gotrue.Exceptions.FailureHint.Reason.html#Supabase_Gotrue_Exceptions_FailureHint_Reason_InvalidRefreshToken
@@ -5596,6 +5766,12 @@ references:
   commentId: F:Supabase.Gotrue.Exceptions.FailureHint.Reason.NoSessionFound
   fullName: Supabase.Gotrue.Exceptions.FailureHint.Reason.NoSessionFound
   nameWithType: FailureHint.Reason.NoSessionFound
+- uid: Supabase.Gotrue.Exceptions.FailureHint.Reason.Offline
+  name: Offline
+  href: api/Supabase.Gotrue.Exceptions.FailureHint.Reason.html#Supabase_Gotrue_Exceptions_FailureHint_Reason_Offline
+  commentId: F:Supabase.Gotrue.Exceptions.FailureHint.Reason.Offline
+  fullName: Supabase.Gotrue.Exceptions.FailureHint.Reason.Offline
+  nameWithType: FailureHint.Reason.Offline
 - uid: Supabase.Gotrue.Exceptions.FailureHint.Reason.Unknown
   name: Unknown
   href: api/Supabase.Gotrue.Exceptions.FailureHint.Reason.html#Supabase_Gotrue_Exceptions_FailureHint_Reason_Unknown
@@ -5689,6 +5865,15 @@ references:
   fullName.vb: Supabase.Gotrue.Exceptions.GotrueException.GotrueException(System.Nullable(Of System.String), System.Nullable(Of Exception))
   nameWithType: GotrueException.GotrueException(Nullable<String>, Nullable<Exception>)
   nameWithType.vb: GotrueException.GotrueException(Nullable(Of String), Nullable(Of Exception))
+- uid: Supabase.Gotrue.Exceptions.GotrueException.#ctor(System.String,Supabase.Gotrue.Exceptions.FailureHint.Reason,System.Nullable{Exception})
+  name: GotrueException(String, FailureHint.Reason, Nullable<Exception>)
+  href: api/Supabase.Gotrue.Exceptions.GotrueException.html#Supabase_Gotrue_Exceptions_GotrueException__ctor_System_String_Supabase_Gotrue_Exceptions_FailureHint_Reason_System_Nullable_Exception__
+  commentId: M:Supabase.Gotrue.Exceptions.GotrueException.#ctor(System.String,Supabase.Gotrue.Exceptions.FailureHint.Reason,System.Nullable{Exception})
+  name.vb: GotrueException(String, FailureHint.Reason, Nullable(Of Exception))
+  fullName: Supabase.Gotrue.Exceptions.GotrueException.GotrueException(System.String, Supabase.Gotrue.Exceptions.FailureHint.Reason, System.Nullable<Exception>)
+  fullName.vb: Supabase.Gotrue.Exceptions.GotrueException.GotrueException(System.String, Supabase.Gotrue.Exceptions.FailureHint.Reason, System.Nullable(Of Exception))
+  nameWithType: GotrueException.GotrueException(String, FailureHint.Reason, Nullable<Exception>)
+  nameWithType.vb: GotrueException.GotrueException(String, FailureHint.Reason, Nullable(Of Exception))
 - uid: Supabase.Gotrue.Exceptions.GotrueException.#ctor*
   name: GotrueException
   href: api/Supabase.Gotrue.Exceptions.GotrueException.html#Supabase_Gotrue_Exceptions_GotrueException__ctor_
@@ -5812,6 +5997,160 @@ references:
   commentId: N:Supabase.Gotrue.Interfaces
   fullName: Supabase.Gotrue.Interfaces
   nameWithType: Supabase.Gotrue.Interfaces
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1
+  name: IGotrueAdminClient<TUser>
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html
+  commentId: T:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1
+  name.vb: IGotrueAdminClient(Of TUser)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser)
+  nameWithType: IGotrueAdminClient<TUser>
+  nameWithType.vb: IGotrueAdminClient(Of TUser)
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.CreateUser(Supabase.Gotrue.AdminUserAttributes)
+  name: CreateUser(AdminUserAttributes)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_CreateUser_Supabase_Gotrue_AdminUserAttributes_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.CreateUser(Supabase.Gotrue.AdminUserAttributes)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.CreateUser(Supabase.Gotrue.AdminUserAttributes)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).CreateUser(Supabase.Gotrue.AdminUserAttributes)
+  nameWithType: IGotrueAdminClient<TUser>.CreateUser(AdminUserAttributes)
+  nameWithType.vb: IGotrueAdminClient(Of TUser).CreateUser(AdminUserAttributes)
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.CreateUser(System.String,System.String,Supabase.Gotrue.AdminUserAttributes)
+  name: CreateUser(String, String, AdminUserAttributes)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_CreateUser_System_String_System_String_Supabase_Gotrue_AdminUserAttributes_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.CreateUser(System.String,System.String,Supabase.Gotrue.AdminUserAttributes)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.CreateUser(System.String, System.String, Supabase.Gotrue.AdminUserAttributes)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).CreateUser(System.String, System.String, Supabase.Gotrue.AdminUserAttributes)
+  nameWithType: IGotrueAdminClient<TUser>.CreateUser(String, String, AdminUserAttributes)
+  nameWithType.vb: IGotrueAdminClient(Of TUser).CreateUser(String, String, AdminUserAttributes)
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.CreateUser*
+  name: CreateUser
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_CreateUser_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.CreateUser
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.CreateUser
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).CreateUser
+  nameWithType: IGotrueAdminClient<TUser>.CreateUser
+  nameWithType.vb: IGotrueAdminClient(Of TUser).CreateUser
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.DeleteUser(System.String)
+  name: DeleteUser(String)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_DeleteUser_System_String_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.DeleteUser(System.String)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.DeleteUser(System.String)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).DeleteUser(System.String)
+  nameWithType: IGotrueAdminClient<TUser>.DeleteUser(String)
+  nameWithType.vb: IGotrueAdminClient(Of TUser).DeleteUser(String)
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.DeleteUser*
+  name: DeleteUser
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_DeleteUser_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.DeleteUser
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.DeleteUser
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).DeleteUser
+  nameWithType: IGotrueAdminClient<TUser>.DeleteUser
+  nameWithType.vb: IGotrueAdminClient(Of TUser).DeleteUser
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.GetUser(System.String)
+  name: GetUser(String)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_GetUser_System_String_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.GetUser(System.String)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.GetUser(System.String)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).GetUser(System.String)
+  nameWithType: IGotrueAdminClient<TUser>.GetUser(String)
+  nameWithType.vb: IGotrueAdminClient(Of TUser).GetUser(String)
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.GetUser*
+  name: GetUser
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_GetUser_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.GetUser
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.GetUser
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).GetUser
+  nameWithType: IGotrueAdminClient<TUser>.GetUser
+  nameWithType.vb: IGotrueAdminClient(Of TUser).GetUser
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.GetUserById(System.String)
+  name: GetUserById(String)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_GetUserById_System_String_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.GetUserById(System.String)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.GetUserById(System.String)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).GetUserById(System.String)
+  nameWithType: IGotrueAdminClient<TUser>.GetUserById(String)
+  nameWithType.vb: IGotrueAdminClient(Of TUser).GetUserById(String)
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.GetUserById*
+  name: GetUserById
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_GetUserById_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.GetUserById
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.GetUserById
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).GetUserById
+  nameWithType: IGotrueAdminClient<TUser>.GetUserById
+  nameWithType.vb: IGotrueAdminClient(Of TUser).GetUserById
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.InviteUserByEmail(System.String)
+  name: InviteUserByEmail(String)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_InviteUserByEmail_System_String_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.InviteUserByEmail(System.String)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.InviteUserByEmail(System.String)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).InviteUserByEmail(System.String)
+  nameWithType: IGotrueAdminClient<TUser>.InviteUserByEmail(String)
+  nameWithType.vb: IGotrueAdminClient(Of TUser).InviteUserByEmail(String)
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.InviteUserByEmail*
+  name: InviteUserByEmail
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_InviteUserByEmail_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.InviteUserByEmail
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.InviteUserByEmail
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).InviteUserByEmail
+  nameWithType: IGotrueAdminClient<TUser>.InviteUserByEmail
+  nameWithType.vb: IGotrueAdminClient(Of TUser).InviteUserByEmail
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.ListUsers(System.Nullable{System.String},System.Nullable{System.String},Supabase.Gotrue.Constants.SortOrder,System.Nullable{System.Int32},System.Nullable{System.Int32})
+  name: ListUsers(Nullable<String>, Nullable<String>, Constants.SortOrder, Nullable<Int32>, Nullable<Int32>)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_ListUsers_System_Nullable_System_String__System_Nullable_System_String__Supabase_Gotrue_Constants_SortOrder_System_Nullable_System_Int32__System_Nullable_System_Int32__
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.ListUsers(System.Nullable{System.String},System.Nullable{System.String},Supabase.Gotrue.Constants.SortOrder,System.Nullable{System.Int32},System.Nullable{System.Int32})
+  name.vb: ListUsers(Nullable(Of String), Nullable(Of String), Constants.SortOrder, Nullable(Of Int32), Nullable(Of Int32))
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.ListUsers(System.Nullable<System.String>, System.Nullable<System.String>, Supabase.Gotrue.Constants.SortOrder, System.Nullable<System.Int32>, System.Nullable<System.Int32>)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).ListUsers(System.Nullable(Of System.String), System.Nullable(Of System.String), Supabase.Gotrue.Constants.SortOrder, System.Nullable(Of System.Int32), System.Nullable(Of System.Int32))
+  nameWithType: IGotrueAdminClient<TUser>.ListUsers(Nullable<String>, Nullable<String>, Constants.SortOrder, Nullable<Int32>, Nullable<Int32>)
+  nameWithType.vb: IGotrueAdminClient(Of TUser).ListUsers(Nullable(Of String), Nullable(Of String), Constants.SortOrder, Nullable(Of Int32), Nullable(Of Int32))
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.ListUsers*
+  name: ListUsers
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_ListUsers_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.ListUsers
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.ListUsers
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).ListUsers
+  nameWithType: IGotrueAdminClient<TUser>.ListUsers
+  nameWithType.vb: IGotrueAdminClient(Of TUser).ListUsers
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.Update(Supabase.Gotrue.UserAttributes)
+  name: Update(UserAttributes)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_Update_Supabase_Gotrue_UserAttributes_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.Update(Supabase.Gotrue.UserAttributes)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.Update(Supabase.Gotrue.UserAttributes)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).Update(Supabase.Gotrue.UserAttributes)
+  nameWithType: IGotrueAdminClient<TUser>.Update(UserAttributes)
+  nameWithType.vb: IGotrueAdminClient(Of TUser).Update(UserAttributes)
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.Update*
+  name: Update
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_Update_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.Update
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.Update
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).Update
+  nameWithType: IGotrueAdminClient<TUser>.Update
+  nameWithType.vb: IGotrueAdminClient(Of TUser).Update
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.UpdateUserById(System.String,Supabase.Gotrue.AdminUserAttributes)
+  name: UpdateUserById(String, AdminUserAttributes)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_UpdateUserById_System_String_Supabase_Gotrue_AdminUserAttributes_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.UpdateUserById(System.String,Supabase.Gotrue.AdminUserAttributes)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.UpdateUserById(System.String, Supabase.Gotrue.AdminUserAttributes)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).UpdateUserById(System.String, Supabase.Gotrue.AdminUserAttributes)
+  nameWithType: IGotrueAdminClient<TUser>.UpdateUserById(String, AdminUserAttributes)
+  nameWithType.vb: IGotrueAdminClient(Of TUser).UpdateUserById(String, AdminUserAttributes)
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.UpdateUserById*
+  name: UpdateUserById
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_UpdateUserById_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.UpdateUserById
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.UpdateUserById
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).UpdateUserById
+  nameWithType: IGotrueAdminClient<TUser>.UpdateUserById
+  nameWithType.vb: IGotrueAdminClient(Of TUser).UpdateUserById
 - uid: Supabase.Gotrue.Interfaces.IGotrueApi`2
   name: IGotrueApi<TUser, TSession>
   href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html
@@ -6327,31 +6666,6 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).ClearStateChangedListeners
   nameWithType: IGotrueClient<TUser, TSession>.ClearStateChangedListeners
   nameWithType.vb: IGotrueClient(Of TUser, TSession).ClearStateChangedListeners
-- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.CreateUser(System.String,Supabase.Gotrue.AdminUserAttributes)
-  name: CreateUser(String, AdminUserAttributes)
-  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_CreateUser_System_String_Supabase_Gotrue_AdminUserAttributes_
-  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.CreateUser(System.String,Supabase.Gotrue.AdminUserAttributes)
-  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.CreateUser(System.String, Supabase.Gotrue.AdminUserAttributes)
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).CreateUser(System.String, Supabase.Gotrue.AdminUserAttributes)
-  nameWithType: IGotrueClient<TUser, TSession>.CreateUser(String, AdminUserAttributes)
-  nameWithType.vb: IGotrueClient(Of TUser, TSession).CreateUser(String, AdminUserAttributes)
-- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.CreateUser(System.String,System.String,System.String,Supabase.Gotrue.AdminUserAttributes)
-  name: CreateUser(String, String, String, AdminUserAttributes)
-  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_CreateUser_System_String_System_String_System_String_Supabase_Gotrue_AdminUserAttributes_
-  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.CreateUser(System.String,System.String,System.String,Supabase.Gotrue.AdminUserAttributes)
-  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.CreateUser(System.String, System.String, System.String, Supabase.Gotrue.AdminUserAttributes)
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).CreateUser(System.String, System.String, System.String, Supabase.Gotrue.AdminUserAttributes)
-  nameWithType: IGotrueClient<TUser, TSession>.CreateUser(String, String, String, AdminUserAttributes)
-  nameWithType.vb: IGotrueClient(Of TUser, TSession).CreateUser(String, String, String, AdminUserAttributes)
-- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.CreateUser*
-  name: CreateUser
-  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_CreateUser_
-  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.CreateUser
-  isSpec: "True"
-  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.CreateUser
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).CreateUser
-  nameWithType: IGotrueClient<TUser, TSession>.CreateUser
-  nameWithType.vb: IGotrueClient(Of TUser, TSession).CreateUser
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.CurrentSession
   name: CurrentSession
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_CurrentSession
@@ -6386,23 +6700,24 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).CurrentUser
   nameWithType: IGotrueClient<TUser, TSession>.CurrentUser
   nameWithType.vb: IGotrueClient(Of TUser, TSession).CurrentUser
-- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.DeleteUser(System.String,System.String)
-  name: DeleteUser(String, String)
-  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_DeleteUser_System_String_System_String_
-  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.DeleteUser(System.String,System.String)
-  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.DeleteUser(System.String, System.String)
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).DeleteUser(System.String, System.String)
-  nameWithType: IGotrueClient<TUser, TSession>.DeleteUser(String, String)
-  nameWithType.vb: IGotrueClient(Of TUser, TSession).DeleteUser(String, String)
-- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.DeleteUser*
-  name: DeleteUser
-  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_DeleteUser_
-  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.DeleteUser
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.Debug(System.String,System.Nullable{Exception})
+  name: Debug(String, Nullable<Exception>)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_Debug_System_String_System_Nullable_Exception__
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.Debug(System.String,System.Nullable{Exception})
+  name.vb: Debug(String, Nullable(Of Exception))
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.Debug(System.String, System.Nullable<Exception>)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Debug(System.String, System.Nullable(Of Exception))
+  nameWithType: IGotrueClient<TUser, TSession>.Debug(String, Nullable<Exception>)
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).Debug(String, Nullable(Of Exception))
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.Debug*
+  name: Debug
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_Debug_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.Debug
   isSpec: "True"
-  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.DeleteUser
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).DeleteUser
-  nameWithType: IGotrueClient<TUser, TSession>.DeleteUser
-  nameWithType.vb: IGotrueClient(Of TUser, TSession).DeleteUser
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.Debug
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Debug
+  nameWithType: IGotrueClient<TUser, TSession>.Debug
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).Debug
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.ExchangeCodeForSession(System.String,System.String)
   name: ExchangeCodeForSession(String, String)
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_ExchangeCodeForSession_System_String_System_String_
@@ -6454,58 +6769,6 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).GetUser
   nameWithType: IGotrueClient<TUser, TSession>.GetUser
   nameWithType.vb: IGotrueClient(Of TUser, TSession).GetUser
-- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.GetUserById(System.String,System.String)
-  name: GetUserById(String, String)
-  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_GetUserById_System_String_System_String_
-  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.GetUserById(System.String,System.String)
-  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.GetUserById(System.String, System.String)
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).GetUserById(System.String, System.String)
-  nameWithType: IGotrueClient<TUser, TSession>.GetUserById(String, String)
-  nameWithType.vb: IGotrueClient(Of TUser, TSession).GetUserById(String, String)
-- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.GetUserById*
-  name: GetUserById
-  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_GetUserById_
-  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.GetUserById
-  isSpec: "True"
-  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.GetUserById
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).GetUserById
-  nameWithType: IGotrueClient<TUser, TSession>.GetUserById
-  nameWithType.vb: IGotrueClient(Of TUser, TSession).GetUserById
-- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.InviteUserByEmail(System.String,System.String)
-  name: InviteUserByEmail(String, String)
-  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_InviteUserByEmail_System_String_System_String_
-  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.InviteUserByEmail(System.String,System.String)
-  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.InviteUserByEmail(System.String, System.String)
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).InviteUserByEmail(System.String, System.String)
-  nameWithType: IGotrueClient<TUser, TSession>.InviteUserByEmail(String, String)
-  nameWithType.vb: IGotrueClient(Of TUser, TSession).InviteUserByEmail(String, String)
-- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.InviteUserByEmail*
-  name: InviteUserByEmail
-  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_InviteUserByEmail_
-  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.InviteUserByEmail
-  isSpec: "True"
-  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.InviteUserByEmail
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).InviteUserByEmail
-  nameWithType: IGotrueClient<TUser, TSession>.InviteUserByEmail
-  nameWithType.vb: IGotrueClient(Of TUser, TSession).InviteUserByEmail
-- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.ListUsers(System.String,System.Nullable{System.String},System.Nullable{System.String},Supabase.Gotrue.Constants.SortOrder,System.Nullable{System.Int32},System.Nullable{System.Int32})
-  name: ListUsers(String, Nullable<String>, Nullable<String>, Constants.SortOrder, Nullable<Int32>, Nullable<Int32>)
-  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_ListUsers_System_String_System_Nullable_System_String__System_Nullable_System_String__Supabase_Gotrue_Constants_SortOrder_System_Nullable_System_Int32__System_Nullable_System_Int32__
-  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.ListUsers(System.String,System.Nullable{System.String},System.Nullable{System.String},Supabase.Gotrue.Constants.SortOrder,System.Nullable{System.Int32},System.Nullable{System.Int32})
-  name.vb: ListUsers(String, Nullable(Of String), Nullable(Of String), Constants.SortOrder, Nullable(Of Int32), Nullable(Of Int32))
-  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.ListUsers(System.String, System.Nullable<System.String>, System.Nullable<System.String>, Supabase.Gotrue.Constants.SortOrder, System.Nullable<System.Int32>, System.Nullable<System.Int32>)
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).ListUsers(System.String, System.Nullable(Of System.String), System.Nullable(Of System.String), Supabase.Gotrue.Constants.SortOrder, System.Nullable(Of System.Int32), System.Nullable(Of System.Int32))
-  nameWithType: IGotrueClient<TUser, TSession>.ListUsers(String, Nullable<String>, Nullable<String>, Constants.SortOrder, Nullable<Int32>, Nullable<Int32>)
-  nameWithType.vb: IGotrueClient(Of TUser, TSession).ListUsers(String, Nullable(Of String), Nullable(Of String), Constants.SortOrder, Nullable(Of Int32), Nullable(Of Int32))
-- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.ListUsers*
-  name: ListUsers
-  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_ListUsers_
-  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.ListUsers
-  isSpec: "True"
-  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.ListUsers
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).ListUsers
-  nameWithType: IGotrueClient<TUser, TSession>.ListUsers
-  nameWithType.vb: IGotrueClient(Of TUser, TSession).ListUsers
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.LoadSession
   name: LoadSession()
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_LoadSession
@@ -6540,6 +6803,23 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).NotifyAuthStateChange
   nameWithType: IGotrueClient<TUser, TSession>.NotifyAuthStateChange
   nameWithType.vb: IGotrueClient(Of TUser, TSession).NotifyAuthStateChange
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.Online
+  name: Online
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_Online
+  commentId: P:Supabase.Gotrue.Interfaces.IGotrueClient`2.Online
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.Online
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Online
+  nameWithType: IGotrueClient<TUser, TSession>.Online
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).Online
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.Online*
+  name: Online
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_Online_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.Online
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.Online
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Online
+  nameWithType: IGotrueClient<TUser, TSession>.Online
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).Online
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.Options
   name: Options
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_Options
@@ -6712,6 +6992,23 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Settings
   nameWithType: IGotrueClient<TUser, TSession>.Settings
   nameWithType.vb: IGotrueClient(Of TUser, TSession).Settings
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.Shutdown
+  name: Shutdown()
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_Shutdown
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.Shutdown
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.Shutdown()
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Shutdown()
+  nameWithType: IGotrueClient<TUser, TSession>.Shutdown()
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).Shutdown()
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.Shutdown*
+  name: Shutdown
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_Shutdown_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.Shutdown
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.Shutdown
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Shutdown
+  nameWithType: IGotrueClient<TUser, TSession>.Shutdown
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).Shutdown
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.SignIn(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.SignInOptions)
   name: SignIn(Constants.Provider, SignInOptions)
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_SignIn_Supabase_Gotrue_Constants_Provider_Supabase_Gotrue_SignInOptions_
@@ -6873,23 +7170,6 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Update
   nameWithType: IGotrueClient<TUser, TSession>.Update
   nameWithType.vb: IGotrueClient(Of TUser, TSession).Update
-- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.UpdateUserById(System.String,System.String,Supabase.Gotrue.AdminUserAttributes)
-  name: UpdateUserById(String, String, AdminUserAttributes)
-  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_UpdateUserById_System_String_System_String_Supabase_Gotrue_AdminUserAttributes_
-  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.UpdateUserById(System.String,System.String,Supabase.Gotrue.AdminUserAttributes)
-  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.UpdateUserById(System.String, System.String, Supabase.Gotrue.AdminUserAttributes)
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).UpdateUserById(System.String, System.String, Supabase.Gotrue.AdminUserAttributes)
-  nameWithType: IGotrueClient<TUser, TSession>.UpdateUserById(String, String, AdminUserAttributes)
-  nameWithType.vb: IGotrueClient(Of TUser, TSession).UpdateUserById(String, String, AdminUserAttributes)
-- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.UpdateUserById*
-  name: UpdateUserById
-  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_UpdateUserById_
-  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.UpdateUserById
-  isSpec: "True"
-  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.UpdateUserById
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).UpdateUserById
-  nameWithType: IGotrueClient<TUser, TSession>.UpdateUserById
-  nameWithType.vb: IGotrueClient(Of TUser, TSession).UpdateUserById
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.VerifyOTP(System.String,System.String,Supabase.Gotrue.Constants.EmailOtpType)
   name: VerifyOTP(String, String, Constants.EmailOtpType)
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_VerifyOTP_System_String_System_String_Supabase_Gotrue_Constants_EmailOtpType_
@@ -7384,6 +7664,51 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).VerifyOTP
   nameWithType: IGotrueStatelessClient<TUser, TSession>.VerifyOTP
   nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).VerifyOTP
+- uid: Supabase.Gotrue.NetworkStatus
+  name: NetworkStatus
+  href: api/Supabase.Gotrue.NetworkStatus.html
+  commentId: T:Supabase.Gotrue.NetworkStatus
+  fullName: Supabase.Gotrue.NetworkStatus
+  nameWithType: NetworkStatus
+- uid: Supabase.Gotrue.NetworkStatus.#ctor(Supabase.Gotrue.Client)
+  name: NetworkStatus(Client)
+  href: api/Supabase.Gotrue.NetworkStatus.html#Supabase_Gotrue_NetworkStatus__ctor_Supabase_Gotrue_Client_
+  commentId: M:Supabase.Gotrue.NetworkStatus.#ctor(Supabase.Gotrue.Client)
+  fullName: Supabase.Gotrue.NetworkStatus.NetworkStatus(Supabase.Gotrue.Client)
+  nameWithType: NetworkStatus.NetworkStatus(Client)
+- uid: Supabase.Gotrue.NetworkStatus.#ctor*
+  name: NetworkStatus
+  href: api/Supabase.Gotrue.NetworkStatus.html#Supabase_Gotrue_NetworkStatus__ctor_
+  commentId: Overload:Supabase.Gotrue.NetworkStatus.#ctor
+  isSpec: "True"
+  fullName: Supabase.Gotrue.NetworkStatus.NetworkStatus
+  nameWithType: NetworkStatus.NetworkStatus
+- uid: Supabase.Gotrue.NetworkStatus.PingCheck
+  name: PingCheck()
+  href: api/Supabase.Gotrue.NetworkStatus.html#Supabase_Gotrue_NetworkStatus_PingCheck
+  commentId: M:Supabase.Gotrue.NetworkStatus.PingCheck
+  fullName: Supabase.Gotrue.NetworkStatus.PingCheck()
+  nameWithType: NetworkStatus.PingCheck()
+- uid: Supabase.Gotrue.NetworkStatus.PingCheck*
+  name: PingCheck
+  href: api/Supabase.Gotrue.NetworkStatus.html#Supabase_Gotrue_NetworkStatus_PingCheck_
+  commentId: Overload:Supabase.Gotrue.NetworkStatus.PingCheck
+  isSpec: "True"
+  fullName: Supabase.Gotrue.NetworkStatus.PingCheck
+  nameWithType: NetworkStatus.PingCheck
+- uid: Supabase.Gotrue.NetworkStatus.StartAsync
+  name: StartAsync()
+  href: api/Supabase.Gotrue.NetworkStatus.html#Supabase_Gotrue_NetworkStatus_StartAsync
+  commentId: M:Supabase.Gotrue.NetworkStatus.StartAsync
+  fullName: Supabase.Gotrue.NetworkStatus.StartAsync()
+  nameWithType: NetworkStatus.StartAsync()
+- uid: Supabase.Gotrue.NetworkStatus.StartAsync*
+  name: StartAsync
+  href: api/Supabase.Gotrue.NetworkStatus.html#Supabase_Gotrue_NetworkStatus_StartAsync_
+  commentId: Overload:Supabase.Gotrue.NetworkStatus.StartAsync
+  isSpec: "True"
+  fullName: Supabase.Gotrue.NetworkStatus.StartAsync
+  nameWithType: NetworkStatus.StartAsync
 - uid: Supabase.Gotrue.PasswordlessSignInState
   name: PasswordlessSignInState
   href: api/Supabase.Gotrue.PasswordlessSignInState.html
@@ -7569,6 +7894,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Session.CreatedAt
   nameWithType: Session.CreatedAt
+- uid: Supabase.Gotrue.Session.Expired
+  name: Expired()
+  href: api/Supabase.Gotrue.Session.html#Supabase_Gotrue_Session_Expired
+  commentId: M:Supabase.Gotrue.Session.Expired
+  fullName: Supabase.Gotrue.Session.Expired()
+  nameWithType: Session.Expired()
+- uid: Supabase.Gotrue.Session.Expired*
+  name: Expired
+  href: api/Supabase.Gotrue.Session.html#Supabase_Gotrue_Session_Expired_
+  commentId: Overload:Supabase.Gotrue.Session.Expired
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Session.Expired
+  nameWithType: Session.Expired
 - uid: Supabase.Gotrue.Session.ExpiresAt
   name: ExpiresAt()
   href: api/Supabase.Gotrue.Session.html#Supabase_Gotrue_Session_ExpiresAt
@@ -8274,6 +8612,41 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.StatelessClient.VerifyOTP
   nameWithType: StatelessClient.VerifyOTP
+- uid: Supabase.Gotrue.TokenRefresh
+  name: TokenRefresh
+  href: api/Supabase.Gotrue.TokenRefresh.html
+  commentId: T:Supabase.Gotrue.TokenRefresh
+  fullName: Supabase.Gotrue.TokenRefresh
+  nameWithType: TokenRefresh
+- uid: Supabase.Gotrue.TokenRefresh.#ctor(Supabase.Gotrue.Client)
+  name: TokenRefresh(Client)
+  href: api/Supabase.Gotrue.TokenRefresh.html#Supabase_Gotrue_TokenRefresh__ctor_Supabase_Gotrue_Client_
+  commentId: M:Supabase.Gotrue.TokenRefresh.#ctor(Supabase.Gotrue.Client)
+  fullName: Supabase.Gotrue.TokenRefresh.TokenRefresh(Supabase.Gotrue.Client)
+  nameWithType: TokenRefresh.TokenRefresh(Client)
+- uid: Supabase.Gotrue.TokenRefresh.#ctor*
+  name: TokenRefresh
+  href: api/Supabase.Gotrue.TokenRefresh.html#Supabase_Gotrue_TokenRefresh__ctor_
+  commentId: Overload:Supabase.Gotrue.TokenRefresh.#ctor
+  isSpec: "True"
+  fullName: Supabase.Gotrue.TokenRefresh.TokenRefresh
+  nameWithType: TokenRefresh.TokenRefresh
+- uid: Supabase.Gotrue.TokenRefresh.ManageAutoRefresh(Supabase.Gotrue.Interfaces.IGotrueClient{Supabase.Gotrue.User,Supabase.Gotrue.Session},Supabase.Gotrue.Constants.AuthState)
+  name: ManageAutoRefresh(IGotrueClient<User, Session>, Constants.AuthState)
+  href: api/Supabase.Gotrue.TokenRefresh.html#Supabase_Gotrue_TokenRefresh_ManageAutoRefresh_Supabase_Gotrue_Interfaces_IGotrueClient_Supabase_Gotrue_User_Supabase_Gotrue_Session__Supabase_Gotrue_Constants_AuthState_
+  commentId: M:Supabase.Gotrue.TokenRefresh.ManageAutoRefresh(Supabase.Gotrue.Interfaces.IGotrueClient{Supabase.Gotrue.User,Supabase.Gotrue.Session},Supabase.Gotrue.Constants.AuthState)
+  name.vb: ManageAutoRefresh(IGotrueClient(Of User, Session), Constants.AuthState)
+  fullName: Supabase.Gotrue.TokenRefresh.ManageAutoRefresh(Supabase.Gotrue.Interfaces.IGotrueClient<Supabase.Gotrue.User, Supabase.Gotrue.Session>, Supabase.Gotrue.Constants.AuthState)
+  fullName.vb: Supabase.Gotrue.TokenRefresh.ManageAutoRefresh(Supabase.Gotrue.Interfaces.IGotrueClient(Of Supabase.Gotrue.User, Supabase.Gotrue.Session), Supabase.Gotrue.Constants.AuthState)
+  nameWithType: TokenRefresh.ManageAutoRefresh(IGotrueClient<User, Session>, Constants.AuthState)
+  nameWithType.vb: TokenRefresh.ManageAutoRefresh(IGotrueClient(Of User, Session), Constants.AuthState)
+- uid: Supabase.Gotrue.TokenRefresh.ManageAutoRefresh*
+  name: ManageAutoRefresh
+  href: api/Supabase.Gotrue.TokenRefresh.html#Supabase_Gotrue_TokenRefresh_ManageAutoRefresh_
+  commentId: Overload:Supabase.Gotrue.TokenRefresh.ManageAutoRefresh
+  isSpec: "True"
+  fullName: Supabase.Gotrue.TokenRefresh.ManageAutoRefresh
+  nameWithType: TokenRefresh.ManageAutoRefresh
 - uid: Supabase.Gotrue.User
   name: User
   href: api/Supabase.Gotrue.User.html
@@ -8811,6 +9184,23 @@ references:
   fullName.vb: Supabase.Interfaces.ISupabaseClient(Of TUser, TSession, TSocket, TChannel, TBucket, TFileObject)
   nameWithType: ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>
   nameWithType.vb: ISupabaseClient(Of TUser, TSession, TSocket, TChannel, TBucket, TFileObject)
+- uid: Supabase.Interfaces.ISupabaseClient`6.AdminAuth(System.String)
+  name: AdminAuth(String)
+  href: api/Supabase.Interfaces.ISupabaseClient-6.html#Supabase_Interfaces_ISupabaseClient_6_AdminAuth_System_String_
+  commentId: M:Supabase.Interfaces.ISupabaseClient`6.AdminAuth(System.String)
+  fullName: Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.AdminAuth(System.String)
+  fullName.vb: Supabase.Interfaces.ISupabaseClient(Of TUser, TSession, TSocket, TChannel, TBucket, TFileObject).AdminAuth(System.String)
+  nameWithType: ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.AdminAuth(String)
+  nameWithType.vb: ISupabaseClient(Of TUser, TSession, TSocket, TChannel, TBucket, TFileObject).AdminAuth(String)
+- uid: Supabase.Interfaces.ISupabaseClient`6.AdminAuth*
+  name: AdminAuth
+  href: api/Supabase.Interfaces.ISupabaseClient-6.html#Supabase_Interfaces_ISupabaseClient_6_AdminAuth_
+  commentId: Overload:Supabase.Interfaces.ISupabaseClient`6.AdminAuth
+  isSpec: "True"
+  fullName: Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.AdminAuth
+  fullName.vb: Supabase.Interfaces.ISupabaseClient(Of TUser, TSession, TSocket, TChannel, TBucket, TFileObject).AdminAuth
+  nameWithType: ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.AdminAuth
+  nameWithType.vb: ISupabaseClient(Of TUser, TSession, TSocket, TChannel, TBucket, TFileObject).AdminAuth
 - uid: Supabase.Interfaces.ISupabaseClient`6.Auth
   name: Auth
   href: api/Supabase.Interfaces.ISupabaseClient-6.html#Supabase_Interfaces_ISupabaseClient_6_Auth

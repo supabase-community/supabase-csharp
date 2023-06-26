@@ -77,11 +77,18 @@
   <div class="markdown level0 remarks"></div>
     <h3 id="interfaces">Interfaces
   </h3>
+      <h4><a class="xref" href="Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html">IGotrueAdminClient&lt;TUser&gt;</a></h4>
+      <section><p>Interface for the Gotrue Admin Client (auth).</p>
+</section>
       <h4><a class="xref" href="Supabase.Gotrue.Interfaces.IGotrueApi-2.html">IGotrueApi&lt;TUser, TSession&gt;</a></h4>
       <section></section>
       <h4><a class="xref" href="Supabase.Gotrue.Interfaces.IGotrueClient-2.html">IGotrueClient&lt;TUser, TSession&gt;</a></h4>
-      <section><p>Interface for the Gotrue Client (auth).</p>
-<p>For more information check out the <a class="xref" href="Supabase.Gotrue.Client.html">Client</a> implementation.</p>
+      <section><p>GoTrue stateful Client.</p>
+<p>This class is best used as a long-lived singleton object in your application. You can attach listeners
+to be notified of changes to the user log in state, a persistence system for sessions across application
+launches, and more. It includes a (optional, on by default) background thread that runs to refresh the
+user's session token.</p>
+<p>Check out the test suite for examples of use.</p>
 </section>
       <h4><a class="xref" href="Supabase.Gotrue.Interfaces.IGotruePersistenceListener-1.html">IGotruePersistenceListener&lt;TSession&gt;</a></h4>
       <section><p>Interface for a session persistence auth state handler.</p>
@@ -91,7 +98,8 @@
 other error conditions in your implementation.</p>
 </section>
       <h4><a class="xref" href="Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html">IGotrueStatelessClient&lt;TUser, TSession&gt;</a></h4>
-      <section></section>
+      <section><p>A Stateless Gotrue Client</p>
+</section>
     <h3 id="delegates">Delegates
   </h3>
       <h4><a class="xref" href="Supabase.Gotrue.Interfaces.IGotrueClient-2.AuthEventHandler.html">IGotrueClient&lt;TUser, TSession&gt;.AuthEventHandler</a></h4>
