@@ -230,6 +230,7 @@ namespace Supabase
                     break;
                 case AuthState.UserUpdated: break;
                 case AuthState.PasswordRecovery: break;
+                case AuthState.Shutdown: break;
                 default: throw new ArgumentOutOfRangeException(nameof(e), e, null);
             }
         }
