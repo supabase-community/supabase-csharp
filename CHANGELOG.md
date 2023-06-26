@@ -1,5 +1,20 @@
 ﻿# Changelog
 
+## 0.12.0 - 2023-06-25
+
+- Update dependency: `gotrue-csharp@4.1.0`
+    - **Minor** [#66](https://github.com/supabase-community/gotrue-csharp/pull/66) - Separates out Admin JWT
+      functionality into a separate `AdminClient`
+    - [#67](https://github.com/supabase-community/gotrue-csharp/pull/67) - Adds shutdown method which terminates the
+      background refresh threads.
+    - Movement of much of the documentation for methods out of their classes and into their interfaces.
+    - Language features locked to C#9
+- Update dependency:`postgrest-csharp@3.2.3`
+    - [#69](https://github.com/supabase-community/postgrest-csharp/pull/69) Locks language version to C#9
+    - [#68](https://github.com/supabase-community/postgrest-csharp/pull/68) Makes RPC parameters optional
+
+Thanks [@wiverson](https://github.com/wiverson) for the work in this release!
+
 ## 0.11.1 - 2023-06-10
 
 - Update dependencies: `functions-csharp@1.3.1`, `gotrue-csharp@4.0.4`, `postgrest-csharp@3.2.2`,
