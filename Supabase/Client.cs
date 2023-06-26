@@ -42,6 +42,22 @@ namespace Supabase
         private IGotrueClient<User, Session> _auth;
 
         /// <summary>
+        /// Returns a Stateless Gotrue Admin client given a service_key JWT. This should really only be accessed from a
+        /// server environment where a private service_key would remain secure.
+        /// </summary>
+        /// <param name="serviceKey"></param>
+        /// <returns></returns>
+        public IGotrueAdminClient<User> AdminAuth(string serviceKey) =>
+            new AdminClient(serviceKey, new Gotrue.ClientOptions
+            {
+                Url = string.Format(_options.AuthUrlFormat, _supabaseUrl),
+                AutoRefreshToken = _options.AutoRefreshToken
+            })
+            {
+                GetHeaders = GetAuthHeaders,
+            };
+
+        /// <summary>
         /// Supabase Realtime allows for realtime feedback on database changes.
         /// </summary>
         public IRealtimeClient<RealtimeSocket, RealtimeChannel> Realtime
@@ -90,6 +106,7 @@ namespace Supabase
 
         private IStorageClient<Bucket, FileObject> _storage;
 
+        private readonly string? _supabaseUrl;
         private readonly string? _supabaseKey;
         private readonly SupabaseOptions _options;
 
@@ -122,6 +139,7 @@ namespace Supabase
         /// <param name="options"></param>
         public Client(string supabaseUrl, string? supabaseKey, SupabaseOptions? options = null)
         {
+            _supabaseUrl = supabaseUrl;
             _supabaseKey = supabaseKey;
             _options = options ?? new SupabaseOptions();
 

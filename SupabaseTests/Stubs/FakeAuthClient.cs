@@ -52,6 +52,18 @@ namespace SupabaseTests.Stubs
             throw new NotImplementedException();
         }
 
+        public void Debug(string message, Exception e = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Shutdown()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Online { get; set; }
+
         public Task<User> GetUserById(string jwt, string userId)
         {
             throw new NotImplementedException();
