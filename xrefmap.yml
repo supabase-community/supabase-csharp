@@ -895,12 +895,6 @@ references:
   commentId: F:Postgrest.Exceptions.FailureHint.Reason.ForeignKeyViolation
   fullName: Postgrest.Exceptions.FailureHint.Reason.ForeignKeyViolation
   nameWithType: FailureHint.Reason.ForeignKeyViolation
-- uid: Postgrest.Exceptions.FailureHint.Reason.Internal
-  name: Internal
-  href: api/Postgrest.Exceptions.FailureHint.Reason.html#Postgrest_Exceptions_FailureHint_Reason_Internal
-  commentId: F:Postgrest.Exceptions.FailureHint.Reason.Internal
-  fullName: Postgrest.Exceptions.FailureHint.Reason.Internal
-  nameWithType: FailureHint.Reason.Internal
 - uid: Postgrest.Exceptions.FailureHint.Reason.InvalidArgument
   name: InvalidArgument
   href: api/Postgrest.Exceptions.FailureHint.Reason.html#Postgrest_Exceptions_FailureHint_Reason_InvalidArgument
@@ -913,6 +907,12 @@ references:
   commentId: F:Postgrest.Exceptions.FailureHint.Reason.NotAuthorized
   fullName: Postgrest.Exceptions.FailureHint.Reason.NotAuthorized
   nameWithType: FailureHint.Reason.NotAuthorized
+- uid: Postgrest.Exceptions.FailureHint.Reason.ServerError
+  name: ServerError
+  href: api/Postgrest.Exceptions.FailureHint.Reason.html#Postgrest_Exceptions_FailureHint_Reason_ServerError
+  commentId: F:Postgrest.Exceptions.FailureHint.Reason.ServerError
+  fullName: Postgrest.Exceptions.FailureHint.Reason.ServerError
+  nameWithType: FailureHint.Reason.ServerError
 - uid: Postgrest.Exceptions.FailureHint.Reason.UndefinedFunction
   name: UndefinedFunction
   href: api/Postgrest.Exceptions.FailureHint.Reason.html#Postgrest_Exceptions_FailureHint_Reason_UndefinedFunction
@@ -7670,12 +7670,15 @@ references:
   commentId: T:Supabase.Gotrue.NetworkStatus
   fullName: Supabase.Gotrue.NetworkStatus
   nameWithType: NetworkStatus
-- uid: Supabase.Gotrue.NetworkStatus.#ctor(Supabase.Gotrue.Client)
-  name: NetworkStatus(Client)
-  href: api/Supabase.Gotrue.NetworkStatus.html#Supabase_Gotrue_NetworkStatus__ctor_Supabase_Gotrue_Client_
-  commentId: M:Supabase.Gotrue.NetworkStatus.#ctor(Supabase.Gotrue.Client)
-  fullName: Supabase.Gotrue.NetworkStatus.NetworkStatus(Supabase.Gotrue.Client)
-  nameWithType: NetworkStatus.NetworkStatus(Client)
+- uid: Supabase.Gotrue.NetworkStatus.#ctor(Supabase.Gotrue.Interfaces.IGotrueClient{Supabase.Gotrue.User,Supabase.Gotrue.Session})
+  name: NetworkStatus(IGotrueClient<User, Session>)
+  href: api/Supabase.Gotrue.NetworkStatus.html#Supabase_Gotrue_NetworkStatus__ctor_Supabase_Gotrue_Interfaces_IGotrueClient_Supabase_Gotrue_User_Supabase_Gotrue_Session__
+  commentId: M:Supabase.Gotrue.NetworkStatus.#ctor(Supabase.Gotrue.Interfaces.IGotrueClient{Supabase.Gotrue.User,Supabase.Gotrue.Session})
+  name.vb: NetworkStatus(IGotrueClient(Of User, Session))
+  fullName: Supabase.Gotrue.NetworkStatus.NetworkStatus(Supabase.Gotrue.Interfaces.IGotrueClient<Supabase.Gotrue.User, Supabase.Gotrue.Session>)
+  fullName.vb: Supabase.Gotrue.NetworkStatus.NetworkStatus(Supabase.Gotrue.Interfaces.IGotrueClient(Of Supabase.Gotrue.User, Supabase.Gotrue.Session))
+  nameWithType: NetworkStatus.NetworkStatus(IGotrueClient<User, Session>)
+  nameWithType.vb: NetworkStatus.NetworkStatus(IGotrueClient(Of User, Session))
 - uid: Supabase.Gotrue.NetworkStatus.#ctor*
   name: NetworkStatus
   href: api/Supabase.Gotrue.NetworkStatus.html#Supabase_Gotrue_NetworkStatus__ctor_
