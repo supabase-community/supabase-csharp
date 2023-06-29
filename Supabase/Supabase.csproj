@@ -18,8 +18,8 @@
         <Summary>A C# implementation of the Supabase client</Summary>
         <Title>Supabase</Title>
         <PackageTags>supabase</PackageTags>
-        <ReleaseVersion>0.12.0</ReleaseVersion>
-        <PackageVersion>0.12.0</PackageVersion>
+        <ReleaseVersion>0.12.1</ReleaseVersion>
+        <PackageVersion>0.12.1</PackageVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageIcon>icon.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -29,26 +29,26 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Version)' == '' ">
-        <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">0.12.0</VersionPrefix>
+        <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">0.12.1</VersionPrefix>
         <Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="functions-csharp" Version="1.3.1"/>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
-        <PackageReference Include="postgrest-csharp" Version="3.2.3"/>
-        <PackageReference Include="gotrue-csharp" Version="4.1.0"/>
-        <PackageReference Include="realtime-csharp" Version="6.0.3"/>
-        <PackageReference Include="supabase-core" Version="0.0.3"/>
-        <PackageReference Include="supabase-storage-csharp" Version="1.3.2"/>
+        <PackageReference Include="functions-csharp" Version="1.3.1" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="postgrest-csharp" Version="3.2.4" />
+        <PackageReference Include="gotrue-csharp" Version="4.1.1" />
+        <PackageReference Include="realtime-csharp" Version="6.0.3" />
+        <PackageReference Include="supabase-core" Version="0.0.3" />
+        <PackageReference Include="supabase-storage-csharp" Version="1.3.2" />
     </ItemGroup>
     <ItemGroup>
-        <Folder Include="Extensions\"/>
+        <Folder Include="Extensions\" />
     </ItemGroup>
     <ItemGroup>
-        <None Remove="MimeMapping"/>
-        <None Remove="Extensions\"/>
-        <None Remove="supabase-storage-csharp"/>
-        <None Include="..\.github\icon.png" Pack="true" Link="icon.png" PackagePath="\"/>
-        <None Include="..\README.md" Pack="true" Link="README.md" PackagePath="\"/>
+        <None Remove="MimeMapping" />
+        <None Remove="Extensions\" />
+        <None Remove="supabase-storage-csharp" />
+        <None Include="..\.github\icon.png" Pack="true" Link="icon.png" PackagePath="\" />
+        <None Include="..\README.md" Pack="true" Link="README.md" PackagePath="\" />
     </ItemGroup>
 </Project>
