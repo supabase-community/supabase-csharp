@@ -1,9 +1,23 @@
 ﻿# Changelog
 
+## 0.12.2 - 2023-07-28
+
+- Update dependency: `realtime-csharp@6.0.4`
+    - Fixes [#29](https://github.com/supabase-community/realtime-csharp/issues/29) Where the Realtime client could
+      disconnect from channels after a few hours and fail to reconnect by removing the case where the `IsSubscribe` flag
+      is flipped when encountering a channel error.
+- Update dependency: `postgrest-csharp@3.2.5`
+    - Re: [supabase-community/supabase-csharp#81](https://github.com/supabase-community/supabase-csharp/discussions/81):
+      Clarifies `ReferenceAttribute` by changing `shouldFilterTopLevel` to `useInnerJoin` and adds an additional
+      constructor for `ReferenceAttribute` with a shortcut for specifying the `JoinType`
+
 ## 0.12.1 - 2023-06-29
 
 - Update dependency: `gotrue-csharp@4.1.1`
+    - [#68](https://github.com/supabase-community/gotrue-csharp/pull/68) Changes Network Status to use the interface
+      instead of client
 - Update dependency: `postgrest-csharp@3.2.4`
+    - [#70](https://github.com/supabase-community/postgrest-csharp/pull/70) Minor Unity related fixes
 
 ## 0.12.0 - 2023-06-25
 
