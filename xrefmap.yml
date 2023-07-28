@@ -141,6 +141,12 @@ references:
   commentId: T:Postgrest.Attributes.ReferenceAttribute
   fullName: Postgrest.Attributes.ReferenceAttribute
   nameWithType: ReferenceAttribute
+- uid: Postgrest.Attributes.ReferenceAttribute.#ctor(Type,Postgrest.Attributes.ReferenceAttribute.JoinType,System.Boolean,System.Boolean,System.Boolean,System.String)
+  name: ReferenceAttribute(Type, ReferenceAttribute.JoinType, Boolean, Boolean, Boolean, String)
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute__ctor_Type_Postgrest_Attributes_ReferenceAttribute_JoinType_System_Boolean_System_Boolean_System_Boolean_System_String_
+  commentId: M:Postgrest.Attributes.ReferenceAttribute.#ctor(Type,Postgrest.Attributes.ReferenceAttribute.JoinType,System.Boolean,System.Boolean,System.Boolean,System.String)
+  fullName: Postgrest.Attributes.ReferenceAttribute.ReferenceAttribute(Type, Postgrest.Attributes.ReferenceAttribute.JoinType, System.Boolean, System.Boolean, System.Boolean, System.String)
+  nameWithType: ReferenceAttribute.ReferenceAttribute(Type, ReferenceAttribute.JoinType, Boolean, Boolean, Boolean, String)
 - uid: Postgrest.Attributes.ReferenceAttribute.#ctor(Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String)
   name: ReferenceAttribute(Type, Boolean, Boolean, Boolean, Boolean, String)
   href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute__ctor_Type_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_String_
@@ -219,6 +225,24 @@ references:
   isSpec: "True"
   fullName: Postgrest.Attributes.ReferenceAttribute.IncludeInQuery
   nameWithType: ReferenceAttribute.IncludeInQuery
+- uid: Postgrest.Attributes.ReferenceAttribute.JoinType
+  name: ReferenceAttribute.JoinType
+  href: api/Postgrest.Attributes.ReferenceAttribute.JoinType.html
+  commentId: T:Postgrest.Attributes.ReferenceAttribute.JoinType
+  fullName: Postgrest.Attributes.ReferenceAttribute.JoinType
+  nameWithType: ReferenceAttribute.JoinType
+- uid: Postgrest.Attributes.ReferenceAttribute.JoinType.Inner
+  name: Inner
+  href: api/Postgrest.Attributes.ReferenceAttribute.JoinType.html#Postgrest_Attributes_ReferenceAttribute_JoinType_Inner
+  commentId: F:Postgrest.Attributes.ReferenceAttribute.JoinType.Inner
+  fullName: Postgrest.Attributes.ReferenceAttribute.JoinType.Inner
+  nameWithType: ReferenceAttribute.JoinType.Inner
+- uid: Postgrest.Attributes.ReferenceAttribute.JoinType.Left
+  name: Left
+  href: api/Postgrest.Attributes.ReferenceAttribute.JoinType.html#Postgrest_Attributes_ReferenceAttribute_JoinType_Left
+  commentId: F:Postgrest.Attributes.ReferenceAttribute.JoinType.Left
+  fullName: Postgrest.Attributes.ReferenceAttribute.JoinType.Left
+  nameWithType: ReferenceAttribute.JoinType.Left
 - uid: Postgrest.Attributes.ReferenceAttribute.Model
   name: Model
   href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_Model
@@ -245,19 +269,6 @@ references:
   isSpec: "True"
   fullName: Postgrest.Attributes.ReferenceAttribute.PropertyName
   nameWithType: ReferenceAttribute.PropertyName
-- uid: Postgrest.Attributes.ReferenceAttribute.ShouldFilterTopLevel
-  name: ShouldFilterTopLevel
-  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_ShouldFilterTopLevel
-  commentId: P:Postgrest.Attributes.ReferenceAttribute.ShouldFilterTopLevel
-  fullName: Postgrest.Attributes.ReferenceAttribute.ShouldFilterTopLevel
-  nameWithType: ReferenceAttribute.ShouldFilterTopLevel
-- uid: Postgrest.Attributes.ReferenceAttribute.ShouldFilterTopLevel*
-  name: ShouldFilterTopLevel
-  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_ShouldFilterTopLevel_
-  commentId: Overload:Postgrest.Attributes.ReferenceAttribute.ShouldFilterTopLevel
-  isSpec: "True"
-  fullName: Postgrest.Attributes.ReferenceAttribute.ShouldFilterTopLevel
-  nameWithType: ReferenceAttribute.ShouldFilterTopLevel
 - uid: Postgrest.Attributes.ReferenceAttribute.TableName
   name: TableName
   href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_TableName
@@ -271,6 +282,19 @@ references:
   isSpec: "True"
   fullName: Postgrest.Attributes.ReferenceAttribute.TableName
   nameWithType: ReferenceAttribute.TableName
+- uid: Postgrest.Attributes.ReferenceAttribute.UseInnerJoin
+  name: UseInnerJoin
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_UseInnerJoin
+  commentId: P:Postgrest.Attributes.ReferenceAttribute.UseInnerJoin
+  fullName: Postgrest.Attributes.ReferenceAttribute.UseInnerJoin
+  nameWithType: ReferenceAttribute.UseInnerJoin
+- uid: Postgrest.Attributes.ReferenceAttribute.UseInnerJoin*
+  name: UseInnerJoin
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_UseInnerJoin_
+  commentId: Overload:Postgrest.Attributes.ReferenceAttribute.UseInnerJoin
+  isSpec: "True"
+  fullName: Postgrest.Attributes.ReferenceAttribute.UseInnerJoin
+  nameWithType: ReferenceAttribute.UseInnerJoin
 - uid: Postgrest.Attributes.TableAttribute
   name: TableAttribute
   href: api/Postgrest.Attributes.TableAttribute.html
