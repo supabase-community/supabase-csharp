@@ -63,7 +63,7 @@ public class DatabaseService
 			if(ex.Response?.StatusCode == HttpStatusCode.Forbidden)
 				await _dialogService.ShowMessageBox(
 					"Warning",
-					"This database resquest was forbidden."
+					"This database request was forbidden."
 				);
 			else		
 				await _dialogService.ShowMessageBox(
