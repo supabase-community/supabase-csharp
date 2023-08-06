@@ -12,7 +12,7 @@ public partial class MainLayout
     private async Task OnClickLogout()
     {
         await AuthService.Logout();
-        Snackbar.Add("Logout successfull");
+        Snackbar.Add("Logout successful");
         NavigationManager.NavigateTo($"/");
     }
 }

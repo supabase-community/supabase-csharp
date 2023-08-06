@@ -8,7 +8,7 @@ public partial class Login
     public async Task OnClickLogin()
     {
         await AuthService.Login(Email, Password);
-        Snackbar.Add("Login successfull");
+        Snackbar.Add("Login successful");
         NavigationManager.NavigateTo($"/");
     }
 }
