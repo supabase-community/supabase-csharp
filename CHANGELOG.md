@@ -1,6 +1,13 @@
 ﻿# Changelog
 
-## 0.13.0 - 2023-09-26
+## 0.13.1 - 2023-08-26
+
+- Update dependency: `supabase-storage-csharp@1.4.0`
+    - Fixes [#11](https://github.com/supabase-community/storage-csharp/issues/11) - Which implements
+      missing `SupabaseStorageException` on failure status codes for `Upload`, `Download`, `Move`, `CreateSignedUrl`
+      and `CreateSignedUrls`.
+
+## 0.13.0 - 2023-08-26
 
 - Update dependency: `gotrue-csharp@4.2.1`
     - [#74](https://github.com/supabase-community/gotrue-csharp/pull/74) - Fixes bug where token refresh interval was
