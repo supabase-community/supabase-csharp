@@ -62,6 +62,11 @@ namespace SupabaseTests.Stubs
             throw new NotImplementedException();
         }
 
+        public Task RefreshToken()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Online { get; set; }
 
         public Task<User> GetUserById(string jwt, string userId)
@@ -95,6 +100,11 @@ namespace SupabaseTests.Stubs
         }
 
         public Task<bool> SendMagicLink(string email, SignInOptions options = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Session> SetSession(string accessToken, string refreshToken, bool forceAccessTokenRefresh = false)
         {
             throw new NotImplementedException();
         }
