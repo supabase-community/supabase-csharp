@@ -16,3 +16,6 @@
 [submodule "modules/core-csharp"]
 	path = modules/core-csharp
 	url = git@github.com:supabase-community/core-csharp.git
+[submodule "Documentation"]
+	path = Documentation
+	url = git@github.com:supabase-community/supabase-csharp.wiki.git
