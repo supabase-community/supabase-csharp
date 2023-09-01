@@ -34,23 +34,23 @@ _Reminder: `supabase-csharp` has some APIs that require the `service_key` rather
 
 ## Documentation
 
-- [Getting Started](Documentation/GettingStarted.md)
-- [Unity](Documentation/Unity.md)
-- [Desktop/Mobile Clients (e.g. Xamarin, MAUI, etc.)](Documentation/DesktopClients.md)
-- [Server-Side Applications](Documentation/ServerSideApplications.md)
-- [Release Notes/Breaking Changes](Documentation/ReleaseNotes.md)
-- [Using the Client](Documentation/UsingTheClient.md)
-- [Examples](Documentation/Examples.md)
+- [Getting Started](https://github.com/supabase-community/supabase-csharp/wiki#getting-started)
+- [Unity](https://github.com/supabase-community/supabase-csharp/wiki/Unity)
+- [Desktop/Mobile Clients (e.g. Xamarin, MAUI, etc.)](https://github.com/supabase-community/supabase-csharp/wiki/Desktop-Clients)
+- [Server-Side Applications](https://github.com/supabase-community/supabase-csharp/wiki/Server-Side-Applications)
+- [Release Notes/Breaking Changes](https://github.com/supabase-community/supabase-csharp/wiki/Release-Notes)
+- [Using the Client](https://github.com/supabase-community/supabase-csharp/wiki#using-the-client)
+- [Examples](https://github.com/supabase-community/supabase-csharp/wiki/Examples)
 
 ### Specific Features
 
-- [Offline Support](Documentation/OfflineSupport.md)
-- [Refresh Token Thread](Documentation/RefreshTokenThread.md)
-- [Native Sign in with Apple](Documentation/NativeSignInWithApple.md)
+- [Offline Support](https://github.com/supabase-community/supabase-csharp/wiki/Authorization-with-Gotrue#offline-support)
+- [Refresh Token Thread](https://github.com/supabase-community/supabase-csharp/wiki/Authorization-with-Gotrue#updated-refresh-token-handling)
+- [Native Sign in with Apple]([Documentation/NativeSignInWithApple.md](https://github.com/supabase-community/supabase-csharp/wiki/Authorization-with-Gotrue#native-sign-in-with-apple))
 
 ### Troubleshooting
 
-- [Troubleshooting](Documentation/TroubleShooting.md)
+- [Troubleshooting](https://github.com/supabase-community/supabase-csharp/wiki/Troubleshooting)
 - [Discussion Forum](https://github.com/supabase-community/supabase-csharp/discussions)
 
 ## Package made possible through the efforts of:
