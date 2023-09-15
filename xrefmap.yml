@@ -359,6 +359,19 @@ references:
   isSpec: "True"
   fullName: Postgrest.Client.AddDebugHandler
   nameWithType: Client.AddDebugHandler
+- uid: Postgrest.Client.AddRequestPreparedHandler(Postgrest.OnRequestPreparedEventHandler)
+  name: AddRequestPreparedHandler(OnRequestPreparedEventHandler)
+  href: api/Postgrest.Client.html#Postgrest_Client_AddRequestPreparedHandler_Postgrest_OnRequestPreparedEventHandler_
+  commentId: M:Postgrest.Client.AddRequestPreparedHandler(Postgrest.OnRequestPreparedEventHandler)
+  fullName: Postgrest.Client.AddRequestPreparedHandler(Postgrest.OnRequestPreparedEventHandler)
+  nameWithType: Client.AddRequestPreparedHandler(OnRequestPreparedEventHandler)
+- uid: Postgrest.Client.AddRequestPreparedHandler*
+  name: AddRequestPreparedHandler
+  href: api/Postgrest.Client.html#Postgrest_Client_AddRequestPreparedHandler_
+  commentId: Overload:Postgrest.Client.AddRequestPreparedHandler
+  isSpec: "True"
+  fullName: Postgrest.Client.AddRequestPreparedHandler
+  nameWithType: Client.AddRequestPreparedHandler
 - uid: Postgrest.Client.BaseUrl
   name: BaseUrl
   href: api/Postgrest.Client.html#Postgrest_Client_BaseUrl
@@ -385,6 +398,19 @@ references:
   isSpec: "True"
   fullName: Postgrest.Client.ClearDebugHandlers
   nameWithType: Client.ClearDebugHandlers
+- uid: Postgrest.Client.ClearRequestPreparedHandlers
+  name: ClearRequestPreparedHandlers()
+  href: api/Postgrest.Client.html#Postgrest_Client_ClearRequestPreparedHandlers
+  commentId: M:Postgrest.Client.ClearRequestPreparedHandlers
+  fullName: Postgrest.Client.ClearRequestPreparedHandlers()
+  nameWithType: Client.ClearRequestPreparedHandlers()
+- uid: Postgrest.Client.ClearRequestPreparedHandlers*
+  name: ClearRequestPreparedHandlers
+  href: api/Postgrest.Client.html#Postgrest_Client_ClearRequestPreparedHandlers_
+  commentId: Overload:Postgrest.Client.ClearRequestPreparedHandlers
+  isSpec: "True"
+  fullName: Postgrest.Client.ClearRequestPreparedHandlers
+  nameWithType: Client.ClearRequestPreparedHandlers
 - uid: Postgrest.Client.GetHeaders
   name: GetHeaders
   href: api/Postgrest.Client.html#Postgrest_Client_GetHeaders
@@ -424,15 +450,28 @@ references:
   isSpec: "True"
   fullName: Postgrest.Client.RemoveDebugHandler
   nameWithType: Client.RemoveDebugHandler
-- uid: Postgrest.Client.Rpc(System.String,System.Nullable{Dictionary{System.String,System.Object}})
-  name: Rpc(String, Nullable<Dictionary<String, Object>>)
-  href: api/Postgrest.Client.html#Postgrest_Client_Rpc_System_String_System_Nullable_Dictionary_System_String_System_Object___
-  commentId: M:Postgrest.Client.Rpc(System.String,System.Nullable{Dictionary{System.String,System.Object}})
-  name.vb: Rpc(String, Nullable(Of Dictionary(Of String, Object)))
-  fullName: Postgrest.Client.Rpc(System.String, System.Nullable<Dictionary<System.String, System.Object>>)
-  fullName.vb: Postgrest.Client.Rpc(System.String, System.Nullable(Of Dictionary(Of System.String, System.Object)))
-  nameWithType: Client.Rpc(String, Nullable<Dictionary<String, Object>>)
-  nameWithType.vb: Client.Rpc(String, Nullable(Of Dictionary(Of String, Object)))
+- uid: Postgrest.Client.RemoveRequestPreparedHandler(Postgrest.OnRequestPreparedEventHandler)
+  name: RemoveRequestPreparedHandler(OnRequestPreparedEventHandler)
+  href: api/Postgrest.Client.html#Postgrest_Client_RemoveRequestPreparedHandler_Postgrest_OnRequestPreparedEventHandler_
+  commentId: M:Postgrest.Client.RemoveRequestPreparedHandler(Postgrest.OnRequestPreparedEventHandler)
+  fullName: Postgrest.Client.RemoveRequestPreparedHandler(Postgrest.OnRequestPreparedEventHandler)
+  nameWithType: Client.RemoveRequestPreparedHandler(OnRequestPreparedEventHandler)
+- uid: Postgrest.Client.RemoveRequestPreparedHandler*
+  name: RemoveRequestPreparedHandler
+  href: api/Postgrest.Client.html#Postgrest_Client_RemoveRequestPreparedHandler_
+  commentId: Overload:Postgrest.Client.RemoveRequestPreparedHandler
+  isSpec: "True"
+  fullName: Postgrest.Client.RemoveRequestPreparedHandler
+  nameWithType: Client.RemoveRequestPreparedHandler
+- uid: Postgrest.Client.Rpc(System.String,System.Nullable{System.Object})
+  name: Rpc(String, Nullable<Object>)
+  href: api/Postgrest.Client.html#Postgrest_Client_Rpc_System_String_System_Nullable_System_Object__
+  commentId: M:Postgrest.Client.Rpc(System.String,System.Nullable{System.Object})
+  name.vb: Rpc(String, Nullable(Of Object))
+  fullName: Postgrest.Client.Rpc(System.String, System.Nullable<System.Object>)
+  fullName.vb: Postgrest.Client.Rpc(System.String, System.Nullable(Of System.Object))
+  nameWithType: Client.Rpc(String, Nullable<Object>)
+  nameWithType.vb: Client.Rpc(String, Nullable(Of Object))
 - uid: Postgrest.Client.Rpc*
   name: Rpc
   href: api/Postgrest.Client.html#Postgrest_Client_Rpc_
@@ -469,6 +508,15 @@ references:
   fullName.vb: Postgrest.Client.Table(Of T)()
   nameWithType: Client.Table<T>()
   nameWithType.vb: Client.Table(Of T)()
+- uid: Postgrest.Client.Table``1(Postgrest.Interfaces.IPostgrestCacheProvider)
+  name: Table<T>(IPostgrestCacheProvider)
+  href: api/Postgrest.Client.html#Postgrest_Client_Table__1_Postgrest_Interfaces_IPostgrestCacheProvider_
+  commentId: M:Postgrest.Client.Table``1(Postgrest.Interfaces.IPostgrestCacheProvider)
+  name.vb: Table(Of T)(IPostgrestCacheProvider)
+  fullName: Postgrest.Client.Table<T>(Postgrest.Interfaces.IPostgrestCacheProvider)
+  fullName.vb: Postgrest.Client.Table(Of T)(Postgrest.Interfaces.IPostgrestCacheProvider)
+  nameWithType: Client.Table<T>(IPostgrestCacheProvider)
+  nameWithType.vb: Client.Table(Of T)(IPostgrestCacheProvider)
 - uid: Postgrest.ClientOptions
   name: ClientOptions
   href: api/Postgrest.ClientOptions.html
@@ -1325,6 +1373,67 @@ references:
   commentId: N:Postgrest.Interfaces
   fullName: Postgrest.Interfaces
   nameWithType: Postgrest.Interfaces
+- uid: Postgrest.Interfaces.IPostgrestCacheProvider
+  name: IPostgrestCacheProvider
+  href: api/Postgrest.Interfaces.IPostgrestCacheProvider.html
+  commentId: T:Postgrest.Interfaces.IPostgrestCacheProvider
+  fullName: Postgrest.Interfaces.IPostgrestCacheProvider
+  nameWithType: IPostgrestCacheProvider
+- uid: Postgrest.Interfaces.IPostgrestCacheProvider.ClearItem(System.String)
+  name: ClearItem(String)
+  href: api/Postgrest.Interfaces.IPostgrestCacheProvider.html#Postgrest_Interfaces_IPostgrestCacheProvider_ClearItem_System_String_
+  commentId: M:Postgrest.Interfaces.IPostgrestCacheProvider.ClearItem(System.String)
+  fullName: Postgrest.Interfaces.IPostgrestCacheProvider.ClearItem(System.String)
+  nameWithType: IPostgrestCacheProvider.ClearItem(String)
+- uid: Postgrest.Interfaces.IPostgrestCacheProvider.ClearItem*
+  name: ClearItem
+  href: api/Postgrest.Interfaces.IPostgrestCacheProvider.html#Postgrest_Interfaces_IPostgrestCacheProvider_ClearItem_
+  commentId: Overload:Postgrest.Interfaces.IPostgrestCacheProvider.ClearItem
+  isSpec: "True"
+  fullName: Postgrest.Interfaces.IPostgrestCacheProvider.ClearItem
+  nameWithType: IPostgrestCacheProvider.ClearItem
+- uid: Postgrest.Interfaces.IPostgrestCacheProvider.Empty
+  name: Empty()
+  href: api/Postgrest.Interfaces.IPostgrestCacheProvider.html#Postgrest_Interfaces_IPostgrestCacheProvider_Empty
+  commentId: M:Postgrest.Interfaces.IPostgrestCacheProvider.Empty
+  fullName: Postgrest.Interfaces.IPostgrestCacheProvider.Empty()
+  nameWithType: IPostgrestCacheProvider.Empty()
+- uid: Postgrest.Interfaces.IPostgrestCacheProvider.Empty*
+  name: Empty
+  href: api/Postgrest.Interfaces.IPostgrestCacheProvider.html#Postgrest_Interfaces_IPostgrestCacheProvider_Empty_
+  commentId: Overload:Postgrest.Interfaces.IPostgrestCacheProvider.Empty
+  isSpec: "True"
+  fullName: Postgrest.Interfaces.IPostgrestCacheProvider.Empty
+  nameWithType: IPostgrestCacheProvider.Empty
+- uid: Postgrest.Interfaces.IPostgrestCacheProvider.GetItem*
+  name: GetItem
+  href: api/Postgrest.Interfaces.IPostgrestCacheProvider.html#Postgrest_Interfaces_IPostgrestCacheProvider_GetItem_
+  commentId: Overload:Postgrest.Interfaces.IPostgrestCacheProvider.GetItem
+  isSpec: "True"
+  fullName: Postgrest.Interfaces.IPostgrestCacheProvider.GetItem
+  nameWithType: IPostgrestCacheProvider.GetItem
+- uid: Postgrest.Interfaces.IPostgrestCacheProvider.GetItem``1(System.String)
+  name: GetItem<T>(String)
+  href: api/Postgrest.Interfaces.IPostgrestCacheProvider.html#Postgrest_Interfaces_IPostgrestCacheProvider_GetItem__1_System_String_
+  commentId: M:Postgrest.Interfaces.IPostgrestCacheProvider.GetItem``1(System.String)
+  name.vb: GetItem(Of T)(String)
+  fullName: Postgrest.Interfaces.IPostgrestCacheProvider.GetItem<T>(System.String)
+  fullName.vb: Postgrest.Interfaces.IPostgrestCacheProvider.GetItem(Of T)(System.String)
+  nameWithType: IPostgrestCacheProvider.GetItem<T>(String)
+  nameWithType.vb: IPostgrestCacheProvider.GetItem(Of T)(String)
+- uid: Postgrest.Interfaces.IPostgrestCacheProvider.SetItem(System.String,System.Object)
+  name: SetItem(String, Object)
+  href: api/Postgrest.Interfaces.IPostgrestCacheProvider.html#Postgrest_Interfaces_IPostgrestCacheProvider_SetItem_System_String_System_Object_
+  commentId: M:Postgrest.Interfaces.IPostgrestCacheProvider.SetItem(System.String,System.Object)
+  fullName: Postgrest.Interfaces.IPostgrestCacheProvider.SetItem(System.String, System.Object)
+  nameWithType: IPostgrestCacheProvider.SetItem(String, Object)
+- uid: Postgrest.Interfaces.IPostgrestCacheProvider.SetItem*
+  name: SetItem
+  href: api/Postgrest.Interfaces.IPostgrestCacheProvider.html#Postgrest_Interfaces_IPostgrestCacheProvider_SetItem_
+  commentId: Overload:Postgrest.Interfaces.IPostgrestCacheProvider.SetItem
+  isSpec: "True"
+  fullName: Postgrest.Interfaces.IPostgrestCacheProvider.SetItem
+  nameWithType: IPostgrestCacheProvider.SetItem
 - uid: Postgrest.Interfaces.IPostgrestClient
   name: IPostgrestClient
   href: api/Postgrest.Interfaces.IPostgrestClient.html
@@ -1344,6 +1453,19 @@ references:
   isSpec: "True"
   fullName: Postgrest.Interfaces.IPostgrestClient.AddDebugHandler
   nameWithType: IPostgrestClient.AddDebugHandler
+- uid: Postgrest.Interfaces.IPostgrestClient.AddRequestPreparedHandler(Postgrest.OnRequestPreparedEventHandler)
+  name: AddRequestPreparedHandler(OnRequestPreparedEventHandler)
+  href: api/Postgrest.Interfaces.IPostgrestClient.html#Postgrest_Interfaces_IPostgrestClient_AddRequestPreparedHandler_Postgrest_OnRequestPreparedEventHandler_
+  commentId: M:Postgrest.Interfaces.IPostgrestClient.AddRequestPreparedHandler(Postgrest.OnRequestPreparedEventHandler)
+  fullName: Postgrest.Interfaces.IPostgrestClient.AddRequestPreparedHandler(Postgrest.OnRequestPreparedEventHandler)
+  nameWithType: IPostgrestClient.AddRequestPreparedHandler(OnRequestPreparedEventHandler)
+- uid: Postgrest.Interfaces.IPostgrestClient.AddRequestPreparedHandler*
+  name: AddRequestPreparedHandler
+  href: api/Postgrest.Interfaces.IPostgrestClient.html#Postgrest_Interfaces_IPostgrestClient_AddRequestPreparedHandler_
+  commentId: Overload:Postgrest.Interfaces.IPostgrestClient.AddRequestPreparedHandler
+  isSpec: "True"
+  fullName: Postgrest.Interfaces.IPostgrestClient.AddRequestPreparedHandler
+  nameWithType: IPostgrestClient.AddRequestPreparedHandler
 - uid: Postgrest.Interfaces.IPostgrestClient.BaseUrl
   name: BaseUrl
   href: api/Postgrest.Interfaces.IPostgrestClient.html#Postgrest_Interfaces_IPostgrestClient_BaseUrl
@@ -1370,6 +1492,19 @@ references:
   isSpec: "True"
   fullName: Postgrest.Interfaces.IPostgrestClient.ClearDebugHandlers
   nameWithType: IPostgrestClient.ClearDebugHandlers
+- uid: Postgrest.Interfaces.IPostgrestClient.ClearRequestPreparedHandlers
+  name: ClearRequestPreparedHandlers()
+  href: api/Postgrest.Interfaces.IPostgrestClient.html#Postgrest_Interfaces_IPostgrestClient_ClearRequestPreparedHandlers
+  commentId: M:Postgrest.Interfaces.IPostgrestClient.ClearRequestPreparedHandlers
+  fullName: Postgrest.Interfaces.IPostgrestClient.ClearRequestPreparedHandlers()
+  nameWithType: IPostgrestClient.ClearRequestPreparedHandlers()
+- uid: Postgrest.Interfaces.IPostgrestClient.ClearRequestPreparedHandlers*
+  name: ClearRequestPreparedHandlers
+  href: api/Postgrest.Interfaces.IPostgrestClient.html#Postgrest_Interfaces_IPostgrestClient_ClearRequestPreparedHandlers_
+  commentId: Overload:Postgrest.Interfaces.IPostgrestClient.ClearRequestPreparedHandlers
+  isSpec: "True"
+  fullName: Postgrest.Interfaces.IPostgrestClient.ClearRequestPreparedHandlers
+  nameWithType: IPostgrestClient.ClearRequestPreparedHandlers
 - uid: Postgrest.Interfaces.IPostgrestClient.Options
   name: Options
   href: api/Postgrest.Interfaces.IPostgrestClient.html#Postgrest_Interfaces_IPostgrestClient_Options
@@ -1396,15 +1531,28 @@ references:
   isSpec: "True"
   fullName: Postgrest.Interfaces.IPostgrestClient.RemoveDebugHandler
   nameWithType: IPostgrestClient.RemoveDebugHandler
-- uid: Postgrest.Interfaces.IPostgrestClient.Rpc(System.String,Dictionary{System.String,System.Object})
-  name: Rpc(String, Dictionary<String, Object>)
-  href: api/Postgrest.Interfaces.IPostgrestClient.html#Postgrest_Interfaces_IPostgrestClient_Rpc_System_String_Dictionary_System_String_System_Object__
-  commentId: M:Postgrest.Interfaces.IPostgrestClient.Rpc(System.String,Dictionary{System.String,System.Object})
-  name.vb: Rpc(String, Dictionary(Of String, Object))
-  fullName: Postgrest.Interfaces.IPostgrestClient.Rpc(System.String, Dictionary<System.String, System.Object>)
-  fullName.vb: Postgrest.Interfaces.IPostgrestClient.Rpc(System.String, Dictionary(Of System.String, System.Object))
-  nameWithType: IPostgrestClient.Rpc(String, Dictionary<String, Object>)
-  nameWithType.vb: IPostgrestClient.Rpc(String, Dictionary(Of String, Object))
+- uid: Postgrest.Interfaces.IPostgrestClient.RemoveRequestPreparedHandler(Postgrest.OnRequestPreparedEventHandler)
+  name: RemoveRequestPreparedHandler(OnRequestPreparedEventHandler)
+  href: api/Postgrest.Interfaces.IPostgrestClient.html#Postgrest_Interfaces_IPostgrestClient_RemoveRequestPreparedHandler_Postgrest_OnRequestPreparedEventHandler_
+  commentId: M:Postgrest.Interfaces.IPostgrestClient.RemoveRequestPreparedHandler(Postgrest.OnRequestPreparedEventHandler)
+  fullName: Postgrest.Interfaces.IPostgrestClient.RemoveRequestPreparedHandler(Postgrest.OnRequestPreparedEventHandler)
+  nameWithType: IPostgrestClient.RemoveRequestPreparedHandler(OnRequestPreparedEventHandler)
+- uid: Postgrest.Interfaces.IPostgrestClient.RemoveRequestPreparedHandler*
+  name: RemoveRequestPreparedHandler
+  href: api/Postgrest.Interfaces.IPostgrestClient.html#Postgrest_Interfaces_IPostgrestClient_RemoveRequestPreparedHandler_
+  commentId: Overload:Postgrest.Interfaces.IPostgrestClient.RemoveRequestPreparedHandler
+  isSpec: "True"
+  fullName: Postgrest.Interfaces.IPostgrestClient.RemoveRequestPreparedHandler
+  nameWithType: IPostgrestClient.RemoveRequestPreparedHandler
+- uid: Postgrest.Interfaces.IPostgrestClient.Rpc(System.String,System.Nullable{System.Object})
+  name: Rpc(String, Nullable<Object>)
+  href: api/Postgrest.Interfaces.IPostgrestClient.html#Postgrest_Interfaces_IPostgrestClient_Rpc_System_String_System_Nullable_System_Object__
+  commentId: M:Postgrest.Interfaces.IPostgrestClient.Rpc(System.String,System.Nullable{System.Object})
+  name.vb: Rpc(String, Nullable(Of Object))
+  fullName: Postgrest.Interfaces.IPostgrestClient.Rpc(System.String, System.Nullable<System.Object>)
+  fullName.vb: Postgrest.Interfaces.IPostgrestClient.Rpc(System.String, System.Nullable(Of System.Object))
+  nameWithType: IPostgrestClient.Rpc(String, Nullable<Object>)
+  nameWithType.vb: IPostgrestClient.Rpc(String, Nullable(Of Object))
 - uid: Postgrest.Interfaces.IPostgrestClient.Rpc*
   name: Rpc
   href: api/Postgrest.Interfaces.IPostgrestClient.html#Postgrest_Interfaces_IPostgrestClient_Rpc_
@@ -1428,6 +1576,15 @@ references:
   fullName.vb: Postgrest.Interfaces.IPostgrestClient.Table(Of T)()
   nameWithType: IPostgrestClient.Table<T>()
   nameWithType.vb: IPostgrestClient.Table(Of T)()
+- uid: Postgrest.Interfaces.IPostgrestClient.Table``1(Postgrest.Interfaces.IPostgrestCacheProvider)
+  name: Table<T>(IPostgrestCacheProvider)
+  href: api/Postgrest.Interfaces.IPostgrestClient.html#Postgrest_Interfaces_IPostgrestClient_Table__1_Postgrest_Interfaces_IPostgrestCacheProvider_
+  commentId: M:Postgrest.Interfaces.IPostgrestClient.Table``1(Postgrest.Interfaces.IPostgrestCacheProvider)
+  name.vb: Table(Of T)(IPostgrestCacheProvider)
+  fullName: Postgrest.Interfaces.IPostgrestClient.Table<T>(Postgrest.Interfaces.IPostgrestCacheProvider)
+  fullName.vb: Postgrest.Interfaces.IPostgrestClient.Table(Of T)(Postgrest.Interfaces.IPostgrestCacheProvider)
+  nameWithType: IPostgrestClient.Table<T>(IPostgrestCacheProvider)
+  nameWithType.vb: IPostgrestClient.Table(Of T)(IPostgrestCacheProvider)
 - uid: Postgrest.Interfaces.IPostgrestDebugger
   name: IPostgrestDebugger
   href: api/Postgrest.Interfaces.IPostgrestDebugger.html
@@ -1697,6 +1854,23 @@ references:
   fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Filter
   nameWithType: IPostgrestTable<T>.Filter
   nameWithType.vb: IPostgrestTable(Of T).Filter
+- uid: Postgrest.Interfaces.IPostgrestTable`1.GenerateUrl
+  name: GenerateUrl()
+  href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_GenerateUrl
+  commentId: M:Postgrest.Interfaces.IPostgrestTable`1.GenerateUrl
+  fullName: Postgrest.Interfaces.IPostgrestTable<T>.GenerateUrl()
+  fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).GenerateUrl()
+  nameWithType: IPostgrestTable<T>.GenerateUrl()
+  nameWithType.vb: IPostgrestTable(Of T).GenerateUrl()
+- uid: Postgrest.Interfaces.IPostgrestTable`1.GenerateUrl*
+  name: GenerateUrl
+  href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_GenerateUrl_
+  commentId: Overload:Postgrest.Interfaces.IPostgrestTable`1.GenerateUrl
+  isSpec: "True"
+  fullName: Postgrest.Interfaces.IPostgrestTable<T>.GenerateUrl
+  fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).GenerateUrl
+  nameWithType: IPostgrestTable<T>.GenerateUrl
+  nameWithType.vb: IPostgrestTable(Of T).GenerateUrl
 - uid: Postgrest.Interfaces.IPostgrestTable`1.Get(CancellationToken)
   name: Get(CancellationToken)
   href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Get_CancellationToken_
@@ -2104,6 +2278,32 @@ references:
   fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of T).Where
   nameWithType: IPostgrestTable<T>.Where
   nameWithType.vb: IPostgrestTable(Of T).Where
+- uid: Postgrest.Interfaces.IPostgrestTableWithCache`1
+  name: IPostgrestTableWithCache<T>
+  href: api/Postgrest.Interfaces.IPostgrestTableWithCache-1.html
+  commentId: T:Postgrest.Interfaces.IPostgrestTableWithCache`1
+  name.vb: IPostgrestTableWithCache(Of T)
+  fullName: Postgrest.Interfaces.IPostgrestTableWithCache<T>
+  fullName.vb: Postgrest.Interfaces.IPostgrestTableWithCache(Of T)
+  nameWithType: IPostgrestTableWithCache<T>
+  nameWithType.vb: IPostgrestTableWithCache(Of T)
+- uid: Postgrest.Interfaces.IPostgrestTableWithCache`1.Get(CancellationToken)
+  name: Get(CancellationToken)
+  href: api/Postgrest.Interfaces.IPostgrestTableWithCache-1.html#Postgrest_Interfaces_IPostgrestTableWithCache_1_Get_CancellationToken_
+  commentId: M:Postgrest.Interfaces.IPostgrestTableWithCache`1.Get(CancellationToken)
+  fullName: Postgrest.Interfaces.IPostgrestTableWithCache<T>.Get(CancellationToken)
+  fullName.vb: Postgrest.Interfaces.IPostgrestTableWithCache(Of T).Get(CancellationToken)
+  nameWithType: IPostgrestTableWithCache<T>.Get(CancellationToken)
+  nameWithType.vb: IPostgrestTableWithCache(Of T).Get(CancellationToken)
+- uid: Postgrest.Interfaces.IPostgrestTableWithCache`1.Get*
+  name: Get
+  href: api/Postgrest.Interfaces.IPostgrestTableWithCache-1.html#Postgrest_Interfaces_IPostgrestTableWithCache_1_Get_
+  commentId: Overload:Postgrest.Interfaces.IPostgrestTableWithCache`1.Get
+  isSpec: "True"
+  fullName: Postgrest.Interfaces.IPostgrestTableWithCache<T>.Get
+  fullName.vb: Postgrest.Interfaces.IPostgrestTableWithCache(Of T).Get
+  nameWithType: IPostgrestTableWithCache<T>.Get
+  nameWithType.vb: IPostgrestTableWithCache(Of T).Get
 - uid: Postgrest.IntRange
   name: IntRange
   href: api/Postgrest.IntRange.html
@@ -2345,6 +2545,55 @@ references:
   fullName.vb: Postgrest.Models.BaseModel.Update(Of T)(CancellationToken)
   nameWithType: BaseModel.Update<T>(CancellationToken)
   nameWithType.vb: BaseModel.Update(Of T)(CancellationToken)
+- uid: Postgrest.Models.CachedModel`1
+  name: CachedModel<TModel>
+  href: api/Postgrest.Models.CachedModel-1.html
+  commentId: T:Postgrest.Models.CachedModel`1
+  name.vb: CachedModel(Of TModel)
+  fullName: Postgrest.Models.CachedModel<TModel>
+  fullName.vb: Postgrest.Models.CachedModel(Of TModel)
+  nameWithType: CachedModel<TModel>
+  nameWithType.vb: CachedModel(Of TModel)
+- uid: Postgrest.Models.CachedModel`1.CachedAt
+  name: CachedAt
+  href: api/Postgrest.Models.CachedModel-1.html#Postgrest_Models_CachedModel_1_CachedAt
+  commentId: P:Postgrest.Models.CachedModel`1.CachedAt
+  fullName: Postgrest.Models.CachedModel<TModel>.CachedAt
+  fullName.vb: Postgrest.Models.CachedModel(Of TModel).CachedAt
+  nameWithType: CachedModel<TModel>.CachedAt
+  nameWithType.vb: CachedModel(Of TModel).CachedAt
+- uid: Postgrest.Models.CachedModel`1.CachedAt*
+  name: CachedAt
+  href: api/Postgrest.Models.CachedModel-1.html#Postgrest_Models_CachedModel_1_CachedAt_
+  commentId: Overload:Postgrest.Models.CachedModel`1.CachedAt
+  isSpec: "True"
+  fullName: Postgrest.Models.CachedModel<TModel>.CachedAt
+  fullName.vb: Postgrest.Models.CachedModel(Of TModel).CachedAt
+  nameWithType: CachedModel<TModel>.CachedAt
+  nameWithType.vb: CachedModel(Of TModel).CachedAt
+- uid: Postgrest.Models.CachedModel`1.Models
+  name: Models
+  href: api/Postgrest.Models.CachedModel-1.html#Postgrest_Models_CachedModel_1_Models
+  commentId: P:Postgrest.Models.CachedModel`1.Models
+  fullName: Postgrest.Models.CachedModel<TModel>.Models
+  fullName.vb: Postgrest.Models.CachedModel(Of TModel).Models
+  nameWithType: CachedModel<TModel>.Models
+  nameWithType.vb: CachedModel(Of TModel).Models
+- uid: Postgrest.Models.CachedModel`1.Models*
+  name: Models
+  href: api/Postgrest.Models.CachedModel-1.html#Postgrest_Models_CachedModel_1_Models_
+  commentId: Overload:Postgrest.Models.CachedModel`1.Models
+  isSpec: "True"
+  fullName: Postgrest.Models.CachedModel<TModel>.Models
+  fullName.vb: Postgrest.Models.CachedModel(Of TModel).Models
+  nameWithType: CachedModel<TModel>.Models
+  nameWithType.vb: CachedModel(Of TModel).Models
+- uid: Postgrest.OnRequestPreparedEventHandler
+  name: OnRequestPreparedEventHandler
+  href: api/Postgrest.OnRequestPreparedEventHandler.html
+  commentId: T:Postgrest.OnRequestPreparedEventHandler
+  fullName: Postgrest.OnRequestPreparedEventHandler
+  nameWithType: OnRequestPreparedEventHandler
 - uid: Postgrest.PostgrestContractResolver
   name: PostgrestContractResolver
   href: api/Postgrest.PostgrestContractResolver.html
@@ -2710,6 +2959,149 @@ references:
   isSpec: "True"
   fullName: Postgrest.QueryOrderer.Ordering
   nameWithType: QueryOrderer.Ordering
+- uid: Postgrest.Requests
+  name: Postgrest.Requests
+  href: api/Postgrest.Requests.html
+  commentId: N:Postgrest.Requests
+  fullName: Postgrest.Requests
+  nameWithType: Postgrest.Requests
+- uid: Postgrest.Requests.CacheBackedRequest`1
+  name: CacheBackedRequest<TModel>
+  href: api/Postgrest.Requests.CacheBackedRequest-1.html
+  commentId: T:Postgrest.Requests.CacheBackedRequest`1
+  name.vb: CacheBackedRequest(Of TModel)
+  fullName: Postgrest.Requests.CacheBackedRequest<TModel>
+  fullName.vb: Postgrest.Requests.CacheBackedRequest(Of TModel)
+  nameWithType: CacheBackedRequest<TModel>
+  nameWithType.vb: CacheBackedRequest(Of TModel)
+- uid: Postgrest.Requests.CacheBackedRequest`1.#ctor(Postgrest.Interfaces.IPostgrestTableWithCache{`0},Postgrest.Interfaces.IPostgrestCacheProvider,Func{Task{Postgrest.Responses.ModeledResponse{`0}}})
+  name: CacheBackedRequest(IPostgrestTableWithCache<TModel>, IPostgrestCacheProvider, Func<Task<ModeledResponse<TModel>>>)
+  href: api/Postgrest.Requests.CacheBackedRequest-1.html#Postgrest_Requests_CacheBackedRequest_1__ctor_Postgrest_Interfaces_IPostgrestTableWithCache__0__Postgrest_Interfaces_IPostgrestCacheProvider_Func_Task_Postgrest_Responses_ModeledResponse__0____
+  commentId: M:Postgrest.Requests.CacheBackedRequest`1.#ctor(Postgrest.Interfaces.IPostgrestTableWithCache{`0},Postgrest.Interfaces.IPostgrestCacheProvider,Func{Task{Postgrest.Responses.ModeledResponse{`0}}})
+  name.vb: CacheBackedRequest(IPostgrestTableWithCache(Of TModel), IPostgrestCacheProvider, Func(Of Task(Of ModeledResponse(Of TModel))))
+  fullName: Postgrest.Requests.CacheBackedRequest<TModel>.CacheBackedRequest(Postgrest.Interfaces.IPostgrestTableWithCache<TModel>, Postgrest.Interfaces.IPostgrestCacheProvider, Func<Task<Postgrest.Responses.ModeledResponse<TModel>>>)
+  fullName.vb: Postgrest.Requests.CacheBackedRequest(Of TModel).CacheBackedRequest(Postgrest.Interfaces.IPostgrestTableWithCache(Of TModel), Postgrest.Interfaces.IPostgrestCacheProvider, Func(Of Task(Of Postgrest.Responses.ModeledResponse(Of TModel))))
+  nameWithType: CacheBackedRequest<TModel>.CacheBackedRequest(IPostgrestTableWithCache<TModel>, IPostgrestCacheProvider, Func<Task<ModeledResponse<TModel>>>)
+  nameWithType.vb: CacheBackedRequest(Of TModel).CacheBackedRequest(IPostgrestTableWithCache(Of TModel), IPostgrestCacheProvider, Func(Of Task(Of ModeledResponse(Of TModel))))
+- uid: Postgrest.Requests.CacheBackedRequest`1.#ctor*
+  name: CacheBackedRequest
+  href: api/Postgrest.Requests.CacheBackedRequest-1.html#Postgrest_Requests_CacheBackedRequest_1__ctor_
+  commentId: Overload:Postgrest.Requests.CacheBackedRequest`1.#ctor
+  isSpec: "True"
+  fullName: Postgrest.Requests.CacheBackedRequest<TModel>.CacheBackedRequest
+  fullName.vb: Postgrest.Requests.CacheBackedRequest(Of TModel).CacheBackedRequest
+  nameWithType: CacheBackedRequest<TModel>.CacheBackedRequest
+  nameWithType.vb: CacheBackedRequest(Of TModel).CacheBackedRequest
+- uid: Postgrest.Requests.CacheBackedRequest`1.CacheTime
+  name: CacheTime
+  href: api/Postgrest.Requests.CacheBackedRequest-1.html#Postgrest_Requests_CacheBackedRequest_1_CacheTime
+  commentId: P:Postgrest.Requests.CacheBackedRequest`1.CacheTime
+  fullName: Postgrest.Requests.CacheBackedRequest<TModel>.CacheTime
+  fullName.vb: Postgrest.Requests.CacheBackedRequest(Of TModel).CacheTime
+  nameWithType: CacheBackedRequest<TModel>.CacheTime
+  nameWithType.vb: CacheBackedRequest(Of TModel).CacheTime
+- uid: Postgrest.Requests.CacheBackedRequest`1.CacheTime*
+  name: CacheTime
+  href: api/Postgrest.Requests.CacheBackedRequest-1.html#Postgrest_Requests_CacheBackedRequest_1_CacheTime_
+  commentId: Overload:Postgrest.Requests.CacheBackedRequest`1.CacheTime
+  isSpec: "True"
+  fullName: Postgrest.Requests.CacheBackedRequest<TModel>.CacheTime
+  fullName.vb: Postgrest.Requests.CacheBackedRequest(Of TModel).CacheTime
+  nameWithType: CacheBackedRequest<TModel>.CacheTime
+  nameWithType.vb: CacheBackedRequest(Of TModel).CacheTime
+- uid: Postgrest.Requests.CacheBackedRequest`1.Models
+  name: Models
+  href: api/Postgrest.Requests.CacheBackedRequest-1.html#Postgrest_Requests_CacheBackedRequest_1_Models
+  commentId: P:Postgrest.Requests.CacheBackedRequest`1.Models
+  fullName: Postgrest.Requests.CacheBackedRequest<TModel>.Models
+  fullName.vb: Postgrest.Requests.CacheBackedRequest(Of TModel).Models
+  nameWithType: CacheBackedRequest<TModel>.Models
+  nameWithType.vb: CacheBackedRequest(Of TModel).Models
+- uid: Postgrest.Requests.CacheBackedRequest`1.Models*
+  name: Models
+  href: api/Postgrest.Requests.CacheBackedRequest-1.html#Postgrest_Requests_CacheBackedRequest_1_Models_
+  commentId: Overload:Postgrest.Requests.CacheBackedRequest`1.Models
+  isSpec: "True"
+  fullName: Postgrest.Requests.CacheBackedRequest<TModel>.Models
+  fullName.vb: Postgrest.Requests.CacheBackedRequest(Of TModel).Models
+  nameWithType: CacheBackedRequest<TModel>.Models
+  nameWithType.vb: CacheBackedRequest(Of TModel).Models
+- uid: Postgrest.Requests.CacheBackedRequest`1.PropertyChanged
+  name: PropertyChanged
+  href: api/Postgrest.Requests.CacheBackedRequest-1.html#Postgrest_Requests_CacheBackedRequest_1_PropertyChanged
+  commentId: E:Postgrest.Requests.CacheBackedRequest`1.PropertyChanged
+  fullName: Postgrest.Requests.CacheBackedRequest<TModel>.PropertyChanged
+  fullName.vb: Postgrest.Requests.CacheBackedRequest(Of TModel).PropertyChanged
+  nameWithType: CacheBackedRequest<TModel>.PropertyChanged
+  nameWithType.vb: CacheBackedRequest(Of TModel).PropertyChanged
+- uid: Postgrest.Requests.CacheBackedRequest`1.RemoteModelsPopulated
+  name: RemoteModelsPopulated
+  href: api/Postgrest.Requests.CacheBackedRequest-1.html#Postgrest_Requests_CacheBackedRequest_1_RemoteModelsPopulated
+  commentId: E:Postgrest.Requests.CacheBackedRequest`1.RemoteModelsPopulated
+  fullName: Postgrest.Requests.CacheBackedRequest<TModel>.RemoteModelsPopulated
+  fullName.vb: Postgrest.Requests.CacheBackedRequest(Of TModel).RemoteModelsPopulated
+  nameWithType: CacheBackedRequest<TModel>.RemoteModelsPopulated
+  nameWithType.vb: CacheBackedRequest(Of TModel).RemoteModelsPopulated
+- uid: Postgrest.Requests.CacheBackedRequest`1.RemoteModelsPopulatedEventHandler
+  name: CacheBackedRequest<TModel>.RemoteModelsPopulatedEventHandler
+  href: api/Postgrest.Requests.CacheBackedRequest-1.RemoteModelsPopulatedEventHandler.html
+  commentId: T:Postgrest.Requests.CacheBackedRequest`1.RemoteModelsPopulatedEventHandler
+  name.vb: CacheBackedRequest(Of TModel).RemoteModelsPopulatedEventHandler
+  fullName: Postgrest.Requests.CacheBackedRequest<TModel>.RemoteModelsPopulatedEventHandler
+  fullName.vb: Postgrest.Requests.CacheBackedRequest(Of TModel).RemoteModelsPopulatedEventHandler
+  nameWithType: CacheBackedRequest<TModel>.RemoteModelsPopulatedEventHandler
+  nameWithType.vb: CacheBackedRequest(Of TModel).RemoteModelsPopulatedEventHandler
+- uid: Postgrest.Requests.CacheBackedRequest`1.Response
+  name: Response
+  href: api/Postgrest.Requests.CacheBackedRequest-1.html#Postgrest_Requests_CacheBackedRequest_1_Response
+  commentId: P:Postgrest.Requests.CacheBackedRequest`1.Response
+  fullName: Postgrest.Requests.CacheBackedRequest<TModel>.Response
+  fullName.vb: Postgrest.Requests.CacheBackedRequest(Of TModel).Response
+  nameWithType: CacheBackedRequest<TModel>.Response
+  nameWithType.vb: CacheBackedRequest(Of TModel).Response
+- uid: Postgrest.Requests.CacheBackedRequest`1.Response*
+  name: Response
+  href: api/Postgrest.Requests.CacheBackedRequest-1.html#Postgrest_Requests_CacheBackedRequest_1_Response_
+  commentId: Overload:Postgrest.Requests.CacheBackedRequest`1.Response
+  isSpec: "True"
+  fullName: Postgrest.Requests.CacheBackedRequest<TModel>.Response
+  fullName.vb: Postgrest.Requests.CacheBackedRequest(Of TModel).Response
+  nameWithType: CacheBackedRequest<TModel>.Response
+  nameWithType.vb: CacheBackedRequest(Of TModel).Response
+- uid: Postgrest.Requests.CacheBackedRequest`1.WasCacheHit
+  name: WasCacheHit
+  href: api/Postgrest.Requests.CacheBackedRequest-1.html#Postgrest_Requests_CacheBackedRequest_1_WasCacheHit
+  commentId: P:Postgrest.Requests.CacheBackedRequest`1.WasCacheHit
+  fullName: Postgrest.Requests.CacheBackedRequest<TModel>.WasCacheHit
+  fullName.vb: Postgrest.Requests.CacheBackedRequest(Of TModel).WasCacheHit
+  nameWithType: CacheBackedRequest<TModel>.WasCacheHit
+  nameWithType.vb: CacheBackedRequest(Of TModel).WasCacheHit
+- uid: Postgrest.Requests.CacheBackedRequest`1.WasCacheHit*
+  name: WasCacheHit
+  href: api/Postgrest.Requests.CacheBackedRequest-1.html#Postgrest_Requests_CacheBackedRequest_1_WasCacheHit_
+  commentId: Overload:Postgrest.Requests.CacheBackedRequest`1.WasCacheHit
+  isSpec: "True"
+  fullName: Postgrest.Requests.CacheBackedRequest<TModel>.WasCacheHit
+  fullName.vb: Postgrest.Requests.CacheBackedRequest(Of TModel).WasCacheHit
+  nameWithType: CacheBackedRequest<TModel>.WasCacheHit
+  nameWithType.vb: CacheBackedRequest(Of TModel).WasCacheHit
+- uid: Postgrest.Requests.CacheBackedRequest`1.WasResponseCached
+  name: WasResponseCached
+  href: api/Postgrest.Requests.CacheBackedRequest-1.html#Postgrest_Requests_CacheBackedRequest_1_WasResponseCached
+  commentId: P:Postgrest.Requests.CacheBackedRequest`1.WasResponseCached
+  fullName: Postgrest.Requests.CacheBackedRequest<TModel>.WasResponseCached
+  fullName.vb: Postgrest.Requests.CacheBackedRequest(Of TModel).WasResponseCached
+  nameWithType: CacheBackedRequest<TModel>.WasResponseCached
+  nameWithType.vb: CacheBackedRequest(Of TModel).WasResponseCached
+- uid: Postgrest.Requests.CacheBackedRequest`1.WasResponseCached*
+  name: WasResponseCached
+  href: api/Postgrest.Requests.CacheBackedRequest-1.html#Postgrest_Requests_CacheBackedRequest_1_WasResponseCached_
+  commentId: Overload:Postgrest.Requests.CacheBackedRequest`1.WasResponseCached
+  isSpec: "True"
+  fullName: Postgrest.Requests.CacheBackedRequest<TModel>.WasResponseCached
+  fullName.vb: Postgrest.Requests.CacheBackedRequest(Of TModel).WasResponseCached
+  nameWithType: CacheBackedRequest<TModel>.WasResponseCached
+  nameWithType.vb: CacheBackedRequest(Of TModel).WasResponseCached
 - uid: Postgrest.Responses
   name: Postgrest.Responses
   href: api/Postgrest.Responses.html
@@ -3453,6 +3845,66 @@ references:
   fullName.vb: Postgrest.Table(Of T).Where
   nameWithType: Table<T>.Where
   nameWithType.vb: Table(Of T).Where
+- uid: Postgrest.TableWithCache`1
+  name: TableWithCache<T>
+  href: api/Postgrest.TableWithCache-1.html
+  commentId: T:Postgrest.TableWithCache`1
+  name.vb: TableWithCache(Of T)
+  fullName: Postgrest.TableWithCache<T>
+  fullName.vb: Postgrest.TableWithCache(Of T)
+  nameWithType: TableWithCache<T>
+  nameWithType.vb: TableWithCache(Of T)
+- uid: Postgrest.TableWithCache`1.#ctor(System.String,Postgrest.Interfaces.IPostgrestCacheProvider,JsonSerializerSettings,Postgrest.ClientOptions)
+  name: TableWithCache(String, IPostgrestCacheProvider, JsonSerializerSettings, ClientOptions)
+  href: api/Postgrest.TableWithCache-1.html#Postgrest_TableWithCache_1__ctor_System_String_Postgrest_Interfaces_IPostgrestCacheProvider_JsonSerializerSettings_Postgrest_ClientOptions_
+  commentId: M:Postgrest.TableWithCache`1.#ctor(System.String,Postgrest.Interfaces.IPostgrestCacheProvider,JsonSerializerSettings,Postgrest.ClientOptions)
+  fullName: Postgrest.TableWithCache<T>.TableWithCache(System.String, Postgrest.Interfaces.IPostgrestCacheProvider, JsonSerializerSettings, Postgrest.ClientOptions)
+  fullName.vb: Postgrest.TableWithCache(Of T).TableWithCache(System.String, Postgrest.Interfaces.IPostgrestCacheProvider, JsonSerializerSettings, Postgrest.ClientOptions)
+  nameWithType: TableWithCache<T>.TableWithCache(String, IPostgrestCacheProvider, JsonSerializerSettings, ClientOptions)
+  nameWithType.vb: TableWithCache(Of T).TableWithCache(String, IPostgrestCacheProvider, JsonSerializerSettings, ClientOptions)
+- uid: Postgrest.TableWithCache`1.#ctor*
+  name: TableWithCache
+  href: api/Postgrest.TableWithCache-1.html#Postgrest_TableWithCache_1__ctor_
+  commentId: Overload:Postgrest.TableWithCache`1.#ctor
+  isSpec: "True"
+  fullName: Postgrest.TableWithCache<T>.TableWithCache
+  fullName.vb: Postgrest.TableWithCache(Of T).TableWithCache
+  nameWithType: TableWithCache<T>.TableWithCache
+  nameWithType.vb: TableWithCache(Of T).TableWithCache
+- uid: Postgrest.TableWithCache`1.CacheProvider
+  name: CacheProvider
+  href: api/Postgrest.TableWithCache-1.html#Postgrest_TableWithCache_1_CacheProvider
+  commentId: P:Postgrest.TableWithCache`1.CacheProvider
+  fullName: Postgrest.TableWithCache<T>.CacheProvider
+  fullName.vb: Postgrest.TableWithCache(Of T).CacheProvider
+  nameWithType: TableWithCache<T>.CacheProvider
+  nameWithType.vb: TableWithCache(Of T).CacheProvider
+- uid: Postgrest.TableWithCache`1.CacheProvider*
+  name: CacheProvider
+  href: api/Postgrest.TableWithCache-1.html#Postgrest_TableWithCache_1_CacheProvider_
+  commentId: Overload:Postgrest.TableWithCache`1.CacheProvider
+  isSpec: "True"
+  fullName: Postgrest.TableWithCache<T>.CacheProvider
+  fullName.vb: Postgrest.TableWithCache(Of T).CacheProvider
+  nameWithType: TableWithCache<T>.CacheProvider
+  nameWithType.vb: TableWithCache(Of T).CacheProvider
+- uid: Postgrest.TableWithCache`1.Get(CancellationToken)
+  name: Get(CancellationToken)
+  href: api/Postgrest.TableWithCache-1.html#Postgrest_TableWithCache_1_Get_CancellationToken_
+  commentId: M:Postgrest.TableWithCache`1.Get(CancellationToken)
+  fullName: Postgrest.TableWithCache<T>.Get(CancellationToken)
+  fullName.vb: Postgrest.TableWithCache(Of T).Get(CancellationToken)
+  nameWithType: TableWithCache<T>.Get(CancellationToken)
+  nameWithType.vb: TableWithCache(Of T).Get(CancellationToken)
+- uid: Postgrest.TableWithCache`1.Get*
+  name: Get
+  href: api/Postgrest.TableWithCache-1.html#Postgrest_TableWithCache_1_Get_
+  commentId: Overload:Postgrest.TableWithCache`1.Get
+  isSpec: "True"
+  fullName: Postgrest.TableWithCache<T>.Get
+  fullName.vb: Postgrest.TableWithCache(Of T).Get
+  nameWithType: TableWithCache<T>.Get
+  nameWithType.vb: TableWithCache(Of T).Get
 - uid: Supabase
   name: Supabase
   href: api/Supabase.html

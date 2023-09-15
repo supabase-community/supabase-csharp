@@ -1,0 +1,421 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class TableWithCache&lt;T&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class TableWithCache&lt;T&gt;
+   ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Postgrest.TableWithCache`1">
+  
+  
+  <h1 id="Postgrest_TableWithCache_1" data-uid="Postgrest.TableWithCache`1" class="text-break">Class TableWithCache&lt;T&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a table constructed with a <a class="xref" href="Postgrest.Interfaces.IPostgrestCacheProvider.html">IPostgrestCacheProvider</a></p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="Postgrest.Table-1.html">Table</a>&lt;T&gt;</div>
+    <div class="level2"><span class="xref">TableWithCache&lt;T&gt;</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Postgrest.Interfaces.IPostgrestTableWithCache-1.html">IPostgrestTableWithCache</a>&lt;T&gt;</div>
+    <div><a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html">IPostgrestTable</a>&lt;T&gt;</div>
+    <div><span class="xref">IGettableHeaders</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_BaseUrl">Table&lt;T&gt;.BaseUrl</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_TableName">Table&lt;T&gt;.TableName</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_GetHeaders">Table&lt;T&gt;.GetHeaders</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Filter_Expression_Func__0_System_Object___Postgrest_Constants_Operator_System_Nullable_System_Object__">Table&lt;T&gt;.Filter(Expression&lt;Func&lt;T, Object&gt;&gt;, Constants.Operator, Nullable&lt;Object&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Filter_System_String_Postgrest_Constants_Operator_System_Nullable_System_Object__">Table&lt;T&gt;.Filter(String, Constants.Operator, Nullable&lt;Object&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Not_Postgrest_QueryFilter_">Table&lt;T&gt;.Not(QueryFilter)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Not_System_String_Postgrest_Constants_Operator_System_String_">Table&lt;T&gt;.Not(String, Constants.Operator, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Not_System_String_Postgrest_Constants_Operator_List_System_Object__">Table&lt;T&gt;.Not(String, Constants.Operator, List&lt;Object&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Not_System_String_Postgrest_Constants_Operator_Dictionary_System_String_System_Object__">Table&lt;T&gt;.Not(String, Constants.Operator, Dictionary&lt;String, Object&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_And_List_Postgrest_QueryFilter__">Table&lt;T&gt;.And(List&lt;QueryFilter&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Or_List_Postgrest_QueryFilter__">Table&lt;T&gt;.Or(List&lt;QueryFilter&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Match__0_">Table&lt;T&gt;.Match(T)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Match_Dictionary_System_String_System_String__">Table&lt;T&gt;.Match(Dictionary&lt;String, String&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Order_Expression_Func__0_System_Object___Postgrest_Constants_Ordering_Postgrest_Constants_NullPosition_">Table&lt;T&gt;.Order(Expression&lt;Func&lt;T, Object&gt;&gt;, Constants.Ordering, Constants.NullPosition)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Order_System_String_Postgrest_Constants_Ordering_Postgrest_Constants_NullPosition_">Table&lt;T&gt;.Order(String, Constants.Ordering, Constants.NullPosition)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Order_System_String_System_String_Postgrest_Constants_Ordering_Postgrest_Constants_NullPosition_">Table&lt;T&gt;.Order(String, String, Constants.Ordering, Constants.NullPosition)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Range_System_Int32_">Table&lt;T&gt;.Range(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Range_System_Int32_System_Int32_">Table&lt;T&gt;.Range(Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Select_System_String_">Table&lt;T&gt;.Select(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Select_Expression_Func__0_System_Object_____">Table&lt;T&gt;.Select(Expression&lt;Func&lt;T, Object[]&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Where_Expression_Func__0_System_Boolean___">Table&lt;T&gt;.Where(Expression&lt;Func&lt;T, Boolean&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Limit_System_Int32_System_Nullable_System_String__">Table&lt;T&gt;.Limit(Int32, Nullable&lt;String&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_OnConflict_System_String_">Table&lt;T&gt;.OnConflict(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_OnConflict_Expression_Func__0_System_Object___">Table&lt;T&gt;.OnConflict(Expression&lt;Func&lt;T, Object&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Columns_System_String___">Table&lt;T&gt;.Columns(String[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Columns_Expression_Func__0_System_Object_____">Table&lt;T&gt;.Columns(Expression&lt;Func&lt;T, Object[]&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Offset_System_Int32_System_Nullable_System_String__">Table&lt;T&gt;.Offset(Int32, Nullable&lt;String&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Insert__0_Postgrest_QueryOptions_CancellationToken_">Table&lt;T&gt;.Insert(T, QueryOptions, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Insert_ICollection__0__Postgrest_QueryOptions_CancellationToken_">Table&lt;T&gt;.Insert(ICollection&lt;T&gt;, QueryOptions, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Upsert__0_Postgrest_QueryOptions_CancellationToken_">Table&lt;T&gt;.Upsert(T, QueryOptions, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Upsert_ICollection__0__Postgrest_QueryOptions_CancellationToken_">Table&lt;T&gt;.Upsert(ICollection&lt;T&gt;, QueryOptions, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Set_Expression_Func__0_System_Object___System_Nullable_System_Object__">Table&lt;T&gt;.Set(Expression&lt;Func&lt;T, Object&gt;&gt;, Nullable&lt;Object&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Set_Expression_Func__0_KeyValuePair_System_Object_System_Nullable_System_Object_____">Table&lt;T&gt;.Set(Expression&lt;Func&lt;T, KeyValuePair&lt;Object, Nullable&lt;Object&gt;&gt;&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Update_Postgrest_QueryOptions_CancellationToken_">Table&lt;T&gt;.Update(QueryOptions, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Update__0_Postgrest_QueryOptions_CancellationToken_">Table&lt;T&gt;.Update(T, QueryOptions, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Delete_Postgrest_QueryOptions_CancellationToken_">Table&lt;T&gt;.Delete(QueryOptions, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Delete__0_Postgrest_QueryOptions_CancellationToken_">Table&lt;T&gt;.Delete(T, QueryOptions, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Count_Postgrest_Constants_CountType_CancellationToken_">Table&lt;T&gt;.Count(Constants.CountType, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Single_CancellationToken_">Table&lt;T&gt;.Single(CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_GenerateUrl">Table&lt;T&gt;.GenerateUrl()</a>
+    </div>
+    <div>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Clear">Table&lt;T&gt;.Clear()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Postgrest.html">Postgrest</a></h6>
+  <h6><strong>Assembly</strong>: Supabase.Postgrest.dll</h6>
+  <h5 id="Postgrest_TableWithCache_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TableWithCache&lt;T&gt; : Table&lt;T&gt;, IPostgrestTableWithCache&lt;T&gt;, IPostgrestTable&lt;T&gt;, IGettableHeaders where T : BaseModel, new()</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/3defbb6fd2bba9c9a96f854134f473321acb7363/apiSpec/new?filename=Postgrest_TableWithCache_1__ctor_System_String_Postgrest_Interfaces_IPostgrestCacheProvider_JsonSerializerSettings_Postgrest_ClientOptions_.md&amp;value=---%0Auid%3A%20Postgrest.TableWithCache%601.%23ctor(System.String%2CPostgrest.Interfaces.IPostgrestCacheProvider%2CJsonSerializerSettings%2CPostgrest.ClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/3defbb6fd2bba9c9a96f854134f473321acb7363/Postgrest/TableWithCache.cs/#L24">View Source</a>
+  </span>
+  <a id="Postgrest_TableWithCache_1__ctor_" data-uid="Postgrest.TableWithCache`1.#ctor*"></a>
+  <h4 id="Postgrest_TableWithCache_1__ctor_System_String_Postgrest_Interfaces_IPostgrestCacheProvider_JsonSerializerSettings_Postgrest_ClientOptions_" data-uid="Postgrest.TableWithCache`1.#ctor(System.String,Postgrest.Interfaces.IPostgrestCacheProvider,JsonSerializerSettings,Postgrest.ClientOptions)">TableWithCache(String, IPostgrestCacheProvider, JsonSerializerSettings, ClientOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TableWithCache(string baseUrl, IPostgrestCacheProvider cacheProvider, JsonSerializerSettings serializerSettings, ClientOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">baseUrl</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Postgrest.Interfaces.IPostgrestCacheProvider.html">IPostgrestCacheProvider</a></td>
+        <td><span class="parametername">cacheProvider</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">JsonSerializerSettings</span></td>
+        <td><span class="parametername">serializerSettings</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Postgrest.ClientOptions.html">Postgrest.ClientOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/3defbb6fd2bba9c9a96f854134f473321acb7363/apiSpec/new?filename=Postgrest_TableWithCache_1_CacheProvider.md&amp;value=---%0Auid%3A%20Postgrest.TableWithCache%601.CacheProvider%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/3defbb6fd2bba9c9a96f854134f473321acb7363/Postgrest/TableWithCache.cs/#L21">View Source</a>
+  </span>
+  <a id="Postgrest_TableWithCache_1_CacheProvider_" data-uid="Postgrest.TableWithCache`1.CacheProvider*"></a>
+  <h4 id="Postgrest_TableWithCache_1_CacheProvider" data-uid="Postgrest.TableWithCache`1.CacheProvider">CacheProvider</h4>
+  <div class="markdown level1 summary"><p>Represents a caching provider to be used with Get Requests.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected IPostgrestCacheProvider CacheProvider { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Postgrest.Interfaces.IPostgrestCacheProvider.html">IPostgrestCacheProvider</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/3defbb6fd2bba9c9a96f854134f473321acb7363/apiSpec/new?filename=Postgrest_TableWithCache_1_Get_CancellationToken_.md&amp;value=---%0Auid%3A%20Postgrest.TableWithCache%601.Get(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/3defbb6fd2bba9c9a96f854134f473321acb7363/Postgrest/TableWithCache.cs/#L36">View Source</a>
+  </span>
+  <a id="Postgrest_TableWithCache_1_Get_" data-uid="Postgrest.TableWithCache`1.Get*"></a>
+  <h4 id="Postgrest_TableWithCache_1_Get_CancellationToken_" data-uid="Postgrest.TableWithCache`1.Get(CancellationToken)">Get(CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;CacheBackedRequest&lt;T&gt;&gt; Get(CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="Postgrest.Requests.CacheBackedRequest-1.html">CacheBackedRequest</a>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Postgrest.Interfaces.IPostgrestTableWithCache-1.html">IPostgrestTableWithCache&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html">IPostgrestTable&lt;T&gt;</a>
+  </div>
+  <div>
+      <span class="xref">IGettableHeaders</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/supabase-community/postgrest-csharp/new/3defbb6fd2bba9c9a96f854134f473321acb7363/apiSpec/new?filename=Postgrest_TableWithCache_1.md&amp;value=---%0Auid%3A%20Postgrest.TableWithCache%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/supabase-community/postgrest-csharp/blob/3defbb6fd2bba9c9a96f854134f473321acb7363/Postgrest/TableWithCache.cs/#L16" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
