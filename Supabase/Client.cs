@@ -217,18 +217,16 @@ namespace Supabase
                 // Ref: https://github.com/supabase-community/supabase-csharp/issues/12
                 case AuthState.SignedIn:
                 case AuthState.TokenRefreshed:
+                case AuthState.UserUpdated:
                     if (Auth.CurrentSession?.AccessToken != null)
                         Realtime.SetAuth(Auth.CurrentSession.AccessToken);
                     break;
-
                 // Remove Realtime Subscriptions on Auth Sign-out.
                 case AuthState.SignedOut:
                     if (Realtime.Subscriptions.Values != null)
                         foreach (var subscription in Realtime.Subscriptions.Values)
                             subscription.Unsubscribe();
-                    Realtime.Disconnect();
                     break;
-                case AuthState.UserUpdated: break;
                 case AuthState.PasswordRecovery: break;
                 case AuthState.Shutdown: break;
                 default: throw new ArgumentOutOfRangeException(nameof(e), e, null);
