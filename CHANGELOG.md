@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 0.13.3 - 2023-09-15
+
+- Re: [#107](https://github.com/supabase-community/supabase-csharp/issues/107) - removes Realtime socket being
+  disconnected on a User sign-out - only the subscriptions should be removed.
+
 ## 0.13.2 - 2023-09-15
 
 - Update dependency: `postgrest-csharp@3.2.7`
