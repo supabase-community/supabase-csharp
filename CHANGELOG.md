@@ -1,5 +1,15 @@
 ﻿# Changelog
 
+## 0.13.2 - 2023-09-15
+
+- Update dependency: `postgrest-csharp@3.2.7`
+    - Implements a `TableWithCache` for `Get` requests that can pull reactive Models from cache before making a remote
+      request.
+    - Re: [supabase-csharp#85](https://github.com/supabase-community/supabase-csharp/issues/85) Includes sourcelink
+      support.
+    - Re: [#75](https://github.com/supabase-community/postgrest-csharp/pull/75) Fix issue with marshalling of stored
+      procedure arguments. Big thank you to [@corrideat](https://github.com/corrideat)!
+
 ## 0.13.1 - 2023-08-26
 
 - Update dependency: `supabase-storage-csharp@1.4.0`
