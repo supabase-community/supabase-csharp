@@ -1,9 +1,7 @@
 ﻿using Postgrest.Attributes;
 using Postgrest.Models;
-using Supabase;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SupabaseExample.Models
 {

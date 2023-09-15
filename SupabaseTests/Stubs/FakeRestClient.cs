@@ -11,11 +11,31 @@ namespace SupabaseTests.Stubs
 {
     internal class FakeRestClient : IPostgrestClient
     {
+        public IPostgrestTableWithCache<T> Table<T>(IPostgrestCacheProvider cacheProvider) where T : BaseModel, new()
+        {
+            throw new NotImplementedException();
+        }
+
         public string BaseUrl => throw new NotImplementedException();
 
         public ClientOptions Options => throw new NotImplementedException();
 
         public Func<Dictionary<string, string>> GetHeaders { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public void AddRequestPreparedHandler(OnRequestPreparedEventHandler handler)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveRequestPreparedHandler(OnRequestPreparedEventHandler handler)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ClearRequestPreparedHandlers()
+        {
+            throw new NotImplementedException();
+        }
 
         public void AddDebugHandler(IPostgrestDebugger.DebugEventHandler handler)
         {
@@ -28,6 +48,11 @@ namespace SupabaseTests.Stubs
         }
 
         public void ClearDebugHandlers()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<BaseResponse> Rpc(string procedureName, object parameters)
         {
             throw new NotImplementedException();
         }
