@@ -94,6 +94,11 @@ namespace SupabaseTests.Stubs
             throw new NotImplementedException();
         }
 
+        public Task<ResetPasswordForEmailState> ResetPasswordForEmail(ResetPasswordForEmailOptions options)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Session> RetrieveSessionAsync()
         {
             throw new NotImplementedException();
