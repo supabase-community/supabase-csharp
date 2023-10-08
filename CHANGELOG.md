@@ -1,5 +1,11 @@
 ﻿# Changelog
 
+## 0.13.4 - 2023-10-08
+
+- Update Dependency: `gotrue-csharp@4.2.2`
+  - Re: [#78](https://github.com/supabase-community/gotrue-csharp/issues/78) - Implements PKCE flow support
+    for `ResetPasswordForEmail`.
+
 ## 0.13.3 - 2023-09-15
 
 - Re: [#107](https://github.com/supabase-community/supabase-csharp/issues/107) - removes Realtime socket being
