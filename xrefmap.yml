@@ -5052,6 +5052,12 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Api.RefreshAccessToken
   nameWithType: Api.RefreshAccessToken
+- uid: Supabase.Gotrue.Api.ResetPasswordForEmail(Supabase.Gotrue.ResetPasswordForEmailOptions)
+  name: ResetPasswordForEmail(ResetPasswordForEmailOptions)
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_ResetPasswordForEmail_Supabase_Gotrue_ResetPasswordForEmailOptions_
+  commentId: M:Supabase.Gotrue.Api.ResetPasswordForEmail(Supabase.Gotrue.ResetPasswordForEmailOptions)
+  fullName: Supabase.Gotrue.Api.ResetPasswordForEmail(Supabase.Gotrue.ResetPasswordForEmailOptions)
+  nameWithType: Api.ResetPasswordForEmail(ResetPasswordForEmailOptions)
 - uid: Supabase.Gotrue.Api.ResetPasswordForEmail(System.String)
   name: ResetPasswordForEmail(String)
   href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_ResetPasswordForEmail_System_String_
@@ -5527,6 +5533,12 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.RemoveStateChangedListener
   nameWithType: Client.RemoveStateChangedListener
+- uid: Supabase.Gotrue.Client.ResetPasswordForEmail(Supabase.Gotrue.ResetPasswordForEmailOptions)
+  name: ResetPasswordForEmail(ResetPasswordForEmailOptions)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_ResetPasswordForEmail_Supabase_Gotrue_ResetPasswordForEmailOptions_
+  commentId: M:Supabase.Gotrue.Client.ResetPasswordForEmail(Supabase.Gotrue.ResetPasswordForEmailOptions)
+  fullName: Supabase.Gotrue.Client.ResetPasswordForEmail(Supabase.Gotrue.ResetPasswordForEmailOptions)
+  nameWithType: Client.ResetPasswordForEmail(ResetPasswordForEmailOptions)
 - uid: Supabase.Gotrue.Client.ResetPasswordForEmail(System.String)
   name: ResetPasswordForEmail(String)
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_ResetPasswordForEmail_System_String_
@@ -6833,6 +6845,14 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).RefreshAccessToken
   nameWithType: IGotrueApi<TUser, TSession>.RefreshAccessToken
   nameWithType.vb: IGotrueApi(Of TUser, TSession).RefreshAccessToken
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.ResetPasswordForEmail(Supabase.Gotrue.ResetPasswordForEmailOptions)
+  name: ResetPasswordForEmail(ResetPasswordForEmailOptions)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_ResetPasswordForEmail_Supabase_Gotrue_ResetPasswordForEmailOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueApi`2.ResetPasswordForEmail(Supabase.Gotrue.ResetPasswordForEmailOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.ResetPasswordForEmail(Supabase.Gotrue.ResetPasswordForEmailOptions)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).ResetPasswordForEmail(Supabase.Gotrue.ResetPasswordForEmailOptions)
+  nameWithType: IGotrueApi<TUser, TSession>.ResetPasswordForEmail(ResetPasswordForEmailOptions)
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).ResetPasswordForEmail(ResetPasswordForEmailOptions)
 - uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.ResetPasswordForEmail(System.String)
   name: ResetPasswordForEmail(String)
   href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_ResetPasswordForEmail_System_String_
@@ -7408,6 +7428,14 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).RemoveStateChangedListener
   nameWithType: IGotrueClient<TUser, TSession>.RemoveStateChangedListener
   nameWithType.vb: IGotrueClient(Of TUser, TSession).RemoveStateChangedListener
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.ResetPasswordForEmail(Supabase.Gotrue.ResetPasswordForEmailOptions)
+  name: ResetPasswordForEmail(ResetPasswordForEmailOptions)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_ResetPasswordForEmail_Supabase_Gotrue_ResetPasswordForEmailOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.ResetPasswordForEmail(Supabase.Gotrue.ResetPasswordForEmailOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.ResetPasswordForEmail(Supabase.Gotrue.ResetPasswordForEmailOptions)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).ResetPasswordForEmail(Supabase.Gotrue.ResetPasswordForEmailOptions)
+  nameWithType: IGotrueClient<TUser, TSession>.ResetPasswordForEmail(ResetPasswordForEmailOptions)
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).ResetPasswordForEmail(ResetPasswordForEmailOptions)
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.ResetPasswordForEmail(System.String)
   name: ResetPasswordForEmail(String)
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_ResetPasswordForEmail_System_String_
@@ -8394,6 +8422,109 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.ProviderAuthState.Uri
   nameWithType: ProviderAuthState.Uri
+- uid: Supabase.Gotrue.ResetPasswordForEmailOptions
+  name: ResetPasswordForEmailOptions
+  href: api/Supabase.Gotrue.ResetPasswordForEmailOptions.html
+  commentId: T:Supabase.Gotrue.ResetPasswordForEmailOptions
+  fullName: Supabase.Gotrue.ResetPasswordForEmailOptions
+  nameWithType: ResetPasswordForEmailOptions
+- uid: Supabase.Gotrue.ResetPasswordForEmailOptions.#ctor(System.String)
+  name: ResetPasswordForEmailOptions(String)
+  href: api/Supabase.Gotrue.ResetPasswordForEmailOptions.html#Supabase_Gotrue_ResetPasswordForEmailOptions__ctor_System_String_
+  commentId: M:Supabase.Gotrue.ResetPasswordForEmailOptions.#ctor(System.String)
+  fullName: Supabase.Gotrue.ResetPasswordForEmailOptions.ResetPasswordForEmailOptions(System.String)
+  nameWithType: ResetPasswordForEmailOptions.ResetPasswordForEmailOptions(String)
+- uid: Supabase.Gotrue.ResetPasswordForEmailOptions.#ctor*
+  name: ResetPasswordForEmailOptions
+  href: api/Supabase.Gotrue.ResetPasswordForEmailOptions.html#Supabase_Gotrue_ResetPasswordForEmailOptions__ctor_
+  commentId: Overload:Supabase.Gotrue.ResetPasswordForEmailOptions.#ctor
+  isSpec: "True"
+  fullName: Supabase.Gotrue.ResetPasswordForEmailOptions.ResetPasswordForEmailOptions
+  nameWithType: ResetPasswordForEmailOptions.ResetPasswordForEmailOptions
+- uid: Supabase.Gotrue.ResetPasswordForEmailOptions.CaptchaToken
+  name: CaptchaToken
+  href: api/Supabase.Gotrue.ResetPasswordForEmailOptions.html#Supabase_Gotrue_ResetPasswordForEmailOptions_CaptchaToken
+  commentId: P:Supabase.Gotrue.ResetPasswordForEmailOptions.CaptchaToken
+  fullName: Supabase.Gotrue.ResetPasswordForEmailOptions.CaptchaToken
+  nameWithType: ResetPasswordForEmailOptions.CaptchaToken
+- uid: Supabase.Gotrue.ResetPasswordForEmailOptions.CaptchaToken*
+  name: CaptchaToken
+  href: api/Supabase.Gotrue.ResetPasswordForEmailOptions.html#Supabase_Gotrue_ResetPasswordForEmailOptions_CaptchaToken_
+  commentId: Overload:Supabase.Gotrue.ResetPasswordForEmailOptions.CaptchaToken
+  isSpec: "True"
+  fullName: Supabase.Gotrue.ResetPasswordForEmailOptions.CaptchaToken
+  nameWithType: ResetPasswordForEmailOptions.CaptchaToken
+- uid: Supabase.Gotrue.ResetPasswordForEmailOptions.Email
+  name: Email
+  href: api/Supabase.Gotrue.ResetPasswordForEmailOptions.html#Supabase_Gotrue_ResetPasswordForEmailOptions_Email
+  commentId: P:Supabase.Gotrue.ResetPasswordForEmailOptions.Email
+  fullName: Supabase.Gotrue.ResetPasswordForEmailOptions.Email
+  nameWithType: ResetPasswordForEmailOptions.Email
+- uid: Supabase.Gotrue.ResetPasswordForEmailOptions.Email*
+  name: Email
+  href: api/Supabase.Gotrue.ResetPasswordForEmailOptions.html#Supabase_Gotrue_ResetPasswordForEmailOptions_Email_
+  commentId: Overload:Supabase.Gotrue.ResetPasswordForEmailOptions.Email
+  isSpec: "True"
+  fullName: Supabase.Gotrue.ResetPasswordForEmailOptions.Email
+  nameWithType: ResetPasswordForEmailOptions.Email
+- uid: Supabase.Gotrue.ResetPasswordForEmailOptions.FlowType
+  name: FlowType
+  href: api/Supabase.Gotrue.ResetPasswordForEmailOptions.html#Supabase_Gotrue_ResetPasswordForEmailOptions_FlowType
+  commentId: P:Supabase.Gotrue.ResetPasswordForEmailOptions.FlowType
+  fullName: Supabase.Gotrue.ResetPasswordForEmailOptions.FlowType
+  nameWithType: ResetPasswordForEmailOptions.FlowType
+- uid: Supabase.Gotrue.ResetPasswordForEmailOptions.FlowType*
+  name: FlowType
+  href: api/Supabase.Gotrue.ResetPasswordForEmailOptions.html#Supabase_Gotrue_ResetPasswordForEmailOptions_FlowType_
+  commentId: Overload:Supabase.Gotrue.ResetPasswordForEmailOptions.FlowType
+  isSpec: "True"
+  fullName: Supabase.Gotrue.ResetPasswordForEmailOptions.FlowType
+  nameWithType: ResetPasswordForEmailOptions.FlowType
+- uid: Supabase.Gotrue.ResetPasswordForEmailOptions.PKCEVerifier
+  name: PKCEVerifier
+  href: api/Supabase.Gotrue.ResetPasswordForEmailOptions.html#Supabase_Gotrue_ResetPasswordForEmailOptions_PKCEVerifier
+  commentId: P:Supabase.Gotrue.ResetPasswordForEmailOptions.PKCEVerifier
+  fullName: Supabase.Gotrue.ResetPasswordForEmailOptions.PKCEVerifier
+  nameWithType: ResetPasswordForEmailOptions.PKCEVerifier
+- uid: Supabase.Gotrue.ResetPasswordForEmailOptions.PKCEVerifier*
+  name: PKCEVerifier
+  href: api/Supabase.Gotrue.ResetPasswordForEmailOptions.html#Supabase_Gotrue_ResetPasswordForEmailOptions_PKCEVerifier_
+  commentId: Overload:Supabase.Gotrue.ResetPasswordForEmailOptions.PKCEVerifier
+  isSpec: "True"
+  fullName: Supabase.Gotrue.ResetPasswordForEmailOptions.PKCEVerifier
+  nameWithType: ResetPasswordForEmailOptions.PKCEVerifier
+- uid: Supabase.Gotrue.ResetPasswordForEmailOptions.RedirectTo
+  name: RedirectTo
+  href: api/Supabase.Gotrue.ResetPasswordForEmailOptions.html#Supabase_Gotrue_ResetPasswordForEmailOptions_RedirectTo
+  commentId: P:Supabase.Gotrue.ResetPasswordForEmailOptions.RedirectTo
+  fullName: Supabase.Gotrue.ResetPasswordForEmailOptions.RedirectTo
+  nameWithType: ResetPasswordForEmailOptions.RedirectTo
+- uid: Supabase.Gotrue.ResetPasswordForEmailOptions.RedirectTo*
+  name: RedirectTo
+  href: api/Supabase.Gotrue.ResetPasswordForEmailOptions.html#Supabase_Gotrue_ResetPasswordForEmailOptions_RedirectTo_
+  commentId: Overload:Supabase.Gotrue.ResetPasswordForEmailOptions.RedirectTo
+  isSpec: "True"
+  fullName: Supabase.Gotrue.ResetPasswordForEmailOptions.RedirectTo
+  nameWithType: ResetPasswordForEmailOptions.RedirectTo
+- uid: Supabase.Gotrue.ResetPasswordForEmailState
+  name: ResetPasswordForEmailState
+  href: api/Supabase.Gotrue.ResetPasswordForEmailState.html
+  commentId: T:Supabase.Gotrue.ResetPasswordForEmailState
+  fullName: Supabase.Gotrue.ResetPasswordForEmailState
+  nameWithType: ResetPasswordForEmailState
+- uid: Supabase.Gotrue.ResetPasswordForEmailState.PKCEVerifier
+  name: PKCEVerifier
+  href: api/Supabase.Gotrue.ResetPasswordForEmailState.html#Supabase_Gotrue_ResetPasswordForEmailState_PKCEVerifier
+  commentId: P:Supabase.Gotrue.ResetPasswordForEmailState.PKCEVerifier
+  fullName: Supabase.Gotrue.ResetPasswordForEmailState.PKCEVerifier
+  nameWithType: ResetPasswordForEmailState.PKCEVerifier
+- uid: Supabase.Gotrue.ResetPasswordForEmailState.PKCEVerifier*
+  name: PKCEVerifier
+  href: api/Supabase.Gotrue.ResetPasswordForEmailState.html#Supabase_Gotrue_ResetPasswordForEmailState_PKCEVerifier_
+  commentId: Overload:Supabase.Gotrue.ResetPasswordForEmailState.PKCEVerifier
+  isSpec: "True"
+  fullName: Supabase.Gotrue.ResetPasswordForEmailState.PKCEVerifier
+  nameWithType: ResetPasswordForEmailState.PKCEVerifier
 - uid: Supabase.Gotrue.Responses
   name: Supabase.Gotrue.Responses
   href: api/Supabase.Gotrue.Responses.html
