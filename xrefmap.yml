@@ -141,18 +141,24 @@ references:
   commentId: T:Postgrest.Attributes.ReferenceAttribute
   fullName: Postgrest.Attributes.ReferenceAttribute
   nameWithType: ReferenceAttribute
-- uid: Postgrest.Attributes.ReferenceAttribute.#ctor(Type,Postgrest.Attributes.ReferenceAttribute.JoinType,System.Boolean,System.Boolean,System.Boolean,System.String)
-  name: ReferenceAttribute(Type, ReferenceAttribute.JoinType, Boolean, Boolean, Boolean, String)
-  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute__ctor_Type_Postgrest_Attributes_ReferenceAttribute_JoinType_System_Boolean_System_Boolean_System_Boolean_System_String_
-  commentId: M:Postgrest.Attributes.ReferenceAttribute.#ctor(Type,Postgrest.Attributes.ReferenceAttribute.JoinType,System.Boolean,System.Boolean,System.Boolean,System.String)
-  fullName: Postgrest.Attributes.ReferenceAttribute.ReferenceAttribute(Type, Postgrest.Attributes.ReferenceAttribute.JoinType, System.Boolean, System.Boolean, System.Boolean, System.String)
-  nameWithType: ReferenceAttribute.ReferenceAttribute(Type, ReferenceAttribute.JoinType, Boolean, Boolean, Boolean, String)
-- uid: Postgrest.Attributes.ReferenceAttribute.#ctor(Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String)
-  name: ReferenceAttribute(Type, Boolean, Boolean, Boolean, Boolean, String)
-  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute__ctor_Type_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_String_
-  commentId: M:Postgrest.Attributes.ReferenceAttribute.#ctor(Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String)
-  fullName: Postgrest.Attributes.ReferenceAttribute.ReferenceAttribute(Type, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.String)
-  nameWithType: ReferenceAttribute.ReferenceAttribute(Type, Boolean, Boolean, Boolean, Boolean, String)
+- uid: Postgrest.Attributes.ReferenceAttribute.#ctor(Type,Postgrest.Attributes.ReferenceAttribute.JoinType,System.Boolean,System.Boolean,System.Boolean,System.String,System.Nullable{System.String})
+  name: ReferenceAttribute(Type, ReferenceAttribute.JoinType, Boolean, Boolean, Boolean, String, Nullable<String>)
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute__ctor_Type_Postgrest_Attributes_ReferenceAttribute_JoinType_System_Boolean_System_Boolean_System_Boolean_System_String_System_Nullable_System_String__
+  commentId: M:Postgrest.Attributes.ReferenceAttribute.#ctor(Type,Postgrest.Attributes.ReferenceAttribute.JoinType,System.Boolean,System.Boolean,System.Boolean,System.String,System.Nullable{System.String})
+  name.vb: ReferenceAttribute(Type, ReferenceAttribute.JoinType, Boolean, Boolean, Boolean, String, Nullable(Of String))
+  fullName: Postgrest.Attributes.ReferenceAttribute.ReferenceAttribute(Type, Postgrest.Attributes.ReferenceAttribute.JoinType, System.Boolean, System.Boolean, System.Boolean, System.String, System.Nullable<System.String>)
+  fullName.vb: Postgrest.Attributes.ReferenceAttribute.ReferenceAttribute(Type, Postgrest.Attributes.ReferenceAttribute.JoinType, System.Boolean, System.Boolean, System.Boolean, System.String, System.Nullable(Of System.String))
+  nameWithType: ReferenceAttribute.ReferenceAttribute(Type, ReferenceAttribute.JoinType, Boolean, Boolean, Boolean, String, Nullable<String>)
+  nameWithType.vb: ReferenceAttribute.ReferenceAttribute(Type, ReferenceAttribute.JoinType, Boolean, Boolean, Boolean, String, Nullable(Of String))
+- uid: Postgrest.Attributes.ReferenceAttribute.#ctor(Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Nullable{System.String},System.Nullable{System.String})
+  name: ReferenceAttribute(Type, Boolean, Boolean, Boolean, Boolean, Nullable<String>, Nullable<String>)
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute__ctor_Type_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Nullable_System_String__System_Nullable_System_String__
+  commentId: M:Postgrest.Attributes.ReferenceAttribute.#ctor(Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Nullable{System.String},System.Nullable{System.String})
+  name.vb: ReferenceAttribute(Type, Boolean, Boolean, Boolean, Boolean, Nullable(Of String), Nullable(Of String))
+  fullName: Postgrest.Attributes.ReferenceAttribute.ReferenceAttribute(Type, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Nullable<System.String>, System.Nullable<System.String>)
+  fullName.vb: Postgrest.Attributes.ReferenceAttribute.ReferenceAttribute(Type, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Nullable(Of System.String), System.Nullable(Of System.String))
+  nameWithType: ReferenceAttribute.ReferenceAttribute(Type, Boolean, Boolean, Boolean, Boolean, Nullable<String>, Nullable<String>)
+  nameWithType.vb: ReferenceAttribute.ReferenceAttribute(Type, Boolean, Boolean, Boolean, Boolean, Nullable(Of String), Nullable(Of String))
 - uid: Postgrest.Attributes.ReferenceAttribute.#ctor*
   name: ReferenceAttribute
   href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute__ctor_
@@ -160,6 +166,19 @@ references:
   isSpec: "True"
   fullName: Postgrest.Attributes.ReferenceAttribute.ReferenceAttribute
   nameWithType: ReferenceAttribute.ReferenceAttribute
+- uid: Postgrest.Attributes.ReferenceAttribute.ColumnName
+  name: ColumnName
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_ColumnName
+  commentId: P:Postgrest.Attributes.ReferenceAttribute.ColumnName
+  fullName: Postgrest.Attributes.ReferenceAttribute.ColumnName
+  nameWithType: ReferenceAttribute.ColumnName
+- uid: Postgrest.Attributes.ReferenceAttribute.ColumnName*
+  name: ColumnName
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_ColumnName_
+  commentId: Overload:Postgrest.Attributes.ReferenceAttribute.ColumnName
+  isSpec: "True"
+  fullName: Postgrest.Attributes.ReferenceAttribute.ColumnName
+  nameWithType: ReferenceAttribute.ColumnName
 - uid: Postgrest.Attributes.ReferenceAttribute.Columns
   name: Columns
   href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_Columns
@@ -186,6 +205,19 @@ references:
   isSpec: "True"
   fullName: Postgrest.Attributes.ReferenceAttribute.Equals
   nameWithType: ReferenceAttribute.Equals
+- uid: Postgrest.Attributes.ReferenceAttribute.ForeignKey
+  name: ForeignKey
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_ForeignKey
+  commentId: P:Postgrest.Attributes.ReferenceAttribute.ForeignKey
+  fullName: Postgrest.Attributes.ReferenceAttribute.ForeignKey
+  nameWithType: ReferenceAttribute.ForeignKey
+- uid: Postgrest.Attributes.ReferenceAttribute.ForeignKey*
+  name: ForeignKey
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_ForeignKey_
+  commentId: Overload:Postgrest.Attributes.ReferenceAttribute.ForeignKey
+  isSpec: "True"
+  fullName: Postgrest.Attributes.ReferenceAttribute.ForeignKey
+  nameWithType: ReferenceAttribute.ForeignKey
 - uid: Postgrest.Attributes.ReferenceAttribute.IgnoreOnInsert
   name: IgnoreOnInsert
   href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_IgnoreOnInsert
@@ -256,19 +288,6 @@ references:
   isSpec: "True"
   fullName: Postgrest.Attributes.ReferenceAttribute.Model
   nameWithType: ReferenceAttribute.Model
-- uid: Postgrest.Attributes.ReferenceAttribute.PropertyName
-  name: PropertyName
-  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_PropertyName
-  commentId: P:Postgrest.Attributes.ReferenceAttribute.PropertyName
-  fullName: Postgrest.Attributes.ReferenceAttribute.PropertyName
-  nameWithType: ReferenceAttribute.PropertyName
-- uid: Postgrest.Attributes.ReferenceAttribute.PropertyName*
-  name: PropertyName
-  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_PropertyName_
-  commentId: Overload:Postgrest.Attributes.ReferenceAttribute.PropertyName
-  isSpec: "True"
-  fullName: Postgrest.Attributes.ReferenceAttribute.PropertyName
-  nameWithType: ReferenceAttribute.PropertyName
 - uid: Postgrest.Attributes.ReferenceAttribute.TableName
   name: TableName
   href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_TableName

@@ -92,19 +92,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/3defbb6fd2bba9c9a96f854134f473321acb7363/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute__ctor_Type_Postgrest_Attributes_ReferenceAttribute_JoinType_System_Boolean_System_Boolean_System_Boolean_System_String_.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.%23ctor(Type%2CPostgrest.Attributes.ReferenceAttribute.JoinType%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute__ctor_Type_Postgrest_Attributes_ReferenceAttribute_JoinType_System_Boolean_System_Boolean_System_Boolean_System_String_System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.%23ctor(Type%2CPostgrest.Attributes.ReferenceAttribute.JoinType%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CSystem.String%2CSystem.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/3defbb6fd2bba9c9a96f854134f473321acb7363/Postgrest/Attributes/ReferenceAttribute.cs/#L85">View Source</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/Postgrest/Attributes/ReferenceAttribute.cs/#L91">View Source</a>
   </span>
   <a id="Postgrest_Attributes_ReferenceAttribute__ctor_" data-uid="Postgrest.Attributes.ReferenceAttribute.#ctor*"></a>
-  <h4 id="Postgrest_Attributes_ReferenceAttribute__ctor_Type_Postgrest_Attributes_ReferenceAttribute_JoinType_System_Boolean_System_Boolean_System_Boolean_System_String_" data-uid="Postgrest.Attributes.ReferenceAttribute.#ctor(Type,Postgrest.Attributes.ReferenceAttribute.JoinType,System.Boolean,System.Boolean,System.Boolean,System.String)">ReferenceAttribute(Type, ReferenceAttribute.JoinType, Boolean, Boolean, Boolean, String)</h4>
+  <h4 id="Postgrest_Attributes_ReferenceAttribute__ctor_Type_Postgrest_Attributes_ReferenceAttribute_JoinType_System_Boolean_System_Boolean_System_Boolean_System_String_System_Nullable_System_String__" data-uid="Postgrest.Attributes.ReferenceAttribute.#ctor(Type,Postgrest.Attributes.ReferenceAttribute.JoinType,System.Boolean,System.Boolean,System.Boolean,System.String,System.Nullable{System.String})">ReferenceAttribute(Type, ReferenceAttribute.JoinType, Boolean, Boolean, Boolean, String, Nullable&lt;String&gt;)</h4>
   <div class="markdown level1 summary"><p>Establishes a reference between two tables</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ReferenceAttribute(Type model, ReferenceAttribute.JoinType joinType, bool includeInQuery = true, bool ignoreOnInsert = true, bool ignoreOnUpdate = true, string propertyName = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public ReferenceAttribute(Type model, ReferenceAttribute.JoinType joinType, bool includeInQuery = true, bool ignoreOnInsert = true, bool ignoreOnUpdate = true, string columnName = &quot;&quot;, string? foreignKey = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -148,26 +148,33 @@
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">propertyName</span></td>
-        <td></td>
+        <td><span class="parametername">columnName</span></td>
+        <td><p>Column this attribute references as specified in Postgres, DOES NOT need to be set if &lt;see cref=&quot;ForeignKey&quot;/&gt; is set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">foreignKey</span></td>
+        <td><p>Foreign Key this attribute references as specified in Postgres (only required if the model references the same table multiple times)</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/3defbb6fd2bba9c9a96f854134f473321acb7363/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute__ctor_Type_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_String_.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.%23ctor(Type%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute__ctor_Type_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Nullable_System_String__System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.%23ctor(Type%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/3defbb6fd2bba9c9a96f854134f473321acb7363/Postgrest/Attributes/ReferenceAttribute.cs/#L99">View Source</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/Postgrest/Attributes/ReferenceAttribute.cs/#L108">View Source</a>
   </span>
   <a id="Postgrest_Attributes_ReferenceAttribute__ctor_" data-uid="Postgrest.Attributes.ReferenceAttribute.#ctor*"></a>
-  <h4 id="Postgrest_Attributes_ReferenceAttribute__ctor_Type_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_String_" data-uid="Postgrest.Attributes.ReferenceAttribute.#ctor(Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String)">ReferenceAttribute(Type, Boolean, Boolean, Boolean, Boolean, String)</h4>
+  <h4 id="Postgrest_Attributes_ReferenceAttribute__ctor_Type_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Nullable_System_String__System_Nullable_System_String__" data-uid="Postgrest.Attributes.ReferenceAttribute.#ctor(Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Nullable{System.String},System.Nullable{System.String})">ReferenceAttribute(Type, Boolean, Boolean, Boolean, Boolean, Nullable&lt;String&gt;, Nullable&lt;String&gt;)</h4>
   <div class="markdown level1 summary"><p>Establishes a reference between two tables</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ReferenceAttribute(Type model, bool includeInQuery = true, bool ignoreOnInsert = true, bool ignoreOnUpdate = true, bool useInnerJoin = true, string propertyName = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public ReferenceAttribute(Type model, bool includeInQuery = true, bool ignoreOnInsert = true, bool ignoreOnUpdate = true, bool useInnerJoin = true, string? columnName = null, string? foreignKey = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -210,9 +217,16 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">propertyName</span></td>
-        <td></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">columnName</span></td>
+        <td><p>Column this attribute references as specified in Postgres, DOES NOT need to be set if <a class="xref" href="Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_ForeignKey">ForeignKey</a> is set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">foreignKey</span></td>
+        <td><p>Foreign Key this attribute references as specified in Postgres (only required if the model references the same table multiple times)</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -220,10 +234,41 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/3defbb6fd2bba9c9a96f854134f473321acb7363/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute_Columns.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.Columns%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute_ColumnName.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.ColumnName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/3defbb6fd2bba9c9a96f854134f473321acb7363/Postgrest/Attributes/ReferenceAttribute.cs/#L53">View Source</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/Postgrest/Attributes/ReferenceAttribute.cs/#L43">View Source</a>
+  </span>
+  <a id="Postgrest_Attributes_ReferenceAttribute_ColumnName_" data-uid="Postgrest.Attributes.ReferenceAttribute.ColumnName*"></a>
+  <h4 id="Postgrest_Attributes_ReferenceAttribute_ColumnName" data-uid="Postgrest.Attributes.ReferenceAttribute.ColumnName">ColumnName</h4>
+  <div class="markdown level1 summary"><p>Column this attribute references as specified in Postgres, DOES NOT need to be set if <a class="xref" href="Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_ForeignKey">ForeignKey</a> is set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ColumnName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute_Columns.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.Columns%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/Postgrest/Attributes/ReferenceAttribute.cs/#L58">View Source</a>
   </span>
   <a id="Postgrest_Attributes_ReferenceAttribute_Columns_" data-uid="Postgrest.Attributes.ReferenceAttribute.Columns*"></a>
   <h4 id="Postgrest_Attributes_ReferenceAttribute_Columns" data-uid="Postgrest.Attributes.ReferenceAttribute.Columns">Columns</h4>
@@ -251,10 +296,41 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/3defbb6fd2bba9c9a96f854134f473321acb7363/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute_IgnoreOnInsert.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.IgnoreOnInsert%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute_ForeignKey.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.ForeignKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/3defbb6fd2bba9c9a96f854134f473321acb7363/Postgrest/Attributes/ReferenceAttribute.cs/#L58">View Source</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/Postgrest/Attributes/ReferenceAttribute.cs/#L48">View Source</a>
+  </span>
+  <a id="Postgrest_Attributes_ReferenceAttribute_ForeignKey_" data-uid="Postgrest.Attributes.ReferenceAttribute.ForeignKey*"></a>
+  <h4 id="Postgrest_Attributes_ReferenceAttribute_ForeignKey" data-uid="Postgrest.Attributes.ReferenceAttribute.ForeignKey">ForeignKey</h4>
+  <div class="markdown level1 summary"><p>The explicit SQL defined foreign key that this references.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ForeignKey { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute_IgnoreOnInsert.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.IgnoreOnInsert%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/Postgrest/Attributes/ReferenceAttribute.cs/#L63">View Source</a>
   </span>
   <a id="Postgrest_Attributes_ReferenceAttribute_IgnoreOnInsert_" data-uid="Postgrest.Attributes.ReferenceAttribute.IgnoreOnInsert*"></a>
   <h4 id="Postgrest_Attributes_ReferenceAttribute_IgnoreOnInsert" data-uid="Postgrest.Attributes.ReferenceAttribute.IgnoreOnInsert">IgnoreOnInsert</h4>
@@ -282,10 +358,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/3defbb6fd2bba9c9a96f854134f473321acb7363/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute_IgnoreOnUpdate.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.IgnoreOnUpdate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute_IgnoreOnUpdate.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.IgnoreOnUpdate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/3defbb6fd2bba9c9a96f854134f473321acb7363/Postgrest/Attributes/ReferenceAttribute.cs/#L63">View Source</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/Postgrest/Attributes/ReferenceAttribute.cs/#L68">View Source</a>
   </span>
   <a id="Postgrest_Attributes_ReferenceAttribute_IgnoreOnUpdate_" data-uid="Postgrest.Attributes.ReferenceAttribute.IgnoreOnUpdate*"></a>
   <h4 id="Postgrest_Attributes_ReferenceAttribute_IgnoreOnUpdate" data-uid="Postgrest.Attributes.ReferenceAttribute.IgnoreOnUpdate">IgnoreOnUpdate</h4>
@@ -313,10 +389,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/3defbb6fd2bba9c9a96f854134f473321acb7363/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute_IncludeInQuery.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.IncludeInQuery%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute_IncludeInQuery.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.IncludeInQuery%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/3defbb6fd2bba9c9a96f854134f473321acb7363/Postgrest/Attributes/ReferenceAttribute.cs/#L68">View Source</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/Postgrest/Attributes/ReferenceAttribute.cs/#L73">View Source</a>
   </span>
   <a id="Postgrest_Attributes_ReferenceAttribute_IncludeInQuery_" data-uid="Postgrest.Attributes.ReferenceAttribute.IncludeInQuery*"></a>
   <h4 id="Postgrest_Attributes_ReferenceAttribute_IncludeInQuery" data-uid="Postgrest.Attributes.ReferenceAttribute.IncludeInQuery">IncludeInQuery</h4>
@@ -344,10 +420,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/3defbb6fd2bba9c9a96f854134f473321acb7363/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute_Model.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.Model%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute_Model.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.Model%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/3defbb6fd2bba9c9a96f854134f473321acb7363/Postgrest/Attributes/ReferenceAttribute.cs/#L38">View Source</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/Postgrest/Attributes/ReferenceAttribute.cs/#L38">View Source</a>
   </span>
   <a id="Postgrest_Attributes_ReferenceAttribute_Model_" data-uid="Postgrest.Attributes.ReferenceAttribute.Model*"></a>
   <h4 id="Postgrest_Attributes_ReferenceAttribute_Model" data-uid="Postgrest.Attributes.ReferenceAttribute.Model">Model</h4>
@@ -375,41 +451,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/3defbb6fd2bba9c9a96f854134f473321acb7363/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute_PropertyName.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.PropertyName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute_TableName.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.TableName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/3defbb6fd2bba9c9a96f854134f473321acb7363/Postgrest/Attributes/ReferenceAttribute.cs/#L43">View Source</a>
-  </span>
-  <a id="Postgrest_Attributes_ReferenceAttribute_PropertyName_" data-uid="Postgrest.Attributes.ReferenceAttribute.PropertyName*"></a>
-  <h4 id="Postgrest_Attributes_ReferenceAttribute_PropertyName" data-uid="Postgrest.Attributes.ReferenceAttribute.PropertyName">PropertyName</h4>
-  <div class="markdown level1 summary"><p>Associated property name</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string PropertyName { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/3defbb6fd2bba9c9a96f854134f473321acb7363/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute_TableName.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.TableName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/3defbb6fd2bba9c9a96f854134f473321acb7363/Postgrest/Attributes/ReferenceAttribute.cs/#L48">View Source</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/Postgrest/Attributes/ReferenceAttribute.cs/#L53">View Source</a>
   </span>
   <a id="Postgrest_Attributes_ReferenceAttribute_TableName_" data-uid="Postgrest.Attributes.ReferenceAttribute.TableName*"></a>
   <h4 id="Postgrest_Attributes_ReferenceAttribute_TableName" data-uid="Postgrest.Attributes.ReferenceAttribute.TableName">TableName</h4>
@@ -437,10 +482,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/3defbb6fd2bba9c9a96f854134f473321acb7363/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute_UseInnerJoin.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.UseInnerJoin%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute_UseInnerJoin.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.UseInnerJoin%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/3defbb6fd2bba9c9a96f854134f473321acb7363/Postgrest/Attributes/ReferenceAttribute.cs/#L75">View Source</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/Postgrest/Attributes/ReferenceAttribute.cs/#L80">View Source</a>
   </span>
   <a id="Postgrest_Attributes_ReferenceAttribute_UseInnerJoin_" data-uid="Postgrest.Attributes.ReferenceAttribute.UseInnerJoin*"></a>
   <h4 id="Postgrest_Attributes_ReferenceAttribute_UseInnerJoin" data-uid="Postgrest.Attributes.ReferenceAttribute.UseInnerJoin">UseInnerJoin</h4>
@@ -471,10 +516,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/3defbb6fd2bba9c9a96f854134f473321acb7363/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute_Equals_System_Object_.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/new/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute_Equals_System_Object_.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/3defbb6fd2bba9c9a96f854134f473321acb7363/Postgrest/Attributes/ReferenceAttribute.cs/#L148">View Source</a>
+    <a href="https://github.com/supabase-community/postgrest-csharp/blob/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/Postgrest/Attributes/ReferenceAttribute.cs/#L158">View Source</a>
   </span>
   <a id="Postgrest_Attributes_ReferenceAttribute_Equals_" data-uid="Postgrest.Attributes.ReferenceAttribute.Equals*"></a>
   <h4 id="Postgrest_Attributes_ReferenceAttribute_Equals_System_Object_" data-uid="Postgrest.Attributes.ReferenceAttribute.Equals(System.Object)">Equals(Object)</h4>
@@ -524,10 +569,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/supabase-community/postgrest-csharp/new/3defbb6fd2bba9c9a96f854134f473321acb7363/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/supabase-community/postgrest-csharp/new/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/apiSpec/new?filename=Postgrest_Attributes_ReferenceAttribute.md&amp;value=---%0Auid%3A%20Postgrest.Attributes.ReferenceAttribute%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/supabase-community/postgrest-csharp/blob/3defbb6fd2bba9c9a96f854134f473321acb7363/Postgrest/Attributes/ReferenceAttribute.cs/#L16" class="contribution-link">View Source</a>
+                    <a href="https://github.com/supabase-community/postgrest-csharp/blob/a0b36bdf5d6413ba7bbb0ed1aa6211668dce6b9c/Postgrest/Attributes/ReferenceAttribute.cs/#L16" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
