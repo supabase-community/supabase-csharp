@@ -1,5 +1,11 @@
 ﻿# Changelog
 
+## 0.13.6 - 2023-10-12
+
+- Update Dependency: `gotrue-csharp@4.2.3`
+    - Re: [#80](https://github.com/supabase-community/gotrue-csharp/pull/80) Fixes `Session.Expires()` not being
+      calculated correctly. Thanks [@dayjay](https://github.com/Dayjay)!
+
 ## 0.13.5 - 2023-10-09
 
 - Update Dependency: `postgrest-csharp@3.2.9`
