@@ -1,5 +1,11 @@
 ﻿# Changelog
 
+## 0.13.7 - 2023-11-13
+
+- Update Dependency: `postgrest-csharp@3.2.10`
+    - Re: [#76](https://github.com/supabase-community/postgrest-csharp/issues/76) Removes the
+      incorrect `ToUniversalTime` conversion in the LINQ `Where` parser.
+
 ## 0.13.6 - 2023-10-12
 
 - Update Dependency: `gotrue-csharp@4.2.3`
