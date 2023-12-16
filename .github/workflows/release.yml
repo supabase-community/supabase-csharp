@@ -16,7 +16,7 @@ jobs:
           dotnet-version: '7.0.x'
 
       - name: Wait for tests to succeed
-        uses: lewagon/wait-on-check-action@v1.0.0
+        uses: lewagon/wait-on-check-action@v1.3.1
         with:
           ref: ${{ github.ref }}
           check-name: 'buildAndTest'
