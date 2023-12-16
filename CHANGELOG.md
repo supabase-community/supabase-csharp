@@ -1,5 +1,19 @@
 ﻿# Changelog
 
+## 0.14.0 - 2023-12-15
+
+- Update Dependency: `gotrue-csharp@4.2.5`
+    - [#82](https://github.com/supabase-community/gotrue-csharp/issues/81) - Implements #82 - Creates a `GenerateLink`
+      method on the `AdminClient` that supports `signup`, `invite`, `magiclink`, `recovery`, `email_change_new`
+      and `email_change_current`
+    - [#81](https://github.com/supabase-community/gotrue-csharp/issues/81) - Adds `InviteUserByEmailOptions` as a
+      parameter to the Gotrue Admin Client
+- Update Dependency: `postgrest-csharp@3.3.0`
+    - Re: [#78](https://github.com/supabase-community/postgrest-csharp/issues/78) Updates signatures for `Not`
+      and `Filter` to include generic types for a better development experience.
+    - Updates internal generic type names to be more descriptive.
+    - Add support for LINQ predicates on `Table<TModel>.Not()` signatures
+
 ## 0.13.7 - 2023-11-13
 
 - Update Dependency: `postgrest-csharp@3.2.10`
