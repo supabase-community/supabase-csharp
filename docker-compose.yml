@@ -28,7 +28,7 @@ services:
       - db
 
   gotrue:
-    image: supabase/gotrue:latest
+    image: supabase/gotrue:v2.129.1
     restart: unless-stopped
     ports:
       - "9999:9999"
