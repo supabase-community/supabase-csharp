@@ -58,6 +58,7 @@ _Reminder: `supabase-csharp` has some APIs that require the `service_key` rather
 Join the ranks! See a problem? Help fix it!
 
 <a href="https://github.com/supabase-community/supabase-csharp/graphs/contributors">
+  <img src="https://contrib-generator.fly.dev/repo/generate?repo=supabase-community%2Fsupabase-csharp%2Csupabase-community%2Fpostgrest-csharp%2Csupabase-community%2Frealtime-csharp%2Csupabase-community%2Fgotrue-csharp&size=56&padding=16&perRow=10&limit=100&ignoreCache=true&strokeWidth=4&strokeColor=3ecf8e"/>
 </a>
 
 ## Contributing
