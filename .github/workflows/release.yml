@@ -1,34 +1,32 @@
-name: Publish Nuget Package
+name: Publish NuGet Package
+
 on:
   push:
     branches:
       - release/* # Default release branch
+
 jobs:
   publish:
     name: build, pack & publish
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '7.0.x'
+          dotnet-version: 8.x
 
       - name: Wait for tests to succeed
         uses: lewagon/wait-on-check-action@v1.3.1
         with:
           ref: ${{ github.ref }}
-          check-name: 'buildAndTest'
+          check-name: build-and-test
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10
 
-      - name: Install dependencies
-        run: dotnet restore
+      - name: Generate package
+        run: dotnet pack ./Supabase/Supabase.csproj --configuration Release
 
-      - name: Build Realtime
-        run: dotnet build ./Supabase/Supabase.csproj --configuration Release --no-restore
-      
-      # Publish
-      - name: publish on version change
-        run: nuget push "**/*.nupkg" -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
+      - name: Publish on version change
+        run: dotnet nuget push "**/*.nupkg" --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
