@@ -3,81 +3,59 @@
     {
       "src": [
         {
-          "files": "Supabase.csproj",
-          "exclude": [
-            "**/bin/**",
-            "**/obj/**"
-          ],
-          "src": "../Supabase"
+          "src": "../Supabase",
+          "files": [
+            "**/*.csproj"
+          ]
         },
         {
-          "files": "Gotrue.csproj",
-          "exclude": [
-            "**/bin/**",
-            "**/obj/**"
-          ],
-          "src": "../modules/gotrue-csharp/Gotrue"
+          "src": "../modules/gotrue-csharp/Gotrue",
+          "files": [
+            "**/*.csproj"
+          ]
         },
         {
-          "files": "Realtime.csproj",
-          "exclude": [
-            "**/bin/**",
-            "**/obj/**"
-          ],
-          "src": "../modules/realtime-csharp/Realtime"
+          "src": "../modules/realtime-csharp/Realtime",
+          "files": [
+            "**/*.csproj"
+          ]
         },
         {
-          "files": "Postgrest.csproj",
-          "exclude": [
-            "**/bin/**",
-            "**/obj/**"
-          ],
-          "src": "../modules/postgrest-csharp/Postgrest"
+          "src": "../modules/postgrest-csharp/Postgrest",
+          "files": [
+            "**/*.csproj"
+          ]
         },
         {
-          "files": "Storage.csproj",
-          "exclude": [
-            "**/bin/**",
-            "**/obj/**"
-          ],
-          "src": "../modules/storage-csharp/Storage"
+          "src": "../modules/storage-csharp/Storage",
+          "files": [
+            "**/*.csproj"
+          ]
         },
         {
-          "files": "Functions.csproj",
-          "exclude": [
-            "**/bin/**",
-            "**/obj/**"
-          ],
-          "src": "../modules/functions-csharp/Functions"
+          "src": "../modules/functions-csharp/Functions",
+          "files": [
+            "**/*.csproj"
+          ]
         },
         {
-          "files": "Core.csproj",
-          "exclude": [
-            "**/bin/**",
-            "**/obj/**"
-          ],
-          "src": "../modules/core-csharp/Core"
+          "src": "../modules/core-csharp/Core",
+          "files": [
+            "**/*.csproj"
+          ]
         }
       ],
-      "dest": "api",
-      "disableGitFeatures": false,
-      "disableDefaultFilter": false
+      "dest": "api"
     }
   ],
   "build": {
     "content": [
       {
         "files": [
-          "api/**.yml",
-          "api/index.md"
-        ]
-      },
-      {
-        "files": [
-          "articles/**.md",
-          "articles/**/toc.yml",
-          "toc.yml",
-          "*.md"
+          "**/*.{md,yml}"
+        ],
+        "exclude": [
+          "_site/**"
         ]
       }
     ],
@@ -88,28 +66,15 @@
         ]
       }
     ],
-    "overwrite": [
-      {
-        "files": [
-          "apidoc/**.md"
-        ],
-        "exclude": [
-          "obj/**",
-          "_site/**"
-        ]
-      }
-    ],
-    "dest": "_site",
-    "globalMetadataFiles": [],
-    "fileMetadataFiles": [],
+    "output": "_site",
     "template": [
-      "default"
+      "default",
+      "modern"
     ],
-    "postProcessors": [],
-    "markdownEngineName": "markdig",
-    "noLangKeyword": false,
-    "keepFileLink": false,
-    "cleanupCacheHistory": false,
-    "disableGitFeatures": false
+    "globalMetadata": {
+      "_appName": "supabase-csharp",
+      "_appTitle": "supabase-csharp",
+      "_enableSearch": true
+    }
   }
 }

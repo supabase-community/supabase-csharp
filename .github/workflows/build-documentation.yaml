@@ -10,20 +10,24 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: "true"
           persist-credentials: false
 
-      - uses: nikeee/docfx-action@v1.0.0
-        name: Build Documentation
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
         with:
-          args: .documentation/docfx.json
+          dotnet-version: 8.x
+
+      - name: Install docfx
+        run: dotnet tool update -g docfx
+
+      - name: Build documentation
+        run: docfx .documentation/docfx.json
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: .documentation/_site # The folder the action should deploy.
-          CLEAN: true # Automatically remove deleted files from the deploy branch
+          folder: .documentation/_site
+          token: ${{ secrets.GITHUB_TOKEN }}
