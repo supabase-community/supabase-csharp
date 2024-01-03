@@ -1,810 +1,822 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Client
-   </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Client
-   ">
-    <meta name="generator" content="docfx 2.56.7.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    
+      <title>Class Client
+ | supabase-csharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Client
+ | supabase-csharp ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Realtime_Client.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="supabase-csharp">
+            supabase-csharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
           </div>
         </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Supabase.Realtime.Client">
-  
-  
-  <h1 id="Supabase_Realtime_Client" data-uid="Supabase.Realtime.Client" class="text-break">Class Client
+
+        <article data-uid="Supabase.Realtime.Client">
+
+
+
+  <h1 id="Supabase_Realtime_Client" data-uid="Supabase.Realtime.Client" class="text-break">
+    Class Client
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h1>
-  <div class="markdown level0 summary"><p>Singleton that represents a Client connection to a Realtime Server.</p>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Supabase.html">Supabase</a>.<a class="xref" href="Supabase.Realtime.html">Realtime</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Supabase.Realtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Singleton that represents a Client connection to a Realtime Server.</p>
 <p>It maintains a singular Websocket with asynchronous listeners (RealtimeChannels).</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">Client</span></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.html">IRealtimeClient</a>&lt;<a class="xref" href="Supabase.Realtime.RealtimeSocket.html">RealtimeSocket</a>, <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>&gt;</div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Realtime.html">Supabase.Realtime</a></h6>
-  <h6><strong>Assembly</strong>: Supabase.Realtime.dll</h6>
-  <h5 id="Supabase_Realtime_Client_syntax">Syntax</h5>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Client : object, IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class Client : IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt;</code></pre>
   </div>
-  <h5 id="Supabase_Realtime_Client_examples"><strong>Examples</strong></h5>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Client</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.html">IRealtimeClient</a>&lt;<a class="xref" href="Supabase.Realtime.RealtimeSocket.html">RealtimeSocket</a>, <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+  <h2 id="Supabase_Realtime_Client_examples">Examples</h2>
   <p>client = Client.Instance</p>
 
-  <h3 id="constructors">Constructors
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Client__ctor_System_String_Supabase_Realtime_ClientOptions_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client.%23ctor(System.String%2CSupabase.Realtime.ClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Client.cs/#L98">View Source</a>
-  </span>
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
   <a id="Supabase_Realtime_Client__ctor_" data-uid="Supabase.Realtime.Client.#ctor*"></a>
-  <h4 id="Supabase_Realtime_Client__ctor_System_String_Supabase_Realtime_ClientOptions_" data-uid="Supabase.Realtime.Client.#ctor(System.String,Supabase.Realtime.ClientOptions)">Client(String, ClientOptions)</h4>
+
+  <h3 id="Supabase_Realtime_Client__ctor_System_String_Supabase_Realtime_ClientOptions_" data-uid="Supabase.Realtime.Client.#ctor(System.String,Supabase.Realtime.ClientOptions)">
+  Client(string, ClientOptions?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes a Client instance, this method should be called prior to any other method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Client(string realtimeUrl, ClientOptions options = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Client(string realtimeUrl, ClientOptions? options = null)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">realtimeUrl</span></td>
-        <td><p>The connection url (ex: &quot;ws://localhost:4000/socket&quot; - no trailing slash required)</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.ClientOptions.html">ClientOptions</a></td>
-        <td><span class="parametername">options</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Client_Options.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client.Options%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Client.cs/#L47">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>realtimeUrl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The connection url (ex: &quot;ws://localhost:4000/socket&quot; - no trailing slash required)</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Supabase.Realtime.ClientOptions.html">ClientOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
   <a id="Supabase_Realtime_Client_Options_" data-uid="Supabase.Realtime.Client.Options*"></a>
-  <h4 id="Supabase_Realtime_Client_Options" data-uid="Supabase.Realtime.Client.Options">Options</h4>
+
+  <h3 id="Supabase_Realtime_Client_Options" data-uid="Supabase.Realtime.Client.Options">
+  Options
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Client Options - most of which are regarding Socket connection Options</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ClientOptions Options { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.ClientOptions.html">ClientOptions</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Client_SerializerSettings.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client.SerializerSettings%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Client.cs/#L55">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Supabase.Realtime.ClientOptions.html">ClientOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Supabase_Realtime_Client_SerializerSettings_" data-uid="Supabase.Realtime.Client.SerializerSettings*"></a>
-  <h4 id="Supabase_Realtime_Client_SerializerSettings" data-uid="Supabase.Realtime.Client.SerializerSettings">SerializerSettings</h4>
+
+  <h3 id="Supabase_Realtime_Client_SerializerSettings" data-uid="Supabase.Realtime.Client.SerializerSettings">
+  SerializerSettings
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Custom Serializer resolvers and converters that will be used for encoding and decoding Postgrest JSON responses.</p>
 <p>By default, Postgrest seems to use a date format that C# and Newtonsoft do not like, so this initial
 configuration handles that.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public JsonSerializerSettings SerializerSettings { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">JsonSerializerSettings</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Client_Socket.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client.Socket%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Client.cs/#L42">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">JsonSerializerSettings</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Supabase_Realtime_Client_Socket_" data-uid="Supabase.Realtime.Client.Socket*"></a>
-  <h4 id="Supabase_Realtime_Client_Socket" data-uid="Supabase.Realtime.Client.Socket">Socket</h4>
+
+  <h3 id="Supabase_Realtime_Client_Socket" data-uid="Supabase.Realtime.Client.Socket">
+  Socket
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>The backing Socket class.</p>
 <p>Most methods of the Client act as proxies to the Socket class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IRealtimeSocket Socket { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IRealtimeSocket? Socket { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeSocket.html">IRealtimeSocket</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Client_Subscriptions.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client.Subscriptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Client.cs/#L35">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeSocket.html">IRealtimeSocket</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Supabase_Realtime_Client_Subscriptions_" data-uid="Supabase.Realtime.Client.Subscriptions*"></a>
-  <h4 id="Supabase_Realtime_Client_Subscriptions" data-uid="Supabase.Realtime.Client.Subscriptions">Subscriptions</h4>
+
+  <h3 id="Supabase_Realtime_Client_Subscriptions" data-uid="Supabase.Realtime.Client.Subscriptions">
+  Subscriptions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Exposes all Realtime RealtimeChannel Subscriptions for R/O public consumption</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ReadOnlyDictionary&lt;string, RealtimeChannel&gt; Subscriptions { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">ReadOnlyDictionary</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Client_AddDebugHandler_Supabase_Realtime_Interfaces_IRealtimeDebugger_DebugEventHandler_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client.AddDebugHandler(Supabase.Realtime.Interfaces.IRealtimeDebugger.DebugEventHandler)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Client.cs/#L254">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlydictionary-2">ReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
   <a id="Supabase_Realtime_Client_AddDebugHandler_" data-uid="Supabase.Realtime.Client.AddDebugHandler*"></a>
-  <h4 id="Supabase_Realtime_Client_AddDebugHandler_Supabase_Realtime_Interfaces_IRealtimeDebugger_DebugEventHandler_" data-uid="Supabase.Realtime.Client.AddDebugHandler(Supabase.Realtime.Interfaces.IRealtimeDebugger.DebugEventHandler)">AddDebugHandler(IRealtimeDebugger.DebugEventHandler)</h4>
+
+  <h3 id="Supabase_Realtime_Client_AddDebugHandler_Supabase_Realtime_Interfaces_IRealtimeDebugger_DebugEventHandler_" data-uid="Supabase.Realtime.Client.AddDebugHandler(Supabase.Realtime.Interfaces.IRealtimeDebugger.DebugEventHandler)">
+  AddDebugHandler(DebugEventHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L254"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Adds a debug handler, likely used within a logging solution of some kind.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void AddDebugHandler(IRealtimeDebugger.DebugEventHandler handler)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeDebugger.DebugEventHandler.html">IRealtimeDebugger.DebugEventHandler</a></td>
-        <td><span class="parametername">handler</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Client_AddStateChangedHandler_Supabase_Realtime_Interfaces_IRealtimeClient_Supabase_Realtime_RealtimeSocket_Supabase_Realtime_RealtimeChannel__SocketStateEventHandler_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client.AddStateChangedHandler(Supabase.Realtime.Interfaces.IRealtimeClient%7BSupabase.Realtime.RealtimeSocket%2CSupabase.Realtime.RealtimeChannel%7D.SocketStateEventHandler)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Client.cs/#L211">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handler</code> <a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeDebugger.html">IRealtimeDebugger</a>.<a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeDebugger.DebugEventHandler.html">DebugEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Realtime_Client_AddStateChangedHandler_" data-uid="Supabase.Realtime.Client.AddStateChangedHandler*"></a>
-  <h4 id="Supabase_Realtime_Client_AddStateChangedHandler_Supabase_Realtime_Interfaces_IRealtimeClient_Supabase_Realtime_RealtimeSocket_Supabase_Realtime_RealtimeChannel__SocketStateEventHandler_" data-uid="Supabase.Realtime.Client.AddStateChangedHandler(Supabase.Realtime.Interfaces.IRealtimeClient{Supabase.Realtime.RealtimeSocket,Supabase.Realtime.RealtimeChannel}.SocketStateEventHandler)">AddStateChangedHandler(IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt;.SocketStateEventHandler)</h4>
+
+  <h3 id="Supabase_Realtime_Client_AddStateChangedHandler_Supabase_Realtime_Interfaces_IRealtimeClient_Supabase_Realtime_RealtimeSocket_Supabase_Realtime_RealtimeChannel__SocketStateEventHandler_" data-uid="Supabase.Realtime.Client.AddStateChangedHandler(Supabase.Realtime.Interfaces.IRealtimeClient{Supabase.Realtime.RealtimeSocket,Supabase.Realtime.RealtimeChannel}.SocketStateEventHandler)">
+  AddStateChangedHandler(SocketStateEventHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Adds a listener to be notified when the socket state changes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void AddStateChangedHandler(IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt;.SocketStateEventHandler handler)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.SocketStateEventHandler.html">IRealtimeClient.SocketStateEventHandler</a>&lt;&gt;</td>
-        <td><span class="parametername">handler</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Client_Channel_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client.Channel(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Client.cs/#L330">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handler</code> <a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.html">IRealtimeClient</a>&lt;<a class="xref" href="Supabase.Realtime.RealtimeSocket.html">RealtimeSocket</a>, <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>&gt;.<a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.SocketStateEventHandler.html">SocketStateEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Realtime_Client_Channel_" data-uid="Supabase.Realtime.Client.Channel*"></a>
-  <h4 id="Supabase_Realtime_Client_Channel_System_String_" data-uid="Supabase.Realtime.Client.Channel(System.String)">Channel(String)</h4>
+
+  <h3 id="Supabase_Realtime_Client_Channel_System_String_" data-uid="Supabase.Realtime.Client.Channel(System.String)">
+  Channel(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L330"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Adds a RealtimeChannel subscription - if a subscription exists with the same signature, the existing subscription will be returned.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public RealtimeChannel Channel(string channelName)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">channelName</span></td>
-        <td><p>The name of the Channel to join (totally arbitrary)</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Client_Channel_System_String_System_String_System_String_System_Nullable_System_String__System_Nullable_System_String__System_Nullable_Dictionary_System_String_System_String___.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client.Channel(System.String%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BDictionary%7BSystem.String%2CSystem.String%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Client.cs/#L357">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>channelName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the Channel to join (totally arbitrary)</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
   <a id="Supabase_Realtime_Client_Channel_" data-uid="Supabase.Realtime.Client.Channel*"></a>
-  <h4 id="Supabase_Realtime_Client_Channel_System_String_System_String_System_String_System_Nullable_System_String__System_Nullable_System_String__System_Nullable_Dictionary_System_String_System_String___" data-uid="Supabase.Realtime.Client.Channel(System.String,System.String,System.String,System.Nullable{System.String},System.Nullable{System.String},System.Nullable{Dictionary{System.String,System.String}})">Channel(String, String, String, Nullable&lt;String&gt;, Nullable&lt;String&gt;, Nullable&lt;Dictionary&lt;String, String&gt;&gt;)</h4>
+
+  <h3 id="Supabase_Realtime_Client_Channel_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_Dictionary_System_String_System_String__" data-uid="Supabase.Realtime.Client.Channel(System.String,System.String,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+  Channel(string, string, string, string?, string?, Dictionary&lt;string, string&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L357"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Adds a RealtimeChannel subscription - if a subscription exists with the same signature, the existing subscription will be returned.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public RealtimeChannel Channel(string database = &quot;realtime&quot;, string schema = &quot;public&quot;, string table = &quot;*&quot;, string? column = null, string? value = null, Dictionary&lt;string, string&gt;? parameters = null)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">database</span></td>
-        <td><p>Database to connect to, with Supabase this will likely be <code>realtime</code>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">schema</span></td>
-        <td><p>Postgres schema, usually <code>public</code></p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">table</span></td>
-        <td><p>Postgres table name</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">column</span></td>
-        <td><p>Postgres column name</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">value</span></td>
-        <td><p>Value the specified column should have</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
-        <td><span class="parametername">parameters</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Client_ClearDebugHandlers.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client.ClearDebugHandlers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Client.cs/#L268">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>database</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Database to connect to, with Supabase this will likely be <code>realtime</code>.</p>
+</dd>
+    <dt><code>schema</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Postgres schema, usually <code>public</code></p>
+</dd>
+    <dt><code>table</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Postgres table name</p>
+</dd>
+    <dt><code>column</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Postgres column name</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Value the specified column should have</p>
+</dd>
+    <dt><code>parameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Realtime_Client_ClearDebugHandlers_" data-uid="Supabase.Realtime.Client.ClearDebugHandlers*"></a>
-  <h4 id="Supabase_Realtime_Client_ClearDebugHandlers" data-uid="Supabase.Realtime.Client.ClearDebugHandlers">ClearDebugHandlers()</h4>
+
+  <h3 id="Supabase_Realtime_Client_ClearDebugHandlers" data-uid="Supabase.Realtime.Client.ClearDebugHandlers">
+  ClearDebugHandlers()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L268"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Clears debug handlers;</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ClearDebugHandlers()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Client_ClearStateChangedHandlers.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client.ClearStateChangedHandlers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Client.cs/#L235">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Realtime_Client_ClearStateChangedHandlers_" data-uid="Supabase.Realtime.Client.ClearStateChangedHandlers*"></a>
-  <h4 id="Supabase_Realtime_Client_ClearStateChangedHandlers" data-uid="Supabase.Realtime.Client.ClearStateChangedHandlers">ClearStateChangedHandlers()</h4>
+
+  <h3 id="Supabase_Realtime_Client_ClearStateChangedHandlers" data-uid="Supabase.Realtime.Client.ClearStateChangedHandlers">
+  ClearStateChangedHandlers()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L235"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Clears all of the listeners from receiving socket state changes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ClearStateChangedHandlers()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Client_Connect_System_Nullable_Action_Supabase_Realtime_Interfaces_IRealtimeClient_Supabase_Realtime_RealtimeSocket_Supabase_Realtime_RealtimeChannel__Supabase_Realtime_Exceptions_RealtimeException___.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client.Connect(System.Nullable%7BAction%7BSupabase.Realtime.Interfaces.IRealtimeClient%7BSupabase.Realtime.RealtimeSocket%2CSupabase.Realtime.RealtimeChannel%7D%2CSupabase.Realtime.Exceptions.RealtimeException%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Client.cs/#L165">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Realtime_Client_Connect_" data-uid="Supabase.Realtime.Client.Connect*"></a>
-  <h4 id="Supabase_Realtime_Client_Connect_System_Nullable_Action_Supabase_Realtime_Interfaces_IRealtimeClient_Supabase_Realtime_RealtimeSocket_Supabase_Realtime_RealtimeChannel__Supabase_Realtime_Exceptions_RealtimeException___" data-uid="Supabase.Realtime.Client.Connect(System.Nullable{Action{Supabase.Realtime.Interfaces.IRealtimeClient{Supabase.Realtime.RealtimeSocket,Supabase.Realtime.RealtimeChannel},Supabase.Realtime.Exceptions.RealtimeException}})">Connect(Nullable&lt;Action&lt;IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt;, RealtimeException&gt;&gt;)</h4>
+
+  <h3 id="Supabase_Realtime_Client_Connect_System_Action_Supabase_Realtime_Interfaces_IRealtimeClient_Supabase_Realtime_RealtimeSocket_Supabase_Realtime_RealtimeChannel__Supabase_Realtime_Exceptions_RealtimeException__" data-uid="Supabase.Realtime.Client.Connect(System.Action{Supabase.Realtime.Interfaces.IRealtimeClient{Supabase.Realtime.RealtimeSocket,Supabase.Realtime.RealtimeChannel},Supabase.Realtime.Exceptions.RealtimeException})">
+  Connect(Action&lt;IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt;, RealtimeException?&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Attempts to connect to the socket.</p>
 <p>Provides a callback for <code>Task</code> driven returns.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt; Connect(Action&lt;IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt;, RealtimeException&gt;? callback = null)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Please use ConnectAsync() instead.&quot;)]
+public IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt; Connect(Action&lt;IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt;, RealtimeException?&gt;? callback = null)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Action</span>&lt;<a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.html">IRealtimeClient</a>&lt;<a class="xref" href="Supabase.Realtime.RealtimeSocket.html">RealtimeSocket</a>, <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>&gt;, <a class="xref" href="Supabase.Realtime.Exceptions.RealtimeException.html">RealtimeException</a>&gt;&gt;</td>
-        <td><span class="parametername">callback</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.html">IRealtimeClient</a>&lt;<a class="xref" href="Supabase.Realtime.RealtimeSocket.html">RealtimeSocket</a>, <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Client_ConnectAsync.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client.ConnectAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Client.cs/#L116">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.html">IRealtimeClient</a>&lt;<a class="xref" href="Supabase.Realtime.RealtimeSocket.html">RealtimeSocket</a>, <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>&gt;, <a class="xref" href="Supabase.Realtime.Exceptions.RealtimeException.html">RealtimeException</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.html">IRealtimeClient</a>&lt;<a class="xref" href="Supabase.Realtime.RealtimeSocket.html">RealtimeSocket</a>, <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Realtime_Client_ConnectAsync_" data-uid="Supabase.Realtime.Client.ConnectAsync*"></a>
-  <h4 id="Supabase_Realtime_Client_ConnectAsync" data-uid="Supabase.Realtime.Client.ConnectAsync">ConnectAsync()</h4>
+
+  <h3 id="Supabase_Realtime_Client_ConnectAsync" data-uid="Supabase.Realtime.Client.ConnectAsync">
+  ConnectAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Attempts to connect to the Socket.</p>
 <p>Returns when socket has successfully connected.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task&lt;IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt;&gt; ConnectAsync()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.html">IRealtimeClient</a>&lt;<a class="xref" href="Supabase.Realtime.RealtimeSocket.html">RealtimeSocket</a>, <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>&gt;&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Client_Disconnect_WebSocketCloseStatus_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client.Disconnect(WebSocketCloseStatus%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Client.cs/#L286">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.html">IRealtimeClient</a>&lt;<a class="xref" href="Supabase.Realtime.RealtimeSocket.html">RealtimeSocket</a>, <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Realtime_Client_Disconnect_" data-uid="Supabase.Realtime.Client.Disconnect*"></a>
-  <h4 id="Supabase_Realtime_Client_Disconnect_WebSocketCloseStatus_System_String_" data-uid="Supabase.Realtime.Client.Disconnect(WebSocketCloseStatus,System.String)">Disconnect(WebSocketCloseStatus, String)</h4>
+
+  <h3 id="Supabase_Realtime_Client_Disconnect_System_Net_WebSockets_WebSocketCloseStatus_System_String_" data-uid="Supabase.Realtime.Client.Disconnect(System.Net.WebSockets.WebSocketCloseStatus,System.String)">
+  Disconnect(WebSocketCloseStatus, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L286"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Disconnects from the socket server (if connected).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt; Disconnect(WebSocketCloseStatus code = null, string reason = &quot;Programmatic Disconnect&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt; Disconnect(WebSocketCloseStatus code = WebSocketCloseStatus.NormalClosure, string reason = &quot;Programmatic Disconnect&quot;)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">WebSocketCloseStatus</span></td>
-        <td><span class="parametername">code</span></td>
-        <td><p>Status Code</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">reason</span></td>
-        <td><p>Reason for disconnect</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.html">IRealtimeClient</a>&lt;<a class="xref" href="Supabase.Realtime.RealtimeSocket.html">RealtimeSocket</a>, <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Client_Remove_Supabase_Realtime_RealtimeChannel_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client.Remove(Supabase.Realtime.RealtimeChannel)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Client.cs/#L384">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>code</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.websockets.websocketclosestatus">WebSocketCloseStatus</a></dt>
+    <dd><p>Status Code</p>
+</dd>
+    <dt><code>reason</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Reason for disconnect</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.html">IRealtimeClient</a>&lt;<a class="xref" href="Supabase.Realtime.RealtimeSocket.html">RealtimeSocket</a>, <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Realtime_Client_Remove_" data-uid="Supabase.Realtime.Client.Remove*"></a>
-  <h4 id="Supabase_Realtime_Client_Remove_Supabase_Realtime_RealtimeChannel_" data-uid="Supabase.Realtime.Client.Remove(Supabase.Realtime.RealtimeChannel)">Remove(RealtimeChannel)</h4>
+
+  <h3 id="Supabase_Realtime_Client_Remove_Supabase_Realtime_RealtimeChannel_" data-uid="Supabase.Realtime.Client.Remove(Supabase.Realtime.RealtimeChannel)">
+  Remove(RealtimeChannel)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L384"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Removes a channel subscription.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Remove(RealtimeChannel channel)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a></td>
-        <td><span class="parametername">channel</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Client_RemoveDebugHandler_Supabase_Realtime_Interfaces_IRealtimeDebugger_DebugEventHandler_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client.RemoveDebugHandler(Supabase.Realtime.Interfaces.IRealtimeDebugger.DebugEventHandler)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Client.cs/#L262">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>channel</code> <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Realtime_Client_RemoveDebugHandler_" data-uid="Supabase.Realtime.Client.RemoveDebugHandler*"></a>
-  <h4 id="Supabase_Realtime_Client_RemoveDebugHandler_Supabase_Realtime_Interfaces_IRealtimeDebugger_DebugEventHandler_" data-uid="Supabase.Realtime.Client.RemoveDebugHandler(Supabase.Realtime.Interfaces.IRealtimeDebugger.DebugEventHandler)">RemoveDebugHandler(IRealtimeDebugger.DebugEventHandler)</h4>
+
+  <h3 id="Supabase_Realtime_Client_RemoveDebugHandler_Supabase_Realtime_Interfaces_IRealtimeDebugger_DebugEventHandler_" data-uid="Supabase.Realtime.Client.RemoveDebugHandler(Supabase.Realtime.Interfaces.IRealtimeDebugger.DebugEventHandler)">
+  RemoveDebugHandler(DebugEventHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Removes a debug handler</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void RemoveDebugHandler(IRealtimeDebugger.DebugEventHandler handler)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeDebugger.DebugEventHandler.html">IRealtimeDebugger.DebugEventHandler</a></td>
-        <td><span class="parametername">handler</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Client_RemoveStateChangedHandler_Supabase_Realtime_Interfaces_IRealtimeClient_Supabase_Realtime_RealtimeSocket_Supabase_Realtime_RealtimeChannel__SocketStateEventHandler_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client.RemoveStateChangedHandler(Supabase.Realtime.Interfaces.IRealtimeClient%7BSupabase.Realtime.RealtimeSocket%2CSupabase.Realtime.RealtimeChannel%7D.SocketStateEventHandler)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Client.cs/#L223">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handler</code> <a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeDebugger.html">IRealtimeDebugger</a>.<a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeDebugger.DebugEventHandler.html">DebugEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Realtime_Client_RemoveStateChangedHandler_" data-uid="Supabase.Realtime.Client.RemoveStateChangedHandler*"></a>
-  <h4 id="Supabase_Realtime_Client_RemoveStateChangedHandler_Supabase_Realtime_Interfaces_IRealtimeClient_Supabase_Realtime_RealtimeSocket_Supabase_Realtime_RealtimeChannel__SocketStateEventHandler_" data-uid="Supabase.Realtime.Client.RemoveStateChangedHandler(Supabase.Realtime.Interfaces.IRealtimeClient{Supabase.Realtime.RealtimeSocket,Supabase.Realtime.RealtimeChannel}.SocketStateEventHandler)">RemoveStateChangedHandler(IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt;.SocketStateEventHandler)</h4>
+
+  <h3 id="Supabase_Realtime_Client_RemoveStateChangedHandler_Supabase_Realtime_Interfaces_IRealtimeClient_Supabase_Realtime_RealtimeSocket_Supabase_Realtime_RealtimeChannel__SocketStateEventHandler_" data-uid="Supabase.Realtime.Client.RemoveStateChangedHandler(Supabase.Realtime.Interfaces.IRealtimeClient{Supabase.Realtime.RealtimeSocket,Supabase.Realtime.RealtimeChannel}.SocketStateEventHandler)">
+  RemoveStateChangedHandler(SocketStateEventHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L223"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Removes a specified listener from socket state changes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void RemoveStateChangedHandler(IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt;.SocketStateEventHandler handler)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.SocketStateEventHandler.html">IRealtimeClient.SocketStateEventHandler</a>&lt;&gt;</td>
-        <td><span class="parametername">handler</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Client_SetAuth_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client.SetAuth(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Client.cs/#L305">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handler</code> <a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.html">IRealtimeClient</a>&lt;<a class="xref" href="Supabase.Realtime.RealtimeSocket.html">RealtimeSocket</a>, <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>&gt;.<a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.SocketStateEventHandler.html">SocketStateEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Realtime_Client_SetAuth_" data-uid="Supabase.Realtime.Client.SetAuth*"></a>
-  <h4 id="Supabase_Realtime_Client_SetAuth_System_String_" data-uid="Supabase.Realtime.Client.SetAuth(System.String)">SetAuth(String)</h4>
+
+  <h3 id="Supabase_Realtime_Client_SetAuth_System_String_" data-uid="Supabase.Realtime.Client.SetAuth(System.String)">
+  SetAuth(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L305"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Sets the JWT access token used for channel subscription authorization and Realtime RLS.
 Ref: <a href="https://github.com/supabase/realtime-js/pull/117">https://github.com/supabase/realtime-js/pull/117</a> | <a href="https://github.com/supabase/realtime-js/pull/117">https://github.com/supabase/realtime-js/pull/117</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetAuth(string jwt)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">jwt</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.html">IRealtimeClient&lt;TSocket, TChannel&gt;</a>
-  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jwt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Client.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Client%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Client.cs/#L29" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Client.cs/#L29" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    </footer>
   </body>
 </html>

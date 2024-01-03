@@ -1,531 +1,571 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IRealtimePush&lt;TChannel, TSocketResponse&gt;
-   </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IRealtimePush&lt;TChannel, TSocketResponse&gt;
-   ">
-    <meta name="generator" content="docfx 2.56.7.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    
+      <title>Interface IRealtimePush&lt;TChannel, TSocketResponse&gt;
+ | supabase-csharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IRealtimePush&lt;TChannel, TSocketResponse&gt;
+ | supabase-csharp ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Realtime_Interfaces_IRealtimePush_2.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Interfaces.IRealtimePush%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="supabase-csharp">
+            supabase-csharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-        </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2">
-  
-  
-  <h1 id="Supabase_Realtime_Interfaces_IRealtimePush_2" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2" class="text-break">Interface IRealtimePush&lt;TChannel, TSocketResponse&gt;
-  </h1>
-  <div class="markdown level0 summary"><p>Contract representing a &quot;Push&quot; or an outgoing message to the socket server</p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Realtime.Interfaces.html">Supabase.Realtime.Interfaces</a></h6>
-  <h6><strong>Assembly</strong>: Supabase.Realtime.dll</h6>
-  <h5 id="Supabase_Realtime_Interfaces_IRealtimePush_2_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IRealtimePush&lt;TChannel, TSocketResponse&gt;
-    where TChannel : IRealtimeChannel where TSocketResponse : IRealtimeSocketResponse</code></pre>
-  </div>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TChannel</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="parametername">TSocketResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Interfaces_IRealtimePush_2_Channel.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Interfaces.IRealtimePush%602.Channel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Interfaces/IRealtimePush.cs/#L40">View Source</a>
-  </span>
-  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_Channel_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Channel*"></a>
-  <h4 id="Supabase_Realtime_Interfaces_IRealtimePush_2_Channel" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Channel">Channel</h4>
-  <div class="markdown level1 summary"><p>The calling or parent channel</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">TChannel Channel { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TChannel</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Interfaces_IRealtimePush_2_EventName.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Interfaces.IRealtimePush%602.EventName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Interfaces/IRealtimePush.cs/#L45">View Source</a>
-  </span>
-  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_EventName_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.EventName*"></a>
-  <h4 id="Supabase_Realtime_Interfaces_IRealtimePush_2_EventName" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.EventName">EventName</h4>
-  <div class="markdown level1 summary"><p>The event name this push is registered under.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">string EventName { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Interfaces_IRealtimePush_2_IsSent.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Interfaces.IRealtimePush%602.IsSent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Interfaces/IRealtimePush.cs/#L50">View Source</a>
-  </span>
-  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_IsSent_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.IsSent*"></a>
-  <h4 id="Supabase_Realtime_Interfaces_IRealtimePush_2_IsSent" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.IsSent">IsSent</h4>
-  <div class="markdown level1 summary"><p>Is push sent?</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">bool IsSent { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Interfaces_IRealtimePush_2_Message.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Interfaces.IRealtimePush%602.Message%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Interfaces/IRealtimePush.cs/#L55">View Source</a>
-  </span>
-  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_Message_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Message*"></a>
-  <h4 id="Supabase_Realtime_Interfaces_IRealtimePush_2_Message" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Message">Message</h4>
-  <div class="markdown level1 summary"><p>The wrapped SocketRequest</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">SocketRequest Message { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.Socket.SocketRequest.html">SocketRequest</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Interfaces_IRealtimePush_2_Payload.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Interfaces.IRealtimePush%602.Payload%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Interfaces/IRealtimePush.cs/#L60">View Source</a>
-  </span>
-  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_Payload_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Payload*"></a>
-  <h4 id="Supabase_Realtime_Interfaces_IRealtimePush_2_Payload" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Payload">Payload</h4>
-  <div class="markdown level1 summary"><p>The payload (present in <a class="xref" href="Supabase.Realtime.Interfaces.IRealtimePush-2.html#Supabase_Realtime_Interfaces_IRealtimePush_2_Message">Message</a>)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">object? Payload { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Interfaces_IRealtimePush_2_Ref.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Interfaces.IRealtimePush%602.Ref%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Interfaces/IRealtimePush.cs/#L65">View Source</a>
-  </span>
-  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_Ref_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Ref*"></a>
-  <h4 id="Supabase_Realtime_Interfaces_IRealtimePush_2_Ref" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Ref">Ref</h4>
-  <div class="markdown level1 summary"><p>A unique ID representing this push.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">string? Ref { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Interfaces_IRealtimePush_2_Response.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Interfaces.IRealtimePush%602.Response%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Interfaces/IRealtimePush.cs/#L70">View Source</a>
-  </span>
-  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_Response_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Response*"></a>
-  <h4 id="Supabase_Realtime_Interfaces_IRealtimePush_2_Response" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Response">Response</h4>
-  <div class="markdown level1 summary"><p>The server's response</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IRealtimeSocketResponse Response { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeSocketResponse.html">IRealtimeSocketResponse</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Interfaces_IRealtimePush_2_AddMessageReceivedHandler_Supabase_Realtime_Interfaces_IRealtimePush__0__1__MessageEventHandler_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Interfaces.IRealtimePush%602.AddMessageReceivedHandler(Supabase.Realtime.Interfaces.IRealtimePush%7B%600%2C%601%7D.MessageEventHandler)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Interfaces/IRealtimePush.cs/#L24">View Source</a>
-  </span>
-  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_AddMessageReceivedHandler_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.AddMessageReceivedHandler*"></a>
-  <h4 id="Supabase_Realtime_Interfaces_IRealtimePush_2_AddMessageReceivedHandler_Supabase_Realtime_Interfaces_IRealtimePush__0__1__MessageEventHandler_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.AddMessageReceivedHandler(Supabase.Realtime.Interfaces.IRealtimePush{`0,`1}.MessageEventHandler)">AddMessageReceivedHandler(IRealtimePush&lt;TChannel, TSocketResponse&gt;.MessageEventHandler)</h4>
-  <div class="markdown level1 summary"><p>Add a message received handler</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void AddMessageReceivedHandler(IRealtimePush&lt;TChannel, TSocketResponse&gt;.MessageEventHandler handler)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimePush-2.MessageEventHandler.html">IRealtimePush.MessageEventHandler</a>&lt;&gt;</td>
-        <td><span class="parametername">handler</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Interfaces_IRealtimePush_2_ClearMessageReceivedHandler.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Interfaces.IRealtimePush%602.ClearMessageReceivedHandler%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Interfaces/IRealtimePush.cs/#L35">View Source</a>
-  </span>
-  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_ClearMessageReceivedHandler_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.ClearMessageReceivedHandler*"></a>
-  <h4 id="Supabase_Realtime_Interfaces_IRealtimePush_2_ClearMessageReceivedHandler" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.ClearMessageReceivedHandler">ClearMessageReceivedHandler()</h4>
-  <div class="markdown level1 summary"><p>Clear Message received handlers.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void ClearMessageReceivedHandler()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Interfaces_IRealtimePush_2_RemoveMessageReceivedHandler_Supabase_Realtime_Interfaces_IRealtimePush__0__1__MessageEventHandler_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Interfaces.IRealtimePush%602.RemoveMessageReceivedHandler(Supabase.Realtime.Interfaces.IRealtimePush%7B%600%2C%601%7D.MessageEventHandler)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Interfaces/IRealtimePush.cs/#L30">View Source</a>
-  </span>
-  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_RemoveMessageReceivedHandler_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.RemoveMessageReceivedHandler*"></a>
-  <h4 id="Supabase_Realtime_Interfaces_IRealtimePush_2_RemoveMessageReceivedHandler_Supabase_Realtime_Interfaces_IRealtimePush__0__1__MessageEventHandler_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.RemoveMessageReceivedHandler(Supabase.Realtime.Interfaces.IRealtimePush{`0,`1}.MessageEventHandler)">RemoveMessageReceivedHandler(IRealtimePush&lt;TChannel, TSocketResponse&gt;.MessageEventHandler)</h4>
-  <div class="markdown level1 summary"><p>Remove a message received handler</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void RemoveMessageReceivedHandler(IRealtimePush&lt;TChannel, TSocketResponse&gt;.MessageEventHandler handler)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimePush-2.MessageEventHandler.html">IRealtimePush.MessageEventHandler</a>&lt;&gt;</td>
-        <td><span class="parametername">handler</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Interfaces_IRealtimePush_2_Resend_System_Int32_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Interfaces.IRealtimePush%602.Resend(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Interfaces/IRealtimePush.cs/#L81">View Source</a>
-  </span>
-  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_Resend_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Resend*"></a>
-  <h4 id="Supabase_Realtime_Interfaces_IRealtimePush_2_Resend_System_Int32_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Resend(System.Int32)">Resend(Int32)</h4>
-  <div class="markdown level1 summary"><p>Resend this push, only called on a failed push attempt.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Resend(int timeoutMs = 10000)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">timeoutMs</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Interfaces_IRealtimePush_2_Send.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Interfaces.IRealtimePush%602.Send%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Interfaces/IRealtimePush.cs/#L86">View Source</a>
-  </span>
-  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_Send_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Send*"></a>
-  <h4 id="Supabase_Realtime_Interfaces_IRealtimePush_2_Send" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Send">Send()</h4>
-  <div class="markdown level1 summary"><p>Send this push.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Send()</code></pre>
-  </div>
-  <h3 id="events">Events
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Interfaces_IRealtimePush_2_OnTimeout.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Interfaces.IRealtimePush%602.OnTimeout%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Interfaces/IRealtimePush.cs/#L75">View Source</a>
-  </span>
-  <h4 id="Supabase_Realtime_Interfaces_IRealtimePush_2_OnTimeout" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.OnTimeout">OnTimeout</h4>
-  <div class="markdown level1 summary"><p>A timeout event handler.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">event EventHandler? OnTimeout</code></pre>
-  </div>
-  <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">EventHandler</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-</article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_Interfaces_IRealtimePush_2.md&amp;value=---%0Auid%3A%20Supabase.Realtime.Interfaces.IRealtimePush%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/Interfaces/IRealtimePush.cs/#L11" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
           </div>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+
+        <article data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2">
+
+
+
+  <h1 id="Supabase_Realtime_Interfaces_IRealtimePush_2" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2" class="text-break">
+    Interface IRealtimePush&lt;TChannel, TSocketResponse&gt;
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Interfaces/IRealtimePush.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Supabase.html">Supabase</a>.<a class="xref" href="Supabase.Realtime.html">Realtime</a>.<a class="xref" href="Supabase.Realtime.Interfaces.html">Interfaces</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Supabase.Realtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Contract representing a &quot;Push&quot; or an outgoing message to the socket server</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IRealtimePush&lt;TChannel, TSocketResponse&gt; where TChannel : IRealtimeChannel where TSocketResponse : IRealtimeSocketResponse</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TChannel</code></dt>
+    <dd></dd>
+    <dt><code>TSocketResponse</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_Channel_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Channel*"></a>
+
+  <h3 id="Supabase_Realtime_Interfaces_IRealtimePush_2_Channel" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Channel">
+  Channel
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Interfaces/IRealtimePush.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The calling or parent channel</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TChannel Channel { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TChannel</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_EventName_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.EventName*"></a>
+
+  <h3 id="Supabase_Realtime_Interfaces_IRealtimePush_2_EventName" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.EventName">
+  EventName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Interfaces/IRealtimePush.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The event name this push is registered under.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string EventName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_IsSent_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.IsSent*"></a>
+
+  <h3 id="Supabase_Realtime_Interfaces_IRealtimePush_2_IsSent" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.IsSent">
+  IsSent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Interfaces/IRealtimePush.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Is push sent?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsSent { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_Message_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Message*"></a>
+
+  <h3 id="Supabase_Realtime_Interfaces_IRealtimePush_2_Message" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Message">
+  Message
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Interfaces/IRealtimePush.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The wrapped SocketRequest</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SocketRequest? Message { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Supabase.Realtime.Socket.SocketRequest.html">SocketRequest</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_Payload_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Payload*"></a>
+
+  <h3 id="Supabase_Realtime_Interfaces_IRealtimePush_2_Payload" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Payload">
+  Payload
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Interfaces/IRealtimePush.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The payload (present in <a class="xref" href="Supabase.Realtime.Interfaces.IRealtimePush-2.html#Supabase_Realtime_Interfaces_IRealtimePush_2_Message">Message</a>)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">object? Payload { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_Ref_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Ref*"></a>
+
+  <h3 id="Supabase_Realtime_Interfaces_IRealtimePush_2_Ref" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Ref">
+  Ref
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Interfaces/IRealtimePush.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A unique ID representing this push.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string? Ref { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_Response_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Response*"></a>
+
+  <h3 id="Supabase_Realtime_Interfaces_IRealtimePush_2_Response" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Response">
+  Response
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Interfaces/IRealtimePush.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The server's response</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IRealtimeSocketResponse? Response { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeSocketResponse.html">IRealtimeSocketResponse</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_AddMessageReceivedHandler_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.AddMessageReceivedHandler*"></a>
+
+  <h3 id="Supabase_Realtime_Interfaces_IRealtimePush_2_AddMessageReceivedHandler_Supabase_Realtime_Interfaces_IRealtimePush__0__1__MessageEventHandler_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.AddMessageReceivedHandler(Supabase.Realtime.Interfaces.IRealtimePush{`0,`1}.MessageEventHandler)">
+  AddMessageReceivedHandler(MessageEventHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Interfaces/IRealtimePush.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add a message received handler</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void AddMessageReceivedHandler(IRealtimePush&lt;TChannel, TSocketResponse&gt;.MessageEventHandler handler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handler</code> <a class="xref" href="Supabase.Realtime.Interfaces.IRealtimePush-2.html">IRealtimePush</a>&lt;TChannel, TSocketResponse&gt;.<a class="xref" href="Supabase.Realtime.Interfaces.IRealtimePush-2.MessageEventHandler.html">MessageEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_ClearMessageReceivedHandler_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.ClearMessageReceivedHandler*"></a>
+
+  <h3 id="Supabase_Realtime_Interfaces_IRealtimePush_2_ClearMessageReceivedHandler" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.ClearMessageReceivedHandler">
+  ClearMessageReceivedHandler()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Interfaces/IRealtimePush.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clear Message received handlers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ClearMessageReceivedHandler()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_RemoveMessageReceivedHandler_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.RemoveMessageReceivedHandler*"></a>
+
+  <h3 id="Supabase_Realtime_Interfaces_IRealtimePush_2_RemoveMessageReceivedHandler_Supabase_Realtime_Interfaces_IRealtimePush__0__1__MessageEventHandler_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.RemoveMessageReceivedHandler(Supabase.Realtime.Interfaces.IRealtimePush{`0,`1}.MessageEventHandler)">
+  RemoveMessageReceivedHandler(MessageEventHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Interfaces/IRealtimePush.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Remove a message received handler</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void RemoveMessageReceivedHandler(IRealtimePush&lt;TChannel, TSocketResponse&gt;.MessageEventHandler handler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handler</code> <a class="xref" href="Supabase.Realtime.Interfaces.IRealtimePush-2.html">IRealtimePush</a>&lt;TChannel, TSocketResponse&gt;.<a class="xref" href="Supabase.Realtime.Interfaces.IRealtimePush-2.MessageEventHandler.html">MessageEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_Resend_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Resend*"></a>
+
+  <h3 id="Supabase_Realtime_Interfaces_IRealtimePush_2_Resend_System_Int32_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Resend(System.Int32)">
+  Resend(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Interfaces/IRealtimePush.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resend this push, only called on a failed push attempt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Resend(int timeoutMs = 10000)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>timeoutMs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Supabase_Realtime_Interfaces_IRealtimePush_2_Send_" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Send*"></a>
+
+  <h3 id="Supabase_Realtime_Interfaces_IRealtimePush_2_Send" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.Send">
+  Send()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Interfaces/IRealtimePush.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Send this push.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Send()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Supabase_Realtime_Interfaces_IRealtimePush_2_OnTimeout" data-uid="Supabase.Realtime.Interfaces.IRealtimePush`2.OnTimeout">
+  OnTimeout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Interfaces/IRealtimePush.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A timeout event handler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler? OnTimeout</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/Interfaces/IRealtimePush.cs/#L11" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

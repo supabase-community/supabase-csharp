@@ -1,582 +1,581 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Client
-   </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Client
-   ">
-    <meta name="generator" content="docfx 2.56.7.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    
+      <title>Class Client
+ | supabase-csharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Client
+ | supabase-csharp ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Client.md&amp;value=---%0Auid%3A%20Supabase.Client%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="supabase-csharp">
+            supabase-csharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
           </div>
         </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Supabase.Client">
-  
-  
-  <h1 id="Supabase_Client" data-uid="Supabase.Client" class="text-break">Class Client
+
+        <article data-uid="Supabase.Client">
+
+
+
+  <h1 id="Supabase_Client" data-uid="Supabase.Client" class="text-break">
+    Class Client
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h1>
-  <div class="markdown level0 summary"><p>A singleton class representing a Supabase Client.</p>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Supabase.html">Supabase</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Supabase.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A singleton class representing a Supabase Client.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">Client</span></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="Supabase.Interfaces.ISupabaseClient-6.html">ISupabaseClient</a>&lt;<span class="xref">User</span>, <span class="xref">Session</span>, <span class="xref">RealtimeSocket</span>, <span class="xref">RealtimeChannel</span>, <span class="xref">Bucket</span>, <span class="xref">FileObject</span>&gt;</div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.html">Supabase</a></h6>
-  <h6><strong>Assembly</strong>: Supabase.dll</h6>
-  <h5 id="Supabase_Client_syntax">Syntax</h5>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Client : object, ISupabaseClient&lt;User, Session, RealtimeSocket, RealtimeChannel, Bucket, FileObject&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class Client : ISupabaseClient&lt;User, Session, RealtimeSocket, RealtimeChannel, Bucket, FileObject&gt;</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Client__ctor_IGotrueClient_User_Session__IRealtimeClient_RealtimeSocket_RealtimeChannel__IFunctionsClient_IPostgrestClient_IStorageClient_Bucket_FileObject__Supabase_SupabaseOptions_.md&amp;value=---%0Auid%3A%20Supabase.Client.%23ctor(IGotrueClient%7BUser%2CSession%7D%2CIRealtimeClient%7BRealtimeSocket%2CRealtimeChannel%7D%2CIFunctionsClient%2CIPostgrestClient%2CIStorageClient%7BBucket%2CFileObject%7D%2CSupabase.SupabaseOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L122">View Source</a>
-  </span>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Client</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Supabase.Interfaces.ISupabaseClient-6.html">ISupabaseClient</a>&lt;<a class="xref" href="Supabase.Gotrue.User.html">User</a>, <a class="xref" href="Supabase.Gotrue.Session.html">Session</a>, <a class="xref" href="Supabase.Realtime.RealtimeSocket.html">RealtimeSocket</a>, <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>, <a class="xref" href="Supabase.Storage.Bucket.html">Bucket</a>, <a class="xref" href="Supabase.Storage.FileObject.html">FileObject</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
   <a id="Supabase_Client__ctor_" data-uid="Supabase.Client.#ctor*"></a>
-  <h4 id="Supabase_Client__ctor_IGotrueClient_User_Session__IRealtimeClient_RealtimeSocket_RealtimeChannel__IFunctionsClient_IPostgrestClient_IStorageClient_Bucket_FileObject__Supabase_SupabaseOptions_" data-uid="Supabase.Client.#ctor(IGotrueClient{User,Session},IRealtimeClient{RealtimeSocket,RealtimeChannel},IFunctionsClient,IPostgrestClient,IStorageClient{Bucket,FileObject},Supabase.SupabaseOptions)">Client(IGotrueClient&lt;User, Session&gt;, IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt;, IFunctionsClient, IPostgrestClient, IStorageClient&lt;Bucket, FileObject&gt;, SupabaseOptions)</h4>
+
+  <h3 id="Supabase_Client__ctor_Supabase_Gotrue_Interfaces_IGotrueClient_Supabase_Gotrue_User_Supabase_Gotrue_Session__Supabase_Realtime_Interfaces_IRealtimeClient_Supabase_Realtime_RealtimeSocket_Supabase_Realtime_RealtimeChannel__Supabase_Functions_Interfaces_IFunctionsClient_Postgrest_Interfaces_IPostgrestClient_Supabase_Storage_Interfaces_IStorageClient_Supabase_Storage_Bucket_Supabase_Storage_FileObject__Supabase_SupabaseOptions_" data-uid="Supabase.Client.#ctor(Supabase.Gotrue.Interfaces.IGotrueClient{Supabase.Gotrue.User,Supabase.Gotrue.Session},Supabase.Realtime.Interfaces.IRealtimeClient{Supabase.Realtime.RealtimeSocket,Supabase.Realtime.RealtimeChannel},Supabase.Functions.Interfaces.IFunctionsClient,Postgrest.Interfaces.IPostgrestClient,Supabase.Storage.Interfaces.IStorageClient{Supabase.Storage.Bucket,Supabase.Storage.FileObject},Supabase.SupabaseOptions)">
+  Client(IGotrueClient&lt;User, Session&gt;, IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt;, IFunctionsClient, IPostgrestClient, IStorageClient&lt;Bucket, FileObject&gt;, SupabaseOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Constructor supplied for dependency injection support.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Client(IGotrueClient&lt;User, Session&gt; auth, IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt; realtime, IFunctionsClient functions, IPostgrestClient postgrest, IStorageClient&lt;Bucket, FileObject&gt; storage, SupabaseOptions options)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">IGotrueClient</span>&lt;<span class="xref">User</span>, <span class="xref">Session</span>&gt;</td>
-        <td><span class="parametername">auth</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">IRealtimeClient</span>&lt;<span class="xref">RealtimeSocket</span>, <span class="xref">RealtimeChannel</span>&gt;</td>
-        <td><span class="parametername">realtime</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">IFunctionsClient</span></td>
-        <td><span class="parametername">functions</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">IPostgrestClient</span></td>
-        <td><span class="parametername">postgrest</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">IStorageClient</span>&lt;<span class="xref">Bucket</span>, <span class="xref">FileObject</span>&gt;</td>
-        <td><span class="parametername">storage</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Supabase.SupabaseOptions.html">SupabaseOptions</a></td>
-        <td><span class="parametername">options</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Client__ctor_System_String_System_Nullable_System_String__Supabase_SupabaseOptions_.md&amp;value=---%0Auid%3A%20Supabase.Client.%23ctor(System.String%2CSystem.Nullable%7BSystem.String%7D%2CSupabase.SupabaseOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L140">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>auth</code> <a class="xref" href="Supabase.Gotrue.Interfaces.IGotrueClient-2.html">IGotrueClient</a>&lt;<a class="xref" href="Supabase.Gotrue.User.html">User</a>, <a class="xref" href="Supabase.Gotrue.Session.html">Session</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>realtime</code> <a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.html">IRealtimeClient</a>&lt;<a class="xref" href="Supabase.Realtime.RealtimeSocket.html">RealtimeSocket</a>, <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>functions</code> <a class="xref" href="Supabase.Functions.Interfaces.IFunctionsClient.html">IFunctionsClient</a></dt>
+    <dd></dd>
+    <dt><code>postgrest</code> <a class="xref" href="Postgrest.Interfaces.IPostgrestClient.html">IPostgrestClient</a></dt>
+    <dd></dd>
+    <dt><code>storage</code> <a class="xref" href="Supabase.Storage.Interfaces.IStorageClient-2.html">IStorageClient</a>&lt;<a class="xref" href="Supabase.Storage.Bucket.html">Bucket</a>, <a class="xref" href="Supabase.Storage.FileObject.html">FileObject</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="Supabase.SupabaseOptions.html">SupabaseOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Client__ctor_" data-uid="Supabase.Client.#ctor*"></a>
-  <h4 id="Supabase_Client__ctor_System_String_System_Nullable_System_String__Supabase_SupabaseOptions_" data-uid="Supabase.Client.#ctor(System.String,System.Nullable{System.String},Supabase.SupabaseOptions)">Client(String, Nullable&lt;String&gt;, SupabaseOptions)</h4>
+
+  <h3 id="Supabase_Client__ctor_System_String_System_String_Supabase_SupabaseOptions_" data-uid="Supabase.Client.#ctor(System.String,System.String,Supabase.SupabaseOptions)">
+  Client(string, string?, SupabaseOptions?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a new Supabase Client.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Client(string supabaseUrl, string? supabaseKey, SupabaseOptions options = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Client(string supabaseUrl, string? supabaseKey, SupabaseOptions? options = null)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">supabaseUrl</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">supabaseKey</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Supabase.SupabaseOptions.html">SupabaseOptions</a></td>
-        <td><span class="parametername">options</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Client_Auth.md&amp;value=---%0Auid%3A%20Supabase.Client.Auth%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L29">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>supabaseUrl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>supabaseKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="Supabase.SupabaseOptions.html">SupabaseOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
   <a id="Supabase_Client_Auth_" data-uid="Supabase.Client.Auth*"></a>
-  <h4 id="Supabase_Client_Auth" data-uid="Supabase.Client.Auth">Auth</h4>
+
+  <h3 id="Supabase_Client_Auth" data-uid="Supabase.Client.Auth">
+  Auth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Supabase Auth allows you to create and manage user sessions for access to data that is secured by access policies.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IGotrueClient&lt;User, Session&gt; Auth { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">IGotrueClient</span>&lt;<span class="xref">User</span>, <span class="xref">Session</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Client_Functions.md&amp;value=---%0Auid%3A%20Supabase.Client.Functions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L79">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Supabase.Gotrue.Interfaces.IGotrueClient-2.html">IGotrueClient</a>&lt;<a class="xref" href="Supabase.Gotrue.User.html">User</a>, <a class="xref" href="Supabase.Gotrue.Session.html">Session</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Supabase_Client_Functions_" data-uid="Supabase.Client.Functions*"></a>
-  <h4 id="Supabase_Client_Functions" data-uid="Supabase.Client.Functions">Functions</h4>
+
+  <h3 id="Supabase_Client_Functions" data-uid="Supabase.Client.Functions">
+  Functions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Supabase Edge functions allow you to deploy and invoke edge functions.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IFunctionsClient Functions { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">IFunctionsClient</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Client_Postgrest.md&amp;value=---%0Auid%3A%20Supabase.Client.Postgrest%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L90">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Supabase.Functions.Interfaces.IFunctionsClient.html">IFunctionsClient</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Supabase_Client_Postgrest_" data-uid="Supabase.Client.Postgrest*"></a>
-  <h4 id="Supabase_Client_Postgrest" data-uid="Supabase.Client.Postgrest">Postgrest</h4>
+
+  <h3 id="Supabase_Client_Postgrest" data-uid="Supabase.Client.Postgrest">
+  Postgrest
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Supabase Postgrest allows for strongly typed REST interactions with the your database.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IPostgrestClient Postgrest { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">IPostgrestClient</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Client_Realtime.md&amp;value=---%0Auid%3A%20Supabase.Client.Realtime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L63">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Postgrest.Interfaces.IPostgrestClient.html">IPostgrestClient</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Supabase_Client_Realtime_" data-uid="Supabase.Client.Realtime*"></a>
-  <h4 id="Supabase_Client_Realtime" data-uid="Supabase.Client.Realtime">Realtime</h4>
+
+  <h3 id="Supabase_Client_Realtime" data-uid="Supabase.Client.Realtime">
+  Realtime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Supabase Realtime allows for realtime feedback on database changes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt; Realtime { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">IRealtimeClient</span>&lt;<span class="xref">RealtimeSocket</span>, <span class="xref">RealtimeChannel</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Client_Storage.md&amp;value=---%0Auid%3A%20Supabase.Client.Storage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L101">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeClient-2.html">IRealtimeClient</a>&lt;<a class="xref" href="Supabase.Realtime.RealtimeSocket.html">RealtimeSocket</a>, <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Supabase_Client_Storage_" data-uid="Supabase.Client.Storage*"></a>
-  <h4 id="Supabase_Client_Storage" data-uid="Supabase.Client.Storage">Storage</h4>
+
+  <h3 id="Supabase_Client_Storage" data-uid="Supabase.Client.Storage">
+  Storage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Supabase Storage allows you to manage user-generated content, such as photos or videos.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IStorageClient&lt;Bucket, FileObject&gt; Storage { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">IStorageClient</span>&lt;<span class="xref">Bucket</span>, <span class="xref">FileObject</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Client_AdminAuth_System_String_.md&amp;value=---%0Auid%3A%20Supabase.Client.AdminAuth(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L50">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Supabase.Storage.Interfaces.IStorageClient-2.html">IStorageClient</a>&lt;<a class="xref" href="Supabase.Storage.Bucket.html">Bucket</a>, <a class="xref" href="Supabase.Storage.FileObject.html">FileObject</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
   <a id="Supabase_Client_AdminAuth_" data-uid="Supabase.Client.AdminAuth*"></a>
-  <h4 id="Supabase_Client_AdminAuth_System_String_" data-uid="Supabase.Client.AdminAuth(System.String)">AdminAuth(String)</h4>
+
+  <h3 id="Supabase_Client_AdminAuth_System_String_" data-uid="Supabase.Client.AdminAuth(System.String)">
+  AdminAuth(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns a Stateless Gotrue Admin client given a service_key JWT. This should really only be accessed from a
 server environment where a private service_key would remain secure.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IGotrueAdminClient&lt;User&gt; AdminAuth(string serviceKey)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">serviceKey</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">IGotrueAdminClient</span>&lt;<span class="xref">User</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Client_From__1.md&amp;value=---%0Auid%3A%20Supabase.Client.From%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L241">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html">IGotrueAdminClient</a>&lt;<a class="xref" href="Supabase.Gotrue.User.html">User</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Client_From_" data-uid="Supabase.Client.From*"></a>
-  <h4 id="Supabase_Client_From__1" data-uid="Supabase.Client.From``1">From&lt;TModel&gt;()</h4>
+
+  <h3 id="Supabase_Client_From__1" data-uid="Supabase.Client.From``1">
+  From&lt;TModel&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L241"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets the Postgrest client to prepare for a query.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ISupabaseTable&lt;TModel, RealtimeChannel&gt; From&lt;TModel&gt;()
-    where TModel : BaseModel, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public ISupabaseTable&lt;TModel, RealtimeChannel&gt; From&lt;TModel&gt;() where TModel : BaseModel, new()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Interfaces.ISupabaseTable-2.html">ISupabaseTable</a>&lt;TModel, <span class="xref">RealtimeChannel</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TModel</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Client_InitializeAsync.md&amp;value=---%0Auid%3A%20Supabase.Client.InitializeAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L201">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Supabase.Interfaces.ISupabaseTable-2.html">ISupabaseTable</a>&lt;TModel, <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TModel</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Client_InitializeAsync_" data-uid="Supabase.Client.InitializeAsync*"></a>
-  <h4 id="Supabase_Client_InitializeAsync" data-uid="Supabase.Client.InitializeAsync">InitializeAsync()</h4>
+
+  <h3 id="Supabase_Client_InitializeAsync" data-uid="Supabase.Client.InitializeAsync">
+  InitializeAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Attempts to retrieve the session from Gotrue (set in <a class="xref" href="Supabase.SupabaseOptions.html">SupabaseOptions</a>) and connects to realtime (if <code>options.AutoConnectRealtime</code> is set)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task&lt;ISupabaseClient&lt;User, Session, RealtimeSocket, RealtimeChannel, Bucket, FileObject&gt;&gt; InitializeAsync()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Supabase.Interfaces.ISupabaseClient-6.html">ISupabaseClient</a>&lt;<span class="xref">User</span>, <span class="xref">Session</span>, <span class="xref">RealtimeSocket</span>, <span class="xref">RealtimeChannel</span>, <span class="xref">Bucket</span>, <span class="xref">FileObject</span>&gt;&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Client_Rpc_System_String_Dictionary_System_String_System_Object__.md&amp;value=---%0Auid%3A%20Supabase.Client.Rpc(System.String%2CDictionary%7BSystem.String%2CSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L250">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Supabase.Interfaces.ISupabaseClient-6.html">ISupabaseClient</a>&lt;<a class="xref" href="Supabase.Gotrue.User.html">User</a>, <a class="xref" href="Supabase.Gotrue.Session.html">Session</a>, <a class="xref" href="Supabase.Realtime.RealtimeSocket.html">RealtimeSocket</a>, <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a>, <a class="xref" href="Supabase.Storage.Bucket.html">Bucket</a>, <a class="xref" href="Supabase.Storage.FileObject.html">FileObject</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Client_Rpc_" data-uid="Supabase.Client.Rpc*"></a>
-  <h4 id="Supabase_Client_Rpc_System_String_Dictionary_System_String_System_Object__" data-uid="Supabase.Client.Rpc(System.String,Dictionary{System.String,System.Object})">Rpc(String, Dictionary&lt;String, Object&gt;)</h4>
+
+  <h3 id="Supabase_Client_Rpc_System_String_System_Collections_Generic_Dictionary_System_String_System_Object__" data-uid="Supabase.Client.Rpc(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+  Rpc(string, Dictionary&lt;string, object&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L250"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Runs a remote procedure.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task&lt;BaseResponse&gt; Rpc(string procedureName, Dictionary&lt;string, object&gt; parameters)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">procedureName</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
-        <td><span class="parametername">parameters</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">BaseResponse</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="Supabase.Interfaces.ISupabaseClient-6.html">ISupabaseClient&lt;TUser, TSession, TSocket, TChannel, TBucket, TFileObject&gt;</a>
-  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>procedureName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>parameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Postgrest.Responses.BaseResponse.html">BaseResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Client.md&amp;value=---%0Auid%3A%20Supabase.Client%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L24" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Client.cs/#L24" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    </footer>
   </body>
 </html>

@@ -1,567 +1,579 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class QueryFilter
-   </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class QueryFilter
-   ">
-    <meta name="generator" content="docfx 2.56.7.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    
+      <title>Class QueryFilter
+ | supabase-csharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class QueryFilter
+ | supabase-csharp ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Postgrest_QueryFilter.md&amp;value=---%0Auid%3A%20Postgrest.QueryFilter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="supabase-csharp">
+            supabase-csharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-        </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Postgrest.QueryFilter">
-  
-  
-  <h1 id="Postgrest_QueryFilter" data-uid="Postgrest.QueryFilter" class="text-break">Class QueryFilter
-  </h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">QueryFilter</span></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="Postgrest.Interfaces.IPostgrestQueryFilter.html">IPostgrestQueryFilter</a></div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Postgrest.html">Postgrest</a></h6>
-  <h6><strong>Assembly</strong>: Supabase.Postgrest.dll</h6>
-  <h5 id="Postgrest_QueryFilter_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class QueryFilter : object, IPostgrestQueryFilter</code></pre>
-  </div>
-  <h3 id="constructors">Constructors
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_QueryFilter__ctor_Postgrest_Constants_Operator_List_Postgrest_QueryFilter__.md&amp;value=---%0Auid%3A%20Postgrest.QueryFilter.%23ctor(Postgrest.Constants.Operator%2CList%7BPostgrest.QueryFilter%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/QueryFilter.cs/#L163">View Source</a>
-  </span>
-  <a id="Postgrest_QueryFilter__ctor_" data-uid="Postgrest.QueryFilter.#ctor*"></a>
-  <h4 id="Postgrest_QueryFilter__ctor_Postgrest_Constants_Operator_List_Postgrest_QueryFilter__" data-uid="Postgrest.QueryFilter.#ctor(Postgrest.Constants.Operator,List{Postgrest.QueryFilter})">QueryFilter(Constants.Operator, List&lt;QueryFilter&gt;)</h4>
-  <div class="markdown level1 summary"><p>Constructor to enable <code>AND</code> and <code>OR</code> Queries by allowing nested QueryFilters.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public QueryFilter(Constants.Operator op, List&lt;QueryFilter&gt; filters)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Postgrest.Constants.Operator.html">Constants.Operator</a></td>
-        <td><span class="parametername">op</span></td>
-        <td><p>Operation: And, Or</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">List</span>&lt;<a class="xref" href="Postgrest.QueryFilter.html">QueryFilter</a>&gt;</td>
-        <td><span class="parametername">filters</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_QueryFilter__ctor_Postgrest_Constants_Operator_Postgrest_QueryFilter_.md&amp;value=---%0Auid%3A%20Postgrest.QueryFilter.%23ctor(Postgrest.Constants.Operator%2CPostgrest.QueryFilter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/QueryFilter.cs/#L182">View Source</a>
-  </span>
-  <a id="Postgrest_QueryFilter__ctor_" data-uid="Postgrest.QueryFilter.#ctor*"></a>
-  <h4 id="Postgrest_QueryFilter__ctor_Postgrest_Constants_Operator_Postgrest_QueryFilter_" data-uid="Postgrest.QueryFilter.#ctor(Postgrest.Constants.Operator,Postgrest.QueryFilter)">QueryFilter(Constants.Operator, QueryFilter)</h4>
-  <div class="markdown level1 summary"><p>Constructor to enable <code>NOT</code> functionality</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public QueryFilter(Constants.Operator op, QueryFilter filter)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Postgrest.Constants.Operator.html">Constants.Operator</a></td>
-        <td><span class="parametername">op</span></td>
-        <td><p>Operation: Not.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Postgrest.QueryFilter.html">QueryFilter</a></td>
-        <td><span class="parametername">filter</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_QueryFilter__ctor_System_String_Postgrest_Constants_Operator_Dictionary_System_String_System_Object__.md&amp;value=---%0Auid%3A%20Postgrest.QueryFilter.%23ctor(System.String%2CPostgrest.Constants.Operator%2CDictionary%7BSystem.String%2CSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/QueryFilter.cs/#L88">View Source</a>
-  </span>
-  <a id="Postgrest_QueryFilter__ctor_" data-uid="Postgrest.QueryFilter.#ctor*"></a>
-  <h4 id="Postgrest_QueryFilter__ctor_System_String_Postgrest_Constants_Operator_Dictionary_System_String_System_Object__" data-uid="Postgrest.QueryFilter.#ctor(System.String,Postgrest.Constants.Operator,Dictionary{System.String,System.Object})">QueryFilter(String, Constants.Operator, Dictionary&lt;String, Object&gt;)</h4>
-  <div class="markdown level1 summary"><p>Constructor to use multiple values as for filtering (using a dictionary).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public QueryFilter(string property, Constants.Operator op, Dictionary&lt;string, object&gt; criteria)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">property</span></td>
-        <td><p>Column name</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Postgrest.Constants.Operator.html">Constants.Operator</a></td>
-        <td><span class="parametername">op</span></td>
-        <td><p>Operation: In, Contains, ContainedIn, or Overlap</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
-        <td><span class="parametername">criteria</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_QueryFilter__ctor_System_String_Postgrest_Constants_Operator_List_System_Object__.md&amp;value=---%0Auid%3A%20Postgrest.QueryFilter.%23ctor(System.String%2CPostgrest.Constants.Operator%2CList%7BSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/QueryFilter.cs/#L65">View Source</a>
-  </span>
-  <a id="Postgrest_QueryFilter__ctor_" data-uid="Postgrest.QueryFilter.#ctor*"></a>
-  <h4 id="Postgrest_QueryFilter__ctor_System_String_Postgrest_Constants_Operator_List_System_Object__" data-uid="Postgrest.QueryFilter.#ctor(System.String,Postgrest.Constants.Operator,List{System.Object})">QueryFilter(String, Constants.Operator, List&lt;Object&gt;)</h4>
-  <div class="markdown level1 summary"><p>Constructor to use multiple values as for filtering.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public QueryFilter(string property, Constants.Operator op, List&lt;object&gt; criteria)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">property</span></td>
-        <td><p>Column name</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Postgrest.Constants.Operator.html">Constants.Operator</a></td>
-        <td><span class="parametername">op</span></td>
-        <td><p>Operation: In, Contains, ContainedIn, or Overlap</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">List</span>&lt;<span class="xref">System.Object</span>&gt;</td>
-        <td><span class="parametername">criteria</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_QueryFilter__ctor_System_String_Postgrest_Constants_Operator_Postgrest_FullTextSearchConfig_.md&amp;value=---%0Auid%3A%20Postgrest.QueryFilter.%23ctor(System.String%2CPostgrest.Constants.Operator%2CPostgrest.FullTextSearchConfig)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/QueryFilter.cs/#L111">View Source</a>
-  </span>
-  <a id="Postgrest_QueryFilter__ctor_" data-uid="Postgrest.QueryFilter.#ctor*"></a>
-  <h4 id="Postgrest_QueryFilter__ctor_System_String_Postgrest_Constants_Operator_Postgrest_FullTextSearchConfig_" data-uid="Postgrest.QueryFilter.#ctor(System.String,Postgrest.Constants.Operator,Postgrest.FullTextSearchConfig)">QueryFilter(String, Constants.Operator, FullTextSearchConfig)</h4>
-  <div class="markdown level1 summary"><p>Constructor for Full Text Search.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public QueryFilter(string property, Constants.Operator op, FullTextSearchConfig fullTextSearchConfig)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">property</span></td>
-        <td><p>Column Name</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Postgrest.Constants.Operator.html">Constants.Operator</a></td>
-        <td><span class="parametername">op</span></td>
-        <td><p>Operation: FTS, PHFTS, PLFTS, WFTS</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Postgrest.FullTextSearchConfig.html">FullTextSearchConfig</a></td>
-        <td><span class="parametername">fullTextSearchConfig</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_QueryFilter__ctor_System_String_Postgrest_Constants_Operator_Postgrest_IntRange_.md&amp;value=---%0Auid%3A%20Postgrest.QueryFilter.%23ctor(System.String%2CPostgrest.Constants.Operator%2CPostgrest.IntRange)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/QueryFilter.cs/#L134">View Source</a>
-  </span>
-  <a id="Postgrest_QueryFilter__ctor_" data-uid="Postgrest.QueryFilter.#ctor*"></a>
-  <h4 id="Postgrest_QueryFilter__ctor_System_String_Postgrest_Constants_Operator_Postgrest_IntRange_" data-uid="Postgrest.QueryFilter.#ctor(System.String,Postgrest.Constants.Operator,Postgrest.IntRange)">QueryFilter(String, Constants.Operator, IntRange)</h4>
-  <div class="markdown level1 summary"><p>Constructor for Range Queries.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public QueryFilter(string property, Constants.Operator op, IntRange range)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">property</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Postgrest.Constants.Operator.html">Constants.Operator</a></td>
-        <td><span class="parametername">op</span></td>
-        <td><p>Operator: Overlap, StrictlyLeft, StrictlyRight, NotRightOf, NotLeftOf, Adjacent</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Postgrest.IntRange.html">IntRange</a></td>
-        <td><span class="parametername">range</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_QueryFilter__ctor_System_String_Postgrest_Constants_Operator_System_Nullable_System_Object__.md&amp;value=---%0Auid%3A%20Postgrest.QueryFilter.%23ctor(System.String%2CPostgrest.Constants.Operator%2CSystem.Nullable%7BSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/QueryFilter.cs/#L34">View Source</a>
-  </span>
-  <a id="Postgrest_QueryFilter__ctor_" data-uid="Postgrest.QueryFilter.#ctor*"></a>
-  <h4 id="Postgrest_QueryFilter__ctor_System_String_Postgrest_Constants_Operator_System_Nullable_System_Object__" data-uid="Postgrest.QueryFilter.#ctor(System.String,Postgrest.Constants.Operator,System.Nullable{System.Object})">QueryFilter(String, Constants.Operator, Nullable&lt;Object&gt;)</h4>
-  <div class="markdown level1 summary"><p>Contractor to use single value filtering.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public QueryFilter(string property, Constants.Operator op, object? criteria)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">property</span></td>
-        <td><p>Column name</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Postgrest.Constants.Operator.html">Constants.Operator</a></td>
-        <td><span class="parametername">op</span></td>
-        <td><p>Operation: And, Equals, GreaterThan, LessThan, GreaterThanOrEqual, LessThanOrEqual, NotEqual, Is, Adjacent, Not, Like, ILike</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
-        <td><span class="parametername">criteria</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="fields">Fields
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_QueryFilter_NullVal.md&amp;value=---%0Auid%3A%20Postgrest.QueryFilter.NullVal%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/QueryFilter.cs/#L16">View Source</a>
-  </span>
-  <h4 id="Postgrest_QueryFilter_NullVal" data-uid="Postgrest.QueryFilter.NullVal">NullVal</h4>
-  <div class="markdown level1 summary"><p>String value to be substituted for a null criterion</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string NullVal = null</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_QueryFilter_Criteria.md&amp;value=---%0Auid%3A%20Postgrest.QueryFilter.Criteria%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/QueryFilter.cs/#L25">View Source</a>
-  </span>
-  <a id="Postgrest_QueryFilter_Criteria_" data-uid="Postgrest.QueryFilter.Criteria*"></a>
-  <h4 id="Postgrest_QueryFilter_Criteria" data-uid="Postgrest.QueryFilter.Criteria">Criteria</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object? Criteria { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_QueryFilter_Op.md&amp;value=---%0Auid%3A%20Postgrest.QueryFilter.Op%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/QueryFilter.cs/#L22">View Source</a>
-  </span>
-  <a id="Postgrest_QueryFilter_Op_" data-uid="Postgrest.QueryFilter.Op*"></a>
-  <h4 id="Postgrest_QueryFilter_Op" data-uid="Postgrest.QueryFilter.Op">Op</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Constants.Operator Op { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Postgrest.Constants.Operator.html">Constants.Operator</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_QueryFilter_Property.md&amp;value=---%0Auid%3A%20Postgrest.QueryFilter.Property%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/QueryFilter.cs/#L19">View Source</a>
-  </span>
-  <a id="Postgrest_QueryFilter_Property_" data-uid="Postgrest.QueryFilter.Property*"></a>
-  <h4 id="Postgrest_QueryFilter_Property" data-uid="Postgrest.QueryFilter.Property">Property</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? Property { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestQueryFilter.html">IPostgrestQueryFilter</a>
-  </div>
-</article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_QueryFilter.md&amp;value=---%0Auid%3A%20Postgrest.QueryFilter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/QueryFilter.cs/#L11" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
           </div>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-      </footer>
+
+        <article data-uid="Postgrest.QueryFilter">
+
+
+
+  <h1 id="Postgrest_QueryFilter" data-uid="Postgrest.QueryFilter" class="text-break">
+    Class QueryFilter
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/QueryFilter.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Postgrest.html">Postgrest</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Supabase.Postgrest.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class QueryFilter : IPostgrestQueryFilter</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">QueryFilter</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Postgrest.Interfaces.IPostgrestQueryFilter.html">IPostgrestQueryFilter</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Postgrest_QueryFilter__ctor_" data-uid="Postgrest.QueryFilter.#ctor*"></a>
+
+  <h3 id="Postgrest_QueryFilter__ctor_Postgrest_Constants_Operator_Postgrest_QueryFilter_" data-uid="Postgrest.QueryFilter.#ctor(Postgrest.Constants.Operator,Postgrest.QueryFilter)">
+  QueryFilter(Operator, QueryFilter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/QueryFilter.cs/#L182"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructor to enable <code>NOT</code> functionality</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QueryFilter(Constants.Operator op, QueryFilter filter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>op</code> <a class="xref" href="Postgrest.Constants.html">Constants</a>.<a class="xref" href="Postgrest.Constants.Operator.html">Operator</a></dt>
+    <dd><p>Operation: Not.</p>
+</dd>
+    <dt><code>filter</code> <a class="xref" href="Postgrest.QueryFilter.html">QueryFilter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Postgrest_QueryFilter__ctor_" data-uid="Postgrest.QueryFilter.#ctor*"></a>
+
+  <h3 id="Postgrest_QueryFilter__ctor_Postgrest_Constants_Operator_System_Collections_Generic_List_Postgrest_QueryFilter__" data-uid="Postgrest.QueryFilter.#ctor(Postgrest.Constants.Operator,System.Collections.Generic.List{Postgrest.QueryFilter})">
+  QueryFilter(Operator, List&lt;QueryFilter&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/QueryFilter.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructor to enable <code>AND</code> and <code>OR</code> Queries by allowing nested QueryFilters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QueryFilter(Constants.Operator op, List&lt;QueryFilter&gt; filters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>op</code> <a class="xref" href="Postgrest.Constants.html">Constants</a>.<a class="xref" href="Postgrest.Constants.Operator.html">Operator</a></dt>
+    <dd><p>Operation: And, Or</p>
+</dd>
+    <dt><code>filters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Postgrest.QueryFilter.html">QueryFilter</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Postgrest_QueryFilter__ctor_" data-uid="Postgrest.QueryFilter.#ctor*"></a>
+
+  <h3 id="Postgrest_QueryFilter__ctor_System_String_Postgrest_Constants_Operator_Postgrest_FullTextSearchConfig_" data-uid="Postgrest.QueryFilter.#ctor(System.String,Postgrest.Constants.Operator,Postgrest.FullTextSearchConfig)">
+  QueryFilter(string, Operator, FullTextSearchConfig)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/QueryFilter.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructor for Full Text Search.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QueryFilter(string property, Constants.Operator op, FullTextSearchConfig fullTextSearchConfig)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Column Name</p>
+</dd>
+    <dt><code>op</code> <a class="xref" href="Postgrest.Constants.html">Constants</a>.<a class="xref" href="Postgrest.Constants.Operator.html">Operator</a></dt>
+    <dd><p>Operation: FTS, PHFTS, PLFTS, WFTS</p>
+</dd>
+    <dt><code>fullTextSearchConfig</code> <a class="xref" href="Postgrest.FullTextSearchConfig.html">FullTextSearchConfig</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Postgrest_QueryFilter__ctor_" data-uid="Postgrest.QueryFilter.#ctor*"></a>
+
+  <h3 id="Postgrest_QueryFilter__ctor_System_String_Postgrest_Constants_Operator_Postgrest_IntRange_" data-uid="Postgrest.QueryFilter.#ctor(System.String,Postgrest.Constants.Operator,Postgrest.IntRange)">
+  QueryFilter(string, Operator, IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/QueryFilter.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructor for Range Queries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QueryFilter(string property, Constants.Operator op, IntRange range)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>op</code> <a class="xref" href="Postgrest.Constants.html">Constants</a>.<a class="xref" href="Postgrest.Constants.Operator.html">Operator</a></dt>
+    <dd><p>Operator: Overlap, StrictlyLeft, StrictlyRight, NotRightOf, NotLeftOf, Adjacent</p>
+</dd>
+    <dt><code>range</code> <a class="xref" href="Postgrest.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Postgrest_QueryFilter__ctor_" data-uid="Postgrest.QueryFilter.#ctor*"></a>
+
+  <h3 id="Postgrest_QueryFilter__ctor_System_String_Postgrest_Constants_Operator_System_Collections_Generic_Dictionary_System_String_System_Object__" data-uid="Postgrest.QueryFilter.#ctor(System.String,Postgrest.Constants.Operator,System.Collections.Generic.Dictionary{System.String,System.Object})">
+  QueryFilter(string, Operator, Dictionary&lt;string, object&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/QueryFilter.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructor to use multiple values as for filtering (using a dictionary).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QueryFilter(string property, Constants.Operator op, Dictionary&lt;string, object&gt; criteria)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Column name</p>
+</dd>
+    <dt><code>op</code> <a class="xref" href="Postgrest.Constants.html">Constants</a>.<a class="xref" href="Postgrest.Constants.Operator.html">Operator</a></dt>
+    <dd><p>Operation: In, Contains, ContainedIn, or Overlap</p>
+</dd>
+    <dt><code>criteria</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Postgrest_QueryFilter__ctor_" data-uid="Postgrest.QueryFilter.#ctor*"></a>
+
+  <h3 id="Postgrest_QueryFilter__ctor_System_String_Postgrest_Constants_Operator_System_Collections_Generic_List_System_Object__" data-uid="Postgrest.QueryFilter.#ctor(System.String,Postgrest.Constants.Operator,System.Collections.Generic.List{System.Object})">
+  QueryFilter(string, Operator, List&lt;object&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/QueryFilter.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructor to use multiple values as for filtering.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QueryFilter(string property, Constants.Operator op, List&lt;object&gt; criteria)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Column name</p>
+</dd>
+    <dt><code>op</code> <a class="xref" href="Postgrest.Constants.html">Constants</a>.<a class="xref" href="Postgrest.Constants.Operator.html">Operator</a></dt>
+    <dd><p>Operation: In, Contains, ContainedIn, or Overlap</p>
+</dd>
+    <dt><code>criteria</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Postgrest_QueryFilter__ctor_" data-uid="Postgrest.QueryFilter.#ctor*"></a>
+
+  <h3 id="Postgrest_QueryFilter__ctor_System_String_Postgrest_Constants_Operator_System_Object_" data-uid="Postgrest.QueryFilter.#ctor(System.String,Postgrest.Constants.Operator,System.Object)">
+  QueryFilter(string, Operator, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/QueryFilter.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Contractor to use single value filtering.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QueryFilter(string property, Constants.Operator op, object? criteria)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Column name</p>
+</dd>
+    <dt><code>op</code> <a class="xref" href="Postgrest.Constants.html">Constants</a>.<a class="xref" href="Postgrest.Constants.Operator.html">Operator</a></dt>
+    <dd><p>Operation: And, Equals, GreaterThan, LessThan, GreaterThanOrEqual, LessThanOrEqual, NotEqual, Is, Adjacent, Not, Like, ILike</p>
+</dd>
+    <dt><code>criteria</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Postgrest_QueryFilter_NullVal" data-uid="Postgrest.QueryFilter.NullVal">
+  NullVal
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/QueryFilter.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>String value to be substituted for a null criterion</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string NullVal = &quot;null&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Postgrest_QueryFilter_Criteria_" data-uid="Postgrest.QueryFilter.Criteria*"></a>
+
+  <h3 id="Postgrest_QueryFilter_Criteria" data-uid="Postgrest.QueryFilter.Criteria">
+  Criteria
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/QueryFilter.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object? Criteria { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Postgrest_QueryFilter_Op_" data-uid="Postgrest.QueryFilter.Op*"></a>
+
+  <h3 id="Postgrest_QueryFilter_Op" data-uid="Postgrest.QueryFilter.Op">
+  Op
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/QueryFilter.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Constants.Operator Op { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Postgrest.Constants.html">Constants</a>.<a class="xref" href="Postgrest.Constants.Operator.html">Operator</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Postgrest_QueryFilter_Property_" data-uid="Postgrest.QueryFilter.Property*"></a>
+
+  <h3 id="Postgrest_QueryFilter_Property" data-uid="Postgrest.QueryFilter.Property">
+  Property
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/QueryFilter.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Property { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/QueryFilter.cs/#L11" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,524 +1,529 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IPostgrestClient
-   </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IPostgrestClient
-   ">
-    <meta name="generator" content="docfx 2.56.7.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    
+      <title>Interface IPostgrestClient
+ | supabase-csharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IPostgrestClient
+ | supabase-csharp ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Postgrest_Interfaces_IPostgrestClient.md&amp;value=---%0Auid%3A%20Postgrest.Interfaces.IPostgrestClient%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="supabase-csharp">
+            supabase-csharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-        </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Postgrest.Interfaces.IPostgrestClient">
-  
-  
-  <h1 id="Postgrest_Interfaces_IPostgrestClient" data-uid="Postgrest.Interfaces.IPostgrestClient" class="text-break">Interface IPostgrestClient
-  </h1>
-  <div class="markdown level0 summary"><p>Client interface for Postgrest</p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Postgrest.Interfaces.html">Postgrest.Interfaces</a></h6>
-  <h6><strong>Assembly</strong>: Supabase.Postgrest.dll</h6>
-  <h5 id="Postgrest_Interfaces_IPostgrestClient_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IPostgrestClient : IGettableHeaders</code></pre>
-  </div>
-  <h3 id="properties">Properties
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_Interfaces_IPostgrestClient_BaseUrl.md&amp;value=---%0Auid%3A%20Postgrest.Interfaces.IPostgrestClient.BaseUrl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/Interfaces/IPostgrestClient.cs/#L16">View Source</a>
-  </span>
-  <a id="Postgrest_Interfaces_IPostgrestClient_BaseUrl_" data-uid="Postgrest.Interfaces.IPostgrestClient.BaseUrl*"></a>
-  <h4 id="Postgrest_Interfaces_IPostgrestClient_BaseUrl" data-uid="Postgrest.Interfaces.IPostgrestClient.BaseUrl">BaseUrl</h4>
-  <div class="markdown level1 summary"><p>API Base Url for subsequent calls.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">string BaseUrl { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_Interfaces_IPostgrestClient_Options.md&amp;value=---%0Auid%3A%20Postgrest.Interfaces.IPostgrestClient.Options%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/Interfaces/IPostgrestClient.cs/#L21">View Source</a>
-  </span>
-  <a id="Postgrest_Interfaces_IPostgrestClient_Options_" data-uid="Postgrest.Interfaces.IPostgrestClient.Options*"></a>
-  <h4 id="Postgrest_Interfaces_IPostgrestClient_Options" data-uid="Postgrest.Interfaces.IPostgrestClient.Options">Options</h4>
-  <div class="markdown level1 summary"><p>The Options <a class="xref" href="Postgrest.Client.html">Client</a> was initialized with.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ClientOptions Options { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Postgrest.ClientOptions.html">Postgrest.ClientOptions</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_Interfaces_IPostgrestClient_AddDebugHandler_Postgrest_Interfaces_IPostgrestDebugger_DebugEventHandler_.md&amp;value=---%0Auid%3A%20Postgrest.Interfaces.IPostgrestClient.AddDebugHandler(Postgrest.Interfaces.IPostgrestDebugger.DebugEventHandler)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/Interfaces/IPostgrestClient.cs/#L44">View Source</a>
-  </span>
-  <a id="Postgrest_Interfaces_IPostgrestClient_AddDebugHandler_" data-uid="Postgrest.Interfaces.IPostgrestClient.AddDebugHandler*"></a>
-  <h4 id="Postgrest_Interfaces_IPostgrestClient_AddDebugHandler_Postgrest_Interfaces_IPostgrestDebugger_DebugEventHandler_" data-uid="Postgrest.Interfaces.IPostgrestClient.AddDebugHandler(Postgrest.Interfaces.IPostgrestDebugger.DebugEventHandler)">AddDebugHandler(IPostgrestDebugger.DebugEventHandler)</h4>
-  <div class="markdown level1 summary"><p>Adds a debug handler</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void AddDebugHandler(IPostgrestDebugger.DebugEventHandler handler)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Postgrest.Interfaces.IPostgrestDebugger.DebugEventHandler.html">IPostgrestDebugger.DebugEventHandler</a></td>
-        <td><span class="parametername">handler</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_Interfaces_IPostgrestClient_AddRequestPreparedHandler_Postgrest_OnRequestPreparedEventHandler_.md&amp;value=---%0Auid%3A%20Postgrest.Interfaces.IPostgrestClient.AddRequestPreparedHandler(Postgrest.OnRequestPreparedEventHandler)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/Interfaces/IPostgrestClient.cs/#L27">View Source</a>
-  </span>
-  <a id="Postgrest_Interfaces_IPostgrestClient_AddRequestPreparedHandler_" data-uid="Postgrest.Interfaces.IPostgrestClient.AddRequestPreparedHandler*"></a>
-  <h4 id="Postgrest_Interfaces_IPostgrestClient_AddRequestPreparedHandler_Postgrest_OnRequestPreparedEventHandler_" data-uid="Postgrest.Interfaces.IPostgrestClient.AddRequestPreparedHandler(Postgrest.OnRequestPreparedEventHandler)">AddRequestPreparedHandler(OnRequestPreparedEventHandler)</h4>
-  <div class="markdown level1 summary"><p>Adds a handler that is called prior to a request being sent.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void AddRequestPreparedHandler(OnRequestPreparedEventHandler handler)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Postgrest.OnRequestPreparedEventHandler.html">OnRequestPreparedEventHandler</a></td>
-        <td><span class="parametername">handler</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_Interfaces_IPostgrestClient_ClearDebugHandlers.md&amp;value=---%0Auid%3A%20Postgrest.Interfaces.IPostgrestClient.ClearDebugHandlers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/Interfaces/IPostgrestClient.cs/#L55">View Source</a>
-  </span>
-  <a id="Postgrest_Interfaces_IPostgrestClient_ClearDebugHandlers_" data-uid="Postgrest.Interfaces.IPostgrestClient.ClearDebugHandlers*"></a>
-  <h4 id="Postgrest_Interfaces_IPostgrestClient_ClearDebugHandlers" data-uid="Postgrest.Interfaces.IPostgrestClient.ClearDebugHandlers">ClearDebugHandlers()</h4>
-  <div class="markdown level1 summary"><p>Clears debug handlers</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void ClearDebugHandlers()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_Interfaces_IPostgrestClient_ClearRequestPreparedHandlers.md&amp;value=---%0Auid%3A%20Postgrest.Interfaces.IPostgrestClient.ClearRequestPreparedHandlers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/Interfaces/IPostgrestClient.cs/#L38">View Source</a>
-  </span>
-  <a id="Postgrest_Interfaces_IPostgrestClient_ClearRequestPreparedHandlers_" data-uid="Postgrest.Interfaces.IPostgrestClient.ClearRequestPreparedHandlers*"></a>
-  <h4 id="Postgrest_Interfaces_IPostgrestClient_ClearRequestPreparedHandlers" data-uid="Postgrest.Interfaces.IPostgrestClient.ClearRequestPreparedHandlers">ClearRequestPreparedHandlers()</h4>
-  <div class="markdown level1 summary"><p>Clears all <a class="xref" href="Postgrest.OnRequestPreparedEventHandler.html">OnRequestPreparedEventHandler</a> handlers.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void ClearRequestPreparedHandlers()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_Interfaces_IPostgrestClient_RemoveDebugHandler_Postgrest_Interfaces_IPostgrestDebugger_DebugEventHandler_.md&amp;value=---%0Auid%3A%20Postgrest.Interfaces.IPostgrestClient.RemoveDebugHandler(Postgrest.Interfaces.IPostgrestDebugger.DebugEventHandler)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/Interfaces/IPostgrestClient.cs/#L50">View Source</a>
-  </span>
-  <a id="Postgrest_Interfaces_IPostgrestClient_RemoveDebugHandler_" data-uid="Postgrest.Interfaces.IPostgrestClient.RemoveDebugHandler*"></a>
-  <h4 id="Postgrest_Interfaces_IPostgrestClient_RemoveDebugHandler_Postgrest_Interfaces_IPostgrestDebugger_DebugEventHandler_" data-uid="Postgrest.Interfaces.IPostgrestClient.RemoveDebugHandler(Postgrest.Interfaces.IPostgrestDebugger.DebugEventHandler)">RemoveDebugHandler(IPostgrestDebugger.DebugEventHandler)</h4>
-  <div class="markdown level1 summary"><p>Removes a debug handler</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void RemoveDebugHandler(IPostgrestDebugger.DebugEventHandler handler)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Postgrest.Interfaces.IPostgrestDebugger.DebugEventHandler.html">IPostgrestDebugger.DebugEventHandler</a></td>
-        <td><span class="parametername">handler</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_Interfaces_IPostgrestClient_RemoveRequestPreparedHandler_Postgrest_OnRequestPreparedEventHandler_.md&amp;value=---%0Auid%3A%20Postgrest.Interfaces.IPostgrestClient.RemoveRequestPreparedHandler(Postgrest.OnRequestPreparedEventHandler)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/Interfaces/IPostgrestClient.cs/#L33">View Source</a>
-  </span>
-  <a id="Postgrest_Interfaces_IPostgrestClient_RemoveRequestPreparedHandler_" data-uid="Postgrest.Interfaces.IPostgrestClient.RemoveRequestPreparedHandler*"></a>
-  <h4 id="Postgrest_Interfaces_IPostgrestClient_RemoveRequestPreparedHandler_Postgrest_OnRequestPreparedEventHandler_" data-uid="Postgrest.Interfaces.IPostgrestClient.RemoveRequestPreparedHandler(Postgrest.OnRequestPreparedEventHandler)">RemoveRequestPreparedHandler(OnRequestPreparedEventHandler)</h4>
-  <div class="markdown level1 summary"><p>Removes an <a class="xref" href="Postgrest.OnRequestPreparedEventHandler.html">OnRequestPreparedEventHandler</a> handler.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void RemoveRequestPreparedHandler(OnRequestPreparedEventHandler handler)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Postgrest.OnRequestPreparedEventHandler.html">OnRequestPreparedEventHandler</a></td>
-        <td><span class="parametername">handler</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_Interfaces_IPostgrestClient_Rpc_System_String_System_Nullable_System_Object__.md&amp;value=---%0Auid%3A%20Postgrest.Interfaces.IPostgrestClient.Rpc(System.String%2CSystem.Nullable%7BSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/Interfaces/IPostgrestClient.cs/#L63">View Source</a>
-  </span>
-  <a id="Postgrest_Interfaces_IPostgrestClient_Rpc_" data-uid="Postgrest.Interfaces.IPostgrestClient.Rpc*"></a>
-  <h4 id="Postgrest_Interfaces_IPostgrestClient_Rpc_System_String_System_Nullable_System_Object__" data-uid="Postgrest.Interfaces.IPostgrestClient.Rpc(System.String,System.Nullable{System.Object})">Rpc(String, Nullable&lt;Object&gt;)</h4>
-  <div class="markdown level1 summary"><p>Perform a stored procedure call.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;BaseResponse&gt; Rpc(string procedureName, object? parameters)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">procedureName</span></td>
-        <td><p>The function name to call</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
-        <td><span class="parametername">parameters</span></td>
-        <td><p>The parameters to pass to the function call</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Postgrest.Responses.BaseResponse.html">BaseResponse</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_Interfaces_IPostgrestClient_Table__1.md&amp;value=---%0Auid%3A%20Postgrest.Interfaces.IPostgrestClient.Table%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/Interfaces/IPostgrestClient.cs/#L70">View Source</a>
-  </span>
-  <a id="Postgrest_Interfaces_IPostgrestClient_Table_" data-uid="Postgrest.Interfaces.IPostgrestClient.Table*"></a>
-  <h4 id="Postgrest_Interfaces_IPostgrestClient_Table__1" data-uid="Postgrest.Interfaces.IPostgrestClient.Table``1">Table&lt;T&gt;()</h4>
-  <div class="markdown level1 summary"><p>Returns a Table Query Builder instance for a defined model - representative of <code>USE $TABLE</code></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IPostgrestTable&lt;T&gt; Table&lt;T&gt;()
-    where T : BaseModel, new()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html">IPostgrestTable</a>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>Custom Model derived from <code>BaseModel</code></p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_Interfaces_IPostgrestClient_Table__1_Postgrest_Interfaces_IPostgrestCacheProvider_.md&amp;value=---%0Auid%3A%20Postgrest.Interfaces.IPostgrestClient.Table%60%601(Postgrest.Interfaces.IPostgrestCacheProvider)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/Interfaces/IPostgrestClient.cs/#L78">View Source</a>
-  </span>
-  <a id="Postgrest_Interfaces_IPostgrestClient_Table_" data-uid="Postgrest.Interfaces.IPostgrestClient.Table*"></a>
-  <h4 id="Postgrest_Interfaces_IPostgrestClient_Table__1_Postgrest_Interfaces_IPostgrestCacheProvider_" data-uid="Postgrest.Interfaces.IPostgrestClient.Table``1(Postgrest.Interfaces.IPostgrestCacheProvider)">Table&lt;T&gt;(IPostgrestCacheProvider)</h4>
-  <div class="markdown level1 summary"><p>Returns a Table Query Builder instance with a Cache Provider for a defined model - representative of <code>USE #$TABLE</code></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IPostgrestTableWithCache&lt;T&gt; Table&lt;T&gt;(IPostgrestCacheProvider cacheProvider)
-    where T : BaseModel, new()</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Postgrest.Interfaces.IPostgrestCacheProvider.html">IPostgrestCacheProvider</a></td>
-        <td><span class="parametername">cacheProvider</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Postgrest.Interfaces.IPostgrestTableWithCache-1.html">IPostgrestTableWithCache</a>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-</article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/supabase-community/postgrest-csharp/new/62c3e93e1690718bbd19c8bc49f461a73a91366f/apiSpec/new?filename=Postgrest_Interfaces_IPostgrestClient.md&amp;value=---%0Auid%3A%20Postgrest.Interfaces.IPostgrestClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/supabase-community/postgrest-csharp/blob/62c3e93e1690718bbd19c8bc49f461a73a91366f/Postgrest/Interfaces/IPostgrestClient.cs/#L11" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
           </div>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-      </footer>
+
+        <article data-uid="Postgrest.Interfaces.IPostgrestClient">
+
+
+
+  <h1 id="Postgrest_Interfaces_IPostgrestClient" data-uid="Postgrest.Interfaces.IPostgrestClient" class="text-break">
+    Interface IPostgrestClient
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/Interfaces/IPostgrestClient.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Postgrest.html">Postgrest</a>.<a class="xref" href="Postgrest.Interfaces.html">Interfaces</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Supabase.Postgrest.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Client interface for Postgrest</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IPostgrestClient : IGettableHeaders</code></pre>
+  </div>
+
+
+
+
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Supabase.Core.Interfaces.IGettableHeaders.html#Supabase_Core_Interfaces_IGettableHeaders_GetHeaders">IGettableHeaders.GetHeaders</a>
     </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Postgrest_Interfaces_IPostgrestClient_BaseUrl_" data-uid="Postgrest.Interfaces.IPostgrestClient.BaseUrl*"></a>
+
+  <h3 id="Postgrest_Interfaces_IPostgrestClient_BaseUrl" data-uid="Postgrest.Interfaces.IPostgrestClient.BaseUrl">
+  BaseUrl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/Interfaces/IPostgrestClient.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>API Base Url for subsequent calls.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string BaseUrl { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Postgrest_Interfaces_IPostgrestClient_Options_" data-uid="Postgrest.Interfaces.IPostgrestClient.Options*"></a>
+
+  <h3 id="Postgrest_Interfaces_IPostgrestClient_Options" data-uid="Postgrest.Interfaces.IPostgrestClient.Options">
+  Options
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/Interfaces/IPostgrestClient.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Options <a class="xref" href="Postgrest.Client.html">Client</a> was initialized with.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ClientOptions Options { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Postgrest.ClientOptions.html">ClientOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Postgrest_Interfaces_IPostgrestClient_AddDebugHandler_" data-uid="Postgrest.Interfaces.IPostgrestClient.AddDebugHandler*"></a>
+
+  <h3 id="Postgrest_Interfaces_IPostgrestClient_AddDebugHandler_Postgrest_Interfaces_IPostgrestDebugger_DebugEventHandler_" data-uid="Postgrest.Interfaces.IPostgrestClient.AddDebugHandler(Postgrest.Interfaces.IPostgrestDebugger.DebugEventHandler)">
+  AddDebugHandler(DebugEventHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/Interfaces/IPostgrestClient.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a debug handler</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void AddDebugHandler(IPostgrestDebugger.DebugEventHandler handler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handler</code> <a class="xref" href="Postgrest.Interfaces.IPostgrestDebugger.html">IPostgrestDebugger</a>.<a class="xref" href="Postgrest.Interfaces.IPostgrestDebugger.DebugEventHandler.html">DebugEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Postgrest_Interfaces_IPostgrestClient_AddRequestPreparedHandler_" data-uid="Postgrest.Interfaces.IPostgrestClient.AddRequestPreparedHandler*"></a>
+
+  <h3 id="Postgrest_Interfaces_IPostgrestClient_AddRequestPreparedHandler_Postgrest_OnRequestPreparedEventHandler_" data-uid="Postgrest.Interfaces.IPostgrestClient.AddRequestPreparedHandler(Postgrest.OnRequestPreparedEventHandler)">
+  AddRequestPreparedHandler(OnRequestPreparedEventHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/Interfaces/IPostgrestClient.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a handler that is called prior to a request being sent.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void AddRequestPreparedHandler(OnRequestPreparedEventHandler handler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handler</code> <a class="xref" href="Postgrest.OnRequestPreparedEventHandler.html">OnRequestPreparedEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Postgrest_Interfaces_IPostgrestClient_ClearDebugHandlers_" data-uid="Postgrest.Interfaces.IPostgrestClient.ClearDebugHandlers*"></a>
+
+  <h3 id="Postgrest_Interfaces_IPostgrestClient_ClearDebugHandlers" data-uid="Postgrest.Interfaces.IPostgrestClient.ClearDebugHandlers">
+  ClearDebugHandlers()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/Interfaces/IPostgrestClient.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears debug handlers</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ClearDebugHandlers()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Postgrest_Interfaces_IPostgrestClient_ClearRequestPreparedHandlers_" data-uid="Postgrest.Interfaces.IPostgrestClient.ClearRequestPreparedHandlers*"></a>
+
+  <h3 id="Postgrest_Interfaces_IPostgrestClient_ClearRequestPreparedHandlers" data-uid="Postgrest.Interfaces.IPostgrestClient.ClearRequestPreparedHandlers">
+  ClearRequestPreparedHandlers()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/Interfaces/IPostgrestClient.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears all <a class="xref" href="Postgrest.OnRequestPreparedEventHandler.html">OnRequestPreparedEventHandler</a> handlers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ClearRequestPreparedHandlers()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Postgrest_Interfaces_IPostgrestClient_RemoveDebugHandler_" data-uid="Postgrest.Interfaces.IPostgrestClient.RemoveDebugHandler*"></a>
+
+  <h3 id="Postgrest_Interfaces_IPostgrestClient_RemoveDebugHandler_Postgrest_Interfaces_IPostgrestDebugger_DebugEventHandler_" data-uid="Postgrest.Interfaces.IPostgrestClient.RemoveDebugHandler(Postgrest.Interfaces.IPostgrestDebugger.DebugEventHandler)">
+  RemoveDebugHandler(DebugEventHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/Interfaces/IPostgrestClient.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a debug handler</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void RemoveDebugHandler(IPostgrestDebugger.DebugEventHandler handler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handler</code> <a class="xref" href="Postgrest.Interfaces.IPostgrestDebugger.html">IPostgrestDebugger</a>.<a class="xref" href="Postgrest.Interfaces.IPostgrestDebugger.DebugEventHandler.html">DebugEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Postgrest_Interfaces_IPostgrestClient_RemoveRequestPreparedHandler_" data-uid="Postgrest.Interfaces.IPostgrestClient.RemoveRequestPreparedHandler*"></a>
+
+  <h3 id="Postgrest_Interfaces_IPostgrestClient_RemoveRequestPreparedHandler_Postgrest_OnRequestPreparedEventHandler_" data-uid="Postgrest.Interfaces.IPostgrestClient.RemoveRequestPreparedHandler(Postgrest.OnRequestPreparedEventHandler)">
+  RemoveRequestPreparedHandler(OnRequestPreparedEventHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/Interfaces/IPostgrestClient.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes an <a class="xref" href="Postgrest.OnRequestPreparedEventHandler.html">OnRequestPreparedEventHandler</a> handler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void RemoveRequestPreparedHandler(OnRequestPreparedEventHandler handler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handler</code> <a class="xref" href="Postgrest.OnRequestPreparedEventHandler.html">OnRequestPreparedEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Postgrest_Interfaces_IPostgrestClient_Rpc_" data-uid="Postgrest.Interfaces.IPostgrestClient.Rpc*"></a>
+
+  <h3 id="Postgrest_Interfaces_IPostgrestClient_Rpc_System_String_System_Object_" data-uid="Postgrest.Interfaces.IPostgrestClient.Rpc(System.String,System.Object)">
+  Rpc(string, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/Interfaces/IPostgrestClient.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Perform a stored procedure call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;BaseResponse&gt; Rpc(string procedureName, object? parameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>procedureName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The function name to call</p>
+</dd>
+    <dt><code>parameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The parameters to pass to the function call</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Postgrest.Responses.BaseResponse.html">BaseResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Postgrest_Interfaces_IPostgrestClient_Table_" data-uid="Postgrest.Interfaces.IPostgrestClient.Table*"></a>
+
+  <h3 id="Postgrest_Interfaces_IPostgrestClient_Table__1" data-uid="Postgrest.Interfaces.IPostgrestClient.Table``1">
+  Table&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/Interfaces/IPostgrestClient.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a Table Query Builder instance for a defined model - representative of <code>USE $TABLE</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IPostgrestTable&lt;T&gt; Table&lt;T&gt;() where T : BaseModel, new()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html">IPostgrestTable</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Custom Model derived from <code>BaseModel</code></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Postgrest_Interfaces_IPostgrestClient_Table_" data-uid="Postgrest.Interfaces.IPostgrestClient.Table*"></a>
+
+  <h3 id="Postgrest_Interfaces_IPostgrestClient_Table__1_Postgrest_Interfaces_IPostgrestCacheProvider_" data-uid="Postgrest.Interfaces.IPostgrestClient.Table``1(Postgrest.Interfaces.IPostgrestCacheProvider)">
+  Table&lt;T&gt;(IPostgrestCacheProvider)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/Interfaces/IPostgrestClient.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a Table Query Builder instance with a Cache Provider for a defined model - representative of <code>USE #$TABLE</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IPostgrestTableWithCache&lt;T&gt; Table&lt;T&gt;(IPostgrestCacheProvider cacheProvider) where T : BaseModel, new()</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cacheProvider</code> <a class="xref" href="Postgrest.Interfaces.IPostgrestCacheProvider.html">IPostgrestCacheProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Postgrest.Interfaces.IPostgrestTableWithCache-1.html">IPostgrestTableWithCache</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/Interfaces/IPostgrestClient.cs/#L11" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

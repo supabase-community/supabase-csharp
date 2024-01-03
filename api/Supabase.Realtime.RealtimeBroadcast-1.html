@@ -1,411 +1,440 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class RealtimeBroadcast&lt;TBroadcastModel&gt;
-   </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class RealtimeBroadcast&lt;TBroadcastModel&gt;
-   ">
-    <meta name="generator" content="docfx 2.56.7.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    
+      <title>Class RealtimeBroadcast&lt;TBroadcastModel&gt;
+ | supabase-csharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RealtimeBroadcast&lt;TBroadcastModel&gt;
+ | supabase-csharp ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Realtime_RealtimeBroadcast_1.md&amp;value=---%0Auid%3A%20Supabase.Realtime.RealtimeBroadcast%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="supabase-csharp">
+            supabase-csharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
           </div>
         </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Supabase.Realtime.RealtimeBroadcast`1">
-  
-  
-  <h1 id="Supabase_Realtime_RealtimeBroadcast_1" data-uid="Supabase.Realtime.RealtimeBroadcast`1" class="text-break">Class RealtimeBroadcast&lt;TBroadcastModel&gt;
+
+        <article data-uid="Supabase.Realtime.RealtimeBroadcast`1">
+
+
+
+  <h1 id="Supabase_Realtime_RealtimeBroadcast_1" data-uid="Supabase.Realtime.RealtimeBroadcast`1" class="text-break">
+    Class RealtimeBroadcast&lt;TBroadcastModel&gt;
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/RealtimeBroadcast.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h1>
-  <div class="markdown level0 summary"><p>Represents a realtime broadcast client.</p>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Supabase.html">Supabase</a>.<a class="xref" href="Supabase.Realtime.html">Realtime</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Supabase.Realtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a realtime broadcast client.</p>
 <p>Broadcast follows the publish-subscribe pattern where a client publishes messages to a channel with a unique identifier.
 Other clients can elect to receive the message in real-time by subscribing to the channel with the same unique identifier. If these clients are online and subscribed then they will receive the message.</p>
 <p>Broadcast works by connecting your client to the nearest Realtime server, which will communicate with other servers to relay messages to other clients.
 A common use-case is sharing a user's cursor position with other clients in an online game.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">RealtimeBroadcast&lt;TBroadcastModel&gt;</span></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeBroadcast.html">IRealtimeBroadcast</a></div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Realtime.html">Supabase.Realtime</a></h6>
-  <h6><strong>Assembly</strong>: Supabase.Realtime.dll</h6>
-  <h5 id="Supabase_Realtime_RealtimeBroadcast_1_syntax">Syntax</h5>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class RealtimeBroadcast&lt;TBroadcastModel&gt; : object, IRealtimeBroadcast where TBroadcastModel : BaseBroadcast</code></pre>
+    <pre><code class="lang-csharp hljs">public class RealtimeBroadcast&lt;TBroadcastModel&gt; : IRealtimeBroadcast where TBroadcastModel : BaseBroadcast</code></pre>
   </div>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TBroadcastModel</span></td>
-        <td><p>A model representing expected payload.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="constructors">Constructors
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_RealtimeBroadcast_1__ctor_Supabase_Realtime_RealtimeChannel_Supabase_Realtime_Broadcast_BroadcastOptions_JsonSerializerSettings_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.RealtimeBroadcast%601.%23ctor(Supabase.Realtime.RealtimeChannel%2CSupabase.Realtime.Broadcast.BroadcastOptions%2CJsonSerializerSettings)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/RealtimeBroadcast.cs/#L53">View Source</a>
-  </span>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TBroadcastModel</code></dt>
+    <dd><p>A model representing expected payload.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">RealtimeBroadcast&lt;TBroadcastModel&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeBroadcast.html">IRealtimeBroadcast</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
   <a id="Supabase_Realtime_RealtimeBroadcast_1__ctor_" data-uid="Supabase.Realtime.RealtimeBroadcast`1.#ctor*"></a>
-  <h4 id="Supabase_Realtime_RealtimeBroadcast_1__ctor_Supabase_Realtime_RealtimeChannel_Supabase_Realtime_Broadcast_BroadcastOptions_JsonSerializerSettings_" data-uid="Supabase.Realtime.RealtimeBroadcast`1.#ctor(Supabase.Realtime.RealtimeChannel,Supabase.Realtime.Broadcast.BroadcastOptions,JsonSerializerSettings)">RealtimeBroadcast(RealtimeChannel, BroadcastOptions, JsonSerializerSettings)</h4>
+
+  <h3 id="Supabase_Realtime_RealtimeBroadcast_1__ctor_Supabase_Realtime_RealtimeChannel_Supabase_Realtime_Broadcast_BroadcastOptions_Newtonsoft_Json_JsonSerializerSettings_" data-uid="Supabase.Realtime.RealtimeBroadcast`1.#ctor(Supabase.Realtime.RealtimeChannel,Supabase.Realtime.Broadcast.BroadcastOptions,Newtonsoft.Json.JsonSerializerSettings)">
+  RealtimeBroadcast(RealtimeChannel, BroadcastOptions, JsonSerializerSettings)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/RealtimeBroadcast.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes a realtime broadcast helper class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public RealtimeBroadcast(RealtimeChannel channel, BroadcastOptions options, JsonSerializerSettings serializerSettings)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a></td>
-        <td><span class="parametername">channel</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.Broadcast.BroadcastOptions.html">BroadcastOptions</a></td>
-        <td><span class="parametername">options</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">JsonSerializerSettings</span></td>
-        <td><span class="parametername">serializerSettings</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_RealtimeBroadcast_1_AddBroadcastEventHandler_Supabase_Realtime_Interfaces_IRealtimeBroadcast_BroadcastEventHandler_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.RealtimeBroadcast%601.AddBroadcastEventHandler(Supabase.Realtime.Interfaces.IRealtimeBroadcast.BroadcastEventHandler)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/RealtimeBroadcast.cs/#L64">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>channel</code> <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a></dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="Supabase.Realtime.Broadcast.BroadcastOptions.html">BroadcastOptions</a></dt>
+    <dd></dd>
+    <dt><code>serializerSettings</code> <span class="xref">JsonSerializerSettings</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
   <a id="Supabase_Realtime_RealtimeBroadcast_1_AddBroadcastEventHandler_" data-uid="Supabase.Realtime.RealtimeBroadcast`1.AddBroadcastEventHandler*"></a>
-  <h4 id="Supabase_Realtime_RealtimeBroadcast_1_AddBroadcastEventHandler_Supabase_Realtime_Interfaces_IRealtimeBroadcast_BroadcastEventHandler_" data-uid="Supabase.Realtime.RealtimeBroadcast`1.AddBroadcastEventHandler(Supabase.Realtime.Interfaces.IRealtimeBroadcast.BroadcastEventHandler)">AddBroadcastEventHandler(IRealtimeBroadcast.BroadcastEventHandler)</h4>
+
+  <h3 id="Supabase_Realtime_RealtimeBroadcast_1_AddBroadcastEventHandler_Supabase_Realtime_Interfaces_IRealtimeBroadcast_BroadcastEventHandler_" data-uid="Supabase.Realtime.RealtimeBroadcast`1.AddBroadcastEventHandler(Supabase.Realtime.Interfaces.IRealtimeBroadcast.BroadcastEventHandler)">
+  AddBroadcastEventHandler(BroadcastEventHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/RealtimeBroadcast.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Adds a broadcast event listener.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void AddBroadcastEventHandler(IRealtimeBroadcast.BroadcastEventHandler broadcastEventHandler)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeBroadcast.BroadcastEventHandler.html">IRealtimeBroadcast.BroadcastEventHandler</a></td>
-        <td><span class="parametername">broadcastEventHandler</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_RealtimeBroadcast_1_ClearBroadcastEventHandlers.md&amp;value=---%0Auid%3A%20Supabase.Realtime.RealtimeBroadcast%601.ClearBroadcastEventHandlers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/RealtimeBroadcast.cs/#L83">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>broadcastEventHandler</code> <a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeBroadcast.html">IRealtimeBroadcast</a>.<a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeBroadcast.BroadcastEventHandler.html">BroadcastEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Realtime_RealtimeBroadcast_1_ClearBroadcastEventHandlers_" data-uid="Supabase.Realtime.RealtimeBroadcast`1.ClearBroadcastEventHandlers*"></a>
-  <h4 id="Supabase_Realtime_RealtimeBroadcast_1_ClearBroadcastEventHandlers" data-uid="Supabase.Realtime.RealtimeBroadcast`1.ClearBroadcastEventHandlers">ClearBroadcastEventHandlers()</h4>
+
+  <h3 id="Supabase_Realtime_RealtimeBroadcast_1_ClearBroadcastEventHandlers" data-uid="Supabase.Realtime.RealtimeBroadcast`1.ClearBroadcastEventHandlers">
+  ClearBroadcastEventHandlers()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/RealtimeBroadcast.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Clears all broadcast event listeners</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ClearBroadcastEventHandlers()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_RealtimeBroadcast_1_Current.md&amp;value=---%0Auid%3A%20Supabase.Realtime.RealtimeBroadcast%601.Current%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/RealtimeBroadcast.cs/#L35">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Realtime_RealtimeBroadcast_1_Current_" data-uid="Supabase.Realtime.RealtimeBroadcast`1.Current*"></a>
-  <h4 id="Supabase_Realtime_RealtimeBroadcast_1_Current" data-uid="Supabase.Realtime.RealtimeBroadcast`1.Current">Current()</h4>
+
+  <h3 id="Supabase_Realtime_RealtimeBroadcast_1_Current" data-uid="Supabase.Realtime.RealtimeBroadcast`1.Current">
+  Current()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/RealtimeBroadcast.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>The last received broadcast.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBroadcastModel Current()</code></pre>
+    <pre><code class="lang-csharp hljs">public TBroadcastModel? Current()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBroadcastModel</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_RealtimeBroadcast_1_RemoveBroadcastEventHandler_Supabase_Realtime_Interfaces_IRealtimeBroadcast_BroadcastEventHandler_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.RealtimeBroadcast%601.RemoveBroadcastEventHandler(Supabase.Realtime.Interfaces.IRealtimeBroadcast.BroadcastEventHandler)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/RealtimeBroadcast.cs/#L74">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TBroadcastModel</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Realtime_RealtimeBroadcast_1_RemoveBroadcastEventHandler_" data-uid="Supabase.Realtime.RealtimeBroadcast`1.RemoveBroadcastEventHandler*"></a>
-  <h4 id="Supabase_Realtime_RealtimeBroadcast_1_RemoveBroadcastEventHandler_Supabase_Realtime_Interfaces_IRealtimeBroadcast_BroadcastEventHandler_" data-uid="Supabase.Realtime.RealtimeBroadcast`1.RemoveBroadcastEventHandler(Supabase.Realtime.Interfaces.IRealtimeBroadcast.BroadcastEventHandler)">RemoveBroadcastEventHandler(IRealtimeBroadcast.BroadcastEventHandler)</h4>
+
+  <h3 id="Supabase_Realtime_RealtimeBroadcast_1_RemoveBroadcastEventHandler_Supabase_Realtime_Interfaces_IRealtimeBroadcast_BroadcastEventHandler_" data-uid="Supabase.Realtime.RealtimeBroadcast`1.RemoveBroadcastEventHandler(Supabase.Realtime.Interfaces.IRealtimeBroadcast.BroadcastEventHandler)">
+  RemoveBroadcastEventHandler(BroadcastEventHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/RealtimeBroadcast.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Removes a broadcast event listener.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void RemoveBroadcastEventHandler(IRealtimeBroadcast.BroadcastEventHandler broadcastEventHandler)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeBroadcast.BroadcastEventHandler.html">IRealtimeBroadcast.BroadcastEventHandler</a></td>
-        <td><span class="parametername">broadcastEventHandler</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_RealtimeBroadcast_1_Send_System_Nullable_System_String__System_Object_System_Int32_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.RealtimeBroadcast%601.Send(System.Nullable%7BSystem.String%7D%2CSystem.Object%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/RealtimeBroadcast.cs/#L113">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>broadcastEventHandler</code> <a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeBroadcast.html">IRealtimeBroadcast</a>.<a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeBroadcast.BroadcastEventHandler.html">BroadcastEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Realtime_RealtimeBroadcast_1_Send_" data-uid="Supabase.Realtime.RealtimeBroadcast`1.Send*"></a>
-  <h4 id="Supabase_Realtime_RealtimeBroadcast_1_Send_System_Nullable_System_String__System_Object_System_Int32_" data-uid="Supabase.Realtime.RealtimeBroadcast`1.Send(System.Nullable{System.String},System.Object,System.Int32)">Send(Nullable&lt;String&gt;, Object, Int32)</h4>
+
+  <h3 id="Supabase_Realtime_RealtimeBroadcast_1_Send_System_String_System_Object_System_Int32_" data-uid="Supabase.Realtime.RealtimeBroadcast`1.Send(System.String,System.Object,System.Int32)">
+  Send(string?, object, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/RealtimeBroadcast.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Broadcasts an arbitrary payload</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; Send(string? broadcastEventName, object payload, int timeoutMs = 10000)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">broadcastEventName</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">payload</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">timeoutMs</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_RealtimeBroadcast_1_TriggerReceived_Supabase_Realtime_Socket_SocketResponse_.md&amp;value=---%0Auid%3A%20Supabase.Realtime.RealtimeBroadcast%601.TriggerReceived(Supabase.Realtime.Socket.SocketResponse)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/RealtimeBroadcast.cs/#L97">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>broadcastEventName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>payload</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+    <dt><code>timeoutMs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Realtime_RealtimeBroadcast_1_TriggerReceived_" data-uid="Supabase.Realtime.RealtimeBroadcast`1.TriggerReceived*"></a>
-  <h4 id="Supabase_Realtime_RealtimeBroadcast_1_TriggerReceived_Supabase_Realtime_Socket_SocketResponse_" data-uid="Supabase.Realtime.RealtimeBroadcast`1.TriggerReceived(Supabase.Realtime.Socket.SocketResponse)">TriggerReceived(SocketResponse)</h4>
+
+  <h3 id="Supabase_Realtime_RealtimeBroadcast_1_TriggerReceived_Supabase_Realtime_Socket_SocketResponse_" data-uid="Supabase.Realtime.RealtimeBroadcast`1.TriggerReceived(Supabase.Realtime.Socket.SocketResponse)">
+  TriggerReceived(SocketResponse)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/RealtimeBroadcast.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Called by <a class="xref" href="Supabase.Realtime.RealtimeChannel.html">RealtimeChannel</a> when a broadcast event is received, then parsed/typed here.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void TriggerReceived(SocketResponse response)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.Socket.SocketResponse.html">SocketResponse</a></td>
-        <td><span class="parametername">response</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeBroadcast.html">IRealtimeBroadcast</a>
-  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>response</code> <a class="xref" href="Supabase.Realtime.Socket.SocketResponse.html">SocketResponse</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_RealtimeBroadcast_1.md&amp;value=---%0Auid%3A%20Supabase.Realtime.RealtimeBroadcast%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/RealtimeBroadcast.cs/#L23" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/RealtimeBroadcast.cs/#L23" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    </footer>
   </body>
 </html>

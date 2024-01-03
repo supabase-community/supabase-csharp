@@ -1,676 +1,773 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class User
-   </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class User
-   ">
-    <meta name="generator" content="docfx 2.56.7.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    
+      <title>Class User
+ | supabase-csharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class User
+ | supabase-csharp ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Gotrue_User.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="supabase-csharp">
+            supabase-csharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-        </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Supabase.Gotrue.User">
-  
-  
-  <h1 id="Supabase_Gotrue_User" data-uid="Supabase.Gotrue.User" class="text-break">Class User
-  </h1>
-  <div class="markdown level0 summary"><p>Represents a Gotrue User
-Ref: <a href="https://supabase.github.io/gotrue-js/interfaces/User.html">https://supabase.github.io/gotrue-js/interfaces/User.html</a></p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">User</span></div>
-      <div class="level2"><a class="xref" href="Supabase.Gotrue.Responses.GenerateLinkResponse.html">GenerateLinkResponse</a></div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Gotrue.html">Supabase.Gotrue</a></h6>
-  <h6><strong>Assembly</strong>: Supabase.Gotrue.dll</h6>
-  <h5 id="Supabase_Gotrue_User_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class User : object</code></pre>
-  </div>
-  <h3 id="properties">Properties
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/b07aa1327770f8e067e91c9e1d57c98fb42da75e/apiSpec/new?filename=Supabase_Gotrue_User_ActionLink.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User.ActionLink%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/b07aa1327770f8e067e91c9e1d57c98fb42da75e/Gotrue/User.cs/#L15">View Source</a>
-  </span>
-  <a id="Supabase_Gotrue_User_ActionLink_" data-uid="Supabase.Gotrue.User.ActionLink*"></a>
-  <h4 id="Supabase_Gotrue_User_ActionLink" data-uid="Supabase.Gotrue.User.ActionLink">ActionLink</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? ActionLink { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/b07aa1327770f8e067e91c9e1d57c98fb42da75e/apiSpec/new?filename=Supabase_Gotrue_User_AppMetadata.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User.AppMetadata%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/b07aa1327770f8e067e91c9e1d57c98fb42da75e/Gotrue/User.cs/#L18">View Source</a>
-  </span>
-  <a id="Supabase_Gotrue_User_AppMetadata_" data-uid="Supabase.Gotrue.User.AppMetadata*"></a>
-  <h4 id="Supabase_Gotrue_User_AppMetadata" data-uid="Supabase.Gotrue.User.AppMetadata">AppMetadata</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, object&gt; AppMetadata { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/b07aa1327770f8e067e91c9e1d57c98fb42da75e/apiSpec/new?filename=Supabase_Gotrue_User_Aud.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User.Aud%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/b07aa1327770f8e067e91c9e1d57c98fb42da75e/Gotrue/User.cs/#L21">View Source</a>
-  </span>
-  <a id="Supabase_Gotrue_User_Aud_" data-uid="Supabase.Gotrue.User.Aud*"></a>
-  <h4 id="Supabase_Gotrue_User_Aud" data-uid="Supabase.Gotrue.User.Aud">Aud</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? Aud { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/b07aa1327770f8e067e91c9e1d57c98fb42da75e/apiSpec/new?filename=Supabase_Gotrue_User_ConfirmationSentAt.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User.ConfirmationSentAt%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/b07aa1327770f8e067e91c9e1d57c98fb42da75e/Gotrue/User.cs/#L24">View Source</a>
-  </span>
-  <a id="Supabase_Gotrue_User_ConfirmationSentAt_" data-uid="Supabase.Gotrue.User.ConfirmationSentAt*"></a>
-  <h4 id="Supabase_Gotrue_User_ConfirmationSentAt" data-uid="Supabase.Gotrue.User.ConfirmationSentAt">ConfirmationSentAt</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime? ConfirmationSentAt { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/b07aa1327770f8e067e91c9e1d57c98fb42da75e/apiSpec/new?filename=Supabase_Gotrue_User_ConfirmedAt.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User.ConfirmedAt%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/b07aa1327770f8e067e91c9e1d57c98fb42da75e/Gotrue/User.cs/#L27">View Source</a>
-  </span>
-  <a id="Supabase_Gotrue_User_ConfirmedAt_" data-uid="Supabase.Gotrue.User.ConfirmedAt*"></a>
-  <h4 id="Supabase_Gotrue_User_ConfirmedAt" data-uid="Supabase.Gotrue.User.ConfirmedAt">ConfirmedAt</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime? ConfirmedAt { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/b07aa1327770f8e067e91c9e1d57c98fb42da75e/apiSpec/new?filename=Supabase_Gotrue_User_CreatedAt.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User.CreatedAt%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/b07aa1327770f8e067e91c9e1d57c98fb42da75e/Gotrue/User.cs/#L30">View Source</a>
-  </span>
-  <a id="Supabase_Gotrue_User_CreatedAt_" data-uid="Supabase.Gotrue.User.CreatedAt*"></a>
-  <h4 id="Supabase_Gotrue_User_CreatedAt" data-uid="Supabase.Gotrue.User.CreatedAt">CreatedAt</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime CreatedAt { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">DateTime</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/b07aa1327770f8e067e91c9e1d57c98fb42da75e/apiSpec/new?filename=Supabase_Gotrue_User_Email.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User.Email%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/b07aa1327770f8e067e91c9e1d57c98fb42da75e/Gotrue/User.cs/#L33">View Source</a>
-  </span>
-  <a id="Supabase_Gotrue_User_Email_" data-uid="Supabase.Gotrue.User.Email*"></a>
-  <h4 id="Supabase_Gotrue_User_Email" data-uid="Supabase.Gotrue.User.Email">Email</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? Email { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/b07aa1327770f8e067e91c9e1d57c98fb42da75e/apiSpec/new?filename=Supabase_Gotrue_User_EmailConfirmedAt.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User.EmailConfirmedAt%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/b07aa1327770f8e067e91c9e1d57c98fb42da75e/Gotrue/User.cs/#L36">View Source</a>
-  </span>
-  <a id="Supabase_Gotrue_User_EmailConfirmedAt_" data-uid="Supabase.Gotrue.User.EmailConfirmedAt*"></a>
-  <h4 id="Supabase_Gotrue_User_EmailConfirmedAt" data-uid="Supabase.Gotrue.User.EmailConfirmedAt">EmailConfirmedAt</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime? EmailConfirmedAt { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/b07aa1327770f8e067e91c9e1d57c98fb42da75e/apiSpec/new?filename=Supabase_Gotrue_User_Id.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User.Id%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/b07aa1327770f8e067e91c9e1d57c98fb42da75e/Gotrue/User.cs/#L39">View Source</a>
-  </span>
-  <a id="Supabase_Gotrue_User_Id_" data-uid="Supabase.Gotrue.User.Id*"></a>
-  <h4 id="Supabase_Gotrue_User_Id" data-uid="Supabase.Gotrue.User.Id">Id</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? Id { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/b07aa1327770f8e067e91c9e1d57c98fb42da75e/apiSpec/new?filename=Supabase_Gotrue_User_Identities.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User.Identities%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/b07aa1327770f8e067e91c9e1d57c98fb42da75e/Gotrue/User.cs/#L42">View Source</a>
-  </span>
-  <a id="Supabase_Gotrue_User_Identities_" data-uid="Supabase.Gotrue.User.Identities*"></a>
-  <h4 id="Supabase_Gotrue_User_Identities" data-uid="Supabase.Gotrue.User.Identities">Identities</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;UserIdentity&gt; Identities { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">List</span>&lt;<a class="xref" href="Supabase.Gotrue.UserIdentity.html">UserIdentity</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/b07aa1327770f8e067e91c9e1d57c98fb42da75e/apiSpec/new?filename=Supabase_Gotrue_User_InvitedAt.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User.InvitedAt%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/b07aa1327770f8e067e91c9e1d57c98fb42da75e/Gotrue/User.cs/#L45">View Source</a>
-  </span>
-  <a id="Supabase_Gotrue_User_InvitedAt_" data-uid="Supabase.Gotrue.User.InvitedAt*"></a>
-  <h4 id="Supabase_Gotrue_User_InvitedAt" data-uid="Supabase.Gotrue.User.InvitedAt">InvitedAt</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime? InvitedAt { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/b07aa1327770f8e067e91c9e1d57c98fb42da75e/apiSpec/new?filename=Supabase_Gotrue_User_LastSignInAt.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User.LastSignInAt%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/b07aa1327770f8e067e91c9e1d57c98fb42da75e/Gotrue/User.cs/#L48">View Source</a>
-  </span>
-  <a id="Supabase_Gotrue_User_LastSignInAt_" data-uid="Supabase.Gotrue.User.LastSignInAt*"></a>
-  <h4 id="Supabase_Gotrue_User_LastSignInAt" data-uid="Supabase.Gotrue.User.LastSignInAt">LastSignInAt</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime? LastSignInAt { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/b07aa1327770f8e067e91c9e1d57c98fb42da75e/apiSpec/new?filename=Supabase_Gotrue_User_Phone.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User.Phone%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/b07aa1327770f8e067e91c9e1d57c98fb42da75e/Gotrue/User.cs/#L51">View Source</a>
-  </span>
-  <a id="Supabase_Gotrue_User_Phone_" data-uid="Supabase.Gotrue.User.Phone*"></a>
-  <h4 id="Supabase_Gotrue_User_Phone" data-uid="Supabase.Gotrue.User.Phone">Phone</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? Phone { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/b07aa1327770f8e067e91c9e1d57c98fb42da75e/apiSpec/new?filename=Supabase_Gotrue_User_PhoneConfirmedAt.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User.PhoneConfirmedAt%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/b07aa1327770f8e067e91c9e1d57c98fb42da75e/Gotrue/User.cs/#L54">View Source</a>
-  </span>
-  <a id="Supabase_Gotrue_User_PhoneConfirmedAt_" data-uid="Supabase.Gotrue.User.PhoneConfirmedAt*"></a>
-  <h4 id="Supabase_Gotrue_User_PhoneConfirmedAt" data-uid="Supabase.Gotrue.User.PhoneConfirmedAt">PhoneConfirmedAt</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime? PhoneConfirmedAt { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/b07aa1327770f8e067e91c9e1d57c98fb42da75e/apiSpec/new?filename=Supabase_Gotrue_User_RecoverySentAt.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User.RecoverySentAt%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/b07aa1327770f8e067e91c9e1d57c98fb42da75e/Gotrue/User.cs/#L57">View Source</a>
-  </span>
-  <a id="Supabase_Gotrue_User_RecoverySentAt_" data-uid="Supabase.Gotrue.User.RecoverySentAt*"></a>
-  <h4 id="Supabase_Gotrue_User_RecoverySentAt" data-uid="Supabase.Gotrue.User.RecoverySentAt">RecoverySentAt</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime? RecoverySentAt { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/b07aa1327770f8e067e91c9e1d57c98fb42da75e/apiSpec/new?filename=Supabase_Gotrue_User_Role.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User.Role%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/b07aa1327770f8e067e91c9e1d57c98fb42da75e/Gotrue/User.cs/#L60">View Source</a>
-  </span>
-  <a id="Supabase_Gotrue_User_Role_" data-uid="Supabase.Gotrue.User.Role*"></a>
-  <h4 id="Supabase_Gotrue_User_Role" data-uid="Supabase.Gotrue.User.Role">Role</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? Role { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/b07aa1327770f8e067e91c9e1d57c98fb42da75e/apiSpec/new?filename=Supabase_Gotrue_User_UpdatedAt.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User.UpdatedAt%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/b07aa1327770f8e067e91c9e1d57c98fb42da75e/Gotrue/User.cs/#L63">View Source</a>
-  </span>
-  <a id="Supabase_Gotrue_User_UpdatedAt_" data-uid="Supabase.Gotrue.User.UpdatedAt*"></a>
-  <h4 id="Supabase_Gotrue_User_UpdatedAt" data-uid="Supabase.Gotrue.User.UpdatedAt">UpdatedAt</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime? UpdatedAt { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/gotrue-csharp/new/b07aa1327770f8e067e91c9e1d57c98fb42da75e/apiSpec/new?filename=Supabase_Gotrue_User_UserMetadata.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User.UserMetadata%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/gotrue-csharp/blob/b07aa1327770f8e067e91c9e1d57c98fb42da75e/Gotrue/User.cs/#L66">View Source</a>
-  </span>
-  <a id="Supabase_Gotrue_User_UserMetadata_" data-uid="Supabase.Gotrue.User.UserMetadata*"></a>
-  <h4 id="Supabase_Gotrue_User_UserMetadata" data-uid="Supabase.Gotrue.User.UserMetadata">UserMetadata</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, object&gt; UserMetadata { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-</article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/supabase-community/gotrue-csharp/new/b07aa1327770f8e067e91c9e1d57c98fb42da75e/apiSpec/new?filename=Supabase_Gotrue_User.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.User%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/supabase-community/gotrue-csharp/blob/b07aa1327770f8e067e91c9e1d57c98fb42da75e/Gotrue/User.cs/#L13" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
           </div>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-      </footer>
+
+        <article data-uid="Supabase.Gotrue.User">
+
+
+
+  <h1 id="Supabase_Gotrue_User" data-uid="Supabase.Gotrue.User" class="text-break">
+    Class User
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Supabase.html">Supabase</a>.<a class="xref" href="Supabase.Gotrue.html">Gotrue</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Supabase.Gotrue.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a Gotrue User
+Ref: <a href="https://supabase.github.io/gotrue-js/interfaces/User.html">https://supabase.github.io/gotrue-js/interfaces/User.html</a></p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class User</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">User</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Supabase.Gotrue.Responses.GenerateLinkResponse.html">GenerateLinkResponse</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Supabase.Core.Extensions.DictionaryExtensions.html#Supabase_Core_Extensions_DictionaryExtensions_MergeLeft__3___0_System_Collections_Generic_IDictionary___1___2____">DictionaryExtensions.MergeLeft&lt;T, K, V&gt;(T, params IDictionary&lt;K, V&gt;[])</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Supabase_Gotrue_User_ActionLink_" data-uid="Supabase.Gotrue.User.ActionLink*"></a>
+
+  <h3 id="Supabase_Gotrue_User_ActionLink" data-uid="Supabase.Gotrue.User.ActionLink">
+  ActionLink
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;action_link&quot;)]
+public string? ActionLink { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Gotrue_User_AppMetadata_" data-uid="Supabase.Gotrue.User.AppMetadata*"></a>
+
+  <h3 id="Supabase_Gotrue_User_AppMetadata" data-uid="Supabase.Gotrue.User.AppMetadata">
+  AppMetadata
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;app_metadata&quot;)]
+public Dictionary&lt;string, object&gt; AppMetadata { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Gotrue_User_Aud_" data-uid="Supabase.Gotrue.User.Aud*"></a>
+
+  <h3 id="Supabase_Gotrue_User_Aud" data-uid="Supabase.Gotrue.User.Aud">
+  Aud
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;aud&quot;)]
+public string? Aud { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Gotrue_User_ConfirmationSentAt_" data-uid="Supabase.Gotrue.User.ConfirmationSentAt*"></a>
+
+  <h3 id="Supabase_Gotrue_User_ConfirmationSentAt" data-uid="Supabase.Gotrue.User.ConfirmationSentAt">
+  ConfirmationSentAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;confirmation_sent_at&quot;)]
+public DateTime? ConfirmationSentAt { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Gotrue_User_ConfirmedAt_" data-uid="Supabase.Gotrue.User.ConfirmedAt*"></a>
+
+  <h3 id="Supabase_Gotrue_User_ConfirmedAt" data-uid="Supabase.Gotrue.User.ConfirmedAt">
+  ConfirmedAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;confirmed_at&quot;)]
+public DateTime? ConfirmedAt { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Gotrue_User_CreatedAt_" data-uid="Supabase.Gotrue.User.CreatedAt*"></a>
+
+  <h3 id="Supabase_Gotrue_User_CreatedAt" data-uid="Supabase.Gotrue.User.CreatedAt">
+  CreatedAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;created_at&quot;)]
+public DateTime CreatedAt { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Gotrue_User_Email_" data-uid="Supabase.Gotrue.User.Email*"></a>
+
+  <h3 id="Supabase_Gotrue_User_Email" data-uid="Supabase.Gotrue.User.Email">
+  Email
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;email&quot;)]
+public string? Email { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Gotrue_User_EmailConfirmedAt_" data-uid="Supabase.Gotrue.User.EmailConfirmedAt*"></a>
+
+  <h3 id="Supabase_Gotrue_User_EmailConfirmedAt" data-uid="Supabase.Gotrue.User.EmailConfirmedAt">
+  EmailConfirmedAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;email_confirmed_at&quot;)]
+public DateTime? EmailConfirmedAt { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Gotrue_User_Id_" data-uid="Supabase.Gotrue.User.Id*"></a>
+
+  <h3 id="Supabase_Gotrue_User_Id" data-uid="Supabase.Gotrue.User.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;id&quot;)]
+public string? Id { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Gotrue_User_Identities_" data-uid="Supabase.Gotrue.User.Identities*"></a>
+
+  <h3 id="Supabase_Gotrue_User_Identities" data-uid="Supabase.Gotrue.User.Identities">
+  Identities
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;identities&quot;)]
+public List&lt;UserIdentity&gt; Identities { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Supabase.Gotrue.UserIdentity.html">UserIdentity</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Gotrue_User_InvitedAt_" data-uid="Supabase.Gotrue.User.InvitedAt*"></a>
+
+  <h3 id="Supabase_Gotrue_User_InvitedAt" data-uid="Supabase.Gotrue.User.InvitedAt">
+  InvitedAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;invited_at&quot;)]
+public DateTime? InvitedAt { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Gotrue_User_LastSignInAt_" data-uid="Supabase.Gotrue.User.LastSignInAt*"></a>
+
+  <h3 id="Supabase_Gotrue_User_LastSignInAt" data-uid="Supabase.Gotrue.User.LastSignInAt">
+  LastSignInAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;last_sign_in_at&quot;)]
+public DateTime? LastSignInAt { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Gotrue_User_Phone_" data-uid="Supabase.Gotrue.User.Phone*"></a>
+
+  <h3 id="Supabase_Gotrue_User_Phone" data-uid="Supabase.Gotrue.User.Phone">
+  Phone
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;phone&quot;)]
+public string? Phone { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Gotrue_User_PhoneConfirmedAt_" data-uid="Supabase.Gotrue.User.PhoneConfirmedAt*"></a>
+
+  <h3 id="Supabase_Gotrue_User_PhoneConfirmedAt" data-uid="Supabase.Gotrue.User.PhoneConfirmedAt">
+  PhoneConfirmedAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;phone_confirmed_at&quot;)]
+public DateTime? PhoneConfirmedAt { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Gotrue_User_RecoverySentAt_" data-uid="Supabase.Gotrue.User.RecoverySentAt*"></a>
+
+  <h3 id="Supabase_Gotrue_User_RecoverySentAt" data-uid="Supabase.Gotrue.User.RecoverySentAt">
+  RecoverySentAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;recovery_sent_at&quot;)]
+public DateTime? RecoverySentAt { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Gotrue_User_Role_" data-uid="Supabase.Gotrue.User.Role*"></a>
+
+  <h3 id="Supabase_Gotrue_User_Role" data-uid="Supabase.Gotrue.User.Role">
+  Role
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;role&quot;)]
+public string? Role { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Gotrue_User_UpdatedAt_" data-uid="Supabase.Gotrue.User.UpdatedAt*"></a>
+
+  <h3 id="Supabase_Gotrue_User_UpdatedAt" data-uid="Supabase.Gotrue.User.UpdatedAt">
+  UpdatedAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;updated_at&quot;)]
+public DateTime? UpdatedAt { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Gotrue_User_UserMetadata_" data-uid="Supabase.Gotrue.User.UserMetadata*"></a>
+
+  <h3 id="Supabase_Gotrue_User_UserMetadata" data-uid="Supabase.Gotrue.User.UserMetadata">
+  UserMetadata
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;user_metadata&quot;)]
+public Dictionary&lt;string, object&gt; UserMetadata { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/gotrue-csharp/Gotrue/User.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

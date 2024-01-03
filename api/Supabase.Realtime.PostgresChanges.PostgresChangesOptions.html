@@ -1,353 +1,403 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class PostgresChangesOptions
-   </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class PostgresChangesOptions
-   ">
-    <meta name="generator" content="docfx 2.56.7.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    
+      <title>Class PostgresChangesOptions
+ | supabase-csharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PostgresChangesOptions
+ | supabase-csharp ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Realtime_PostgresChanges_PostgresChangesOptions.md&amp;value=---%0Auid%3A%20Supabase.Realtime.PostgresChanges.PostgresChangesOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="supabase-csharp">
+            supabase-csharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-        </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions">
-  
-  
-  <h1 id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions" class="text-break">Class PostgresChangesOptions
-  </h1>
-  <div class="markdown level0 summary"><p>Handles a <code>postgres_changes</code> channel</p>
-<p>For Example in the js client:</p>
-<p>const databaseFilter = {
-schema: 'public',
-table: 'messages',
-filter: <code>room_id=eq.${channelId}</code>,
-event: 'INSERT',
-}</p>
-<p>Would translate to:</p>
-<p>new PostgresChangesOptions(&quot;public&quot;, &quot;messages&quot;, $&quot;room_id=eq.{channelId}&quot;);</p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">PostgresChangesOptions</span></div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Supabase.Realtime.PostgresChanges.html">Supabase.Realtime.PostgresChanges</a></h6>
-  <h6><strong>Assembly</strong>: Supabase.Realtime.dll</h6>
-  <h5 id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PostgresChangesOptions : object</code></pre>
-  </div>
-  <h3 id="constructors">Constructors
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_PostgresChanges_PostgresChangesOptions__ctor_System_String_System_Nullable_System_String__Supabase_Realtime_PostgresChanges_PostgresChangesOptions_ListenType_System_Nullable_System_String__System_Nullable_Dictionary_System_String_System_String___.md&amp;value=---%0Auid%3A%20Supabase.Realtime.PostgresChanges.PostgresChangesOptions.%23ctor(System.String%2CSystem.Nullable%7BSystem.String%7D%2CSupabase.Realtime.PostgresChanges.PostgresChangesOptions.ListenType%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BDictionary%7BSystem.String%2CSystem.String%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/PostgresChanges/PostgresChangesOptions.cs/#L92">View Source</a>
-  </span>
-  <a id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions__ctor_" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.#ctor*"></a>
-  <h4 id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions__ctor_System_String_System_Nullable_System_String__Supabase_Realtime_PostgresChanges_PostgresChangesOptions_ListenType_System_Nullable_System_String__System_Nullable_Dictionary_System_String_System_String___" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.#ctor(System.String,System.Nullable{System.String},Supabase.Realtime.PostgresChanges.PostgresChangesOptions.ListenType,System.Nullable{System.String},System.Nullable{Dictionary{System.String,System.String}})">PostgresChangesOptions(String, Nullable&lt;String&gt;, PostgresChangesOptions.ListenType, Nullable&lt;String&gt;, Nullable&lt;Dictionary&lt;String, String&gt;&gt;)</h4>
-  <div class="markdown level1 summary"><p>Postgres changes options.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PostgresChangesOptions(string schema, string? table = null, PostgresChangesOptions.ListenType eventType = PostgresChangesOptions.ListenType.All, string? filter = null, Dictionary&lt;string, string&gt;? parameters = null)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">schema</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">table</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.ListenType.html">PostgresChangesOptions.ListenType</a></td>
-        <td><span class="parametername">eventType</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">filter</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
-        <td><span class="parametername">parameters</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Event.md&amp;value=---%0Auid%3A%20Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Event%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/PostgresChanges/PostgresChangesOptions.cs/#L79">View Source</a>
-  </span>
-  <a id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Event_" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Event*"></a>
-  <h4 id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Event" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Event">Event</h4>
-  <div class="markdown level1 summary"><p>The stringified event listener type</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Event { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Filter.md&amp;value=---%0Auid%3A%20Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Filter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/PostgresChanges/PostgresChangesOptions.cs/#L67">View Source</a>
-  </span>
-  <a id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Filter_" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Filter*"></a>
-  <h4 id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Filter" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Filter">Filter</h4>
-  <div class="markdown level1 summary"><p>The filter for this listener</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? Filter { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Parameters.md&amp;value=---%0Auid%3A%20Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Parameters%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/PostgresChanges/PostgresChangesOptions.cs/#L73">View Source</a>
-  </span>
-  <a id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Parameters_" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Parameters*"></a>
-  <h4 id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Parameters" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Parameters">Parameters</h4>
-  <div class="markdown level1 summary"><p>The parameters passed to the server</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, string&gt;? Parameters { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Schema.md&amp;value=---%0Auid%3A%20Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Schema%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/PostgresChanges/PostgresChangesOptions.cs/#L55">View Source</a>
-  </span>
-  <a id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Schema_" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Schema*"></a>
-  <h4 id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Schema" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Schema">Schema</h4>
-  <div class="markdown level1 summary"><p>The schema for this listener, likely: <code>public</code></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Schema { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Table.md&amp;value=---%0Auid%3A%20Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Table%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/PostgresChanges/PostgresChangesOptions.cs/#L61">View Source</a>
-  </span>
-  <a id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Table_" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Table*"></a>
-  <h4 id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Table" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Table">Table</h4>
-  <div class="markdown level1 summary"><p>The table for this listener, can be: <code>*</code> matching all tables in schema.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? Table { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-</article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/supabase-community/realtime-csharp/new/853c06c6b18e078cafe621bf0ada9e8cb01fee75/apiSpec/new?filename=Supabase_Realtime_PostgresChanges_PostgresChangesOptions.md&amp;value=---%0Auid%3A%20Supabase.Realtime.PostgresChanges.PostgresChangesOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/supabase-community/realtime-csharp/blob/853c06c6b18e078cafe621bf0ada9e8cb01fee75/Realtime/PostgresChanges/PostgresChangesOptions.cs/#L23" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
           </div>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-      </footer>
+
+        <article data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions">
+
+
+
+  <h1 id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions" class="text-break">
+    Class PostgresChangesOptions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/PostgresChanges/PostgresChangesOptions.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Supabase.html">Supabase</a>.<a class="xref" href="Supabase.Realtime.html">Realtime</a>.<a class="xref" href="Supabase.Realtime.PostgresChanges.html">PostgresChanges</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Supabase.Realtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Handles a <code>postgres_changes</code> channel</p>
+<p>For Example in the js client:</p>
+<pre><code>const databaseFilter = {
+	schema: 'public',
+	table: 'messages',
+	filter: `room_id=eq.${channelId}`,
+	event: 'INSERT',
+}
+</code></pre>
+<p>Would translate to:</p>
+<pre><code>new PostgresChangesOptions(&quot;public&quot;, &quot;messages&quot;, $&quot;room_id=eq.{channelId}&quot;);
+</code></pre>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class PostgresChangesOptions</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">PostgresChangesOptions</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions__ctor_" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.#ctor*"></a>
+
+  <h3 id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions__ctor_System_String_System_String_Supabase_Realtime_PostgresChanges_PostgresChangesOptions_ListenType_System_String_System_Collections_Generic_Dictionary_System_String_System_String__" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.#ctor(System.String,System.String,Supabase.Realtime.PostgresChanges.PostgresChangesOptions.ListenType,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+  PostgresChangesOptions(string, string?, ListenType, string?, Dictionary&lt;string, string&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/PostgresChanges/PostgresChangesOptions.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Postgres changes options.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PostgresChangesOptions(string schema, string? table = null, PostgresChangesOptions.ListenType eventType = ListenType.All, string? filter = null, Dictionary&lt;string, string&gt;? parameters = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>schema</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>table</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>eventType</code> <a class="xref" href="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.html">PostgresChangesOptions</a>.<a class="xref" href="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.ListenType.html">ListenType</a></dt>
+    <dd></dd>
+    <dt><code>filter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>parameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Event_" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Event*"></a>
+
+  <h3 id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Event" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Event">
+  Event
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/PostgresChanges/PostgresChangesOptions.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The stringified event listener type</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;event&quot;)]
+public string Event { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Filter_" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Filter*"></a>
+
+  <h3 id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Filter" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Filter">
+  Filter
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/PostgresChanges/PostgresChangesOptions.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The filter for this listener</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;filter&quot;, NullValueHandling = NullValueHandling.Ignore)]
+public string? Filter { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Parameters_" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Parameters*"></a>
+
+  <h3 id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Parameters" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Parameters">
+  Parameters
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/PostgresChanges/PostgresChangesOptions.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The parameters passed to the server</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;parameters&quot;, NullValueHandling = NullValueHandling.Ignore)]
+public Dictionary&lt;string, string&gt;? Parameters { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Schema_" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Schema*"></a>
+
+  <h3 id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Schema" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Schema">
+  Schema
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/PostgresChanges/PostgresChangesOptions.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The schema for this listener, likely: <code>public</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;schema&quot;)]
+public string Schema { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Table_" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Table*"></a>
+
+  <h3 id="Supabase_Realtime_PostgresChanges_PostgresChangesOptions_Table" data-uid="Supabase.Realtime.PostgresChanges.PostgresChangesOptions.Table">
+  Table
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/PostgresChanges/PostgresChangesOptions.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The table for this listener, can be: <code>*</code> matching all tables in schema.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;table&quot;)]
+public string? Table { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/realtime-csharp/Realtime/PostgresChanges/PostgresChangesOptions.cs/#L23" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
