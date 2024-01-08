@@ -10,6 +10,8 @@
 
 Documentation can be found [below](#getting-started), on the [Supabase Developer Documentation](https://supabase.com/docs/reference/csharp/introduction) and additionally in the [Generated API Docs](https://supabase-community.github.io/supabase-csharp/api/Supabase.Client.html).
 
+[**CHANGELOG is available in the repository root.**](https://github.com/supabase-community/supabase-csharp/blob/master/CHANGELOG.md)
+
 ## Features
 
 - [x] Integration with [Supabase.Realtime](https://github.com/supabase-community/realtime-csharp)
