@@ -24,6 +24,12 @@ jobs:
           check-name: build-and-test
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10
+          
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
 
       - name: Generate package
         run: dotnet pack ./Supabase/Supabase.csproj --configuration Release

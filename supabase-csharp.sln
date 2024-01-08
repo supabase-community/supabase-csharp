@@ -21,8 +21,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{5B805377-7615-441C-86B1-4BE203B0289B}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\build-documentation.yaml = .github\workflows\build-documentation.yaml
-		.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
 		.github\workflows\release.yml = .github\workflows\release.yml
+		.github\workflows\build-and-test.yml = .github\workflows\build-and-test.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{E407C761-AA9C-423C-AD1C-7EE687D3CAB9}"
