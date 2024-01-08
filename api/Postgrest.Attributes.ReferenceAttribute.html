@@ -262,9 +262,9 @@ public class ReferenceAttribute : Attribute</code></pre>
 
   <a id="Postgrest_Attributes_ReferenceAttribute__ctor_" data-uid="Postgrest.Attributes.ReferenceAttribute.#ctor*"></a>
 
-  <h3 id="Postgrest_Attributes_ReferenceAttribute__ctor_System_Type_Postgrest_Attributes_ReferenceAttribute_JoinType_System_Boolean_System_Boolean_System_Boolean_System_String_System_String_" data-uid="Postgrest.Attributes.ReferenceAttribute.#ctor(System.Type,Postgrest.Attributes.ReferenceAttribute.JoinType,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)">
-  ReferenceAttribute(Type, JoinType, bool, bool, bool, string, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/Attributes/ReferenceAttribute.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Postgrest_Attributes_ReferenceAttribute__ctor_System_Type_Postgrest_Attributes_ReferenceAttribute_JoinType_System_Boolean_System_String_System_String_" data-uid="Postgrest.Attributes.ReferenceAttribute.#ctor(System.Type,Postgrest.Attributes.ReferenceAttribute.JoinType,System.Boolean,System.String,System.String)">
+  ReferenceAttribute(Type, JoinType, bool, string, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/Attributes/ReferenceAttribute.cs/#L89"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Establishes a reference between two tables</p>
@@ -272,7 +272,7 @@ public class ReferenceAttribute : Attribute</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ReferenceAttribute(Type model, ReferenceAttribute.JoinType joinType, bool includeInQuery = true, bool ignoreOnInsert = true, bool ignoreOnUpdate = true, string columnName = &quot;&quot;, string? foreignKey = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public ReferenceAttribute(Type model, ReferenceAttribute.JoinType joinType, bool includeInQuery = true, string columnName = &quot;&quot;, string? foreignKey = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -285,12 +285,6 @@ public class ReferenceAttribute : Attribute</code></pre>
 </dd>
     <dt><code>includeInQuery</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Should referenced be included in queries?</p>
-</dd>
-    <dt><code>ignoreOnInsert</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>Should reference data be excluded from inserts/upserts?</p>
-</dd>
-    <dt><code>ignoreOnUpdate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>Should reference data be excluded from updates?</p>
 </dd>
     <dt><code>columnName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>Column this attribute references as specified in Postgres, DOES NOT need to be set if &lt;see cref=&quot;ForeignKey&quot;/&gt; is set.</p>
@@ -318,9 +312,9 @@ public class ReferenceAttribute : Attribute</code></pre>
 
   <a id="Postgrest_Attributes_ReferenceAttribute__ctor_" data-uid="Postgrest.Attributes.ReferenceAttribute.#ctor*"></a>
 
-  <h3 id="Postgrest_Attributes_ReferenceAttribute__ctor_System_Type_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_String_System_String_" data-uid="Postgrest.Attributes.ReferenceAttribute.#ctor(System.Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)">
-  ReferenceAttribute(Type, bool, bool, bool, bool, string?, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/Attributes/ReferenceAttribute.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Postgrest_Attributes_ReferenceAttribute__ctor_System_Type_System_Boolean_System_Boolean_System_String_System_String_" data-uid="Postgrest.Attributes.ReferenceAttribute.#ctor(System.Type,System.Boolean,System.Boolean,System.String,System.String)">
+  ReferenceAttribute(Type, bool, bool, string?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/Attributes/ReferenceAttribute.cs/#L103"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Establishes a reference between two tables</p>
@@ -328,7 +322,7 @@ public class ReferenceAttribute : Attribute</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ReferenceAttribute(Type model, bool includeInQuery = true, bool ignoreOnInsert = true, bool ignoreOnUpdate = true, bool useInnerJoin = true, string? columnName = null, string? foreignKey = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public ReferenceAttribute(Type model, bool includeInQuery = true, bool useInnerJoin = true, string? columnName = null, string? foreignKey = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -338,12 +332,6 @@ public class ReferenceAttribute : Attribute</code></pre>
 </dd>
     <dt><code>includeInQuery</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Should referenced be included in queries?</p>
-</dd>
-    <dt><code>ignoreOnInsert</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>Should reference data be excluded from inserts/upserts?</p>
-</dd>
-    <dt><code>ignoreOnUpdate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>Should reference data be excluded from updates?</p>
 </dd>
     <dt><code>useInnerJoin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>As to whether the query will filter top-level rows.</p>
@@ -673,7 +661,7 @@ public class ReferenceAttribute : Attribute</code></pre>
 
   <h3 id="Postgrest_Attributes_ReferenceAttribute_Equals_System_Object_" data-uid="Postgrest.Attributes.ReferenceAttribute.Equals(System.Object)">
   Equals(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/Attributes/ReferenceAttribute.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/modules/postgrest-csharp/Postgrest/Attributes/ReferenceAttribute.cs/#L152"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>

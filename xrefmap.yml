@@ -147,24 +147,24 @@ references:
   commentId: T:Postgrest.Attributes.ReferenceAttribute
   fullName: Postgrest.Attributes.ReferenceAttribute
   nameWithType: ReferenceAttribute
-- uid: Postgrest.Attributes.ReferenceAttribute.#ctor(System.Type,Postgrest.Attributes.ReferenceAttribute.JoinType,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)
-  name: ReferenceAttribute(Type, JoinType, bool, bool, bool, string, string?)
-  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute__ctor_System_Type_Postgrest_Attributes_ReferenceAttribute_JoinType_System_Boolean_System_Boolean_System_Boolean_System_String_System_String_
-  commentId: M:Postgrest.Attributes.ReferenceAttribute.#ctor(System.Type,Postgrest.Attributes.ReferenceAttribute.JoinType,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)
-  name.vb: New(Type, JoinType, Boolean, Boolean, Boolean, String, String)
-  fullName: Postgrest.Attributes.ReferenceAttribute.ReferenceAttribute(System.Type, Postgrest.Attributes.ReferenceAttribute.JoinType, bool, bool, bool, string, string?)
-  fullName.vb: Postgrest.Attributes.ReferenceAttribute.New(System.Type, Postgrest.Attributes.ReferenceAttribute.JoinType, Boolean, Boolean, Boolean, String, String)
-  nameWithType: ReferenceAttribute.ReferenceAttribute(Type, ReferenceAttribute.JoinType, bool, bool, bool, string, string?)
-  nameWithType.vb: ReferenceAttribute.New(Type, ReferenceAttribute.JoinType, Boolean, Boolean, Boolean, String, String)
-- uid: Postgrest.Attributes.ReferenceAttribute.#ctor(System.Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)
-  name: ReferenceAttribute(Type, bool, bool, bool, bool, string?, string?)
-  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute__ctor_System_Type_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_String_System_String_
-  commentId: M:Postgrest.Attributes.ReferenceAttribute.#ctor(System.Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)
-  name.vb: New(Type, Boolean, Boolean, Boolean, Boolean, String, String)
-  fullName: Postgrest.Attributes.ReferenceAttribute.ReferenceAttribute(System.Type, bool, bool, bool, bool, string?, string?)
-  fullName.vb: Postgrest.Attributes.ReferenceAttribute.New(System.Type, Boolean, Boolean, Boolean, Boolean, String, String)
-  nameWithType: ReferenceAttribute.ReferenceAttribute(Type, bool, bool, bool, bool, string?, string?)
-  nameWithType.vb: ReferenceAttribute.New(Type, Boolean, Boolean, Boolean, Boolean, String, String)
+- uid: Postgrest.Attributes.ReferenceAttribute.#ctor(System.Type,Postgrest.Attributes.ReferenceAttribute.JoinType,System.Boolean,System.String,System.String)
+  name: ReferenceAttribute(Type, JoinType, bool, string, string?)
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute__ctor_System_Type_Postgrest_Attributes_ReferenceAttribute_JoinType_System_Boolean_System_String_System_String_
+  commentId: M:Postgrest.Attributes.ReferenceAttribute.#ctor(System.Type,Postgrest.Attributes.ReferenceAttribute.JoinType,System.Boolean,System.String,System.String)
+  name.vb: New(Type, JoinType, Boolean, String, String)
+  fullName: Postgrest.Attributes.ReferenceAttribute.ReferenceAttribute(System.Type, Postgrest.Attributes.ReferenceAttribute.JoinType, bool, string, string?)
+  fullName.vb: Postgrest.Attributes.ReferenceAttribute.New(System.Type, Postgrest.Attributes.ReferenceAttribute.JoinType, Boolean, String, String)
+  nameWithType: ReferenceAttribute.ReferenceAttribute(Type, ReferenceAttribute.JoinType, bool, string, string?)
+  nameWithType.vb: ReferenceAttribute.New(Type, ReferenceAttribute.JoinType, Boolean, String, String)
+- uid: Postgrest.Attributes.ReferenceAttribute.#ctor(System.Type,System.Boolean,System.Boolean,System.String,System.String)
+  name: ReferenceAttribute(Type, bool, bool, string?, string?)
+  href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute__ctor_System_Type_System_Boolean_System_Boolean_System_String_System_String_
+  commentId: M:Postgrest.Attributes.ReferenceAttribute.#ctor(System.Type,System.Boolean,System.Boolean,System.String,System.String)
+  name.vb: New(Type, Boolean, Boolean, String, String)
+  fullName: Postgrest.Attributes.ReferenceAttribute.ReferenceAttribute(System.Type, bool, bool, string?, string?)
+  fullName.vb: Postgrest.Attributes.ReferenceAttribute.New(System.Type, Boolean, Boolean, String, String)
+  nameWithType: ReferenceAttribute.ReferenceAttribute(Type, bool, bool, string?, string?)
+  nameWithType.vb: ReferenceAttribute.New(Type, Boolean, Boolean, String, String)
 - uid: Postgrest.Attributes.ReferenceAttribute.#ctor*
   name: ReferenceAttribute
   href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute__ctor_
