@@ -1,19 +1,35 @@
 ﻿# Changelog
 
+## 0.16.0 - 2024-03-12
+
+- Update dependency: `postgrest-csharp@3.5.0`
+    - Re: [#78](https://github.com/supabase-community/postgrest-csharp/issues/78), Generalize query filtering creation
+      in `Table` so that it matches new generic signatures.
+    - Move from `QueryFilter` parameters to a more generic `IPosgrestQueryFilter` to support constructing new
+      QueryFilters from a LINQ expression.
+        - Note: Lists of `QueryFilter`s will now need to be defined
+          as: `new List<IPostgrestQueryFilter> { new QueryFilter(), ... }`
+    - Adjust serialization of timestamps within a `QueryFilter` to support `DateTime` and `DateTimeOffset` using the
+      ISO-8601 (https://stackoverflow.com/a/115002)
+- Update dependency: `functions-csharp@1.3.2`
+  - Re: [#5](https://github.com/supabase-community/functions-csharp/issues/5) Add support for specifying Http Timeout on a function call by adding `HttpTimeout` to `InvokeFunctionOptions`
+
 ## 0.15.0 - 2024-01-08
 
 - Update Dependency: `gotrue-csharp@4.2.6`
-  - [#83](https://github.com/supabase-community/gotrue-csharp/pull/83) Replaces JWTDecoder package with
-    System.IdentityModel.Tokens.Jwt. Thanks [@FantasyTeddy](https://github.com/FantasyTeddy)!
+    - [#83](https://github.com/supabase-community/gotrue-csharp/pull/83) Replaces JWTDecoder package with
+      System.IdentityModel.Tokens.Jwt. Thanks [@FantasyTeddy](https://github.com/FantasyTeddy)!
 - Update Dependency: `postgrest-csharp@3.4.1`
-  - Re: [#85](https://github.com/supabase-community/postgrest-csharp/issues/85) Fixes problem when using multiple .Order()
+    - Re: [#85](https://github.com/supabase-community/postgrest-csharp/issues/85) Fixes problem when using multiple
+      .Order()
       methods by merging [#86](https://github.com/supabase-community/postgrest-csharp/pull/86).
       Thanks [@hunsra](https://github.com/hunsra)!
-  - Re: [#81](https://github.com/supabase-community/postgrest-csharp/issues/81)
-      - [Minor] Removes `IgnoreOnInsert`and `IgnoreOnUpdate` from `ReferenceAttribute` as changing these properties
-        to `false` does not currently provide the expected functionality.
-      - Fixes `Insert` and `Update` not working on models that have `Reference` specified on a property with a non-null
-        value.
+    - Re: [#81](https://github.com/supabase-community/postgrest-csharp/issues/81)
+        - [Minor] Removes `IgnoreOnInsert`and `IgnoreOnUpdate` from `ReferenceAttribute` as changing these properties
+          to `false` does not currently provide the expected functionality.
+        - Fixes `Insert` and `Update` not working on models that have `Reference` specified on a property with a
+          non-null
+          value.
 
 ## 0.14.0 - 2023-12-15
 
