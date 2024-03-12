@@ -202,13 +202,13 @@ references:
   fullName: Postgrest.Attributes.ReferenceAttribute.Columns
   nameWithType: ReferenceAttribute.Columns
 - uid: Postgrest.Attributes.ReferenceAttribute.Equals(System.Object)
-  name: Equals(object)
+  name: Equals(object?)
   href: api/Postgrest.Attributes.ReferenceAttribute.html#Postgrest_Attributes_ReferenceAttribute_Equals_System_Object_
   commentId: M:Postgrest.Attributes.ReferenceAttribute.Equals(System.Object)
   name.vb: Equals(Object)
-  fullName: Postgrest.Attributes.ReferenceAttribute.Equals(object)
+  fullName: Postgrest.Attributes.ReferenceAttribute.Equals(object?)
   fullName.vb: Postgrest.Attributes.ReferenceAttribute.Equals(Object)
-  nameWithType: ReferenceAttribute.Equals(object)
+  nameWithType: ReferenceAttribute.Equals(object?)
   nameWithType.vb: ReferenceAttribute.Equals(Object)
 - uid: Postgrest.Attributes.ReferenceAttribute.Equals*
   name: Equals
@@ -1959,15 +1959,15 @@ references:
   fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of TModel)
   nameWithType: IPostgrestTable<TModel>
   nameWithType.vb: IPostgrestTable(Of TModel)
-- uid: Postgrest.Interfaces.IPostgrestTable`1.And(System.Collections.Generic.List{Postgrest.QueryFilter})
-  name: And(List<QueryFilter>)
-  href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_And_System_Collections_Generic_List_Postgrest_QueryFilter__
-  commentId: M:Postgrest.Interfaces.IPostgrestTable`1.And(System.Collections.Generic.List{Postgrest.QueryFilter})
-  name.vb: And(List(Of QueryFilter))
-  fullName: Postgrest.Interfaces.IPostgrestTable<TModel>.And(System.Collections.Generic.List<Postgrest.QueryFilter>)
-  fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of TModel).And(System.Collections.Generic.List(Of Postgrest.QueryFilter))
-  nameWithType: IPostgrestTable<TModel>.And(List<QueryFilter>)
-  nameWithType.vb: IPostgrestTable(Of TModel).And(List(Of QueryFilter))
+- uid: Postgrest.Interfaces.IPostgrestTable`1.And(System.Collections.Generic.List{Postgrest.Interfaces.IPostgrestQueryFilter})
+  name: And(List<IPostgrestQueryFilter>)
+  href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_And_System_Collections_Generic_List_Postgrest_Interfaces_IPostgrestQueryFilter__
+  commentId: M:Postgrest.Interfaces.IPostgrestTable`1.And(System.Collections.Generic.List{Postgrest.Interfaces.IPostgrestQueryFilter})
+  name.vb: And(List(Of IPostgrestQueryFilter))
+  fullName: Postgrest.Interfaces.IPostgrestTable<TModel>.And(System.Collections.Generic.List<Postgrest.Interfaces.IPostgrestQueryFilter>)
+  fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of TModel).And(System.Collections.Generic.List(Of Postgrest.Interfaces.IPostgrestQueryFilter))
+  nameWithType: IPostgrestTable<TModel>.And(List<IPostgrestQueryFilter>)
+  nameWithType.vb: IPostgrestTable(Of TModel).And(List(Of IPostgrestQueryFilter))
 - uid: Postgrest.Interfaces.IPostgrestTable`1.And*
   name: And
   href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_And_
@@ -2214,14 +2214,14 @@ references:
   fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of TModel).Match
   nameWithType: IPostgrestTable<TModel>.Match
   nameWithType.vb: IPostgrestTable(Of TModel).Match
-- uid: Postgrest.Interfaces.IPostgrestTable`1.Not(Postgrest.QueryFilter)
-  name: Not(QueryFilter)
-  href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Not_Postgrest_QueryFilter_
-  commentId: M:Postgrest.Interfaces.IPostgrestTable`1.Not(Postgrest.QueryFilter)
-  fullName: Postgrest.Interfaces.IPostgrestTable<TModel>.Not(Postgrest.QueryFilter)
-  fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of TModel).Not(Postgrest.QueryFilter)
-  nameWithType: IPostgrestTable<TModel>.Not(QueryFilter)
-  nameWithType.vb: IPostgrestTable(Of TModel).Not(QueryFilter)
+- uid: Postgrest.Interfaces.IPostgrestTable`1.Not(Postgrest.Interfaces.IPostgrestQueryFilter)
+  name: Not(IPostgrestQueryFilter)
+  href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Not_Postgrest_Interfaces_IPostgrestQueryFilter_
+  commentId: M:Postgrest.Interfaces.IPostgrestTable`1.Not(Postgrest.Interfaces.IPostgrestQueryFilter)
+  fullName: Postgrest.Interfaces.IPostgrestTable<TModel>.Not(Postgrest.Interfaces.IPostgrestQueryFilter)
+  fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of TModel).Not(Postgrest.Interfaces.IPostgrestQueryFilter)
+  nameWithType: IPostgrestTable<TModel>.Not(IPostgrestQueryFilter)
+  nameWithType.vb: IPostgrestTable(Of TModel).Not(IPostgrestQueryFilter)
 - uid: Postgrest.Interfaces.IPostgrestTable`1.Not(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},Postgrest.Constants.Operator,System.Collections.Generic.Dictionary{System.String,System.Object})
   name: Not(Expression<Func<TModel, object>>, Operator, Dictionary<string, object>)
   href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Not_System_Linq_Expressions_Expression_System_Func__0_System_Object___Postgrest_Constants_Operator_System_Collections_Generic_Dictionary_System_String_System_Object__
@@ -2330,15 +2330,15 @@ references:
   fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of TModel).OnConflict
   nameWithType: IPostgrestTable<TModel>.OnConflict
   nameWithType.vb: IPostgrestTable(Of TModel).OnConflict
-- uid: Postgrest.Interfaces.IPostgrestTable`1.Or(System.Collections.Generic.List{Postgrest.QueryFilter})
-  name: Or(List<QueryFilter>)
-  href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Or_System_Collections_Generic_List_Postgrest_QueryFilter__
-  commentId: M:Postgrest.Interfaces.IPostgrestTable`1.Or(System.Collections.Generic.List{Postgrest.QueryFilter})
-  name.vb: Or(List(Of QueryFilter))
-  fullName: Postgrest.Interfaces.IPostgrestTable<TModel>.Or(System.Collections.Generic.List<Postgrest.QueryFilter>)
-  fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of TModel).Or(System.Collections.Generic.List(Of Postgrest.QueryFilter))
-  nameWithType: IPostgrestTable<TModel>.Or(List<QueryFilter>)
-  nameWithType.vb: IPostgrestTable(Of TModel).Or(List(Of QueryFilter))
+- uid: Postgrest.Interfaces.IPostgrestTable`1.Or(System.Collections.Generic.List{Postgrest.Interfaces.IPostgrestQueryFilter})
+  name: Or(List<IPostgrestQueryFilter>)
+  href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Or_System_Collections_Generic_List_Postgrest_Interfaces_IPostgrestQueryFilter__
+  commentId: M:Postgrest.Interfaces.IPostgrestTable`1.Or(System.Collections.Generic.List{Postgrest.Interfaces.IPostgrestQueryFilter})
+  name.vb: Or(List(Of IPostgrestQueryFilter))
+  fullName: Postgrest.Interfaces.IPostgrestTable<TModel>.Or(System.Collections.Generic.List<Postgrest.Interfaces.IPostgrestQueryFilter>)
+  fullName.vb: Postgrest.Interfaces.IPostgrestTable(Of TModel).Or(System.Collections.Generic.List(Of Postgrest.Interfaces.IPostgrestQueryFilter))
+  nameWithType: IPostgrestTable<TModel>.Or(List<IPostgrestQueryFilter>)
+  nameWithType.vb: IPostgrestTable(Of TModel).Or(List(Of IPostgrestQueryFilter))
 - uid: Postgrest.Interfaces.IPostgrestTable`1.Or*
   name: Or
   href: api/Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Or_
@@ -2757,24 +2757,24 @@ references:
   commentId: T:Postgrest.QueryFilter
   fullName: Postgrest.QueryFilter
   nameWithType: QueryFilter
-- uid: Postgrest.QueryFilter.#ctor(Postgrest.Constants.Operator,Postgrest.QueryFilter)
-  name: QueryFilter(Operator, QueryFilter)
-  href: api/Postgrest.QueryFilter.html#Postgrest_QueryFilter__ctor_Postgrest_Constants_Operator_Postgrest_QueryFilter_
-  commentId: M:Postgrest.QueryFilter.#ctor(Postgrest.Constants.Operator,Postgrest.QueryFilter)
-  name.vb: New(Operator, QueryFilter)
-  fullName: Postgrest.QueryFilter.QueryFilter(Postgrest.Constants.Operator, Postgrest.QueryFilter)
-  fullName.vb: Postgrest.QueryFilter.New(Postgrest.Constants.Operator, Postgrest.QueryFilter)
-  nameWithType: QueryFilter.QueryFilter(Constants.Operator, QueryFilter)
-  nameWithType.vb: QueryFilter.New(Constants.Operator, QueryFilter)
-- uid: Postgrest.QueryFilter.#ctor(Postgrest.Constants.Operator,System.Collections.Generic.List{Postgrest.QueryFilter})
-  name: QueryFilter(Operator, List<QueryFilter>)
-  href: api/Postgrest.QueryFilter.html#Postgrest_QueryFilter__ctor_Postgrest_Constants_Operator_System_Collections_Generic_List_Postgrest_QueryFilter__
-  commentId: M:Postgrest.QueryFilter.#ctor(Postgrest.Constants.Operator,System.Collections.Generic.List{Postgrest.QueryFilter})
-  name.vb: New(Operator, List(Of QueryFilter))
-  fullName: Postgrest.QueryFilter.QueryFilter(Postgrest.Constants.Operator, System.Collections.Generic.List<Postgrest.QueryFilter>)
-  fullName.vb: Postgrest.QueryFilter.New(Postgrest.Constants.Operator, System.Collections.Generic.List(Of Postgrest.QueryFilter))
-  nameWithType: QueryFilter.QueryFilter(Constants.Operator, List<QueryFilter>)
-  nameWithType.vb: QueryFilter.New(Constants.Operator, List(Of QueryFilter))
+- uid: Postgrest.QueryFilter.#ctor(Postgrest.Constants.Operator,Postgrest.Interfaces.IPostgrestQueryFilter)
+  name: QueryFilter(Operator, IPostgrestQueryFilter)
+  href: api/Postgrest.QueryFilter.html#Postgrest_QueryFilter__ctor_Postgrest_Constants_Operator_Postgrest_Interfaces_IPostgrestQueryFilter_
+  commentId: M:Postgrest.QueryFilter.#ctor(Postgrest.Constants.Operator,Postgrest.Interfaces.IPostgrestQueryFilter)
+  name.vb: New(Operator, IPostgrestQueryFilter)
+  fullName: Postgrest.QueryFilter.QueryFilter(Postgrest.Constants.Operator, Postgrest.Interfaces.IPostgrestQueryFilter)
+  fullName.vb: Postgrest.QueryFilter.New(Postgrest.Constants.Operator, Postgrest.Interfaces.IPostgrestQueryFilter)
+  nameWithType: QueryFilter.QueryFilter(Constants.Operator, IPostgrestQueryFilter)
+  nameWithType.vb: QueryFilter.New(Constants.Operator, IPostgrestQueryFilter)
+- uid: Postgrest.QueryFilter.#ctor(Postgrest.Constants.Operator,System.Collections.Generic.List{Postgrest.Interfaces.IPostgrestQueryFilter})
+  name: QueryFilter(Operator, List<IPostgrestQueryFilter>)
+  href: api/Postgrest.QueryFilter.html#Postgrest_QueryFilter__ctor_Postgrest_Constants_Operator_System_Collections_Generic_List_Postgrest_Interfaces_IPostgrestQueryFilter__
+  commentId: M:Postgrest.QueryFilter.#ctor(Postgrest.Constants.Operator,System.Collections.Generic.List{Postgrest.Interfaces.IPostgrestQueryFilter})
+  name.vb: New(Operator, List(Of IPostgrestQueryFilter))
+  fullName: Postgrest.QueryFilter.QueryFilter(Postgrest.Constants.Operator, System.Collections.Generic.List<Postgrest.Interfaces.IPostgrestQueryFilter>)
+  fullName.vb: Postgrest.QueryFilter.New(Postgrest.Constants.Operator, System.Collections.Generic.List(Of Postgrest.Interfaces.IPostgrestQueryFilter))
+  nameWithType: QueryFilter.QueryFilter(Constants.Operator, List<IPostgrestQueryFilter>)
+  nameWithType.vb: QueryFilter.New(Constants.Operator, List(Of IPostgrestQueryFilter))
 - uid: Postgrest.QueryFilter.#ctor(System.String,Postgrest.Constants.Operator,Postgrest.FullTextSearchConfig)
   name: QueryFilter(string, Operator, FullTextSearchConfig)
   href: api/Postgrest.QueryFilter.html#Postgrest_QueryFilter__ctor_System_String_Postgrest_Constants_Operator_Postgrest_FullTextSearchConfig_
@@ -2793,24 +2793,6 @@ references:
   fullName.vb: Postgrest.QueryFilter.New(String, Postgrest.Constants.Operator, Postgrest.IntRange)
   nameWithType: QueryFilter.QueryFilter(string, Constants.Operator, IntRange)
   nameWithType.vb: QueryFilter.New(String, Constants.Operator, IntRange)
-- uid: Postgrest.QueryFilter.#ctor(System.String,Postgrest.Constants.Operator,System.Collections.Generic.Dictionary{System.String,System.Object})
-  name: QueryFilter(string, Operator, Dictionary<string, object>)
-  href: api/Postgrest.QueryFilter.html#Postgrest_QueryFilter__ctor_System_String_Postgrest_Constants_Operator_System_Collections_Generic_Dictionary_System_String_System_Object__
-  commentId: M:Postgrest.QueryFilter.#ctor(System.String,Postgrest.Constants.Operator,System.Collections.Generic.Dictionary{System.String,System.Object})
-  name.vb: New(String, Operator, Dictionary(Of String, Object))
-  fullName: Postgrest.QueryFilter.QueryFilter(string, Postgrest.Constants.Operator, System.Collections.Generic.Dictionary<string, object>)
-  fullName.vb: Postgrest.QueryFilter.New(String, Postgrest.Constants.Operator, System.Collections.Generic.Dictionary(Of String, Object))
-  nameWithType: QueryFilter.QueryFilter(string, Constants.Operator, Dictionary<string, object>)
-  nameWithType.vb: QueryFilter.New(String, Constants.Operator, Dictionary(Of String, Object))
-- uid: Postgrest.QueryFilter.#ctor(System.String,Postgrest.Constants.Operator,System.Collections.Generic.List{System.Object})
-  name: QueryFilter(string, Operator, List<object>)
-  href: api/Postgrest.QueryFilter.html#Postgrest_QueryFilter__ctor_System_String_Postgrest_Constants_Operator_System_Collections_Generic_List_System_Object__
-  commentId: M:Postgrest.QueryFilter.#ctor(System.String,Postgrest.Constants.Operator,System.Collections.Generic.List{System.Object})
-  name.vb: New(String, Operator, List(Of Object))
-  fullName: Postgrest.QueryFilter.QueryFilter(string, Postgrest.Constants.Operator, System.Collections.Generic.List<object>)
-  fullName.vb: Postgrest.QueryFilter.New(String, Postgrest.Constants.Operator, System.Collections.Generic.List(Of Object))
-  nameWithType: QueryFilter.QueryFilter(string, Constants.Operator, List<object>)
-  nameWithType.vb: QueryFilter.New(String, Constants.Operator, List(Of Object))
 - uid: Postgrest.QueryFilter.#ctor(System.String,Postgrest.Constants.Operator,System.Object)
   name: QueryFilter(string, Operator, object?)
   href: api/Postgrest.QueryFilter.html#Postgrest_QueryFilter__ctor_System_String_Postgrest_Constants_Operator_System_Object_
@@ -2875,6 +2857,85 @@ references:
   isSpec: "True"
   fullName: Postgrest.QueryFilter.Property
   nameWithType: QueryFilter.Property
+- uid: Postgrest.QueryFilter`2
+  name: QueryFilter<TModel, TCriterion>
+  href: api/Postgrest.QueryFilter-2.html
+  commentId: T:Postgrest.QueryFilter`2
+  name.vb: QueryFilter(Of TModel, TCriterion)
+  fullName: Postgrest.QueryFilter<TModel, TCriterion>
+  fullName.vb: Postgrest.QueryFilter(Of TModel, TCriterion)
+  nameWithType: QueryFilter<TModel, TCriterion>
+  nameWithType.vb: QueryFilter(Of TModel, TCriterion)
+- uid: Postgrest.QueryFilter`2.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},Postgrest.Constants.Operator,`1)
+  name: QueryFilter(Expression<Func<TModel, object>>, Operator, TCriterion?)
+  href: api/Postgrest.QueryFilter-2.html#Postgrest_QueryFilter_2__ctor_System_Linq_Expressions_Expression_System_Func__0_System_Object___Postgrest_Constants_Operator__1_
+  commentId: M:Postgrest.QueryFilter`2.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},Postgrest.Constants.Operator,`1)
+  name.vb: New(Expression(Of Func(Of TModel, Object)), Operator, TCriterion)
+  fullName: Postgrest.QueryFilter<TModel, TCriterion>.QueryFilter(System.Linq.Expressions.Expression<System.Func<TModel, object>>, Postgrest.Constants.Operator, TCriterion?)
+  fullName.vb: Postgrest.QueryFilter(Of TModel, TCriterion).New(System.Linq.Expressions.Expression(Of System.Func(Of TModel, Object)), Postgrest.Constants.Operator, TCriterion)
+  nameWithType: QueryFilter<TModel, TCriterion>.QueryFilter(Expression<Func<TModel, object>>, Constants.Operator, TCriterion?)
+  nameWithType.vb: QueryFilter(Of TModel, TCriterion).New(Expression(Of Func(Of TModel, Object)), Constants.Operator, TCriterion)
+- uid: Postgrest.QueryFilter`2.#ctor*
+  name: QueryFilter
+  href: api/Postgrest.QueryFilter-2.html#Postgrest_QueryFilter_2__ctor_
+  commentId: Overload:Postgrest.QueryFilter`2.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Postgrest.QueryFilter<TModel, TCriterion>.QueryFilter
+  fullName.vb: Postgrest.QueryFilter(Of TModel, TCriterion).New
+  nameWithType: QueryFilter<TModel, TCriterion>.QueryFilter
+  nameWithType.vb: QueryFilter(Of TModel, TCriterion).New
+- uid: Postgrest.QueryFilter`2.Criteria
+  name: Criteria
+  href: api/Postgrest.QueryFilter-2.html#Postgrest_QueryFilter_2_Criteria
+  commentId: P:Postgrest.QueryFilter`2.Criteria
+  fullName: Postgrest.QueryFilter<TModel, TCriterion>.Criteria
+  fullName.vb: Postgrest.QueryFilter(Of TModel, TCriterion).Criteria
+  nameWithType: QueryFilter<TModel, TCriterion>.Criteria
+  nameWithType.vb: QueryFilter(Of TModel, TCriterion).Criteria
+- uid: Postgrest.QueryFilter`2.Criteria*
+  name: Criteria
+  href: api/Postgrest.QueryFilter-2.html#Postgrest_QueryFilter_2_Criteria_
+  commentId: Overload:Postgrest.QueryFilter`2.Criteria
+  isSpec: "True"
+  fullName: Postgrest.QueryFilter<TModel, TCriterion>.Criteria
+  fullName.vb: Postgrest.QueryFilter(Of TModel, TCriterion).Criteria
+  nameWithType: QueryFilter<TModel, TCriterion>.Criteria
+  nameWithType.vb: QueryFilter(Of TModel, TCriterion).Criteria
+- uid: Postgrest.QueryFilter`2.Op
+  name: Op
+  href: api/Postgrest.QueryFilter-2.html#Postgrest_QueryFilter_2_Op
+  commentId: P:Postgrest.QueryFilter`2.Op
+  fullName: Postgrest.QueryFilter<TModel, TCriterion>.Op
+  fullName.vb: Postgrest.QueryFilter(Of TModel, TCriterion).Op
+  nameWithType: QueryFilter<TModel, TCriterion>.Op
+  nameWithType.vb: QueryFilter(Of TModel, TCriterion).Op
+- uid: Postgrest.QueryFilter`2.Op*
+  name: Op
+  href: api/Postgrest.QueryFilter-2.html#Postgrest_QueryFilter_2_Op_
+  commentId: Overload:Postgrest.QueryFilter`2.Op
+  isSpec: "True"
+  fullName: Postgrest.QueryFilter<TModel, TCriterion>.Op
+  fullName.vb: Postgrest.QueryFilter(Of TModel, TCriterion).Op
+  nameWithType: QueryFilter<TModel, TCriterion>.Op
+  nameWithType.vb: QueryFilter(Of TModel, TCriterion).Op
+- uid: Postgrest.QueryFilter`2.Property
+  name: Property
+  href: api/Postgrest.QueryFilter-2.html#Postgrest_QueryFilter_2_Property
+  commentId: P:Postgrest.QueryFilter`2.Property
+  fullName: Postgrest.QueryFilter<TModel, TCriterion>.Property
+  fullName.vb: Postgrest.QueryFilter(Of TModel, TCriterion).Property
+  nameWithType: QueryFilter<TModel, TCriterion>.Property
+  nameWithType.vb: QueryFilter(Of TModel, TCriterion).Property
+- uid: Postgrest.QueryFilter`2.Property*
+  name: Property
+  href: api/Postgrest.QueryFilter-2.html#Postgrest_QueryFilter_2_Property_
+  commentId: Overload:Postgrest.QueryFilter`2.Property
+  isSpec: "True"
+  fullName: Postgrest.QueryFilter<TModel, TCriterion>.Property
+  fullName.vb: Postgrest.QueryFilter(Of TModel, TCriterion).Property
+  nameWithType: QueryFilter<TModel, TCriterion>.Property
+  nameWithType.vb: QueryFilter(Of TModel, TCriterion).Property
 - uid: Postgrest.QueryOptions
   name: QueryOptions
   href: api/Postgrest.QueryOptions.html
@@ -3468,15 +3529,15 @@ references:
   fullName.vb: Postgrest.Table(Of TModel).New
   nameWithType: Table<TModel>.Table
   nameWithType.vb: Table(Of TModel).New
-- uid: Postgrest.Table`1.And(System.Collections.Generic.List{Postgrest.QueryFilter})
-  name: And(List<QueryFilter>)
-  href: api/Postgrest.Table-1.html#Postgrest_Table_1_And_System_Collections_Generic_List_Postgrest_QueryFilter__
-  commentId: M:Postgrest.Table`1.And(System.Collections.Generic.List{Postgrest.QueryFilter})
-  name.vb: And(List(Of QueryFilter))
-  fullName: Postgrest.Table<TModel>.And(System.Collections.Generic.List<Postgrest.QueryFilter>)
-  fullName.vb: Postgrest.Table(Of TModel).And(System.Collections.Generic.List(Of Postgrest.QueryFilter))
-  nameWithType: Table<TModel>.And(List<QueryFilter>)
-  nameWithType.vb: Table(Of TModel).And(List(Of QueryFilter))
+- uid: Postgrest.Table`1.And(System.Collections.Generic.List{Postgrest.Interfaces.IPostgrestQueryFilter})
+  name: And(List<IPostgrestQueryFilter>)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_And_System_Collections_Generic_List_Postgrest_Interfaces_IPostgrestQueryFilter__
+  commentId: M:Postgrest.Table`1.And(System.Collections.Generic.List{Postgrest.Interfaces.IPostgrestQueryFilter})
+  name.vb: And(List(Of IPostgrestQueryFilter))
+  fullName: Postgrest.Table<TModel>.And(System.Collections.Generic.List<Postgrest.Interfaces.IPostgrestQueryFilter>)
+  fullName.vb: Postgrest.Table(Of TModel).And(System.Collections.Generic.List(Of Postgrest.Interfaces.IPostgrestQueryFilter))
+  nameWithType: Table<TModel>.And(List<IPostgrestQueryFilter>)
+  nameWithType.vb: Table(Of TModel).And(List(Of IPostgrestQueryFilter))
 - uid: Postgrest.Table`1.And*
   name: And
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_And_
@@ -3740,14 +3801,14 @@ references:
   fullName.vb: Postgrest.Table(Of TModel).Match
   nameWithType: Table<TModel>.Match
   nameWithType.vb: Table(Of TModel).Match
-- uid: Postgrest.Table`1.Not(Postgrest.QueryFilter)
-  name: Not(QueryFilter)
-  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Not_Postgrest_QueryFilter_
-  commentId: M:Postgrest.Table`1.Not(Postgrest.QueryFilter)
-  fullName: Postgrest.Table<TModel>.Not(Postgrest.QueryFilter)
-  fullName.vb: Postgrest.Table(Of TModel).Not(Postgrest.QueryFilter)
-  nameWithType: Table<TModel>.Not(QueryFilter)
-  nameWithType.vb: Table(Of TModel).Not(QueryFilter)
+- uid: Postgrest.Table`1.Not(Postgrest.Interfaces.IPostgrestQueryFilter)
+  name: Not(IPostgrestQueryFilter)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Not_Postgrest_Interfaces_IPostgrestQueryFilter_
+  commentId: M:Postgrest.Table`1.Not(Postgrest.Interfaces.IPostgrestQueryFilter)
+  fullName: Postgrest.Table<TModel>.Not(Postgrest.Interfaces.IPostgrestQueryFilter)
+  fullName.vb: Postgrest.Table(Of TModel).Not(Postgrest.Interfaces.IPostgrestQueryFilter)
+  nameWithType: Table<TModel>.Not(IPostgrestQueryFilter)
+  nameWithType.vb: Table(Of TModel).Not(IPostgrestQueryFilter)
 - uid: Postgrest.Table`1.Not(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},Postgrest.Constants.Operator,System.Collections.Generic.Dictionary{System.String,System.Object})
   name: Not(Expression<Func<TModel, object>>, Operator, Dictionary<string, object>)
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_Not_System_Linq_Expressions_Expression_System_Func__0_System_Object___Postgrest_Constants_Operator_System_Collections_Generic_Dictionary_System_String_System_Object__
@@ -3856,15 +3917,15 @@ references:
   fullName.vb: Postgrest.Table(Of TModel).OnConflict
   nameWithType: Table<TModel>.OnConflict
   nameWithType.vb: Table(Of TModel).OnConflict
-- uid: Postgrest.Table`1.Or(System.Collections.Generic.List{Postgrest.QueryFilter})
-  name: Or(List<QueryFilter>)
-  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Or_System_Collections_Generic_List_Postgrest_QueryFilter__
-  commentId: M:Postgrest.Table`1.Or(System.Collections.Generic.List{Postgrest.QueryFilter})
-  name.vb: Or(List(Of QueryFilter))
-  fullName: Postgrest.Table<TModel>.Or(System.Collections.Generic.List<Postgrest.QueryFilter>)
-  fullName.vb: Postgrest.Table(Of TModel).Or(System.Collections.Generic.List(Of Postgrest.QueryFilter))
-  nameWithType: Table<TModel>.Or(List<QueryFilter>)
-  nameWithType.vb: Table(Of TModel).Or(List(Of QueryFilter))
+- uid: Postgrest.Table`1.Or(System.Collections.Generic.List{Postgrest.Interfaces.IPostgrestQueryFilter})
+  name: Or(List<IPostgrestQueryFilter>)
+  href: api/Postgrest.Table-1.html#Postgrest_Table_1_Or_System_Collections_Generic_List_Postgrest_Interfaces_IPostgrestQueryFilter__
+  commentId: M:Postgrest.Table`1.Or(System.Collections.Generic.List{Postgrest.Interfaces.IPostgrestQueryFilter})
+  name.vb: Or(List(Of IPostgrestQueryFilter))
+  fullName: Postgrest.Table<TModel>.Or(System.Collections.Generic.List<Postgrest.Interfaces.IPostgrestQueryFilter>)
+  fullName.vb: Postgrest.Table(Of TModel).Or(System.Collections.Generic.List(Of Postgrest.Interfaces.IPostgrestQueryFilter))
+  nameWithType: Table<TModel>.Or(List<IPostgrestQueryFilter>)
+  nameWithType.vb: Table(Of TModel).Or(List(Of IPostgrestQueryFilter))
 - uid: Postgrest.Table`1.Or*
   name: Or
   href: api/Postgrest.Table-1.html#Postgrest_Table_1_Or_
@@ -4595,6 +4656,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Functions.Client.InvokeFunctionOptions.Headers
   nameWithType: Client.InvokeFunctionOptions.Headers
+- uid: Supabase.Functions.Client.InvokeFunctionOptions.HttpTimeout
+  name: HttpTimeout
+  href: api/Supabase.Functions.Client.InvokeFunctionOptions.html#Supabase_Functions_Client_InvokeFunctionOptions_HttpTimeout
+  commentId: P:Supabase.Functions.Client.InvokeFunctionOptions.HttpTimeout
+  fullName: Supabase.Functions.Client.InvokeFunctionOptions.HttpTimeout
+  nameWithType: Client.InvokeFunctionOptions.HttpTimeout
+- uid: Supabase.Functions.Client.InvokeFunctionOptions.HttpTimeout*
+  name: HttpTimeout
+  href: api/Supabase.Functions.Client.InvokeFunctionOptions.html#Supabase_Functions_Client_InvokeFunctionOptions_HttpTimeout_
+  commentId: Overload:Supabase.Functions.Client.InvokeFunctionOptions.HttpTimeout
+  isSpec: "True"
+  fullName: Supabase.Functions.Client.InvokeFunctionOptions.HttpTimeout
+  nameWithType: Client.InvokeFunctionOptions.HttpTimeout
 - uid: Supabase.Functions.Client.Invoke``1(System.String,System.String,Supabase.Functions.Client.InvokeFunctionOptions)
   name: Invoke<T>(string, string?, InvokeFunctionOptions?)
   href: api/Supabase.Functions.Client.html#Supabase_Functions_Client_Invoke__1_System_String_System_String_Supabase_Functions_Client_InvokeFunctionOptions_

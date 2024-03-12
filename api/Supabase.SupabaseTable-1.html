@@ -2,12 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class SupabaseTable&lt;TModel&gt;
- | supabase-csharp </title>
+      <title>Class SupabaseTable&lt;TModel&gt; | supabase-csharp </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class SupabaseTable&lt;TModel&gt;
- | supabase-csharp ">
+      <meta name="title" content="Class SupabaseTable&lt;TModel&gt; | supabase-csharp ">
       
+      <meta name="description" content="A Supabase wrapper for a Postgrest Table.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -17,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/supabase-community/supabase-csharp/new/release/0.15.0/apiSpec/new?filename=Supabase_SupabaseTable_1.md&amp;value=---%0Auid%3A%20Supabase.SupabaseTable%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_SupabaseTable_1.md&amp;value=---%0Auid%3A%20Supabase.SupabaseTable%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -90,8 +89,7 @@
 
 
   <h1 id="Supabase_SupabaseTable_1" data-uid="Supabase.SupabaseTable`1" class="text-break">
-    Class SupabaseTable&lt;TModel&gt;
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/release/0.15.0/Supabase/SupabaseTable.cs/#L18"><i class="bi bi-code-slash"></i></a>
+Class SupabaseTable&lt;TModel&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/SupabaseTable.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -135,7 +133,7 @@
   </dl>
 
 
-  <dl class="typelist derived">
+  <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
     <div>
@@ -145,7 +143,7 @@
       <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Filter__1_System_String_Postgrest_Constants_Operator___0_">Table&lt;TModel&gt;.Filter&lt;TCriterion&gt;(string, Constants.Operator, TCriterion)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Not_Postgrest_QueryFilter_">Table&lt;TModel&gt;.Not(QueryFilter)</a>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Not_Postgrest_Interfaces_IPostgrestQueryFilter_">Table&lt;TModel&gt;.Not(IPostgrestQueryFilter)</a>
     </div>
     <div>
       <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Not__1_System_String_Postgrest_Constants_Operator___0_">Table&lt;TModel&gt;.Not&lt;TCriterion&gt;(string, Constants.Operator, TCriterion)</a>
@@ -166,10 +164,10 @@
       <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Not_System_Linq_Expressions_Expression_System_Func__0_System_Object___Postgrest_Constants_Operator_System_Collections_Generic_Dictionary_System_String_System_Object__">Table&lt;TModel&gt;.Not(Expression&lt;Func&lt;TModel, object&gt;&gt;, Constants.Operator, Dictionary&lt;string, object&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_And_System_Collections_Generic_List_Postgrest_QueryFilter__">Table&lt;TModel&gt;.And(List&lt;QueryFilter&gt;)</a>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_And_System_Collections_Generic_List_Postgrest_Interfaces_IPostgrestQueryFilter__">Table&lt;TModel&gt;.And(List&lt;IPostgrestQueryFilter&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Or_System_Collections_Generic_List_Postgrest_QueryFilter__">Table&lt;TModel&gt;.Or(List&lt;QueryFilter&gt;)</a>
+      <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Or_System_Collections_Generic_List_Postgrest_Interfaces_IPostgrestQueryFilter__">Table&lt;TModel&gt;.Or(List&lt;IPostgrestQueryFilter&gt;)</a>
     </div>
     <div>
       <a class="xref" href="Postgrest.Table-1.html#Postgrest_Table_1_Match__0_">Table&lt;TModel&gt;.Match(TModel)</a>
@@ -309,7 +307,7 @@
 
   <h3 id="Supabase_SupabaseTable_1__ctor_Postgrest_Interfaces_IPostgrestClient_Supabase_Realtime_Interfaces_IRealtimeClient_Supabase_Realtime_RealtimeSocket_Supabase_Realtime_RealtimeChannel__System_String_" data-uid="Supabase.SupabaseTable`1.#ctor(Postgrest.Interfaces.IPostgrestClient,Supabase.Realtime.Interfaces.IRealtimeClient{Supabase.Realtime.RealtimeSocket,Supabase.Realtime.RealtimeChannel},System.String)">
   SupabaseTable(IPostgrestClient, IRealtimeClient&lt;RealtimeSocket, RealtimeChannel&gt;, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/release/0.15.0/Supabase/SupabaseTable.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/SupabaseTable.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A Supabase wrapper for a Postgrest table.</p>
@@ -349,7 +347,7 @@
 
   <h3 id="Supabase_SupabaseTable_1_On_Supabase_Realtime_PostgresChanges_PostgresChangesOptions_ListenType_Supabase_Realtime_Interfaces_IRealtimeChannel_PostgresChangesHandler_" data-uid="Supabase.SupabaseTable`1.On(Supabase.Realtime.PostgresChanges.PostgresChangesOptions.ListenType,Supabase.Realtime.Interfaces.IRealtimeChannel.PostgresChangesHandler)">
   On(ListenType, PostgresChangesHandler)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/release/0.15.0/Supabase/SupabaseTable.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/SupabaseTable.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Add a realtime listener to this table.</p>
@@ -388,7 +386,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/supabase-community/supabase-csharp/blob/release/0.15.0/Supabase/SupabaseTable.cs/#L18" class="edit-link">Edit this page</a>
+          <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/SupabaseTable.cs/#L18" class="edit-link">Edit this page</a>
         </div>
 
 

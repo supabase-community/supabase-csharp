@@ -2,12 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class Client.InvokeFunctionOptions
- | supabase-csharp </title>
+      <title>Class Client.InvokeFunctionOptions | supabase-csharp </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class Client.InvokeFunctionOptions
- | supabase-csharp ">
+      <meta name="title" content="Class Client.InvokeFunctionOptions | supabase-csharp ">
       
+      <meta name="description" content="Options that can be supplied to a function invocation. Note: If Headers.Authorization is set, it can be later overriden if a token is supplied in the method call.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -17,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/supabase-community/supabase-csharp/new/release/0.15.0/apiSpec/new?filename=Supabase_Functions_Client_InvokeFunctionOptions.md&amp;value=---%0Auid%3A%20Supabase.Functions.Client.InvokeFunctionOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/supabase-community/functions-csharp/new/master/apiSpec/new?filename=Supabase_Functions_Client_InvokeFunctionOptions.md&amp;value=---%0Auid%3A%20Supabase.Functions.Client.InvokeFunctionOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -90,8 +89,7 @@
 
 
   <h1 id="Supabase_Functions_Client_InvokeFunctionOptions" data-uid="Supabase.Functions.Client.InvokeFunctionOptions" class="text-break">
-    Class Client.InvokeFunctionOptions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/release/0.15.0/modules/functions-csharp/Functions/InvokeFunctionOptions.cs/#L14"><i class="bi bi-code-slash"></i></a>
+Class Client.InvokeFunctionOptions  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/functions-csharp/blob/master/Functions/InvokeFunctionOptions.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -121,7 +119,7 @@
 
 
 
-  <dl class="typelist derived">
+  <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
     <div>
@@ -167,7 +165,7 @@
 
   <h3 id="Supabase_Functions_Client_InvokeFunctionOptions_Body" data-uid="Supabase.Functions.Client.InvokeFunctionOptions.Body">
   Body
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/release/0.15.0/modules/functions-csharp/Functions/InvokeFunctionOptions.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/functions-csharp/blob/master/Functions/InvokeFunctionOptions.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Body of the Request</p>
@@ -200,7 +198,7 @@ public Dictionary&lt;string, object&gt; Body { get; set; }</code></pre>
 
   <h3 id="Supabase_Functions_Client_InvokeFunctionOptions_Headers" data-uid="Supabase.Functions.Client.InvokeFunctionOptions.Headers">
   Headers
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/release/0.15.0/modules/functions-csharp/Functions/InvokeFunctionOptions.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/functions-csharp/blob/master/Functions/InvokeFunctionOptions.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Headers to be included on the request.</p>
@@ -228,11 +226,44 @@ public Dictionary&lt;string, object&gt; Body { get; set; }</code></pre>
 
 
 
+  <a id="Supabase_Functions_Client_InvokeFunctionOptions_HttpTimeout_" data-uid="Supabase.Functions.Client.InvokeFunctionOptions.HttpTimeout*"></a>
+
+  <h3 id="Supabase_Functions_Client_InvokeFunctionOptions_HttpTimeout" data-uid="Supabase.Functions.Client.InvokeFunctionOptions.HttpTimeout">
+  HttpTimeout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/functions-csharp/blob/master/Functions/InvokeFunctionOptions.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Timout value for HttpClient Requests, defaults to 100s.
+<a href="https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient.timeout?view=net-8.0#remarks">https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient.timeout?view=net-8.0#remarks</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan HttpTimeout { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/supabase-community/supabase-csharp/blob/release/0.15.0/modules/functions-csharp/Functions/InvokeFunctionOptions.cs/#L14" class="edit-link">Edit this page</a>
+          <a href="https://github.com/supabase-community/functions-csharp/blob/master/Functions/InvokeFunctionOptions.cs/#L14" class="edit-link">Edit this page</a>
         </div>
 
 
