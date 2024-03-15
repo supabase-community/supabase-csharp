@@ -419,11 +419,59 @@ Interface IPostgrestClient  <a class="header-action link-secondary" title="View 
 
 
 
+  <a id="Postgrest_Interfaces_IPostgrestClient_Rpc_" data-uid="Postgrest.Interfaces.IPostgrestClient.Rpc*"></a>
+
+  <h3 id="Postgrest_Interfaces_IPostgrestClient_Rpc__1_System_String_System_Object_" data-uid="Postgrest.Interfaces.IPostgrestClient.Rpc``1(System.String,System.Object)">
+  Rpc&lt;TModeledResponse&gt;(string, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/postgrest-csharp/blob/master/Postgrest/Interfaces/IPostgrestClient.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Perform a stored procedure call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;TModeledResponse?&gt; Rpc&lt;TModeledResponse&gt;(string procedureName, object? parameters = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>procedureName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The function name to call</p>
+</dd>
+    <dt><code>parameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The parameters to pass to the function call</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TModeledResponse&gt;</dt>
+    <dd><p>A hydrated model</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TModeledResponse</code></dt>
+    <dd><p>A type used for hydrating the HTTP response content (hydration through JSON.NET)</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="Postgrest_Interfaces_IPostgrestClient_Table_" data-uid="Postgrest.Interfaces.IPostgrestClient.Table*"></a>
 
   <h3 id="Postgrest_Interfaces_IPostgrestClient_Table__1" data-uid="Postgrest.Interfaces.IPostgrestClient.Table``1">
   Table&lt;T&gt;()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/postgrest-csharp/blob/master/Postgrest/Interfaces/IPostgrestClient.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/postgrest-csharp/blob/master/Postgrest/Interfaces/IPostgrestClient.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a Table Query Builder instance for a defined model - representative of <code>USE $TABLE</code></p>
@@ -461,7 +509,7 @@ Interface IPostgrestClient  <a class="header-action link-secondary" title="View 
 
   <h3 id="Postgrest_Interfaces_IPostgrestClient_Table__1_Postgrest_Interfaces_IPostgrestCacheProvider_" data-uid="Postgrest.Interfaces.IPostgrestClient.Table``1(Postgrest.Interfaces.IPostgrestCacheProvider)">
   Table&lt;T&gt;(IPostgrestCacheProvider)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/postgrest-csharp/blob/master/Postgrest/Interfaces/IPostgrestClient.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/postgrest-csharp/blob/master/Postgrest/Interfaces/IPostgrestClient.cs/#L87"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a Table Query Builder instance with a Cache Provider for a defined model - representative of <code>USE #$TABLE</code></p>

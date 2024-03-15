@@ -420,25 +420,27 @@ If option is enabled:</p>
 
   <a id="Supabase_Interfaces_ISupabaseClient_6_Rpc_" data-uid="Supabase.Interfaces.ISupabaseClient`6.Rpc*"></a>
 
-  <h3 id="Supabase_Interfaces_ISupabaseClient_6_Rpc_System_String_System_Collections_Generic_Dictionary_System_String_System_Object__" data-uid="Supabase.Interfaces.ISupabaseClient`6.Rpc(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
-  Rpc(string, Dictionary&lt;string, object&gt;)
+  <h3 id="Supabase_Interfaces_ISupabaseClient_6_Rpc_System_String_System_Object_" data-uid="Supabase.Interfaces.ISupabaseClient`6.Rpc(System.String,System.Object)">
+  Rpc(string, object?)
   <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Interfaces/ISupabaseClient.cs/#L88"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The RPC Client</p>
+  <div class="markdown level1 summary"><p>Perform a stored procedure call.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;BaseResponse&gt; Rpc(string procedureName, Dictionary&lt;string, object&gt; parameters)</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;BaseResponse&gt; Rpc(string procedureName, object? parameters)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>procedureName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-    <dt><code>parameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The function name to call</p>
+</dd>
+    <dt><code>parameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The parameters to pass to the function call</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -447,6 +449,54 @@ If option is enabled:</p>
     <dd></dd>
   </dl>
 
+
+
+
+
+
+
+
+
+
+
+  <a id="Supabase_Interfaces_ISupabaseClient_6_Rpc_" data-uid="Supabase.Interfaces.ISupabaseClient`6.Rpc*"></a>
+
+  <h3 id="Supabase_Interfaces_ISupabaseClient_6_Rpc__1_System_String_System_Object_" data-uid="Supabase.Interfaces.ISupabaseClient`6.Rpc``1(System.String,System.Object)">
+  Rpc&lt;TModeledResponse&gt;(string, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Interfaces/ISupabaseClient.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Perform a stored procedure call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;TModeledResponse?&gt; Rpc&lt;TModeledResponse&gt;(string procedureName, object? parameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>procedureName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The function name to call</p>
+</dd>
+    <dt><code>parameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The parameters to pass to the function call</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TModeledResponse&gt;</dt>
+    <dd><p>A hydrated model</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TModeledResponse</code></dt>
+    <dd><p>A type used for hydrating the HTTP response content (hydration through JSON.NET)</p>
+</dd>
+  </dl>
 
 
 

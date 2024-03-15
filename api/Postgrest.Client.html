@@ -486,7 +486,7 @@ Class Client  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="Postgrest_Client_Rpc_System_String_System_Object_" data-uid="Postgrest.Client.Rpc(System.String,System.Object)">
   Rpc(string, object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/postgrest-csharp/blob/master/Postgrest/Client.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/postgrest-csharp/blob/master/Postgrest/Client.cs/#L116"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Perform a stored procedure call.</p>
@@ -513,6 +513,54 @@ Class Client  <a class="header-action link-secondary" title="View source" href="
     <dd></dd>
   </dl>
 
+
+
+
+
+
+
+
+
+
+
+  <a id="Postgrest_Client_Rpc_" data-uid="Postgrest.Client.Rpc*"></a>
+
+  <h3 id="Postgrest_Client_Rpc__1_System_String_System_Object_" data-uid="Postgrest.Client.Rpc``1(System.String,System.Object)">
+  Rpc&lt;TModeledResponse&gt;(string, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/postgrest-csharp/blob/master/Postgrest/Client.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Perform a stored procedure call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TModeledResponse?&gt; Rpc&lt;TModeledResponse&gt;(string procedureName, object? parameters = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>procedureName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The function name to call</p>
+</dd>
+    <dt><code>parameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The parameters to pass to the function call</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TModeledResponse&gt;</dt>
+    <dd><p>A hydrated model</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TModeledResponse</code></dt>
+    <dd><p>A type used for hydrating the HTTP response content (hydration through JSON.NET)</p>
+</dd>
+  </dl>
 
 
 

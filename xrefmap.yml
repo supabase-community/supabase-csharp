@@ -522,6 +522,15 @@ references:
   isSpec: "True"
   fullName: Postgrest.Client.Rpc
   nameWithType: Client.Rpc
+- uid: Postgrest.Client.Rpc``1(System.String,System.Object)
+  name: Rpc<TModeledResponse>(string, object?)
+  href: api/Postgrest.Client.html#Postgrest_Client_Rpc__1_System_String_System_Object_
+  commentId: M:Postgrest.Client.Rpc``1(System.String,System.Object)
+  name.vb: Rpc(Of TModeledResponse)(String, Object)
+  fullName: Postgrest.Client.Rpc<TModeledResponse>(string, object?)
+  fullName.vb: Postgrest.Client.Rpc(Of TModeledResponse)(String, Object)
+  nameWithType: Client.Rpc<TModeledResponse>(string, object?)
+  nameWithType.vb: Client.Rpc(Of TModeledResponse)(String, Object)
 - uid: Postgrest.Client.SerializerSettings(Postgrest.ClientOptions)
   name: SerializerSettings(ClientOptions?)
   href: api/Postgrest.Client.html#Postgrest_Client_SerializerSettings_Postgrest_ClientOptions_
@@ -1787,6 +1796,15 @@ references:
   isSpec: "True"
   fullName: Postgrest.Interfaces.IPostgrestClient.Rpc
   nameWithType: IPostgrestClient.Rpc
+- uid: Postgrest.Interfaces.IPostgrestClient.Rpc``1(System.String,System.Object)
+  name: Rpc<TModeledResponse>(string, object?)
+  href: api/Postgrest.Interfaces.IPostgrestClient.html#Postgrest_Interfaces_IPostgrestClient_Rpc__1_System_String_System_Object_
+  commentId: M:Postgrest.Interfaces.IPostgrestClient.Rpc``1(System.String,System.Object)
+  name.vb: Rpc(Of TModeledResponse)(String, Object)
+  fullName: Postgrest.Interfaces.IPostgrestClient.Rpc<TModeledResponse>(string, object?)
+  fullName.vb: Postgrest.Interfaces.IPostgrestClient.Rpc(Of TModeledResponse)(String, Object)
+  nameWithType: IPostgrestClient.Rpc<TModeledResponse>(string, object?)
+  nameWithType.vb: IPostgrestClient.Rpc(Of TModeledResponse)(String, Object)
 - uid: Postgrest.Interfaces.IPostgrestClient.Table*
   name: Table
   href: api/Postgrest.Interfaces.IPostgrestClient.html#Postgrest_Interfaces_IPostgrestClient_Table_
@@ -4295,15 +4313,15 @@ references:
   isSpec: "True"
   fullName: Supabase.Client.Realtime
   nameWithType: Client.Realtime
-- uid: Supabase.Client.Rpc(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})
-  name: Rpc(string, Dictionary<string, object>)
-  href: api/Supabase.Client.html#Supabase_Client_Rpc_System_String_System_Collections_Generic_Dictionary_System_String_System_Object__
-  commentId: M:Supabase.Client.Rpc(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})
-  name.vb: Rpc(String, Dictionary(Of String, Object))
-  fullName: Supabase.Client.Rpc(string, System.Collections.Generic.Dictionary<string, object>)
-  fullName.vb: Supabase.Client.Rpc(String, System.Collections.Generic.Dictionary(Of String, Object))
-  nameWithType: Client.Rpc(string, Dictionary<string, object>)
-  nameWithType.vb: Client.Rpc(String, Dictionary(Of String, Object))
+- uid: Supabase.Client.Rpc(System.String,System.Object)
+  name: Rpc(string, object?)
+  href: api/Supabase.Client.html#Supabase_Client_Rpc_System_String_System_Object_
+  commentId: M:Supabase.Client.Rpc(System.String,System.Object)
+  name.vb: Rpc(String, Object)
+  fullName: Supabase.Client.Rpc(string, object?)
+  fullName.vb: Supabase.Client.Rpc(String, Object)
+  nameWithType: Client.Rpc(string, object?)
+  nameWithType.vb: Client.Rpc(String, Object)
 - uid: Supabase.Client.Rpc*
   name: Rpc
   href: api/Supabase.Client.html#Supabase_Client_Rpc_
@@ -4311,6 +4329,15 @@ references:
   isSpec: "True"
   fullName: Supabase.Client.Rpc
   nameWithType: Client.Rpc
+- uid: Supabase.Client.Rpc``1(System.String,System.Object)
+  name: Rpc<TModeledResponse>(string, object?)
+  href: api/Supabase.Client.html#Supabase_Client_Rpc__1_System_String_System_Object_
+  commentId: M:Supabase.Client.Rpc``1(System.String,System.Object)
+  name.vb: Rpc(Of TModeledResponse)(String, Object)
+  fullName: Supabase.Client.Rpc<TModeledResponse>(string, object?)
+  fullName.vb: Supabase.Client.Rpc(Of TModeledResponse)(String, Object)
+  nameWithType: Client.Rpc<TModeledResponse>(string, object?)
+  nameWithType.vb: Client.Rpc(Of TModeledResponse)(String, Object)
 - uid: Supabase.Client.Storage
   name: Storage
   href: api/Supabase.Client.html#Supabase_Client_Storage
@@ -10988,15 +11015,15 @@ references:
   fullName.vb: Supabase.Interfaces.ISupabaseClient(Of TUser, TSession, TSocket, TChannel, TBucket, TFileObject).Realtime
   nameWithType: ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Realtime
   nameWithType.vb: ISupabaseClient(Of TUser, TSession, TSocket, TChannel, TBucket, TFileObject).Realtime
-- uid: Supabase.Interfaces.ISupabaseClient`6.Rpc(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})
-  name: Rpc(string, Dictionary<string, object>)
-  href: api/Supabase.Interfaces.ISupabaseClient-6.html#Supabase_Interfaces_ISupabaseClient_6_Rpc_System_String_System_Collections_Generic_Dictionary_System_String_System_Object__
-  commentId: M:Supabase.Interfaces.ISupabaseClient`6.Rpc(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})
-  name.vb: Rpc(String, Dictionary(Of String, Object))
-  fullName: Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Rpc(string, System.Collections.Generic.Dictionary<string, object>)
-  fullName.vb: Supabase.Interfaces.ISupabaseClient(Of TUser, TSession, TSocket, TChannel, TBucket, TFileObject).Rpc(String, System.Collections.Generic.Dictionary(Of String, Object))
-  nameWithType: ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Rpc(string, Dictionary<string, object>)
-  nameWithType.vb: ISupabaseClient(Of TUser, TSession, TSocket, TChannel, TBucket, TFileObject).Rpc(String, Dictionary(Of String, Object))
+- uid: Supabase.Interfaces.ISupabaseClient`6.Rpc(System.String,System.Object)
+  name: Rpc(string, object?)
+  href: api/Supabase.Interfaces.ISupabaseClient-6.html#Supabase_Interfaces_ISupabaseClient_6_Rpc_System_String_System_Object_
+  commentId: M:Supabase.Interfaces.ISupabaseClient`6.Rpc(System.String,System.Object)
+  name.vb: Rpc(String, Object)
+  fullName: Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Rpc(string, object?)
+  fullName.vb: Supabase.Interfaces.ISupabaseClient(Of TUser, TSession, TSocket, TChannel, TBucket, TFileObject).Rpc(String, Object)
+  nameWithType: ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Rpc(string, object?)
+  nameWithType.vb: ISupabaseClient(Of TUser, TSession, TSocket, TChannel, TBucket, TFileObject).Rpc(String, Object)
 - uid: Supabase.Interfaces.ISupabaseClient`6.Rpc*
   name: Rpc
   href: api/Supabase.Interfaces.ISupabaseClient-6.html#Supabase_Interfaces_ISupabaseClient_6_Rpc_
@@ -11006,6 +11033,15 @@ references:
   fullName.vb: Supabase.Interfaces.ISupabaseClient(Of TUser, TSession, TSocket, TChannel, TBucket, TFileObject).Rpc
   nameWithType: ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Rpc
   nameWithType.vb: ISupabaseClient(Of TUser, TSession, TSocket, TChannel, TBucket, TFileObject).Rpc
+- uid: Supabase.Interfaces.ISupabaseClient`6.Rpc``1(System.String,System.Object)
+  name: Rpc<TModeledResponse>(string, object?)
+  href: api/Supabase.Interfaces.ISupabaseClient-6.html#Supabase_Interfaces_ISupabaseClient_6_Rpc__1_System_String_System_Object_
+  commentId: M:Supabase.Interfaces.ISupabaseClient`6.Rpc``1(System.String,System.Object)
+  name.vb: Rpc(Of TModeledResponse)(String, Object)
+  fullName: Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Rpc<TModeledResponse>(string, object?)
+  fullName.vb: Supabase.Interfaces.ISupabaseClient(Of TUser, TSession, TSocket, TChannel, TBucket, TFileObject).Rpc(Of TModeledResponse)(String, Object)
+  nameWithType: ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Rpc<TModeledResponse>(string, object?)
+  nameWithType.vb: ISupabaseClient(Of TUser, TSession, TSocket, TChannel, TBucket, TFileObject).Rpc(Of TModeledResponse)(String, Object)
 - uid: Supabase.Interfaces.ISupabaseClient`6.Storage
   name: Storage
   href: api/Supabase.Interfaces.ISupabaseClient-6.html#Supabase_Interfaces_ISupabaseClient_6_Storage
