@@ -57,6 +57,11 @@ namespace SupabaseTests.Stubs
             throw new NotImplementedException();
         }
 
+        public Task<TModeledResponse> Rpc<TModeledResponse>(string procedureName, object parameters = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<BaseResponse> Rpc(string procedureName, Dictionary<string, object> parameters)
         {
             throw new NotImplementedException();

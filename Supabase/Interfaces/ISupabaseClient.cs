@@ -40,22 +40,22 @@ namespace Supabase.Interfaces
         /// <param name="serviceKey"></param>
         /// <returns></returns>
         IGotrueAdminClient<User> AdminAuth(string serviceKey);
-        
+
         /// <summary>
         /// The Supabase Functions Client
         /// </summary>
         IFunctionsClient Functions { get; set; }
-        
+
         /// <summary>
         /// The Postgrest Client
         /// </summary>
         IPostgrestClient Postgrest { get; set; }
-        
+
         /// <summary>
         /// The Realtime Client
         /// </summary>
         IRealtimeClient<TSocket, TChannel> Realtime { get; set; }
-        
+
         /// <summary>
         /// The Storage Client
         /// </summary>
@@ -68,8 +68,8 @@ namespace Supabase.Interfaces
         /// <typeparam name="TModel"></typeparam>
         /// <returns></returns>
         ISupabaseTable<TModel, TChannel> From<TModel>() where TModel : BaseModel, new();
-        
-        
+
+
         /// <summary>
         /// Initializes a supabase client according to the provided <see cref="SupabaseOptions"/>.
         /// If option is enabled:
@@ -78,13 +78,22 @@ namespace Supabase.Interfaces
         /// </summary>
         /// <returns></returns>
         Task<ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>> InitializeAsync();
-        
+
         /// <summary>
-        /// The RPC Client
+        /// Perform a stored procedure call.
         /// </summary>
-        /// <param name="procedureName"></param>
-        /// <param name="parameters"></param>
+        /// <param name="procedureName">The function name to call</param>
+        /// <param name="parameters">The parameters to pass to the function call</param>
         /// <returns></returns>
-        Task<BaseResponse> Rpc(string procedureName, Dictionary<string, object> parameters);
+        Task<BaseResponse> Rpc(string procedureName, object? parameters);
+
+        /// <summary>
+        /// Perform a stored procedure call.
+        /// </summary>
+        /// <param name="procedureName">The function name to call</param>
+        /// <param name="parameters">The parameters to pass to the function call</param>
+        /// <typeparam name="TModeledResponse">A type used for hydrating the HTTP response content (hydration through JSON.NET)</typeparam>
+        /// <returns>A hydrated model</returns>
+        Task<TModeledResponse?> Rpc<TModeledResponse>(string procedureName, object? parameters);
     }
 }

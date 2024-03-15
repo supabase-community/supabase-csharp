@@ -241,14 +241,13 @@ namespace Supabase
         public ISupabaseTable<TModel, RealtimeChannel> From<TModel>() where TModel : BaseModel, new() =>
             new SupabaseTable<TModel>(Postgrest, Realtime);
 
-        /// <summary>
-        /// Runs a remote procedure.
-        /// </summary>
-        /// <param name="procedureName"></param>
-        /// <param name="parameters"></param>
-        /// <returns></returns>
-        public Task<BaseResponse> Rpc(string procedureName, Dictionary<string, object> parameters) =>
+        /// <inheritdoc />
+        public Task<BaseResponse> Rpc(string procedureName, object? parameters) =>
             _postgrest.Rpc(procedureName, parameters);
+        
+        /// <inheritdoc />
+        public Task<TModeledResponse?> Rpc<TModeledResponse>(string procedureName, object? parameters) =>
+            _postgrest.Rpc<TModeledResponse>(procedureName, parameters);
 
         internal Dictionary<string, string> GetAuthHeaders()
         {
