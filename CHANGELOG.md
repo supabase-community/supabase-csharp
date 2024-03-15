@@ -1,5 +1,11 @@
 ﻿# Changelog
 
+## 0.16.1 - 2024-03-15
+
+- Update dependency: `postgrest-csharp@3.5.1`
+    - Re: [#147](https://github.com/supabase-community/supabase-csharp/issues/147) - Supports `Rpc` specifying a generic
+      type for its return.
+
 ## 0.16.0 - 2024-03-12
 
 - Update dependency: `postgrest-csharp@3.5.0`
@@ -12,7 +18,8 @@
     - Adjust serialization of timestamps within a `QueryFilter` to support `DateTime` and `DateTimeOffset` using the
       ISO-8601 (https://stackoverflow.com/a/115002)
 - Update dependency: `functions-csharp@1.3.2`
-  - Re: [#5](https://github.com/supabase-community/functions-csharp/issues/5) Add support for specifying Http Timeout on a function call by adding `HttpTimeout` to `InvokeFunctionOptions`
+    - Re: [#5](https://github.com/supabase-community/functions-csharp/issues/5) Add support for specifying Http Timeout
+      on a function call by adding `HttpTimeout` to `InvokeFunctionOptions`
 
 ## 0.15.0 - 2024-01-08
 
