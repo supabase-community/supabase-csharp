@@ -5513,6 +5513,22 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Api.Settings
   nameWithType: Api.Settings
+- uid: Supabase.Gotrue.Api.SignInAnonymously(Supabase.Gotrue.SignInAnonymouslyOptions)
+  name: SignInAnonymously(SignInAnonymouslyOptions?)
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SignInAnonymously_Supabase_Gotrue_SignInAnonymouslyOptions_
+  commentId: M:Supabase.Gotrue.Api.SignInAnonymously(Supabase.Gotrue.SignInAnonymouslyOptions)
+  name.vb: SignInAnonymously(SignInAnonymouslyOptions)
+  fullName: Supabase.Gotrue.Api.SignInAnonymously(Supabase.Gotrue.SignInAnonymouslyOptions?)
+  fullName.vb: Supabase.Gotrue.Api.SignInAnonymously(Supabase.Gotrue.SignInAnonymouslyOptions)
+  nameWithType: Api.SignInAnonymously(SignInAnonymouslyOptions?)
+  nameWithType.vb: Api.SignInAnonymously(SignInAnonymouslyOptions)
+- uid: Supabase.Gotrue.Api.SignInAnonymously*
+  name: SignInAnonymously
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SignInAnonymously_
+  commentId: Overload:Supabase.Gotrue.Api.SignInAnonymously
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Api.SignInAnonymously
+  nameWithType: Api.SignInAnonymously
 - uid: Supabase.Gotrue.Api.SignInWithEmail(System.String,System.String)
   name: SignInWithEmail(string, string)
   href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SignInWithEmail_System_String_System_String_
@@ -6131,6 +6147,22 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.SignIn
   nameWithType: Client.SignIn
+- uid: Supabase.Gotrue.Client.SignInAnonymously(Supabase.Gotrue.SignInAnonymouslyOptions)
+  name: SignInAnonymously(SignInAnonymouslyOptions?)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignInAnonymously_Supabase_Gotrue_SignInAnonymouslyOptions_
+  commentId: M:Supabase.Gotrue.Client.SignInAnonymously(Supabase.Gotrue.SignInAnonymouslyOptions)
+  name.vb: SignInAnonymously(SignInAnonymouslyOptions)
+  fullName: Supabase.Gotrue.Client.SignInAnonymously(Supabase.Gotrue.SignInAnonymouslyOptions?)
+  fullName.vb: Supabase.Gotrue.Client.SignInAnonymously(Supabase.Gotrue.SignInAnonymouslyOptions)
+  nameWithType: Client.SignInAnonymously(SignInAnonymouslyOptions?)
+  nameWithType.vb: Client.SignInAnonymously(SignInAnonymouslyOptions)
+- uid: Supabase.Gotrue.Client.SignInAnonymously*
+  name: SignInAnonymously
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignInAnonymously_
+  commentId: Overload:Supabase.Gotrue.Client.SignInAnonymously
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Client.SignInAnonymously
+  nameWithType: Client.SignInAnonymously
 - uid: Supabase.Gotrue.Client.SignInWithIdToken(Supabase.Gotrue.Constants.Provider,System.String,System.String,System.String)
   name: SignInWithIdToken(Provider, string, string?, string?)
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignInWithIdToken_Supabase_Gotrue_Constants_Provider_System_String_System_String_System_String_
@@ -6528,6 +6560,18 @@ references:
   commentId: F:Supabase.Gotrue.Constants.Provider.Facebook
   fullName: Supabase.Gotrue.Constants.Provider.Facebook
   nameWithType: Constants.Provider.Facebook
+- uid: Supabase.Gotrue.Constants.Provider.Figma
+  name: Figma
+  href: api/Supabase.Gotrue.Constants.Provider.html#Supabase_Gotrue_Constants_Provider_Figma
+  commentId: F:Supabase.Gotrue.Constants.Provider.Figma
+  fullName: Supabase.Gotrue.Constants.Provider.Figma
+  nameWithType: Constants.Provider.Figma
+- uid: Supabase.Gotrue.Constants.Provider.Fly
+  name: Fly
+  href: api/Supabase.Gotrue.Constants.Provider.html#Supabase_Gotrue_Constants_Provider_Fly
+  commentId: F:Supabase.Gotrue.Constants.Provider.Fly
+  fullName: Supabase.Gotrue.Constants.Provider.Fly
+  nameWithType: Constants.Provider.Fly
 - uid: Supabase.Gotrue.Constants.Provider.Github
   name: Github
   href: api/Supabase.Gotrue.Constants.Provider.html#Supabase_Gotrue_Constants_Provider_Github
@@ -6546,6 +6590,12 @@ references:
   commentId: F:Supabase.Gotrue.Constants.Provider.Google
   fullName: Supabase.Gotrue.Constants.Provider.Google
   nameWithType: Constants.Provider.Google
+- uid: Supabase.Gotrue.Constants.Provider.Kakao
+  name: Kakao
+  href: api/Supabase.Gotrue.Constants.Provider.html#Supabase_Gotrue_Constants_Provider_Kakao
+  commentId: F:Supabase.Gotrue.Constants.Provider.Kakao
+  fullName: Supabase.Gotrue.Constants.Provider.Kakao
+  nameWithType: Constants.Provider.Kakao
 - uid: Supabase.Gotrue.Constants.Provider.KeyCloak
   name: KeyCloak
   href: api/Supabase.Gotrue.Constants.Provider.html#Supabase_Gotrue_Constants_Provider_KeyCloak
@@ -6558,6 +6608,12 @@ references:
   commentId: F:Supabase.Gotrue.Constants.Provider.LinkedIn
   fullName: Supabase.Gotrue.Constants.Provider.LinkedIn
   nameWithType: Constants.Provider.LinkedIn
+- uid: Supabase.Gotrue.Constants.Provider.LinkedInOIDC
+  name: LinkedInOIDC
+  href: api/Supabase.Gotrue.Constants.Provider.html#Supabase_Gotrue_Constants_Provider_LinkedInOIDC
+  commentId: F:Supabase.Gotrue.Constants.Provider.LinkedInOIDC
+  fullName: Supabase.Gotrue.Constants.Provider.LinkedInOIDC
+  nameWithType: Constants.Provider.LinkedInOIDC
 - uid: Supabase.Gotrue.Constants.Provider.Notion
   name: Notion
   href: api/Supabase.Gotrue.Constants.Provider.html#Supabase_Gotrue_Constants_Provider_Notion
@@ -6594,6 +6650,12 @@ references:
   commentId: F:Supabase.Gotrue.Constants.Provider.WorkOS
   fullName: Supabase.Gotrue.Constants.Provider.WorkOS
   nameWithType: Constants.Provider.WorkOS
+- uid: Supabase.Gotrue.Constants.Provider.Zoom
+  name: Zoom
+  href: api/Supabase.Gotrue.Constants.Provider.html#Supabase_Gotrue_Constants_Provider_Zoom
+  commentId: F:Supabase.Gotrue.Constants.Provider.Zoom
+  fullName: Supabase.Gotrue.Constants.Provider.Zoom
+  nameWithType: Constants.Provider.Zoom
 - uid: Supabase.Gotrue.Constants.STORAGE_KEY
   name: STORAGE_KEY
   href: api/Supabase.Gotrue.Constants.html#Supabase_Gotrue_Constants_STORAGE_KEY
@@ -7682,6 +7744,24 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).Settings
   nameWithType: IGotrueApi<TUser, TSession>.Settings
   nameWithType.vb: IGotrueApi(Of TUser, TSession).Settings
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInAnonymously(Supabase.Gotrue.SignInAnonymouslyOptions)
+  name: SignInAnonymously(SignInAnonymouslyOptions?)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_SignInAnonymously_Supabase_Gotrue_SignInAnonymouslyOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInAnonymously(Supabase.Gotrue.SignInAnonymouslyOptions)
+  name.vb: SignInAnonymously(SignInAnonymouslyOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.SignInAnonymously(Supabase.Gotrue.SignInAnonymouslyOptions?)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).SignInAnonymously(Supabase.Gotrue.SignInAnonymouslyOptions)
+  nameWithType: IGotrueApi<TUser, TSession>.SignInAnonymously(SignInAnonymouslyOptions?)
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).SignInAnonymously(SignInAnonymouslyOptions)
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInAnonymously*
+  name: SignInAnonymously
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_SignInAnonymously_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInAnonymously
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.SignInAnonymously
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).SignInAnonymously
+  nameWithType: IGotrueApi<TUser, TSession>.SignInAnonymously
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).SignInAnonymously
 - uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInWithEmail(System.String,System.String)
   name: SignInWithEmail(string, string)
   href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_SignInWithEmail_System_String_System_String_
@@ -8375,6 +8455,24 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).SignIn
   nameWithType: IGotrueClient<TUser, TSession>.SignIn
   nameWithType.vb: IGotrueClient(Of TUser, TSession).SignIn
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.SignInAnonymously(Supabase.Gotrue.SignInAnonymouslyOptions)
+  name: SignInAnonymously(SignInAnonymouslyOptions?)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_SignInAnonymously_Supabase_Gotrue_SignInAnonymouslyOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.SignInAnonymously(Supabase.Gotrue.SignInAnonymouslyOptions)
+  name.vb: SignInAnonymously(SignInAnonymouslyOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.SignInAnonymously(Supabase.Gotrue.SignInAnonymouslyOptions?)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).SignInAnonymously(Supabase.Gotrue.SignInAnonymouslyOptions)
+  nameWithType: IGotrueClient<TUser, TSession>.SignInAnonymously(SignInAnonymouslyOptions?)
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).SignInAnonymously(SignInAnonymouslyOptions)
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.SignInAnonymously*
+  name: SignInAnonymously
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_SignInAnonymously_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.SignInAnonymously
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.SignInAnonymously
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).SignInAnonymously
+  nameWithType: IGotrueClient<TUser, TSession>.SignInAnonymously
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).SignInAnonymously
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.SignInWithIdToken(Supabase.Gotrue.Constants.Provider,System.String,System.String,System.String)
   name: SignInWithIdToken(Provider, string, string?, string?)
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_SignInWithIdToken_Supabase_Gotrue_Constants_Provider_System_String_System_String_System_String_
@@ -9685,6 +9783,38 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Settings.SmsProvider
   nameWithType: Settings.SmsProvider
+- uid: Supabase.Gotrue.SignInAnonymouslyOptions
+  name: SignInAnonymouslyOptions
+  href: api/Supabase.Gotrue.SignInAnonymouslyOptions.html
+  commentId: T:Supabase.Gotrue.SignInAnonymouslyOptions
+  fullName: Supabase.Gotrue.SignInAnonymouslyOptions
+  nameWithType: SignInAnonymouslyOptions
+- uid: Supabase.Gotrue.SignInAnonymouslyOptions.CaptchaToken
+  name: CaptchaToken
+  href: api/Supabase.Gotrue.SignInAnonymouslyOptions.html#Supabase_Gotrue_SignInAnonymouslyOptions_CaptchaToken
+  commentId: P:Supabase.Gotrue.SignInAnonymouslyOptions.CaptchaToken
+  fullName: Supabase.Gotrue.SignInAnonymouslyOptions.CaptchaToken
+  nameWithType: SignInAnonymouslyOptions.CaptchaToken
+- uid: Supabase.Gotrue.SignInAnonymouslyOptions.CaptchaToken*
+  name: CaptchaToken
+  href: api/Supabase.Gotrue.SignInAnonymouslyOptions.html#Supabase_Gotrue_SignInAnonymouslyOptions_CaptchaToken_
+  commentId: Overload:Supabase.Gotrue.SignInAnonymouslyOptions.CaptchaToken
+  isSpec: "True"
+  fullName: Supabase.Gotrue.SignInAnonymouslyOptions.CaptchaToken
+  nameWithType: SignInAnonymouslyOptions.CaptchaToken
+- uid: Supabase.Gotrue.SignInAnonymouslyOptions.Data
+  name: Data
+  href: api/Supabase.Gotrue.SignInAnonymouslyOptions.html#Supabase_Gotrue_SignInAnonymouslyOptions_Data
+  commentId: P:Supabase.Gotrue.SignInAnonymouslyOptions.Data
+  fullName: Supabase.Gotrue.SignInAnonymouslyOptions.Data
+  nameWithType: SignInAnonymouslyOptions.Data
+- uid: Supabase.Gotrue.SignInAnonymouslyOptions.Data*
+  name: Data
+  href: api/Supabase.Gotrue.SignInAnonymouslyOptions.html#Supabase_Gotrue_SignInAnonymouslyOptions_Data_
+  commentId: Overload:Supabase.Gotrue.SignInAnonymouslyOptions.Data
+  isSpec: "True"
+  fullName: Supabase.Gotrue.SignInAnonymouslyOptions.Data
+  nameWithType: SignInAnonymouslyOptions.Data
 - uid: Supabase.Gotrue.SignInOptions
   name: SignInOptions
   href: api/Supabase.Gotrue.SignInOptions.html
@@ -10363,19 +10493,6 @@ references:
   commentId: T:Supabase.Gotrue.User
   fullName: Supabase.Gotrue.User
   nameWithType: User
-- uid: Supabase.Gotrue.User.ActionLink
-  name: ActionLink
-  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_ActionLink
-  commentId: P:Supabase.Gotrue.User.ActionLink
-  fullName: Supabase.Gotrue.User.ActionLink
-  nameWithType: User.ActionLink
-- uid: Supabase.Gotrue.User.ActionLink*
-  name: ActionLink
-  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_ActionLink_
-  commentId: Overload:Supabase.Gotrue.User.ActionLink
-  isSpec: "True"
-  fullName: Supabase.Gotrue.User.ActionLink
-  nameWithType: User.ActionLink
 - uid: Supabase.Gotrue.User.AppMetadata
   name: AppMetadata
   href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_AppMetadata
