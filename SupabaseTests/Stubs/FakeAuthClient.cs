@@ -149,6 +149,11 @@ namespace SupabaseTests.Stubs
 
         public Task<ProviderAuthState> SignIn(Constants.Provider provider, SignInOptions options = null) { throw new NotImplementedException(); }
         public Task<Session> SignInWithIdToken(Constants.Provider provider, string idToken, string nonce = null, string captchaToken = null) { throw new NotImplementedException(); }
+        public Task<Session> SignInAnonymously(SignInAnonymouslyOptions options = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Session> ExchangeCodeForSession(string codeVerifier, string authCode) { throw new NotImplementedException(); }
 
         public Task<bool> Reauthenticate()
