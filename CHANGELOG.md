@@ -1,5 +1,12 @@
 ﻿# Changelog
 
+## 0.16.2 - 2024-04-02
+
+- Update dependency: `gotrue-csharp@4.2.7`
+    - [#88](https://github.com/supabase-community/gotrue-csharp/issues/88) Implement `signInAnonymously` from the JS
+      client
+    - Include additional 3rd party providers in constants.
+
 ## 0.16.1 - 2024-03-15
 
 - Update dependency: `postgrest-csharp@3.5.1`
