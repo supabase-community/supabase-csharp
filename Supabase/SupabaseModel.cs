@@ -1,5 +1,5 @@
-﻿using Postgrest.Models;
-using System;
+﻿using System;
+using Supabase.Postgrest.Models;
 
 namespace Supabase
 {

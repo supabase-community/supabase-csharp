@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Postgrest;
-using Postgrest.Interfaces;
-using Postgrest.Models;
+using Supabase.Postgrest;
+using Supabase.Postgrest.Interfaces;
+using Supabase.Postgrest.Models;
 using Supabase.Interfaces;
 using Supabase.Realtime;
 using Supabase.Realtime.Interfaces;
-using static Supabase.Client;
 using static Supabase.Realtime.PostgresChanges.PostgresChangesOptions;
 
 namespace Supabase

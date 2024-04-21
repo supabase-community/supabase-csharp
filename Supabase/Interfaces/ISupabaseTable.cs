@@ -1,13 +1,13 @@
-﻿using Postgrest.Interfaces;
-using Postgrest.Models;
+﻿using System.Threading.Tasks;
 using Supabase.Realtime.Interfaces;
-using System.Threading.Tasks;
+using Supabase.Postgrest.Interfaces;
+using Supabase.Postgrest.Models;
 using static Supabase.Realtime.PostgresChanges.PostgresChangesOptions;
 
 namespace Supabase.Interfaces
 {
     /// <summary>
-    /// Contract representing a supabase wrapped postgrest <see cref="IPostgrestTable{T}"/>
+    /// Contract representing a supabase wrapped postgrest <see cref="IPostgrestTable{TModel}"/>
     /// </summary>
     /// <typeparam name="TModel">Model that inherits from <see cref="BaseModel"/> that represents this Table</typeparam>
     /// <typeparam name="TChannel">Class that implements <see cref="IRealtimeChannel"/></typeparam>

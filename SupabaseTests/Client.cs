@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Supabase.Realtime;
+using Supabase.Postgrest;
 using SupabaseTests.Stubs;
-using static Supabase.Realtime.Constants;
 
 namespace SupabaseTests
 {
@@ -71,7 +68,7 @@ namespace SupabaseTests
             await newChannel.Delete<Models.Channel>();
 
             var result = await _instance.From<Models.Channel>()
-                .Filter("slug", Postgrest.Constants.Operator.Equals, slug).Get();
+                .Filter("slug", Constants.Operator.Equals, slug).Get();
 
             Assert.AreEqual(0, result.Models.Count);
         }

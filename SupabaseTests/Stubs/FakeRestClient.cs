@@ -1,11 +1,10 @@
-﻿using Postgrest;
-using Postgrest.Interfaces;
-using Postgrest.Models;
-using Postgrest.Responses;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
+using Supabase.Postgrest;
+using Supabase.Postgrest.Interfaces;
+using Supabase.Postgrest.Models;
+using Supabase.Postgrest.Responses;
 
 namespace SupabaseTests.Stubs
 {

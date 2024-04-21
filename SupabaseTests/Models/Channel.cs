@@ -1,7 +1,6 @@
 ﻿using System;
-using Postgrest.Attributes;
-using Postgrest.Models;
-using Supabase;
+using Supabase.Postgrest.Attributes;
+using Supabase.Postgrest.Models;
 
 namespace SupabaseTests.Models
 {

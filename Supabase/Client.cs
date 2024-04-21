@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Postgrest.Interfaces;
-using Postgrest.Models;
-using Postgrest.Responses;
+using Supabase.Postgrest.Interfaces;
+using Supabase.Postgrest.Models;
+using Supabase.Postgrest.Responses;
 using Supabase.Core;
 using Supabase.Functions.Interfaces;
 using Supabase.Gotrue;

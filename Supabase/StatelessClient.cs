@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Postgrest.Models;
-using Postgrest.Responses;
+using Supabase.Postgrest.Models;
+using Supabase.Postgrest.Responses;
 using Supabase.Core;
 using Supabase.Extensions;
 using Supabase.Functions.Interfaces;

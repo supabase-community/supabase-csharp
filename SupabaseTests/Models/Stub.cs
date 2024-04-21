@@ -1,6 +1,4 @@
-﻿using System;
-using Postgrest.Models;
-using Supabase;
+﻿using Supabase.Postgrest.Models;
 
 namespace SupabaseTests.Models
 {

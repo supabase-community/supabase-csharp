@@ -38,16 +38,16 @@
     
     <ItemGroup>
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+        <PackageReference Include="Supabase.Core" Version="1.0.0" />
+        <PackageReference Include="Supabase.Functions" Version="2.0.0" />
+        <PackageReference Include="Supabase.Gotrue" Version="5.0.0" />
+        <PackageReference Include="Supabase.Postgrest" Version="4.0.0" />
+        <PackageReference Include="Supabase.Realtime" Version="7.0.0" />
+        <PackageReference Include="Supabase.Storage" Version="2.0.0" />
     </ItemGroup>
     
     <ItemGroup>
-        <PackageReference Include="functions-csharp" Version="1.3.2" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-        <PackageReference Include="postgrest-csharp" Version="3.5.1" />
-        <PackageReference Include="gotrue-csharp" Version="4.2.7" />
-        <PackageReference Include="realtime-csharp" Version="6.0.4" />
-        <PackageReference Include="supabase-core" Version="0.0.3" />
-        <PackageReference Include="supabase-storage-csharp" Version="1.4.0" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Extensions\" />

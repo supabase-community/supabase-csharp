@@ -148,6 +148,13 @@ namespace SupabaseTests.Stubs
         }
 
         public Task<ProviderAuthState> SignIn(Constants.Provider provider, SignInOptions options = null) { throw new NotImplementedException(); }
+
+        public Task<Session> SignInWithIdToken(Constants.Provider provider, string idToken, string accessToken = null, string nonce = null,
+            string captchaToken = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Session> SignInWithIdToken(Constants.Provider provider, string idToken, string nonce = null, string captchaToken = null) { throw new NotImplementedException(); }
         public Task<Session> SignInAnonymously(SignInAnonymouslyOptions options = null)
         {
@@ -192,6 +199,16 @@ namespace SupabaseTests.Stubs
         }
 
         public Task<Session> VerifyOTP(string email, string token, Constants.EmailOtpType type = Constants.EmailOtpType.MagicLink)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ProviderAuthState> LinkIdentity(Constants.Provider provider, SignInOptions options)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> UnlinkIdentity(UserIdentity userIdentity)
         {
             throw new NotImplementedException();
         }
