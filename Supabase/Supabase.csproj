@@ -30,6 +30,7 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     </PropertyGroup>
+   
     <PropertyGroup Condition=" '$(Version)' == '' ">
         <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">1.0.0</VersionPrefix>
         <Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
@@ -46,18 +47,10 @@
         <PackageReference Include="Supabase.Postgrest" Version="4.0.0" />
         <PackageReference Include="Supabase.Realtime" Version="7.0.0" />
         <PackageReference Include="Supabase.Storage" Version="2.0.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
     
     <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    </ItemGroup>
-    <ItemGroup>
-        <Folder Include="Extensions\" />
-    </ItemGroup>
-    <ItemGroup>
-        <None Remove="MimeMapping" />
-        <None Remove="Extensions\" />
-        <None Remove="supabase-storage-csharp" />
         <None Include="..\.github\icon.png" Pack="true" Link="icon.png" PackagePath="\" />
         <None Include="..\README.md" Pack="true" Link="README.md" PackagePath="\" />
     </ItemGroup>
