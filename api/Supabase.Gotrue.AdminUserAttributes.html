@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/supabase-community/gotrue-csharp/new/release/0.16.2/apiSpec/new?filename=Supabase_Gotrue_AdminUserAttributes.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.AdminUserAttributes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/supabase-community/gotrue-csharp/new/master/apiSpec/new?filename=Supabase_Gotrue_AdminUserAttributes.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.AdminUserAttributes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Supabase_Gotrue_AdminUserAttributes" data-uid="Supabase.Gotrue.AdminUserAttributes" class="text-break">
-Class AdminUserAttributes  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/release/0.16.2/Gotrue/User.cs/#L70"><i class="bi bi-code-slash"></i></a>
+Class AdminUserAttributes  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/User.cs/#L74"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -183,7 +183,7 @@ Class AdminUserAttributes  <a class="header-action link-secondary" title="View s
 
   <h3 id="Supabase_Gotrue_AdminUserAttributes_AppMetadata" data-uid="Supabase.Gotrue.AdminUserAttributes.AppMetadata">
   AppMetadata
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/release/0.16.2/Gotrue/User.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/User.cs/#L83"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A custom data object for app_metadata that. Can be any JSON serializable data.
@@ -219,7 +219,7 @@ public Dictionary&lt;string, object&gt; AppMetadata { get; set; }</code></pre>
 
   <h3 id="Supabase_Gotrue_AdminUserAttributes_EmailConfirm" data-uid="Supabase.Gotrue.AdminUserAttributes.EmailConfirm">
   EmailConfirm
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/release/0.16.2/Gotrue/User.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/User.cs/#L97"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets if a user has confirmed their email address.
@@ -253,7 +253,7 @@ public bool? EmailConfirm { get; set; }</code></pre>
 
   <h3 id="Supabase_Gotrue_AdminUserAttributes_PhoneConfirm" data-uid="Supabase.Gotrue.AdminUserAttributes.PhoneConfirm">
   PhoneConfirm
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/release/0.16.2/Gotrue/User.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/User.cs/#L104"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets if a user has confirmed their phone number.
@@ -287,7 +287,7 @@ public bool? PhoneConfirm { get; set; }</code></pre>
 
   <h3 id="Supabase_Gotrue_AdminUserAttributes_UserMetadata" data-uid="Supabase.Gotrue.AdminUserAttributes.UserMetadata">
   UserMetadata
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/release/0.16.2/Gotrue/User.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/User.cs/#L90"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A custom data object for user_metadata. Can be any JSON serializable data.
@@ -321,7 +321,7 @@ public Dictionary&lt;string, object&gt; UserMetadata { get; set; }</code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/supabase-community/gotrue-csharp/blob/release/0.16.2/Gotrue/User.cs/#L70" class="edit-link">Edit this page</a>
+          <a href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/User.cs/#L74" class="edit-link">Edit this page</a>
         </div>
 
 

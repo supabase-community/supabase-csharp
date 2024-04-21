@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/supabase-community/supabase-csharp/new/release/0.16.2/apiSpec/new?filename=Supabase_Interfaces_ISupabaseTable_2.md&amp;value=---%0Auid%3A%20Supabase.Interfaces.ISupabaseTable%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/supabase-community/supabase-csharp/new/master/apiSpec/new?filename=Supabase_Interfaces_ISupabaseTable_2.md&amp;value=---%0Auid%3A%20Supabase.Interfaces.ISupabaseTable%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Supabase_Interfaces_ISupabaseTable_2" data-uid="Supabase.Interfaces.ISupabaseTable`2" class="text-break">
-Interface ISupabaseTable&lt;TModel, TChannel&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/release/0.16.2/Supabase/Interfaces/ISupabaseTable.cs/#L14"><i class="bi bi-code-slash"></i></a>
+Interface ISupabaseTable&lt;TModel, TChannel&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Interfaces/ISupabaseTable.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Interface ISupabaseTable&lt;TModel, TChannel&gt;  <a class="header-action link-s
   <dl><dt>Assembly</dt><dd>Supabase.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Contract representing a supabase wrapped postgrest <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html">IPostgrestTable&lt;TModel&gt;</a></p>
+  <div class="markdown summary"><p>Contract representing a supabase wrapped postgrest <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html">IPostgrestTable&lt;TModel&gt;</a></p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -110,7 +110,7 @@ Interface ISupabaseTable&lt;TModel, TChannel&gt;  <a class="header-action link-s
   <h4 class="section">Type Parameters</h4>
   <dl class="parameters">
     <dt><code>TModel</code></dt>
-    <dd><p>Model that inherits from <a class="xref" href="Postgrest.Models.BaseModel.html">BaseModel</a> that represents this Table</p>
+    <dd><p>Model that inherits from <a class="xref" href="Supabase.Postgrest.Models.BaseModel.html">BaseModel</a> that represents this Table</p>
 </dd>
     <dt><code>TChannel</code></dt>
     <dd><p>Class that implements <a class="xref" href="Supabase.Realtime.Interfaces.IRealtimeChannel.html">IRealtimeChannel</a></p>
@@ -124,136 +124,136 @@ Interface ISupabaseTable&lt;TModel, TChannel&gt;  <a class="header-action link-s
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_GenerateUrl">IPostgrestTable&lt;TModel&gt;.GenerateUrl()</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_GenerateUrl">IPostgrestTable&lt;TModel&gt;.GenerateUrl()</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_And_System_Collections_Generic_List_Postgrest_Interfaces_IPostgrestQueryFilter__">IPostgrestTable&lt;TModel&gt;.And(List&lt;IPostgrestQueryFilter&gt;)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_And_System_Collections_Generic_List_Supabase_Postgrest_Interfaces_IPostgrestQueryFilter__">IPostgrestTable&lt;TModel&gt;.And(List&lt;IPostgrestQueryFilter&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Clear">IPostgrestTable&lt;TModel&gt;.Clear()</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Clear">IPostgrestTable&lt;TModel&gt;.Clear()</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Columns_System_String___">IPostgrestTable&lt;TModel&gt;.Columns(string[])</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Columns_System_String___">IPostgrestTable&lt;TModel&gt;.Columns(string[])</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Columns_System_Linq_Expressions_Expression_System_Func__0_System_Object_____">IPostgrestTable&lt;TModel&gt;.Columns(Expression&lt;Func&lt;TModel, object[]&gt;&gt;)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Columns_System_Linq_Expressions_Expression_System_Func__0_System_Object_____">IPostgrestTable&lt;TModel&gt;.Columns(Expression&lt;Func&lt;TModel, object[]&gt;&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Count_Postgrest_Constants_CountType_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Count(Constants.CountType, CancellationToken)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Count_Supabase_Postgrest_Constants_CountType_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Count(Constants.CountType, CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Delete_Postgrest_QueryOptions_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Delete(QueryOptions, CancellationToken)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Delete_Supabase_Postgrest_QueryOptions_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Delete(QueryOptions, CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Delete__0_Postgrest_QueryOptions_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Delete(TModel, QueryOptions, CancellationToken)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Delete__0_Supabase_Postgrest_QueryOptions_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Delete(TModel, QueryOptions, CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Filter__1_System_String_Postgrest_Constants_Operator___0_">IPostgrestTable&lt;TModel&gt;.Filter&lt;TCriterion&gt;(string, Constants.Operator, TCriterion)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Filter__1_System_String_Supabase_Postgrest_Constants_Operator___0_">IPostgrestTable&lt;TModel&gt;.Filter&lt;TCriterion&gt;(string, Constants.Operator, TCriterion)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Filter__1_System_Linq_Expressions_Expression_System_Func__0_System_Object___Postgrest_Constants_Operator___0_">IPostgrestTable&lt;TModel&gt;.Filter&lt;TCriterion&gt;(Expression&lt;Func&lt;TModel, object&gt;&gt;, Constants.Operator, TCriterion)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Filter__1_System_Linq_Expressions_Expression_System_Func__0_System_Object___Supabase_Postgrest_Constants_Operator___0_">IPostgrestTable&lt;TModel&gt;.Filter&lt;TCriterion&gt;(Expression&lt;Func&lt;TModel, object&gt;&gt;, Constants.Operator, TCriterion)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Get_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Get(CancellationToken)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Get_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Get(CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Insert_System_Collections_Generic_ICollection__0__Postgrest_QueryOptions_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Insert(ICollection&lt;TModel&gt;, QueryOptions, CancellationToken)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Insert_System_Collections_Generic_ICollection__0__Supabase_Postgrest_QueryOptions_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Insert(ICollection&lt;TModel&gt;, QueryOptions, CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Insert__0_Postgrest_QueryOptions_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Insert(TModel, QueryOptions, CancellationToken)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Insert__0_Supabase_Postgrest_QueryOptions_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Insert(TModel, QueryOptions, CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Limit_System_Int32_System_String_">IPostgrestTable&lt;TModel&gt;.Limit(int, string)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Limit_System_Int32_System_String_">IPostgrestTable&lt;TModel&gt;.Limit(int, string)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Match_System_Collections_Generic_Dictionary_System_String_System_String__">IPostgrestTable&lt;TModel&gt;.Match(Dictionary&lt;string, string&gt;)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Match_System_Collections_Generic_Dictionary_System_String_System_String__">IPostgrestTable&lt;TModel&gt;.Match(Dictionary&lt;string, string&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Match__0_">IPostgrestTable&lt;TModel&gt;.Match(TModel)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Match__0_">IPostgrestTable&lt;TModel&gt;.Match(TModel)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Not_Postgrest_Interfaces_IPostgrestQueryFilter_">IPostgrestTable&lt;TModel&gt;.Not(IPostgrestQueryFilter)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Not_Supabase_Postgrest_Interfaces_IPostgrestQueryFilter_">IPostgrestTable&lt;TModel&gt;.Not(IPostgrestQueryFilter)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Not_System_String_Postgrest_Constants_Operator_System_Collections_Generic_Dictionary_System_String_System_Object__">IPostgrestTable&lt;TModel&gt;.Not(string, Constants.Operator, Dictionary&lt;string, object&gt;)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Not_System_String_Supabase_Postgrest_Constants_Operator_System_Collections_Generic_Dictionary_System_String_System_Object__">IPostgrestTable&lt;TModel&gt;.Not(string, Constants.Operator, Dictionary&lt;string, object&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Not_System_Linq_Expressions_Expression_System_Func__0_System_Object___Postgrest_Constants_Operator_System_Collections_Generic_Dictionary_System_String_System_Object__">IPostgrestTable&lt;TModel&gt;.Not(Expression&lt;Func&lt;TModel, object&gt;&gt;, Constants.Operator, Dictionary&lt;string, object&gt;)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Not_System_Linq_Expressions_Expression_System_Func__0_System_Object___Supabase_Postgrest_Constants_Operator_System_Collections_Generic_Dictionary_System_String_System_Object__">IPostgrestTable&lt;TModel&gt;.Not(Expression&lt;Func&lt;TModel, object&gt;&gt;, Constants.Operator, Dictionary&lt;string, object&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Not__1_System_String_Postgrest_Constants_Operator_System_Collections_Generic_List___0__">IPostgrestTable&lt;TModel&gt;.Not&lt;TCriterion&gt;(string, Constants.Operator, List&lt;TCriterion&gt;)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Not__1_System_String_Supabase_Postgrest_Constants_Operator_System_Collections_Generic_List___0__">IPostgrestTable&lt;TModel&gt;.Not&lt;TCriterion&gt;(string, Constants.Operator, List&lt;TCriterion&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Not__1_System_Linq_Expressions_Expression_System_Func__0_System_Object___Postgrest_Constants_Operator_System_Collections_Generic_List___0__">IPostgrestTable&lt;TModel&gt;.Not&lt;TCriterion&gt;(Expression&lt;Func&lt;TModel, object&gt;&gt;, Constants.Operator, List&lt;TCriterion&gt;)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Not__1_System_Linq_Expressions_Expression_System_Func__0_System_Object___Supabase_Postgrest_Constants_Operator_System_Collections_Generic_List___0__">IPostgrestTable&lt;TModel&gt;.Not&lt;TCriterion&gt;(Expression&lt;Func&lt;TModel, object&gt;&gt;, Constants.Operator, List&lt;TCriterion&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Not__1_System_String_Postgrest_Constants_Operator___0_">IPostgrestTable&lt;TModel&gt;.Not&lt;TCriterion&gt;(string, Constants.Operator, TCriterion)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Not__1_System_String_Supabase_Postgrest_Constants_Operator___0_">IPostgrestTable&lt;TModel&gt;.Not&lt;TCriterion&gt;(string, Constants.Operator, TCriterion)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Not__1_System_Linq_Expressions_Expression_System_Func__0_System_Object___Postgrest_Constants_Operator___0_">IPostgrestTable&lt;TModel&gt;.Not&lt;TCriterion&gt;(Expression&lt;Func&lt;TModel, object&gt;&gt;, Constants.Operator, TCriterion)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Not__1_System_Linq_Expressions_Expression_System_Func__0_System_Object___Supabase_Postgrest_Constants_Operator___0_">IPostgrestTable&lt;TModel&gt;.Not&lt;TCriterion&gt;(Expression&lt;Func&lt;TModel, object&gt;&gt;, Constants.Operator, TCriterion)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Offset_System_Int32_System_String_">IPostgrestTable&lt;TModel&gt;.Offset(int, string)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Offset_System_Int32_System_String_">IPostgrestTable&lt;TModel&gt;.Offset(int, string)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_OnConflict_System_String_">IPostgrestTable&lt;TModel&gt;.OnConflict(string)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_OnConflict_System_String_">IPostgrestTable&lt;TModel&gt;.OnConflict(string)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_OnConflict_System_Linq_Expressions_Expression_System_Func__0_System_Object___">IPostgrestTable&lt;TModel&gt;.OnConflict(Expression&lt;Func&lt;TModel, object&gt;&gt;)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_OnConflict_System_Linq_Expressions_Expression_System_Func__0_System_Object___">IPostgrestTable&lt;TModel&gt;.OnConflict(Expression&lt;Func&lt;TModel, object&gt;&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Or_System_Collections_Generic_List_Postgrest_Interfaces_IPostgrestQueryFilter__">IPostgrestTable&lt;TModel&gt;.Or(List&lt;IPostgrestQueryFilter&gt;)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Or_System_Collections_Generic_List_Supabase_Postgrest_Interfaces_IPostgrestQueryFilter__">IPostgrestTable&lt;TModel&gt;.Or(List&lt;IPostgrestQueryFilter&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Order_System_String_Postgrest_Constants_Ordering_Postgrest_Constants_NullPosition_">IPostgrestTable&lt;TModel&gt;.Order(string, Constants.Ordering, Constants.NullPosition)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Order_System_String_Supabase_Postgrest_Constants_Ordering_Supabase_Postgrest_Constants_NullPosition_">IPostgrestTable&lt;TModel&gt;.Order(string, Constants.Ordering, Constants.NullPosition)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Order_System_Linq_Expressions_Expression_System_Func__0_System_Object___Postgrest_Constants_Ordering_Postgrest_Constants_NullPosition_">IPostgrestTable&lt;TModel&gt;.Order(Expression&lt;Func&lt;TModel, object&gt;&gt;, Constants.Ordering, Constants.NullPosition)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Order_System_Linq_Expressions_Expression_System_Func__0_System_Object___Supabase_Postgrest_Constants_Ordering_Supabase_Postgrest_Constants_NullPosition_">IPostgrestTable&lt;TModel&gt;.Order(Expression&lt;Func&lt;TModel, object&gt;&gt;, Constants.Ordering, Constants.NullPosition)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Order_System_String_System_String_Postgrest_Constants_Ordering_Postgrest_Constants_NullPosition_">IPostgrestTable&lt;TModel&gt;.Order(string, string, Constants.Ordering, Constants.NullPosition)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Order_System_String_System_String_Supabase_Postgrest_Constants_Ordering_Supabase_Postgrest_Constants_NullPosition_">IPostgrestTable&lt;TModel&gt;.Order(string, string, Constants.Ordering, Constants.NullPosition)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Range_System_Int32_">IPostgrestTable&lt;TModel&gt;.Range(int)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Range_System_Int32_">IPostgrestTable&lt;TModel&gt;.Range(int)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Range_System_Int32_System_Int32_">IPostgrestTable&lt;TModel&gt;.Range(int, int)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Range_System_Int32_System_Int32_">IPostgrestTable&lt;TModel&gt;.Range(int, int)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Select_System_String_">IPostgrestTable&lt;TModel&gt;.Select(string)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Select_System_String_">IPostgrestTable&lt;TModel&gt;.Select(string)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Select_System_Linq_Expressions_Expression_System_Func__0_System_Object_____">IPostgrestTable&lt;TModel&gt;.Select(Expression&lt;Func&lt;TModel, object[]&gt;&gt;)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Select_System_Linq_Expressions_Expression_System_Func__0_System_Object_____">IPostgrestTable&lt;TModel&gt;.Select(Expression&lt;Func&lt;TModel, object[]&gt;&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Where_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___">IPostgrestTable&lt;TModel&gt;.Where(Expression&lt;Func&lt;TModel, bool&gt;&gt;)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Where_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___">IPostgrestTable&lt;TModel&gt;.Where(Expression&lt;Func&lt;TModel, bool&gt;&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Single_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Single(CancellationToken)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Single_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Single(CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Set_System_Linq_Expressions_Expression_System_Func__0_System_Object___System_Object_">IPostgrestTable&lt;TModel&gt;.Set(Expression&lt;Func&lt;TModel, object&gt;&gt;, object)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Set_System_Linq_Expressions_Expression_System_Func__0_System_Object___System_Object_">IPostgrestTable&lt;TModel&gt;.Set(Expression&lt;Func&lt;TModel, object&gt;&gt;, object)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Set_System_Linq_Expressions_Expression_System_Func__0_System_Collections_Generic_KeyValuePair_System_Object_System_Object____">IPostgrestTable&lt;TModel&gt;.Set(Expression&lt;Func&lt;TModel, KeyValuePair&lt;object, object&gt;&gt;&gt;)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Set_System_Linq_Expressions_Expression_System_Func__0_System_Collections_Generic_KeyValuePair_System_Object_System_Object____">IPostgrestTable&lt;TModel&gt;.Set(Expression&lt;Func&lt;TModel, KeyValuePair&lt;object, object&gt;&gt;&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Update_Postgrest_QueryOptions_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Update(QueryOptions, CancellationToken)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Update_Supabase_Postgrest_QueryOptions_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Update(QueryOptions, CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Update__0_Postgrest_QueryOptions_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Update(TModel, QueryOptions, CancellationToken)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Update__0_Supabase_Postgrest_QueryOptions_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Update(TModel, QueryOptions, CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Upsert_System_Collections_Generic_ICollection__0__Postgrest_QueryOptions_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Upsert(ICollection&lt;TModel&gt;, QueryOptions, CancellationToken)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Upsert_System_Collections_Generic_ICollection__0__Supabase_Postgrest_QueryOptions_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Upsert(ICollection&lt;TModel&gt;, QueryOptions, CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_Upsert__0_Postgrest_QueryOptions_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Upsert(TModel, QueryOptions, CancellationToken)</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_Upsert__0_Supabase_Postgrest_QueryOptions_System_Threading_CancellationToken_">IPostgrestTable&lt;TModel&gt;.Upsert(TModel, QueryOptions, CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_BaseUrl">IPostgrestTable&lt;TModel&gt;.BaseUrl</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_BaseUrl">IPostgrestTable&lt;TModel&gt;.BaseUrl</a>
     </div>
     <div>
-      <a class="xref" href="Postgrest.Interfaces.IPostgrestTable-1.html#Postgrest_Interfaces_IPostgrestTable_1_TableName">IPostgrestTable&lt;TModel&gt;.TableName</a>
+      <a class="xref" href="Supabase.Postgrest.Interfaces.IPostgrestTable-1.html#Supabase_Postgrest_Interfaces_IPostgrestTable_1_TableName">IPostgrestTable&lt;TModel&gt;.TableName</a>
     </div>
     <div>
       <a class="xref" href="Supabase.Core.Interfaces.IGettableHeaders.html#Supabase_Core_Interfaces_IGettableHeaders_GetHeaders">IGettableHeaders.GetHeaders</a>
@@ -273,7 +273,7 @@ Interface ISupabaseTable&lt;TModel, TChannel&gt;  <a class="header-action link-s
 
   <h3 id="Supabase_Interfaces_ISupabaseTable_2_On_Supabase_Realtime_PostgresChanges_PostgresChangesOptions_ListenType_Supabase_Realtime_Interfaces_IRealtimeChannel_PostgresChangesHandler_" data-uid="Supabase.Interfaces.ISupabaseTable`2.On(Supabase.Realtime.PostgresChanges.PostgresChangesOptions.ListenType,Supabase.Realtime.Interfaces.IRealtimeChannel.PostgresChangesHandler)">
   On(ListenType, PostgresChangesHandler)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/release/0.16.2/Supabase/Interfaces/ISupabaseTable.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Interfaces/ISupabaseTable.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Add a realtime listener to this table.</p>
@@ -312,7 +312,7 @@ Interface ISupabaseTable&lt;TModel, TChannel&gt;  <a class="header-action link-s
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/supabase-community/supabase-csharp/blob/release/0.16.2/Supabase/Interfaces/ISupabaseTable.cs/#L14" class="edit-link">Edit this page</a>
+          <a href="https://github.com/supabase-community/supabase-csharp/blob/master/Supabase/Interfaces/ISupabaseTable.cs/#L14" class="edit-link">Edit this page</a>
         </div>
 
 

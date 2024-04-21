@@ -12,566 +12,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Attributes.ColumnAttribute.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Attributes.ColumnAttribute.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Attributes.PrimaryKeyAttribute.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Attributes.PrimaryKeyAttribute.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Attributes.ReferenceAttribute.JoinType.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Attributes.ReferenceAttribute.JoinType.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Attributes.ReferenceAttribute.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Attributes.ReferenceAttribute.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Attributes.TableAttribute.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Attributes.TableAttribute.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Attributes.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Attributes.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Client.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Client.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.ClientOptions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.ClientOptions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Constants.CountType.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Constants.CountType.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Constants.NullPosition.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Constants.NullPosition.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Constants.Operator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Constants.Operator.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Constants.Ordering.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Constants.Ordering.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Constants.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Constants.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Converters.DateTimeConverter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Converters.DateTimeConverter.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Converters.IntArrayConverter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Converters.IntArrayConverter.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Converters.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Converters.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Exceptions.FailureHint.Reason.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Exceptions.FailureHint.Reason.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Exceptions.FailureHint.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Exceptions.FailureHint.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Exceptions.PostgrestException.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Exceptions.PostgrestException.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Exceptions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Exceptions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Extensions.EnumExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Extensions.EnumExtensions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Extensions.RangeExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Extensions.RangeExtensions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Extensions.UriExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Extensions.UriExtensions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Extensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Extensions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.FullTextSearchConfig.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.FullTextSearchConfig.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Index.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Index.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.IntRange.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.IntRange.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Interfaces.IPostgrestCacheProvider.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Interfaces.IPostgrestCacheProvider.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Interfaces.IPostgrestClient.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Interfaces.IPostgrestClient.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Interfaces.IPostgrestDebugger.DebugEventHandler.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Interfaces.IPostgrestDebugger.DebugEventHandler.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Interfaces.IPostgrestDebugger.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Interfaces.IPostgrestDebugger.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Interfaces.IPostgrestQueryFilter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Interfaces.IPostgrestQueryFilter.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Interfaces.IPostgrestTable-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Interfaces.IPostgrestTable-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Interfaces.IPostgrestTableWithCache-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Interfaces.IPostgrestTableWithCache-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Interfaces.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Interfaces.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Models.BaseModel.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Models.BaseModel.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Models.CachedModel-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Models.CachedModel-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Models.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Models.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.OnRequestPreparedEventHandler.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.OnRequestPreparedEventHandler.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.PostgrestContractResolver.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.PostgrestContractResolver.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.QueryFilter-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.QueryFilter-2.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.QueryFilter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.QueryFilter.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.QueryOptions.CountType.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.QueryOptions.CountType.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.QueryOptions.DuplicateResolutionType.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.QueryOptions.DuplicateResolutionType.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.QueryOptions.ReturnType.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.QueryOptions.ReturnType.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.QueryOptions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.QueryOptions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.QueryOrderer.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.QueryOrderer.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Requests.CacheBackedRequest-1.RemoteModelsPopulatedEventHandler.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Requests.CacheBackedRequest-1.RemoteModelsPopulatedEventHandler.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Requests.CacheBackedRequest-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Requests.CacheBackedRequest-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Requests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Requests.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Responses.BaseResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Responses.BaseResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Responses.ModeledResponse-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Responses.ModeledResponse-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Responses.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Responses.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.Table-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.Table-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.TableWithCache-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.TableWithCache-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Postgrest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Postgrest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/Supabase.Client.yml",
       "output": {
         ".html": {
@@ -1446,6 +886,566 @@
       "output": {
         ".html": {
           "relative_path": "api/Supabase.Interfaces.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Attributes.ColumnAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Attributes.ColumnAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Attributes.PrimaryKeyAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Attributes.PrimaryKeyAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Attributes.ReferenceAttribute.JoinType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Attributes.ReferenceAttribute.JoinType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Attributes.ReferenceAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Attributes.ReferenceAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Attributes.TableAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Attributes.TableAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Attributes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Attributes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Client.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Client.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.ClientOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.ClientOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Constants.CountType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Constants.CountType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Constants.NullPosition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Constants.NullPosition.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Constants.Operator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Constants.Operator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Constants.Ordering.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Constants.Ordering.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Constants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Constants.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Converters.DateTimeConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Converters.DateTimeConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Converters.IntArrayConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Converters.IntArrayConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Converters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Converters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Exceptions.FailureHint.Reason.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Exceptions.FailureHint.Reason.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Exceptions.FailureHint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Exceptions.FailureHint.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Exceptions.PostgrestException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Exceptions.PostgrestException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Exceptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Exceptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Extensions.EnumExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Extensions.EnumExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Extensions.RangeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Extensions.RangeExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Extensions.UriExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Extensions.UriExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Extensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.FullTextSearchConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.FullTextSearchConfig.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.IntRange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.IntRange.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Interfaces.IPostgrestCacheProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Interfaces.IPostgrestCacheProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Interfaces.IPostgrestClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Interfaces.IPostgrestClient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Interfaces.IPostgrestDebugger.DebugEventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Interfaces.IPostgrestDebugger.DebugEventHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Interfaces.IPostgrestDebugger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Interfaces.IPostgrestDebugger.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Interfaces.IPostgrestQueryFilter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Interfaces.IPostgrestQueryFilter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Interfaces.IPostgrestTable-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Interfaces.IPostgrestTable-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Interfaces.IPostgrestTableWithCache-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Interfaces.IPostgrestTableWithCache-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Interfaces.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Interfaces.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Models.BaseModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Models.BaseModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Models.CachedModel-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Models.CachedModel-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Models.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.OnRequestPreparedEventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.OnRequestPreparedEventHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.PostgrestContractResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.PostgrestContractResolver.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.QueryFilter-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.QueryFilter-2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.QueryFilter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.QueryFilter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.QueryOptions.CountType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.QueryOptions.CountType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.QueryOptions.DuplicateResolutionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.QueryOptions.DuplicateResolutionType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.QueryOptions.ReturnType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.QueryOptions.ReturnType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.QueryOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.QueryOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.QueryOrderer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.QueryOrderer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Requests.CacheBackedRequest-1.RemoteModelsPopulatedEventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Requests.CacheBackedRequest-1.RemoteModelsPopulatedEventHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Requests.CacheBackedRequest-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Requests.CacheBackedRequest-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Requests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Requests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Responses.BaseResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Responses.BaseResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Responses.ModeledResponse-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Responses.ModeledResponse-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Responses.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Responses.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.Table-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.Table-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.TableWithCache-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.TableWithCache-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Postgrest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Postgrest.html"
         }
       },
       "version": ""
