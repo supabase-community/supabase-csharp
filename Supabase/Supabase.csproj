@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
         <LangVersion>9.0</LangVersion>
         <Nullable>enable</Nullable>
         <WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>
         <PackOnBuild>true</PackOnBuild>
-        <PackageId>supabase-csharp</PackageId>
+        <Title>Supabase</Title>
+        <PackageId>Supabase</PackageId>
+        <RootNamespace>Supabase</RootNamespace>
+        <AssemblyName>Supabase</AssemblyName>
         <Authors>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Authors>
         <Description>A C# implementation of the Supabase client</Description>
         <Copyright>MIT</Copyright>
@@ -16,10 +18,9 @@
         <Owners>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Owners>
         <PackageProjectUrl>https://github.com/supabase-community/supabase-csharp</PackageProjectUrl>
         <Summary>A C# implementation of the Supabase client</Summary>
-        <Title>Supabase</Title>
         <PackageTags>supabase</PackageTags>
-        <ReleaseVersion>0.16.2</ReleaseVersion>
-        <PackageVersion>0.16.2</PackageVersion>
+        <ReleaseVersion>1.0.0</ReleaseVersion>
+        <PackageVersion>1.0.0</PackageVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageIcon>icon.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -27,9 +28,10 @@
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Version)' == '' ">
-        <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">0.16.2</VersionPrefix>
+        <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">1.0.0</VersionPrefix>
         <Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
     </PropertyGroup>
     <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">

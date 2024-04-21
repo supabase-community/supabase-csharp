@@ -3,27 +3,38 @@
 </p>
 <p align="center">
   <img src="https://github.com/supabase/supabase-csharp/workflows/Build%20And%20Test/badge.svg"/>
-  <a href="https://www.nuget.org/packages/supabase-csharp/">
-    <img src="https://img.shields.io/nuget/vpre/supabase-csharp"/>
+  <a href="https://www.nuget.org/packages/Supabase/">
+    <img src="https://img.shields.io/nuget/vpre/Supabase"/>
   </a>
 </p>
 
-Documentation can be found [below](#getting-started), on the [Supabase Developer Documentation](https://supabase.com/docs/reference/csharp/introduction) and additionally in the [Generated API Docs](https://supabase-community.github.io/supabase-csharp/api/Supabase.Client.html).
+Documentation can be found [below](#getting-started), on
+the [Supabase Developer Documentation](https://supabase.com/docs/reference/csharp/introduction) and additionally in
+the [Generated API Docs](https://supabase-community.github.io/supabase-csharp/api/Supabase.Client.html).
 
-[**CHANGELOG is available in the repository root.**](https://github.com/supabase-community/supabase-csharp/blob/master/CHANGELOG.md)
+[**CHANGELOG is available in the repository root.
+**](https://github.com/supabase-community/supabase-csharp/blob/master/CHANGELOG.md)
+
+## [NOTICE FOR v1.0.0]
+
+- The `supabase-csharp` Nuget package has been renamed to `Supabase` and a depreciation notice set to encourage
+  adoption.
+- Almost all APIs stay the same when migrating from v0.16.x _except_ the change in namespace from `Postgrest`
+  to `Supabase.Postgrest`. Some minor refactoring will be required in the codebase.
+- The assembly name has been changed from `supabase` to `Supabase`.
 
 ## Features
 
 - [x] Integration with [Supabase.Realtime](https://github.com/supabase-community/realtime-csharp)
-  - Realtime listeners for database changes
+    - Realtime listeners for database changes
 - [x] Integration with [Postgrest](https://github.com/supabase-community/postgrest-csharp)
-  - Access your database using a REST API generated from your schema & database functions
+    - Access your database using a REST API generated from your schema & database functions
 - [x] Integration with [Gotrue](https://github.com/supabase-community/gotrue-csharp)
-  - User authentication, including OAuth, email/password, and native sign-in
+    - User authentication, including OAuth, email/password, and native sign-in
 - [x] Integration with [Supabase Storage](https://github.com/supabase-community/storage-csharp)
-  - Store files in S3 with additional managed metadata 
+    - Store files in S3 with additional managed metadata
 - [x] Integration with [Supabase Edge Functions](https://github.com/supabase-community/functions-csharp)
-  -  Run serverless functions on the edge
+    - Run serverless functions on the edge
 - [x] [Nuget Release](https://www.nuget.org/packages/supabase-csharp)
 
 ## Quickstart
@@ -32,7 +43,10 @@ Documentation can be found [below](#getting-started), on the [Supabase Developer
 2. Grab your Supabase URL and Supabase Public Key from the Admin Panel (Settings -> API Keys).
 3. Initialize the client!
 
-_Reminder: `supabase-csharp` has some APIs that require the `service_key` rather than the `public_key` (for instance: the administration of users, bypassing database roles, etc.). If you are using the `service_key` **be sure it is not exposed client side.** Additionally, if you need to use both a service account and a public/user account, please do so using a separate client instance for each._
+_Reminder: `supabase-csharp` has some APIs that require the `service_key` rather than the `public_key` (for instance:
+the administration of users, bypassing database roles, etc.). If you are using
+the `service_key` **be sure it is not exposed client side.** Additionally, if you need to use both a service account and
+a public/user account, please do so using a separate client instance for each._
 
 ## Documentation
 
