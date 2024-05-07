@@ -1,9 +1,15 @@
 ﻿# Changelog
 
+## 1.0.1 - 2024-05-07
+
+- Update dependency: `postgrest-csharp@4.0.1`
+    - Re: [#92](https://github.com/supabase-community/postgrest-csharp/issues/92) Changes `IPostgrestTable<>` contract
+      to return the interface rather than a concrete type.
+
 ## 1.0.0 - 2024-04-21
 
 - Assembly Name has been changed to `Supabase.dll`
-- Update dependency: `postgrest-csharp@5.0.0`
+- Update dependency: `postgrest-csharp@4.0.0`
     - [MAJOR] Moves namespaces from `Postgrest` to `Supabase.Postgrest`
     - Re: [#135](https://github.com/supabase-community/supabase-csharp/issues/135) Update nuget package
       name `postgrest-csharp` to `Supabase.Postgrest`
