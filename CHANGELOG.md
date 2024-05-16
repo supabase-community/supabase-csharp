@@ -1,5 +1,18 @@
 ﻿# Changelog
 
+## 1.0.2 - 2024-05-16
+
+- Update dependency: `postgrest-csharp@4.0.2`
+  - Re: [#96](https://github.com/supabase-community/postgrest-csharp/pull/96) Set `ConfigureAwait(false)` the response to
+    prevent deadlocking applications. Thanks [@pur3extreme](https://github.com/pur3extreme)!
+- Update dependency: `gotrue-csharp@5.0.1`
+  - Re: [#96](https://github.com/supabase-community/postgrest-csharp/pull/96) Set `ConfigureAwait(false)` the response to
+      prevent deadlocking applications. Thanks [@pur3extreme](https://github.com/pur3extreme)!
+- Update dependency: `storage-csharp@2.0.1`
+    - Re: [#15](https://github.com/supabase-community/storage-csharp/issues/15)
+      and [#16](https://github.com/supabase-community/storage-csharp/pull/16)
+      Fix CreateSignedUrl with TransformOptions. Thanks [@alustrement-bob](https://github.com/alustrement-bob)!
+
 ## 1.0.1 - 2024-05-07
 
 - Update dependency: `postgrest-csharp@4.0.1`
