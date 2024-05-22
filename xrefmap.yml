@@ -5619,6 +5619,32 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Session.ExpiresIn
   nameWithType: Session.ExpiresIn
+- uid: Supabase.Gotrue.Session.ProviderRefreshToken
+  name: ProviderRefreshToken
+  href: api/Supabase.Gotrue.Session.html#Supabase_Gotrue_Session_ProviderRefreshToken
+  commentId: P:Supabase.Gotrue.Session.ProviderRefreshToken
+  fullName: Supabase.Gotrue.Session.ProviderRefreshToken
+  nameWithType: Session.ProviderRefreshToken
+- uid: Supabase.Gotrue.Session.ProviderRefreshToken*
+  name: ProviderRefreshToken
+  href: api/Supabase.Gotrue.Session.html#Supabase_Gotrue_Session_ProviderRefreshToken_
+  commentId: Overload:Supabase.Gotrue.Session.ProviderRefreshToken
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Session.ProviderRefreshToken
+  nameWithType: Session.ProviderRefreshToken
+- uid: Supabase.Gotrue.Session.ProviderToken
+  name: ProviderToken
+  href: api/Supabase.Gotrue.Session.html#Supabase_Gotrue_Session_ProviderToken
+  commentId: P:Supabase.Gotrue.Session.ProviderToken
+  fullName: Supabase.Gotrue.Session.ProviderToken
+  nameWithType: Session.ProviderToken
+- uid: Supabase.Gotrue.Session.ProviderToken*
+  name: ProviderToken
+  href: api/Supabase.Gotrue.Session.html#Supabase_Gotrue_Session_ProviderToken_
+  commentId: Overload:Supabase.Gotrue.Session.ProviderToken
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Session.ProviderToken
+  nameWithType: Session.ProviderToken
 - uid: Supabase.Gotrue.Session.RefreshToken
   name: RefreshToken
   href: api/Supabase.Gotrue.Session.html#Supabase_Gotrue_Session_RefreshToken
@@ -13714,6 +13740,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Realtime.Interfaces.IRealtimePresence.Track
   nameWithType: IRealtimePresence.Track
+- uid: Supabase.Realtime.Interfaces.IRealtimePresence.Untrack
+  name: Untrack()
+  href: api/Supabase.Realtime.Interfaces.IRealtimePresence.html#Supabase_Realtime_Interfaces_IRealtimePresence_Untrack
+  commentId: M:Supabase.Realtime.Interfaces.IRealtimePresence.Untrack
+  fullName: Supabase.Realtime.Interfaces.IRealtimePresence.Untrack()
+  nameWithType: IRealtimePresence.Untrack()
+- uid: Supabase.Realtime.Interfaces.IRealtimePresence.Untrack*
+  name: Untrack
+  href: api/Supabase.Realtime.Interfaces.IRealtimePresence.html#Supabase_Realtime_Interfaces_IRealtimePresence_Untrack_
+  commentId: Overload:Supabase.Realtime.Interfaces.IRealtimePresence.Untrack
+  isSpec: "True"
+  fullName: Supabase.Realtime.Interfaces.IRealtimePresence.Untrack
+  nameWithType: IRealtimePresence.Untrack
 - uid: Supabase.Realtime.Interfaces.IRealtimePush`2
   name: IRealtimePush<TChannel, TSocketResponse>
   href: api/Supabase.Realtime.Interfaces.IRealtimePush-2.html
