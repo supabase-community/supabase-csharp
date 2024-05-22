@@ -1,5 +1,14 @@
 ﻿# Changelog
 
+## 1.0.3 - 2024-05-22
+
+- Update dependency: `gotrue-csharp@5.0.2`
+  - Add missing properties (`ProviderRefreshToken` and `ProviderToken`) to `Session` object to reflect current state
+      of `auth-js`
+- Update dependency: `realtime-csharp@7.0.1`
+  - Re: [#47](https://github.com/supabase-community/realtime-csharp/issues/47) Return a Task from `Track` and `Untrack`
+    methods
+
 ## 1.0.2 - 2024-05-16
 
 - Update dependency: `postgrest-csharp@4.0.2`
