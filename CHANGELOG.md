@@ -1,41 +1,54 @@
 ﻿# Changelog
 
+## 1.0.4 - 2024-06-11
+
+- Update dependency: `Supabase.Gotrue@5.0.5`
+    - Allow for scoped `SignOut`. Thanks [@AndrewKahr](https://github.com/AndrewKahr)!
+    - Various minor SSO fixes. Thanks [@Rycko1](https://github.com/Rycko1)!
+    - Implement `SignInWithSSO`. Huge thank you to [@Rycko1](https://github.com/Rycko1)!
+- Update dependency `Supabase.Postgrest@4.0.3`
+    - Re: [#97](https://github.com/supabase-community/postgrest-csharp/pull/97) Fix set null value on string property.
+      Thanks [@alustrement-bob](https://github.com/alustrement-bob)!
+
 ## 1.0.3 - 2024-05-22
 
-- Update dependency: `gotrue-csharp@5.0.2`
-  - Add missing properties (`ProviderRefreshToken` and `ProviderToken`) to `Session` object to reflect current state
+- Update dependency: `Supabase.Gotrue@5.0.2`
+    - Add missing properties (`ProviderRefreshToken` and `ProviderToken`) to `Session` object to reflect current state
       of `auth-js`
-- Update dependency: `realtime-csharp@7.0.1`
-  - Re: [#47](https://github.com/supabase-community/realtime-csharp/issues/47) Return a Task from `Track` and `Untrack`
-    methods
+- Update dependency: `Supabase.Realtime@7.0.1`
+    - Re: [#47](https://github.com/supabase-community/realtime-csharp/issues/47) Return a Task from `Track`
+      and `Untrack`
+      methods
 
 ## 1.0.2 - 2024-05-16
 
-- Update dependency: `postgrest-csharp@4.0.2`
-  - Re: [#96](https://github.com/supabase-community/postgrest-csharp/pull/96) Set `ConfigureAwait(false)` the response to
-    prevent deadlocking applications. Thanks [@pur3extreme](https://github.com/pur3extreme)!
-- Update dependency: `gotrue-csharp@5.0.1`
-  - Re: [#96](https://github.com/supabase-community/postgrest-csharp/pull/96) Set `ConfigureAwait(false)` the response to
+- Update dependency: `Supabase.Postgrest@4.0.2`
+    - Re: [#96](https://github.com/supabase-community/postgrest-csharp/pull/96) Set `ConfigureAwait(false)` the response
+      to
       prevent deadlocking applications. Thanks [@pur3extreme](https://github.com/pur3extreme)!
-- Update dependency: `storage-csharp@2.0.1`
+- Update dependency: `Supabase.Gotrue@5.0.1`
+    - Re: [#96](https://github.com/supabase-community/postgrest-csharp/pull/96) Set `ConfigureAwait(false)` the response
+      to
+      prevent deadlocking applications. Thanks [@pur3extreme](https://github.com/pur3extreme)!
+- Update dependency: `Supabase.Storage@2.0.1`
     - Re: [#15](https://github.com/supabase-community/storage-csharp/issues/15)
       and [#16](https://github.com/supabase-community/storage-csharp/pull/16)
       Fix CreateSignedUrl with TransformOptions. Thanks [@alustrement-bob](https://github.com/alustrement-bob)!
 
 ## 1.0.1 - 2024-05-07
 
-- Update dependency: `postgrest-csharp@4.0.1`
+- Update dependency: `Supabase.Postgrest@4.0.1`
     - Re: [#92](https://github.com/supabase-community/postgrest-csharp/issues/92) Changes `IPostgrestTable<>` contract
       to return the interface rather than a concrete type.
 
 ## 1.0.0 - 2024-04-21
 
 - Assembly Name has been changed to `Supabase.dll`
-- Update dependency: `postgrest-csharp@4.0.0`
+- Update dependency: `Supabase.Postgrest@4.0.0`
     - [MAJOR] Moves namespaces from `Postgrest` to `Supabase.Postgrest`
     - Re: [#135](https://github.com/supabase-community/supabase-csharp/issues/135) Update nuget package
       name `postgrest-csharp` to `Supabase.Postgrest`
-- Update dependency: `gotrue-csharp@5.0.0`
+- Update dependency: `Supabase.Gotrue@5.0.0`
     - Re: [#135](supabase-community/supabase-csharp#135) Update nuget package name `gotrue-csharp` to `Supabase.Gotrue`
     - Re: [#89](https://github.com/supabase-community/gotrue-csharp/issues/89), Only add `access_token` to request body
       when it is explicitly declared.
@@ -45,18 +58,18 @@
     - Re: [#88](https://github.com/supabase-community/gotrue-csharp/issues/88), Add `IsAnonymous` property to `User`
     - Re: [#90](https://github.com/supabase-community/gotrue-csharp/issues/90) Implement `LinkIdentity`
       and `UnlinkIdentity`
-- Update dependency: `realtime-csharp@7.0.0`
+- Update dependency: `Supabase.Realtime@7.0.0`
     - Merges [#45](https://github.com/supabase-community/realtime-csharp/pull/45) - Updating
       the `Websocket.Client@5.1.1`
     - Re: [#135](https://github.com/supabase-community/supabase-csharp/issues/135) Update nuget package
       name `realtime-csharp` to `Supabase.Realtime`
-- Update dependency: `storage-csharp@2.0.0`
+- Update dependency: `Supabase.Storage@2.0.0`
     - Re: [#135](https://github.com/supabase-community/supabase-csharp/issues/135) Update nuget package
       name `storage-csharp` to `Supabase.Storage`
-- Update dependency: `functions-csharp@2.0.0`
+- Update dependency: `Supabase.Functions@2.0.0`
     - Re: [#135](https://github.com/supabase-community/supabase-csharp/issues/135) Update nuget package
       name `functions-csharp` to `Supabase.Functions`
-- Update dependency: `core-csharp@1.0.0`
+- Update dependency: `Supabase.Core@1.0.0`
     - Re: [#135](https://github.com/supabase-community/supabase-csharp/issues/135) Update nuget package
       name `supabase-core`
       to `Supabase.Core`

@@ -161,9 +161,24 @@ namespace SupabaseTests.Stubs
             throw new NotImplementedException();
         }
 
+        public Task<SSOResponse> SignInWithSSO(Guid providerId, SignInWithSSOOptions options = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<SSOResponse> SignInWithSSO(string domain, SignInWithSSOOptions options = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Session> ExchangeCodeForSession(string codeVerifier, string authCode) { throw new NotImplementedException(); }
 
         public Task<bool> Reauthenticate()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SignOut(Constants.SignOutScope scope = Constants.SignOutScope.Global)
         {
             throw new NotImplementedException();
         }
