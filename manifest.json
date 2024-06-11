@@ -342,6 +342,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Constants.SignOutScope.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Constants.SignOutScope.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Supabase.Gotrue.Constants.SignUpType.yml",
       "output": {
         ".html": {
@@ -672,6 +682,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.SSOResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.SSOResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Supabase.Gotrue.Session.yml",
       "output": {
         ".html": {
@@ -746,6 +766,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Supabase.Gotrue.SignInWithPasswordlessPhoneOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.SignInWithSSOOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.SignInWithSSOOptions.html"
         }
       },
       "version": ""

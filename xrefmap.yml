@@ -1437,15 +1437,40 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Api.SignInWithPhone
   nameWithType: Api.SignInWithPhone
-- uid: Supabase.Gotrue.Api.SignOut(System.String)
-  name: SignOut(string)
-  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SignOut_System_String_
-  commentId: M:Supabase.Gotrue.Api.SignOut(System.String)
-  name.vb: SignOut(String)
-  fullName: Supabase.Gotrue.Api.SignOut(string)
-  fullName.vb: Supabase.Gotrue.Api.SignOut(String)
-  nameWithType: Api.SignOut(string)
-  nameWithType.vb: Api.SignOut(String)
+- uid: Supabase.Gotrue.Api.SignInWithSSO(System.Guid,Supabase.Gotrue.SignInWithSSOOptions)
+  name: SignInWithSSO(Guid, SignInWithSSOOptions?)
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SignInWithSSO_System_Guid_Supabase_Gotrue_SignInWithSSOOptions_
+  commentId: M:Supabase.Gotrue.Api.SignInWithSSO(System.Guid,Supabase.Gotrue.SignInWithSSOOptions)
+  name.vb: SignInWithSSO(Guid, SignInWithSSOOptions)
+  fullName: Supabase.Gotrue.Api.SignInWithSSO(System.Guid, Supabase.Gotrue.SignInWithSSOOptions?)
+  fullName.vb: Supabase.Gotrue.Api.SignInWithSSO(System.Guid, Supabase.Gotrue.SignInWithSSOOptions)
+  nameWithType: Api.SignInWithSSO(Guid, SignInWithSSOOptions?)
+  nameWithType.vb: Api.SignInWithSSO(Guid, SignInWithSSOOptions)
+- uid: Supabase.Gotrue.Api.SignInWithSSO(System.String,Supabase.Gotrue.SignInWithSSOOptions)
+  name: SignInWithSSO(string, SignInWithSSOOptions?)
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SignInWithSSO_System_String_Supabase_Gotrue_SignInWithSSOOptions_
+  commentId: M:Supabase.Gotrue.Api.SignInWithSSO(System.String,Supabase.Gotrue.SignInWithSSOOptions)
+  name.vb: SignInWithSSO(String, SignInWithSSOOptions)
+  fullName: Supabase.Gotrue.Api.SignInWithSSO(string, Supabase.Gotrue.SignInWithSSOOptions?)
+  fullName.vb: Supabase.Gotrue.Api.SignInWithSSO(String, Supabase.Gotrue.SignInWithSSOOptions)
+  nameWithType: Api.SignInWithSSO(string, SignInWithSSOOptions?)
+  nameWithType.vb: Api.SignInWithSSO(String, SignInWithSSOOptions)
+- uid: Supabase.Gotrue.Api.SignInWithSSO*
+  name: SignInWithSSO
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SignInWithSSO_
+  commentId: Overload:Supabase.Gotrue.Api.SignInWithSSO
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Api.SignInWithSSO
+  nameWithType: Api.SignInWithSSO
+- uid: Supabase.Gotrue.Api.SignOut(System.String,Supabase.Gotrue.Constants.SignOutScope)
+  name: SignOut(string, SignOutScope)
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SignOut_System_String_Supabase_Gotrue_Constants_SignOutScope_
+  commentId: M:Supabase.Gotrue.Api.SignOut(System.String,Supabase.Gotrue.Constants.SignOutScope)
+  name.vb: SignOut(String, SignOutScope)
+  fullName: Supabase.Gotrue.Api.SignOut(string, Supabase.Gotrue.Constants.SignOutScope)
+  fullName.vb: Supabase.Gotrue.Api.SignOut(String, Supabase.Gotrue.Constants.SignOutScope)
+  nameWithType: Api.SignOut(string, Constants.SignOutScope)
+  nameWithType.vb: Api.SignOut(String, Constants.SignOutScope)
 - uid: Supabase.Gotrue.Api.SignOut*
   name: SignOut
   href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_SignOut_
@@ -2084,12 +2109,37 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.SignInWithPassword
   nameWithType: Client.SignInWithPassword
-- uid: Supabase.Gotrue.Client.SignOut
-  name: SignOut()
-  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignOut
-  commentId: M:Supabase.Gotrue.Client.SignOut
-  fullName: Supabase.Gotrue.Client.SignOut()
-  nameWithType: Client.SignOut()
+- uid: Supabase.Gotrue.Client.SignInWithSSO(System.Guid,Supabase.Gotrue.SignInWithSSOOptions)
+  name: SignInWithSSO(Guid, SignInWithSSOOptions?)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignInWithSSO_System_Guid_Supabase_Gotrue_SignInWithSSOOptions_
+  commentId: M:Supabase.Gotrue.Client.SignInWithSSO(System.Guid,Supabase.Gotrue.SignInWithSSOOptions)
+  name.vb: SignInWithSSO(Guid, SignInWithSSOOptions)
+  fullName: Supabase.Gotrue.Client.SignInWithSSO(System.Guid, Supabase.Gotrue.SignInWithSSOOptions?)
+  fullName.vb: Supabase.Gotrue.Client.SignInWithSSO(System.Guid, Supabase.Gotrue.SignInWithSSOOptions)
+  nameWithType: Client.SignInWithSSO(Guid, SignInWithSSOOptions?)
+  nameWithType.vb: Client.SignInWithSSO(Guid, SignInWithSSOOptions)
+- uid: Supabase.Gotrue.Client.SignInWithSSO(System.String,Supabase.Gotrue.SignInWithSSOOptions)
+  name: SignInWithSSO(string, SignInWithSSOOptions?)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignInWithSSO_System_String_Supabase_Gotrue_SignInWithSSOOptions_
+  commentId: M:Supabase.Gotrue.Client.SignInWithSSO(System.String,Supabase.Gotrue.SignInWithSSOOptions)
+  name.vb: SignInWithSSO(String, SignInWithSSOOptions)
+  fullName: Supabase.Gotrue.Client.SignInWithSSO(string, Supabase.Gotrue.SignInWithSSOOptions?)
+  fullName.vb: Supabase.Gotrue.Client.SignInWithSSO(String, Supabase.Gotrue.SignInWithSSOOptions)
+  nameWithType: Client.SignInWithSSO(string, SignInWithSSOOptions?)
+  nameWithType.vb: Client.SignInWithSSO(String, SignInWithSSOOptions)
+- uid: Supabase.Gotrue.Client.SignInWithSSO*
+  name: SignInWithSSO
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignInWithSSO_
+  commentId: Overload:Supabase.Gotrue.Client.SignInWithSSO
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Client.SignInWithSSO
+  nameWithType: Client.SignInWithSSO
+- uid: Supabase.Gotrue.Client.SignOut(Supabase.Gotrue.Constants.SignOutScope)
+  name: SignOut(SignOutScope)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignOut_Supabase_Gotrue_Constants_SignOutScope_
+  commentId: M:Supabase.Gotrue.Client.SignOut(Supabase.Gotrue.Constants.SignOutScope)
+  fullName: Supabase.Gotrue.Client.SignOut(Supabase.Gotrue.Constants.SignOutScope)
+  nameWithType: Client.SignOut(Constants.SignOutScope)
 - uid: Supabase.Gotrue.Client.SignOut*
   name: SignOut
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_SignOut_
@@ -2413,6 +2463,12 @@ references:
   commentId: T:Supabase.Gotrue.Constants.Provider
   fullName: Supabase.Gotrue.Constants.Provider
   nameWithType: Constants.Provider
+- uid: Supabase.Gotrue.Constants.Provider.AnonymousUsers
+  name: AnonymousUsers
+  href: api/Supabase.Gotrue.Constants.Provider.html#Supabase_Gotrue_Constants_Provider_AnonymousUsers
+  commentId: F:Supabase.Gotrue.Constants.Provider.AnonymousUsers
+  fullName: Supabase.Gotrue.Constants.Provider.AnonymousUsers
+  nameWithType: Constants.Provider.AnonymousUsers
 - uid: Supabase.Gotrue.Constants.Provider.Apple
   name: Apple
   href: api/Supabase.Gotrue.Constants.Provider.html#Supabase_Gotrue_Constants_Provider_Apple
@@ -2569,6 +2625,30 @@ references:
   commentId: F:Supabase.Gotrue.Constants.SignInType.RefreshToken
   fullName: Supabase.Gotrue.Constants.SignInType.RefreshToken
   nameWithType: Constants.SignInType.RefreshToken
+- uid: Supabase.Gotrue.Constants.SignOutScope
+  name: Constants.SignOutScope
+  href: api/Supabase.Gotrue.Constants.SignOutScope.html
+  commentId: T:Supabase.Gotrue.Constants.SignOutScope
+  fullName: Supabase.Gotrue.Constants.SignOutScope
+  nameWithType: Constants.SignOutScope
+- uid: Supabase.Gotrue.Constants.SignOutScope.Global
+  name: Global
+  href: api/Supabase.Gotrue.Constants.SignOutScope.html#Supabase_Gotrue_Constants_SignOutScope_Global
+  commentId: F:Supabase.Gotrue.Constants.SignOutScope.Global
+  fullName: Supabase.Gotrue.Constants.SignOutScope.Global
+  nameWithType: Constants.SignOutScope.Global
+- uid: Supabase.Gotrue.Constants.SignOutScope.Local
+  name: Local
+  href: api/Supabase.Gotrue.Constants.SignOutScope.html#Supabase_Gotrue_Constants_SignOutScope_Local
+  commentId: F:Supabase.Gotrue.Constants.SignOutScope.Local
+  fullName: Supabase.Gotrue.Constants.SignOutScope.Local
+  nameWithType: Constants.SignOutScope.Local
+- uid: Supabase.Gotrue.Constants.SignOutScope.Others
+  name: Others
+  href: api/Supabase.Gotrue.Constants.SignOutScope.html#Supabase_Gotrue_Constants_SignOutScope_Others
+  commentId: F:Supabase.Gotrue.Constants.SignOutScope.Others
+  fullName: Supabase.Gotrue.Constants.SignOutScope.Others
+  nameWithType: Constants.SignOutScope.Others
 - uid: Supabase.Gotrue.Constants.SignUpType
   name: Constants.SignUpType
   href: api/Supabase.Gotrue.Constants.SignUpType.html
@@ -2716,6 +2796,18 @@ references:
   commentId: F:Supabase.Gotrue.Exceptions.FailureHint.Reason.Offline
   fullName: Supabase.Gotrue.Exceptions.FailureHint.Reason.Offline
   nameWithType: FailureHint.Reason.Offline
+- uid: Supabase.Gotrue.Exceptions.FailureHint.Reason.SsoDomainNotFound
+  name: SsoDomainNotFound
+  href: api/Supabase.Gotrue.Exceptions.FailureHint.Reason.html#Supabase_Gotrue_Exceptions_FailureHint_Reason_SsoDomainNotFound
+  commentId: F:Supabase.Gotrue.Exceptions.FailureHint.Reason.SsoDomainNotFound
+  fullName: Supabase.Gotrue.Exceptions.FailureHint.Reason.SsoDomainNotFound
+  nameWithType: FailureHint.Reason.SsoDomainNotFound
+- uid: Supabase.Gotrue.Exceptions.FailureHint.Reason.SsoProviderNotFound
+  name: SsoProviderNotFound
+  href: api/Supabase.Gotrue.Exceptions.FailureHint.Reason.html#Supabase_Gotrue_Exceptions_FailureHint_Reason_SsoProviderNotFound
+  commentId: F:Supabase.Gotrue.Exceptions.FailureHint.Reason.SsoProviderNotFound
+  fullName: Supabase.Gotrue.Exceptions.FailureHint.Reason.SsoProviderNotFound
+  nameWithType: FailureHint.Reason.SsoProviderNotFound
 - uid: Supabase.Gotrue.Exceptions.FailureHint.Reason.Unknown
   name: Unknown
   href: api/Supabase.Gotrue.Exceptions.FailureHint.Reason.html#Supabase_Gotrue_Exceptions_FailureHint_Reason_Unknown
@@ -3748,15 +3840,42 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).SignInWithPhone
   nameWithType: IGotrueApi<TUser, TSession>.SignInWithPhone
   nameWithType.vb: IGotrueApi(Of TUser, TSession).SignInWithPhone
-- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.SignOut(System.String)
-  name: SignOut(string)
-  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_SignOut_System_String_
-  commentId: M:Supabase.Gotrue.Interfaces.IGotrueApi`2.SignOut(System.String)
-  name.vb: SignOut(String)
-  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.SignOut(string)
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).SignOut(String)
-  nameWithType: IGotrueApi<TUser, TSession>.SignOut(string)
-  nameWithType.vb: IGotrueApi(Of TUser, TSession).SignOut(String)
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInWithSSO(System.Guid,Supabase.Gotrue.SignInWithSSOOptions)
+  name: SignInWithSSO(Guid, SignInWithSSOOptions?)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_SignInWithSSO_System_Guid_Supabase_Gotrue_SignInWithSSOOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInWithSSO(System.Guid,Supabase.Gotrue.SignInWithSSOOptions)
+  name.vb: SignInWithSSO(Guid, SignInWithSSOOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.SignInWithSSO(System.Guid, Supabase.Gotrue.SignInWithSSOOptions?)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).SignInWithSSO(System.Guid, Supabase.Gotrue.SignInWithSSOOptions)
+  nameWithType: IGotrueApi<TUser, TSession>.SignInWithSSO(Guid, SignInWithSSOOptions?)
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).SignInWithSSO(Guid, SignInWithSSOOptions)
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInWithSSO(System.String,Supabase.Gotrue.SignInWithSSOOptions)
+  name: SignInWithSSO(string, SignInWithSSOOptions?)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_SignInWithSSO_System_String_Supabase_Gotrue_SignInWithSSOOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInWithSSO(System.String,Supabase.Gotrue.SignInWithSSOOptions)
+  name.vb: SignInWithSSO(String, SignInWithSSOOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.SignInWithSSO(string, Supabase.Gotrue.SignInWithSSOOptions?)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).SignInWithSSO(String, Supabase.Gotrue.SignInWithSSOOptions)
+  nameWithType: IGotrueApi<TUser, TSession>.SignInWithSSO(string, SignInWithSSOOptions?)
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).SignInWithSSO(String, SignInWithSSOOptions)
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInWithSSO*
+  name: SignInWithSSO
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_SignInWithSSO_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInWithSSO
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.SignInWithSSO
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).SignInWithSSO
+  nameWithType: IGotrueApi<TUser, TSession>.SignInWithSSO
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).SignInWithSSO
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.SignOut(System.String,Supabase.Gotrue.Constants.SignOutScope)
+  name: SignOut(string, SignOutScope)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_SignOut_System_String_Supabase_Gotrue_Constants_SignOutScope_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueApi`2.SignOut(System.String,Supabase.Gotrue.Constants.SignOutScope)
+  name.vb: SignOut(String, SignOutScope)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.SignOut(string, Supabase.Gotrue.Constants.SignOutScope)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).SignOut(String, Supabase.Gotrue.Constants.SignOutScope)
+  nameWithType: IGotrueApi<TUser, TSession>.SignOut(string, Constants.SignOutScope)
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).SignOut(String, Constants.SignOutScope)
 - uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.SignOut*
   name: SignOut
   href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_SignOut_
@@ -4476,14 +4595,41 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).SignInWithPassword
   nameWithType: IGotrueClient<TUser, TSession>.SignInWithPassword
   nameWithType.vb: IGotrueClient(Of TUser, TSession).SignInWithPassword
-- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.SignOut
-  name: SignOut()
-  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_SignOut
-  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.SignOut
-  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.SignOut()
-  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).SignOut()
-  nameWithType: IGotrueClient<TUser, TSession>.SignOut()
-  nameWithType.vb: IGotrueClient(Of TUser, TSession).SignOut()
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.SignInWithSSO(System.Guid,Supabase.Gotrue.SignInWithSSOOptions)
+  name: SignInWithSSO(Guid, SignInWithSSOOptions?)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_SignInWithSSO_System_Guid_Supabase_Gotrue_SignInWithSSOOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.SignInWithSSO(System.Guid,Supabase.Gotrue.SignInWithSSOOptions)
+  name.vb: SignInWithSSO(Guid, SignInWithSSOOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.SignInWithSSO(System.Guid, Supabase.Gotrue.SignInWithSSOOptions?)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).SignInWithSSO(System.Guid, Supabase.Gotrue.SignInWithSSOOptions)
+  nameWithType: IGotrueClient<TUser, TSession>.SignInWithSSO(Guid, SignInWithSSOOptions?)
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).SignInWithSSO(Guid, SignInWithSSOOptions)
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.SignInWithSSO(System.String,Supabase.Gotrue.SignInWithSSOOptions)
+  name: SignInWithSSO(string, SignInWithSSOOptions?)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_SignInWithSSO_System_String_Supabase_Gotrue_SignInWithSSOOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.SignInWithSSO(System.String,Supabase.Gotrue.SignInWithSSOOptions)
+  name.vb: SignInWithSSO(String, SignInWithSSOOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.SignInWithSSO(string, Supabase.Gotrue.SignInWithSSOOptions?)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).SignInWithSSO(String, Supabase.Gotrue.SignInWithSSOOptions)
+  nameWithType: IGotrueClient<TUser, TSession>.SignInWithSSO(string, SignInWithSSOOptions?)
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).SignInWithSSO(String, SignInWithSSOOptions)
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.SignInWithSSO*
+  name: SignInWithSSO
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_SignInWithSSO_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.SignInWithSSO
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.SignInWithSSO
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).SignInWithSSO
+  nameWithType: IGotrueClient<TUser, TSession>.SignInWithSSO
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).SignInWithSSO
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.SignOut(Supabase.Gotrue.Constants.SignOutScope)
+  name: SignOut(SignOutScope)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_SignOut_Supabase_Gotrue_Constants_SignOutScope_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.SignOut(Supabase.Gotrue.Constants.SignOutScope)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.SignOut(Supabase.Gotrue.Constants.SignOutScope)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).SignOut(Supabase.Gotrue.Constants.SignOutScope)
+  nameWithType: IGotrueClient<TUser, TSession>.SignOut(Constants.SignOutScope)
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).SignOut(Constants.SignOutScope)
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.SignOut*
   name: SignOut
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_SignOut_
@@ -5548,6 +5694,31 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Responses.GenerateLinkResponse.VerificationType
   nameWithType: GenerateLinkResponse.VerificationType
+- uid: Supabase.Gotrue.SSOResponse
+  name: SSOResponse
+  href: api/Supabase.Gotrue.SSOResponse.html
+  commentId: T:Supabase.Gotrue.SSOResponse
+  fullName: Supabase.Gotrue.SSOResponse
+  nameWithType: SSOResponse
+- uid: Supabase.Gotrue.SSOResponse.#ctor(System.Uri)
+  name: SSOResponse(Uri)
+  href: api/Supabase.Gotrue.SSOResponse.html#Supabase_Gotrue_SSOResponse__ctor_System_Uri_
+  commentId: M:Supabase.Gotrue.SSOResponse.#ctor(System.Uri)
+  name.vb: New(Uri)
+  fullName: Supabase.Gotrue.SSOResponse.SSOResponse(System.Uri)
+  fullName.vb: Supabase.Gotrue.SSOResponse.New(System.Uri)
+  nameWithType: SSOResponse.SSOResponse(Uri)
+  nameWithType.vb: SSOResponse.New(Uri)
+- uid: Supabase.Gotrue.SSOResponse.#ctor*
+  name: SSOResponse
+  href: api/Supabase.Gotrue.SSOResponse.html#Supabase_Gotrue_SSOResponse__ctor_
+  commentId: Overload:Supabase.Gotrue.SSOResponse.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Supabase.Gotrue.SSOResponse.SSOResponse
+  fullName.vb: Supabase.Gotrue.SSOResponse.New
+  nameWithType: SSOResponse.SSOResponse
+  nameWithType.vb: SSOResponse.New
 - uid: Supabase.Gotrue.Session
   name: Session
   href: api/Supabase.Gotrue.Session.html
@@ -5703,19 +5874,32 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Settings.DisableSignup
   nameWithType: Settings.DisableSignup
-- uid: Supabase.Gotrue.Settings.Labels
-  name: Labels
-  href: api/Supabase.Gotrue.Settings.html#Supabase_Gotrue_Settings_Labels
-  commentId: P:Supabase.Gotrue.Settings.Labels
-  fullName: Supabase.Gotrue.Settings.Labels
-  nameWithType: Settings.Labels
-- uid: Supabase.Gotrue.Settings.Labels*
-  name: Labels
-  href: api/Supabase.Gotrue.Settings.html#Supabase_Gotrue_Settings_Labels_
-  commentId: Overload:Supabase.Gotrue.Settings.Labels
+- uid: Supabase.Gotrue.Settings.ExternalProviders
+  name: ExternalProviders
+  href: api/Supabase.Gotrue.Settings.html#Supabase_Gotrue_Settings_ExternalProviders
+  commentId: P:Supabase.Gotrue.Settings.ExternalProviders
+  fullName: Supabase.Gotrue.Settings.ExternalProviders
+  nameWithType: Settings.ExternalProviders
+- uid: Supabase.Gotrue.Settings.ExternalProviders*
+  name: ExternalProviders
+  href: api/Supabase.Gotrue.Settings.html#Supabase_Gotrue_Settings_ExternalProviders_
+  commentId: Overload:Supabase.Gotrue.Settings.ExternalProviders
   isSpec: "True"
-  fullName: Supabase.Gotrue.Settings.Labels
-  nameWithType: Settings.Labels
+  fullName: Supabase.Gotrue.Settings.ExternalProviders
+  nameWithType: Settings.ExternalProviders
+- uid: Supabase.Gotrue.Settings.MFAEnabled
+  name: MFAEnabled
+  href: api/Supabase.Gotrue.Settings.html#Supabase_Gotrue_Settings_MFAEnabled
+  commentId: P:Supabase.Gotrue.Settings.MFAEnabled
+  fullName: Supabase.Gotrue.Settings.MFAEnabled
+  nameWithType: Settings.MFAEnabled
+- uid: Supabase.Gotrue.Settings.MFAEnabled*
+  name: MFAEnabled
+  href: api/Supabase.Gotrue.Settings.html#Supabase_Gotrue_Settings_MFAEnabled_
+  commentId: Overload:Supabase.Gotrue.Settings.MFAEnabled
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Settings.MFAEnabled
+  nameWithType: Settings.MFAEnabled
 - uid: Supabase.Gotrue.Settings.MailerAutoConfirm
   name: MailerAutoConfirm
   href: api/Supabase.Gotrue.Settings.html#Supabase_Gotrue_Settings_MailerAutoConfirm
@@ -5742,19 +5926,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Settings.PhoneAutoConfirm
   nameWithType: Settings.PhoneAutoConfirm
-- uid: Supabase.Gotrue.Settings.Services
-  name: Services
-  href: api/Supabase.Gotrue.Settings.html#Supabase_Gotrue_Settings_Services
-  commentId: P:Supabase.Gotrue.Settings.Services
-  fullName: Supabase.Gotrue.Settings.Services
-  nameWithType: Settings.Services
-- uid: Supabase.Gotrue.Settings.Services*
-  name: Services
-  href: api/Supabase.Gotrue.Settings.html#Supabase_Gotrue_Settings_Services_
-  commentId: Overload:Supabase.Gotrue.Settings.Services
+- uid: Supabase.Gotrue.Settings.SAMLEnabled
+  name: SAMLEnabled
+  href: api/Supabase.Gotrue.Settings.html#Supabase_Gotrue_Settings_SAMLEnabled
+  commentId: P:Supabase.Gotrue.Settings.SAMLEnabled
+  fullName: Supabase.Gotrue.Settings.SAMLEnabled
+  nameWithType: Settings.SAMLEnabled
+- uid: Supabase.Gotrue.Settings.SAMLEnabled*
+  name: SAMLEnabled
+  href: api/Supabase.Gotrue.Settings.html#Supabase_Gotrue_Settings_SAMLEnabled_
+  commentId: Overload:Supabase.Gotrue.Settings.SAMLEnabled
   isSpec: "True"
-  fullName: Supabase.Gotrue.Settings.Services
-  nameWithType: Settings.Services
+  fullName: Supabase.Gotrue.Settings.SAMLEnabled
+  nameWithType: Settings.SAMLEnabled
 - uid: Supabase.Gotrue.Settings.SmsProvider
   name: SmsProvider
   href: api/Supabase.Gotrue.Settings.html#Supabase_Gotrue_Settings_SmsProvider
@@ -6029,6 +6213,25 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.SignInWithPasswordlessPhoneOptions.Phone
   nameWithType: SignInWithPasswordlessPhoneOptions.Phone
+- uid: Supabase.Gotrue.SignInWithSSOOptions
+  name: SignInWithSSOOptions
+  href: api/Supabase.Gotrue.SignInWithSSOOptions.html
+  commentId: T:Supabase.Gotrue.SignInWithSSOOptions
+  fullName: Supabase.Gotrue.SignInWithSSOOptions
+  nameWithType: SignInWithSSOOptions
+- uid: Supabase.Gotrue.SignInWithSSOOptions.CaptchaToken
+  name: CaptchaToken
+  href: api/Supabase.Gotrue.SignInWithSSOOptions.html#Supabase_Gotrue_SignInWithSSOOptions_CaptchaToken
+  commentId: P:Supabase.Gotrue.SignInWithSSOOptions.CaptchaToken
+  fullName: Supabase.Gotrue.SignInWithSSOOptions.CaptchaToken
+  nameWithType: SignInWithSSOOptions.CaptchaToken
+- uid: Supabase.Gotrue.SignInWithSSOOptions.CaptchaToken*
+  name: CaptchaToken
+  href: api/Supabase.Gotrue.SignInWithSSOOptions.html#Supabase_Gotrue_SignInWithSSOOptions_CaptchaToken_
+  commentId: Overload:Supabase.Gotrue.SignInWithSSOOptions.CaptchaToken
+  isSpec: "True"
+  fullName: Supabase.Gotrue.SignInWithSSOOptions.CaptchaToken
+  nameWithType: SignInWithSSOOptions.CaptchaToken
 - uid: Supabase.Gotrue.SignUpOptions
   name: SignUpOptions
   href: api/Supabase.Gotrue.SignUpOptions.html
