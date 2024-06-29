@@ -218,6 +218,11 @@ namespace SupabaseTests.Stubs
             throw new NotImplementedException();
         }
 
+        public Task<Session> VerifyTokenHash(string tokenHash, Constants.EmailOtpType type = Constants.EmailOtpType.Email)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<ProviderAuthState> LinkIdentity(Constants.Provider provider, SignInOptions options)
         {
             throw new NotImplementedException();
