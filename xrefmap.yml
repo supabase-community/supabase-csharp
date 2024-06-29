@@ -1590,6 +1590,22 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Api.VerifyMobileOTP
   nameWithType: Api.VerifyMobileOTP
+- uid: Supabase.Gotrue.Api.VerifyTokenHash(System.String,Supabase.Gotrue.Constants.EmailOtpType)
+  name: VerifyTokenHash(string, EmailOtpType)
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_VerifyTokenHash_System_String_Supabase_Gotrue_Constants_EmailOtpType_
+  commentId: M:Supabase.Gotrue.Api.VerifyTokenHash(System.String,Supabase.Gotrue.Constants.EmailOtpType)
+  name.vb: VerifyTokenHash(String, EmailOtpType)
+  fullName: Supabase.Gotrue.Api.VerifyTokenHash(string, Supabase.Gotrue.Constants.EmailOtpType)
+  fullName.vb: Supabase.Gotrue.Api.VerifyTokenHash(String, Supabase.Gotrue.Constants.EmailOtpType)
+  nameWithType: Api.VerifyTokenHash(string, Constants.EmailOtpType)
+  nameWithType.vb: Api.VerifyTokenHash(String, Constants.EmailOtpType)
+- uid: Supabase.Gotrue.Api.VerifyTokenHash*
+  name: VerifyTokenHash
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_VerifyTokenHash_
+  commentId: Overload:Supabase.Gotrue.Api.VerifyTokenHash
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Api.VerifyTokenHash
+  nameWithType: Api.VerifyTokenHash
 - uid: Supabase.Gotrue.Client
   name: Client
   href: api/Supabase.Gotrue.Client.html
@@ -2236,6 +2252,22 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.VerifyOTP
   nameWithType: Client.VerifyOTP
+- uid: Supabase.Gotrue.Client.VerifyTokenHash(System.String,Supabase.Gotrue.Constants.EmailOtpType)
+  name: VerifyTokenHash(string, EmailOtpType)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_VerifyTokenHash_System_String_Supabase_Gotrue_Constants_EmailOtpType_
+  commentId: M:Supabase.Gotrue.Client.VerifyTokenHash(System.String,Supabase.Gotrue.Constants.EmailOtpType)
+  name.vb: VerifyTokenHash(String, EmailOtpType)
+  fullName: Supabase.Gotrue.Client.VerifyTokenHash(string, Supabase.Gotrue.Constants.EmailOtpType)
+  fullName.vb: Supabase.Gotrue.Client.VerifyTokenHash(String, Supabase.Gotrue.Constants.EmailOtpType)
+  nameWithType: Client.VerifyTokenHash(string, Constants.EmailOtpType)
+  nameWithType.vb: Client.VerifyTokenHash(String, Constants.EmailOtpType)
+- uid: Supabase.Gotrue.Client.VerifyTokenHash*
+  name: VerifyTokenHash
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_VerifyTokenHash_
+  commentId: Overload:Supabase.Gotrue.Client.VerifyTokenHash
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Client.VerifyTokenHash
+  nameWithType: Client.VerifyTokenHash
 - uid: Supabase.Gotrue.ClientOptions
   name: ClientOptions
   href: api/Supabase.Gotrue.ClientOptions.html
@@ -2385,6 +2417,12 @@ references:
   commentId: T:Supabase.Gotrue.Constants.EmailOtpType
   fullName: Supabase.Gotrue.Constants.EmailOtpType
   nameWithType: Constants.EmailOtpType
+- uid: Supabase.Gotrue.Constants.EmailOtpType.Email
+  name: Email
+  href: api/Supabase.Gotrue.Constants.EmailOtpType.html#Supabase_Gotrue_Constants_EmailOtpType_Email
+  commentId: F:Supabase.Gotrue.Constants.EmailOtpType.Email
+  fullName: Supabase.Gotrue.Constants.EmailOtpType.Email
+  nameWithType: Constants.EmailOtpType.Email
 - uid: Supabase.Gotrue.Constants.EmailOtpType.EmailChange
   name: EmailChange
   href: api/Supabase.Gotrue.Constants.EmailOtpType.html#Supabase_Gotrue_Constants_EmailOtpType_EmailChange
@@ -4011,6 +4049,24 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).VerifyMobileOTP
   nameWithType: IGotrueApi<TUser, TSession>.VerifyMobileOTP
   nameWithType.vb: IGotrueApi(Of TUser, TSession).VerifyMobileOTP
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.VerifyTokenHash(System.String,Supabase.Gotrue.Constants.EmailOtpType)
+  name: VerifyTokenHash(string, EmailOtpType)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_VerifyTokenHash_System_String_Supabase_Gotrue_Constants_EmailOtpType_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueApi`2.VerifyTokenHash(System.String,Supabase.Gotrue.Constants.EmailOtpType)
+  name.vb: VerifyTokenHash(String, EmailOtpType)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.VerifyTokenHash(string, Supabase.Gotrue.Constants.EmailOtpType)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).VerifyTokenHash(String, Supabase.Gotrue.Constants.EmailOtpType)
+  nameWithType: IGotrueApi<TUser, TSession>.VerifyTokenHash(string, Constants.EmailOtpType)
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).VerifyTokenHash(String, Constants.EmailOtpType)
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.VerifyTokenHash*
+  name: VerifyTokenHash
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_VerifyTokenHash_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueApi`2.VerifyTokenHash
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.VerifyTokenHash
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).VerifyTokenHash
+  nameWithType: IGotrueApi<TUser, TSession>.VerifyTokenHash
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).VerifyTokenHash
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2
   name: IGotrueClient<TUser, TSession>
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html
@@ -4727,6 +4783,24 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).VerifyOTP
   nameWithType: IGotrueClient<TUser, TSession>.VerifyOTP
   nameWithType.vb: IGotrueClient(Of TUser, TSession).VerifyOTP
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.VerifyTokenHash(System.String,Supabase.Gotrue.Constants.EmailOtpType)
+  name: VerifyTokenHash(string, EmailOtpType)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_VerifyTokenHash_System_String_Supabase_Gotrue_Constants_EmailOtpType_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.VerifyTokenHash(System.String,Supabase.Gotrue.Constants.EmailOtpType)
+  name.vb: VerifyTokenHash(String, EmailOtpType)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.VerifyTokenHash(string, Supabase.Gotrue.Constants.EmailOtpType)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).VerifyTokenHash(String, Supabase.Gotrue.Constants.EmailOtpType)
+  nameWithType: IGotrueClient<TUser, TSession>.VerifyTokenHash(string, Constants.EmailOtpType)
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).VerifyTokenHash(String, Constants.EmailOtpType)
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.VerifyTokenHash*
+  name: VerifyTokenHash
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_VerifyTokenHash_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.VerifyTokenHash
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.VerifyTokenHash
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).VerifyTokenHash
+  nameWithType: IGotrueClient<TUser, TSession>.VerifyTokenHash
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).VerifyTokenHash
 - uid: Supabase.Gotrue.Interfaces.IGotruePersistenceListener`1
   name: IGotruePersistenceListener<TSession>
   href: api/Supabase.Gotrue.Interfaces.IGotruePersistenceListener-1.html
@@ -5215,6 +5289,24 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).VerifyOTP
   nameWithType: IGotrueStatelessClient<TUser, TSession>.VerifyOTP
   nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).VerifyOTP
+- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.VerifyTokenHash(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.Constants.EmailOtpType)
+  name: VerifyTokenHash(string, StatelessClientOptions, EmailOtpType)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_VerifyTokenHash_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_Constants_EmailOtpType_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.VerifyTokenHash(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.Constants.EmailOtpType)
+  name.vb: VerifyTokenHash(String, StatelessClientOptions, EmailOtpType)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.VerifyTokenHash(string, Supabase.Gotrue.StatelessClient.StatelessClientOptions, Supabase.Gotrue.Constants.EmailOtpType)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).VerifyTokenHash(String, Supabase.Gotrue.StatelessClient.StatelessClientOptions, Supabase.Gotrue.Constants.EmailOtpType)
+  nameWithType: IGotrueStatelessClient<TUser, TSession>.VerifyTokenHash(string, StatelessClient.StatelessClientOptions, Constants.EmailOtpType)
+  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).VerifyTokenHash(String, StatelessClient.StatelessClientOptions, Constants.EmailOtpType)
+- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.VerifyTokenHash*
+  name: VerifyTokenHash
+  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_VerifyTokenHash_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.VerifyTokenHash
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.VerifyTokenHash
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).VerifyTokenHash
+  nameWithType: IGotrueStatelessClient<TUser, TSession>.VerifyTokenHash
+  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).VerifyTokenHash
 - uid: Supabase.Gotrue.InviteUserByEmailOptions
   name: InviteUserByEmailOptions
   href: api/Supabase.Gotrue.InviteUserByEmailOptions.html
@@ -6628,6 +6720,22 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.StatelessClient.VerifyOTP
   nameWithType: StatelessClient.VerifyOTP
+- uid: Supabase.Gotrue.StatelessClient.VerifyTokenHash(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.Constants.EmailOtpType)
+  name: VerifyTokenHash(string, StatelessClientOptions, EmailOtpType)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_VerifyTokenHash_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_Constants_EmailOtpType_
+  commentId: M:Supabase.Gotrue.StatelessClient.VerifyTokenHash(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.Constants.EmailOtpType)
+  name.vb: VerifyTokenHash(String, StatelessClientOptions, EmailOtpType)
+  fullName: Supabase.Gotrue.StatelessClient.VerifyTokenHash(string, Supabase.Gotrue.StatelessClient.StatelessClientOptions, Supabase.Gotrue.Constants.EmailOtpType)
+  fullName.vb: Supabase.Gotrue.StatelessClient.VerifyTokenHash(String, Supabase.Gotrue.StatelessClient.StatelessClientOptions, Supabase.Gotrue.Constants.EmailOtpType)
+  nameWithType: StatelessClient.VerifyTokenHash(string, StatelessClient.StatelessClientOptions, Constants.EmailOtpType)
+  nameWithType.vb: StatelessClient.VerifyTokenHash(String, StatelessClient.StatelessClientOptions, Constants.EmailOtpType)
+- uid: Supabase.Gotrue.StatelessClient.VerifyTokenHash*
+  name: VerifyTokenHash
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_VerifyTokenHash_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.VerifyTokenHash
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.VerifyTokenHash
+  nameWithType: StatelessClient.VerifyTokenHash
 - uid: Supabase.Gotrue.TokenRefresh
   name: TokenRefresh
   href: api/Supabase.Gotrue.TokenRefresh.html
