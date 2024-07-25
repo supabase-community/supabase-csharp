@@ -244,7 +244,7 @@ namespace Supabase
         /// <inheritdoc />
         public Task<BaseResponse> Rpc(string procedureName, object? parameters) =>
             _postgrest.Rpc(procedureName, parameters);
-        
+
         /// <inheritdoc />
         public Task<TModeledResponse?> Rpc<TModeledResponse>(string procedureName, object? parameters) =>
             _postgrest.Rpc<TModeledResponse>(procedureName, parameters);
@@ -270,6 +270,13 @@ namespace Supabase
             {
                 var bearer = Auth.CurrentSession?.AccessToken ?? _supabaseKey;
                 headers["Authorization"] = $"Bearer {bearer}";
+            }
+
+            // Add custom headers from options
+            // This will overwrite any existing headers with the same key, not sure if that's the desired behavior
+            foreach (var (key, value) in _options.Headers)
+            {
+                headers[key] = value;
             }
 
             return headers;
