@@ -244,11 +244,14 @@ namespace Supabase
         /// <inheritdoc />
         public Task<BaseResponse> Rpc(string procedureName, object? parameters) =>
             _postgrest.Rpc(procedureName, parameters);
-        
+
         /// <inheritdoc />
         public Task<TModeledResponse?> Rpc<TModeledResponse>(string procedureName, object? parameters) =>
             _postgrest.Rpc<TModeledResponse>(procedureName, parameters);
 
+        /// <summary>
+        /// Produces dictionary of Headers that will be supplied to child clients.
+        ///</summary>
         internal Dictionary<string, string> GetAuthHeaders()
         {
             var headers = new Dictionary<string, string>
@@ -257,9 +260,7 @@ namespace Supabase
             };
 
             if (_supabaseKey != null)
-            {
                 headers["apiKey"] = _supabaseKey;
-            }
 
             // In Regard To: https://github.com/supabase/supabase-csharp/issues/5
             if (_options.Headers.TryGetValue("Authorization", out var header))
@@ -271,6 +272,10 @@ namespace Supabase
                 var bearer = Auth.CurrentSession?.AccessToken ?? _supabaseKey;
                 headers["Authorization"] = $"Bearer {bearer}";
             }
+
+            // Add supplied headers from `ClientOptions` by developer
+            foreach (var kvp in _options.Headers)
+                headers[kvp.Key] = kvp.Value;
 
             return headers;
         }
