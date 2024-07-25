@@ -3,6 +3,7 @@ using Supabase.Gotrue.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Supabase.Gotrue.Mfa;
 
 namespace SupabaseTests.Stubs
 {
@@ -63,6 +64,41 @@ namespace SupabaseTests.Stubs
         }
 
         public Task RefreshToken()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<MfaEnrollResponse> Enroll(MfaEnrollParams mfaEnrollParams)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<MfaChallengeResponse> Challenge(MfaChallengeParams mfaChallengeParams)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Session> Verify(MfaVerifyParams mfaVerifyParams)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Session> ChallengeAndVerify(MfaChallengeAndVerifyParams mfaChallengeAndVerifyParams)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<MfaUnenrollResponse> Unenroll(MfaUnenrollParams mfaUnenrollParams)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<MfaListFactorsResponse> ListFactors()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<MfaGetAuthenticatorAssuranceLevelResponse> GetAuthenticatorAssuranceLevel()
         {
             throw new NotImplementedException();
         }

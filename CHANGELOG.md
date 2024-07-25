@@ -1,11 +1,25 @@
 ﻿# Changelog
 
+## 1.1.0 - 2024-07-25
+
+- Drop support for `netstandard2.0` - `Supabase` now targets `netstandard2.1`.
+- Update dependency: `Supabase.Gotrue@6.0.2`
+    - [Re: 103](https://github.com/supabase-community/gotrue-csharp/pull/103) Add support for MFA signup and login
+      flows. Huge thanks to [@michaelschattgen](https://github.com/michaelschattgen) for this implementation!
+    - [Re: #102](https://github.com/supabase-community/gotrue-csharp/pull/102) Add ExchangeCodeForSession to
+      StatelessClient. Thanks [@alexbakker](https://github.com/alexbakker)!
+    - Major: Change to targeting framework to `netstandard2.1`
+        - [Re: #99](https://github.com/supabase-community/gotrue-csharp/pull/99) Use a CSPRNG to generate the code
+          verifier. Thanks [@alexbakker](https://github.com/alexbakker)!
+    - [Re: #101](https://github.com/supabase-community/gotrue-csharp/pull/101) Ban user functionality.
+      Thanks [@celestebyte](https://github.com/celestebyte)!
+
 ## 1.0.5 - 2024-06-29
 
 - Update dependency: `Supabase.Storage@2.0.2`
 - Update dependency: `Supabase.Gotrue@5.0.6`
-  - [Re: #98](https://github.com/supabase-community/gotrue-csharp/pull/98) Introduces `VerifyTokenHash` to support the
-    PKCE flow for email signup. Thanks [@alexbakker](https://github.com/alexbakker)!
+    - [Re: #98](https://github.com/supabase-community/gotrue-csharp/pull/98) Introduces `VerifyTokenHash` to support the
+      PKCE flow for email signup. Thanks [@alexbakker](https://github.com/alexbakker)!
 
 ## 1.0.4 - 2024-06-11
 
