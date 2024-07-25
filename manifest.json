@@ -582,6 +582,166 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.AmrEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.AmrEntry.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.AuthenticatorAssuranceLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.AuthenticatorAssuranceLevel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.Factor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.Factor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.MfaChallengeParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.MfaChallengeParams.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.MfaChallengeResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.MfaChallengeResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.MfaEnrollParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.MfaEnrollParams.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.MfaEnrollResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.MfaEnrollResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.MfaListFactorsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.MfaListFactorsResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.MfaUnenrollParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.MfaUnenrollParams.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.MfaUnenrollResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.MfaUnenrollResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.MfaVerifyParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.MfaVerifyParams.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.MfaVerifyResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.MfaVerifyResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.TOTP.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.TOTP.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Supabase.Gotrue.NetworkStatus.NetworkListener.yml",
       "output": {
         ".html": {

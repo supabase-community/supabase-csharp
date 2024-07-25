@@ -1005,6 +1005,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.AdminUserAttributes.AppMetadata
   nameWithType: AdminUserAttributes.AppMetadata
+- uid: Supabase.Gotrue.AdminUserAttributes.BanDuration
+  name: BanDuration
+  href: api/Supabase.Gotrue.AdminUserAttributes.html#Supabase_Gotrue_AdminUserAttributes_BanDuration
+  commentId: P:Supabase.Gotrue.AdminUserAttributes.BanDuration
+  fullName: Supabase.Gotrue.AdminUserAttributes.BanDuration
+  nameWithType: AdminUserAttributes.BanDuration
+- uid: Supabase.Gotrue.AdminUserAttributes.BanDuration*
+  name: BanDuration
+  href: api/Supabase.Gotrue.AdminUserAttributes.html#Supabase_Gotrue_AdminUserAttributes_BanDuration_
+  commentId: Overload:Supabase.Gotrue.AdminUserAttributes.BanDuration
+  isSpec: "True"
+  fullName: Supabase.Gotrue.AdminUserAttributes.BanDuration
+  nameWithType: AdminUserAttributes.BanDuration
 - uid: Supabase.Gotrue.AdminUserAttributes.EmailConfirm
   name: EmailConfirm
   href: api/Supabase.Gotrue.AdminUserAttributes.html#Supabase_Gotrue_AdminUserAttributes_EmailConfirm
@@ -1069,6 +1082,22 @@ references:
   fullName.vb: Supabase.Gotrue.Api.New
   nameWithType: Api.Api
   nameWithType.vb: Api.New
+- uid: Supabase.Gotrue.Api.Challenge(System.String,Supabase.Gotrue.Mfa.MfaChallengeParams)
+  name: Challenge(string, MfaChallengeParams)
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_Challenge_System_String_Supabase_Gotrue_Mfa_MfaChallengeParams_
+  commentId: M:Supabase.Gotrue.Api.Challenge(System.String,Supabase.Gotrue.Mfa.MfaChallengeParams)
+  name.vb: Challenge(String, MfaChallengeParams)
+  fullName: Supabase.Gotrue.Api.Challenge(string, Supabase.Gotrue.Mfa.MfaChallengeParams)
+  fullName.vb: Supabase.Gotrue.Api.Challenge(String, Supabase.Gotrue.Mfa.MfaChallengeParams)
+  nameWithType: Api.Challenge(string, MfaChallengeParams)
+  nameWithType.vb: Api.Challenge(String, MfaChallengeParams)
+- uid: Supabase.Gotrue.Api.Challenge*
+  name: Challenge
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_Challenge_
+  commentId: Overload:Supabase.Gotrue.Api.Challenge
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Api.Challenge
+  nameWithType: Api.Challenge
 - uid: Supabase.Gotrue.Api.CreateUser(System.String,Supabase.Gotrue.AdminUserAttributes)
   name: CreateUser(string, AdminUserAttributes?)
   href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_CreateUser_System_String_Supabase_Gotrue_AdminUserAttributes_
@@ -1101,6 +1130,22 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Api.DeleteUser
   nameWithType: Api.DeleteUser
+- uid: Supabase.Gotrue.Api.Enroll(System.String,Supabase.Gotrue.Mfa.MfaEnrollParams)
+  name: Enroll(string, MfaEnrollParams)
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_Enroll_System_String_Supabase_Gotrue_Mfa_MfaEnrollParams_
+  commentId: M:Supabase.Gotrue.Api.Enroll(System.String,Supabase.Gotrue.Mfa.MfaEnrollParams)
+  name.vb: Enroll(String, MfaEnrollParams)
+  fullName: Supabase.Gotrue.Api.Enroll(string, Supabase.Gotrue.Mfa.MfaEnrollParams)
+  fullName.vb: Supabase.Gotrue.Api.Enroll(String, Supabase.Gotrue.Mfa.MfaEnrollParams)
+  nameWithType: Api.Enroll(string, MfaEnrollParams)
+  nameWithType.vb: Api.Enroll(String, MfaEnrollParams)
+- uid: Supabase.Gotrue.Api.Enroll*
+  name: Enroll
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_Enroll_
+  commentId: Overload:Supabase.Gotrue.Api.Enroll
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Api.Enroll
+  nameWithType: Api.Enroll
 - uid: Supabase.Gotrue.Api.ExchangeCodeForSession(System.String,System.String)
   name: ExchangeCodeForSession(string, string)
   href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_ExchangeCodeForSession_System_String_System_String_
@@ -1510,6 +1555,22 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Api.SignUpWithPhone
   nameWithType: Api.SignUpWithPhone
+- uid: Supabase.Gotrue.Api.Unenroll(System.String,Supabase.Gotrue.Mfa.MfaUnenrollParams)
+  name: Unenroll(string, MfaUnenrollParams)
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_Unenroll_System_String_Supabase_Gotrue_Mfa_MfaUnenrollParams_
+  commentId: M:Supabase.Gotrue.Api.Unenroll(System.String,Supabase.Gotrue.Mfa.MfaUnenrollParams)
+  name.vb: Unenroll(String, MfaUnenrollParams)
+  fullName: Supabase.Gotrue.Api.Unenroll(string, Supabase.Gotrue.Mfa.MfaUnenrollParams)
+  fullName.vb: Supabase.Gotrue.Api.Unenroll(String, Supabase.Gotrue.Mfa.MfaUnenrollParams)
+  nameWithType: Api.Unenroll(string, MfaUnenrollParams)
+  nameWithType.vb: Api.Unenroll(String, MfaUnenrollParams)
+- uid: Supabase.Gotrue.Api.Unenroll*
+  name: Unenroll
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_Unenroll_
+  commentId: Overload:Supabase.Gotrue.Api.Unenroll
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Api.Unenroll
+  nameWithType: Api.Unenroll
 - uid: Supabase.Gotrue.Api.UnlinkIdentity(System.String,Supabase.Gotrue.UserIdentity)
   name: UnlinkIdentity(string, UserIdentity)
   href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_UnlinkIdentity_System_String_Supabase_Gotrue_UserIdentity_
@@ -1558,6 +1619,22 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Api.UpdateUserById
   nameWithType: Api.UpdateUserById
+- uid: Supabase.Gotrue.Api.Verify(System.String,Supabase.Gotrue.Mfa.MfaVerifyParams)
+  name: Verify(string, MfaVerifyParams)
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_Verify_System_String_Supabase_Gotrue_Mfa_MfaVerifyParams_
+  commentId: M:Supabase.Gotrue.Api.Verify(System.String,Supabase.Gotrue.Mfa.MfaVerifyParams)
+  name.vb: Verify(String, MfaVerifyParams)
+  fullName: Supabase.Gotrue.Api.Verify(string, Supabase.Gotrue.Mfa.MfaVerifyParams)
+  fullName.vb: Supabase.Gotrue.Api.Verify(String, Supabase.Gotrue.Mfa.MfaVerifyParams)
+  nameWithType: Api.Verify(string, MfaVerifyParams)
+  nameWithType.vb: Api.Verify(String, MfaVerifyParams)
+- uid: Supabase.Gotrue.Api.Verify*
+  name: Verify
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_Verify_
+  commentId: Overload:Supabase.Gotrue.Api.Verify
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Api.Verify
+  nameWithType: Api.Verify
 - uid: Supabase.Gotrue.Api.VerifyEmailOTP(System.String,System.String,Supabase.Gotrue.Constants.EmailOtpType)
   name: VerifyEmailOTP(string, string, EmailOtpType)
   href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_VerifyEmailOTP_System_String_System_String_Supabase_Gotrue_Constants_EmailOtpType_
@@ -1662,6 +1739,32 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.AddStateChangedListener
   nameWithType: Client.AddStateChangedListener
+- uid: Supabase.Gotrue.Client.Challenge(Supabase.Gotrue.Mfa.MfaChallengeParams)
+  name: Challenge(MfaChallengeParams)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_Challenge_Supabase_Gotrue_Mfa_MfaChallengeParams_
+  commentId: M:Supabase.Gotrue.Client.Challenge(Supabase.Gotrue.Mfa.MfaChallengeParams)
+  fullName: Supabase.Gotrue.Client.Challenge(Supabase.Gotrue.Mfa.MfaChallengeParams)
+  nameWithType: Client.Challenge(MfaChallengeParams)
+- uid: Supabase.Gotrue.Client.Challenge*
+  name: Challenge
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_Challenge_
+  commentId: Overload:Supabase.Gotrue.Client.Challenge
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Client.Challenge
+  nameWithType: Client.Challenge
+- uid: Supabase.Gotrue.Client.ChallengeAndVerify(Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams)
+  name: ChallengeAndVerify(MfaChallengeAndVerifyParams)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_ChallengeAndVerify_Supabase_Gotrue_Mfa_MfaChallengeAndVerifyParams_
+  commentId: M:Supabase.Gotrue.Client.ChallengeAndVerify(Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams)
+  fullName: Supabase.Gotrue.Client.ChallengeAndVerify(Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams)
+  nameWithType: Client.ChallengeAndVerify(MfaChallengeAndVerifyParams)
+- uid: Supabase.Gotrue.Client.ChallengeAndVerify*
+  name: ChallengeAndVerify
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_ChallengeAndVerify_
+  commentId: Overload:Supabase.Gotrue.Client.ChallengeAndVerify
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Client.ChallengeAndVerify
+  nameWithType: Client.ChallengeAndVerify
 - uid: Supabase.Gotrue.Client.ClearStateChangedListeners
   name: ClearStateChangedListeners()
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_ClearStateChangedListeners
@@ -1717,6 +1820,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.Debug
   nameWithType: Client.Debug
+- uid: Supabase.Gotrue.Client.Enroll(Supabase.Gotrue.Mfa.MfaEnrollParams)
+  name: Enroll(MfaEnrollParams)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_Enroll_Supabase_Gotrue_Mfa_MfaEnrollParams_
+  commentId: M:Supabase.Gotrue.Client.Enroll(Supabase.Gotrue.Mfa.MfaEnrollParams)
+  fullName: Supabase.Gotrue.Client.Enroll(Supabase.Gotrue.Mfa.MfaEnrollParams)
+  nameWithType: Client.Enroll(MfaEnrollParams)
+- uid: Supabase.Gotrue.Client.Enroll*
+  name: Enroll
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_Enroll_
+  commentId: Overload:Supabase.Gotrue.Client.Enroll
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Client.Enroll
+  nameWithType: Client.Enroll
 - uid: Supabase.Gotrue.Client.ExchangeCodeForSession(System.String,System.String)
   name: ExchangeCodeForSession(string, string)
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_ExchangeCodeForSession_System_String_System_String_
@@ -1733,6 +1849,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.ExchangeCodeForSession
   nameWithType: Client.ExchangeCodeForSession
+- uid: Supabase.Gotrue.Client.GetAuthenticatorAssuranceLevel
+  name: GetAuthenticatorAssuranceLevel()
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_GetAuthenticatorAssuranceLevel
+  commentId: M:Supabase.Gotrue.Client.GetAuthenticatorAssuranceLevel
+  fullName: Supabase.Gotrue.Client.GetAuthenticatorAssuranceLevel()
+  nameWithType: Client.GetAuthenticatorAssuranceLevel()
+- uid: Supabase.Gotrue.Client.GetAuthenticatorAssuranceLevel*
+  name: GetAuthenticatorAssuranceLevel
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_GetAuthenticatorAssuranceLevel_
+  commentId: Overload:Supabase.Gotrue.Client.GetAuthenticatorAssuranceLevel
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Client.GetAuthenticatorAssuranceLevel
+  nameWithType: Client.GetAuthenticatorAssuranceLevel
 - uid: Supabase.Gotrue.Client.GetHeaders
   name: GetHeaders
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_GetHeaders
@@ -1791,6 +1920,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.LinkIdentity
   nameWithType: Client.LinkIdentity
+- uid: Supabase.Gotrue.Client.ListFactors
+  name: ListFactors()
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_ListFactors
+  commentId: M:Supabase.Gotrue.Client.ListFactors
+  fullName: Supabase.Gotrue.Client.ListFactors()
+  nameWithType: Client.ListFactors()
+- uid: Supabase.Gotrue.Client.ListFactors*
+  name: ListFactors
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_ListFactors_
+  commentId: Overload:Supabase.Gotrue.Client.ListFactors
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Client.ListFactors
+  nameWithType: Client.ListFactors
 - uid: Supabase.Gotrue.Client.LoadSession
   name: LoadSession()
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_LoadSession
@@ -2201,6 +2343,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.TokenRefresh
   nameWithType: Client.TokenRefresh
+- uid: Supabase.Gotrue.Client.Unenroll(Supabase.Gotrue.Mfa.MfaUnenrollParams)
+  name: Unenroll(MfaUnenrollParams)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_Unenroll_Supabase_Gotrue_Mfa_MfaUnenrollParams_
+  commentId: M:Supabase.Gotrue.Client.Unenroll(Supabase.Gotrue.Mfa.MfaUnenrollParams)
+  fullName: Supabase.Gotrue.Client.Unenroll(Supabase.Gotrue.Mfa.MfaUnenrollParams)
+  nameWithType: Client.Unenroll(MfaUnenrollParams)
+- uid: Supabase.Gotrue.Client.Unenroll*
+  name: Unenroll
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_Unenroll_
+  commentId: Overload:Supabase.Gotrue.Client.Unenroll
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Client.Unenroll
+  nameWithType: Client.Unenroll
 - uid: Supabase.Gotrue.Client.UnlinkIdentity(Supabase.Gotrue.UserIdentity)
   name: UnlinkIdentity(UserIdentity)
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_UnlinkIdentity_Supabase_Gotrue_UserIdentity_
@@ -2227,6 +2382,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Client.Update
   nameWithType: Client.Update
+- uid: Supabase.Gotrue.Client.Verify(Supabase.Gotrue.Mfa.MfaVerifyParams)
+  name: Verify(MfaVerifyParams)
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_Verify_Supabase_Gotrue_Mfa_MfaVerifyParams_
+  commentId: M:Supabase.Gotrue.Client.Verify(Supabase.Gotrue.Mfa.MfaVerifyParams)
+  fullName: Supabase.Gotrue.Client.Verify(Supabase.Gotrue.Mfa.MfaVerifyParams)
+  nameWithType: Client.Verify(MfaVerifyParams)
+- uid: Supabase.Gotrue.Client.Verify*
+  name: Verify
+  href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_Verify_
+  commentId: Overload:Supabase.Gotrue.Client.Verify
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Client.Verify
+  nameWithType: Client.Verify
 - uid: Supabase.Gotrue.Client.VerifyOTP(System.String,System.String,Supabase.Gotrue.Constants.EmailOtpType)
   name: VerifyOTP(string, string, EmailOtpType)
   href: api/Supabase.Gotrue.Client.html#Supabase_Gotrue_Client_VerifyOTP_System_String_System_String_Supabase_Gotrue_Constants_EmailOtpType_
@@ -2363,6 +2531,12 @@ references:
   commentId: T:Supabase.Gotrue.Constants.AuthState
   fullName: Supabase.Gotrue.Constants.AuthState
   nameWithType: Constants.AuthState
+- uid: Supabase.Gotrue.Constants.AuthState.MfaChallengeVerified
+  name: MfaChallengeVerified
+  href: api/Supabase.Gotrue.Constants.AuthState.html#Supabase_Gotrue_Constants_AuthState_MfaChallengeVerified
+  commentId: F:Supabase.Gotrue.Constants.AuthState.MfaChallengeVerified
+  fullName: Supabase.Gotrue.Constants.AuthState.MfaChallengeVerified
+  nameWithType: Constants.AuthState.MfaChallengeVerified
 - uid: Supabase.Gotrue.Constants.AuthState.PasswordRecovery
   name: PasswordRecovery
   href: api/Supabase.Gotrue.Constants.AuthState.html#Supabase_Gotrue_Constants_AuthState_PasswordRecovery
@@ -2822,6 +2996,12 @@ references:
   commentId: F:Supabase.Gotrue.Exceptions.FailureHint.Reason.InvalidRefreshToken
   fullName: Supabase.Gotrue.Exceptions.FailureHint.Reason.InvalidRefreshToken
   nameWithType: FailureHint.Reason.InvalidRefreshToken
+- uid: Supabase.Gotrue.Exceptions.FailureHint.Reason.MfaChallengeUnverified
+  name: MfaChallengeUnverified
+  href: api/Supabase.Gotrue.Exceptions.FailureHint.Reason.html#Supabase_Gotrue_Exceptions_FailureHint_Reason_MfaChallengeUnverified
+  commentId: F:Supabase.Gotrue.Exceptions.FailureHint.Reason.MfaChallengeUnverified
+  fullName: Supabase.Gotrue.Exceptions.FailureHint.Reason.MfaChallengeUnverified
+  nameWithType: FailureHint.Reason.MfaChallengeUnverified
 - uid: Supabase.Gotrue.Exceptions.FailureHint.Reason.NoSessionFound
   name: NoSessionFound
   href: api/Supabase.Gotrue.Exceptions.FailureHint.Reason.html#Supabase_Gotrue_Exceptions_FailureHint_Reason_NoSessionFound
@@ -3486,6 +3666,24 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession)
   nameWithType: IGotrueApi<TUser, TSession>
   nameWithType.vb: IGotrueApi(Of TUser, TSession)
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.Challenge(System.String,Supabase.Gotrue.Mfa.MfaChallengeParams)
+  name: Challenge(string, MfaChallengeParams)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_Challenge_System_String_Supabase_Gotrue_Mfa_MfaChallengeParams_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueApi`2.Challenge(System.String,Supabase.Gotrue.Mfa.MfaChallengeParams)
+  name.vb: Challenge(String, MfaChallengeParams)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.Challenge(string, Supabase.Gotrue.Mfa.MfaChallengeParams)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).Challenge(String, Supabase.Gotrue.Mfa.MfaChallengeParams)
+  nameWithType: IGotrueApi<TUser, TSession>.Challenge(string, MfaChallengeParams)
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).Challenge(String, MfaChallengeParams)
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.Challenge*
+  name: Challenge
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_Challenge_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueApi`2.Challenge
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.Challenge
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).Challenge
+  nameWithType: IGotrueApi<TUser, TSession>.Challenge
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).Challenge
 - uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.CreateUser(System.String,Supabase.Gotrue.AdminUserAttributes)
   name: CreateUser(string, AdminUserAttributes?)
   href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_CreateUser_System_String_Supabase_Gotrue_AdminUserAttributes_
@@ -3522,6 +3720,24 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).DeleteUser
   nameWithType: IGotrueApi<TUser, TSession>.DeleteUser
   nameWithType.vb: IGotrueApi(Of TUser, TSession).DeleteUser
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.Enroll(System.String,Supabase.Gotrue.Mfa.MfaEnrollParams)
+  name: Enroll(string, MfaEnrollParams)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_Enroll_System_String_Supabase_Gotrue_Mfa_MfaEnrollParams_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueApi`2.Enroll(System.String,Supabase.Gotrue.Mfa.MfaEnrollParams)
+  name.vb: Enroll(String, MfaEnrollParams)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.Enroll(string, Supabase.Gotrue.Mfa.MfaEnrollParams)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).Enroll(String, Supabase.Gotrue.Mfa.MfaEnrollParams)
+  nameWithType: IGotrueApi<TUser, TSession>.Enroll(string, MfaEnrollParams)
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).Enroll(String, MfaEnrollParams)
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.Enroll*
+  name: Enroll
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_Enroll_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueApi`2.Enroll
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.Enroll
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).Enroll
+  nameWithType: IGotrueApi<TUser, TSession>.Enroll
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).Enroll
 - uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.ExchangeCodeForSession(System.String,System.String)
   name: ExchangeCodeForSession(string, string)
   href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_ExchangeCodeForSession_System_String_System_String_
@@ -3959,6 +4175,24 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).SignUpWithPhone
   nameWithType: IGotrueApi<TUser, TSession>.SignUpWithPhone
   nameWithType.vb: IGotrueApi(Of TUser, TSession).SignUpWithPhone
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.Unenroll(System.String,Supabase.Gotrue.Mfa.MfaUnenrollParams)
+  name: Unenroll(string, MfaUnenrollParams)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_Unenroll_System_String_Supabase_Gotrue_Mfa_MfaUnenrollParams_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueApi`2.Unenroll(System.String,Supabase.Gotrue.Mfa.MfaUnenrollParams)
+  name.vb: Unenroll(String, MfaUnenrollParams)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.Unenroll(string, Supabase.Gotrue.Mfa.MfaUnenrollParams)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).Unenroll(String, Supabase.Gotrue.Mfa.MfaUnenrollParams)
+  nameWithType: IGotrueApi<TUser, TSession>.Unenroll(string, MfaUnenrollParams)
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).Unenroll(String, MfaUnenrollParams)
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.Unenroll*
+  name: Unenroll
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_Unenroll_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueApi`2.Unenroll
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.Unenroll
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).Unenroll
+  nameWithType: IGotrueApi<TUser, TSession>.Unenroll
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).Unenroll
 - uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.UnlinkIdentity(System.String,Supabase.Gotrue.UserIdentity)
   name: UnlinkIdentity(string, UserIdentity)
   href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_UnlinkIdentity_System_String_Supabase_Gotrue_UserIdentity_
@@ -4013,6 +4247,24 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).UpdateUserById
   nameWithType: IGotrueApi<TUser, TSession>.UpdateUserById
   nameWithType.vb: IGotrueApi(Of TUser, TSession).UpdateUserById
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.Verify(System.String,Supabase.Gotrue.Mfa.MfaVerifyParams)
+  name: Verify(string, MfaVerifyParams)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_Verify_System_String_Supabase_Gotrue_Mfa_MfaVerifyParams_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueApi`2.Verify(System.String,Supabase.Gotrue.Mfa.MfaVerifyParams)
+  name.vb: Verify(String, MfaVerifyParams)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.Verify(string, Supabase.Gotrue.Mfa.MfaVerifyParams)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).Verify(String, Supabase.Gotrue.Mfa.MfaVerifyParams)
+  nameWithType: IGotrueApi<TUser, TSession>.Verify(string, MfaVerifyParams)
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).Verify(String, MfaVerifyParams)
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.Verify*
+  name: Verify
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_Verify_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueApi`2.Verify
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.Verify
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).Verify
+  nameWithType: IGotrueApi<TUser, TSession>.Verify
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).Verify
 - uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.VerifyEmailOTP(System.String,System.String,Supabase.Gotrue.Constants.EmailOtpType)
   name: VerifyEmailOTP(string, string, EmailOtpType)
   href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_VerifyEmailOTP_System_String_System_String_Supabase_Gotrue_Constants_EmailOtpType_
@@ -4120,6 +4372,40 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).AuthEventHandler
   nameWithType: IGotrueClient<TUser, TSession>.AuthEventHandler
   nameWithType.vb: IGotrueClient(Of TUser, TSession).AuthEventHandler
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.Challenge(Supabase.Gotrue.Mfa.MfaChallengeParams)
+  name: Challenge(MfaChallengeParams)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_Challenge_Supabase_Gotrue_Mfa_MfaChallengeParams_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.Challenge(Supabase.Gotrue.Mfa.MfaChallengeParams)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.Challenge(Supabase.Gotrue.Mfa.MfaChallengeParams)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Challenge(Supabase.Gotrue.Mfa.MfaChallengeParams)
+  nameWithType: IGotrueClient<TUser, TSession>.Challenge(MfaChallengeParams)
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).Challenge(MfaChallengeParams)
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.Challenge*
+  name: Challenge
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_Challenge_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.Challenge
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.Challenge
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Challenge
+  nameWithType: IGotrueClient<TUser, TSession>.Challenge
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).Challenge
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.ChallengeAndVerify(Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams)
+  name: ChallengeAndVerify(MfaChallengeAndVerifyParams)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_ChallengeAndVerify_Supabase_Gotrue_Mfa_MfaChallengeAndVerifyParams_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.ChallengeAndVerify(Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.ChallengeAndVerify(Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).ChallengeAndVerify(Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams)
+  nameWithType: IGotrueClient<TUser, TSession>.ChallengeAndVerify(MfaChallengeAndVerifyParams)
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).ChallengeAndVerify(MfaChallengeAndVerifyParams)
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.ChallengeAndVerify*
+  name: ChallengeAndVerify
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_ChallengeAndVerify_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.ChallengeAndVerify
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.ChallengeAndVerify
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).ChallengeAndVerify
+  nameWithType: IGotrueClient<TUser, TSession>.ChallengeAndVerify
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).ChallengeAndVerify
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.ClearStateChangedListeners
   name: ClearStateChangedListeners()
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_ClearStateChangedListeners
@@ -4189,6 +4475,23 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Debug
   nameWithType: IGotrueClient<TUser, TSession>.Debug
   nameWithType.vb: IGotrueClient(Of TUser, TSession).Debug
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.Enroll(Supabase.Gotrue.Mfa.MfaEnrollParams)
+  name: Enroll(MfaEnrollParams)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_Enroll_Supabase_Gotrue_Mfa_MfaEnrollParams_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.Enroll(Supabase.Gotrue.Mfa.MfaEnrollParams)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.Enroll(Supabase.Gotrue.Mfa.MfaEnrollParams)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Enroll(Supabase.Gotrue.Mfa.MfaEnrollParams)
+  nameWithType: IGotrueClient<TUser, TSession>.Enroll(MfaEnrollParams)
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).Enroll(MfaEnrollParams)
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.Enroll*
+  name: Enroll
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_Enroll_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.Enroll
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.Enroll
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Enroll
+  nameWithType: IGotrueClient<TUser, TSession>.Enroll
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).Enroll
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.ExchangeCodeForSession(System.String,System.String)
   name: ExchangeCodeForSession(string, string)
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_ExchangeCodeForSession_System_String_System_String_
@@ -4207,6 +4510,23 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).ExchangeCodeForSession
   nameWithType: IGotrueClient<TUser, TSession>.ExchangeCodeForSession
   nameWithType.vb: IGotrueClient(Of TUser, TSession).ExchangeCodeForSession
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.GetAuthenticatorAssuranceLevel
+  name: GetAuthenticatorAssuranceLevel()
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_GetAuthenticatorAssuranceLevel
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.GetAuthenticatorAssuranceLevel
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.GetAuthenticatorAssuranceLevel()
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).GetAuthenticatorAssuranceLevel()
+  nameWithType: IGotrueClient<TUser, TSession>.GetAuthenticatorAssuranceLevel()
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).GetAuthenticatorAssuranceLevel()
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.GetAuthenticatorAssuranceLevel*
+  name: GetAuthenticatorAssuranceLevel
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_GetAuthenticatorAssuranceLevel_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.GetAuthenticatorAssuranceLevel
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.GetAuthenticatorAssuranceLevel
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).GetAuthenticatorAssuranceLevel
+  nameWithType: IGotrueClient<TUser, TSession>.GetAuthenticatorAssuranceLevel
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).GetAuthenticatorAssuranceLevel
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.GetSessionFromUrl(System.Uri,System.Boolean)
   name: GetSessionFromUrl(Uri, bool)
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_GetSessionFromUrl_System_Uri_System_Boolean_
@@ -4260,6 +4580,23 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).LinkIdentity
   nameWithType: IGotrueClient<TUser, TSession>.LinkIdentity
   nameWithType.vb: IGotrueClient(Of TUser, TSession).LinkIdentity
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.ListFactors
+  name: ListFactors()
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_ListFactors
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.ListFactors
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.ListFactors()
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).ListFactors()
+  nameWithType: IGotrueClient<TUser, TSession>.ListFactors()
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).ListFactors()
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.ListFactors*
+  name: ListFactors
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_ListFactors_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.ListFactors
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.ListFactors
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).ListFactors
+  nameWithType: IGotrueClient<TUser, TSession>.ListFactors
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).ListFactors
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.LoadSession
   name: LoadSession()
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_LoadSession
@@ -4722,6 +5059,23 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).SignUp
   nameWithType: IGotrueClient<TUser, TSession>.SignUp
   nameWithType.vb: IGotrueClient(Of TUser, TSession).SignUp
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.Unenroll(Supabase.Gotrue.Mfa.MfaUnenrollParams)
+  name: Unenroll(MfaUnenrollParams)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_Unenroll_Supabase_Gotrue_Mfa_MfaUnenrollParams_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.Unenroll(Supabase.Gotrue.Mfa.MfaUnenrollParams)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.Unenroll(Supabase.Gotrue.Mfa.MfaUnenrollParams)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Unenroll(Supabase.Gotrue.Mfa.MfaUnenrollParams)
+  nameWithType: IGotrueClient<TUser, TSession>.Unenroll(MfaUnenrollParams)
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).Unenroll(MfaUnenrollParams)
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.Unenroll*
+  name: Unenroll
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_Unenroll_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.Unenroll
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.Unenroll
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Unenroll
+  nameWithType: IGotrueClient<TUser, TSession>.Unenroll
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).Unenroll
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.UnlinkIdentity(Supabase.Gotrue.UserIdentity)
   name: UnlinkIdentity(UserIdentity)
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_UnlinkIdentity_Supabase_Gotrue_UserIdentity_
@@ -4756,6 +5110,23 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Update
   nameWithType: IGotrueClient<TUser, TSession>.Update
   nameWithType.vb: IGotrueClient(Of TUser, TSession).Update
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.Verify(Supabase.Gotrue.Mfa.MfaVerifyParams)
+  name: Verify(MfaVerifyParams)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_Verify_Supabase_Gotrue_Mfa_MfaVerifyParams_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueClient`2.Verify(Supabase.Gotrue.Mfa.MfaVerifyParams)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.Verify(Supabase.Gotrue.Mfa.MfaVerifyParams)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Verify(Supabase.Gotrue.Mfa.MfaVerifyParams)
+  nameWithType: IGotrueClient<TUser, TSession>.Verify(MfaVerifyParams)
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).Verify(MfaVerifyParams)
+- uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.Verify*
+  name: Verify
+  href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_Verify_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueClient`2.Verify
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.Verify
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueClient(Of TUser, TSession).Verify
+  nameWithType: IGotrueClient<TUser, TSession>.Verify
+  nameWithType.vb: IGotrueClient(Of TUser, TSession).Verify
 - uid: Supabase.Gotrue.Interfaces.IGotrueClient`2.VerifyOTP(System.String,System.String,Supabase.Gotrue.Constants.EmailOtpType)
   name: VerifyOTP(string, string, EmailOtpType)
   href: api/Supabase.Gotrue.Interfaces.IGotrueClient-2.html#Supabase_Gotrue_Interfaces_IGotrueClient_2_VerifyOTP_System_String_System_String_Supabase_Gotrue_Constants_EmailOtpType_
@@ -4914,6 +5285,42 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession)
   nameWithType: IGotrueStatelessClient<TUser, TSession>
   nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession)
+- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.Challenge(System.String,Supabase.Gotrue.Mfa.MfaChallengeParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: Challenge(string, MfaChallengeParams, StatelessClientOptions)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_Challenge_System_String_Supabase_Gotrue_Mfa_MfaChallengeParams_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.Challenge(System.String,Supabase.Gotrue.Mfa.MfaChallengeParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name.vb: Challenge(String, MfaChallengeParams, StatelessClientOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.Challenge(string, Supabase.Gotrue.Mfa.MfaChallengeParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).Challenge(String, Supabase.Gotrue.Mfa.MfaChallengeParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: IGotrueStatelessClient<TUser, TSession>.Challenge(string, MfaChallengeParams, StatelessClient.StatelessClientOptions)
+  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).Challenge(String, MfaChallengeParams, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.Challenge*
+  name: Challenge
+  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_Challenge_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.Challenge
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.Challenge
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).Challenge
+  nameWithType: IGotrueStatelessClient<TUser, TSession>.Challenge
+  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).Challenge
+- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.ChallengeAndVerify(System.String,Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: ChallengeAndVerify(string, MfaChallengeAndVerifyParams, StatelessClientOptions)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_ChallengeAndVerify_System_String_Supabase_Gotrue_Mfa_MfaChallengeAndVerifyParams_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.ChallengeAndVerify(System.String,Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name.vb: ChallengeAndVerify(String, MfaChallengeAndVerifyParams, StatelessClientOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.ChallengeAndVerify(string, Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).ChallengeAndVerify(String, Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: IGotrueStatelessClient<TUser, TSession>.ChallengeAndVerify(string, MfaChallengeAndVerifyParams, StatelessClient.StatelessClientOptions)
+  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).ChallengeAndVerify(String, MfaChallengeAndVerifyParams, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.ChallengeAndVerify*
+  name: ChallengeAndVerify
+  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_ChallengeAndVerify_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.ChallengeAndVerify
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.ChallengeAndVerify
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).ChallengeAndVerify
+  nameWithType: IGotrueStatelessClient<TUser, TSession>.ChallengeAndVerify
+  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).ChallengeAndVerify
 - uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.CreateUser(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.AdminUserAttributes)
   name: CreateUser(string, StatelessClientOptions, AdminUserAttributes)
   href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_CreateUser_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_AdminUserAttributes_
@@ -4959,6 +5366,42 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).DeleteUser
   nameWithType: IGotrueStatelessClient<TUser, TSession>.DeleteUser
   nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).DeleteUser
+- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.Enroll(System.String,Supabase.Gotrue.Mfa.MfaEnrollParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: Enroll(string, MfaEnrollParams, StatelessClientOptions)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_Enroll_System_String_Supabase_Gotrue_Mfa_MfaEnrollParams_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.Enroll(System.String,Supabase.Gotrue.Mfa.MfaEnrollParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name.vb: Enroll(String, MfaEnrollParams, StatelessClientOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.Enroll(string, Supabase.Gotrue.Mfa.MfaEnrollParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).Enroll(String, Supabase.Gotrue.Mfa.MfaEnrollParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: IGotrueStatelessClient<TUser, TSession>.Enroll(string, MfaEnrollParams, StatelessClient.StatelessClientOptions)
+  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).Enroll(String, MfaEnrollParams, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.Enroll*
+  name: Enroll
+  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_Enroll_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.Enroll
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.Enroll
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).Enroll
+  nameWithType: IGotrueStatelessClient<TUser, TSession>.Enroll
+  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).Enroll
+- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.ExchangeCodeForSession(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: ExchangeCodeForSession(string, string, StatelessClientOptions)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_ExchangeCodeForSession_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.ExchangeCodeForSession(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name.vb: ExchangeCodeForSession(String, String, StatelessClientOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.ExchangeCodeForSession(string, string, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).ExchangeCodeForSession(String, String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: IGotrueStatelessClient<TUser, TSession>.ExchangeCodeForSession(string, string, StatelessClient.StatelessClientOptions)
+  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).ExchangeCodeForSession(String, String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.ExchangeCodeForSession*
+  name: ExchangeCodeForSession
+  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_ExchangeCodeForSession_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.ExchangeCodeForSession
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.ExchangeCodeForSession
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).ExchangeCodeForSession
+  nameWithType: IGotrueStatelessClient<TUser, TSession>.ExchangeCodeForSession
+  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).ExchangeCodeForSession
 - uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.GetApi(Supabase.Gotrue.StatelessClient.StatelessClientOptions)
   name: GetApi(StatelessClientOptions)
   href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_GetApi_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
@@ -4976,6 +5419,24 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).GetApi
   nameWithType: IGotrueStatelessClient<TUser, TSession>.GetApi
   nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).GetApi
+- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.GetAuthenticatorAssuranceLevel(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: GetAuthenticatorAssuranceLevel(string, StatelessClientOptions)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_GetAuthenticatorAssuranceLevel_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.GetAuthenticatorAssuranceLevel(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name.vb: GetAuthenticatorAssuranceLevel(String, StatelessClientOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.GetAuthenticatorAssuranceLevel(string, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).GetAuthenticatorAssuranceLevel(String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: IGotrueStatelessClient<TUser, TSession>.GetAuthenticatorAssuranceLevel(string, StatelessClient.StatelessClientOptions)
+  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).GetAuthenticatorAssuranceLevel(String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.GetAuthenticatorAssuranceLevel*
+  name: GetAuthenticatorAssuranceLevel
+  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_GetAuthenticatorAssuranceLevel_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.GetAuthenticatorAssuranceLevel
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.GetAuthenticatorAssuranceLevel
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).GetAuthenticatorAssuranceLevel
+  nameWithType: IGotrueStatelessClient<TUser, TSession>.GetAuthenticatorAssuranceLevel
+  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).GetAuthenticatorAssuranceLevel
 - uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.GetSessionFromUrl(System.Uri,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
   name: GetSessionFromUrl(Uri, StatelessClientOptions)
   href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_GetSessionFromUrl_System_Uri_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
@@ -5047,6 +5508,24 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).InviteUserByEmail
   nameWithType: IGotrueStatelessClient<TUser, TSession>.InviteUserByEmail
   nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).InviteUserByEmail
+- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.ListFactors(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: ListFactors(string, StatelessClientOptions)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_ListFactors_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.ListFactors(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name.vb: ListFactors(String, StatelessClientOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.ListFactors(string, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).ListFactors(String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: IGotrueStatelessClient<TUser, TSession>.ListFactors(string, StatelessClient.StatelessClientOptions)
+  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).ListFactors(String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.ListFactors*
+  name: ListFactors
+  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_ListFactors_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.ListFactors
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.ListFactors
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).ListFactors
+  nameWithType: IGotrueStatelessClient<TUser, TSession>.ListFactors
+  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).ListFactors
 - uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.ListUsers(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.String,System.String,Supabase.Gotrue.Constants.SortOrder,System.Nullable{System.Int32},System.Nullable{System.Int32})
   name: ListUsers(string, StatelessClientOptions, string?, string?, SortOrder, int?, int?)
   href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_ListUsers_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_System_String_Supabase_Gotrue_Constants_SortOrder_System_Nullable_System_Int32__System_Nullable_System_Int32__
@@ -5226,6 +5705,24 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).SignUp
   nameWithType: IGotrueStatelessClient<TUser, TSession>.SignUp
   nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).SignUp
+- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.Unenroll(System.String,Supabase.Gotrue.Mfa.MfaUnenrollParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: Unenroll(string, MfaUnenrollParams, StatelessClientOptions)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_Unenroll_System_String_Supabase_Gotrue_Mfa_MfaUnenrollParams_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.Unenroll(System.String,Supabase.Gotrue.Mfa.MfaUnenrollParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name.vb: Unenroll(String, MfaUnenrollParams, StatelessClientOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.Unenroll(string, Supabase.Gotrue.Mfa.MfaUnenrollParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).Unenroll(String, Supabase.Gotrue.Mfa.MfaUnenrollParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: IGotrueStatelessClient<TUser, TSession>.Unenroll(string, MfaUnenrollParams, StatelessClient.StatelessClientOptions)
+  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).Unenroll(String, MfaUnenrollParams, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.Unenroll*
+  name: Unenroll
+  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_Unenroll_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.Unenroll
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.Unenroll
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).Unenroll
+  nameWithType: IGotrueStatelessClient<TUser, TSession>.Unenroll
+  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).Unenroll
 - uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.Update(System.String,Supabase.Gotrue.UserAttributes,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
   name: Update(string, UserAttributes, StatelessClientOptions)
   href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_Update_System_String_Supabase_Gotrue_UserAttributes_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
@@ -5262,6 +5759,24 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).UpdateUserById
   nameWithType: IGotrueStatelessClient<TUser, TSession>.UpdateUserById
   nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).UpdateUserById
+- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.Verify(System.String,Supabase.Gotrue.Mfa.MfaVerifyParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: Verify(string, MfaVerifyParams, StatelessClientOptions)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_Verify_System_String_Supabase_Gotrue_Mfa_MfaVerifyParams_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.Verify(System.String,Supabase.Gotrue.Mfa.MfaVerifyParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name.vb: Verify(String, MfaVerifyParams, StatelessClientOptions)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.Verify(string, Supabase.Gotrue.Mfa.MfaVerifyParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).Verify(String, Supabase.Gotrue.Mfa.MfaVerifyParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: IGotrueStatelessClient<TUser, TSession>.Verify(string, MfaVerifyParams, StatelessClient.StatelessClientOptions)
+  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).Verify(String, MfaVerifyParams, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.Verify*
+  name: Verify
+  href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_Verify_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.Verify
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.Verify
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueStatelessClient(Of TUser, TSession).Verify
+  nameWithType: IGotrueStatelessClient<TUser, TSession>.Verify
+  nameWithType.vb: IGotrueStatelessClient(Of TUser, TSession).Verify
 - uid: Supabase.Gotrue.Interfaces.IGotrueStatelessClient`2.VerifyOTP(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.Constants.EmailOtpType)
   name: VerifyOTP(string, string, StatelessClientOptions, EmailOtpType)
   href: api/Supabase.Gotrue.Interfaces.IGotrueStatelessClient-2.html#Supabase_Gotrue_Interfaces_IGotrueStatelessClient_2_VerifyOTP_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_Constants_EmailOtpType_
@@ -5339,6 +5854,608 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.InviteUserByEmailOptions.RedirectTo
   nameWithType: InviteUserByEmailOptions.RedirectTo
+- uid: Supabase.Gotrue.Mfa
+  name: Supabase.Gotrue.Mfa
+  href: api/Supabase.Gotrue.Mfa.html
+  commentId: N:Supabase.Gotrue.Mfa
+  fullName: Supabase.Gotrue.Mfa
+  nameWithType: Supabase.Gotrue.Mfa
+- uid: Supabase.Gotrue.Mfa.AmrEntry
+  name: AmrEntry
+  href: api/Supabase.Gotrue.Mfa.AmrEntry.html
+  commentId: T:Supabase.Gotrue.Mfa.AmrEntry
+  fullName: Supabase.Gotrue.Mfa.AmrEntry
+  nameWithType: AmrEntry
+- uid: Supabase.Gotrue.Mfa.AmrEntry.Method
+  name: Method
+  href: api/Supabase.Gotrue.Mfa.AmrEntry.html#Supabase_Gotrue_Mfa_AmrEntry_Method
+  commentId: P:Supabase.Gotrue.Mfa.AmrEntry.Method
+  fullName: Supabase.Gotrue.Mfa.AmrEntry.Method
+  nameWithType: AmrEntry.Method
+- uid: Supabase.Gotrue.Mfa.AmrEntry.Method*
+  name: Method
+  href: api/Supabase.Gotrue.Mfa.AmrEntry.html#Supabase_Gotrue_Mfa_AmrEntry_Method_
+  commentId: Overload:Supabase.Gotrue.Mfa.AmrEntry.Method
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.AmrEntry.Method
+  nameWithType: AmrEntry.Method
+- uid: Supabase.Gotrue.Mfa.AmrEntry.Timestamp
+  name: Timestamp
+  href: api/Supabase.Gotrue.Mfa.AmrEntry.html#Supabase_Gotrue_Mfa_AmrEntry_Timestamp
+  commentId: P:Supabase.Gotrue.Mfa.AmrEntry.Timestamp
+  fullName: Supabase.Gotrue.Mfa.AmrEntry.Timestamp
+  nameWithType: AmrEntry.Timestamp
+- uid: Supabase.Gotrue.Mfa.AmrEntry.Timestamp*
+  name: Timestamp
+  href: api/Supabase.Gotrue.Mfa.AmrEntry.html#Supabase_Gotrue_Mfa_AmrEntry_Timestamp_
+  commentId: Overload:Supabase.Gotrue.Mfa.AmrEntry.Timestamp
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.AmrEntry.Timestamp
+  nameWithType: AmrEntry.Timestamp
+- uid: Supabase.Gotrue.Mfa.AuthenticatorAssuranceLevel
+  name: AuthenticatorAssuranceLevel
+  href: api/Supabase.Gotrue.Mfa.AuthenticatorAssuranceLevel.html
+  commentId: T:Supabase.Gotrue.Mfa.AuthenticatorAssuranceLevel
+  fullName: Supabase.Gotrue.Mfa.AuthenticatorAssuranceLevel
+  nameWithType: AuthenticatorAssuranceLevel
+- uid: Supabase.Gotrue.Mfa.AuthenticatorAssuranceLevel.aal1
+  name: aal1
+  href: api/Supabase.Gotrue.Mfa.AuthenticatorAssuranceLevel.html#Supabase_Gotrue_Mfa_AuthenticatorAssuranceLevel_aal1
+  commentId: F:Supabase.Gotrue.Mfa.AuthenticatorAssuranceLevel.aal1
+  fullName: Supabase.Gotrue.Mfa.AuthenticatorAssuranceLevel.aal1
+  nameWithType: AuthenticatorAssuranceLevel.aal1
+- uid: Supabase.Gotrue.Mfa.AuthenticatorAssuranceLevel.aal2
+  name: aal2
+  href: api/Supabase.Gotrue.Mfa.AuthenticatorAssuranceLevel.html#Supabase_Gotrue_Mfa_AuthenticatorAssuranceLevel_aal2
+  commentId: F:Supabase.Gotrue.Mfa.AuthenticatorAssuranceLevel.aal2
+  fullName: Supabase.Gotrue.Mfa.AuthenticatorAssuranceLevel.aal2
+  nameWithType: AuthenticatorAssuranceLevel.aal2
+- uid: Supabase.Gotrue.Mfa.Factor
+  name: Factor
+  href: api/Supabase.Gotrue.Mfa.Factor.html
+  commentId: T:Supabase.Gotrue.Mfa.Factor
+  fullName: Supabase.Gotrue.Mfa.Factor
+  nameWithType: Factor
+- uid: Supabase.Gotrue.Mfa.Factor.CreatedAt
+  name: CreatedAt
+  href: api/Supabase.Gotrue.Mfa.Factor.html#Supabase_Gotrue_Mfa_Factor_CreatedAt
+  commentId: P:Supabase.Gotrue.Mfa.Factor.CreatedAt
+  fullName: Supabase.Gotrue.Mfa.Factor.CreatedAt
+  nameWithType: Factor.CreatedAt
+- uid: Supabase.Gotrue.Mfa.Factor.CreatedAt*
+  name: CreatedAt
+  href: api/Supabase.Gotrue.Mfa.Factor.html#Supabase_Gotrue_Mfa_Factor_CreatedAt_
+  commentId: Overload:Supabase.Gotrue.Mfa.Factor.CreatedAt
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.Factor.CreatedAt
+  nameWithType: Factor.CreatedAt
+- uid: Supabase.Gotrue.Mfa.Factor.FactorType
+  name: FactorType
+  href: api/Supabase.Gotrue.Mfa.Factor.html#Supabase_Gotrue_Mfa_Factor_FactorType
+  commentId: P:Supabase.Gotrue.Mfa.Factor.FactorType
+  fullName: Supabase.Gotrue.Mfa.Factor.FactorType
+  nameWithType: Factor.FactorType
+- uid: Supabase.Gotrue.Mfa.Factor.FactorType*
+  name: FactorType
+  href: api/Supabase.Gotrue.Mfa.Factor.html#Supabase_Gotrue_Mfa_Factor_FactorType_
+  commentId: Overload:Supabase.Gotrue.Mfa.Factor.FactorType
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.Factor.FactorType
+  nameWithType: Factor.FactorType
+- uid: Supabase.Gotrue.Mfa.Factor.FriendlyName
+  name: FriendlyName
+  href: api/Supabase.Gotrue.Mfa.Factor.html#Supabase_Gotrue_Mfa_Factor_FriendlyName
+  commentId: P:Supabase.Gotrue.Mfa.Factor.FriendlyName
+  fullName: Supabase.Gotrue.Mfa.Factor.FriendlyName
+  nameWithType: Factor.FriendlyName
+- uid: Supabase.Gotrue.Mfa.Factor.FriendlyName*
+  name: FriendlyName
+  href: api/Supabase.Gotrue.Mfa.Factor.html#Supabase_Gotrue_Mfa_Factor_FriendlyName_
+  commentId: Overload:Supabase.Gotrue.Mfa.Factor.FriendlyName
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.Factor.FriendlyName
+  nameWithType: Factor.FriendlyName
+- uid: Supabase.Gotrue.Mfa.Factor.Id
+  name: Id
+  href: api/Supabase.Gotrue.Mfa.Factor.html#Supabase_Gotrue_Mfa_Factor_Id
+  commentId: P:Supabase.Gotrue.Mfa.Factor.Id
+  fullName: Supabase.Gotrue.Mfa.Factor.Id
+  nameWithType: Factor.Id
+- uid: Supabase.Gotrue.Mfa.Factor.Id*
+  name: Id
+  href: api/Supabase.Gotrue.Mfa.Factor.html#Supabase_Gotrue_Mfa_Factor_Id_
+  commentId: Overload:Supabase.Gotrue.Mfa.Factor.Id
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.Factor.Id
+  nameWithType: Factor.Id
+- uid: Supabase.Gotrue.Mfa.Factor.Status
+  name: Status
+  href: api/Supabase.Gotrue.Mfa.Factor.html#Supabase_Gotrue_Mfa_Factor_Status
+  commentId: P:Supabase.Gotrue.Mfa.Factor.Status
+  fullName: Supabase.Gotrue.Mfa.Factor.Status
+  nameWithType: Factor.Status
+- uid: Supabase.Gotrue.Mfa.Factor.Status*
+  name: Status
+  href: api/Supabase.Gotrue.Mfa.Factor.html#Supabase_Gotrue_Mfa_Factor_Status_
+  commentId: Overload:Supabase.Gotrue.Mfa.Factor.Status
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.Factor.Status
+  nameWithType: Factor.Status
+- uid: Supabase.Gotrue.Mfa.Factor.UpdatedAt
+  name: UpdatedAt
+  href: api/Supabase.Gotrue.Mfa.Factor.html#Supabase_Gotrue_Mfa_Factor_UpdatedAt
+  commentId: P:Supabase.Gotrue.Mfa.Factor.UpdatedAt
+  fullName: Supabase.Gotrue.Mfa.Factor.UpdatedAt
+  nameWithType: Factor.UpdatedAt
+- uid: Supabase.Gotrue.Mfa.Factor.UpdatedAt*
+  name: UpdatedAt
+  href: api/Supabase.Gotrue.Mfa.Factor.html#Supabase_Gotrue_Mfa_Factor_UpdatedAt_
+  commentId: Overload:Supabase.Gotrue.Mfa.Factor.UpdatedAt
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.Factor.UpdatedAt
+  nameWithType: Factor.UpdatedAt
+- uid: Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams
+  name: MfaChallengeAndVerifyParams
+  href: api/Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.html
+  commentId: T:Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams
+  fullName: Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams
+  nameWithType: MfaChallengeAndVerifyParams
+- uid: Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.Code
+  name: Code
+  href: api/Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.html#Supabase_Gotrue_Mfa_MfaChallengeAndVerifyParams_Code
+  commentId: P:Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.Code
+  fullName: Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.Code
+  nameWithType: MfaChallengeAndVerifyParams.Code
+- uid: Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.Code*
+  name: Code
+  href: api/Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.html#Supabase_Gotrue_Mfa_MfaChallengeAndVerifyParams_Code_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.Code
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.Code
+  nameWithType: MfaChallengeAndVerifyParams.Code
+- uid: Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.FactorId
+  name: FactorId
+  href: api/Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.html#Supabase_Gotrue_Mfa_MfaChallengeAndVerifyParams_FactorId
+  commentId: P:Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.FactorId
+  fullName: Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.FactorId
+  nameWithType: MfaChallengeAndVerifyParams.FactorId
+- uid: Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.FactorId*
+  name: FactorId
+  href: api/Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.html#Supabase_Gotrue_Mfa_MfaChallengeAndVerifyParams_FactorId_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.FactorId
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.FactorId
+  nameWithType: MfaChallengeAndVerifyParams.FactorId
+- uid: Supabase.Gotrue.Mfa.MfaChallengeParams
+  name: MfaChallengeParams
+  href: api/Supabase.Gotrue.Mfa.MfaChallengeParams.html
+  commentId: T:Supabase.Gotrue.Mfa.MfaChallengeParams
+  fullName: Supabase.Gotrue.Mfa.MfaChallengeParams
+  nameWithType: MfaChallengeParams
+- uid: Supabase.Gotrue.Mfa.MfaChallengeParams.FactorId
+  name: FactorId
+  href: api/Supabase.Gotrue.Mfa.MfaChallengeParams.html#Supabase_Gotrue_Mfa_MfaChallengeParams_FactorId
+  commentId: P:Supabase.Gotrue.Mfa.MfaChallengeParams.FactorId
+  fullName: Supabase.Gotrue.Mfa.MfaChallengeParams.FactorId
+  nameWithType: MfaChallengeParams.FactorId
+- uid: Supabase.Gotrue.Mfa.MfaChallengeParams.FactorId*
+  name: FactorId
+  href: api/Supabase.Gotrue.Mfa.MfaChallengeParams.html#Supabase_Gotrue_Mfa_MfaChallengeParams_FactorId_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaChallengeParams.FactorId
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaChallengeParams.FactorId
+  nameWithType: MfaChallengeParams.FactorId
+- uid: Supabase.Gotrue.Mfa.MfaChallengeResponse
+  name: MfaChallengeResponse
+  href: api/Supabase.Gotrue.Mfa.MfaChallengeResponse.html
+  commentId: T:Supabase.Gotrue.Mfa.MfaChallengeResponse
+  fullName: Supabase.Gotrue.Mfa.MfaChallengeResponse
+  nameWithType: MfaChallengeResponse
+- uid: Supabase.Gotrue.Mfa.MfaChallengeResponse.ExpiresAt
+  name: ExpiresAt
+  href: api/Supabase.Gotrue.Mfa.MfaChallengeResponse.html#Supabase_Gotrue_Mfa_MfaChallengeResponse_ExpiresAt
+  commentId: P:Supabase.Gotrue.Mfa.MfaChallengeResponse.ExpiresAt
+  fullName: Supabase.Gotrue.Mfa.MfaChallengeResponse.ExpiresAt
+  nameWithType: MfaChallengeResponse.ExpiresAt
+- uid: Supabase.Gotrue.Mfa.MfaChallengeResponse.ExpiresAt*
+  name: ExpiresAt
+  href: api/Supabase.Gotrue.Mfa.MfaChallengeResponse.html#Supabase_Gotrue_Mfa_MfaChallengeResponse_ExpiresAt_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaChallengeResponse.ExpiresAt
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaChallengeResponse.ExpiresAt
+  nameWithType: MfaChallengeResponse.ExpiresAt
+- uid: Supabase.Gotrue.Mfa.MfaChallengeResponse.Id
+  name: Id
+  href: api/Supabase.Gotrue.Mfa.MfaChallengeResponse.html#Supabase_Gotrue_Mfa_MfaChallengeResponse_Id
+  commentId: P:Supabase.Gotrue.Mfa.MfaChallengeResponse.Id
+  fullName: Supabase.Gotrue.Mfa.MfaChallengeResponse.Id
+  nameWithType: MfaChallengeResponse.Id
+- uid: Supabase.Gotrue.Mfa.MfaChallengeResponse.Id*
+  name: Id
+  href: api/Supabase.Gotrue.Mfa.MfaChallengeResponse.html#Supabase_Gotrue_Mfa_MfaChallengeResponse_Id_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaChallengeResponse.Id
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaChallengeResponse.Id
+  nameWithType: MfaChallengeResponse.Id
+- uid: Supabase.Gotrue.Mfa.MfaEnrollParams
+  name: MfaEnrollParams
+  href: api/Supabase.Gotrue.Mfa.MfaEnrollParams.html
+  commentId: T:Supabase.Gotrue.Mfa.MfaEnrollParams
+  fullName: Supabase.Gotrue.Mfa.MfaEnrollParams
+  nameWithType: MfaEnrollParams
+- uid: Supabase.Gotrue.Mfa.MfaEnrollParams.FactorType
+  name: FactorType
+  href: api/Supabase.Gotrue.Mfa.MfaEnrollParams.html#Supabase_Gotrue_Mfa_MfaEnrollParams_FactorType
+  commentId: P:Supabase.Gotrue.Mfa.MfaEnrollParams.FactorType
+  fullName: Supabase.Gotrue.Mfa.MfaEnrollParams.FactorType
+  nameWithType: MfaEnrollParams.FactorType
+- uid: Supabase.Gotrue.Mfa.MfaEnrollParams.FactorType*
+  name: FactorType
+  href: api/Supabase.Gotrue.Mfa.MfaEnrollParams.html#Supabase_Gotrue_Mfa_MfaEnrollParams_FactorType_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaEnrollParams.FactorType
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaEnrollParams.FactorType
+  nameWithType: MfaEnrollParams.FactorType
+- uid: Supabase.Gotrue.Mfa.MfaEnrollParams.FriendlyName
+  name: FriendlyName
+  href: api/Supabase.Gotrue.Mfa.MfaEnrollParams.html#Supabase_Gotrue_Mfa_MfaEnrollParams_FriendlyName
+  commentId: P:Supabase.Gotrue.Mfa.MfaEnrollParams.FriendlyName
+  fullName: Supabase.Gotrue.Mfa.MfaEnrollParams.FriendlyName
+  nameWithType: MfaEnrollParams.FriendlyName
+- uid: Supabase.Gotrue.Mfa.MfaEnrollParams.FriendlyName*
+  name: FriendlyName
+  href: api/Supabase.Gotrue.Mfa.MfaEnrollParams.html#Supabase_Gotrue_Mfa_MfaEnrollParams_FriendlyName_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaEnrollParams.FriendlyName
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaEnrollParams.FriendlyName
+  nameWithType: MfaEnrollParams.FriendlyName
+- uid: Supabase.Gotrue.Mfa.MfaEnrollParams.Issuer
+  name: Issuer
+  href: api/Supabase.Gotrue.Mfa.MfaEnrollParams.html#Supabase_Gotrue_Mfa_MfaEnrollParams_Issuer
+  commentId: P:Supabase.Gotrue.Mfa.MfaEnrollParams.Issuer
+  fullName: Supabase.Gotrue.Mfa.MfaEnrollParams.Issuer
+  nameWithType: MfaEnrollParams.Issuer
+- uid: Supabase.Gotrue.Mfa.MfaEnrollParams.Issuer*
+  name: Issuer
+  href: api/Supabase.Gotrue.Mfa.MfaEnrollParams.html#Supabase_Gotrue_Mfa_MfaEnrollParams_Issuer_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaEnrollParams.Issuer
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaEnrollParams.Issuer
+  nameWithType: MfaEnrollParams.Issuer
+- uid: Supabase.Gotrue.Mfa.MfaEnrollResponse
+  name: MfaEnrollResponse
+  href: api/Supabase.Gotrue.Mfa.MfaEnrollResponse.html
+  commentId: T:Supabase.Gotrue.Mfa.MfaEnrollResponse
+  fullName: Supabase.Gotrue.Mfa.MfaEnrollResponse
+  nameWithType: MfaEnrollResponse
+- uid: Supabase.Gotrue.Mfa.MfaEnrollResponse.FriendlyName
+  name: FriendlyName
+  href: api/Supabase.Gotrue.Mfa.MfaEnrollResponse.html#Supabase_Gotrue_Mfa_MfaEnrollResponse_FriendlyName
+  commentId: P:Supabase.Gotrue.Mfa.MfaEnrollResponse.FriendlyName
+  fullName: Supabase.Gotrue.Mfa.MfaEnrollResponse.FriendlyName
+  nameWithType: MfaEnrollResponse.FriendlyName
+- uid: Supabase.Gotrue.Mfa.MfaEnrollResponse.FriendlyName*
+  name: FriendlyName
+  href: api/Supabase.Gotrue.Mfa.MfaEnrollResponse.html#Supabase_Gotrue_Mfa_MfaEnrollResponse_FriendlyName_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaEnrollResponse.FriendlyName
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaEnrollResponse.FriendlyName
+  nameWithType: MfaEnrollResponse.FriendlyName
+- uid: Supabase.Gotrue.Mfa.MfaEnrollResponse.Id
+  name: Id
+  href: api/Supabase.Gotrue.Mfa.MfaEnrollResponse.html#Supabase_Gotrue_Mfa_MfaEnrollResponse_Id
+  commentId: P:Supabase.Gotrue.Mfa.MfaEnrollResponse.Id
+  fullName: Supabase.Gotrue.Mfa.MfaEnrollResponse.Id
+  nameWithType: MfaEnrollResponse.Id
+- uid: Supabase.Gotrue.Mfa.MfaEnrollResponse.Id*
+  name: Id
+  href: api/Supabase.Gotrue.Mfa.MfaEnrollResponse.html#Supabase_Gotrue_Mfa_MfaEnrollResponse_Id_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaEnrollResponse.Id
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaEnrollResponse.Id
+  nameWithType: MfaEnrollResponse.Id
+- uid: Supabase.Gotrue.Mfa.MfaEnrollResponse.Totp
+  name: Totp
+  href: api/Supabase.Gotrue.Mfa.MfaEnrollResponse.html#Supabase_Gotrue_Mfa_MfaEnrollResponse_Totp
+  commentId: P:Supabase.Gotrue.Mfa.MfaEnrollResponse.Totp
+  fullName: Supabase.Gotrue.Mfa.MfaEnrollResponse.Totp
+  nameWithType: MfaEnrollResponse.Totp
+- uid: Supabase.Gotrue.Mfa.MfaEnrollResponse.Totp*
+  name: Totp
+  href: api/Supabase.Gotrue.Mfa.MfaEnrollResponse.html#Supabase_Gotrue_Mfa_MfaEnrollResponse_Totp_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaEnrollResponse.Totp
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaEnrollResponse.Totp
+  nameWithType: MfaEnrollResponse.Totp
+- uid: Supabase.Gotrue.Mfa.MfaEnrollResponse.Type
+  name: Type
+  href: api/Supabase.Gotrue.Mfa.MfaEnrollResponse.html#Supabase_Gotrue_Mfa_MfaEnrollResponse_Type
+  commentId: P:Supabase.Gotrue.Mfa.MfaEnrollResponse.Type
+  fullName: Supabase.Gotrue.Mfa.MfaEnrollResponse.Type
+  nameWithType: MfaEnrollResponse.Type
+- uid: Supabase.Gotrue.Mfa.MfaEnrollResponse.Type*
+  name: Type
+  href: api/Supabase.Gotrue.Mfa.MfaEnrollResponse.html#Supabase_Gotrue_Mfa_MfaEnrollResponse_Type_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaEnrollResponse.Type
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaEnrollResponse.Type
+  nameWithType: MfaEnrollResponse.Type
+- uid: Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse
+  name: MfaGetAuthenticatorAssuranceLevelResponse
+  href: api/Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.html
+  commentId: T:Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse
+  fullName: Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse
+  nameWithType: MfaGetAuthenticatorAssuranceLevelResponse
+- uid: Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.CurrentAuthenticationMethods
+  name: CurrentAuthenticationMethods
+  href: api/Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.html#Supabase_Gotrue_Mfa_MfaGetAuthenticatorAssuranceLevelResponse_CurrentAuthenticationMethods
+  commentId: P:Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.CurrentAuthenticationMethods
+  fullName: Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.CurrentAuthenticationMethods
+  nameWithType: MfaGetAuthenticatorAssuranceLevelResponse.CurrentAuthenticationMethods
+- uid: Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.CurrentAuthenticationMethods*
+  name: CurrentAuthenticationMethods
+  href: api/Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.html#Supabase_Gotrue_Mfa_MfaGetAuthenticatorAssuranceLevelResponse_CurrentAuthenticationMethods_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.CurrentAuthenticationMethods
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.CurrentAuthenticationMethods
+  nameWithType: MfaGetAuthenticatorAssuranceLevelResponse.CurrentAuthenticationMethods
+- uid: Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.CurrentLevel
+  name: CurrentLevel
+  href: api/Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.html#Supabase_Gotrue_Mfa_MfaGetAuthenticatorAssuranceLevelResponse_CurrentLevel
+  commentId: P:Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.CurrentLevel
+  fullName: Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.CurrentLevel
+  nameWithType: MfaGetAuthenticatorAssuranceLevelResponse.CurrentLevel
+- uid: Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.CurrentLevel*
+  name: CurrentLevel
+  href: api/Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.html#Supabase_Gotrue_Mfa_MfaGetAuthenticatorAssuranceLevelResponse_CurrentLevel_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.CurrentLevel
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.CurrentLevel
+  nameWithType: MfaGetAuthenticatorAssuranceLevelResponse.CurrentLevel
+- uid: Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.NextLevel
+  name: NextLevel
+  href: api/Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.html#Supabase_Gotrue_Mfa_MfaGetAuthenticatorAssuranceLevelResponse_NextLevel
+  commentId: P:Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.NextLevel
+  fullName: Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.NextLevel
+  nameWithType: MfaGetAuthenticatorAssuranceLevelResponse.NextLevel
+- uid: Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.NextLevel*
+  name: NextLevel
+  href: api/Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.html#Supabase_Gotrue_Mfa_MfaGetAuthenticatorAssuranceLevelResponse_NextLevel_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.NextLevel
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.NextLevel
+  nameWithType: MfaGetAuthenticatorAssuranceLevelResponse.NextLevel
+- uid: Supabase.Gotrue.Mfa.MfaListFactorsResponse
+  name: MfaListFactorsResponse
+  href: api/Supabase.Gotrue.Mfa.MfaListFactorsResponse.html
+  commentId: T:Supabase.Gotrue.Mfa.MfaListFactorsResponse
+  fullName: Supabase.Gotrue.Mfa.MfaListFactorsResponse
+  nameWithType: MfaListFactorsResponse
+- uid: Supabase.Gotrue.Mfa.MfaListFactorsResponse.All
+  name: All
+  href: api/Supabase.Gotrue.Mfa.MfaListFactorsResponse.html#Supabase_Gotrue_Mfa_MfaListFactorsResponse_All
+  commentId: P:Supabase.Gotrue.Mfa.MfaListFactorsResponse.All
+  fullName: Supabase.Gotrue.Mfa.MfaListFactorsResponse.All
+  nameWithType: MfaListFactorsResponse.All
+- uid: Supabase.Gotrue.Mfa.MfaListFactorsResponse.All*
+  name: All
+  href: api/Supabase.Gotrue.Mfa.MfaListFactorsResponse.html#Supabase_Gotrue_Mfa_MfaListFactorsResponse_All_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaListFactorsResponse.All
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaListFactorsResponse.All
+  nameWithType: MfaListFactorsResponse.All
+- uid: Supabase.Gotrue.Mfa.MfaListFactorsResponse.Totp
+  name: Totp
+  href: api/Supabase.Gotrue.Mfa.MfaListFactorsResponse.html#Supabase_Gotrue_Mfa_MfaListFactorsResponse_Totp
+  commentId: P:Supabase.Gotrue.Mfa.MfaListFactorsResponse.Totp
+  fullName: Supabase.Gotrue.Mfa.MfaListFactorsResponse.Totp
+  nameWithType: MfaListFactorsResponse.Totp
+- uid: Supabase.Gotrue.Mfa.MfaListFactorsResponse.Totp*
+  name: Totp
+  href: api/Supabase.Gotrue.Mfa.MfaListFactorsResponse.html#Supabase_Gotrue_Mfa_MfaListFactorsResponse_Totp_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaListFactorsResponse.Totp
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaListFactorsResponse.Totp
+  nameWithType: MfaListFactorsResponse.Totp
+- uid: Supabase.Gotrue.Mfa.MfaUnenrollParams
+  name: MfaUnenrollParams
+  href: api/Supabase.Gotrue.Mfa.MfaUnenrollParams.html
+  commentId: T:Supabase.Gotrue.Mfa.MfaUnenrollParams
+  fullName: Supabase.Gotrue.Mfa.MfaUnenrollParams
+  nameWithType: MfaUnenrollParams
+- uid: Supabase.Gotrue.Mfa.MfaUnenrollParams.FactorId
+  name: FactorId
+  href: api/Supabase.Gotrue.Mfa.MfaUnenrollParams.html#Supabase_Gotrue_Mfa_MfaUnenrollParams_FactorId
+  commentId: P:Supabase.Gotrue.Mfa.MfaUnenrollParams.FactorId
+  fullName: Supabase.Gotrue.Mfa.MfaUnenrollParams.FactorId
+  nameWithType: MfaUnenrollParams.FactorId
+- uid: Supabase.Gotrue.Mfa.MfaUnenrollParams.FactorId*
+  name: FactorId
+  href: api/Supabase.Gotrue.Mfa.MfaUnenrollParams.html#Supabase_Gotrue_Mfa_MfaUnenrollParams_FactorId_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaUnenrollParams.FactorId
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaUnenrollParams.FactorId
+  nameWithType: MfaUnenrollParams.FactorId
+- uid: Supabase.Gotrue.Mfa.MfaUnenrollResponse
+  name: MfaUnenrollResponse
+  href: api/Supabase.Gotrue.Mfa.MfaUnenrollResponse.html
+  commentId: T:Supabase.Gotrue.Mfa.MfaUnenrollResponse
+  fullName: Supabase.Gotrue.Mfa.MfaUnenrollResponse
+  nameWithType: MfaUnenrollResponse
+- uid: Supabase.Gotrue.Mfa.MfaUnenrollResponse.Id
+  name: Id
+  href: api/Supabase.Gotrue.Mfa.MfaUnenrollResponse.html#Supabase_Gotrue_Mfa_MfaUnenrollResponse_Id
+  commentId: P:Supabase.Gotrue.Mfa.MfaUnenrollResponse.Id
+  fullName: Supabase.Gotrue.Mfa.MfaUnenrollResponse.Id
+  nameWithType: MfaUnenrollResponse.Id
+- uid: Supabase.Gotrue.Mfa.MfaUnenrollResponse.Id*
+  name: Id
+  href: api/Supabase.Gotrue.Mfa.MfaUnenrollResponse.html#Supabase_Gotrue_Mfa_MfaUnenrollResponse_Id_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaUnenrollResponse.Id
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaUnenrollResponse.Id
+  nameWithType: MfaUnenrollResponse.Id
+- uid: Supabase.Gotrue.Mfa.MfaVerifyParams
+  name: MfaVerifyParams
+  href: api/Supabase.Gotrue.Mfa.MfaVerifyParams.html
+  commentId: T:Supabase.Gotrue.Mfa.MfaVerifyParams
+  fullName: Supabase.Gotrue.Mfa.MfaVerifyParams
+  nameWithType: MfaVerifyParams
+- uid: Supabase.Gotrue.Mfa.MfaVerifyParams.ChallengeId
+  name: ChallengeId
+  href: api/Supabase.Gotrue.Mfa.MfaVerifyParams.html#Supabase_Gotrue_Mfa_MfaVerifyParams_ChallengeId
+  commentId: P:Supabase.Gotrue.Mfa.MfaVerifyParams.ChallengeId
+  fullName: Supabase.Gotrue.Mfa.MfaVerifyParams.ChallengeId
+  nameWithType: MfaVerifyParams.ChallengeId
+- uid: Supabase.Gotrue.Mfa.MfaVerifyParams.ChallengeId*
+  name: ChallengeId
+  href: api/Supabase.Gotrue.Mfa.MfaVerifyParams.html#Supabase_Gotrue_Mfa_MfaVerifyParams_ChallengeId_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaVerifyParams.ChallengeId
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaVerifyParams.ChallengeId
+  nameWithType: MfaVerifyParams.ChallengeId
+- uid: Supabase.Gotrue.Mfa.MfaVerifyParams.Code
+  name: Code
+  href: api/Supabase.Gotrue.Mfa.MfaVerifyParams.html#Supabase_Gotrue_Mfa_MfaVerifyParams_Code
+  commentId: P:Supabase.Gotrue.Mfa.MfaVerifyParams.Code
+  fullName: Supabase.Gotrue.Mfa.MfaVerifyParams.Code
+  nameWithType: MfaVerifyParams.Code
+- uid: Supabase.Gotrue.Mfa.MfaVerifyParams.Code*
+  name: Code
+  href: api/Supabase.Gotrue.Mfa.MfaVerifyParams.html#Supabase_Gotrue_Mfa_MfaVerifyParams_Code_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaVerifyParams.Code
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaVerifyParams.Code
+  nameWithType: MfaVerifyParams.Code
+- uid: Supabase.Gotrue.Mfa.MfaVerifyParams.FactorId
+  name: FactorId
+  href: api/Supabase.Gotrue.Mfa.MfaVerifyParams.html#Supabase_Gotrue_Mfa_MfaVerifyParams_FactorId
+  commentId: P:Supabase.Gotrue.Mfa.MfaVerifyParams.FactorId
+  fullName: Supabase.Gotrue.Mfa.MfaVerifyParams.FactorId
+  nameWithType: MfaVerifyParams.FactorId
+- uid: Supabase.Gotrue.Mfa.MfaVerifyParams.FactorId*
+  name: FactorId
+  href: api/Supabase.Gotrue.Mfa.MfaVerifyParams.html#Supabase_Gotrue_Mfa_MfaVerifyParams_FactorId_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaVerifyParams.FactorId
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaVerifyParams.FactorId
+  nameWithType: MfaVerifyParams.FactorId
+- uid: Supabase.Gotrue.Mfa.MfaVerifyResponse
+  name: MfaVerifyResponse
+  href: api/Supabase.Gotrue.Mfa.MfaVerifyResponse.html
+  commentId: T:Supabase.Gotrue.Mfa.MfaVerifyResponse
+  fullName: Supabase.Gotrue.Mfa.MfaVerifyResponse
+  nameWithType: MfaVerifyResponse
+- uid: Supabase.Gotrue.Mfa.MfaVerifyResponse.AccessToken
+  name: AccessToken
+  href: api/Supabase.Gotrue.Mfa.MfaVerifyResponse.html#Supabase_Gotrue_Mfa_MfaVerifyResponse_AccessToken
+  commentId: P:Supabase.Gotrue.Mfa.MfaVerifyResponse.AccessToken
+  fullName: Supabase.Gotrue.Mfa.MfaVerifyResponse.AccessToken
+  nameWithType: MfaVerifyResponse.AccessToken
+- uid: Supabase.Gotrue.Mfa.MfaVerifyResponse.AccessToken*
+  name: AccessToken
+  href: api/Supabase.Gotrue.Mfa.MfaVerifyResponse.html#Supabase_Gotrue_Mfa_MfaVerifyResponse_AccessToken_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaVerifyResponse.AccessToken
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaVerifyResponse.AccessToken
+  nameWithType: MfaVerifyResponse.AccessToken
+- uid: Supabase.Gotrue.Mfa.MfaVerifyResponse.ExpiresIn
+  name: ExpiresIn
+  href: api/Supabase.Gotrue.Mfa.MfaVerifyResponse.html#Supabase_Gotrue_Mfa_MfaVerifyResponse_ExpiresIn
+  commentId: P:Supabase.Gotrue.Mfa.MfaVerifyResponse.ExpiresIn
+  fullName: Supabase.Gotrue.Mfa.MfaVerifyResponse.ExpiresIn
+  nameWithType: MfaVerifyResponse.ExpiresIn
+- uid: Supabase.Gotrue.Mfa.MfaVerifyResponse.ExpiresIn*
+  name: ExpiresIn
+  href: api/Supabase.Gotrue.Mfa.MfaVerifyResponse.html#Supabase_Gotrue_Mfa_MfaVerifyResponse_ExpiresIn_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaVerifyResponse.ExpiresIn
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaVerifyResponse.ExpiresIn
+  nameWithType: MfaVerifyResponse.ExpiresIn
+- uid: Supabase.Gotrue.Mfa.MfaVerifyResponse.RefreshToken
+  name: RefreshToken
+  href: api/Supabase.Gotrue.Mfa.MfaVerifyResponse.html#Supabase_Gotrue_Mfa_MfaVerifyResponse_RefreshToken
+  commentId: P:Supabase.Gotrue.Mfa.MfaVerifyResponse.RefreshToken
+  fullName: Supabase.Gotrue.Mfa.MfaVerifyResponse.RefreshToken
+  nameWithType: MfaVerifyResponse.RefreshToken
+- uid: Supabase.Gotrue.Mfa.MfaVerifyResponse.RefreshToken*
+  name: RefreshToken
+  href: api/Supabase.Gotrue.Mfa.MfaVerifyResponse.html#Supabase_Gotrue_Mfa_MfaVerifyResponse_RefreshToken_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaVerifyResponse.RefreshToken
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaVerifyResponse.RefreshToken
+  nameWithType: MfaVerifyResponse.RefreshToken
+- uid: Supabase.Gotrue.Mfa.MfaVerifyResponse.TokenType
+  name: TokenType
+  href: api/Supabase.Gotrue.Mfa.MfaVerifyResponse.html#Supabase_Gotrue_Mfa_MfaVerifyResponse_TokenType
+  commentId: P:Supabase.Gotrue.Mfa.MfaVerifyResponse.TokenType
+  fullName: Supabase.Gotrue.Mfa.MfaVerifyResponse.TokenType
+  nameWithType: MfaVerifyResponse.TokenType
+- uid: Supabase.Gotrue.Mfa.MfaVerifyResponse.TokenType*
+  name: TokenType
+  href: api/Supabase.Gotrue.Mfa.MfaVerifyResponse.html#Supabase_Gotrue_Mfa_MfaVerifyResponse_TokenType_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaVerifyResponse.TokenType
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaVerifyResponse.TokenType
+  nameWithType: MfaVerifyResponse.TokenType
+- uid: Supabase.Gotrue.Mfa.MfaVerifyResponse.User
+  name: User
+  href: api/Supabase.Gotrue.Mfa.MfaVerifyResponse.html#Supabase_Gotrue_Mfa_MfaVerifyResponse_User
+  commentId: P:Supabase.Gotrue.Mfa.MfaVerifyResponse.User
+  fullName: Supabase.Gotrue.Mfa.MfaVerifyResponse.User
+  nameWithType: MfaVerifyResponse.User
+- uid: Supabase.Gotrue.Mfa.MfaVerifyResponse.User*
+  name: User
+  href: api/Supabase.Gotrue.Mfa.MfaVerifyResponse.html#Supabase_Gotrue_Mfa_MfaVerifyResponse_User_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaVerifyResponse.User
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaVerifyResponse.User
+  nameWithType: MfaVerifyResponse.User
+- uid: Supabase.Gotrue.Mfa.TOTP
+  name: TOTP
+  href: api/Supabase.Gotrue.Mfa.TOTP.html
+  commentId: T:Supabase.Gotrue.Mfa.TOTP
+  fullName: Supabase.Gotrue.Mfa.TOTP
+  nameWithType: TOTP
+- uid: Supabase.Gotrue.Mfa.TOTP.QrCode
+  name: QrCode
+  href: api/Supabase.Gotrue.Mfa.TOTP.html#Supabase_Gotrue_Mfa_TOTP_QrCode
+  commentId: P:Supabase.Gotrue.Mfa.TOTP.QrCode
+  fullName: Supabase.Gotrue.Mfa.TOTP.QrCode
+  nameWithType: TOTP.QrCode
+- uid: Supabase.Gotrue.Mfa.TOTP.QrCode*
+  name: QrCode
+  href: api/Supabase.Gotrue.Mfa.TOTP.html#Supabase_Gotrue_Mfa_TOTP_QrCode_
+  commentId: Overload:Supabase.Gotrue.Mfa.TOTP.QrCode
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.TOTP.QrCode
+  nameWithType: TOTP.QrCode
+- uid: Supabase.Gotrue.Mfa.TOTP.Secret
+  name: Secret
+  href: api/Supabase.Gotrue.Mfa.TOTP.html#Supabase_Gotrue_Mfa_TOTP_Secret
+  commentId: P:Supabase.Gotrue.Mfa.TOTP.Secret
+  fullName: Supabase.Gotrue.Mfa.TOTP.Secret
+  nameWithType: TOTP.Secret
+- uid: Supabase.Gotrue.Mfa.TOTP.Secret*
+  name: Secret
+  href: api/Supabase.Gotrue.Mfa.TOTP.html#Supabase_Gotrue_Mfa_TOTP_Secret_
+  commentId: Overload:Supabase.Gotrue.Mfa.TOTP.Secret
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.TOTP.Secret
+  nameWithType: TOTP.Secret
+- uid: Supabase.Gotrue.Mfa.TOTP.Uri
+  name: Uri
+  href: api/Supabase.Gotrue.Mfa.TOTP.html#Supabase_Gotrue_Mfa_TOTP_Uri
+  commentId: P:Supabase.Gotrue.Mfa.TOTP.Uri
+  fullName: Supabase.Gotrue.Mfa.TOTP.Uri
+  nameWithType: TOTP.Uri
+- uid: Supabase.Gotrue.Mfa.TOTP.Uri*
+  name: Uri
+  href: api/Supabase.Gotrue.Mfa.TOTP.html#Supabase_Gotrue_Mfa_TOTP_Uri_
+  commentId: Overload:Supabase.Gotrue.Mfa.TOTP.Uri
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.TOTP.Uri
+  nameWithType: TOTP.Uri
 - uid: Supabase.Gotrue.NetworkStatus
   name: NetworkStatus
   href: api/Supabase.Gotrue.NetworkStatus.html
@@ -6349,6 +7466,38 @@ references:
   commentId: T:Supabase.Gotrue.StatelessClient
   fullName: Supabase.Gotrue.StatelessClient
   nameWithType: StatelessClient
+- uid: Supabase.Gotrue.StatelessClient.Challenge(System.String,Supabase.Gotrue.Mfa.MfaChallengeParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: Challenge(string, MfaChallengeParams, StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_Challenge_System_String_Supabase_Gotrue_Mfa_MfaChallengeParams_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.Challenge(System.String,Supabase.Gotrue.Mfa.MfaChallengeParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name.vb: Challenge(String, MfaChallengeParams, StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.Challenge(string, Supabase.Gotrue.Mfa.MfaChallengeParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName.vb: Supabase.Gotrue.StatelessClient.Challenge(String, Supabase.Gotrue.Mfa.MfaChallengeParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.Challenge(string, MfaChallengeParams, StatelessClient.StatelessClientOptions)
+  nameWithType.vb: StatelessClient.Challenge(String, MfaChallengeParams, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.Challenge*
+  name: Challenge
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_Challenge_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.Challenge
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.Challenge
+  nameWithType: StatelessClient.Challenge
+- uid: Supabase.Gotrue.StatelessClient.ChallengeAndVerify(System.String,Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: ChallengeAndVerify(string, MfaChallengeAndVerifyParams, StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_ChallengeAndVerify_System_String_Supabase_Gotrue_Mfa_MfaChallengeAndVerifyParams_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.ChallengeAndVerify(System.String,Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name.vb: ChallengeAndVerify(String, MfaChallengeAndVerifyParams, StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.ChallengeAndVerify(string, Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName.vb: Supabase.Gotrue.StatelessClient.ChallengeAndVerify(String, Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.ChallengeAndVerify(string, MfaChallengeAndVerifyParams, StatelessClient.StatelessClientOptions)
+  nameWithType.vb: StatelessClient.ChallengeAndVerify(String, MfaChallengeAndVerifyParams, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.ChallengeAndVerify*
+  name: ChallengeAndVerify
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_ChallengeAndVerify_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.ChallengeAndVerify
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.ChallengeAndVerify
+  nameWithType: StatelessClient.ChallengeAndVerify
 - uid: Supabase.Gotrue.StatelessClient.CreateUser(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.AdminUserAttributes)
   name: CreateUser(string, StatelessClientOptions, AdminUserAttributes)
   href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_CreateUser_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_AdminUserAttributes_
@@ -6390,6 +7539,38 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.StatelessClient.DeleteUser
   nameWithType: StatelessClient.DeleteUser
+- uid: Supabase.Gotrue.StatelessClient.Enroll(System.String,Supabase.Gotrue.Mfa.MfaEnrollParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: Enroll(string, MfaEnrollParams, StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_Enroll_System_String_Supabase_Gotrue_Mfa_MfaEnrollParams_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.Enroll(System.String,Supabase.Gotrue.Mfa.MfaEnrollParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name.vb: Enroll(String, MfaEnrollParams, StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.Enroll(string, Supabase.Gotrue.Mfa.MfaEnrollParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName.vb: Supabase.Gotrue.StatelessClient.Enroll(String, Supabase.Gotrue.Mfa.MfaEnrollParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.Enroll(string, MfaEnrollParams, StatelessClient.StatelessClientOptions)
+  nameWithType.vb: StatelessClient.Enroll(String, MfaEnrollParams, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.Enroll*
+  name: Enroll
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_Enroll_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.Enroll
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.Enroll
+  nameWithType: StatelessClient.Enroll
+- uid: Supabase.Gotrue.StatelessClient.ExchangeCodeForSession(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: ExchangeCodeForSession(string, string, StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_ExchangeCodeForSession_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.ExchangeCodeForSession(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name.vb: ExchangeCodeForSession(String, String, StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.ExchangeCodeForSession(string, string, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName.vb: Supabase.Gotrue.StatelessClient.ExchangeCodeForSession(String, String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.ExchangeCodeForSession(string, string, StatelessClient.StatelessClientOptions)
+  nameWithType.vb: StatelessClient.ExchangeCodeForSession(String, String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.ExchangeCodeForSession*
+  name: ExchangeCodeForSession
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_ExchangeCodeForSession_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.ExchangeCodeForSession
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.ExchangeCodeForSession
+  nameWithType: StatelessClient.ExchangeCodeForSession
 - uid: Supabase.Gotrue.StatelessClient.GetApi(Supabase.Gotrue.StatelessClient.StatelessClientOptions)
   name: GetApi(StatelessClientOptions)
   href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_GetApi_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
@@ -6403,6 +7584,22 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.StatelessClient.GetApi
   nameWithType: StatelessClient.GetApi
+- uid: Supabase.Gotrue.StatelessClient.GetAuthenticatorAssuranceLevel(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: GetAuthenticatorAssuranceLevel(string, StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_GetAuthenticatorAssuranceLevel_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.GetAuthenticatorAssuranceLevel(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name.vb: GetAuthenticatorAssuranceLevel(String, StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.GetAuthenticatorAssuranceLevel(string, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName.vb: Supabase.Gotrue.StatelessClient.GetAuthenticatorAssuranceLevel(String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.GetAuthenticatorAssuranceLevel(string, StatelessClient.StatelessClientOptions)
+  nameWithType.vb: StatelessClient.GetAuthenticatorAssuranceLevel(String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.GetAuthenticatorAssuranceLevel*
+  name: GetAuthenticatorAssuranceLevel
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_GetAuthenticatorAssuranceLevel_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.GetAuthenticatorAssuranceLevel
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.GetAuthenticatorAssuranceLevel
+  nameWithType: StatelessClient.GetAuthenticatorAssuranceLevel
 - uid: Supabase.Gotrue.StatelessClient.GetSessionFromUrl(System.Uri,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
   name: GetSessionFromUrl(Uri, StatelessClientOptions)
   href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_GetSessionFromUrl_System_Uri_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
@@ -6464,6 +7661,22 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.StatelessClient.InviteUserByEmail
   nameWithType: StatelessClient.InviteUserByEmail
+- uid: Supabase.Gotrue.StatelessClient.ListFactors(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: ListFactors(string, StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_ListFactors_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.ListFactors(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name.vb: ListFactors(String, StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.ListFactors(string, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName.vb: Supabase.Gotrue.StatelessClient.ListFactors(String, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.ListFactors(string, StatelessClient.StatelessClientOptions)
+  nameWithType.vb: StatelessClient.ListFactors(String, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.ListFactors*
+  name: ListFactors
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_ListFactors_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.ListFactors
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.ListFactors
+  nameWithType: StatelessClient.ListFactors
 - uid: Supabase.Gotrue.StatelessClient.ListUsers(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.String,System.String,Supabase.Gotrue.Constants.SortOrder,System.Nullable{System.Int32},System.Nullable{System.Int32})
   name: ListUsers(string, StatelessClientOptions, string?, string?, SortOrder, int?, int?)
   href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_ListUsers_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_System_String_Supabase_Gotrue_Constants_SortOrder_System_Nullable_System_Int32__System_Nullable_System_Int32__
@@ -6663,6 +7876,22 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.StatelessClient.StatelessClientOptions.Url
   nameWithType: StatelessClient.StatelessClientOptions.Url
+- uid: Supabase.Gotrue.StatelessClient.Unenroll(System.String,Supabase.Gotrue.Mfa.MfaUnenrollParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: Unenroll(string, MfaUnenrollParams, StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_Unenroll_System_String_Supabase_Gotrue_Mfa_MfaUnenrollParams_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.Unenroll(System.String,Supabase.Gotrue.Mfa.MfaUnenrollParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name.vb: Unenroll(String, MfaUnenrollParams, StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.Unenroll(string, Supabase.Gotrue.Mfa.MfaUnenrollParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName.vb: Supabase.Gotrue.StatelessClient.Unenroll(String, Supabase.Gotrue.Mfa.MfaUnenrollParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.Unenroll(string, MfaUnenrollParams, StatelessClient.StatelessClientOptions)
+  nameWithType.vb: StatelessClient.Unenroll(String, MfaUnenrollParams, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.Unenroll*
+  name: Unenroll
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_Unenroll_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.Unenroll
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.Unenroll
+  nameWithType: StatelessClient.Unenroll
 - uid: Supabase.Gotrue.StatelessClient.Update(System.String,Supabase.Gotrue.UserAttributes,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
   name: Update(string, UserAttributes, StatelessClientOptions)
   href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_Update_System_String_Supabase_Gotrue_UserAttributes_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
@@ -6695,6 +7924,22 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.StatelessClient.UpdateUserById
   nameWithType: StatelessClient.UpdateUserById
+- uid: Supabase.Gotrue.StatelessClient.Verify(System.String,Supabase.Gotrue.Mfa.MfaVerifyParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name: Verify(string, MfaVerifyParams, StatelessClientOptions)
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_Verify_System_String_Supabase_Gotrue_Mfa_MfaVerifyParams_Supabase_Gotrue_StatelessClient_StatelessClientOptions_
+  commentId: M:Supabase.Gotrue.StatelessClient.Verify(System.String,Supabase.Gotrue.Mfa.MfaVerifyParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  name.vb: Verify(String, MfaVerifyParams, StatelessClientOptions)
+  fullName: Supabase.Gotrue.StatelessClient.Verify(string, Supabase.Gotrue.Mfa.MfaVerifyParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  fullName.vb: Supabase.Gotrue.StatelessClient.Verify(String, Supabase.Gotrue.Mfa.MfaVerifyParams, Supabase.Gotrue.StatelessClient.StatelessClientOptions)
+  nameWithType: StatelessClient.Verify(string, MfaVerifyParams, StatelessClient.StatelessClientOptions)
+  nameWithType.vb: StatelessClient.Verify(String, MfaVerifyParams, StatelessClient.StatelessClientOptions)
+- uid: Supabase.Gotrue.StatelessClient.Verify*
+  name: Verify
+  href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_Verify_
+  commentId: Overload:Supabase.Gotrue.StatelessClient.Verify
+  isSpec: "True"
+  fullName: Supabase.Gotrue.StatelessClient.Verify
+  nameWithType: StatelessClient.Verify
 - uid: Supabase.Gotrue.StatelessClient.VerifyOTP(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.Constants.EmailOtpType)
   name: VerifyOTP(string, string, StatelessClientOptions, EmailOtpType)
   href: api/Supabase.Gotrue.StatelessClient.html#Supabase_Gotrue_StatelessClient_VerifyOTP_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_Constants_EmailOtpType_
@@ -6815,6 +8060,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.User.Aud
   nameWithType: User.Aud
+- uid: Supabase.Gotrue.User.BannedUntil
+  name: BannedUntil
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_BannedUntil
+  commentId: P:Supabase.Gotrue.User.BannedUntil
+  fullName: Supabase.Gotrue.User.BannedUntil
+  nameWithType: User.BannedUntil
+- uid: Supabase.Gotrue.User.BannedUntil*
+  name: BannedUntil
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_BannedUntil_
+  commentId: Overload:Supabase.Gotrue.User.BannedUntil
+  isSpec: "True"
+  fullName: Supabase.Gotrue.User.BannedUntil
+  nameWithType: User.BannedUntil
 - uid: Supabase.Gotrue.User.ConfirmationSentAt
   name: ConfirmationSentAt
   href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_ConfirmationSentAt
@@ -6880,6 +8138,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.User.EmailConfirmedAt
   nameWithType: User.EmailConfirmedAt
+- uid: Supabase.Gotrue.User.Factors
+  name: Factors
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_Factors
+  commentId: P:Supabase.Gotrue.User.Factors
+  fullName: Supabase.Gotrue.User.Factors
+  nameWithType: User.Factors
+- uid: Supabase.Gotrue.User.Factors*
+  name: Factors
+  href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_Factors_
+  commentId: Overload:Supabase.Gotrue.User.Factors
+  isSpec: "True"
+  fullName: Supabase.Gotrue.User.Factors
+  nameWithType: User.Factors
 - uid: Supabase.Gotrue.User.Id
   name: Id
   href: api/Supabase.Gotrue.User.html#Supabase_Gotrue_User_Id

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class StatelessClient | supabase-csharp ">
       
-      
+      <meta name="description" content="Supports all classes in the .NET class hierarchy and provides low-level services to derived classes. This is the ultimate base class of all .NET classes; it is the root of the type hierarchy.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Supabase_Gotrue_StatelessClient" data-uid="Supabase.Gotrue.StatelessClient" class="text-break">
-Class StatelessClient  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L11"><i class="bi bi-code-slash"></i></a>
+Class StatelessClient  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Class StatelessClient  <a class="header-action link-secondary" title="View sourc
   <dl><dt>Assembly</dt><dd>Supabase.Gotrue.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Supports all classes in the .NET class hierarchy and provides low-level services to derived classes. This is the ultimate base class of all .NET classes; it is the root of the type hierarchy.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -165,11 +166,95 @@ Class StatelessClient  <a class="header-action link-secondary" title="View sourc
 </h2>
 
 
+  <a id="Supabase_Gotrue_StatelessClient_Challenge_" data-uid="Supabase.Gotrue.StatelessClient.Challenge*"></a>
+
+  <h3 id="Supabase_Gotrue_StatelessClient_Challenge_System_String_Supabase_Gotrue_Mfa_MfaChallengeParams_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.Challenge(System.String,Supabase.Gotrue.Mfa.MfaChallengeParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">
+  Challenge(string, MfaChallengeParams, StatelessClientOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prepares a challenge used to verify that a user has access to a MFA
+factor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;MfaChallengeResponse?&gt; Challenge(string jwt, MfaChallengeParams mfaChallengeParams, StatelessClient.StatelessClientOptions options)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jwt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>mfaChallengeParams</code> <a class="xref" href="Supabase.Gotrue.Mfa.MfaChallengeParams.html">MfaChallengeParams</a></dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="Supabase.Gotrue.StatelessClient.html">StatelessClient</a>.<a class="xref" href="Supabase.Gotrue.StatelessClient.StatelessClientOptions.html">StatelessClientOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Supabase.Gotrue.Mfa.MfaChallengeResponse.html">MfaChallengeResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Supabase_Gotrue_StatelessClient_ChallengeAndVerify_" data-uid="Supabase.Gotrue.StatelessClient.ChallengeAndVerify*"></a>
+
+  <h3 id="Supabase_Gotrue_StatelessClient_ChallengeAndVerify_System_String_Supabase_Gotrue_Mfa_MfaChallengeAndVerifyParams_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.ChallengeAndVerify(System.String,Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">
+  ChallengeAndVerify(string, MfaChallengeAndVerifyParams, StatelessClientOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Helper method which creates a challenge and immediately uses the given code to verify against it thereafter. The verification code is
+provided by the user by entering a code seen in their authenticator app.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;MfaVerifyResponse?&gt; ChallengeAndVerify(string jwt, MfaChallengeAndVerifyParams mfaChallengeAndVerifyParams, StatelessClient.StatelessClientOptions options)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jwt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>mfaChallengeAndVerifyParams</code> <a class="xref" href="Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.html">MfaChallengeAndVerifyParams</a></dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="Supabase.Gotrue.StatelessClient.html">StatelessClient</a>.<a class="xref" href="Supabase.Gotrue.StatelessClient.StatelessClientOptions.html">StatelessClientOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Supabase.Gotrue.Mfa.MfaVerifyResponse.html">MfaVerifyResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Gotrue_StatelessClient_CreateUser_" data-uid="Supabase.Gotrue.StatelessClient.CreateUser*"></a>
 
   <h3 id="Supabase_Gotrue_StatelessClient_CreateUser_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_AdminUserAttributes_" data-uid="Supabase.Gotrue.StatelessClient.CreateUser(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.AdminUserAttributes)">
   CreateUser(string, StatelessClientOptions, AdminUserAttributes)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L305"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a user</p>
@@ -211,7 +296,7 @@ Class StatelessClient  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Supabase_Gotrue_StatelessClient_CreateUser_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_System_String_Supabase_Gotrue_AdminUserAttributes_" data-uid="Supabase.Gotrue.StatelessClient.CreateUser(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.String,System.String,Supabase.Gotrue.AdminUserAttributes)">
   CreateUser(string, StatelessClientOptions, string, string, AdminUserAttributes?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L295"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create a user</p>
@@ -257,7 +342,7 @@ Class StatelessClient  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Supabase_Gotrue_StatelessClient_DeleteUser_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.DeleteUser(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">
   DeleteUser(string, string, StatelessClientOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L203"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L317"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Deletes a User.</p>
@@ -295,11 +380,98 @@ Class StatelessClient  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <a id="Supabase_Gotrue_StatelessClient_Enroll_" data-uid="Supabase.Gotrue.StatelessClient.Enroll*"></a>
+
+  <h3 id="Supabase_Gotrue_StatelessClient_Enroll_System_String_Supabase_Gotrue_Mfa_MfaEnrollParams_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.Enroll(System.String,Supabase.Gotrue.Mfa.MfaEnrollParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">
+  Enroll(string, MfaEnrollParams, StatelessClientOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts the enrollment process for a new Multi-Factor Authentication (MFA)
+factor. This method creates a new <code>unverified</code> factor.
+To verify a factor, present the QR code or secret to the user and ask them to add it to their
+authenticator app.
+The user has to enter the code from their authenticator app to verify it.</p>
+<p>Upon verifying a factor, all other sessions are logged out and the current session's authenticator level is promoted to <code>aal2</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;MfaEnrollResponse?&gt; Enroll(string jwt, MfaEnrollParams mfaEnrollParams, StatelessClient.StatelessClientOptions options)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jwt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>mfaEnrollParams</code> <a class="xref" href="Supabase.Gotrue.Mfa.MfaEnrollParams.html">MfaEnrollParams</a></dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="Supabase.Gotrue.StatelessClient.html">StatelessClient</a>.<a class="xref" href="Supabase.Gotrue.StatelessClient.StatelessClientOptions.html">StatelessClientOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Supabase.Gotrue.Mfa.MfaEnrollResponse.html">MfaEnrollResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Supabase_Gotrue_StatelessClient_ExchangeCodeForSession_" data-uid="Supabase.Gotrue.StatelessClient.ExchangeCodeForSession*"></a>
+
+  <h3 id="Supabase_Gotrue_StatelessClient_ExchangeCodeForSession_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.ExchangeCodeForSession(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">
+  ExchangeCodeForSession(string, string, StatelessClientOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L325"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Logs in an existing user via a third-party provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Session?&gt; ExchangeCodeForSession(string codeVerifier, string authCode, StatelessClient.StatelessClientOptions options)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>codeVerifier</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>authCode</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="Supabase.Gotrue.StatelessClient.html">StatelessClient</a>.<a class="xref" href="Supabase.Gotrue.StatelessClient.StatelessClientOptions.html">StatelessClientOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Supabase.Gotrue.Session.html">Session</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Gotrue_StatelessClient_GetApi_" data-uid="Supabase.Gotrue.StatelessClient.GetApi*"></a>
 
   <h3 id="Supabase_Gotrue_StatelessClient_GetApi_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.GetApi(Supabase.Gotrue.StatelessClient.StatelessClientOptions)">
   GetApi(StatelessClientOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L135"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialize/retrieve the underlying API for this client</p>
@@ -332,11 +504,59 @@ Class StatelessClient  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <a id="Supabase_Gotrue_StatelessClient_GetAuthenticatorAssuranceLevel_" data-uid="Supabase.Gotrue.StatelessClient.GetAuthenticatorAssuranceLevel*"></a>
+
+  <h3 id="Supabase_Gotrue_StatelessClient_GetAuthenticatorAssuranceLevel_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.GetAuthenticatorAssuranceLevel(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">
+  GetAuthenticatorAssuranceLevel(string, StatelessClientOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the Authenticator Assurance Level (AAL) for the active session.</p>
+<ul>
+<li><code>aal1</code> (or <code>null</code>) means that the user's identity has been verified only
+with a conventional login (email+password, OTP, magic link, social login,
+etc.).</li>
+<li><code>aal2</code> means that the user's identity has been verified both with a conventional login and at least one MFA factor.</li>
+</ul>
+<p>Although this method returns a promise, it's fairly quick (microseconds)
+and rarely uses the network. You can use this to check whether the current
+user needs to be shown a screen to verify their MFA factors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;MfaGetAuthenticatorAssuranceLevelResponse?&gt; GetAuthenticatorAssuranceLevel(string jwt, StatelessClient.StatelessClientOptions options)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jwt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="Supabase.Gotrue.StatelessClient.html">StatelessClient</a>.<a class="xref" href="Supabase.Gotrue.StatelessClient.StatelessClientOptions.html">StatelessClientOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Supabase.Gotrue.Mfa.MfaGetAuthenticatorAssuranceLevelResponse.html">MfaGetAuthenticatorAssuranceLevelResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Gotrue_StatelessClient_GetSessionFromUrl_" data-uid="Supabase.Gotrue.StatelessClient.GetSessionFromUrl*"></a>
 
   <h3 id="Supabase_Gotrue_StatelessClient_GetSessionFromUrl_System_Uri_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.GetSessionFromUrl(System.Uri,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">
   GetSessionFromUrl(Uri, StatelessClientOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L331"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Parses a <a class="xref" href="Supabase.Gotrue.Session.html">Session</a> out of a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a>'s Query parameters.</p>
@@ -375,7 +595,7 @@ Class StatelessClient  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Supabase_Gotrue_StatelessClient_GetUser_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.GetUser(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">
   GetUser(string, StatelessClientOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L175"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L289"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get User details by JWT. Can be used to validate a JWT.</p>
@@ -415,7 +635,7 @@ Class StatelessClient  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Supabase_Gotrue_StatelessClient_GetUserById_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_" data-uid="Supabase.Gotrue.StatelessClient.GetUserById(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.String)">
   GetUserById(string, StatelessClientOptions, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L283"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get User details by Id</p>
@@ -457,7 +677,7 @@ Class StatelessClient  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Supabase_Gotrue_StatelessClient_InviteUserByEmail_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_InviteUserByEmailOptions_" data-uid="Supabase.Gotrue.StatelessClient.InviteUserByEmail(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.InviteUserByEmailOptions)">
   InviteUserByEmail(string, string, StatelessClientOptions, InviteUserByEmailOptions?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L260"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sends an invite email link to the specified email.</p>
@@ -497,11 +717,50 @@ Class StatelessClient  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <a id="Supabase_Gotrue_StatelessClient_ListFactors_" data-uid="Supabase.Gotrue.StatelessClient.ListFactors*"></a>
+
+  <h3 id="Supabase_Gotrue_StatelessClient_ListFactors_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.ListFactors(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">
+  ListFactors(string, StatelessClientOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the list of MFA factors enabled for this user</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;MfaListFactorsResponse?&gt; ListFactors(string jwt, StatelessClient.StatelessClientOptions options)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jwt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="Supabase.Gotrue.StatelessClient.html">StatelessClient</a>.<a class="xref" href="Supabase.Gotrue.StatelessClient.StatelessClientOptions.html">StatelessClientOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Supabase.Gotrue.Mfa.MfaListFactorsResponse.html">MfaListFactorsResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Gotrue_StatelessClient_ListUsers_" data-uid="Supabase.Gotrue.StatelessClient.ListUsers*"></a>
 
   <h3 id="Supabase_Gotrue_StatelessClient_ListUsers_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_System_String_Supabase_Gotrue_Constants_SortOrder_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="Supabase.Gotrue.StatelessClient.ListUsers(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.String,System.String,Supabase.Gotrue.Constants.SortOrder,System.Nullable{System.Int32},System.Nullable{System.Int32})">
   ListUsers(string, StatelessClientOptions, string?, string?, SortOrder, int?, int?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L276"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Lists users</p>
@@ -556,7 +815,7 @@ Class StatelessClient  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Supabase_Gotrue_StatelessClient_RefreshToken_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.RefreshToken(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">
   RefreshToken(string, string, StatelessClientOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L255"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L375"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Refreshes a Token</p>
@@ -597,7 +856,7 @@ Class StatelessClient  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Supabase_Gotrue_StatelessClient_ResetPasswordForEmail_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.ResetPasswordForEmail(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">
   ResetPasswordForEmail(string, StatelessClientOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L268"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sends a reset request to an email address.</p>
@@ -641,7 +900,7 @@ Class StatelessClient  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Supabase_Gotrue_StatelessClient_SendMagicLink_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignInOptions_" data-uid="Supabase.Gotrue.StatelessClient.SendMagicLink(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.SignInOptions)">
   SendMagicLink(string, StatelessClientOptions, SignInOptions?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L167"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sends a Magic email login link to the specified email.</p>
@@ -682,7 +941,7 @@ Class StatelessClient  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Supabase_Gotrue_StatelessClient_Settings_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.Settings(Supabase.Gotrue.StatelessClient.StatelessClientOptions)">
   Settings(StatelessClientOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Retrieve the current settings for the Gotrue instance.</p>
@@ -719,7 +978,7 @@ Class StatelessClient  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Supabase_Gotrue_StatelessClient_SignIn_Supabase_Gotrue_Constants_Provider_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignInOptions_" data-uid="Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.SignInOptions)">
   SignIn(Provider, StatelessClientOptions, SignInOptions?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L203"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Retrieves a Url to redirect to for signing in with a <a class="xref" href="Supabase.Gotrue.Constants.Provider.html">Constants.Provider</a>.</p>
@@ -771,7 +1030,7 @@ var session = await client.GetSessionFromUri(uri, true);
 
   <h3 id="Supabase_Gotrue_StatelessClient_SignIn_Supabase_Gotrue_Constants_SignInType_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.SignIn(Supabase.Gotrue.Constants.SignInType,System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">
   SignIn(SignInType, string, string?, StatelessClientOptions?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L173"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Log in an existing user, or login via a third-party provider.</p>
@@ -817,7 +1076,7 @@ var session = await client.GetSessionFromUri(uri, true);
 
   <h3 id="Supabase_Gotrue_StatelessClient_SignIn_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignInOptions_" data-uid="Supabase.Gotrue.StatelessClient.SignIn(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.SignInOptions)">
   SignIn(string, StatelessClientOptions, SignInOptions?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L160"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sends a Magic email login link to the specified email.</p>
@@ -858,7 +1117,7 @@ var session = await client.GetSessionFromUri(uri, true);
 
   <h3 id="Supabase_Gotrue_StatelessClient_SignIn_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.SignIn(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">
   SignIn(string, string, StatelessClientOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L170"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Signs in a User with an email address and password.</p>
@@ -899,7 +1158,7 @@ var session = await client.GetSessionFromUri(uri, true);
 
   <h3 id="Supabase_Gotrue_StatelessClient_SignOut_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.SignOut(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">
   SignOut(string, StatelessClientOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L206"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Logout a User
@@ -940,7 +1199,7 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
 
   <h3 id="Supabase_Gotrue_StatelessClient_SignUp_Supabase_Gotrue_Constants_SignUpType_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignUpOptions_" data-uid="Supabase.Gotrue.StatelessClient.SignUp(Supabase.Gotrue.Constants.SignUpType,System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.SignUpOptions)">
   SignUp(SignUpType, string, string, StatelessClientOptions, SignUpOptions?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L141"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Signs up a user</p>
@@ -988,7 +1247,7 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
 
   <h3 id="Supabase_Gotrue_StatelessClient_SignUp_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_SignUpOptions_" data-uid="Supabase.Gotrue.StatelessClient.SignUp(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.SignUpOptions)">
   SignUp(string, string, StatelessClientOptions, SignUpOptions?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L138"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Signs up a user by email address</p>
@@ -1028,11 +1287,53 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
 
 
 
+  <a id="Supabase_Gotrue_StatelessClient_Unenroll_" data-uid="Supabase.Gotrue.StatelessClient.Unenroll*"></a>
+
+  <h3 id="Supabase_Gotrue_StatelessClient_Unenroll_System_String_Supabase_Gotrue_Mfa_MfaUnenrollParams_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.Unenroll(System.String,Supabase.Gotrue.Mfa.MfaUnenrollParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">
+  Unenroll(string, MfaUnenrollParams, StatelessClientOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unenroll removes a MFA factor.
+A user has to have an <code>aal2</code> authenticator level in order to unenroll a <code>verified</code> factor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;MfaUnenrollResponse?&gt; Unenroll(string jwt, MfaUnenrollParams mfaUnenrollParams, StatelessClient.StatelessClientOptions options)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jwt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>mfaUnenrollParams</code> <a class="xref" href="Supabase.Gotrue.Mfa.MfaUnenrollParams.html">MfaUnenrollParams</a></dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="Supabase.Gotrue.StatelessClient.html">StatelessClient</a>.<a class="xref" href="Supabase.Gotrue.StatelessClient.StatelessClientOptions.html">StatelessClientOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Supabase.Gotrue.Mfa.MfaUnenrollResponse.html">MfaUnenrollResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Gotrue_StatelessClient_Update_" data-uid="Supabase.Gotrue.StatelessClient.Update*"></a>
 
   <h3 id="Supabase_Gotrue_StatelessClient_Update_System_String_Supabase_Gotrue_UserAttributes_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.Update(System.String,Supabase.Gotrue.UserAttributes,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">
   Update(string, UserAttributes, StatelessClientOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L253"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Updates a User's attributes</p>
@@ -1073,7 +1374,7 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
 
   <h3 id="Supabase_Gotrue_StatelessClient_UpdateUserById_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_System_String_Supabase_Gotrue_AdminUserAttributes_" data-uid="Supabase.Gotrue.StatelessClient.UpdateUserById(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,System.String,Supabase.Gotrue.AdminUserAttributes)">
   UpdateUserById(string, StatelessClientOptions, string, AdminUserAttributes)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L197"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L311"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Update user by Id</p>
@@ -1113,11 +1414,53 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
 
 
 
+  <a id="Supabase_Gotrue_StatelessClient_Verify_" data-uid="Supabase.Gotrue.StatelessClient.Verify*"></a>
+
+  <h3 id="Supabase_Gotrue_StatelessClient_Verify_System_String_Supabase_Gotrue_Mfa_MfaVerifyParams_Supabase_Gotrue_StatelessClient_StatelessClientOptions_" data-uid="Supabase.Gotrue.StatelessClient.Verify(System.String,Supabase.Gotrue.Mfa.MfaVerifyParams,Supabase.Gotrue.StatelessClient.StatelessClientOptions)">
+  Verify(string, MfaVerifyParams, StatelessClientOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Verifies a code against a challenge. The verification code is
+provided by the user by entering a code seen in their authenticator app.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;MfaVerifyResponse?&gt; Verify(string jwt, MfaVerifyParams mfaVerifyParams, StatelessClient.StatelessClientOptions options)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jwt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>mfaVerifyParams</code> <a class="xref" href="Supabase.Gotrue.Mfa.MfaVerifyParams.html">MfaVerifyParams</a></dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="Supabase.Gotrue.StatelessClient.html">StatelessClient</a>.<a class="xref" href="Supabase.Gotrue.StatelessClient.StatelessClientOptions.html">StatelessClientOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Supabase.Gotrue.Mfa.MfaVerifyResponse.html">MfaVerifyResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Gotrue_StatelessClient_VerifyOTP_" data-uid="Supabase.Gotrue.StatelessClient.VerifyOTP*"></a>
 
   <h3 id="Supabase_Gotrue_StatelessClient_VerifyOTP_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_Constants_EmailOtpType_" data-uid="Supabase.Gotrue.StatelessClient.VerifyOTP(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.Constants.EmailOtpType)">
   VerifyOTP(string, string, StatelessClientOptions, EmailOtpType)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L227"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Log in a user give a user supplied OTP received via email.</p>
@@ -1160,7 +1503,7 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
 
   <h3 id="Supabase_Gotrue_StatelessClient_VerifyOTP_System_String_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_Constants_MobileOtpType_" data-uid="Supabase.Gotrue.StatelessClient.VerifyOTP(System.String,System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.Constants.MobileOtpType)">
   VerifyOTP(string, string, StatelessClientOptions, MobileOtpType)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L214"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Log in a user given a User supplied OTP received via mobile.</p>
@@ -1205,7 +1548,7 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
 
   <h3 id="Supabase_Gotrue_StatelessClient_VerifyTokenHash_System_String_Supabase_Gotrue_StatelessClient_StatelessClientOptions_Supabase_Gotrue_Constants_EmailOtpType_" data-uid="Supabase.Gotrue.StatelessClient.VerifyTokenHash(System.String,Supabase.Gotrue.StatelessClient.StatelessClientOptions,Supabase.Gotrue.Constants.EmailOtpType)">
   VerifyTokenHash(string, StatelessClientOptions, EmailOtpType)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L240"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Log in a user given the token hash used in an email confirmation link.</p>
@@ -1246,7 +1589,7 @@ JWT tokens will still be valid for stateless auth until they expire.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L11" class="edit-link">Edit this page</a>
+          <a href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/StatelessClient.cs/#L16" class="edit-link">Edit this page</a>
         </div>
 
 

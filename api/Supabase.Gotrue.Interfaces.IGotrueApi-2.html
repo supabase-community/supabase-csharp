@@ -89,7 +89,7 @@
 
 
   <h1 id="Supabase_Gotrue_Interfaces_IGotrueApi_2" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2" class="text-break">
-Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L11"><i class="bi bi-code-slash"></i></a>
+Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -134,11 +134,49 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 </h2>
 
 
+  <a id="Supabase_Gotrue_Interfaces_IGotrueApi_2_Challenge_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.Challenge*"></a>
+
+  <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_Challenge_System_String_Supabase_Gotrue_Mfa_MfaChallengeParams_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.Challenge(System.String,Supabase.Gotrue.Mfa.MfaChallengeParams)">
+  Challenge(string, MfaChallengeParams)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;MfaChallengeResponse?&gt; Challenge(string jwt, MfaChallengeParams mfaChallengeParams)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jwt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>mfaChallengeParams</code> <a class="xref" href="Supabase.Gotrue.Mfa.MfaChallengeParams.html">MfaChallengeParams</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Supabase.Gotrue.Mfa.MfaChallengeResponse.html">MfaChallengeResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Gotrue_Interfaces_IGotrueApi_2_CreateUser_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.CreateUser*"></a>
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_CreateUser_System_String_Supabase_Gotrue_AdminUserAttributes_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.CreateUser(System.String,Supabase.Gotrue.AdminUserAttributes)">
   CreateUser(string, AdminUserAttributes?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -176,7 +214,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_DeleteUser_System_String_System_String_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.DeleteUser(System.String,System.String)">
   DeleteUser(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -210,11 +248,49 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
 
 
+  <a id="Supabase_Gotrue_Interfaces_IGotrueApi_2_Enroll_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.Enroll*"></a>
+
+  <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_Enroll_System_String_Supabase_Gotrue_Mfa_MfaEnrollParams_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.Enroll(System.String,Supabase.Gotrue.Mfa.MfaEnrollParams)">
+  Enroll(string, MfaEnrollParams)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;MfaEnrollResponse?&gt; Enroll(string jwt, MfaEnrollParams mfaEnrollParams)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jwt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>mfaEnrollParams</code> <a class="xref" href="Supabase.Gotrue.Mfa.MfaEnrollParams.html">MfaEnrollParams</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Supabase.Gotrue.Mfa.MfaEnrollResponse.html">MfaEnrollResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Gotrue_Interfaces_IGotrueApi_2_ExchangeCodeForSession_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.ExchangeCodeForSession*"></a>
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_ExchangeCodeForSession_System_String_System_String_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.ExchangeCodeForSession(System.String,System.String)">
   ExchangeCodeForSession(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -252,7 +328,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_GenerateLink_System_String_Supabase_Gotrue_GenerateLinkOptions_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.GenerateLink(System.String,Supabase.Gotrue.GenerateLinkOptions)">
   GenerateLink(string, GenerateLinkOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -290,7 +366,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_GetUriForProvider_Supabase_Gotrue_Constants_Provider_Supabase_Gotrue_SignInOptions_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.GetUriForProvider(Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.SignInOptions)">
   GetUriForProvider(Provider, SignInOptions?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -328,7 +404,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_GetUser_System_String_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.GetUser(System.String)">
   GetUser(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -364,7 +440,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_GetUserById_System_String_System_String_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.GetUserById(System.String,System.String)">
   GetUserById(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -402,7 +478,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_InviteUserByEmail_System_String_System_String_Supabase_Gotrue_InviteUserByEmailOptions_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.InviteUserByEmail(System.String,System.String,Supabase.Gotrue.InviteUserByEmailOptions)">
   InviteUserByEmail(string, string, InviteUserByEmailOptions?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -442,7 +518,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_LinkIdentity_System_String_Supabase_Gotrue_Constants_Provider_Supabase_Gotrue_SignInOptions_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.LinkIdentity(System.String,Supabase.Gotrue.Constants.Provider,Supabase.Gotrue.SignInOptions)">
   LinkIdentity(string, Provider, SignInOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Links an oauth identity to an existing user.</p>
@@ -486,7 +562,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_ListUsers_System_String_System_String_System_String_Supabase_Gotrue_Constants_SortOrder_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.ListUsers(System.String,System.String,System.String,Supabase.Gotrue.Constants.SortOrder,System.Nullable{System.Int32},System.Nullable{System.Int32})">
   ListUsers(string, string?, string?, SortOrder, int?, int?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -532,7 +608,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_Reauthenticate_System_String_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.Reauthenticate(System.String)">
   Reauthenticate(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -568,7 +644,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_RefreshAccessToken_System_String_System_String_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.RefreshAccessToken(System.String,System.String)">
   RefreshAccessToken(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -606,7 +682,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_ResetPasswordForEmail_Supabase_Gotrue_ResetPasswordForEmailOptions_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.ResetPasswordForEmail(Supabase.Gotrue.ResetPasswordForEmailOptions)">
   ResetPasswordForEmail(ResetPasswordForEmailOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -642,7 +718,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_ResetPasswordForEmail_System_String_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.ResetPasswordForEmail(System.String)">
   ResetPasswordForEmail(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -678,7 +754,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_SendMagicLinkEmail_System_String_Supabase_Gotrue_SignInOptions_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.SendMagicLinkEmail(System.String,Supabase.Gotrue.SignInOptions)">
   SendMagicLinkEmail(string, SignInOptions?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -716,7 +792,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_SendMobileOTP_System_String_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.SendMobileOTP(System.String)">
   SendMobileOTP(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -752,7 +828,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_Settings" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.Settings">
   Settings()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -783,7 +859,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_SignInAnonymously_Supabase_Gotrue_SignInAnonymouslyOptions_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInAnonymously(Supabase.Gotrue.SignInAnonymouslyOptions)">
   SignInAnonymously(SignInAnonymouslyOptions?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -819,7 +895,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_SignInWithEmail_System_String_System_String_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInWithEmail(System.String,System.String)">
   SignInWithEmail(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -857,7 +933,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_SignInWithIdToken_Supabase_Gotrue_Constants_Provider_System_String_System_String_System_String_System_String_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInWithIdToken(Supabase.Gotrue.Constants.Provider,System.String,System.String,System.String,System.String)">
   SignInWithIdToken(Provider, string, string?, string?, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -901,7 +977,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_SignInWithOtp_Supabase_Gotrue_SignInWithPasswordlessEmailOptions_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInWithOtp(Supabase.Gotrue.SignInWithPasswordlessEmailOptions)">
   SignInWithOtp(SignInWithPasswordlessEmailOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -937,7 +1013,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_SignInWithOtp_Supabase_Gotrue_SignInWithPasswordlessPhoneOptions_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInWithOtp(Supabase.Gotrue.SignInWithPasswordlessPhoneOptions)">
   SignInWithOtp(SignInWithPasswordlessPhoneOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -973,7 +1049,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_SignInWithPhone_System_String_System_String_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInWithPhone(System.String,System.String)">
   SignInWithPhone(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1011,7 +1087,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_SignInWithSSO_System_Guid_Supabase_Gotrue_SignInWithSSOOptions_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInWithSSO(System.Guid,Supabase.Gotrue.SignInWithSSOOptions)">
   SignInWithSSO(Guid, SignInWithSSOOptions?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1049,7 +1125,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_SignInWithSSO_System_String_Supabase_Gotrue_SignInWithSSOOptions_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.SignInWithSSO(System.String,Supabase.Gotrue.SignInWithSSOOptions)">
   SignInWithSSO(string, SignInWithSSOOptions?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1087,7 +1163,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_SignOut_System_String_Supabase_Gotrue_Constants_SignOutScope_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.SignOut(System.String,Supabase.Gotrue.Constants.SignOutScope)">
   SignOut(string, SignOutScope)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1125,7 +1201,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_SignUpWithEmail_System_String_System_String_Supabase_Gotrue_SignUpOptions_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.SignUpWithEmail(System.String,System.String,Supabase.Gotrue.SignUpOptions)">
   SignUpWithEmail(string, string, SignUpOptions?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1165,7 +1241,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_SignUpWithPhone_System_String_System_String_Supabase_Gotrue_SignUpOptions_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.SignUpWithPhone(System.String,System.String,Supabase.Gotrue.SignUpOptions)">
   SignUpWithPhone(string, string, SignUpOptions?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1201,11 +1277,49 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
 
 
+  <a id="Supabase_Gotrue_Interfaces_IGotrueApi_2_Unenroll_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.Unenroll*"></a>
+
+  <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_Unenroll_System_String_Supabase_Gotrue_Mfa_MfaUnenrollParams_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.Unenroll(System.String,Supabase.Gotrue.Mfa.MfaUnenrollParams)">
+  Unenroll(string, MfaUnenrollParams)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;MfaUnenrollResponse?&gt; Unenroll(string jwt, MfaUnenrollParams mfaVerifyParams)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jwt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>mfaVerifyParams</code> <a class="xref" href="Supabase.Gotrue.Mfa.MfaUnenrollParams.html">MfaUnenrollParams</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Supabase.Gotrue.Mfa.MfaUnenrollResponse.html">MfaUnenrollResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Gotrue_Interfaces_IGotrueApi_2_UnlinkIdentity_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.UnlinkIdentity*"></a>
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_UnlinkIdentity_System_String_Supabase_Gotrue_UserIdentity_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.UnlinkIdentity(System.String,Supabase.Gotrue.UserIdentity)">
   UnlinkIdentity(string, UserIdentity)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L70"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Unlinks an identity from a user by deleting it. The user will no longer be able to sign in with that identity once it's unlinked.</p>
@@ -1246,7 +1360,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_UpdateUser_System_String_Supabase_Gotrue_UserAttributes_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.UpdateUser(System.String,Supabase.Gotrue.UserAttributes)">
   UpdateUser(string, UserAttributes)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L38"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1284,7 +1398,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_UpdateUserById_System_String_System_String_Supabase_Gotrue_UserAttributes_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.UpdateUserById(System.String,System.String,Supabase.Gotrue.UserAttributes)">
   UpdateUserById(string, string, UserAttributes)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1320,11 +1434,49 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
 
 
+  <a id="Supabase_Gotrue_Interfaces_IGotrueApi_2_Verify_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.Verify*"></a>
+
+  <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_Verify_System_String_Supabase_Gotrue_Mfa_MfaVerifyParams_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.Verify(System.String,Supabase.Gotrue.Mfa.MfaVerifyParams)">
+  Verify(string, MfaVerifyParams)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;MfaVerifyResponse?&gt; Verify(string jwt, MfaVerifyParams mfaVerifyParams)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jwt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>mfaVerifyParams</code> <a class="xref" href="Supabase.Gotrue.Mfa.MfaVerifyParams.html">MfaVerifyParams</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Supabase.Gotrue.Mfa.MfaVerifyResponse.html">MfaVerifyResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Gotrue_Interfaces_IGotrueApi_2_VerifyEmailOTP_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.VerifyEmailOTP*"></a>
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_VerifyEmailOTP_System_String_System_String_Supabase_Gotrue_Constants_EmailOtpType_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.VerifyEmailOTP(System.String,System.String,Supabase.Gotrue.Constants.EmailOtpType)">
   VerifyEmailOTP(string, string, EmailOtpType)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1364,7 +1516,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_VerifyMobileOTP_System_String_System_String_Supabase_Gotrue_Constants_MobileOtpType_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.VerifyMobileOTP(System.String,System.String,Supabase.Gotrue.Constants.MobileOtpType)">
   VerifyMobileOTP(string, string, MobileOtpType)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L40"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1404,7 +1556,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueApi_2_VerifyTokenHash_System_String_Supabase_Gotrue_Constants_EmailOtpType_" data-uid="Supabase.Gotrue.Interfaces.IGotrueApi`2.VerifyTokenHash(System.String,Supabase.Gotrue.Constants.EmailOtpType)">
   VerifyTokenHash(string, EmailOtpType)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1442,7 +1594,7 @@ Interface IGotrueApi&lt;TUser, TSession&gt;  <a class="header-action link-second
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L11" class="edit-link">Edit this page</a>
+          <a href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueApi.cs/#L12" class="edit-link">Edit this page</a>
         </div>
 
 
