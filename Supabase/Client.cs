@@ -249,6 +249,9 @@ namespace Supabase
         public Task<TModeledResponse?> Rpc<TModeledResponse>(string procedureName, object? parameters) =>
             _postgrest.Rpc<TModeledResponse>(procedureName, parameters);
 
+        /// <summary>
+        /// Produces dictionary of Headers that will be supplied to child clients.
+        ///</summary>
         internal Dictionary<string, string> GetAuthHeaders()
         {
             var headers = new Dictionary<string, string>
@@ -257,9 +260,7 @@ namespace Supabase
             };
 
             if (_supabaseKey != null)
-            {
                 headers["apiKey"] = _supabaseKey;
-            }
 
             // In Regard To: https://github.com/supabase/supabase-csharp/issues/5
             if (_options.Headers.TryGetValue("Authorization", out var header))
@@ -272,12 +273,9 @@ namespace Supabase
                 headers["Authorization"] = $"Bearer {bearer}";
             }
 
-            // Add custom headers from options
-            // This will overwrite any existing headers with the same key, not sure if that's the desired behavior
+            // Add supplied headers from `ClientOptions` by developer
             foreach (var kvp in _options.Headers)
-            {
                 headers[kvp.Key] = kvp.Value;
-            }
 
             return headers;
         }
