@@ -32,15 +32,14 @@ namespace Supabase
         public IGotrueSessionPersistence<Session> SessionHandler { get; set; } = new DefaultSupabaseSessionHandler();
 
         /// <summary>
-        /// Headers that allow manual specifications of an "Authorization" to be passed to the supabase client.
-        /// This is unlikely to be used.
+        /// Allows developer to specify options that will be passed to all child Supabase clients.
         /// </summary>
-        public Dictionary<string, string> Headers = new Dictionary<string, string>();
+        public Dictionary<string, string> Headers = new();
 
         /// <summary>
         /// Specifies Options passed to the StorageClient.
         /// </summary>
-        public Storage.ClientOptions StorageClientOptions { get; set; } = new Storage.ClientOptions();
+        public Storage.ClientOptions StorageClientOptions { get; set; } = new();
 
         /// <summary>
         /// The Supabase Auth Url Format

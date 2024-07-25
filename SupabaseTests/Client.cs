@@ -10,7 +10,7 @@ namespace SupabaseTests
     [TestClass]
     public class Client
     {
-        private static readonly Random Random = new Random();
+        private static readonly Random Random = new();
 
         private Supabase.Client _instance;
 

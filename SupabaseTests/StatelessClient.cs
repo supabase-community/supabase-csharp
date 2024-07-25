@@ -14,7 +14,7 @@ namespace SupabaseTests
     {
 
         private string supabaseUrl = "http://localhost";
-        private Supabase.SupabaseOptions options = new Supabase.SupabaseOptions
+        private Supabase.SupabaseOptions options = new()
         {
             AuthUrlFormat = "{0}:9999",
             RealtimeUrlFormat = "{0}:4000/socket",
