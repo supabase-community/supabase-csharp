@@ -274,9 +274,9 @@ namespace Supabase
 
             // Add custom headers from options
             // This will overwrite any existing headers with the same key, not sure if that's the desired behavior
-            foreach (var (key, value) in _options.Headers)
+            foreach (var kvp in _options.Headers)
             {
-                headers[key] = value;
+                headers[kvp.Key] = kvp.Value;
             }
 
             return headers;
