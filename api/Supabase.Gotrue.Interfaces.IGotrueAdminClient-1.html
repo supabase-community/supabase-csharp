@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/supabase-community/gotrue-csharp/new/release/1.1.0/apiSpec/new?filename=Supabase_Gotrue_Interfaces_IGotrueAdminClient_1.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.Interfaces.IGotrueAdminClient%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/supabase-community/gotrue-csharp/new/master/apiSpec/new?filename=Supabase_Gotrue_Interfaces_IGotrueAdminClient_1.md&amp;value=---%0Auid%3A%20Supabase.Gotrue.Interfaces.IGotrueAdminClient%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Supabase_Gotrue_Interfaces_IGotrueAdminClient_1" data-uid="Supabase.Gotrue.Interfaces.IGotrueAdminClient`1" class="text-break">
-Interface IGotrueAdminClient&lt;TUser&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/release/1.1.0/Gotrue/Interfaces/IGotrueAdminClient.cs/#L12"><i class="bi bi-code-slash"></i></a>
+Interface IGotrueAdminClient&lt;TUser&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueAdminClient.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -137,7 +137,7 @@ Interface IGotrueAdminClient&lt;TUser&gt;  <a class="header-action link-secondar
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_CreateUser_Supabase_Gotrue_AdminUserAttributes_" data-uid="Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.CreateUser(Supabase.Gotrue.AdminUserAttributes)">
   CreateUser(AdminUserAttributes)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/release/1.1.0/Gotrue/Interfaces/IGotrueAdminClient.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueAdminClient.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a user using the admin key (not the anonymous key).
@@ -175,7 +175,7 @@ Used in trusted server environments, not client apps.</p>
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_CreateUser_System_String_System_String_Supabase_Gotrue_AdminUserAttributes_" data-uid="Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.CreateUser(System.String,System.String,Supabase.Gotrue.AdminUserAttributes)">
   CreateUser(string, string, AdminUserAttributes?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/release/1.1.0/Gotrue/Interfaces/IGotrueAdminClient.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueAdminClient.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a user using the admin key (not the anonymous key).
@@ -213,11 +213,49 @@ Used in trusted server environments, not client apps.</p>
 
 
 
+  <a id="Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_DeleteFactor_" data-uid="Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.DeleteFactor*"></a>
+
+  <h3 id="Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_DeleteFactor_Supabase_Gotrue_Mfa_MfaAdminDeleteFactorParams_" data-uid="Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.DeleteFactor(Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams)">
+  DeleteFactor(MfaAdminDeleteFactorParams)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueAdminClient.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes a factor on a user. This will log the user out of all active sessions if the deleted factor was verified.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;MfaAdminDeleteFactorResponse?&gt; DeleteFactor(MfaAdminDeleteFactorParams deleteFactorParams)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>deleteFactorParams</code> <a class="xref" href="Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.html">MfaAdminDeleteFactorParams</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Supabase.Gotrue.Mfa.MfaAdminDeleteFactorResponse.html">MfaAdminDeleteFactorResponse</a>&gt;</dt>
+    <dd><p>A <a class="xref" href="Supabase.Gotrue.Mfa.MfaAdminDeleteFactorResponse.html">MfaAdminDeleteFactorResponse</a> containing the deleted factor id.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_DeleteUser_" data-uid="Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.DeleteUser*"></a>
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_DeleteUser_System_String_" data-uid="Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.DeleteUser(System.String)">
   DeleteUser(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/release/1.1.0/Gotrue/Interfaces/IGotrueAdminClient.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueAdminClient.cs/#L38"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a user using the admin key (not the anonymous key).
@@ -255,7 +293,7 @@ Used in trusted server environments, not client apps.</p>
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_GenerateLink_Supabase_Gotrue_GenerateLinkOptions_" data-uid="Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.GenerateLink(Supabase.Gotrue.GenerateLinkOptions)">
   GenerateLink(GenerateLinkOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/release/1.1.0/Gotrue/Interfaces/IGotrueAdminClient.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueAdminClient.cs/#L94"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Generates email links and OTPs to be sent via a custom email provider.</p>
@@ -293,7 +331,7 @@ Used in trusted server environments, not client apps.</p>
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_GetUser_System_String_" data-uid="Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.GetUser(System.String)">
   GetUser(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/release/1.1.0/Gotrue/Interfaces/IGotrueAdminClient.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueAdminClient.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a user from a user's JWT. This is using the GoTrue server to validate a user's JWT.</p>
@@ -330,7 +368,7 @@ Used in trusted server environments, not client apps.</p>
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_GetUserById_System_String_" data-uid="Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.GetUserById(System.String)">
   GetUserById(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/release/1.1.0/Gotrue/Interfaces/IGotrueAdminClient.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueAdminClient.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a user by ID from the server using the admin key (not the anonymous key).</p>
@@ -367,7 +405,7 @@ Used in trusted server environments, not client apps.</p>
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_InviteUserByEmail_System_String_Supabase_Gotrue_InviteUserByEmailOptions_" data-uid="Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.InviteUserByEmail(System.String,Supabase.Gotrue.InviteUserByEmailOptions)">
   InviteUserByEmail(string, InviteUserByEmailOptions?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/release/1.1.0/Gotrue/Interfaces/IGotrueAdminClient.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueAdminClient.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sends an email to the user.</p>
@@ -402,11 +440,49 @@ Used in trusted server environments, not client apps.</p>
 
 
 
+  <a id="Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_ListFactors_" data-uid="Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.ListFactors*"></a>
+
+  <h3 id="Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_ListFactors_Supabase_Gotrue_Mfa_MfaAdminListFactorsParams_" data-uid="Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.ListFactors(Supabase.Gotrue.Mfa.MfaAdminListFactorsParams)">
+  ListFactors(MfaAdminListFactorsParams)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueAdminClient.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Lists all factors associated to a specific user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;MfaAdminListFactorsResponse?&gt; ListFactors(MfaAdminListFactorsParams listFactorsParams)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>listFactorsParams</code> <a class="xref" href="Supabase.Gotrue.Mfa.MfaAdminListFactorsParams.html">MfaAdminListFactorsParams</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Supabase.Gotrue.Mfa.MfaAdminListFactorsResponse.html">MfaAdminListFactorsResponse</a>&gt;</dt>
+    <dd><p>A list of <a class="xref" href="Supabase.Gotrue.Mfa.Factor.html">Factor</a> that this user has enabled.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_ListUsers_" data-uid="Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.ListUsers*"></a>
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_ListUsers_System_String_System_String_Supabase_Gotrue_Constants_SortOrder_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.ListUsers(System.String,System.String,Supabase.Gotrue.Constants.SortOrder,System.Nullable{System.Int32},System.Nullable{System.Int32})">
   ListUsers(string?, string?, SortOrder, int?, int?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/release/1.1.0/Gotrue/Interfaces/IGotrueAdminClient.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueAdminClient.cs/#L71"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Lists users</p>
@@ -456,7 +532,7 @@ Used in trusted server environments, not client apps.</p>
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_Update_Supabase_Gotrue_UserAttributes_" data-uid="Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.Update(Supabase.Gotrue.UserAttributes)">
   Update(UserAttributes)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/release/1.1.0/Gotrue/Interfaces/IGotrueAdminClient.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueAdminClient.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Updates a User using the service key</p>
@@ -493,7 +569,7 @@ Used in trusted server environments, not client apps.</p>
 
   <h3 id="Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_UpdateUserById_System_String_Supabase_Gotrue_AdminUserAttributes_" data-uid="Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.UpdateUserById(System.String,Supabase.Gotrue.AdminUserAttributes)">
   UpdateUserById(string, AdminUserAttributes)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/release/1.1.0/Gotrue/Interfaces/IGotrueAdminClient.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueAdminClient.cs/#L87"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Update user by Id</p>
@@ -532,7 +608,7 @@ Used in trusted server environments, not client apps.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/supabase-community/gotrue-csharp/blob/release/1.1.0/Gotrue/Interfaces/IGotrueAdminClient.cs/#L12" class="edit-link">Edit this page</a>
+          <a href="https://github.com/supabase-community/gotrue-csharp/blob/master/Gotrue/Interfaces/IGotrueAdminClient.cs/#L13" class="edit-link">Edit this page</a>
         </div>
 
 

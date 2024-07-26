@@ -838,6 +838,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.AdminClient.CreateUser
   nameWithType: AdminClient.CreateUser
+- uid: Supabase.Gotrue.AdminClient.DeleteFactor(Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams)
+  name: DeleteFactor(MfaAdminDeleteFactorParams)
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_DeleteFactor_Supabase_Gotrue_Mfa_MfaAdminDeleteFactorParams_
+  commentId: M:Supabase.Gotrue.AdminClient.DeleteFactor(Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams)
+  fullName: Supabase.Gotrue.AdminClient.DeleteFactor(Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams)
+  nameWithType: AdminClient.DeleteFactor(MfaAdminDeleteFactorParams)
+- uid: Supabase.Gotrue.AdminClient.DeleteFactor*
+  name: DeleteFactor
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_DeleteFactor_
+  commentId: Overload:Supabase.Gotrue.AdminClient.DeleteFactor
+  isSpec: "True"
+  fullName: Supabase.Gotrue.AdminClient.DeleteFactor
+  nameWithType: AdminClient.DeleteFactor
 - uid: Supabase.Gotrue.AdminClient.DeleteUser(System.String)
   name: DeleteUser(string)
   href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_DeleteUser_System_String_
@@ -928,6 +941,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.AdminClient.InviteUserByEmail
   nameWithType: AdminClient.InviteUserByEmail
+- uid: Supabase.Gotrue.AdminClient.ListFactors(Supabase.Gotrue.Mfa.MfaAdminListFactorsParams)
+  name: ListFactors(MfaAdminListFactorsParams)
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_ListFactors_Supabase_Gotrue_Mfa_MfaAdminListFactorsParams_
+  commentId: M:Supabase.Gotrue.AdminClient.ListFactors(Supabase.Gotrue.Mfa.MfaAdminListFactorsParams)
+  fullName: Supabase.Gotrue.AdminClient.ListFactors(Supabase.Gotrue.Mfa.MfaAdminListFactorsParams)
+  nameWithType: AdminClient.ListFactors(MfaAdminListFactorsParams)
+- uid: Supabase.Gotrue.AdminClient.ListFactors*
+  name: ListFactors
+  href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_ListFactors_
+  commentId: Overload:Supabase.Gotrue.AdminClient.ListFactors
+  isSpec: "True"
+  fullName: Supabase.Gotrue.AdminClient.ListFactors
+  nameWithType: AdminClient.ListFactors
 - uid: Supabase.Gotrue.AdminClient.ListUsers(System.String,System.String,Supabase.Gotrue.Constants.SortOrder,System.Nullable{System.Int32},System.Nullable{System.Int32})
   name: ListUsers(string?, string?, SortOrder, int?, int?)
   href: api/Supabase.Gotrue.AdminClient.html#Supabase_Gotrue_AdminClient_ListUsers_System_String_System_String_Supabase_Gotrue_Constants_SortOrder_System_Nullable_System_Int32__System_Nullable_System_Int32__
@@ -1114,6 +1140,22 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Api.CreateUser
   nameWithType: Api.CreateUser
+- uid: Supabase.Gotrue.Api.DeleteFactor(System.String,Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams)
+  name: DeleteFactor(string, MfaAdminDeleteFactorParams)
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_DeleteFactor_System_String_Supabase_Gotrue_Mfa_MfaAdminDeleteFactorParams_
+  commentId: M:Supabase.Gotrue.Api.DeleteFactor(System.String,Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams)
+  name.vb: DeleteFactor(String, MfaAdminDeleteFactorParams)
+  fullName: Supabase.Gotrue.Api.DeleteFactor(string, Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams)
+  fullName.vb: Supabase.Gotrue.Api.DeleteFactor(String, Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams)
+  nameWithType: Api.DeleteFactor(string, MfaAdminDeleteFactorParams)
+  nameWithType.vb: Api.DeleteFactor(String, MfaAdminDeleteFactorParams)
+- uid: Supabase.Gotrue.Api.DeleteFactor*
+  name: DeleteFactor
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_DeleteFactor_
+  commentId: Overload:Supabase.Gotrue.Api.DeleteFactor
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Api.DeleteFactor
+  nameWithType: Api.DeleteFactor
 - uid: Supabase.Gotrue.Api.DeleteUser(System.String,System.String)
   name: DeleteUser(string, string)
   href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_DeleteUser_System_String_System_String_
@@ -1284,6 +1326,22 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Api.LinkIdentity
   nameWithType: Api.LinkIdentity
+- uid: Supabase.Gotrue.Api.ListFactors(System.String,Supabase.Gotrue.Mfa.MfaAdminListFactorsParams)
+  name: ListFactors(string, MfaAdminListFactorsParams)
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_ListFactors_System_String_Supabase_Gotrue_Mfa_MfaAdminListFactorsParams_
+  commentId: M:Supabase.Gotrue.Api.ListFactors(System.String,Supabase.Gotrue.Mfa.MfaAdminListFactorsParams)
+  name.vb: ListFactors(String, MfaAdminListFactorsParams)
+  fullName: Supabase.Gotrue.Api.ListFactors(string, Supabase.Gotrue.Mfa.MfaAdminListFactorsParams)
+  fullName.vb: Supabase.Gotrue.Api.ListFactors(String, Supabase.Gotrue.Mfa.MfaAdminListFactorsParams)
+  nameWithType: Api.ListFactors(string, MfaAdminListFactorsParams)
+  nameWithType.vb: Api.ListFactors(String, MfaAdminListFactorsParams)
+- uid: Supabase.Gotrue.Api.ListFactors*
+  name: ListFactors
+  href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_ListFactors_
+  commentId: Overload:Supabase.Gotrue.Api.ListFactors
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Api.ListFactors
+  nameWithType: Api.ListFactors
 - uid: Supabase.Gotrue.Api.ListUsers(System.String,System.String,System.String,Supabase.Gotrue.Constants.SortOrder,System.Nullable{System.Int32},System.Nullable{System.Int32})
   name: ListUsers(string, string?, string?, SortOrder, int?, int?)
   href: api/Supabase.Gotrue.Api.html#Supabase_Gotrue_Api_ListUsers_System_String_System_String_System_String_Supabase_Gotrue_Constants_SortOrder_System_Nullable_System_Int32__System_Nullable_System_Int32__
@@ -3515,6 +3573,23 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).CreateUser
   nameWithType: IGotrueAdminClient<TUser>.CreateUser
   nameWithType.vb: IGotrueAdminClient(Of TUser).CreateUser
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.DeleteFactor(Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams)
+  name: DeleteFactor(MfaAdminDeleteFactorParams)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_DeleteFactor_Supabase_Gotrue_Mfa_MfaAdminDeleteFactorParams_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.DeleteFactor(Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.DeleteFactor(Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).DeleteFactor(Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams)
+  nameWithType: IGotrueAdminClient<TUser>.DeleteFactor(MfaAdminDeleteFactorParams)
+  nameWithType.vb: IGotrueAdminClient(Of TUser).DeleteFactor(MfaAdminDeleteFactorParams)
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.DeleteFactor*
+  name: DeleteFactor
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_DeleteFactor_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.DeleteFactor
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.DeleteFactor
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).DeleteFactor
+  nameWithType: IGotrueAdminClient<TUser>.DeleteFactor
+  nameWithType.vb: IGotrueAdminClient(Of TUser).DeleteFactor
 - uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.DeleteUser(System.String)
   name: DeleteUser(string)
   href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_DeleteUser_System_String_
@@ -3604,6 +3679,23 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).InviteUserByEmail
   nameWithType: IGotrueAdminClient<TUser>.InviteUserByEmail
   nameWithType.vb: IGotrueAdminClient(Of TUser).InviteUserByEmail
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.ListFactors(Supabase.Gotrue.Mfa.MfaAdminListFactorsParams)
+  name: ListFactors(MfaAdminListFactorsParams)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_ListFactors_Supabase_Gotrue_Mfa_MfaAdminListFactorsParams_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.ListFactors(Supabase.Gotrue.Mfa.MfaAdminListFactorsParams)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.ListFactors(Supabase.Gotrue.Mfa.MfaAdminListFactorsParams)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).ListFactors(Supabase.Gotrue.Mfa.MfaAdminListFactorsParams)
+  nameWithType: IGotrueAdminClient<TUser>.ListFactors(MfaAdminListFactorsParams)
+  nameWithType.vb: IGotrueAdminClient(Of TUser).ListFactors(MfaAdminListFactorsParams)
+- uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.ListFactors*
+  name: ListFactors
+  href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_ListFactors_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.ListFactors
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.ListFactors
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueAdminClient(Of TUser).ListFactors
+  nameWithType: IGotrueAdminClient<TUser>.ListFactors
+  nameWithType.vb: IGotrueAdminClient(Of TUser).ListFactors
 - uid: Supabase.Gotrue.Interfaces.IGotrueAdminClient`1.ListUsers(System.String,System.String,Supabase.Gotrue.Constants.SortOrder,System.Nullable{System.Int32},System.Nullable{System.Int32})
   name: ListUsers(string?, string?, SortOrder, int?, int?)
   href: api/Supabase.Gotrue.Interfaces.IGotrueAdminClient-1.html#Supabase_Gotrue_Interfaces_IGotrueAdminClient_1_ListUsers_System_String_System_String_Supabase_Gotrue_Constants_SortOrder_System_Nullable_System_Int32__System_Nullable_System_Int32__
@@ -3702,6 +3794,24 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).CreateUser
   nameWithType: IGotrueApi<TUser, TSession>.CreateUser
   nameWithType.vb: IGotrueApi(Of TUser, TSession).CreateUser
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.DeleteFactor(System.String,Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams)
+  name: DeleteFactor(string, MfaAdminDeleteFactorParams)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_DeleteFactor_System_String_Supabase_Gotrue_Mfa_MfaAdminDeleteFactorParams_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueApi`2.DeleteFactor(System.String,Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams)
+  name.vb: DeleteFactor(String, MfaAdminDeleteFactorParams)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.DeleteFactor(string, Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).DeleteFactor(String, Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams)
+  nameWithType: IGotrueApi<TUser, TSession>.DeleteFactor(string, MfaAdminDeleteFactorParams)
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).DeleteFactor(String, MfaAdminDeleteFactorParams)
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.DeleteFactor*
+  name: DeleteFactor
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_DeleteFactor_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueApi`2.DeleteFactor
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.DeleteFactor
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).DeleteFactor
+  nameWithType: IGotrueApi<TUser, TSession>.DeleteFactor
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).DeleteFactor
 - uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.DeleteUser(System.String,System.String)
   name: DeleteUser(string, string)
   href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_DeleteUser_System_String_System_String_
@@ -3864,6 +3974,24 @@ references:
   fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).LinkIdentity
   nameWithType: IGotrueApi<TUser, TSession>.LinkIdentity
   nameWithType.vb: IGotrueApi(Of TUser, TSession).LinkIdentity
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.ListFactors(System.String,Supabase.Gotrue.Mfa.MfaAdminListFactorsParams)
+  name: ListFactors(string, MfaAdminListFactorsParams)
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_ListFactors_System_String_Supabase_Gotrue_Mfa_MfaAdminListFactorsParams_
+  commentId: M:Supabase.Gotrue.Interfaces.IGotrueApi`2.ListFactors(System.String,Supabase.Gotrue.Mfa.MfaAdminListFactorsParams)
+  name.vb: ListFactors(String, MfaAdminListFactorsParams)
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.ListFactors(string, Supabase.Gotrue.Mfa.MfaAdminListFactorsParams)
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).ListFactors(String, Supabase.Gotrue.Mfa.MfaAdminListFactorsParams)
+  nameWithType: IGotrueApi<TUser, TSession>.ListFactors(string, MfaAdminListFactorsParams)
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).ListFactors(String, MfaAdminListFactorsParams)
+- uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.ListFactors*
+  name: ListFactors
+  href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_ListFactors_
+  commentId: Overload:Supabase.Gotrue.Interfaces.IGotrueApi`2.ListFactors
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.ListFactors
+  fullName.vb: Supabase.Gotrue.Interfaces.IGotrueApi(Of TUser, TSession).ListFactors
+  nameWithType: IGotrueApi<TUser, TSession>.ListFactors
+  nameWithType.vb: IGotrueApi(Of TUser, TSession).ListFactors
 - uid: Supabase.Gotrue.Interfaces.IGotrueApi`2.ListUsers(System.String,System.String,System.String,Supabase.Gotrue.Constants.SortOrder,System.Nullable{System.Int32},System.Nullable{System.Int32})
   name: ListUsers(string, string?, string?, SortOrder, int?, int?)
   href: api/Supabase.Gotrue.Interfaces.IGotrueApi-2.html#Supabase_Gotrue_Interfaces_IGotrueApi_2_ListUsers_System_String_System_String_System_String_Supabase_Gotrue_Constants_SortOrder_System_Nullable_System_Int32__System_Nullable_System_Int32__
@@ -5994,6 +6122,95 @@ references:
   isSpec: "True"
   fullName: Supabase.Gotrue.Mfa.Factor.UpdatedAt
   nameWithType: Factor.UpdatedAt
+- uid: Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams
+  name: MfaAdminDeleteFactorParams
+  href: api/Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.html
+  commentId: T:Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams
+  fullName: Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams
+  nameWithType: MfaAdminDeleteFactorParams
+- uid: Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.Id
+  name: Id
+  href: api/Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.html#Supabase_Gotrue_Mfa_MfaAdminDeleteFactorParams_Id
+  commentId: P:Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.Id
+  fullName: Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.Id
+  nameWithType: MfaAdminDeleteFactorParams.Id
+- uid: Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.Id*
+  name: Id
+  href: api/Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.html#Supabase_Gotrue_Mfa_MfaAdminDeleteFactorParams_Id_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.Id
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.Id
+  nameWithType: MfaAdminDeleteFactorParams.Id
+- uid: Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.UserId
+  name: UserId
+  href: api/Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.html#Supabase_Gotrue_Mfa_MfaAdminDeleteFactorParams_UserId
+  commentId: P:Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.UserId
+  fullName: Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.UserId
+  nameWithType: MfaAdminDeleteFactorParams.UserId
+- uid: Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.UserId*
+  name: UserId
+  href: api/Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.html#Supabase_Gotrue_Mfa_MfaAdminDeleteFactorParams_UserId_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.UserId
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.UserId
+  nameWithType: MfaAdminDeleteFactorParams.UserId
+- uid: Supabase.Gotrue.Mfa.MfaAdminDeleteFactorResponse
+  name: MfaAdminDeleteFactorResponse
+  href: api/Supabase.Gotrue.Mfa.MfaAdminDeleteFactorResponse.html
+  commentId: T:Supabase.Gotrue.Mfa.MfaAdminDeleteFactorResponse
+  fullName: Supabase.Gotrue.Mfa.MfaAdminDeleteFactorResponse
+  nameWithType: MfaAdminDeleteFactorResponse
+- uid: Supabase.Gotrue.Mfa.MfaAdminDeleteFactorResponse.Id
+  name: Id
+  href: api/Supabase.Gotrue.Mfa.MfaAdminDeleteFactorResponse.html#Supabase_Gotrue_Mfa_MfaAdminDeleteFactorResponse_Id
+  commentId: P:Supabase.Gotrue.Mfa.MfaAdminDeleteFactorResponse.Id
+  fullName: Supabase.Gotrue.Mfa.MfaAdminDeleteFactorResponse.Id
+  nameWithType: MfaAdminDeleteFactorResponse.Id
+- uid: Supabase.Gotrue.Mfa.MfaAdminDeleteFactorResponse.Id*
+  name: Id
+  href: api/Supabase.Gotrue.Mfa.MfaAdminDeleteFactorResponse.html#Supabase_Gotrue_Mfa_MfaAdminDeleteFactorResponse_Id_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaAdminDeleteFactorResponse.Id
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaAdminDeleteFactorResponse.Id
+  nameWithType: MfaAdminDeleteFactorResponse.Id
+- uid: Supabase.Gotrue.Mfa.MfaAdminListFactorsParams
+  name: MfaAdminListFactorsParams
+  href: api/Supabase.Gotrue.Mfa.MfaAdminListFactorsParams.html
+  commentId: T:Supabase.Gotrue.Mfa.MfaAdminListFactorsParams
+  fullName: Supabase.Gotrue.Mfa.MfaAdminListFactorsParams
+  nameWithType: MfaAdminListFactorsParams
+- uid: Supabase.Gotrue.Mfa.MfaAdminListFactorsParams.UserId
+  name: UserId
+  href: api/Supabase.Gotrue.Mfa.MfaAdminListFactorsParams.html#Supabase_Gotrue_Mfa_MfaAdminListFactorsParams_UserId
+  commentId: P:Supabase.Gotrue.Mfa.MfaAdminListFactorsParams.UserId
+  fullName: Supabase.Gotrue.Mfa.MfaAdminListFactorsParams.UserId
+  nameWithType: MfaAdminListFactorsParams.UserId
+- uid: Supabase.Gotrue.Mfa.MfaAdminListFactorsParams.UserId*
+  name: UserId
+  href: api/Supabase.Gotrue.Mfa.MfaAdminListFactorsParams.html#Supabase_Gotrue_Mfa_MfaAdminListFactorsParams_UserId_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaAdminListFactorsParams.UserId
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaAdminListFactorsParams.UserId
+  nameWithType: MfaAdminListFactorsParams.UserId
+- uid: Supabase.Gotrue.Mfa.MfaAdminListFactorsResponse
+  name: MfaAdminListFactorsResponse
+  href: api/Supabase.Gotrue.Mfa.MfaAdminListFactorsResponse.html
+  commentId: T:Supabase.Gotrue.Mfa.MfaAdminListFactorsResponse
+  fullName: Supabase.Gotrue.Mfa.MfaAdminListFactorsResponse
+  nameWithType: MfaAdminListFactorsResponse
+- uid: Supabase.Gotrue.Mfa.MfaAdminListFactorsResponse.Factors
+  name: Factors
+  href: api/Supabase.Gotrue.Mfa.MfaAdminListFactorsResponse.html#Supabase_Gotrue_Mfa_MfaAdminListFactorsResponse_Factors
+  commentId: P:Supabase.Gotrue.Mfa.MfaAdminListFactorsResponse.Factors
+  fullName: Supabase.Gotrue.Mfa.MfaAdminListFactorsResponse.Factors
+  nameWithType: MfaAdminListFactorsResponse.Factors
+- uid: Supabase.Gotrue.Mfa.MfaAdminListFactorsResponse.Factors*
+  name: Factors
+  href: api/Supabase.Gotrue.Mfa.MfaAdminListFactorsResponse.html#Supabase_Gotrue_Mfa_MfaAdminListFactorsResponse_Factors_
+  commentId: Overload:Supabase.Gotrue.Mfa.MfaAdminListFactorsResponse.Factors
+  isSpec: "True"
+  fullName: Supabase.Gotrue.Mfa.MfaAdminListFactorsResponse.Factors
+  nameWithType: MfaAdminListFactorsResponse.Factors
 - uid: Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams
   name: MfaChallengeAndVerifyParams
   href: api/Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.html
@@ -13506,6 +13723,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Realtime.Client.Disconnect
   nameWithType: Client.Disconnect
+- uid: Supabase.Realtime.Client.GetHeaders
+  name: GetHeaders
+  href: api/Supabase.Realtime.Client.html#Supabase_Realtime_Client_GetHeaders
+  commentId: P:Supabase.Realtime.Client.GetHeaders
+  fullName: Supabase.Realtime.Client.GetHeaders
+  nameWithType: Client.GetHeaders
+- uid: Supabase.Realtime.Client.GetHeaders*
+  name: GetHeaders
+  href: api/Supabase.Realtime.Client.html#Supabase_Realtime_Client_GetHeaders_
+  commentId: Overload:Supabase.Realtime.Client.GetHeaders
+  isSpec: "True"
+  fullName: Supabase.Realtime.Client.GetHeaders
+  nameWithType: Client.GetHeaders
 - uid: Supabase.Realtime.Client.Options
   name: Options
   href: api/Supabase.Realtime.Client.html#Supabase_Realtime_Client_Options
@@ -17430,6 +17660,19 @@ references:
   isSpec: "True"
   fullName: Supabase.Realtime.RealtimeSocket.Disconnect
   nameWithType: RealtimeSocket.Disconnect
+- uid: Supabase.Realtime.RealtimeSocket.GetHeaders
+  name: GetHeaders
+  href: api/Supabase.Realtime.RealtimeSocket.html#Supabase_Realtime_RealtimeSocket_GetHeaders
+  commentId: P:Supabase.Realtime.RealtimeSocket.GetHeaders
+  fullName: Supabase.Realtime.RealtimeSocket.GetHeaders
+  nameWithType: RealtimeSocket.GetHeaders
+- uid: Supabase.Realtime.RealtimeSocket.GetHeaders*
+  name: GetHeaders
+  href: api/Supabase.Realtime.RealtimeSocket.html#Supabase_Realtime_RealtimeSocket_GetHeaders_
+  commentId: Overload:Supabase.Realtime.RealtimeSocket.GetHeaders
+  isSpec: "True"
+  fullName: Supabase.Realtime.RealtimeSocket.GetHeaders
+  nameWithType: RealtimeSocket.GetHeaders
 - uid: Supabase.Realtime.RealtimeSocket.GetLatency
   name: GetLatency()
   href: api/Supabase.Realtime.RealtimeSocket.html#Supabase_Realtime_RealtimeSocket_GetLatency

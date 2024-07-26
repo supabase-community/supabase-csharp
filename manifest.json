@@ -612,6 +612,46 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.MfaAdminDeleteFactorParams.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.MfaAdminDeleteFactorResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.MfaAdminDeleteFactorResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.MfaAdminListFactorsParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.MfaAdminListFactorsParams.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Gotrue.Mfa.MfaAdminListFactorsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Gotrue.Mfa.MfaAdminListFactorsResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Supabase.Gotrue.Mfa.MfaChallengeAndVerifyParams.yml",
       "output": {
         ".html": {
