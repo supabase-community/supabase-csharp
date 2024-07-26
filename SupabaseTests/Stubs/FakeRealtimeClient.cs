@@ -84,5 +84,6 @@ namespace SupabaseTests.Stubs
         public JsonSerializerSettings SerializerSettings { get; }
         public IRealtimeSocket Socket { get; }
         public ReadOnlyDictionary<string, RealtimeChannel> Subscriptions { get; }
+        public Func<Dictionary<string, string>> GetHeaders { get; set; }
     }
 }

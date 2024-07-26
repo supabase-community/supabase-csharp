@@ -183,6 +183,7 @@ namespace Supabase
             };
 
             _realtime = new Realtime.Client(realtimeUrl, realtimeOptions);
+            _realtime.GetHeaders = GetAuthHeaders;
 
             _postgrest = new Postgrest.Client(restUrl, new Postgrest.ClientOptions { Schema = schema });
             _postgrest.GetHeaders = GetAuthHeaders;

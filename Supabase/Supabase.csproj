@@ -43,9 +43,9 @@
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
         <PackageReference Include="Supabase.Core" Version="1.0.0" />
         <PackageReference Include="Supabase.Functions" Version="2.0.0" />
-        <PackageReference Include="Supabase.Gotrue" Version="6.0.2" />
+        <PackageReference Include="Supabase.Gotrue" Version="6.0.3" />
         <PackageReference Include="Supabase.Postgrest" Version="4.0.3" />
-        <PackageReference Include="Supabase.Realtime" Version="7.0.1" />
+        <PackageReference Include="Supabase.Realtime" Version="7.0.2" />
         <PackageReference Include="Supabase.Storage" Version="2.0.2" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
