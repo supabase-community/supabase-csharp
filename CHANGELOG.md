@@ -1,7 +1,21 @@
 ﻿# Changelog
 
+## 1.1.1 - 2024-07-27
+
+- Support for passing Headers specified in `ClientOptions` to `Supabase.Realtime` Client.
+- Update dependency: `Supabase.Gotrue@6.0.3`
+    - [Re: 105](https://github.com/supabase-community/gotrue-csharp/pull/105) Add admin calls for MFA. Big thanks
+      to [@michaelschattgen](https://github.com/michaelschattgen).
+- Update dependency: `Supabase.Realtime@7.0.2`
+    - Updates Dependency: `Websocket.Client@5.1.2`
+    - Updates Dependency: `Supabase.Postgrest@4.0.3`
+    - [Re:#167](https://github.com/supabase-community/supabase-csharp/issues/167) Adds support for
+      specifying `GetHeaders` on the `RealtimeClient` which are included on the initial request to the server to
+      establish websocket connection.
+
 ## 1.1.0 - 2024-07-25
 
+- Supports passing Headers specified in `ClientOptions` to child apis.
 - Drop support for `netstandard2.0` - `Supabase` now targets `netstandard2.1`.
 - Update dependency: `Supabase.Gotrue@6.0.2`
     - [Re: 103](https://github.com/supabase-community/gotrue-csharp/pull/103) Add support for MFA signup and login
