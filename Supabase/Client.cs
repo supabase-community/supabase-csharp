@@ -19,7 +19,7 @@ using static Supabase.Gotrue.Constants;
 namespace Supabase
 {
     /// <summary>
-    /// A singleton class representing a Supabase Client.
+    /// A class representing the Supabase Client, coordinating between all child APIs
     /// </summary>
     public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeChannel, Bucket, FileObject>
     {
