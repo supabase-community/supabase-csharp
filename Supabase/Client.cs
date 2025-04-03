@@ -280,5 +280,82 @@ namespace Supabase
 
             return headers;
         }
+/////
+        /// <summary>
+        /// Executes multiple database operations as a single transaction.
+        /// </summary>
+        /// <param name="operations">A list of operations to execute in a transaction.</param>
+        /// <param name="options">Optional configuration for the transaction.</param>
+        /// <returns>A response containing the results of all operations.</returns>
+        public async Task<BatchResponse> ExecuteBatchTransactionAsync(List<PostgrestOperation> operations, BatchOptions? options = null)
+        {
+            options ??= new BatchOptions { Atomic = true };
+    
+            // Prepare the batch request
+            var batch = new BatchRequest
+            {
+                Operations = operations,
+                Options = options
+            };
+    
+            // Send the batch request to the Postgrest client
+            var response = await Postgrest.ExecuteBatchAsync(batch);
+    
+            // Process results and return
+            return response;
+        }
+
+        /// <summary>
+        /// Represents a database operation to be included in a batch transaction.
+        /// </summary>
+        public class PostgrestOperation
+        {
+            /// <summary>
+            /// The method to execute (INSERT, UPDATE, DELETE, SELECT).
+            /// </summary>
+            public string Method { get; set; } = string.Empty;
+    
+            /// <summary>
+            /// The table name to operate on.
+            /// </summary>
+            public string Table { get; set; } = string.Empty;
+    
+            /// <summary>
+            /// The query parameters.
+            /// </summary>
+            public Dictionary<string, object>? Parameters { get; set; }
+    
+            /// <summary>
+            /// The data to insert or update.
+            /// </summary>
+            public object? Payload { get; set; }
+        }
+
+        /// <summary>
+        /// Configuration options for batch operations.
+        /// </summary>
+        public class BatchOptions
+        {
+            /// <summary>
+            /// When true, all operations are executed in a single transaction.
+            /// </summary>
+            public bool Atomic { get; set; } = true;
+        }
+
+        /// <summary>
+        /// Response from a batch operation.
+        /// </summary>
+        public class BatchResponse
+        {
+            /// <summary>
+            /// Results from each operation in the batch.
+            /// </summary>
+            public List<object> Results { get; set; } = new List<object>();
+    
+            /// <summary>
+            /// Status of each operation.
+            /// </summary>
+            public List<int> Status { get; set; } = new List<int>();
+        }
     }
 }
