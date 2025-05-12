@@ -1,12 +1,27 @@
-name: Publish NuGet Package
+name: Release - Publish NuGet Package
 
 on:
   push:
     branches:
-      - release/* # Default release branch
+      - master
 
 jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    steps:
+      - uses: googleapis/release-please-action@v4
+        with:
+          target-branch: ${{ github.ref_name }}
+          manifest-file: .release-please-manifest.json
+          config-file: release-please-config.json
+
   publish:
+    needs: release-please
+    if: ${{ github.repository_owner == 'supabase-community' && startsWith(github.event.head_commit.message, 'chore(master)') && github.ref == 'refs/heads/master' && github.event_name == 'push' }}
     name: build, pack & publish
     runs-on: ubuntu-latest
     steps:
@@ -24,7 +39,7 @@ jobs:
           check-name: build-and-test
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10
-          
+
       - name: Restore dependencies
         run: dotnet restore
 
