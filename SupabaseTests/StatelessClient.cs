@@ -16,9 +16,9 @@ namespace SupabaseTests
         private string supabaseUrl = "http://localhost";
         private Supabase.SupabaseOptions options = new()
         {
-            AuthUrlFormat = "{0}:9999",
-            RealtimeUrlFormat = "{0}:4000/socket",
-            RestUrlFormat = "{0}:3000"
+            AuthUrlFormat = "{0}:54321/rest/v1",
+            RealtimeUrlFormat = "ws://127.0.0.1:54321/realtime/v1",
+            RestUrlFormat = "{0}:54321/rest/v1",
         };
 
         [TestMethod("Can access Stateless REST")]
