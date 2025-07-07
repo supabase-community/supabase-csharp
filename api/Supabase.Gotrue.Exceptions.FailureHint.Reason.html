@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -54,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -125,63 +125,83 @@ Enum FailureHint.Reason  <a class="header-action link-secondary" title="View sou
 </h2>
   <dl class="parameters">
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_AdminTokenRequired"><code>AdminTokenRequired = 13</code></dt>
-    <dd><p>This operation requires a bearer/service key (do not include this key in a client app)</p>
+  
+  <dd><p>This operation requires a bearer/service key (do not include this key in a client app)</p>
 </dd>
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_BadSessionUrl"><code>BadSessionUrl = 15</code></dt>
-    <dd><p>Something wrong with the URL to session transformation</p>
+  
+  <dd><p>Something wrong with the URL to session transformation</p>
 </dd>
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_ExpiredRefreshToken"><code>ExpiredRefreshToken = 12</code></dt>
-    <dd><p>The refresh token expired.</p>
+  
+  <dd><p>The refresh token expired.</p>
 </dd>
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_InvalidFlowType"><code>InvalidFlowType = 16</code></dt>
-    <dd><p>An invalid authentication flow has been selected.</p>
+  
+  <dd><p>An invalid authentication flow has been selected.</p>
 </dd>
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_InvalidRefreshToken"><code>InvalidRefreshToken = 11</code></dt>
-    <dd><p>The refresh token is invalid.</p>
+  
+  <dd><p>The refresh token is invalid.</p>
 </dd>
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_MfaChallengeUnverified"><code>MfaChallengeUnverified = 19</code></dt>
-    <dd></dd>
+  
+  <dd></dd>
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_NoSessionFound"><code>NoSessionFound = 14</code></dt>
-    <dd><p>No/invalid session found</p>
+  
+  <dd><p>No/invalid session found</p>
 </dd>
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_Offline"><code>Offline = 1</code></dt>
-    <dd><p>The client is set to run offline or the network is unavailable.</p>
+  
+  <dd><p>The client is set to run offline or the network is unavailable.</p>
 </dd>
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_SsoDomainNotFound"><code>SsoDomainNotFound = 17</code></dt>
-    <dd><p>The SSO domain provided was not registered via the CLI</p>
+  
+  <dd><p>The SSO domain provided was not registered via the CLI</p>
 </dd>
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_SsoProviderNotFound"><code>SsoProviderNotFound = 18</code></dt>
-    <dd><p>The sso provider ID was incorrect or does not exist</p>
+  
+  <dd><p>The sso provider ID was incorrect or does not exist</p>
 </dd>
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_Unknown"><code>Unknown = 0</code></dt>
-    <dd><p>The reason for the error could not be determined.</p>
+  
+  <dd><p>The reason for the error could not be determined.</p>
 </dd>
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserAlreadyRegistered"><code>UserAlreadyRegistered = 9</code></dt>
-    <dd><p>The user is already registered.</p>
+  
+  <dd><p>The user is already registered.</p>
 </dd>
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserBadEmailAddress"><code>UserBadEmailAddress = 6</code></dt>
-    <dd><p>The user's email address is invalid.</p>
+  
+  <dd><p>The user's email address is invalid.</p>
 </dd>
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserBadLogin"><code>UserBadLogin = 5</code></dt>
-    <dd><p>The user's login is invalid.</p>
+  
+  <dd><p>The user's login is invalid.</p>
 </dd>
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserBadMultiple"><code>UserBadMultiple = 3</code></dt>
-    <dd><p>The user's email address and password are invalid.</p>
+  
+  <dd><p>The user's email address and password are invalid.</p>
 </dd>
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserBadPassword"><code>UserBadPassword = 4</code></dt>
-    <dd><p>The user's password is invalid.</p>
+  
+  <dd><p>The user's password is invalid.</p>
 </dd>
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserBadPhoneNumber"><code>UserBadPhoneNumber = 7</code></dt>
-    <dd><p>The user's phone number is invalid.</p>
+  
+  <dd><p>The user's phone number is invalid.</p>
 </dd>
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserEmailNotConfirmed"><code>UserEmailNotConfirmed = 2</code></dt>
-    <dd><p>The user's email address has not been confirmed.</p>
+  
+  <dd><p>The user's email address has not been confirmed.</p>
 </dd>
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserMissingInformation"><code>UserMissingInformation = 8</code></dt>
-    <dd><p>The user's information is incomplete.</p>
+  
+  <dd><p>The user's information is incomplete.</p>
 </dd>
     <dt id="Supabase_Gotrue_Exceptions_FailureHint_Reason_UserTooManyRequests"><code>UserTooManyRequests = 10</code></dt>
-    <dd><p>Server rejected due to number of requests</p>
+  
+  <dd><p>Server rejected due to number of requests</p>
 </dd>
   </dl>
 
