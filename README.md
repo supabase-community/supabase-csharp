@@ -1,12 +1,7 @@
-<p align="center">
-<img width="300" src=".github/supabase-csharp.png"/>
-</p>
-<p align="center">
-  <img src="https://github.com/supabase/supabase-csharp/workflows/Build%20And%20Test/badge.svg"/>
-  <a href="https://www.nuget.org/packages/Supabase/">
-    <img src="https://img.shields.io/nuget/vpre/Supabase"/>
-  </a>
-</p>
+# Supabase.Csharp
+
+ [![Build and Test](https://github.com/supabase-community/supabase-csharp/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/supabase-community/supabase-csharp/actions/workflows/build-and-test.yml)
+ [![NuGet](https://img.shields.io/nuget/vpre/Supabase)](https://www.nuget.com/packages/Supabase/)
 
 Documentation can be found [below](#getting-started), on
 the [Supabase Developer Documentation](https://supabase.com/docs/reference/csharp/introduction) and additionally in
@@ -26,15 +21,15 @@ the [Generated API Docs](https://supabase-community.github.io/supabase-csharp/ap
 ## Features
 
 - [x] Integration with [Supabase.Realtime](https://github.com/supabase-community/realtime-csharp)
-    - Realtime listeners for database changes
+  - Realtime listeners for database changes
 - [x] Integration with [Postgrest](https://github.com/supabase-community/postgrest-csharp)
-    - Access your database using a REST API generated from your schema & database functions
+  - Access your database using a REST API generated from your schema & database functions
 - [x] Integration with [Gotrue](https://github.com/supabase-community/gotrue-csharp)
-    - User authentication, including OAuth, email/password, and native sign-in
+  - User authentication, including OAuth, email/password, and native sign-in
 - [x] Integration with [Supabase Storage](https://github.com/supabase-community/storage-csharp)
-    - Store files in S3 with additional managed metadata
+  - Store files in S3 with additional managed metadata
 - [x] Integration with [Supabase Edge Functions](https://github.com/supabase-community/functions-csharp)
-    - Run serverless functions on the edge
+  - Run serverless functions on the edge
 - [x] [Nuget Release](https://www.nuget.org/packages/supabase-csharp)
 
 ## Quickstart
@@ -69,7 +64,7 @@ a public/user account, please do so using a separate client instance for each._
 - [Troubleshooting](https://github.com/supabase-community/supabase-csharp/wiki/Troubleshooting)
 - [Discussion Forum](https://github.com/supabase-community/supabase-csharp/discussions)
 
-## Package made possible through the efforts of:
+## Package made possible through the efforts of
 
 <a href="https://github.com/supabase-community/supabase-csharp/graphs/contributors">
   <img src="https://contrib-generator.fly.dev/repo/generate?repo=supabase-community/supabase-csharp,supabase-community/postgrest-csharp,supabase-community/realtime-csharp,supabase-community/gotrue-csharp&size=64&strokeWidth=4&strokeColor=3ecf8e&padding=12"/>

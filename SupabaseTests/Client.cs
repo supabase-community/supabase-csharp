@@ -26,9 +26,9 @@ namespace SupabaseTests
         {
             _instance = new Supabase.Client("http://localhost", null, new Supabase.SupabaseOptions
             {
-                AuthUrlFormat = "{0}:9999",
-                RealtimeUrlFormat = "ws://realtime-dev.localhost:4000/socket",
-                RestUrlFormat = "{0}:3000",
+                AuthUrlFormat = "{0}:54321/rest/v1",
+                RealtimeUrlFormat = "ws://127.0.0.1:54321/realtime/v1",
+                RestUrlFormat = "{0}:54321/rest/v1",
                 AutoConnectRealtime = false,
             });
             await _instance.InitializeAsync();
