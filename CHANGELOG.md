@@ -1,4 +1,12 @@
-﻿# Changelog
+# Changelog
+
+## [1.1.2](https://github.com/supabase-community/supabase-csharp/compare/v1.1.1...v1.1.2) (2025-07-07)
+
+
+### Bug Fixes
+
+* 14 - Update gotrue-csharp@2.3.0 ([183a30f](https://github.com/supabase-community/supabase-csharp/commit/183a30f6c879edbe1001bb750878edc185257ccd))
+* 5 ([1d30b7b](https://github.com/supabase-community/supabase-csharp/commit/1d30b7bbf953be8e9f34a2cbfee3f2257c084001))
 
 ## 1.1.1 - 2024-07-27
 
