@@ -24,10 +24,10 @@ namespace SupabaseTests
         [TestMethod("Can access Stateless REST")]
         public async Task CanAccessStatelessRest()
         {
-            var restOptions = GetRestOptions(null, options);
+            var restOptions = GetRestOptions("sb_secret_N7UND0UgjKTVK-Uodkm0Hg_xSvEMPvz", options);
             var result1 = await new Supabase.Postgrest.Client(String.Format(options.RestUrlFormat, supabaseUrl), restOptions).Table<Channel>().Get();
 
-            var result2 = await From<Channel>(supabaseUrl, null, options).Get();
+            var result2 = await From<Channel>(supabaseUrl, "sb_secret_N7UND0UgjKTVK-Uodkm0Hg_xSvEMPvz", options).Get();
 
             Assert.AreEqual(result1.Models.Count, result2.Models.Count);
         }
