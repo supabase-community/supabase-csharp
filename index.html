@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Party Game Edition: Love Calculators – Group Fun Activities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --party-pink: #ff4d8d;
+            --party-purple: #9c4dff;
+            --party-blue: #4d79ff;
+            --party-green: #4dff88;
+            --party-orange: #ffa64d;
+            --text: #333;
+            --text-light: #666;
+            --background: #fff0f5;
+            --white: #ffffff;
+            --card-gradient: linear-gradient(135deg, #ff4d8d 0%, #9c4dff 100%);
+            --shadow: 0 8px 25px rgba(0,0,0,0.1);
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: linear-gradient(135deg, #fff0f5 0%, #f0f5ff 100%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Party Background Elements */
+        .party-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            opacity: 0.7;
+            animation: fall 15s infinite linear;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--party-pink) 0%, var(--party-purple) 100%);
+            color: var(--white);
+            padding: 1.5rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--party-green);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 1.5rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--party-green);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--party-green);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(255, 77, 141, 0.85), rgba(156, 77, 255, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500"><rect width="1200" height="500" fill="%23ff4d8d"/><path d="M0,100 Q300,50 600,150 T1200,100 L1200,500 L0,500 Z" fill="%239c4dff" opacity="0.3"/></svg>');
+            background-size: cover;
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50,30 A20,20 0 1,1 50,70 A20,20 0 1,1 50,30 Z" fill="%23ffffff" opacity="0.1"/></svg>');
+            background-size: 80px;
+            animation: pulse 10s infinite linear;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.05; }
+            50% { opacity: 0.1; }
+            100% { opacity: 0.05; }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--party-green);
+            color: var(--text);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            background-color: var(--party-blue);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .main-content {
+            display: flex;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .content {
+            flex: 1;
+            background-color: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar {
+            width: 320px;
+        }
+
+        .toc {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 100px;
+        }
+
+        .toc h3 {
+            color: var(--party-pink);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--party-purple);
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 0.8rem;
+        }
+
+        .toc a {
+            color: var(--text);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+            padding: 0.3rem 0;
+        }
+
+        .toc a:hover {
+            color: var(--party-pink);
+            padding-left: 0.5rem;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--party-pink);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 2.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Game Modes Section */
+        .game-modes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .game-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 1.8rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--party-pink);
+            text-align: center;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .game-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--party-pink);
+        }
+
+        .game-card h3 {
+            color: var(--party-pink);
+            margin-bottom: 1rem;
+        }
+
+        .game-card p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Interactive Games Section */
+        .interactive-games {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+
+        .game-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .game-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .game-tab {
+            background: var(--white);
+            border: 2px solid var(--party-pink);
+            border-radius: 50px;
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .game-tab.active {
+            background: var(--party-pink);
+            color: white;
+        }
+
+        .game-tab:hover:not(.active) {
+            background: var(--party-purple);
+            color: white;
+        }
+
+        .game-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .game-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .game-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .input-field {
+            flex: 1;
+            position: relative;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: white;
+        }
+
+        .input-field input:focus {
+            border-color: var(--party-pink);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 77, 141, 0.2);
+        }
+
+        .input-field i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--party-pink);
+        }
+
+        .calculate-btn {
+            background: linear-gradient(135deg, var(--party-pink) 0%, var(--party-purple) 100%);
+            color: white;
+            border: none;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 0 auto;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .result-container {
+            display: none;
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-top: 2rem;
+            box-shadow: var(--shadow);
+            animation: fadeIn 0.5s ease;
+            position: relative;
+        }
+
+        .result-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--party-pink), var(--party-purple), var(--party-blue));
+        }
+
+        .love-score {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--party-pink);
+            margin-bottom: 1rem;
+        }
+
+        .love-message {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .party-reaction {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .reaction-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            background: var(--party-blue);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .reaction-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Party Tips Section */
+        .party-tips {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffecb3 100%);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .tip-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .tip-card h4 {
+            color: var(--party-orange);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .tip-card h4 i {
+            margin-right: 0.5rem;
+        }
+
+        /* Icebreakers Section */
+        .icebreakers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .icebreaker-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 1.8rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--party-blue);
+        }
+
+        .icebreaker-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .icebreaker-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--party-blue);
+        }
+
+        .icebreaker-card h3 {
+            color: var(--party-blue);
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--party-pink) 0%, var(--party-purple) 100%);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+            border-radius: 30px 30px 0 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--party-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.8rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--party-green);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--party-green);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 1rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 900px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+            }
+            
+            .toc {
+                position: static;
+            }
+            
+            .input-group {
+                flex-direction: column;
+            }
+            
+            .game-modes, .icebreakers {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0.5rem;
+            }
+            
+            .content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .game-tabs {
+                flex-direction: column;
+            }
+            
+            .party-reaction {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Party Background -->
+    <div class="party-bg" id="partyBg"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-glass-cheers"></i>
+                Party Love Games
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#games">Game Modes</a></li>
+                    <li><a href="#play">Play Now</a></li>
+                    <li><a href="#tips">Party Tips</a></li>
+                    <li><a href="#icebreakers">Icebreakers</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Party Game Edition: Love Calculators</h1>
+            <p>Transform simple compatibility tests into hilarious group activities and icebreakers</p>
+            <a href="#play" class="btn">Start the Party!</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            <!-- Article Content -->
+            <article class="content">
+                <section id="introduction">
+                    <h2>Introduction: Love Calculators as Party Entertainment</h2>
+                    <p>Love calculators have evolved from solitary online curiosities into fantastic party games that bring people together. When transformed into group activities, these simple compatibility tests become hilarious icebreakers, conversation starters, and sources of endless entertainment for gatherings of all kinds.</p>
+                    
+                    <div class="party-tips">
+                        <h3><i class="fas fa-lightbulb"></i> Why Love Calculators Work So Well at Parties</h3>
+                        <p>These tools become exceptional party games because they:</p>
+                        <div class="tips-grid">
+                            <div class="tip-card">
+                                <h4><i class="fas fa-laugh"></i> Create Laughter</h4>
+                                <p>Unexpected results and funny pairings generate genuine laughter and lighthearted moments.</p>
+                            </div>
+                            <div class="tip-card">
+                                <h4><i class="fas fa-users"></i> Break the Ice</h4>
+                                <p>They provide structured yet fun ways for guests to interact and learn about each other.</p>
+                            </div>
+                            <div class="tip-card">
+                                <h4><i class="fas fa-comments"></i> Spark Conversations</h4>
+                                <p>Results naturally lead to discussions about relationships, compatibility, and personal stories.</p>
+                            </div>
+                            <div class="tip-card">
+                                <h4><i class="fas fa-gamepad"></i> Require No Setup</h4>
+                                <p>Unlike many party games, love calculators need no preparation or special equipment.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p>Whether you're hosting a small gathering with friends, a large party, or a team-building event, love calculator games can adapt to any group size and dynamic.</p>
+                </section>
+
+                <section id="games">
+                    <h2>Party Game Modes & Variations</h2>
+                    <p>Transform the basic love calculator concept into engaging party games with these creative variations.</p>
+                    
+                    <div class="game-modes">
+                        <div class="game-card">
+                            <div class="game-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h3>Compatibility Tournament</h3>
+                            <p>Pair up all guests and run a bracket-style tournament to crown the "most compatible" pair at the party.</p>
+                            <button class="btn" onclick="showGame('tournament')">Play This Game</button>
+                        </div>
+                        
+                        <div class="game-card">
+                            <div class="game-icon">
+                                <i class="fas fa-theater-masks"></i>
+                            </div>
+                            <h3>Celebrity Matchmaker</h3>
+                            <p>Guests calculate compatibility with celebrities, then role-play as their "perfect match" in hilarious scenarios.</p>
+                            <button class="btn" onclick="showGame('celebrity')">Play This Game</button>
+                        </div>
+                        
+                        <div class="game-card">
+                            <div class="game-icon">
+                                <i class="fas fa-random"></i>
+                            </div>
+                            <h3>Blind Compatibility</h3>
+                            <p>Calculate scores before revealing who the names belong to, then guess the real-life compatibility.</p>
+                            <button class="btn" onclick="showGame('blind')">Play This Game</button>
+                        </div>
+                    </div>
+                    
+                    <div class="game-modes">
+                        <div class="game-card">
+                            <div class="game-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <h3>Time Traveler</h3>
+                            <p>Calculate compatibility with historical figures, then imagine what those relationships would be like.</p>
+                            <button class="btn" onclick="showGame('history')">Play This Game</button>
+                        </div>
+                        
+                        <div class="game-card">
+                            <div class="game-icon">
+                                <i class="fas fa-paw"></i>
+                            </div>
+                            <h3>Pet Compatibility</h3>
+                            <p>Include pets in the calculations for hilarious results and discussions about human-animal bonds.</p>
+                            <button class="btn" onclick="showGame('pets')">Play This Game</button>
+                        </div>
+                        
+                        <div class="game-card">
+                            <div class="game-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3>Food Pairing</h3>
+                            <p>Calculate compatibility between guests and their favorite foods, then create "perfect match" meals.</p>
+                            <button class="btn" onclick="showGame('food')">Play This Game</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="play">
+                    <h2>Play Party Games Now</h2>
+                    <p>Try these interactive love calculator games perfect for your next gathering.</p>
+                    
+                    <div class="interactive-games">
+                        <h3>Party Game Center</h3>
+                        <p>Select a game mode to start playing with your friends</p>
+                        
+                        <div class="game-container">
+                            <div class="game-tabs">
+                                <div class="game-tab active" data-game="quick">Quick Match</div>
+                                <div class="game-tab" data-game="tournament">Tournament</div>
+                                <div class="game-tab" data-game="celebrity">Celebrity</div>
+                                <div class="game-tab" data-game="group">Group Fun</div>
+                            </div>
+                            
+                            <!-- Quick Match Game -->
+                            <div class="game-content active" id="quick-game">
+                                <h4>Quick Compatibility Match</h4>
+                                <p>Test compatibility between any two people for instant party fun!</p>
+                                
+                                <div class="game-form">
+                                    <div class="input-group">
+                                        <div class="input-field">
+                                            <i class="fas fa-user"></i>
+                                            <input type="text" id="name1" placeholder="First Person" required>
+                                        </div>
+                                        <div class="input-field">
+                                            <i class="fas fa-user"></i>
+                                            <input type="text" id="name2" placeholder="Second Person" required>
+                                        </div>
+                                    </div>
+                                    <button class="calculate-btn" id="calculateQuick">
+                                        <i class="fas fa-heart"></i> Calculate Party Compatibility
+                                    </button>
+                                </div>
+                                
+                                <div class="result-container" id="quickResult">
+                                    <div class="love-score" id="quickScore">0%</div>
+                                    <div class="love-message" id="quickMessage">Calculating your party compatibility...</div>
+                                    
+                                    <div class="party-reaction">
+                                        <button class="reaction-btn" id="cheerBtn">
+                                            <i class="fas fa-glass-cheers"></i> Cheer This Match!
+                                        </button>
+                                        <button class="reaction-btn" id="nextPairBtn">
+                                            <i class="fas fa-random"></i> Try Another Pair
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Tournament Game -->
+                            <div class="game-content" id="tournament-game">
+                                <h4>Compatibility Tournament</h4>
+                                <p>Enter multiple names to create a bracket and find the most compatible pair!</p>
+                                
+                                <div class="game-form">
+                                    <div class="input-group">
+                                        <div class="input-field">
+                                            <i class="fas fa-users"></i>
+                                            <input type="text" id="tournamentNames" placeholder="Enter names separated by commas" required>
+                                        </div>
+                                    </div>
+                                    <button class="calculate-btn" id="startTournament">
+                                        <i class="fas fa-trophy"></i> Start Tournament
+                                    </button>
+                                </div>
+                                
+                                <div class="result-container" id="tournamentResult">
+                                    <h4>Tournament Bracket</h4>
+                                    <div id="bracketDisplay"></div>
+                                    <div class="love-score" id="championScore">0%</div>
+                                    <div class="love-message" id="championMessage"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Celebrity Game -->
+                            <div class="game-content" id="celebrity-game">
+                                <h4>Celebrity Matchmaker</h4>
+                                <p>Find out which celebrity is your perfect match!</p>
+                                
+                                <div class="game-form">
+                                    <div class="input-group">
+                                        <div class="input-field">
+                                            <i class="fas fa-user"></i>
+                                            <input type="text" id="userName" placeholder="Your Name" required>
+                                        </div>
+                                        <div class="input-field">
+                                            <i class="fas fa-star"></i>
+                                            <select id="celebritySelect">
+                                                <option value="Taylor Swift">Taylor Swift</option>
+                                                <option value="Harry Styles">Harry Styles</option>
+                                                <option value="Beyoncé">Beyoncé</option>
+                                                <option value="Ryan Reynolds">Ryan Reynolds</option>
+                                                <option value="Zendaya">Zendaya</option>
+                                                <option value="Tom Holland">Tom Holland</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <button class="calculate-btn" id="calculateCelebrity">
+                                        <i class="fas fa-star"></i> Find My Celebrity Match
+                                    </button>
+                                </div>
+                                
+                                <div class="result-container" id="celebrityResult">
+                                    <div class="love-score" id="celebrityScore">0%</div>
+                                    <div class="love-message" id="celebrityMessage">Finding your celebrity soulmate...</div>
+                                    
+                                    <div class="party-reaction">
+                                        <button class="reaction-btn" id="roleplayBtn">
+                                            <i class="fas fa-theater-masks"></i> Roleplay This Match
+                                        </button>
+                                        <button class="reaction-btn" id="anotherCelebrityBtn">
+                                            <i class="fas fa-random"></i> Try Another Celebrity
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="tips">
+                    <h2>Party Hosting Tips & Best Practices</h2>
+                    <p>Make your love calculator party games a success with these expert tips.</p>
+                    
+                    <div class="party-tips">
+                        <h3><i class="fas fa-glass-cheers"></i> Creating the Perfect Party Atmosphere</h3>
+                        <div class="tips-grid">
+                            <div class="tip-card">
+                                <h4><i class="fas fa-volume-up"></i> Set the Mood</h4>
+                                <p>Play upbeat, romantic, or funny music in the background to enhance the gaming experience.</p>
+                            </div>
+                            <div class="tip-card">
+                                <h4><i class="fas fa-couch"></i> Create Comfort</h4>
+                                <p>Arrange seating in a circle or semi-circle so everyone can see reactions and participate easily.</p>
+                            </div>
+                            <div class="tip-card">
+                                <h4><i class="fas fa-cookie"></i> Provide Snacks</h4>
+                                <p>Have light snacks and drinks available to keep energy levels high during the games.</p>
+                            </div>
+                            <div class="tip-card">
+                                <h4><i class="fas fa-lightbulb"></i> Good Lighting</h4>
+                                <p>Ensure the room is well-lit so everyone can see the screen and each other's reactions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>Game Master Guidelines</h3>
+                    <p>As the host or game master, you can enhance the experience by:</p>
+                    <ul>
+                        <li><strong>Explaining the rules clearly</strong> before starting each game</li>
+                        <li><strong>Keeping the energy high</strong> with enthusiastic commentary</li>
+                        <li><strong>Encouraging participation</strong> from quieter guests</li>
+                        <li><strong>Adapting games on the fly</strong> based on group dynamics</li>
+                        <li><strong>Knowing when to move on</strong> if a game isn't resonating</li>
+                        <li><strong>Celebrating all results</strong> regardless of the score</li>
+                    </ul>
+                    
+                    <div class="party-tips">
+                        <h3><i class="fas fa-users"></i> Handling Different Group Dynamics</h3>
+                        <p>Different types of parties require different approaches:</p>
+                        <div class="tips-grid">
+                            <div class="tip-card">
+                                <h4><i class="fas fa-user-friends"></i> Friend Groups</h4>
+                                <p>Focus on inside jokes and shared history. The games will feel more personal and meaningful.</p>
+                            </div>
+                            <div class="tip-card">
+                                <h4><i class="fas fa-briefcase"></i> Work Events</h4>
+                                <p>Keep it light and professional. Avoid potentially awkward personal questions or pairings.</p>
+                            </div>
+                            <div class="tip-card">
+                                <h4><i class="fas fa-graduation-cap"></i> Mixed Groups</h4>
+                                <p>Pair people who don't know each other well to facilitate new connections and conversations.</p>
+                            </div>
+                            <div class="tip-card">
+                                <h4><i class="fas fa-birthday-cake"></i> Special Occasions</h4>
+                                <p>Incorporate the guest of honor into multiple games to make them feel special.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="icebreakers">
+                    <h2>Icebreaker Games & Conversation Starters</h2>
+                    <p>Use love calculators as tools to help guests connect and converse.</p>
+                    
+                    <div class="icebreakers">
+                        <div class="icebreaker-card">
+                            <div class="icebreaker-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <h3>Two Truths & A Calculator</h3>
+                            <p>Guests share two true facts and one false fact about themselves. Others use the love calculator with related names to guess which is the lie.</p>
+                        </div>
+                        
+                        <div class="icebreaker-card">
+                            <div class="icebreaker-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <h3>Relationship Timeline</h3>
+                            <p>Guests calculate compatibility with their past crushes or partners, then share funny or interesting stories from those relationships.</p>
+                        </div>
+                        
+                        <div class="icebreaker-card">
+                            <div class="icebreaker-icon">
+                                <i class="fas fa-shoe-prints"></i>
+                            </div>
+                            <h3>In Their Shoes</h3>
+                            <p>Calculate compatibility between guests and famous people, then discuss what life would be like in that celebrity's shoes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="icebreakers">
+                        <div class="icebreaker-card">
+                            <div class="icebreaker-icon">
+                                <i class="fas fa-random"></i>
+                            </div>
+                            <h3>Compatibility Switch</h3>
+                            <p>After several rounds, have guests swap "compatibility partners" and discuss how the dynamic changes with different people.</p>
+                        </div>
+                        
+                        <div class="icebreaker-card">
+                            <div class="icebreaker-icon">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <h3>Perfect Match Gifts</h3>
+                            <p>Based on compatibility results, guests suggest what would be the perfect gift for their match, sparking conversations about interests and preferences.</p>
+                        </div>
+                        
+                        <div class="icebreaker-card">
+                            <div class="icebreaker-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3>Dinner Party Planner</h3>
+                            <p>Using compatibility scores, guests plan imaginary dinner parties with their matches, discussing food preferences and ideal guest lists.</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Making Icebreakers Comfortable for Everyone</h3>
+                    <p>Icebreakers work best when everyone feels safe and comfortable. As a host, you can:</p>
+                    <ul>
+                        <li>Always make participation optional - no one should feel pressured</li>
+                        <li>Start with less personal topics and gradually build up</li>
+                        <li>Model vulnerability by sharing your own stories first</li>
+                        <li>Respect boundaries and change topics if someone seems uncomfortable</li>
+                        <li>Focus on fun and connection rather than deep personal revelation</li>
+                        <li>Have alternative activities available for those who prefer not to participate</li>
+                    </ul>
+                </section>
+
+                <section id="conclusion">
+                    <h2>Conclusion: Your Next Unforgettable Party</h2>
+                    <p>Love calculator party games offer a unique blend of entertainment, connection, and laughter that can transform any gathering into an unforgettable experience. By adapting these simple digital tools for group settings, you create opportunities for genuine connection and shared joy.</p>
+                    
+                    <div class="party-tips">
+                        <h3><i class="fas fa-star"></i> The Magic Formula</h3>
+                        <p>The most successful love calculator parties combine:</p>
+                        <ul>
+                            <li><strong>The right games</strong> for your specific group and occasion</li>
+                            <li><strong>A comfortable atmosphere</strong> where everyone feels included</li>
+                            <li><strong>Enthusiastic hosting</strong> that keeps energy and engagement high</li>
+                            <li><strong>Flexibility</strong> to adapt games based on what's working</li>
+                            <li><strong>The understanding</strong> that it's all in good fun</li>
+                        </ul>
+                    </div>
+                    
+                    <p>So whether you're planning an intimate gathering with close friends or a large party with acquaintances, consider adding love calculator games to your entertainment lineup. They require minimal preparation, work for groups of all sizes, and most importantly - they create the kind of shared laughter and connection that turns a simple get-together into a truly memorable event.</p>
+                    
+                    <p>Ready to host your own love calculator party? Use the games and tips in this guide, remember to keep things light and fun, and watch as your guests connect in unexpected and delightful ways.</p>
+                </section>
+            </article>
+
+            <!-- Sidebar with Table of Contents -->
+            <aside class="sidebar">
+                <div class="toc">
+                    <h3>Party Guide</h3>
+                    <ul>
+                        <li><a href="#introduction">Introduction</a></li>
+                        <li><a href="#games">Game Modes</a></li>
+                        <li><a href="#play">Play Games</a></li>
+                        <li><a href="#tips">Party Tips</a></li>
+                        <li><a href="#icebreakers">Icebreakers</a></li>
+                        <li><a href="#conclusion">Conclusion</a></li>
+                    </ul>
+                </div>
+                
+                <div class="toc" style="margin-top: 2rem;">
+                    <h3>Game Modes</h3>
+                    <ul>
+                        <li>Compatibility Tournament</li>
+                        <li>Celebrity Matchmaker</li>
+                        <li>Blind Compatibility</li>
+                        <li>Time Traveler</li>
+                        <li>Pet Compatibility</li>
+                        <li>Food Pairing</li>
+                    </ul>
+                </div>
+                
+                <div class="toc" style="margin-top: 2rem;">
+                    <h3>Hosting Tips</h3>
+                    <ul>
+                        <li>Set the mood</li>
+                        <li>Create comfort</li>
+                        <li>Provide snacks</li>
+                        <li>Good lighting</li>
+                        <li>Know your audience</li>
+                        <li>Keep it fun</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>About Party Games</h3>
+                <p>Transforming digital tools into engaging group activities for memorable parties and gatherings.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Party Resources</h3>
+                <a href="#games">Game Modes</a>
+                <a href="#play">Interactive Games</a>
+                <a href="#tips">Hosting Tips</a>
+                <a href="#icebreakers">Icebreakers</a>
+            </div>
+            <div class="footer-section">
+                <h3>Party Success</h3>
+                <p>Remember: The goal is connection and fun, not perfect scores. Adapt games to your group and focus on creating joyful moments together.</p>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>&copy; 2023 Party Game Edition: Love Calculators. All rights reserved. Let the party begin!</p>
+        </div>
+    </footer>
+
+    <script>
+        // Create party confetti background
+        function createConfetti() {
+            const container = document.getElementById('partyBg');
+            const colors = ['#ff4d8d', '#9c4dff', '#4d79ff', '#4dff88', '#ffa64d'];
+            const confettiCount = 30;
+            
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                
+                // Random properties
+                const size = Math.random() * 15 + 5;
+                const left = Math.random() * 100;
+                const animationDuration = Math.random() * 20 + 10;
+                const animationDelay = Math.random() * 5;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const shape = Math.random() > 0.5 ? '0' : '50%';
+                
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                confetti.style.left = `${left}%`;
+                confetti.style.animationDuration = `${animationDuration}s`;
+                confetti.style.animationDelay = `${animationDelay}s`;
+                confetti.style.background = color;
+                confetti.style.borderRadius = shape;
+                
+                container.appendChild(confetti);
+            }
+        }
+        
+        // Game Tab Functionality
+        document.querySelectorAll('.game-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.game-tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Hide all game content
+                document.querySelectorAll('.game-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Show corresponding game content
+                const gameId = this.getAttribute('data-game');
+                document.getElementById(`${gameId}-game`).classList.add('active');
+            });
+        });
+        
+        // Quick Match Game
+        document.getElementById('calculateQuick').addEventListener('click', function() {
+            const name1 = document.getElementById('name1').value.trim();
+            const name2 = document.getElementById('name2').value.trim();
+            
+            if (!name1 || !name2) {
+                alert('Please enter both names for your party game!');
+                return;
+            }
+            
+            // Calculate party-optimized score
+            const score = calculatePartyScore(name1, name2);
+            const message = generatePartyMessage(score, name1, name2);
+            
+            // Display result with animation
+            const resultContainer = document.getElementById('quickResult');
+            const scoreElement = document.getElementById('quickScore');
+            const messageElement = document.getElementById('quickMessage');
+            
+            // Animate the score counting up
+            animateScore(scoreElement, score);
+            
+            messageElement.textContent = message;
+            resultContainer.style.display = 'block';
+            
+            // Add celebration effects for high scores
+            if (score >= 80) {
+                createConfetti();
+            }
+        });
+        
+        // Tournament Game
+        document.getElementById('startTournament').addEventListener('click', function() {
+            const namesInput = document.getElementById('tournamentNames').value.trim();
+            
+            if (!namesInput) {
+                alert('Please enter at least 4 names separated by commas!');
+                return;
+            }
+            
+            const names = namesInput.split(',').map(name => name.trim()).filter(name => name);
+            
+            if (names.length < 4) {
+                alert('Please enter at least 4 names for a proper tournament!');
+                return;
+            }
+            
+            // Run tournament
+            const results = runTournament(names);
+            displayTournamentResults(results);
+        });
+        
+        // Celebrity Game
+        document.getElementById('calculateCelebrity').addEventListener('click', function() {
+            const userName = document.getElementById('userName').value.trim();
+            const celebrity = document.getElementById('celebritySelect').value;
+            
+            if (!userName) {
+                alert('Please enter your name!');
+                return;
+            }
+            
+            // Calculate celebrity score
+            const score = calculateCelebrityScore(userName, celebrity);
+            const message = generateCelebrityMessage(score, userName, celebrity);
+            
+            // Display result
+            const resultContainer = document.getElementById('celebrityResult');
+            const scoreElement = document.getElementById('celebrityScore');
+            const messageElement = document.getElementById('celebrityMessage');
+            
+            animateScore(scoreElement, score);
+            messageElement.textContent = message;
+            resultContainer.style.display = 'block';
+        });
+        
+        // Game functions
+        function calculatePartyScore(name1, name2) {
+            const combined = (name1 + name2).toLowerCase();
+            let total = 0;
+            
+            for (let i = 0; i < combined.length; i++) {
+                total += combined.charCodeAt(i);
+            }
+            
+            let score = total % 101;
+            
+            // Party bias - create more interesting results
+            if (score > 70) score = Math.min(99, score + 15);
+            if (score < 30) score = Math.max(10, score - 10);
+            
+            return score;
+        }
+        
+        function generatePartyMessage(score, name1, name2) {
+            if (score >= 90) {
+                return `Party Perfection! ${name1} & ${name2} are the ultimate party duo! 🎉`;
+            } else if (score >= 80) {
+                return `Amazing Chemistry! ${name1} & ${name2} would light up any party! 🔥`;
+            } else if (score >= 70) {
+                return `Great Match! ${name1} & ${name2} would have a blast together! 💃`;
+            } else if (score >= 50) {
+                return `Fun Potential! ${name1} & ${name2} could create some interesting party moments! 🎭`;
+            } else if (score >= 30) {
+                return `Interesting Pair! ${name1} & ${name2} would definitely make the party memorable! 😄`;
+            } else {
+                return `Unexpected Duo! ${name1} & ${name2} - this would be a party to remember! 🎪`;
+            }
+        }
+        
+        function runTournament(names) {
+            // Shuffle names and create pairs
+            const shuffled = [...names].sort(() => Math.random() - 0.5);
+            const pairs = [];
+            const results = [];
+            
+            // Create initial pairs
+            for (let i = 0; i < shuffled.length; i += 2) {
+                if (i + 1 < shuffled.length) {
+                    pairs.push([shuffled[i], shuffled[i + 1]]);
+                }
+            }
+            
+            // Calculate scores for each pair
+            pairs.forEach(pair => {
+                const score = calculatePartyScore(pair[0], pair[1]);
+                results.push({
+                    pair: pair,
+                    score: score
+                });
+            });
+            
+            // Sort by score to find winner
+            results.sort((a, b) => b.score - a.score);
+            
+            return results;
+        }
+        
+        function displayTournamentResults(results) {
+            const bracketDisplay = document.getElementById('bracketDisplay');
+            const championScore = document.getElementById('championScore');
+            const championMessage = document.getElementById('championMessage');
+            
+            let bracketHTML = '<div class="tournament-bracket">';
+            
+            results.forEach((result, index) => {
+                bracketHTML += `
+                    <div class="bracket-match">
+                        <div class="contestants">${result.pair[0]} & ${result.pair[1]}</div>
+                        <div class="match-score">${result.score}%</div>
+                    </div>
+                `;
+            });
+            
+            bracketHTML += '</div>';
+            bracketDisplay.innerHTML = bracketHTML;
+            
+            // Show champion
+            const champion = results[0];
+            championScore.textContent = champion.score + '%';
+            championMessage.textContent = `Tournament Champions: ${champion.pair[0]} & ${champion.pair[1]}!`;
+            
+            document.getElementById('tournamentResult').style.display = 'block';
+        }
+        
+        function calculateCelebrityScore(userName, celebrity) {
+            // Special algorithm for celebrity matches
+            const combined = (userName + celebrity).toLowerCase();
+            let total = 0;
+            
+            for (let i = 0; i < combined.length; i++) {
+                total += combined.charCodeAt(i);
+            }
+            
+            let score = total % 101;
+            
+            // Celebrity bias - usually higher scores for entertainment
+            if (score < 60) score += 20;
+            
+            return Math.min(99, score);
+        }
+        
+        function generateCelebrityMessage(score, userName, celebrity) {
+            if (score >= 90) {
+                return `Soulmate Alert! ${userName} & ${celebrity} are meant to be! Red carpet ready! 🌟`;
+            } else if (score >= 80) {
+                return `Power Couple! ${userName} & ${celebrity} would dominate the headlines! 📸`;
+            } else if (score >= 70) {
+                return `Great Match! ${userName} & ${celebrity} would make paparazzi happy! 📰`;
+            } else if (score >= 60) {
+                return `Interesting Pair! ${userName} & ${celebrity} - the fans would have opinions! 💬`;
+            } else {
+                return `Unexpected Duo! ${userName} & ${celebrity} - this would surprise everyone! 😲`;
+            }
+        }
+        
+        function animateScore(element, finalScore) {
+            let currentScore = 0;
+            const increment = Math.ceil(finalScore / 25);
+            const timer = setInterval(() => {
+                currentScore += increment;
+                if (currentScore >= finalScore) {
+                    currentScore = finalScore;
+                    clearInterval(timer);
+                }
+                element.textContent = currentScore + '%';
+            }, 50);
+        }
+        
+        function showGame(gameType) {
+            // Remove active class from all tabs
+            document.querySelectorAll('.game-tab').forEach(t => {
+                t.classList.remove('active');
+            });
+            
+            // Hide all game content
+            document.querySelectorAll('.game-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show selected game
+            document.querySelector(`.game-tab[data-game="${gameType}"]`).classList.add('active');
+            document.getElementById(`${gameType}-game`).classList.add('active');
+            
+            // Scroll to games section
+            document.getElementById('play').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Initialize the page
+        window.addEventListener('load', function() {
+            createConfetti();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Sticky header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(156, 77, 255, 0.95)';
+            } else {
+                header.style.backgroundColor = '';
+            }
+        });
+    </script>
+</body>
+</html>
