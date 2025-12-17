@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <!--
+    Repository-wide defaults for mono-repo development.
+    - Local development: UseLocalDependencies=true (use ProjectReference to local modules)
+    - CI/Production (e.g., GitHub Actions): UseLocalDependencies=false (use NuGet versions)
+
+    You can override on the command line:
+      dotnet build -p:UseLocalDependencies=true
+      dotnet build -p:UseLocalDependencies=false
+  -->
+
+  <PropertyGroup>
+    <!-- Default to NuGet dependencies to ensure repo builds out of the box -->
+    <UseLocalDependencies Condition=" '$(UseLocalDependencies)' == '' ">true</UseLocalDependencies>
+  </PropertyGroup>
+
+</Project>
