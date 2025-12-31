@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<PackOnBuild>true</PackOnBuild>
+		<PackageId>Supabase.Functions</PackageId>
+		<RootNamespace>Supabase.Functions</RootNamespace>
+		<AssemblyName>Supabase.Functions</AssemblyName>
+		<Authors>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Authors>
+		<Copyright>MIT</Copyright>
+		<NeutralLanguage>en</NeutralLanguage>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Owners>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Owners>
+		<Summary>A C# client for Supabase Functions</Summary>
+		<Title>Function</Title>
+		<Description>A C# client for Supabase Functions</Description>
+		<PackageIconUrl>https://avatars.githubusercontent.com/u/54469796?s=200&amp;v=4</PackageIconUrl>
+		<PackageProjectUrl>https://github.com/supabase-community/functions-csharp</PackageProjectUrl>
+		<PackageTags>supabase, functions</PackageTags>
+    <!-- x-release-please-start-version -->
+		<PackageVersion>2.1.0</PackageVersion>
+		<ReleaseVersion>2.1.0</ReleaseVersion>
+    <!-- x-release-please-end -->
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/supabase-community/functions-csharp</RepositoryUrl>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Nullable>enable</Nullable>
+		<LangVersion>8.0</LangVersion>
+		<WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Version)' == '' ">
+    <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">2.1.0</VersionPrefix> <!-- x-release-please-version -->
+		<VersionSuffix Condition=" '$(VersionSuffix)' == '' "></VersionSuffix>
+		<Version Condition=" '$(VersionSuffix)' != '' ">$(VersionPrefix)-$(VersionSuffix)</Version>
+		<Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Supabase.Core" Version="1.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\..\.github\icon.png" Pack="true" Link="icon.png" PackagePath="\" />	
+		<None Include="..\README.md" Pack="true" Link="README.md" PackagePath="\" />
+	</ItemGroup>
+</Project>

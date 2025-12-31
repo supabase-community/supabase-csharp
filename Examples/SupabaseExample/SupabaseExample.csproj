@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ReleaseVersion>0.7.2</ReleaseVersion>
     <LangVersion>9</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Supabase\Supabase.csproj" />
+    <ProjectReference Include="..\..\Modules\supabase-csharp\Supabase\Supabase.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

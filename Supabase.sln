@@ -10,11 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		CHANGELOG.md = CHANGELOG.md
 		docker-compose.yml = docker-compose.yml
 		README.md = README.md
+		Directory.Build.props = Directory.Build.props
 	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Supabase", "Supabase\Supabase.csproj", "{FAE80407-C121-47A3-9304-D39FA828E9F1}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupabaseTests", "SupabaseTests\SupabaseTests.csproj", "{28EE4F80-74AA-46F6-B15E-27C30310401A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{43FFFE0C-91D2-43AB-913F-B3824702AE49}"
 EndProject
@@ -25,11 +22,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\build-and-test.yml = .github\workflows\build-and-test.yml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{E407C761-AA9C-423C-AD1C-7EE687D3CAB9}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupabaseExample", "Examples\SupabaseExample\SupabaseExample.csproj", "{F73BCB1B-1EEE-41FA-B7A7-C655F391A26D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{F7E6F0F9-19B4-403B-A5C8-36D43CDC6B5F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{F0A363A3-AA28-40BE-A0BB-CE3E8F234492}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{01B79287-FCFB-47DE-8DC7-85738C2C46C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Functions", "Modules\functions-csharp\Functions\Functions.csproj", "{E8431613-9591-4639-B48B-0E26D282745D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionsTests", "Modules\functions-csharp\FunctionsTests\FunctionsTests.csproj", "{4162B87D-6FB8-442F-9CDF-94CC1B11760D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Supabase", "Supabase", "{982AEFE5-EB2A-4B4E-950D-633C5A60B08B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supabase", "Modules\supabase-csharp\Supabase\Supabase.csproj", "{24A57BAD-27C3-4877-B6E4-6E812E5C4248}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupabaseTests", "Modules\supabase-csharp\SupabaseTests\SupabaseTests.csproj", "{8D82C7A1-6808-467D-84A8-8F61A273C86A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,18 +46,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FAE80407-C121-47A3-9304-D39FA828E9F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FAE80407-C121-47A3-9304-D39FA828E9F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FAE80407-C121-47A3-9304-D39FA828E9F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FAE80407-C121-47A3-9304-D39FA828E9F1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{28EE4F80-74AA-46F6-B15E-27C30310401A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{28EE4F80-74AA-46F6-B15E-27C30310401A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{28EE4F80-74AA-46F6-B15E-27C30310401A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{28EE4F80-74AA-46F6-B15E-27C30310401A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F73BCB1B-1EEE-41FA-B7A7-C655F391A26D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F73BCB1B-1EEE-41FA-B7A7-C655F391A26D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F73BCB1B-1EEE-41FA-B7A7-C655F391A26D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F73BCB1B-1EEE-41FA-B7A7-C655F391A26D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8431613-9591-4639-B48B-0E26D282745D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8431613-9591-4639-B48B-0E26D282745D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8431613-9591-4639-B48B-0E26D282745D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8431613-9591-4639-B48B-0E26D282745D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4162B87D-6FB8-442F-9CDF-94CC1B11760D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4162B87D-6FB8-442F-9CDF-94CC1B11760D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4162B87D-6FB8-442F-9CDF-94CC1B11760D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4162B87D-6FB8-442F-9CDF-94CC1B11760D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24A57BAD-27C3-4877-B6E4-6E812E5C4248}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24A57BAD-27C3-4877-B6E4-6E812E5C4248}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24A57BAD-27C3-4877-B6E4-6E812E5C4248}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24A57BAD-27C3-4877-B6E4-6E812E5C4248}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D82C7A1-6808-467D-84A8-8F61A273C86A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D82C7A1-6808-467D-84A8-8F61A273C86A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D82C7A1-6808-467D-84A8-8F61A273C86A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D82C7A1-6808-467D-84A8-8F61A273C86A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +74,12 @@ Global
 		{43FFFE0C-91D2-43AB-913F-B3824702AE49} = {F94175FC-DE2B-4DBC-9C79-2A97B8489412}
 		{5B805377-7615-441C-86B1-4BE203B0289B} = {43FFFE0C-91D2-43AB-913F-B3824702AE49}
 		{F73BCB1B-1EEE-41FA-B7A7-C655F391A26D} = {F7E6F0F9-19B4-403B-A5C8-36D43CDC6B5F}
+		{01B79287-FCFB-47DE-8DC7-85738C2C46C9} = {F0A363A3-AA28-40BE-A0BB-CE3E8F234492}
+		{E8431613-9591-4639-B48B-0E26D282745D} = {01B79287-FCFB-47DE-8DC7-85738C2C46C9}
+		{4162B87D-6FB8-442F-9CDF-94CC1B11760D} = {01B79287-FCFB-47DE-8DC7-85738C2C46C9}
+		{982AEFE5-EB2A-4B4E-950D-633C5A60B08B} = {F0A363A3-AA28-40BE-A0BB-CE3E8F234492}
+		{24A57BAD-27C3-4877-B6E4-6E812E5C4248} = {982AEFE5-EB2A-4B4E-950D-633C5A60B08B}
+		{8D82C7A1-6808-467D-84A8-8F61A273C86A} = {982AEFE5-EB2A-4B4E-950D-633C5A60B08B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {832DE89D-7252-4B03-9301-BB8D36B40992}
