@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <PackOnBuild>true</PackOnBuild>
+        <PackageId>Supabase.Storage</PackageId>
+        <RootNamespace>Supabase.Storage</RootNamespace>
+        <AssemblyName>Supabase.Storage</AssemblyName>
+        <Authors>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Authors>
+        <Description>A C# implementation of the Supabase Storage client</Description>
+        <Copyright>MIT</Copyright>
+        <NeutralLanguage>en-US</NeutralLanguage>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Owners>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Owners>
+        <PackageProjectUrl>https://github.com/supabase-community/storage-csharp</PackageProjectUrl>
+        <Summary>A C# implementation of the Supabase Storage client</Summary>
+        <Title>Supabase Storage</Title>
+        <PackageIconUrl>https://avatars.githubusercontent.com/u/54469796?s=200&amp;v=4</PackageIconUrl>
+        <PackageTags>supabase, storage</PackageTags>
+        <!-- x-release-please-start-version -->
+        <ReleaseVersion>2.4.1</ReleaseVersion>
+        <PackageVersion>2.4.1</PackageVersion>
+        <!-- x-release-please-end -->
+        <RepositoryUrl>https://github.com/supabase-community/storage-csharp</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageIcon>icon.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Version)' == '' ">
+        <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">2.4.1</VersionPrefix> <!-- x-release-please-version -->
+        <Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="BirdMessenger" Version="3.1.4" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="MimeMapping" Version="3.0.1" />
+        <PackageReference Include="Supabase.Core" Version="1.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\..\.github\icon.png" Pack="true" Link="icon.png" PackagePath="\" />
+        <None Include="..\README.md" Pack="true" Link="README.md" PackagePath="\" />
+    </ItemGroup>
+</Project>
