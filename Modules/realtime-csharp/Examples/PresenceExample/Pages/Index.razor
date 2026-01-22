@@ -1,0 +1,315 @@
+﻿@page "/"
+@using Newtonsoft.Json;
+@using PresenceExample.Components;
+@using PresenceExample.Models;
+@using Supabase.Realtime;
+@using Supabase.Realtime.Interfaces
+@using Supabase.Realtime.Models;
+@inject IJSRuntime Js;
+@inject Client Realtime;
+@inject Blazored.LocalStorage.ISyncLocalStorageService LocalStorage;
+
+<PageTitle>Realtime Example</PageTitle>
+
+<div class="flex justify-between">
+    <div class="bg-gray-200 border border-scale-500 dark:border-scale-300 p-3 rounded-md space-y-8 transition-all max-h-[70px] duration-500 overflow-hidden shadow-2xl dark:shadow-lg">
+        <a href="https://github.com/supabase-community/supabase-csharp">
+            <img class="w-full md:w-48 h-full max-w-xs" src="/logo.png"/>
+        </a>
+    </div>
+
+    <a href="https://github.com/supabase-community/realtime-csharp/tree/master/Examples/PresenceExample">
+        <img class="w-8 h-8" src="/github-mark-white.png"/>
+    </a>
+</div>
+
+<div class="flex items-start flex-col pt-2">
+    <div class="my-1">
+        <button @onclick="HandleConnectionButton" class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-opacity-50 bg-brand-700 text-brand-1100 border border-brand-700">
+            @(_userChannel?.IsJoined ?? false ? "Disconnect" : "Connect")
+        </button>
+    </div>
+    @if ((Realtime?.Socket?.IsConnected ?? false) && (_userChannel?.IsJoined ?? false))
+    {
+        <Pill Text="@($"Online: {_userCount}")"/>
+        <Pill Text="@($"{_latency} ms")"/>
+    }
+</div>
+
+@foreach (var position in _mousePositions)
+{
+    <Cursor Color="@position.Color" UserId="@position.UserId" MouseX="@position.MouseX" MouseY="@position.MouseY"/>
+}
+
+<div class="flex flex-col gap-1 absolute bottom-24 right-5 justify-end items-end overflow-hidden">
+    @foreach (var message in _messages)
+    {
+        <Pill Text="@message.Content" Color="@message.Color" Size="md"/>
+    }
+</div>
+
+<div class="flex absolute bottom-10 right-5 w-3/4 md:w-1/3 h-10">
+    <InputText @ref="_chatInput"
+               @onfocus="HandleChatInputFocus"
+               @onfocusout="HandleChatInputLostFocus"
+               @bind-Value="_chatMessage"
+               @oninput="@((e) => { _chatMessage = (string?)e.Value ?? ""; })"
+               placeholder="Send a message..."
+               type="text"
+               class="w-full bg-scale-500 h-10 rounded-lg px-2.5"/>
+</div>
+
+@code {
+    private bool _isConnected;
+    private double _latency = -1;
+    private int _userCount;
+    private bool _isTyping;
+
+    private RealtimeChannel? _userChannel;
+    private RealtimeBroadcast<MousePosition>? _mousePositionBroadcast;
+    private RealtimePresence<BasePresence>? _presence;
+
+    private RealtimeChannel? _messageChannel;
+    private RealtimeBroadcast<Message>? _messageBroadcast;
+
+    private DotNetObjectReference<Index>? _objRef;
+
+    private InputText? _chatInput;
+    private string? _chatMessage;
+
+    private static readonly Random Random = new Random();
+
+    private string? _userColor;
+
+    private string UserId
+    {
+        get
+        {
+            var id = LocalStorage.GetItem<string?>("userId");
+            if (string.IsNullOrEmpty(id))
+            {
+                id = Guid.NewGuid().ToString();
+                LocalStorage.SetItem("userId", id);
+            }
+
+            return id;
+        }
+    }
+
+    private readonly List<MousePosition> _mousePositions = new List<MousePosition>();
+    private readonly List<Message> _messages = new List<Message>();
+    private readonly List<string> _colorOptions = new List<string> { "slate", "stone", "red", "orange", "amber", "yellow", "green", "blue", "indigo", "purple", "fuchsia", "pink", "rose" };
+
+    protected override async Task OnInitializedAsync()
+    {
+        _objRef = DotNetObjectReference.Create(this);
+
+        await Js.InvokeAsync<double[]>("registerMouseMoveListener", _objRef);
+        await Js.InvokeAsync<KeydownEvent>("registerKeydownListener", _objRef);
+
+        Realtime.AddStateChangedHandler((_, state) => _isConnected = state != Constants.SocketState.Close);
+
+        await Realtime.ConnectAsync();
+
+        _userColor = _colorOptions[Random.Next(_colorOptions.Count)];
+
+        InitializeUserChannel();
+        InitializeMessageChannel();
+        InitializeLatencyTimer();
+        InitializeCleanupMousePositionsTimer();
+    }
+
+    public void Dispose()
+    {
+        _objRef?.Dispose();
+        _userChannel?.Unsubscribe();
+        _messageChannel?.Unsubscribe();
+    }
+
+    [JSInvokable]
+    public void HandleMouseMoved(double[] position)
+    {
+        _mousePositionBroadcast?.Send(null, new MousePosition { UserId = UserId, MouseX = position[0], MouseY = position[1], Color = _userColor });
+    }
+
+    [JSInvokable]
+    public void HandleKeydown(KeydownEvent keydownEvent)
+    {
+        switch (keydownEvent.key)
+        {
+            case "Enter":
+                if (!_isTyping)
+                    _chatInput?.Element!.Value.FocusAsync();
+                else
+                    SendMessage();
+                break;
+            case "Escape":
+                _chatMessage = "";
+                StateHasChanged();
+                break;
+        }
+    }
+
+    private async void HandleConnectionButton(MouseEventArgs args)
+    {
+        if (_userChannel == null) return;
+
+        if (_userChannel.IsJoined)
+        {
+            _userChannel?.Unsubscribe();
+        }
+        else
+        {
+            await _userChannel.Subscribe();
+            _presence!.Track(new BasePresence());
+        }
+        StateHasChanged();
+    }
+
+    /// <summary>
+    /// Inits the user presence channel for mouse events
+    /// </summary>
+    private async void InitializeUserChannel()
+    {
+        _userChannel = Realtime.Channel("presence");
+
+        _mousePositionBroadcast = _userChannel.Register<MousePosition>(true, true);
+        _mousePositionBroadcast.AddBroadcastEventHandler(HandleMousePositionBroadcastReceived);
+
+        _presence = _userChannel.Register<BasePresence>(UserId);
+        _presence.AddPresenceEventHandler(IRealtimePresence.EventType.Sync, HandlePresenceSync);
+
+        await _userChannel.Subscribe();
+
+        _presence!.Track(new BasePresence());
+    }
+
+    /// <summary>
+    /// Inits the message channel for message broadcasts
+    /// </summary>
+    private async void InitializeMessageChannel()
+    {
+        _messageChannel = Realtime.Channel("messages");
+
+        _messageBroadcast = _messageChannel.Register<Message>(true, true);
+        _messageBroadcast.AddBroadcastEventHandler(HandleMessageBroadcastReceived);
+
+        await _messageChannel.Subscribe();
+    }
+
+    /// <summary>
+    /// Removes old mousePositions after a set timeout.
+    /// </summary>
+    private void InitializeCleanupMousePositionsTimer()
+    {
+        var timer = new System.Timers.Timer();
+
+        timer.Elapsed += (_, _) =>
+        {
+            _mousePositions
+                .FindAll(x => x.AddedAt < (DateTime.Now - TimeSpan.FromSeconds(15)))
+                .ForEach(x => _mousePositions.Remove(x));
+            StateHasChanged();
+        };
+
+        timer.Interval = 15;
+        timer.Enabled = true;
+    }
+
+    /// <summary>
+    /// Sets repeating timer to show latency on screen.
+    /// </summary>
+    private void InitializeLatencyTimer()
+    {
+        var timer = new System.Timers.Timer();
+
+        timer.Elapsed += async (_, _) =>
+        {
+            _latency = await Realtime.Socket!.GetLatency();
+            _presence!.Track(new BasePresence());
+            StateHasChanged();
+        };
+
+        timer.Interval = 2000;
+        timer.Enabled = true;
+    }
+
+    /// <summary>
+    /// Keeps track of current count of users.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="eventType"></param>
+    private void HandlePresenceSync(IRealtimePresence sender, IRealtimePresence.EventType eventType)
+    {
+        var state = _presence!.CurrentState;
+        _userCount = state.Keys.Count;
+
+        Console.WriteLine($"Online: {JsonConvert.SerializeObject(state.Keys)}");
+        StateHasChanged();
+    }
+
+    /// <summary>
+    /// Keeps track of the list of active users, updating positions if the user already exists.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="args"></param>
+    private void HandleMousePositionBroadcastReceived(IRealtimeBroadcast? sender, BaseBroadcast? args)
+    {
+        var item = _mousePositionBroadcast?.Current();
+
+        if (item == null) return;
+
+        item.AddedAt = DateTime.Now;
+
+        var index = _mousePositions.FindIndex(x => x.UserId == item.UserId);
+
+        if (index > -1)
+            _mousePositions[index] = item;
+        else
+            _mousePositions.Add(item);
+
+        StateHasChanged();
+    }
+
+    /// <summary>
+    /// Keeps track of messages received.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="args"></param>
+    private void HandleMessageBroadcastReceived(IRealtimeBroadcast sender, BaseBroadcast? args)
+    {
+        var item = _messageBroadcast?.Current();
+
+        if (item == null) return;
+
+        _messages.Add(item);
+        _messages.Sort((x, y) => x.CreatedAt >= y.CreatedAt ? 1 : -1);
+
+        StateHasChanged();
+    }
+
+    /// <summary>
+    /// Broadcast a message
+    /// </summary>
+    private void SendMessage()
+    {
+        if (string.IsNullOrEmpty(_chatMessage)) return;
+
+        _messageBroadcast?.Send("message", new Message { UserId = UserId, Color = _userColor, Content = _chatMessage, CreatedAt = DateTime.Now });
+        _chatMessage = "";
+        StateHasChanged();
+    }
+
+    private void HandleChatInputFocus(FocusEventArgs args)
+    {
+        _isTyping = true;
+        StateHasChanged();
+    }
+
+    private void HandleChatInputLostFocus(FocusEventArgs args)
+    {
+        _isTyping = false;
+        StateHasChanged();
+    }
+
+}
