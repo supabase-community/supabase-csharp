@@ -1,7 +1,7 @@
 # Supabase.Csharp
 
  [![Build and Test](https://github.com/supabase-community/supabase-csharp/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/supabase-community/supabase-csharp/actions/workflows/build-and-test.yml)
- [![NuGet](https://img.shields.io/nuget/vpre/Supabase)](https://www.nuget.com/packages/Supabase/)
+ [![NuGet](https://img.shields.io/nuget/vpre/Supabase)](https://www.nuget.org/packages/Supabase/)
 
 Documentation can be found [below](#getting-started), on
 the [Supabase Developer Documentation](https://supabase.com/docs/reference/csharp/introduction) and additionally in
