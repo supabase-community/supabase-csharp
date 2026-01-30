@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <PackOnBuild>true</PackOnBuild>
+        <PackageId>Supabase.Gotrue</PackageId>
+        <RootNamespace>Supabase.Gotrue</RootNamespace>
+        <AssemblyName>Supabase.Gotrue</AssemblyName>
+        <Authors>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Authors>
+        <Copyright>MIT</Copyright>
+        <NeutralLanguage>en</NeutralLanguage>
+        <Owners>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Owners>
+        <Summary>A C# client for gotrue</Summary>
+        <Title>Gotrue</Title>
+        <Description>A C# client for gotrue</Description>
+        <PackageIconUrl>https://avatars.githubusercontent.com/u/54469796?s=200&amp;v=4</PackageIconUrl>
+        <PackageProjectUrl>https://github.com/supabase-community/gotrue-csharp</PackageProjectUrl>
+        <PackageTags>supabase, gotrue</PackageTags>
+        <PackageVersion>6.0.3</PackageVersion>
+        <ReleaseVersion>6.0.3</ReleaseVersion>
+        <RepositoryUrl>https://github.com/supabase-community/gotrue-csharp</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageIcon>icon.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+    <PropertyGroup>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <LangVersion>9.0</LangVersion>
+        <WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>
+    </PropertyGroup>
+    <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Version)' == '' ">
+        <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">6.0.3</VersionPrefix>
+        <VersionSuffix Condition=" '$(VersionSuffix)' == '' ">
+        </VersionSuffix>
+        <Version Condition=" '$(VersionSuffix)' != '' ">$(VersionPrefix)-$(VersionSuffix)</Version>
+        <Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <LangVersion>8.0</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <LangVersion>8.0</LangVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="Supabase.Core" Version="1.0.0" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.1" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Remove="Exceptions\" />
+        <None Include="..\..\..\.github\icon.png" Pack="true" Link="icon.png" PackagePath="\" />
+        <None Include="..\README.md" Pack="true" Link="README.md" PackagePath="\" />
+    </ItemGroup>
+</Project>

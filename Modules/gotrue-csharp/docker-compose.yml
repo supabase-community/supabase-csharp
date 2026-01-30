@@ -1,0 +1,47 @@
+﻿version: "3"
+services:
+
+  gotrue:
+    image: supabase/gotrue:v2.155.6
+    ports:
+      - "9999:9999"
+    environment:
+      DATABASE_URL: "postgres://postgres:postgres@db:5432/postgres?sslmode=disable"
+      GOTRUE_JWT_SECRET: "37c304f8-51aa-419a-a1af-06154e63707a"
+      GOTRUE_JWT_EXP: 3600
+      GOTRUE_DB_DRIVER: postgres
+      DB_NAMESPACE: auth
+      API_EXTERNAL_URL: http://localhost
+      GOTRUE_API_HOST: 0.0.0.0
+      PORT: 9999
+      GOTRUE_DISABLE_SIGNUP: "false"
+      GOTRUE_SITE_URL: http://localhost
+      GOTRUE_LOG_LEVEL: DEBUG
+      GOTRUE_OPERATOR_TOKEN: super-secret-operator-token
+      GOTRUE_EXTERNAL_PHONE_ENABLED: 'true'
+      GOTRUE_MAILER_AUTOCONFIRM: "true"
+      GOTRUE_SMS_AUTOCONFIRM: 'true'
+      GOTRUE_SMS_PROVIDER: "twilio"
+      GOTRUE_EXTERNAL_ANONYMOUS_USERS_ENABLED: 'true'
+      GOTRUE_EXTERNAL_GITHUB_ENABLED: true
+      GOTRUE_EXTERNAL_GITHUB_CLIENT_ID: myappclientid
+      GOTRUE_EXTERNAL_GITHUB_SECRET: clientsecretvaluessssh
+      GOTRUE_EXTERNAL_GITHUB_REDIRECT_URI: http://localhost:3000/callback
+      GOTRUE_SECURITY_MANUAL_LINKING_ENABLED: 'true'
+
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: postgres:13
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./GotrueTests/db:/docker-entrypoint-initdb.d/
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_PORT: 5432

@@ -56,7 +56,7 @@
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
         <PackageReference Include="Supabase.Core" Version="1.0.0" />
         <ProjectReference Include="../../../Modules/functions-csharp/Functions/Functions.csproj" />
-        <PackageReference Include="Supabase.Gotrue" Version="6.0.3" />
+        <ProjectReference Include="../../../Modules/gotrue-csharp/Gotrue/Gotrue.csproj" />
         <PackageReference Include="Supabase.Postgrest" Version="4.1.0" />
         <ProjectReference Include="../../../Modules/realtime-csharp/Realtime/Realtime.csproj" />
         <ProjectReference Include="../../../Modules/storage-csharp/Storage/Storage.csproj" />
