@@ -1,0 +1,19 @@
+﻿@if (!string.IsNullOrEmpty(Text))
+{
+	<div class="my-1">
+		<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-@Size font-medium bg-opacity-10 bg-@Color-200 text-@Color-1100 @(Size == "xs" ? "border" : "border-4") border-@Color-700">
+			@Text
+		</span>
+	</div>
+}
+
+@code {
+	[Parameter]
+	public string Size { get; set; } = "xs";
+
+	[Parameter]
+	public string? Color { get; set; } = "brand";
+
+	[Parameter]
+	public string? Text { get; set; }
+}

@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+        <Title>Supabase.Realtime</Title>
+        <PackageId>Supabase.Realtime</PackageId>
+        <RootNamespace>Supabase.Realtime</RootNamespace>
+        <AssemblyName>Supabase.Realtime</AssemblyName>
+        <Authors>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Authors>
+        <Description>Realtime-csharp is written as a client library for supabase/realtime.</Description>
+        <PackOnBuild>true</PackOnBuild>
+        <Copyright>MIT</Copyright>
+        <NeutralLanguage>en</NeutralLanguage>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Owners>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Owners>
+        <PackageProjectUrl>https://github.com/supabase/realtime-csharp</PackageProjectUrl>
+        <Summary>Realtime-csharp is written as a  client library for supabase/realtime.</Summary>
+        <PackageTags>supabase, realtime, phoenix</PackageTags>
+        <!-- x-release-please-start-version -->
+        <PackageVersion>7.2.0</PackageVersion>
+        <ReleaseVersion>7.2.0</ReleaseVersion>
+        <!-- x-release-please-end -->
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageIcon>icon.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <RepositoryUrl>https://github.com/supabase/realtime-csharp</RepositoryUrl>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Version)' == '' ">
+        <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">7.2.0</VersionPrefix> <!-- x-release-please-version -->
+        <VersionSuffix Condition=" '$(VersionSuffix)' == '' "></VersionSuffix>
+        <Version Condition=" '$(VersionSuffix)' != '' ">$(VersionPrefix)-$(VersionSuffix)</Version>
+        <Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="RealtimeTests" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="Supabase.Core" Version="1.0.0" />
+        <PackageReference Include="Supabase.Postgrest" Version="4.0.3" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+        <PackageReference Include="Websocket.Client" Version="4.7.0" />
+    </ItemGroup>
+    
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
+        <PackageReference Include="Websocket.Client" Version="5.1.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\..\.github\icon.png" Pack="true" Link="icon.png" PackagePath="\" />
+        <None Include="..\README.md" Pack="true" Link="README.md" PackagePath="\" />
+    </ItemGroup>
+</Project>
