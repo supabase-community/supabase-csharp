@@ -88,7 +88,7 @@ namespace Supabase.Gotrue.Exceptions
 			/// The sso provider ID was incorrect or does not exist
 			/// </summary>
 			SsoProviderNotFound,
-			MfaChallengeUnverified,
+			MfaChallengeUnverified
 		}
 
 		/// <summary>
@@ -109,8 +109,6 @@ namespace Supabase.Gotrue.Exceptions
 				400 when gte.Content.Contains("Refresh token is not valid") => InvalidRefreshToken,
 				400 when gte.Content.Contains("Phone") => UserBadPhoneNumber,
 				400 when gte.Content.Contains("phone") => UserBadPhoneNumber,
-				400 when gte.Content.Contains("Phone") => UserBadPhoneNumber,
-				400 when gte.Content.Contains("phone") => UserBadPhoneNumber,
 				400 when gte.Content.Contains("Email") => UserBadEmailAddress,
 				400 when gte.Content.Contains("email") => UserBadEmailAddress,
 				400 when gte.Content.Contains("provide") => UserMissingInformation,
@@ -120,6 +118,7 @@ namespace Supabase.Gotrue.Exceptions
 				404 when gte.Content.Contains("No SSO provider assigned for this domain") => SsoDomainNotFound,
 				404 when gte.Content.Contains("No such SSO provider") => SsoProviderNotFound,
 				422 when gte.Content.Contains("User already registered") => UserAlreadyRegistered,
+				422 when gte.Content.Contains("A user with this email address has already been registered") => UserAlreadyRegistered,
 				422 when gte.Content.Contains("Phone") && gte.Content.Contains("Email") => UserBadMultiple,
 				422 when gte.Content.Contains("email") && gte.Content.Contains("password") => UserBadMultiple,
 				422 when gte.Content.Contains("Password") => UserBadPassword,

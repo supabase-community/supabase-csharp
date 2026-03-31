@@ -14,7 +14,7 @@ namespace Supabase.Gotrue.Interfaces
 		where TSession : Session
 	{
 		Task<TUser?> CreateUser(string jwt, AdminUserAttributes? attributes = null);
-		Task<BaseResponse> DeleteUser(string uid, string jwt);
+		Task<BaseResponse> DeleteUser(string uid, string jwt, bool softDelete = false);
 		Task<TUser?> GetUser(string jwt);
 		Task<TUser?> GetUserById(string jwt, string userId);
 		Task<BaseResponse> InviteUserByEmail(string email, string jwt, InviteUserByEmailOptions? options = null);
@@ -41,6 +41,7 @@ namespace Supabase.Gotrue.Interfaces
 		Task<TSession?> VerifyEmailOTP(string email, string token, EmailOtpType type);
 		Task<TSession?> VerifyTokenHash(string tokenHash, EmailOtpType type);
 		Task<BaseResponse> Reauthenticate(string userJwt);
+		Task<BaseResponse> Resend(ResendParams resendParams);
 		ProviderAuthState GetUriForProvider(Provider provider, SignInOptions? options = null);
 		Task<Session?> ExchangeCodeForSession(string codeVerifier, string authCode);
 		Task<Settings?> Settings();

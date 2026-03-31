@@ -17,7 +17,7 @@ namespace Supabase.Gotrue
 		public string? AccessToken { get; set; }
 
 		/// <summary>
-		/// The number of seconds until the token expires (since it was issued). Returned when a login is confirmed.
+		/// The number of seconds until the access token expires (since it was issued). Returned when a login is confirmed.
 		/// </summary>
 		[JsonProperty("expires_in")]
 		public long ExpiresIn { get; set; }
@@ -49,17 +49,5 @@ namespace Supabase.Gotrue
 
 		[JsonProperty("created_at")]
 		public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-
-		/// <summary>
-		/// The expiration date of this session, in UTC time.
-		/// </summary>
-		/// <returns></returns>
-		public DateTime ExpiresAt() => new DateTimeOffset(CreatedAt).AddSeconds(ExpiresIn).ToUniversalTime().DateTime;
-
-		/// <summary>
-		/// Returns true if the session has expired
-		/// </summary>
-		/// <returns></returns>
-		public bool Expired() => ExpiresAt() < DateTime.UtcNow;
 	}
 }

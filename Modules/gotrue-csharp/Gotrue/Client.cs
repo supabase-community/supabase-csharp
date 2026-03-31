@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using Supabase.Gotrue.Exceptions;
 using Supabase.Gotrue.Interfaces;
 using Supabase.Gotrue.Mfa;
+using Supabase.Gotrue.Responses;
 using static Supabase.Gotrue.Constants;
 using static Supabase.Gotrue.Constants.AuthState;
 using static Supabase.Gotrue.Exceptions.FailureHint.Reason;
@@ -77,7 +78,7 @@ namespace Supabase.Gotrue
 		{
 			options ??= new ClientOptions();
 			Options = options;
-			_api = new Api(options.Url, options.Headers);
+			_api = new Api(options.Url, options.Headers, options.Timeout);
 
 			if (options.AutoRefreshToken)
 			{
@@ -463,6 +464,12 @@ namespace Supabase.Gotrue
 		}
 
 		/// <inheritdoc />
+		public Task<BaseResponse> Resend(ResendParams resendParams)
+		{
+			return _api.Resend(resendParams);
+		}
+
+		/// <inheritdoc />
 		public async Task<bool> ResetPasswordForEmail(string email)
 		{
 			var result = await _api.ResetPasswordForEmail(email);
@@ -488,7 +495,7 @@ namespace Supabase.Gotrue
 
 			await RefreshToken();
 
-			var user = await _api.GetUser(CurrentSession.AccessToken!);
+			var user = await _api.GetUser(CurrentSession.AccessToken);
 			CurrentSession.User = user;
 
 			return CurrentSession;
@@ -518,14 +525,18 @@ namespace Supabase.Gotrue
 				NotifyAuthStateChange(SignedIn);
 				return CurrentSession;
 			}
-
+			
+			var iat = payload.IssuedAt;
+			var exp = payload.ValidTo;
+			var expiresIn = (long)(exp - iat).TotalSeconds;
+			
 			CurrentSession = new Session
 			{
 				AccessToken = accessToken,
 				RefreshToken = refreshToken,
 				TokenType = "bearer",
-				ExpiresIn = payload.Expiration!.Value,
-				User = await _api.GetUser(accessToken)
+				ExpiresIn = expiresIn,
+				User = await _api.GetUser(accessToken),
 			};
 
 			NotifyAuthStateChange(SignedIn);
@@ -574,7 +585,7 @@ namespace Supabase.Gotrue
 				ExpiresIn = long.Parse(expiresIn),
 				RefreshToken = refreshToken,
 				TokenType = tokenType,
-				User = user
+				User = user,
 			};
 
 			if (storeSession)
@@ -594,14 +605,6 @@ namespace Supabase.Gotrue
 			// No session, so just return.
 			if (CurrentSession == null)
 				return null;
-
-			// Check to see if the session has expired. If so go ahead and destroy it.
-			if (CurrentSession != null && CurrentSession.Expired())
-			{
-				_debugNotification?.Log($"Loaded session has expired");
-				DestroySession();
-				return null;
-			}
 
 			// If we aren't online, we can't refresh the token
 			if (!Online)
@@ -691,16 +694,28 @@ namespace Supabase.Gotrue
 		/// <inheritdoc />
 		public async Task RefreshToken(string accessToken, string refreshToken)
 		{
+			if (!Online)
+				throw new GotrueException("Only supported when online", Offline);
+			
 			if (string.IsNullOrEmpty(accessToken) || string.IsNullOrEmpty(refreshToken))
 				throw new GotrueException("No token provided", NoSessionFound);
 
-			var result = await _api.RefreshAccessToken(accessToken, refreshToken);
+			try
+			{
+				var result = await _api.RefreshAccessToken(accessToken, refreshToken);
 
-			if (result == null || string.IsNullOrEmpty(result.AccessToken))
-				throw new GotrueException("Could not refresh token from provided session.", NoSessionFound);
-
-			CurrentSession = result;
-			NotifyAuthStateChange(TokenRefreshed);
+				if (result == null || string.IsNullOrEmpty(result.AccessToken))
+					throw new GotrueException("Could not refresh token from provided session.", NoSessionFound);
+				
+				CurrentSession = result;
+				NotifyAuthStateChange(TokenRefreshed);	
+			}
+			catch (GotrueException ex) when (ex.Reason is InvalidRefreshToken)
+			{
+				DestroySession();
+				NotifyAuthStateChange(SignedOut);
+				throw;
+			}
 		}
 
 		/// <inheritdoc />
@@ -712,17 +727,22 @@ namespace Supabase.Gotrue
 			if (CurrentSession == null || string.IsNullOrEmpty(CurrentSession?.AccessToken) || string.IsNullOrEmpty(CurrentSession?.RefreshToken))
 				throw new GotrueException("No current session.", NoSessionFound);
 
-			if (CurrentSession!.Expired())
-				throw new GotrueException("Session expired", ExpiredRefreshToken);
+			try
+			{
+				var result = await _api.RefreshAccessToken(CurrentSession.AccessToken!, CurrentSession.RefreshToken!);
+				if (result == null || string.IsNullOrEmpty(result.AccessToken))
+					throw new GotrueException("Could not refresh token from provided session.", NoSessionFound);
 
-			var result = await _api.RefreshAccessToken(CurrentSession.AccessToken!, CurrentSession.RefreshToken!);
+				CurrentSession = result;
 
-			if (result == null || string.IsNullOrEmpty(result.AccessToken))
-				throw new GotrueException("Could not refresh token from provided session.", NoSessionFound);
-
-			CurrentSession = result;
-
-			NotifyAuthStateChange(TokenRefreshed);
+				NotifyAuthStateChange(TokenRefreshed);	
+			}
+			catch (GotrueException ex) when (ex.Reason is InvalidRefreshToken)
+			{
+				DestroySession();
+				NotifyAuthStateChange(SignedOut);
+				throw;
+			}
 		}
 
 
@@ -791,7 +811,7 @@ namespace Supabase.Gotrue
 
 			if (result == null || string.IsNullOrEmpty(result.AccessToken))
 				throw new GotrueException("Could not verify MFA.", MfaChallengeUnverified);
-
+			
 			var session = new Session
 			{
 				AccessToken = result.AccessToken,
@@ -835,14 +855,14 @@ namespace Supabase.Gotrue
 
 			if (result == null || string.IsNullOrEmpty(result.AccessToken))
 				throw new GotrueException("Could not verify MFA.", MfaChallengeUnverified);
-
+			
 			var session = new Session
 			{
 				AccessToken = result.AccessToken,
 				RefreshToken = result.RefreshToken,
 				TokenType = "bearer",
 				ExpiresIn = result.ExpiresIn,
-				User = result.User
+				User = result.User,
 			};
 
 			UpdateSession(session);

@@ -65,6 +65,9 @@ namespace Supabase.Gotrue
 		[JsonProperty("banned_until")]
 		public DateTime? BannedUntil { get; set; }
 
+		[JsonProperty("deleted_at")]
+		public DateTime? DeletedAt { get; set; }
+		
 		[JsonProperty("is_anonymous")]
 		public bool IsAnonymous { get; set; }
 

@@ -6,9 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
-using System.Text;
 using System.Text.Json;
 using Microsoft.IdentityModel.Tokens;
+using Supabase.Gotrue;
 
 namespace GotrueTests
 {
@@ -18,6 +18,10 @@ namespace GotrueTests
 
 		public const string PASSWORD = "I@M@SuperP@ssWord";
 		
+		public static Client Client() => new(new ClientOptions { AllowUnconfirmedUserSessions = true, Url = "http://127.0.0.1:54321/auth/v1", Timeout = 10000});
+		
+		public static AdminClient AdminClient() => new(GenerateServiceRoleToken(), new ClientOptions { AllowUnconfirmedUserSessions = true, Url = "http://127.0.0.1:54321/auth/v1", Timeout = 10000});
+
 		public static void LogDebug(string message, Exception e)
 		{
 			Debug.WriteLine(message);
@@ -49,6 +53,23 @@ namespace GotrueTests
 		{
 			return Random.Next(minValue, maxValue);
 		}
+
+		// public static string GenerateServiceRoleToken()
+		// {
+			// var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("37c304f8-51aa-419a-a1af-06154e63707a")); // using GOTRUE_JWT_SECRET
+
+			// var tokenDescriptor = new SecurityTokenDescriptor
+			// {
+				// IssuedAt = DateTime.UtcNow,
+				// Expires = DateTime.UtcNow.AddDays(7),
+				// SigningCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256Signature),
+				// Claims = new Dictionary<string, object>() { { "role", "service_role" } }
+			// };
+
+			// var tokenHandler = new JwtSecurityTokenHandler();
+			// var securityToken = tokenHandler.CreateToken(tokenDescriptor);
+			// return tokenHandler.WriteToken(securityToken);
+		// }
 
 		public static string GenerateServiceRoleToken()
 		{
@@ -86,23 +107,24 @@ namespace GotrueTests
 			// Start from where the process is running and walk upwards until we find the solution file
 			for (var dir = new DirectoryInfo(Directory.GetCurrentDirectory()); dir != null; dir = dir.Parent)
 			{
-				if (File.Exists(Path.Combine(dir.FullName, "Supabase.sln")))
+				if (File.Exists(Path.Combine(dir.FullName, "Supabase.Gotrue.sln")))
 					return dir.FullName;
 			}
 
 			// Fallback: start from the assembly location
 			for (var dir = new DirectoryInfo(AppContext.BaseDirectory); dir != null; dir = dir.Parent)
 			{
-				if (File.Exists(Path.Combine(dir.FullName, "Supabase.sln")))
+				if (File.Exists(Path.Combine(dir.FullName, "Supabase.Gotrue.sln")))
 					return dir.FullName;
 			}
 
-			throw new InvalidOperationException("Repo root not found (Supabase.sln missing in parent chain).");
+			throw new InvalidOperationException("Repo root not found (Supabase.Gotrue.sln missing in parent chain).");
 		}
 		
 		private static string GetJwkJson()
 		{
 			var path = Path.Combine(GetRepoRoot(), "supabase", "signing_keys.json");
+			
 			return File.ReadAllText(path);
 		}
 		
@@ -159,6 +181,5 @@ namespace GotrueTests
 			}
 			return Convert.FromBase64String(s);
 		}
-		
 	}
 }

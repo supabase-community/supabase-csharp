@@ -145,7 +145,12 @@ namespace Supabase.Gotrue
 			return builder.Uri;
 		}
 
-		private static readonly HttpClient Client = new HttpClient();
+		private static HttpClient _client = new HttpClient();
+
+		internal static void CreateHttpClient(int timeout)
+		{
+			_client = new HttpClient { Timeout = TimeSpan.FromMilliseconds(timeout) };
+		}
 
 		/// <summary>
 		/// Helper to make a request using the defined parameters to an API Endpoint and coerce into a model. 
@@ -205,7 +210,7 @@ namespace Supabase.Gotrue
 
 			try
 			{
-				using var response = await Client.SendAsync(requestMessage).ConfigureAwait(false);
+				using var response = await _client.SendAsync(requestMessage).ConfigureAwait(false);
 				var content = await response.Content.ReadAsStringAsync();
 				if (!response.IsSuccessStatusCode)
 				{

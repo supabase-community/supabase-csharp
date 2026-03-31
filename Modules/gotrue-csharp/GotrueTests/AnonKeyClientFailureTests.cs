@@ -40,7 +40,7 @@ namespace GotrueTests
 		public void TestInitializer()
 		{
 			_persistence = new TestSessionPersistence();
-			_client = new Client(new ClientOptions { AllowUnconfirmedUserSessions = true, Url = "http://127.0.0.1:54321/auth/v1"});
+			_client = TestUtils.Client();
 			_client.SetPersistence(_persistence);
 			_client.AddDebugListener(LogDebug);
 			_client.AddStateChangedListener(AuthStateListener);
@@ -125,7 +125,9 @@ namespace GotrueTests
 			{
 				await _client.RefreshSession();
 			});
+			
 			AreEqual(InvalidRefreshToken, x.Reason);
+			IsNull(_client.CurrentSession);
 		}
 
 		[TestMethod("Client: expired token")]
@@ -138,18 +140,17 @@ namespace GotrueTests
 			IsNotNull(emailSession.RefreshToken);
 			IsNotNull(emailSession.User);
 
-			await _client.RefreshSession();
-			
-			IsNotNull(emailSession.AccessToken);
-			IsNotNull(emailSession.RefreshToken);
-			IsNotNull(emailSession.User);
-
+			// Set CreatedAt to an old date - this should NOT prevent refresh from working
+			// Session "expiration" based on CreatedAt is about access token lifetime, not refresh token validity
 			_client.CurrentSession.CreatedAt = DateTime.UtcNow.AddDays(-10);
-			var x = await ThrowsExceptionAsync<GotrueException>(async () =>
-			{
-				await _client.RefreshSession();
-			});
-			AreEqual(ExpiredRefreshToken, x.Reason);
+
+			// Refresh should still succeed with a valid refresh token
+			await _client.RefreshSession();
+
+			IsNotNull(_client.CurrentSession);
+			IsNotNull(_client.CurrentSession.AccessToken);
+			IsNotNull(_client.CurrentSession.RefreshToken);
+			IsNotNull(_client.CurrentSession.User);
 		}
 
 		[TestMethod("Client: Send Reset Password Email for unknown email")]
@@ -172,6 +173,18 @@ namespace GotrueTests
 			{
 				var result = await _client.SignIn(user, PASSWORD + "$");
 				IsNotNull(result);
+			});
+		}
+		
+		[TestMethod("Client: Throws Exception on Timeout occurrence")]
+		public async Task ClientThrowsExceptionOnTimeout()
+		{
+			var user = $"{RandomString(12)}@supabase.io";
+			_client = new Client(new ClientOptions { AllowUnconfirmedUserSessions = true, Url = "http://127.0.0.1:54321/auth/v1", Timeout = 2});
+			
+			await ThrowsExceptionAsync<TaskCanceledException>(async () =>
+			{
+				await _client.SignIn(user, PASSWORD);
 			});
 		}
 	}

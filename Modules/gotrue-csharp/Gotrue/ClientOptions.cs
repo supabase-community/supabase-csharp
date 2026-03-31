@@ -54,5 +54,7 @@ namespace Supabase.Gotrue
 		/// confirmed emails - mirrors the Gotrue server's configuration.
 		/// </summary>
 		public bool AllowUnconfirmedUserSessions { get; set; }
+		
+		public int Timeout { get; set; } = 100_000;
 	}
 }

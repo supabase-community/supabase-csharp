@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Supabase.Core.Interfaces;
 using Supabase.Gotrue.Exceptions;
 using Supabase.Gotrue.Mfa;
+using Supabase.Gotrue.Responses;
 using static Supabase.Gotrue.Constants;
 
 #pragma warning disable CS1591
@@ -355,6 +356,7 @@ namespace Supabase.Gotrue.Interfaces
 		/// <returns></returns>
 		/// <exception cref="GotrueException"></exception>
 		Task<bool> Reauthenticate();
+		Task<BaseResponse> Resend(ResendParams resendParams);
 
 		/// <summary>
 		/// Signs out and invalidates all sessions for a user.

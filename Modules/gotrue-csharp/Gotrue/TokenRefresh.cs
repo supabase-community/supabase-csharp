@@ -1,5 +1,7 @@
 using System;
+using System.IdentityModel.Tokens.Jwt;
 using System.Threading;
+using Supabase.Gotrue.Exceptions;
 using Supabase.Gotrue.Interfaces;
 using static Supabase.Gotrue.Constants.AuthState;
 
@@ -46,10 +48,11 @@ namespace Supabase.Gotrue
 				case SignedIn:
 					if (Debug)
 						_client.Debug("Refresh Timer started");
-					InitRefreshTimer();
+					CreateNewTimer();
 					// Turn on auto-refresh timer
 					break;
 				case SignedOut:
+				case Shutdown:
 					if (Debug)
 						_client.Debug("Refresh Timer stopped");
 					_refreshTimer?.Dispose();
@@ -58,30 +61,15 @@ namespace Supabase.Gotrue
 				case UserUpdated:
 					if (Debug)
 						_client.Debug("Refresh Timer restarted");
-					InitRefreshTimer();
+					CreateNewTimer();
 					break;
 				case PasswordRecovery:
-					// Doesn't affect auto refresh
-					break;
 				case TokenRefreshed:
+				case MfaChallengeVerified:
 					// Doesn't affect auto refresh
-					break;
-				case Shutdown:
-					if (Debug)
-						_client.Debug("Refresh Timer stopped");
-					_refreshTimer?.Dispose();
-					// Turn off auto-refresh timer
 					break;
 				default: throw new ArgumentOutOfRangeException(nameof(stateChanged), stateChanged, null);
 			}
-		}
-
-		/// <summary>
-		/// Sets up the auto-refresh timer
-		/// </summary>
-		private void InitRefreshTimer()
-		{
-			CreateNewTimer();
 		}
 
 		/// <summary>
@@ -119,29 +107,21 @@ namespace Supabase.Gotrue
 		/// </summary>
 		private void CreateNewTimer()
 		{
-			if (_client.CurrentSession == null || _client.CurrentSession.ExpiresIn == default)
+			if (_client.CurrentSession == null)
 			{
 				if (Debug)
 					_client.Debug($"No session, refresh timer not started");
 				return;
 			}
 
-			if (_client.CurrentSession.Expired())
-			{
-				if (Debug)
-					_client.Debug($"Token expired, signing out");
-				_client.NotifyAuthStateChange(SignedOut);
-				return;
-			}
-
 			try
 			{
-				TimeSpan interval = GetInterval();
+				TimeSpan refreshDueTime = GetSecondsUntilNextRefresh();
 				_refreshTimer?.Dispose();
-				_refreshTimer = new Timer(HandleRefreshTimerTick, null, interval, Timeout.InfiniteTimeSpan);
+				_refreshTimer = new Timer(HandleRefreshTimerTick, null, refreshDueTime, Timeout.InfiniteTimeSpan);
 
 				if (Debug)
-					_client.Debug($"Refresh timer scheduled {interval.TotalMinutes} minutes");
+					_client.Debug($"Refresh timer scheduled {refreshDueTime.TotalMinutes} minutes");
 			}
 			catch (Exception e)
 			{
@@ -151,23 +131,35 @@ namespace Supabase.Gotrue
 		}
 
 		/// <summary>
-		/// Interval should be t - (1/5(n)) (i.e. if session time (t) 3600s, attempt refresh at 2880s or 720s (1/5) seconds before expiration)
+		/// Returns remaining seconds until the access token should be refreshed.
+		/// Interval is calculated as:<code>t - (1/5(n))</code> (i.e. if session time (t) 3600s, attempt refresh at 2880s or 720s (1/5) seconds before expiration).
+		/// <remarks>
+		/// - The maximum refresh wait time is clamped to <see cref="ClientOptions.MaximumRefreshWaitTime"/>
+		/// </remarks>
+		/// <remarks>
+		/// - If the access token is expired it will refresh immediately.
+		/// </remarks>
 		/// </summary>
-		private TimeSpan GetInterval()
+		/// <returns>The remaining seconds until the token should be refreshed</returns>
+		private TimeSpan GetSecondsUntilNextRefresh()
 		{
-			if (_client.CurrentSession == null || _client.CurrentSession.ExpiresIn == default)
+			if (_client.CurrentSession is null || _client.CurrentSession.AccessToken == null)
 			{
 				return TimeSpan.Zero;
 			}
 
-			var interval = (long)Math.Floor(_client.CurrentSession.ExpiresIn * 4.0f / 5.0f);
+			var interval = (long)Math.Floor(_client.CurrentSession.ExpiresIn * 4.0 / 5.0);
+			var refreshAt = _client.CurrentSession.CreatedAt.AddSeconds(interval);
 
-			var timeoutSeconds = Convert.ToInt64((_client.CurrentSession.CreatedAt.AddSeconds(interval) - DateTime.UtcNow).TotalSeconds);
-
-			if (timeoutSeconds > _client.Options.MaximumRefreshWaitTime)
-				timeoutSeconds = _client.Options.MaximumRefreshWaitTime;
-
-			return TimeSpan.FromSeconds(timeoutSeconds);
+			var secondsUntilNextRefresh = Convert.ToInt64((refreshAt - DateTime.UtcNow).TotalSeconds);
+			
+			if (secondsUntilNextRefresh < 0)
+				return TimeSpan.Zero;
+			
+			if (secondsUntilNextRefresh > _client.Options.MaximumRefreshWaitTime)
+				secondsUntilNextRefresh = _client.Options.MaximumRefreshWaitTime;
+			
+			return TimeSpan.FromSeconds(secondsUntilNextRefresh);
 		}
 	}
 }
