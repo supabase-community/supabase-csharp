@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using static Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 using Supabase.Gotrue;
 using Supabase.Gotrue.Exceptions;
 using Supabase.Gotrue.Interfaces;
@@ -27,7 +25,7 @@ namespace GotrueTests
 
 		private IGotrueStatelessClient<User, Session> _client;
 
-		private static StatelessClientOptions Options { get => new StatelessClientOptions() { AllowUnconfirmedUserSessions = true, Url = "http://127.0.0.1:54321/auth/v1"}; }
+		private static StatelessClientOptions Options { get => new StatelessClientOptions() { AllowUnconfirmedUserSessions = true, Url = "http://127.0.0.1:54321/auth/v1", Timeout = 5000}; }
 
 		private static string RandomString(int length)
 		{
@@ -243,8 +241,24 @@ namespace GotrueTests
 
 			var serviceRoleKey = GenerateServiceRoleToken();
 			var result = await _client.DeleteUser(uid, serviceRoleKey, Options);
+			
+			Assert.ThrowsExceptionAsync<GotrueException>(async () => await _client.GetUserById(serviceRoleKey, Options, uid));
+			Assert.IsTrue(result);
+		}
+		
+		[TestMethod("StatelessClient: Soft Deletes User")]
+		public async Task SoftDeletesUser()
+		{
+			var user = $"{RandomString(12)}@supabase.io";
+			var session = await _client.SignUp(user, PASSWORD, Options);
+			var uid = session.User.Id;
+
+			var serviceRoleKey = GenerateServiceRoleToken();
+			var result = await _client.DeleteUser(uid, serviceRoleKey, Options, true);
+			var deletedUser = await _client.GetUserById(serviceRoleKey, Options, uid);
 
 			Assert.IsTrue(result);
+			Assert.IsNotNull(deletedUser.DeletedAt);
 		}
 
 		[TestMethod("StatelessClient: Sends Reset Password Email")]
@@ -426,6 +440,20 @@ namespace GotrueTests
 
 			factors = await _client.ListFactors(session.AccessToken, Options);
 			Assert.IsTrue(factors.Totp.Count == 0);
+		}
+		
+		[TestMethod("StatelessClient: Timeout error")]
+		public async Task SignsUpUserTimeout()
+		{
+			
+			var client = new StatelessClient();
+		    var options = new StatelessClientOptions() { AllowUnconfirmedUserSessions = true, Url = "http://127.0.0.1:54321/auth/v1", Timeout = 1};
+			var email = $"{RandomString(12)}@supabase.io";
+			
+			await ThrowsExceptionAsync<TaskCanceledException>(async () =>
+			{
+				await client.SignUp(email, PASSWORD, options);
+			});
 		}
 	}
 }

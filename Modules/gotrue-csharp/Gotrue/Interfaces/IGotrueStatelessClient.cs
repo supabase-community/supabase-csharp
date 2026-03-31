@@ -44,7 +44,7 @@ namespace Supabase.Gotrue.Interfaces
         /// <param name="serviceRoleToken">this token needs role 'supabase_admin' or 'service_role'</param>
         /// <param name="options"></param>
         /// <returns></returns>
-        Task<bool> DeleteUser(string uid, string serviceRoleToken, StatelessClientOptions options);
+        Task<bool> DeleteUser(string uid, string serviceRoleToken, StatelessClientOptions options, bool softDelete = false);
 
         /// <summary>
         /// Logs in an existing user via a third-party provider.

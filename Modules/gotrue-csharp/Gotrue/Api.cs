@@ -49,11 +49,17 @@ namespace Supabase.Gotrue
 		/// </summary>
 		/// <param name="url"></param>
 		/// <param name="headers"></param>
-		public Api(string url, Dictionary<string, string>? headers = null)
+		/// <param name="timeout"></param>
+		public Api(string url, Dictionary<string, string>? headers = null, int? timeout = null)
 		{
 			Url = url;
 			headers ??= new Dictionary<string, string>();
 			_headers = headers;
+
+			if (timeout != null)
+			{
+				Helpers.CreateHttpClient((int)timeout);
+			}
 		}
 
 		/// <summary>
@@ -736,14 +742,28 @@ namespace Supabase.Gotrue
 		}
 
 		/// <summary>
+		/// Resends a confirmation code to a user's email or phone.
+		/// </summary>
+		/// <param name="resendParams"></param>
+		/// <returns></returns>
+		public Task<BaseResponse> Resend(ResendParams resendParams)
+		{
+			return Helpers.MakeRequest(HttpMethod.Post, $"{Url}/resend", resendParams, Headers);
+		}
+
+		/// <summary>
 		/// Delete a user
 		/// </summary>
 		/// <param name="uid">The user uid you want to remove.</param>
 		/// <param name="jwt">A valid JWT. Must be a full-access API key (e.g. service_role key).</param>
+		/// <param name="softDelete"></param>
 		/// <returns></returns>
-		public Task<BaseResponse> DeleteUser(string uid, string jwt)
+		public Task<BaseResponse> DeleteUser(string uid, string jwt, bool softDelete = false)
 		{
-			var data = new Dictionary<string, string>();
+			var data = new Dictionary<string, bool>
+			{
+				{ "should_soft_delete", softDelete }
+			};
 			return Helpers.MakeRequest(HttpMethod.Delete, $"{Url}/admin/users/{uid}", data, CreateAuthedRequestHeaders(jwt));
 		}
 

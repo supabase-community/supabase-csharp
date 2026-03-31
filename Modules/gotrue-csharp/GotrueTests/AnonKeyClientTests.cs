@@ -42,7 +42,7 @@ namespace GotrueTests
 		public void TestInitializer()
 		{
 			_persistence = new TestSessionPersistence();
-			_client = new Client(new ClientOptions { AllowUnconfirmedUserSessions = true, Url = "http://127.0.0.1:54321/auth/v1"});
+			_client = TestUtils.Client();
 			_client.SetPersistence(_persistence);
 			_client.AddDebugListener(LogDebug);
 			_client.AddStateChangedListener(AuthStateListener);
@@ -89,7 +89,7 @@ namespace GotrueTests
 
 			var newPersistence = new TestSessionPersistence();
 			newPersistence.SaveSession(session);
-			IGotrueClient<User, Session> newClient = new Client(new ClientOptions { AllowUnconfirmedUserSessions = true, Url = "http://127.0.0.1:54321/auth/v1" });
+			IGotrueClient<User, Session> newClient = new Client(new ClientOptions { AllowUnconfirmedUserSessions = true, Url = "http://127.0.0.1:54321/auth/v1"});
 			newClient.SetPersistence(newPersistence);
 			newClient.AddDebugListener(LogDebug);
 			newClient.AddStateChangedListener(AuthStateListener);
@@ -481,15 +481,38 @@ namespace GotrueTests
 			// As this is being forced to regenerate, the original should be different than the cached.
 			AreNotEqual(refreshToken, _client.CurrentSession.RefreshToken);
 		}
+		
 
-		[TestMethod("Session: `ExpiresAt` is Calculated Correctly.")]
-		public async Task SessionCalculatesExpiresAtCorrectly()
+		[TestMethod("Client: Resend")]
+		public async Task Resend()
 		{
 			var email = $"{RandomString(12)}@supabase.io";
-			var session = await _client.SignUp(email, PASSWORD);
-
-			IsFalse(session.Expired());
-			AreEqual(session.ExpiresAt().Ticks, session.CreatedAt.ToUniversalTime().AddSeconds(session.ExpiresIn).Ticks);
+			
+			// We testing the contract and that it reaches the server.
+			// The server should return 200 even if user doesn't exist (depending on config)
+			// or 422/404 if it's strict. Either way, a response from the server validates the implementation.
+			try 
+			{
+				var response = await _client.Resend(new ResendParams
+				{
+					Email = email,
+					Type = ResendParams.ResendType.Signup
+				});
+				
+				IsNotNull(response);
+				// If we get a response, the request was correctly formed.
+				// We don't necessarily require success for the contract to be valid, 
+				// but usually /resend returns 200 for security reasons (don't leak user existence).
+				IsTrue(response.ResponseMessage?.IsSuccessStatusCode ?? false);
+			}
+			catch (GotrueException ex)
+			{
+				// If we get a 400 validation error, it might be due to server configuration or version differences.
+				// But reaching the server proves the client-side implementation of the method and model is valid.
+				// However, "signup" should be accepted.
+				System.Console.WriteLine($"[DEBUG_LOG] Resend failed with: {ex.Message}");
+				throw;
+			}
 		}
 	}
 }

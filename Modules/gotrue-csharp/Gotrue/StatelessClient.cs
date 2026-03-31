@@ -132,7 +132,7 @@ namespace Supabase.Gotrue
 		}
 
 		/// <inheritdoc />
-		public IGotrueApi<User, Session> GetApi(StatelessClientOptions options) => new Api(options.Url, options.Headers);
+		public IGotrueApi<User, Session> GetApi(StatelessClientOptions options) => new Api(options.Url, options.Headers, options.Timeout);
 		
 		/// <inheritdoc />
 		public Task<Session?> SignUp(string email, string password, StatelessClientOptions options, SignUpOptions? signUpOptions = null) => SignUp(SignUpType.Email, email, password, options, signUpOptions);
@@ -314,9 +314,9 @@ namespace Supabase.Gotrue
 		}
 
 		/// <inheritdoc />
-		public async Task<bool> DeleteUser(string uid, string serviceRoleToken, StatelessClientOptions options)
+		public async Task<bool> DeleteUser(string uid, string serviceRoleToken, StatelessClientOptions options, bool softDelete = false)
 		{
-			var result = await GetApi(options).DeleteUser(uid, serviceRoleToken);
+			var result = await GetApi(options).DeleteUser(uid, serviceRoleToken, softDelete);
 			result.ResponseMessage?.EnsureSuccessStatusCode();
 			return true;
 		}
@@ -397,6 +397,8 @@ namespace Supabase.Gotrue
 			/// confirmed emails - mirrors the Gotrue server's configuration.
 			/// </summary>
 			public bool AllowUnconfirmedUserSessions { get; set; }
+			
+			public int Timeout { get; set; } = 100_000;
 		}
 	}
 }

@@ -32,7 +32,7 @@ namespace Supabase.Gotrue
 
 			options ??= new ClientOptions();
 			Options = options;
-			_api = new Api(options.Url, options.Headers);
+			_api = new Api(options.Url, options.Headers, options.Timeout);
 		}
 
 		/// <summary>
@@ -69,9 +69,9 @@ namespace Supabase.Gotrue
 		}
 
 		/// <inheritdoc />
-		public async Task<bool> DeleteUser(string uid)
+		public async Task<bool> DeleteUser(string uid, bool softDelete = false)
 		{
-			var result = await _api.DeleteUser(uid, _serviceKey);
+			var result = await _api.DeleteUser(uid, _serviceKey, softDelete);
 			result.ResponseMessage?.EnsureSuccessStatusCode();
 			return true;
 		}

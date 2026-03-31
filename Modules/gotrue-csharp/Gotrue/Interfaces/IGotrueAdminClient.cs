@@ -35,7 +35,7 @@ namespace Supabase.Gotrue.Interfaces
 		/// Creates a user using the admin key (not the anonymous key).
 		/// Used in trusted server environments, not client apps.
 		/// </summary>
-		Task<bool> DeleteUser(string uid);
+		Task<bool> DeleteUser(string uid, bool softDelete = false);
 
 		/// <summary>
 		/// Gets a user from a user's JWT. This is using the GoTrue server to validate a user's JWT.
