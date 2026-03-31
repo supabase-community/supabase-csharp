@@ -89,7 +89,7 @@ namespace GotrueTests
 
 			var newPersistence = new TestSessionPersistence();
 			newPersistence.SaveSession(session);
-			IGotrueClient<User, Session> newClient = new Client(new ClientOptions { AllowUnconfirmedUserSessions = true, Url = "http://127.0.0.1:54321/auth/v1"});
+			IGotrueClient<User, Session> newClient = new Client(new ClientOptions { AllowUnconfirmedUserSessions = true, Url = "http://127.0.0.1:54321/auth/v1" });
 			newClient.SetPersistence(newPersistence);
 			newClient.AddDebugListener(LogDebug);
 			newClient.AddStateChangedListener(AuthStateListener);
