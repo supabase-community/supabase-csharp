@@ -10,3 +10,4 @@ create table public.channels (
 
 alter table public.channels replica identity full;
 alter publication supabase_realtime add table public.channels;
+grant select, insert, update, delete on public.channels to anon, authenticated, service_role;
