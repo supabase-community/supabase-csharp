@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/supabase-community/supabase-csharp/compare/v1.1.2...v1.2.0) (2026-06-30)
+
+
+### Features
+
+* add dependabot ([#202](https://github.com/supabase-community/supabase-csharp/issues/202)) ([e04cc98](https://github.com/supabase-community/supabase-csharp/commit/e04cc988b45c1d8ab29bbab41a5aac3c19877e81))
+* add sdk compliance file for capabilities matrix ([#267](https://github.com/supabase-community/supabase-csharp/issues/267)) ([3fad62f](https://github.com/supabase-community/supabase-csharp/commit/3fad62f9bc8edad8abec2ba5c06dd504e5e78630))
+
 ## [1.1.2](https://github.com/supabase-community/supabase-csharp/compare/v1.1.1...v1.1.2) (2025-07-07)
 
 
