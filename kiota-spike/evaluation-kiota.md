@@ -72,6 +72,21 @@ Same upstream gaps as the NSwag pass (Auth unmodelled; `{wildcardPath+}`; requir
 write-ops 200-only). Notably Kiota did **not** need the Functions `byte→binary` fix — it streams
 octet-stream regardless — so that gap is NSwag-specific, not a shared-model defect.
 
+**NEW — surfaced by the live test-run (`../kiota-testrun`), not by static analysis:** the model's
+**list response shapes are wrong vs production**. The real Storage API returns **bare JSON arrays**:
+```
+GET /bucket                → [ {...} ]
+POST /object/list/{bucket} → [ {...} ]
+```
+but the Smithy model wraps them (`structure ListBucketsOutput { @required items: BucketList }`), so
+the generated `ListBucketsResponseContent` / `ListObjectsResponseContent` expose an `.Items` envelope
+that **never matches**. The client deserializes the top-level array into an object → `.Items` is
+`null` → returns **0 silently** (no error). This is the worst failure class — a green call with wrong
+data — and it is **tool-independent** (NSwag emits the same envelope from the same model) and hits
+**every SDK**. It is also a textbook "model not validated against production" defect: the hand-written
+Smithy shape invented an envelope the server doesn't send. **Raise on `supabase/sdk`:** model the
+list outputs as top-level lists (or fix the server contract). This is the most important gap found.
+
 ## Good / bad
 
 **Good**

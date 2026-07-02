@@ -8,6 +8,33 @@ All generated code compiles clean on netstandard2.1 (see `spike-nswag.csproj`).
 Legend: ✅ works as-generated · 🟡 works only after a **model/patch** change (feeds back to
 `supabase/sdk`) · ❌ not achievable with NSwag.
 
+## Live run (`../nswag-testrun`) — what actually happened against a local platform
+
+Running the generated client against `supabase start` (mirror of the Kiota run) was the most
+informative step. Result: HttpClient injection ✅, **streaming upload ✅** (FileStream →
+`FileParameter`/`StreamContent`, confirmed on the server), but **both list ops failed** — for two
+distinct, serious reasons:
+
+1. **NSwag serializes every optional field at its default (no `WhenWritingNull`).** Requests carry
+   `file_size_limit:0`, `limit:0`, `offset:0`, `sortBy:null`, and the server rejects several:
+   - `CreateBucket` sends `file_size_limit:0` → a bucket that **rejects every upload** (`413`). We
+     had to set it explicitly to test uploads at all.
+   - `ListObjects` sends `limit:0` (`400 "limit must be >= 1"`) and `sortBy:null`
+     (`400 "sortBy must be object"`).
+   This is the **non-nullable-optional data-fidelity flaw** (see §3a) turned into **functional
+   breakage**: optional value types are non-nullable, default to `0`/`null`, and are always emitted.
+   Kiota models the same fields nullable and omits them, so its identical calls just worked.
+   *Fixable* (STJ `DefaultIgnoreCondition = WhenWritingNull` + nullable value types, or mark the
+   fields nullable upstream) — but **the default generated output does not work against the server.**
+
+2. **List responses fail to deserialize** — the shared model wraps arrays the API returns bare
+   (`ListBuckets`/`ListObjects`; see §10). NSwag **throws** `ApiException("Could not deserialize…
+   Status 200")` — notably **louder/safer than Kiota**, which silently returned an empty list for the
+   same bug.
+
+Net: the run confirms the headline capabilities (injection, streaming upload) *and* proves the
+generated **request** DTOs are not usable as-is against Supabase without a serialization fix.
+
 ## Question-by-question
 
 ### 1. Streaming uploads — 🟡 (model gap, then ✅)

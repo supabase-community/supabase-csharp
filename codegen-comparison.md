@@ -74,6 +74,46 @@ Per the user's steer, the head-to-head is **NSwag vs Kiota**; the rest are parke
 | Ownership / walk-away | **plain code, fully ownable** | coupled to Kiota runtime + generated tree |
 | Public-API bleed | none (STJ is a base dep) | **yes — models put `Kiota.Abstractions` on your public surface** |
 
+## Live runs against a local platform (`kiota-testrun`, `nswag-testrun`)
+
+Both clients were driven against `supabase start`. Both confirmed **HttpClient injection** and
+**streaming upload** genuinely work. The failures are the value — running surfaced bugs static
+analysis missed, and the two tools failed *differently*:
+
+- **Shared model bug (both):** list endpoints return **bare arrays**, but the Smithy model wraps them
+  (`{items:[]}`). **Kiota silently returns 0** (false-zero, no error); **NSwag throws** on
+  deserialize. Same upstream defect, opposite failure modes — NSwag's loud fail is safer.
+- **NSwag-only bug:** NSwag serializes **every optional field at its default** (`file_size_limit:0`,
+  `limit:0`, `sortBy:null`) → the server rejects them (a `0` size-limit bucket **413s all uploads**;
+  `limit:0`/`sortBy:null` → 400). **Kiota omits unset fields, so its calls just worked.** NSwag's
+  request DTOs are not usable as-is without a serialization fix (`WhenWritingNull` + nullable value
+  types). Details in each `evaluation-*.md`.
+
+**Why Kiota's requests worked and NSwag's didn't — from the *same* spec.** The OpenAPI marks these
+fields optional but not `nullable`, leaving optionality ambiguous; the two generators fill the gap
+with opposite defaults. Kiota maps optional value types to `double?` and its `Serialize()` **omits
+nulls** → minimal, valid bodies. NSwag maps them to non-nullable `double` (default `0`) and its STJ
+serializer **writes everything** → `file_size_limit:0` / `limit:0` / `sortBy:null`, which the server
+rejects. Not intrinsic superiority — a **better default against an under-specified spec**, and NSwag's
+is fixable (`nullable` upstream, or STJ `DefaultIgnoreCondition = WhenWritingNull` + nullable value
+types).
+
+**This means "model quality" has two independent axes**, and each tool wins one:
+
+| Axis | Winner | Why |
+|---|---|---|
+| **Usability / ownership** (exposable under a wrapper?) | **NSwag** | plain POCOs; Kiota's `IParsable` models bleed into the public API |
+| **Request-serialization correctness out-of-the-box** | **Kiota** | nullable + omit-nulls; NSwag emits default junk |
+
+They don't cancel: Kiota's bleed is **structural** (no plain-model path); NSwag's serialization gap is
+a **config/annotation fix**. You can make NSwag correct *and* keep it ownable; you cannot make Kiota
+ownable.
+
+Takeaway: generating models is only half the story — **the models are only as correct as a
+hand-written Smithy model nobody validated against production**, and each generator's defaults decide
+whether the spec's imprecision bites. A live contract test like these harnesses is a required part of
+any adopted pipeline, whatever the tool.
+
 ## The two findings that decide it
 
 1. **Only models are worth generating.** Operations are either un-refactored duplication of our
@@ -142,14 +182,59 @@ templating / Roslyn source-gen scaffolding** — a *build vs buy* decision, not 
   cross-SDK drift bites; near-zero wrapper cost.
 - **Hand-write** operations, transport, streaming/TUS ergonomics, the PostgREST query builder,
   Functions dispatch, and **all of Auth** on the owned `Core`.
-- **Close NSwag's one real gap in-place:** add a source-gen `[JsonSerializable] JsonSerializerContext`
-  for the generated models (AOT/trim-safe STJ) and take enum `ConvertToString` off reflection. This
-  neutralises Kiota's headline advantage while keeping plain, zero-dep, ownable code.
+- **Close NSwag's gaps in-place** (both proven necessary, both cheap):
+  - *Serialization correctness* — configure STJ `DefaultIgnoreCondition = WhenWritingNull` and make
+    optional value types nullable, so requests stop sending `file_size_limit:0` / `limit:0` /
+    `sortBy:null`. Without this the request DTOs don't work against the server (see Live runs).
+  - *AOT/trimming* — add a source-gen `[JsonSerializable] JsonSerializerContext` for the generated
+    models and take enum `ConvertToString` off reflection. This neutralises Kiota's headline
+    advantage while keeping plain, zero-dep, ownable code.
 - **Steal one transport idea regardless:** `HttpCompletionOption.ResponseHeadersRead` in `Core`.
 - **Reject Kiota** for inclusion: better client, wrong ownership model, and its models can't serve
   our public API without a redundant agnostic-DTO layer.
-- **Feed model gaps upstream** to `supabase/sdk` (streaming `byte→binary`, required multipart parts,
-  Auth). Details in the per-toolchain evals.
+- **Feed model gaps upstream** to `supabase/sdk` — the shared model, not the tool, is the biggest
+  risk. Priority order (all found or confirmed by the live runs):
+  1. **List-response envelope** — model wraps arrays the API returns bare (`ListBuckets`/`ListObjects`)
+     → Kiota reads empty silently, NSwag throws. Affects every SDK.
+  2. **Optional fields not marked `nullable`** — forces generators to emit/serialize defaults that the
+     server rejects. Marking them nullable fixes it fleet-wide.
+  3. Streaming `byte→binary`; required multipart parts; and **Auth** (unmodelled).
+
+## Final stance (the spike's verdict)
+
+**ADAPT — narrowly. Generate the wire model DTOs with NSwag (models-only); hand-write everything
+else on the owned `Core`. Adopt no whole-client generator.**
+
+Rationale, in one pass:
+- **Codegen earns its place for exactly one layer: models.** The client/transport is a non-prize —
+  either un-refactored duplication of our `MakeRequest` (NSwag) or well-factored code we don't own
+  (Kiota/TypeSpec). We already own working transport; the ergonomic layer (query builder, streaming/
+  TUS, session loop, Auth) is hand-written no matter what.
+- **NSwag wins by being inert, not by being good.** Its plain POCO models can be exposed under our
+  wrapper with zero third-party bleed and cherry-picked without the client. Every whole-client
+  generator (Kiota, TypeSpec-C#, OpenAPI-Generator default) emits runtime-coupled models that leak
+  their runtime into our public API — structurally incompatible with a models-only, ownable design.
+- **The spike also proved codegen is not "free, correct models."** Running against a live platform
+  exposed that the **shared Smithy model is under-validated (envelope bug) and under-specified
+  (nullability)** — silent/functional failures that hit *all* SDKs — and that **NSwag's defaults need
+  fixing** (nullable + `WhenWritingNull`; AOT source-gen context). None of these is a blocker; all are
+  cheap and known.
+
+**So the real deliverable is not "adopt a generator." It is a small, conditional package:**
+1. NSwag **models-only** + serialization/AOT config, kept internal under the hand-written wrapper.
+2. **Fix the shared model upstream** (nullability, list envelopes, streaming, Auth) — the higher-
+   leverage work, benefiting every SDK.
+3. A **live contract-test harness** (`*-testrun`) as a permanent pipeline stage — the only thing that
+   catches model-vs-production drift before it ships in lockstep across the fleet.
+
+**Conditions on the whole thing being worthwhile:** the org runs the Smithy pipeline fleet-wide (so
+C# merely taps it) **and** commits to fixing/validating the model. Standalone-for-C#, the pipeline
+overhead exceeds the value of a few hundred lines of generatable DTOs — then just hand-write them.
+**Reverse the stance to "reject" if** the model stays unvalidated (silent fleet-wide bugs outweigh the
+benefit) or if the only acceptable tools impose a runtime dependency on the public API.
+
+One-line version: **generate the boring, inert data types with NSwag; own the model's correctness and
+everything above the wire ourselves; and never ship a generated client.**
 
 **Conditions that would change this:** the org mandates TypeSpec as SoT (evaluate
 `@typespec/http-client-csharp`), or the team decides to stop owning transport entirely and adopt a
