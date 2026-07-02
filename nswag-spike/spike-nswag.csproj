@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    NSwag codegen spike (SDK-1107) — STANDALONE, NON-SHIPPING.
+    Separate assembly, NOT referenced by Supabase.csproj, so the generated
+    (non-owned) code never affects the product's build, analyzers, or quality metrics.
+    Files live here only to be browsable from the solution. See README.md.
+  -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <IsPackable>false</IsPackable>
+
+    <!-- Generated code: keep it out of analysis/metrics entirely -->
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
+    <RunAnalyzers>false</RunAnalyzers>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultNoneItems>false</EnableDefaultNoneItems>
+  </PropertyGroup>
+
+  <!-- Only the generated clients are compiled (proves they build) -->
+  <ItemGroup>
+    <Compile Include="generated\*.cs" />
+  </ItemGroup>
+
+  <!-- Everything else is here for visibility in the solution, not compiled -->
+  <ItemGroup>
+    <None Include="README.md" />
+    <None Include="findings\**\*.md" />
+    <None Include="smithy-pr51\**\*" />
+    <None Include="generated\*.ready.json" />
+    <None Include="package.json" />
+    <None Include="package-lock.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+  </ItemGroup>
+
+</Project>

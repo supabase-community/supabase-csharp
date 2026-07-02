@@ -1,0 +1,3 @@
+# Spike build output — not part of the artifact
+bin/
+obj/

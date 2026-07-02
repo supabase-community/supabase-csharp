@@ -1,0 +1,4 @@
+# Spike tooling / build output — not part of the artifact
+node_modules/
+bin/
+obj/
