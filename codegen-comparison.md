@@ -93,6 +93,48 @@ Per the user's steer, the head-to-head is **NSwag vs Kiota**; the rest are parke
 Kiota's genuine advantages (AOT, streaming, names) are real but only materialise if you adopt the
 *entire* Kiota stack — the opposite of the internal-generated + ownable-wrapper design.
 
+## TypeSpec (`@typespec/http-client-csharp`) — assessed, not pursued
+
+"TypeSpec" in the brief hides two different things:
+
+1. **`TypeSpec → @typespec/openapi3 → Kiota`** — this only uses TypeSpec to *emit OpenAPI*, then
+   runs Kiota. We already have OpenAPI (from Smithy), so the TypeSpec step is redundant and the
+   Kiota half is done above. This row collapses to **Kiota**.
+2. **`@typespec/http-client-csharp`** — the actual distinct toolchain (Microsoft's official
+   TypeSpec C# emitter, Azure-SDK lineage). Two reasons it doesn't fit, the second decisive:
+   - **Input mismatch.** It consumes **TypeSpec**, not OpenAPI. Our source of truth is
+     **Smithy → OpenAPI**, so we'd need a fragile, lossy OpenAPI→TypeSpec conversion hop that fights
+     the pipeline the org actually chose.
+   - **Same bleed as Kiota, different runtime.** It emits whole clients on **`System.ClientModel`**,
+     and its **models implement `System.ClientModel`'s serialization interfaces (`IJsonModel<T>`)** —
+     i.e. runtime-coupled models that leak `System.ClientModel` onto our public API exactly like
+     Kiota leaks `Kiota.Abstractions`. It's **"Kiota with a different logo"**: better-engineered
+     client, AOT-decent, and models we still can't expose without a full agnostic-DTO remap.
+
+**Verdict:** not worth pursuing. It reproduces the Kiota outcome (coupled models → no models-only
+path → no win under a wrapper) *and* adds an input-format hop. The only scenario that revives it is
+the **org mandating TypeSpec as the fleet source of truth** — and even then the C# answer is
+unchanged: emit OpenAPI via `@typespec/openapi3` and feed **NSwag models-only**; you still would not
+adopt the TypeSpec *client* emitter.
+
+## Why we're stopping the tool bake-off
+
+Every OpenAPI→C# generator sorts into one of two families, and we've now sampled both:
+
+- **Whole-client generators** — Kiota, `@typespec/http-client-csharp`, OpenAPI-Generator's default:
+  runtime-coupled models → public-API bleed → no models-only path.
+- **DTO/POCO generators** — NSwag (and, if ever needed, OpenAPI Generator's models are also inert
+  POCOs): usable, exposable models.
+
+The remaining named options don't open a new lane: **OpenAPI Generator (csharp)** gives inert models
+like NSwag but a worse (RestSharp/`generichost`) client — no gain over NSwag models-only;
+**Speakeasy** is commercial lock-in; **Refit/Refitter** is a different paradigm (Refit-attributed
+interfaces + a Refit runtime dep), not better for our narrow need; **Smithy-native C#** has no
+emitter. None changes the verdict, because the verdict is **architectural, not tool-specific**:
+client generation is a dead end (we own transport), and only inert POCO models are worth taking. The
+one thing that *would* be genuinely different is abandoning off-the-shelf generators for **in-house
+templating / Roslyn source-gen scaffolding** — a *build vs buy* decision, not another tool to trial.
+
 ## Recommendation — **ADAPT, with NSwag, models-only**
 
 - **Generate** wire **models/DTOs** with **NSwag** (Storage `Bucket`/`FileObject`/signed-URL/
