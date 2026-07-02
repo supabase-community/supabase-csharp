@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Kiota codegen spike (SDK-1107) — STANDALONE, NON-SHIPPING.
+    Separate assembly, NOT referenced by Supabase.csproj, analyzers disabled, so the generated
+    (non-owned) code never affects the product's build, analyzers, or quality metrics.
+    In the solution only for visibility. Compare against ../nswag-spike. See README.md.
+  -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <IsPackable>false</IsPackable>
+
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
+    <RunAnalyzers>false</RunAnalyzers>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591;CS0618</NoWarn>
+
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultNoneItems>false</EnableDefaultNoneItems>
+  </PropertyGroup>
+
+  <!-- Generated Kiota clients for all three services -->
+  <ItemGroup>
+    <Compile Include="generated\**\*.cs" />
+  </ItemGroup>
+
+  <!-- Inputs + docs, here for visibility only -->
+  <ItemGroup>
+    <None Include="README.md" />
+    <None Include="generated\*.ready.json" />
+  </ItemGroup>
+
+  <!-- Kiota runtime dependency (the cost being evaluated): bundle = abstractions + http + serialization -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Kiota.Bundle" Version="2.0.0" />
+  </ItemGroup>
+
+</Project>
