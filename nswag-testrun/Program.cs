@@ -43,21 +43,37 @@ async Task Step(string name, Func<Task> action)
 // ── round-trip: list buckets ────────────────────────────────────────────────
 await Step("ListBuckets", async () =>
 {
+    // Envelope fix: the response is a bare array; the generated client now returns
+    // ICollection<Bucket> directly (previously ListBucketsResponseContent.Items, which
+    // never matched the wire shape and threw on deserialize).
     var buckets = await client.ListBucketsAsync();
-    Console.WriteLine($"    server returned {buckets.Items?.Count ?? 0} bucket(s)");
+    Console.WriteLine($"    server returned {buckets?.Count ?? 0} bucket(s)");
 });
 
 // ── round-trip: create bucket ───────────────────────────────────────────────
 await Step($"CreateBucket ({bucketId})", async () =>
 {
-    // NSwag GOTCHA: File_size_limit is a non-nullable `double` that defaults to 0 and IS serialized,
-    // so `file_size_limit: 0` creates a bucket that rejects EVERY upload (413). We must set it
-    // explicitly. (Kiota models it as `double?` and omits it → unlimited.) See evaluation-nswag §3a.
-    await client.CreateBucketAsync(new CreateBucketRequestContent
+    // Nullable fix: File_size_limit is now `double?` (was non-nullable `double` defaulting to 0,
+    // which created buckets that rejected every upload with 413). NSwag still serializes null
+    // for unset properties (no WhenWritingNull), so this first attempt sends file_size_limit:null —
+    // whether the server treats null as unset is exactly what this step measures.
+    try
     {
-        Id = bucketId, Name = bucketId, Public = false, File_size_limit = 52428800 /* 50 MB */
-    });
-    Console.WriteLine("    created (had to set File_size_limit — NSwag defaults it to 0)");
+        await client.CreateBucketAsync(new CreateBucketRequestContent
+        {
+            Id = bucketId, Name = bucketId, Public = false // File_size_limit deliberately unset
+        });
+        Console.WriteLine("    created WITHOUT File_size_limit (server accepted null as unset)");
+    }
+    catch (ApiException ex)
+    {
+        Console.WriteLine($"    server rejected file_size_limit:null ({ex.StatusCode}) → WhenWritingNull still required client-side; retrying with explicit value");
+        await client.CreateBucketAsync(new CreateBucketRequestContent
+        {
+            Id = bucketId, Name = bucketId, Public = false, File_size_limit = 52428800 /* 50 MB */
+        });
+        Console.WriteLine("    created with explicit File_size_limit");
+    }
 });
 
 // ── streaming upload: FileStream → FileParameter/StreamContent (no byte[] buffering) ──
@@ -80,14 +96,12 @@ await Step($"UploadObject (streaming FileStream → {bucketId}/{objectName})", a
 // ── confirm the object landed ───────────────────────────────────────────────
 await Step("ListObjects (confirm upload)", async () =>
 {
-    // NSwag serializes ALL optional fields at their default (no WhenWritingNull), so even a minimal
-    // call sends limit:0 / offset:0 / sortBy:null. The server rejects each in turn:
-    //   limit:0   → "body/limit must be >= 1"     (so we set Limit=100)
-    //   sortBy:null → "body/sortBy must be object"  (can't be fixed from here — it's still serialized)
-    // Kiota omits unset fields, so its equivalent call just works. This step therefore still fails,
-    // demonstrating that NSwag's request DTOs don't work against the server with default serialization.
-    var listed = await client.ListObjectsAsync(new ListObjectsRequestContent { Prefix = "", Limit = 100 }, bucketId);
-    Console.WriteLine($"    bucket now holds {listed.Items?.Count ?? 0} object(s)");
+    // Nullable fix: Limit/Offset are now double? (were non-nullable, defaulting to 0 → 400
+    // "limit must be >= 1"). NSwag still writes null for unset members (no WhenWritingNull),
+    // so unset fields go as explicit nulls (limit:null / sortBy:null) — this step measures
+    // whether the server tolerates that. Envelope fix: returns ICollection<FileObject> directly.
+    var listed = await client.ListObjectsAsync(new ListObjectsRequestContent { Prefix = "" }, bucketId);
+    Console.WriteLine($"    bucket now holds {listed?.Count ?? 0} object(s)");
 });
 
 Console.WriteLine(new string('─', 60));

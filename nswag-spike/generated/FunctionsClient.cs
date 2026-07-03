@@ -35,35 +35,35 @@ namespace Supabase.Functions.Gen
         /// <br/>Corresponds to FunctionInvokeOptions.query.</param>
         /// <returns>InvokeFunctionDelete 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<byte[]> InvokeFunctionDeleteAsync(string functionName, byte[]? body = null, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileResponse> InvokeFunctionDeleteAsync(string functionName, System.IO.Stream body = null, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="query">Arbitrary query parameters appended to the function URL.
         /// <br/>Corresponds to FunctionInvokeOptions.query.</param>
         /// <returns>InvokeFunctionGet 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<byte[]> InvokeFunctionGetAsync(string functionName, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileResponse> InvokeFunctionGetAsync(string functionName, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="query">Arbitrary query parameters appended to the function URL.
         /// <br/>Corresponds to FunctionInvokeOptions.query.</param>
         /// <returns>InvokeFunctionPatch 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<byte[]> InvokeFunctionPatchAsync(string functionName, byte[]? body = null, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileResponse> InvokeFunctionPatchAsync(string functionName, System.IO.Stream body = null, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="query">Arbitrary query parameters appended to the function URL.
         /// <br/>Corresponds to FunctionInvokeOptions.query.</param>
         /// <returns>InvokeFunctionPost 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<byte[]> InvokeFunctionPostAsync(string functionName, byte[]? body = null, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileResponse> InvokeFunctionPostAsync(string functionName, System.IO.Stream body = null, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="query">Arbitrary query parameters appended to the function URL.
         /// <br/>Corresponds to FunctionInvokeOptions.query.</param>
         /// <returns>InvokeFunctionPut 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<byte[]> InvokeFunctionPutAsync(string functionName, byte[]? body = null, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileResponse> InvokeFunctionPutAsync(string functionName, System.IO.Stream body = null, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
     }
 
@@ -104,7 +104,7 @@ namespace Supabase.Functions.Gen
         /// <br/>Corresponds to FunctionInvokeOptions.query.</param>
         /// <returns>InvokeFunctionDelete 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<byte[]> InvokeFunctionDeleteAsync(string functionName, byte[]? body = null, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<FileResponse> InvokeFunctionDeleteAsync(string functionName, System.IO.Stream body = null, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (functionName == null)
                 throw new System.ArgumentNullException("functionName");
@@ -118,8 +118,7 @@ namespace Supabase.Functions.Gen
 
                     if (x_region != null)
                         request_.Headers.TryAddWithoutValidation("x-region", ConvertToString(x_region, System.Globalization.CultureInfo.InvariantCulture));
-                    var json_ = System.Text.Json.JsonSerializer.SerializeToUtf8Bytes(body, JsonSerializerSettings);
-                    var content_ = new System.Net.Http.ByteArrayContent(json_);
+                    var content_ = new System.Net.Http.StreamContent(body);
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/octet-stream");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("DELETE");
@@ -160,14 +159,12 @@ namespace Supabase.Functions.Gen
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 200 || status_ == 206)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<byte[]>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            return objectResponse_.Object;
+                            var responseStream_ = response_.Content == null ? System.IO.Stream.Null : await ReadAsStreamAsync(response_.Content, cancellationToken).ConfigureAwait(false);
+                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, null, response_);
+                            disposeClient_ = false; disposeResponse_ = false; // response and client are disposed by FileResponse
+                            return fileResponse_;
                         }
                         else
                         if (status_ == 400)
@@ -204,7 +201,7 @@ namespace Supabase.Functions.Gen
         /// <br/>Corresponds to FunctionInvokeOptions.query.</param>
         /// <returns>InvokeFunctionGet 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<byte[]> InvokeFunctionGetAsync(string functionName, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<FileResponse> InvokeFunctionGetAsync(string functionName, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (functionName == null)
                 throw new System.ArgumentNullException("functionName");
@@ -256,14 +253,12 @@ namespace Supabase.Functions.Gen
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 200 || status_ == 206)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<byte[]>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            return objectResponse_.Object;
+                            var responseStream_ = response_.Content == null ? System.IO.Stream.Null : await ReadAsStreamAsync(response_.Content, cancellationToken).ConfigureAwait(false);
+                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, null, response_);
+                            disposeClient_ = false; disposeResponse_ = false; // response and client are disposed by FileResponse
+                            return fileResponse_;
                         }
                         else
                         if (status_ == 400)
@@ -300,7 +295,7 @@ namespace Supabase.Functions.Gen
         /// <br/>Corresponds to FunctionInvokeOptions.query.</param>
         /// <returns>InvokeFunctionPatch 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<byte[]> InvokeFunctionPatchAsync(string functionName, byte[]? body = null, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<FileResponse> InvokeFunctionPatchAsync(string functionName, System.IO.Stream body = null, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (functionName == null)
                 throw new System.ArgumentNullException("functionName");
@@ -314,8 +309,7 @@ namespace Supabase.Functions.Gen
 
                     if (x_region != null)
                         request_.Headers.TryAddWithoutValidation("x-region", ConvertToString(x_region, System.Globalization.CultureInfo.InvariantCulture));
-                    var json_ = System.Text.Json.JsonSerializer.SerializeToUtf8Bytes(body, JsonSerializerSettings);
-                    var content_ = new System.Net.Http.ByteArrayContent(json_);
+                    var content_ = new System.Net.Http.StreamContent(body);
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/octet-stream");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("PATCH");
@@ -356,14 +350,12 @@ namespace Supabase.Functions.Gen
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 200 || status_ == 206)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<byte[]>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            return objectResponse_.Object;
+                            var responseStream_ = response_.Content == null ? System.IO.Stream.Null : await ReadAsStreamAsync(response_.Content, cancellationToken).ConfigureAwait(false);
+                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, null, response_);
+                            disposeClient_ = false; disposeResponse_ = false; // response and client are disposed by FileResponse
+                            return fileResponse_;
                         }
                         else
                         if (status_ == 400)
@@ -400,7 +392,7 @@ namespace Supabase.Functions.Gen
         /// <br/>Corresponds to FunctionInvokeOptions.query.</param>
         /// <returns>InvokeFunctionPost 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<byte[]> InvokeFunctionPostAsync(string functionName, byte[]? body = null, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<FileResponse> InvokeFunctionPostAsync(string functionName, System.IO.Stream body = null, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (functionName == null)
                 throw new System.ArgumentNullException("functionName");
@@ -414,8 +406,7 @@ namespace Supabase.Functions.Gen
 
                     if (x_region != null)
                         request_.Headers.TryAddWithoutValidation("x-region", ConvertToString(x_region, System.Globalization.CultureInfo.InvariantCulture));
-                    var json_ = System.Text.Json.JsonSerializer.SerializeToUtf8Bytes(body, JsonSerializerSettings);
-                    var content_ = new System.Net.Http.ByteArrayContent(json_);
+                    var content_ = new System.Net.Http.StreamContent(body);
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/octet-stream");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -456,14 +447,12 @@ namespace Supabase.Functions.Gen
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 200 || status_ == 206)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<byte[]>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            return objectResponse_.Object;
+                            var responseStream_ = response_.Content == null ? System.IO.Stream.Null : await ReadAsStreamAsync(response_.Content, cancellationToken).ConfigureAwait(false);
+                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, null, response_);
+                            disposeClient_ = false; disposeResponse_ = false; // response and client are disposed by FileResponse
+                            return fileResponse_;
                         }
                         else
                         if (status_ == 400)
@@ -500,7 +489,7 @@ namespace Supabase.Functions.Gen
         /// <br/>Corresponds to FunctionInvokeOptions.query.</param>
         /// <returns>InvokeFunctionPut 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<byte[]> InvokeFunctionPutAsync(string functionName, byte[]? body = null, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<FileResponse> InvokeFunctionPutAsync(string functionName, System.IO.Stream body = null, System.Collections.Generic.IDictionary<string, string>? query = null, string? x_region = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (functionName == null)
                 throw new System.ArgumentNullException("functionName");
@@ -514,8 +503,7 @@ namespace Supabase.Functions.Gen
 
                     if (x_region != null)
                         request_.Headers.TryAddWithoutValidation("x-region", ConvertToString(x_region, System.Globalization.CultureInfo.InvariantCulture));
-                    var json_ = System.Text.Json.JsonSerializer.SerializeToUtf8Bytes(body, JsonSerializerSettings);
-                    var content_ = new System.Net.Http.ByteArrayContent(json_);
+                    var content_ = new System.Net.Http.StreamContent(body);
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/octet-stream");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("PUT");
@@ -556,14 +544,12 @@ namespace Supabase.Functions.Gen
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 200 || status_ == 206)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<byte[]>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            return objectResponse_.Object;
+                            var responseStream_ = response_.Content == null ? System.IO.Stream.Null : await ReadAsStreamAsync(response_.Content, cancellationToken).ConfigureAwait(false);
+                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, null, response_);
+                            disposeClient_ = false; disposeResponse_ = false; // response and client are disposed by FileResponse
+                            return fileResponse_;
                         }
                         else
                         if (status_ == 400)
@@ -752,6 +738,68 @@ namespace Supabase.Functions.Gen
 
     }
 
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.7.1.0 (NJsonSchema v11.6.1.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class FileParameter
+    {
+        public FileParameter(System.IO.Stream data)
+            : this (data, null, null)
+        {
+        }
+
+        public FileParameter(System.IO.Stream data, string? fileName)
+            : this (data, fileName, null)
+        {
+        }
+
+        public FileParameter(System.IO.Stream data, string? fileName, string? contentType)
+        {
+            Data = data;
+            FileName = fileName;
+            ContentType = contentType;
+        }
+
+        public System.IO.Stream Data { get; private set; }
+
+        public string? FileName { get; private set; }
+
+        public string? ContentType { get; private set; }
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.7.1.0 (NJsonSchema v11.6.1.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class FileResponse : System.IDisposable
+    {
+        private System.IDisposable? _client;
+        private System.IDisposable? _response;
+
+        public int StatusCode { get; private set; }
+
+        public System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> Headers { get; private set; }
+
+        public System.IO.Stream Stream { get; private set; }
+
+        public bool IsPartial
+        {
+            get { return StatusCode == 206; }
+        }
+
+        public FileResponse(int statusCode, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.IO.Stream stream, System.IDisposable? client, System.IDisposable? response)
+        {
+            StatusCode = statusCode;
+            Headers = headers;
+            Stream = stream;
+            _client = client;
+            _response = response;
+        }
+
+        public void Dispose()
+        {
+            Stream.Dispose();
+            if (_response != null)
+                _response.Dispose();
+            if (_client != null)
+                _client.Dispose();
+        }
+    }
 
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.7.1.0 (NJsonSchema v11.6.1.0 (Newtonsoft.Json v13.0.0.0))")]

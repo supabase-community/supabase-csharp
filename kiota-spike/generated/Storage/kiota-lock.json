@@ -1,6 +1,6 @@
 {
-  "descriptionHash": "98442398394839855B41D19434A514243FE1384116EFFBA6407A59F15E7B3D378F667C8D6B3A1F43797B644149A75B014AB7AB9737C1DC3E3827F0E1EF5405A7",
-  "descriptionLocation": "../../../nswag-spike/generated/StorageService.ready.json",
+  "descriptionHash": "EF5CC21699DFEF72FEF59CAA8C4D3FFE9579F619B1F497D7792BF978CE7794661C4575E2845DD5CD6EA7E68FFD76BDC56AB8A22AE4BB4DB20D34841A5069A64E",
+  "descriptionLocation": "../StorageService.ready.json",
   "lockFileVersion": "1.0.0",
   "kiotaVersion": "1.32.4",
   "clientClassName": "StorageApiClient",

@@ -46,17 +46,17 @@ namespace Supabase.Storage.Kiota.Bucket
         public BucketRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bucket", rawUrl)
         {
         }
-        /// <returns>A <see cref="global::Supabase.Storage.Kiota.Models.ListBucketsResponseContent"/></returns>
+        /// <returns>A List&lt;global::Supabase.Storage.Kiota.Models.Bucket&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Supabase.Storage.Kiota.Models.StorageErrorResponseContent">When receiving a 400 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Supabase.Storage.Kiota.Models.ListBucketsResponseContent?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Supabase.Storage.Kiota.Models.Bucket>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Supabase.Storage.Kiota.Models.ListBucketsResponseContent> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Supabase.Storage.Kiota.Models.Bucket>> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -64,7 +64,8 @@ namespace Supabase.Storage.Kiota.Bucket
             {
                 { "400", global::Supabase.Storage.Kiota.Models.StorageErrorResponseContent.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Supabase.Storage.Kiota.Models.ListBucketsResponseContent>(requestInfo, global::Supabase.Storage.Kiota.Models.ListBucketsResponseContent.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Supabase.Storage.Kiota.Models.Bucket>(requestInfo, global::Supabase.Storage.Kiota.Models.Bucket.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return collectionResult?.AsList();
         }
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">The request body</param>

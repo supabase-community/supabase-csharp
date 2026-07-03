@@ -46,18 +46,18 @@ namespace Supabase.Storage.Kiota.ObjectNamespace.Sign.Item
         public WithBucketItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/object/sign/{bucketId}", rawUrl)
         {
         }
-        /// <returns>A <see cref="global::Supabase.Storage.Kiota.Models.CreateSignedUrlsResponseContent"/></returns>
+        /// <returns>A List&lt;global::Supabase.Storage.Kiota.Models.SignedUrlResult&gt;</returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Supabase.Storage.Kiota.Models.StorageErrorResponseContent">When receiving a 400 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Supabase.Storage.Kiota.Models.CreateSignedUrlsResponseContent?> PostAsync(global::Supabase.Storage.Kiota.Models.CreateSignedUrlsRequestContent body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Supabase.Storage.Kiota.Models.SignedUrlResult>?> PostAsync(global::Supabase.Storage.Kiota.Models.CreateSignedUrlsRequestContent body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Supabase.Storage.Kiota.Models.CreateSignedUrlsResponseContent> PostAsync(global::Supabase.Storage.Kiota.Models.CreateSignedUrlsRequestContent body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Supabase.Storage.Kiota.Models.SignedUrlResult>> PostAsync(global::Supabase.Storage.Kiota.Models.CreateSignedUrlsRequestContent body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -66,7 +66,8 @@ namespace Supabase.Storage.Kiota.ObjectNamespace.Sign.Item
             {
                 { "400", global::Supabase.Storage.Kiota.Models.StorageErrorResponseContent.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Supabase.Storage.Kiota.Models.CreateSignedUrlsResponseContent>(requestInfo, global::Supabase.Storage.Kiota.Models.CreateSignedUrlsResponseContent.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Supabase.Storage.Kiota.Models.SignedUrlResult>(requestInfo, global::Supabase.Storage.Kiota.Models.SignedUrlResult.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return collectionResult?.AsList();
         }
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

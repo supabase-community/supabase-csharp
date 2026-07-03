@@ -59,8 +59,11 @@ async Task Step(string name, Func<Task> action)
 // ── round-trip: list buckets ────────────────────────────────────────────────
 await Step("ListBuckets", async () =>
 {
+    // Envelope fix: the response is a bare array; the generated client now returns
+    // List<Bucket> directly (previously an .Items envelope that never matched the wire
+    // shape, so this call silently returned 0 — the false-zero failure).
     var buckets = await client.Bucket.GetAsync();
-    Console.WriteLine($"    server returned {buckets?.Items?.Count ?? 0} bucket(s)");
+    Console.WriteLine($"    server returned {buckets?.Count ?? 0} bucket(s)");
 });
 
 // ── round-trip: create bucket ───────────────────────────────────────────────
@@ -100,7 +103,7 @@ await Step($"UploadObject (streaming FileStream → {bucketId}/{objectName})", a
 await Step("ListObjects (confirm upload)", async () =>
 {
     var listed = await client.Object.List[bucketId].PostAsync(new ListObjectsRequestContent { Prefix = "" });
-    Console.WriteLine($"    bucket now holds {listed?.Items?.Count ?? 0} object(s)");
+    Console.WriteLine($"    bucket now holds {listed?.Count ?? 0} object(s)");
 });
 
 Console.WriteLine(new string('─', 60));

@@ -34,12 +34,14 @@ Per-toolchain detail: **[`evaluation-kiota.md`](evaluation-kiota.md)**. Cross-to
 comparison + overall recommendation: root **[`codegen-comparison.md`](../codegen-comparison.md)**.
 In short:
 
-- **Kiota wins** where NSwag lost — **AOT/trimming** (explicit `IParsable`, zero reflection),
-  **streaming responses** (native `Task<Stream>`), and **model naming** (`FileSizeLimit`).
-- **Kiota loses** where this SDK cares most — **ownership**: 8 runtime packages, a request-builder
-  tree, and models coupled to the Kiota runtime (`IParsable`), so they **can't be lifted out
-  standalone**. That defeats the "models-only, plain POCOs" strategy NSwag supports.
+- **Kiota's strengths** — **AOT/trimming** (explicit `IParsable`, zero reflection) and **model
+  naming** (`FileSizeLimit`). Streaming was a differentiator against the original artifacts; since
+  `supabase/sdk#55` both tools stream as generated.
+- **Kiota's blocker** for this SDK — **ownership**: 8 runtime packages, a request-builder tree, and
+  models coupled to the Kiota runtime (`IParsable`), so they **can't be lifted out standalone**.
+  That rules out the "models-only, plain POCOs" path NSwag supports.
 
-**Recommendation stands: NSwag is the better fit for supabase-csharp** (plain, ownable, zero-dep;
-usable models-only). Kiota is the choice only if adopting a *whole* generated client + its runtime
-fleet-wide. NSwag's one weakness (AOT) is closable in-place via a source-gen `JsonSerializerContext`.
+**Recommendation: NSwag in models-only mode for supabase-csharp** (plain, zero-dep, usable without
+the client). Kiota is the candidate only if adopting a *whole* generated client + its runtime
+fleet-wide, or for an SDK built from scratch (see the root document's *Scope of validity*). NSwag's
+AOT gap is closable in-place via a source-gen `JsonSerializerContext`.

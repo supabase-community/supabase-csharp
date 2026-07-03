@@ -1,6 +1,6 @@
 {
-  "descriptionHash": "A7EC1B3FDCA6670A60FBDC88B85AA3E85FDDE4A6E32D4D23ADD5CAD3F908A3DE861FDA7A0EFBB183AE492C1CA6B497FC7839B8908BB2221AC270ACBD6B089BB7",
-  "descriptionLocation": "../../../nswag-spike/generated/DatabaseService.ready.json",
+  "descriptionHash": "83E5BA347B88939BF3E9567114D9F4279CFAF151BEC56174673D92D14CC869A71988E468B8B8FA1EDCD325D975698B97F5B41697087310EB3CEED138CA7E9FAF",
+  "descriptionLocation": "../DatabaseService.ready.json",
   "lockFileVersion": "1.0.0",
   "kiotaVersion": "1.32.4",
   "clientClassName": "DatabaseApiClient",

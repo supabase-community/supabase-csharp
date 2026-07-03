@@ -22,8 +22,8 @@ We consume the **committed OpenAPI** (`smithy-pr51/*.openapi.json`); we never ru
 
 | Path | What |
 |------|------|
-| `smithy-pr51/` | Upstream source: hand-written `*.smithy` models, the committed `*.openapi.json`, `patch-openapi.py`, upstream README. Copied from `supabase/sdk@feat/smithy-models`. |
-| `generated/*.ready.json` | The OpenAPI actually fed to NSwag. Storage has one local patch: the greedy path label `{wildcardPath+}` → `{wildcardPath}` (the RFC-6570 `+` is not a valid C# identifier char). |
+| `smithy-pr51/` | Historical snapshot of the upstream source as evaluated (`supabase/sdk@feat/smithy-models`): `*.smithy` models, committed `*.openapi.json`, `patch-openapi.py`. Superseded by the fixes in `supabase/sdk#55`; kept as the record of what the spike ran against. |
+| `generated/*.ready.json` | The OpenAPI actually fed to NSwag — the committed upstream artifacts, consumed **verbatim** (the former local wildcard patch is fixed upstream in `supabase/sdk#55`). |
 | `generated/*Client.cs` | NSwag output — Storage / Functions / Database clients + models. **Generated, non-owned.** |
 | `spike-nswag.csproj` | Standalone project (in the solution, isolated) that compiles the three clients — proves they build (netstandard2.1, System.Text.Json only). |
 | `evaluation-nswag.md` | **Per-toolchain evaluation** — what's produced, good/bad, answers to the brief. |
@@ -35,15 +35,15 @@ For the cross-toolchain comparison and overall recommendation, see the root
 ## Reproduce
 
 ```bash
-# tools: dotnet SDK + NSwag CLI + node (for the one-line wildcard patch)
+# tools: dotnet SDK + NSwag CLI
 dotnet tool install --global NSwag.ConsoleCore
-# patch Storage's wildcard label, then generate each service:
+# generate each service (no local spec patching needed since supabase/sdk#55):
 nswag openapi2csclient /input:generated/StorageService.ready.json /classname:StorageClient \
   /namespace:Supabase.Storage.Gen /output:generated/StorageClient.cs \
   /jsonLibrary:SystemTextJson /injectHttpClient:true /generateClientInterfaces:true \
   /generateNullableReferenceTypes:true /generateOptionalParameters:true /useBaseUrl:false \
   /generateDataAnnotations:false /operationGenerationMode:SingleClientFromOperationId
-# (Functions/Database identical, minus the wildcard patch)
+# (Functions/Database identical)
 # generateDataAnnotations:false → no System.ComponentModel.DataAnnotations dependency
 dotnet build spike-nswag.csproj   # 0 warnings / 0 errors
 ```

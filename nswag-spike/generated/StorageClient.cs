@@ -33,7 +33,7 @@ namespace Supabase.Storage.Gen
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ListBuckets 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ListBucketsResponseContent> ListBucketsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Bucket>> ListBucketsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>CreateBucket 200 response</returns>
@@ -73,7 +73,7 @@ namespace Supabase.Storage.Gen
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ListObjects 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ListObjectsResponseContent> ListObjectsAsync(ListObjectsRequestContent body, string bucketId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FileObject>> ListObjectsAsync(ListObjectsRequestContent body, string bucketId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>MoveObject 200 response</returns>
@@ -83,7 +83,7 @@ namespace Supabase.Storage.Gen
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>CreateSignedUrls 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<CreateSignedUrlsResponseContent> CreateSignedUrlsAsync(CreateSignedUrlsRequestContent body, string bucketId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SignedUrlResult>> CreateSignedUrlsAsync(CreateSignedUrlsRequestContent body, string bucketId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>CreateSignedUrl 200 response</returns>
@@ -98,7 +98,7 @@ namespace Supabase.Storage.Gen
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>DeleteObjects 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<DeleteObjectsResponseContent> DeleteObjectsAsync(DeleteObjectsRequestContent body, string bucketId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FileObject>> DeleteObjectsAsync(DeleteObjectsRequestContent body, string bucketId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>HeadObject 200 response</returns>
@@ -151,7 +151,7 @@ namespace Supabase.Storage.Gen
         /// <param name="upload_Offset">Byte offset at which this chunk begins.</param>
         /// <returns>UploadChunk 204 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task UploadChunkAsync(FileParameter body, string uploadId, string tus_Resumable, double upload_Offset, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task UploadChunkAsync(System.IO.Stream body, string uploadId, string tus_Resumable, double upload_Offset, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
     }
 
@@ -190,7 +190,7 @@ namespace Supabase.Storage.Gen
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ListBuckets 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<ListBucketsResponseContent> ListBucketsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Bucket>> ListBucketsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -231,7 +231,7 @@ namespace Supabase.Storage.Gen
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<ListBucketsResponseContent>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<Bucket>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -862,7 +862,7 @@ namespace Supabase.Storage.Gen
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ListObjects 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<ListObjectsResponseContent> ListObjectsAsync(ListObjectsRequestContent body, string bucketId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FileObject>> ListObjectsAsync(ListObjectsRequestContent body, string bucketId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (bucketId == null)
                 throw new System.ArgumentNullException("bucketId");
@@ -914,7 +914,7 @@ namespace Supabase.Storage.Gen
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<ListObjectsResponseContent>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<FileObject>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1036,7 +1036,7 @@ namespace Supabase.Storage.Gen
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>CreateSignedUrls 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<CreateSignedUrlsResponseContent> CreateSignedUrlsAsync(CreateSignedUrlsRequestContent body, string bucketId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SignedUrlResult>> CreateSignedUrlsAsync(CreateSignedUrlsRequestContent body, string bucketId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (bucketId == null)
                 throw new System.ArgumentNullException("bucketId");
@@ -1088,7 +1088,7 @@ namespace Supabase.Storage.Gen
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<CreateSignedUrlsResponseContent>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<SignedUrlResult>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1319,7 +1319,7 @@ namespace Supabase.Storage.Gen
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>DeleteObjects 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<DeleteObjectsResponseContent> DeleteObjectsAsync(DeleteObjectsRequestContent body, string bucketId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FileObject>> DeleteObjectsAsync(DeleteObjectsRequestContent body, string bucketId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (bucketId == null)
                 throw new System.ArgumentNullException("bucketId");
@@ -1371,7 +1371,7 @@ namespace Supabase.Storage.Gen
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<DeleteObjectsResponseContent>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<FileObject>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1935,7 +1935,7 @@ namespace Supabase.Storage.Gen
         /// <param name="upload_Offset">Byte offset at which this chunk begins.</param>
         /// <returns>UploadChunk 204 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task UploadChunkAsync(FileParameter body, string uploadId, string tus_Resumable, double upload_Offset, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task UploadChunkAsync(System.IO.Stream body, string uploadId, string tus_Resumable, double upload_Offset, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (uploadId == null)
                 throw new System.ArgumentNullException("uploadId");
@@ -1957,8 +1957,7 @@ namespace Supabase.Storage.Gen
                     if (upload_Offset == null)
                         throw new System.ArgumentNullException("upload_Offset");
                     request_.Headers.TryAddWithoutValidation("Upload-Offset", ConvertToString(upload_Offset, System.Globalization.CultureInfo.InvariantCulture));
-                    var json_ = System.Text.Json.JsonSerializer.SerializeToUtf8Bytes(body, JsonSerializerSettings);
-                    var content_ = new System.Net.Http.ByteArrayContent(json_);
+                    var content_ = new System.Net.Http.StreamContent(body);
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/octet-stream");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("PATCH");
@@ -2169,7 +2168,7 @@ namespace Supabase.Storage.Gen
         public bool Public { get; set; } = default!;
 
         [System.Text.Json.Serialization.JsonPropertyName("file_size_limit")]
-        public double File_size_limit { get; set; } = default!;
+        public double? File_size_limit { get; set; } = default!;
 
         /// <summary>
         /// Common string list shape reused across services.
@@ -2253,7 +2252,7 @@ namespace Supabase.Storage.Gen
         public bool Public { get; set; } = default!;
 
         [System.Text.Json.Serialization.JsonPropertyName("file_size_limit")]
-        public double File_size_limit { get; set; } = default!;
+        public double? File_size_limit { get; set; } = default!;
 
         /// <summary>
         /// Common string list shape reused across services.
@@ -2351,24 +2350,6 @@ namespace Supabase.Storage.Gen
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.7.1.0 (NJsonSchema v11.6.1.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class CreateSignedUrlsResponseContent
-    {
-
-        [System.Text.Json.Serialization.JsonPropertyName("items")]
-        public System.Collections.Generic.ICollection<SignedUrlResult> Items { get; set; } = new System.Collections.ObjectModel.Collection<SignedUrlResult>();
-
-        private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
-
-        [System.Text.Json.Serialization.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-            set { _additionalProperties = value; }
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.7.1.0 (NJsonSchema v11.6.1.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class DeleteObjectsRequestContent
     {
 
@@ -2390,24 +2371,6 @@ namespace Supabase.Storage.Gen
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.7.1.0 (NJsonSchema v11.6.1.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class DeleteObjectsResponseContent
-    {
-
-        [System.Text.Json.Serialization.JsonPropertyName("items")]
-        public System.Collections.Generic.ICollection<FileObject> Items { get; set; } = new System.Collections.ObjectModel.Collection<FileObject>();
-
-        private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
-
-        [System.Text.Json.Serialization.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-            set { _additionalProperties = value; }
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.7.1.0 (NJsonSchema v11.6.1.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class FileMetadata
     {
 
@@ -2415,7 +2378,7 @@ namespace Supabase.Storage.Gen
         public string ETag { get; set; } = default!;
 
         [System.Text.Json.Serialization.JsonPropertyName("size")]
-        public double Size { get; set; } = default!;
+        public double? Size { get; set; } = default!;
 
         [System.Text.Json.Serialization.JsonPropertyName("mimetype")]
         public string Mimetype { get; set; } = default!;
@@ -2427,10 +2390,10 @@ namespace Supabase.Storage.Gen
         public string LastModified { get; set; } = default!;
 
         [System.Text.Json.Serialization.JsonPropertyName("contentLength")]
-        public double ContentLength { get; set; } = default!;
+        public double? ContentLength { get; set; } = default!;
 
         [System.Text.Json.Serialization.JsonPropertyName("httpStatusCode")]
-        public double HttpStatusCode { get; set; } = default!;
+        public double? HttpStatusCode { get; set; } = default!;
 
         private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
 
@@ -2490,7 +2453,7 @@ namespace Supabase.Storage.Gen
         public bool Public { get; set; } = default!;
 
         [System.Text.Json.Serialization.JsonPropertyName("file_size_limit")]
-        public double File_size_limit { get; set; } = default!;
+        public double? File_size_limit { get; set; } = default!;
 
         /// <summary>
         /// Common string list shape reused across services.
@@ -2523,7 +2486,7 @@ namespace Supabase.Storage.Gen
         public string ETag { get; set; } = default!;
 
         [System.Text.Json.Serialization.JsonPropertyName("size")]
-        public double Size { get; set; } = default!;
+        public double? Size { get; set; } = default!;
 
         [System.Text.Json.Serialization.JsonPropertyName("mimetype")]
         public string Mimetype { get; set; } = default!;
@@ -2535,28 +2498,10 @@ namespace Supabase.Storage.Gen
         public string LastModified { get; set; } = default!;
 
         [System.Text.Json.Serialization.JsonPropertyName("contentLength")]
-        public double ContentLength { get; set; } = default!;
+        public double? ContentLength { get; set; } = default!;
 
         [System.Text.Json.Serialization.JsonPropertyName("httpStatusCode")]
-        public double HttpStatusCode { get; set; } = default!;
-
-        private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
-
-        [System.Text.Json.Serialization.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-            set { _additionalProperties = value; }
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.7.1.0 (NJsonSchema v11.6.1.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class ListBucketsResponseContent
-    {
-
-        [System.Text.Json.Serialization.JsonPropertyName("items")]
-        public System.Collections.Generic.ICollection<Bucket> Items { get; set; } = new System.Collections.ObjectModel.Collection<Bucket>();
+        public double? HttpStatusCode { get; set; } = default!;
 
         private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
 
@@ -2577,31 +2522,13 @@ namespace Supabase.Storage.Gen
         public string Prefix { get; set; } = default!;
 
         [System.Text.Json.Serialization.JsonPropertyName("limit")]
-        public double Limit { get; set; } = default!;
+        public double? Limit { get; set; } = default!;
 
         [System.Text.Json.Serialization.JsonPropertyName("offset")]
-        public double Offset { get; set; } = default!;
+        public double? Offset { get; set; } = default!;
 
         [System.Text.Json.Serialization.JsonPropertyName("sortBy")]
         public SortBy SortBy { get; set; } = default!;
-
-        private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
-
-        [System.Text.Json.Serialization.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-            set { _additionalProperties = value; }
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.7.1.0 (NJsonSchema v11.6.1.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class ListObjectsResponseContent
-    {
-
-        [System.Text.Json.Serialization.JsonPropertyName("items")]
-        public System.Collections.Generic.ICollection<FileObject> Items { get; set; } = new System.Collections.ObjectModel.Collection<FileObject>();
 
         private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
 
@@ -2718,7 +2645,7 @@ namespace Supabase.Storage.Gen
         public bool Public { get; set; } = default!;
 
         [System.Text.Json.Serialization.JsonPropertyName("file_size_limit")]
-        public double File_size_limit { get; set; } = default!;
+        public double? File_size_limit { get; set; } = default!;
 
         /// <summary>
         /// Common string list shape reused across services.

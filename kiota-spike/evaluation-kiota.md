@@ -87,6 +87,13 @@ envelope from the same model) and hits **every SDK**. It is a model-not-validate
 defect: the modelled shape does not match what the server sends. **Raise on `supabase/sdk`:** model the
 list outputs as top-level lists (or fix the server contract). This is the most important gap found.
 
+**Update (July 2026):** fixed upstream in `supabase/sdk#55`. restJson1 cannot bind a list to the HTTP
+payload, so `patch-openapi.py` unwraps the envelope in the generated OpenAPI; the model documents the
+limitation. Verified by rerunning generation and the live harness against the corrected artifacts:
+**4/4 pass** — `ListBuckets` returns real counts (the false-zero failure is gone) and `ListObjects`
+counts the uploaded object. The same PR fixes the shared gaps listed above except **Auth**
+(unmodelled) and the `200`-only write ops, which remain open.
+
 ## Good / bad
 
 **Good**

@@ -35,9 +35,17 @@ distinct, serious reasons:
 Net: the run confirms the headline capabilities (injection, streaming upload) *and* proves the
 generated **request** DTOs are not usable as-is against Supabase without a serialization fix.
 
+**Update (July 2026):** both defects were fixed upstream in `supabase/sdk#55` and verified by a
+rerun against the corrected artifacts: list operations deserialize (bare arrays, direct
+`ICollection<T>` returns), and `CreateBucket` works **without** `file_size_limit` — the spec now
+types it `double?` and the server accepts `null` as unset, so the 413-bucket failure is gone.
+`ListObjects` still returns 400: NSwag writes unset members as explicit nulls and the server
+rejects `limit: null` (null-tolerance is per-field). The `WhenWritingNull` client configuration
+therefore remains required — the generator-side half of the fix, unchanged.
+
 ## Question-by-question
 
-### 1. Streaming uploads — 🟡 (model gap, then ✅)
+### 1. Streaming uploads — ✅ (model gap, fixed upstream in `supabase/sdk#55`)
 - **Multipart (`UploadObject`/`UpdateObject`): ✅ already streams.** Generated code builds
   `MultipartFormDataContent` + `new StreamContent(file.Data)` from a `FileParameter(Stream)` — no
   `byte[]` buffering of the file part.
@@ -49,16 +57,20 @@ generated **request** DTOs are not usable as-is against Supabase without a seria
   (no `$ref`), NSwag emits `…Async(string fn, System.IO.Stream body, …)` + `new StreamContent(body)`
   — **true streaming, zero buffering.** So NSwag *can* do streaming uploads; the shared model must
   emit an inline binary body instead of a `$ref`-to-`format:byte` payload.
+- **Fixed upstream** (`supabase/sdk#55`): the committed artifacts now emit inline binary for all
+  octet-stream bodies; regeneration produces the `Stream` signatures with no local patching.
 
-### 2. Streaming responses — 🟡 (model gap, then ✅ as `Stream`)
+### 2. Streaming responses — ✅ as `Stream` (model gap, fixed upstream in `supabase/sdk#55`)
 - **As-shipped: ❌.** Functions responses are `$ref` → `format: byte`, so NSwag returns
   `Task<byte[]>` read via `ReadObjectResponseAsync<byte[]>` — fully buffered + base64.
 - **Proven fix:** flipping the response schema `format: byte → binary` makes NSwag emit
   `Task<FileResponse>`, where `FileResponse.Stream` is the **raw response stream**, read via
   `ReadAsStreamAsync` with `HttpCompletionOption.ResponseHeadersRead` — unbuffered streaming.
 - **Caveat vs brief:** NSwag exposes a **`Stream`**, not `IAsyncEnumerable<byte[]>`. The brief
-  accepts "`IAsyncEnumerable<byte[]>` **or** `Stream`", so this qualifies. `patch-openapi.py`
-  already does this byte→binary flip for Storage; it must be **extended to Functions**.
+  accepts "`IAsyncEnumerable<byte[]>` **or** `Stream`", so this qualifies. `supabase/sdk#55`
+  extends the byte→binary flip to Functions (and Database payloads); regeneration now yields
+  `Task<FileResponse>` with no local patching. Live Functions verification remains open (needs a
+  deployed edge function).
 
 ### 3. HttpClient injection — ✅
 Constructor is `public StorageClient(System.Net.Http.HttpClient httpClient)` (same pattern for
@@ -106,7 +118,7 @@ enum-reflection means **IL2CPP/AOT is not clean** for the same reasons as Q8. Fr
 not AOT-verified. (Consistent with the original investigation; treat as out-of-scope until Q8 is
 solved, since the fix is the same.)
 
-### 10. Model gaps found → to raise on `supabase/sdk`
+### 10. Model gaps found → raised on `supabase/sdk` (fixed in #55, except Auth and 200-only)
 | Gap | Impact | Suggested model/patch fix |
 |---|---|---|
 | Functions/TUS request bodies are `$ref` → `format:byte` | streaming upload broken (JSON-serialized) | emit **inline** `type:string,format:binary` requestBody (no `$ref`) |
@@ -115,6 +127,10 @@ solved, since the fix is the same.)
 | Multipart non-file parts marked required | forces non-null `cacheControl`/`metadata` | mark optional in the model |
 | **Auth unmodelled** | can't evaluate/generate Auth at all | add Auth models (or formally scope it out as hand-written) |
 | Write ops model `200` only | clients must tolerate 204 empty bodies | documented upstream; handle in hand-written seam |
+
+**Update (July 2026):** the first four rows are fixed upstream in `supabase/sdk#55` (verified by
+rerunning generation and the live harness against the corrected artifacts — no local `ready.json`
+patching needed anymore). **Auth** and the `200`-only write ops remain open.
 
 ## Recommendation — **ADAPT** (models-first, hand-written operations/transport)
 

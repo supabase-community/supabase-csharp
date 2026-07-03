@@ -1,6 +1,6 @@
 {
-  "descriptionHash": "9564D19714999BBD0827278B9C58F0FC4BF586CE13D0FF079323DC5DD5DD5B201C0E5396CF77BD126DB536216A607F24DB40770119A2348CE9E20DA1D7564080",
-  "descriptionLocation": "../../../nswag-spike/generated/FunctionsService.ready.json",
+  "descriptionHash": "C27FE6DB0936035F04FB0D93642C9730C77B5BFBA086BE5B8561C22E6305492EDD7C627EBFD26F6A7FE22AA4B33DE38EE04B43DC072544C39499F039DBC56F19",
+  "descriptionLocation": "../FunctionsService.ready.json",
   "lockFileVersion": "1.0.0",
   "kiotaVersion": "1.32.4",
   "clientClassName": "FunctionsApiClient",

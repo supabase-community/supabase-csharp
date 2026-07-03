@@ -35,19 +35,19 @@ namespace Supabase.Database.Gen
         /// <br/>Keys and value formats are defined by the PostgreSQL function signature.</param>
         /// <returns>CallRpcGet 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<byte[]> CallRpcGetAsync(string functionName, string? select = null, System.Collections.Generic.IDictionary<string, string>? args = null, string? accept_Profile = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileResponse> CallRpcGetAsync(string functionName, string? select = null, System.Collections.Generic.IDictionary<string, string>? args = null, string? accept_Profile = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="prefer">e.g. "params=single-object" — treat the entire body as a single parameter.</param>
         /// <returns>CallRpcPost 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<byte[]> CallRpcPostAsync(string functionName, byte[]? body = null, string? select = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileResponse> CallRpcPostAsync(string functionName, System.IO.Stream body = null, string? select = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="filters">Horizontal filters — rows matching these filters will be deleted.</param>
         /// <returns>DeleteRows 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<byte[]> DeleteRowsAsync(string table, string? select = null, System.Collections.Generic.IDictionary<string, string>? filters = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileResponse> DeleteRowsAsync(string table, string? select = null, System.Collections.Generic.IDictionary<string, string>? filters = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="select">Column selection — comma-separated, supports aliasing, casting, embedded
@@ -67,14 +67,14 @@ namespace Supabase.Database.Gen
         /// <param name="range_Unit">Unit for the Range header. Defaults to "items".</param>
         /// <returns>SelectRows 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<byte[]> SelectRowsAsync(string table, string? select = null, string? order = null, double? limit = null, double? offset = null, System.Collections.Generic.IDictionary<string, string>? filters = null, string? accept = null, string? accept_Profile = null, string? prefer = null, string? range = null, string? range_Unit = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileResponse> SelectRowsAsync(string table, string? select = null, string? order = null, double? limit = null, double? offset = null, System.Collections.Generic.IDictionary<string, string>? filters = null, string? accept = null, string? accept_Profile = null, string? prefer = null, string? range = null, string? range_Unit = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="filters">Horizontal filters — rows matching these filters will be updated.
         /// <br/>Key: column name. Value: "{operator}.{value}" e.g. {"id": "eq.5"}.</param>
         /// <returns>UpdateRows 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<byte[]> UpdateRowsAsync(byte[] body, string table, string? select = null, System.Collections.Generic.IDictionary<string, string>? filters = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileResponse> UpdateRowsAsync(System.IO.Stream body, string table, string? select = null, System.Collections.Generic.IDictionary<string, string>? filters = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="select">Columns to select in the returned representation (requires return=representation).</param>
@@ -85,7 +85,7 @@ namespace Supabase.Database.Gen
         /// <br/>     "return=headers-only", "resolution=merge-duplicates".</param>
         /// <returns>InsertRows 201 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<byte[]> InsertRowsAsync(byte[] body, string table, string? select = null, string? columns = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileResponse> InsertRowsAsync(System.IO.Stream body, string table, string? select = null, string? columns = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="on_conflict">Columns to match for conflict detection (if not the primary key).</param>
@@ -94,7 +94,7 @@ namespace Supabase.Database.Gen
         /// <br/>     "resolution=ignore-duplicates".</param>
         /// <returns>UpsertRows 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<byte[]> UpsertRowsAsync(byte[] body, string table, string? select = null, string? on_conflict = null, System.Collections.Generic.IDictionary<string, string>? filters = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileResponse> UpsertRowsAsync(System.IO.Stream body, string table, string? select = null, string? on_conflict = null, System.Collections.Generic.IDictionary<string, string>? filters = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
     }
 
@@ -135,7 +135,7 @@ namespace Supabase.Database.Gen
         /// <br/>Keys and value formats are defined by the PostgreSQL function signature.</param>
         /// <returns>CallRpcGet 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<byte[]> CallRpcGetAsync(string functionName, string? select = null, System.Collections.Generic.IDictionary<string, string>? args = null, string? accept_Profile = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<FileResponse> CallRpcGetAsync(string functionName, string? select = null, System.Collections.Generic.IDictionary<string, string>? args = null, string? accept_Profile = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (functionName == null)
                 throw new System.ArgumentNullException("functionName");
@@ -191,14 +191,12 @@ namespace Supabase.Database.Gen
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 200 || status_ == 206)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<byte[]>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            return objectResponse_.Object;
+                            var responseStream_ = response_.Content == null ? System.IO.Stream.Null : await ReadAsStreamAsync(response_.Content, cancellationToken).ConfigureAwait(false);
+                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, null, response_);
+                            disposeClient_ = false; disposeResponse_ = false; // response and client are disposed by FileResponse
+                            return fileResponse_;
                         }
                         else
                         if (status_ == 400)
@@ -234,7 +232,7 @@ namespace Supabase.Database.Gen
         /// <param name="prefer">e.g. "params=single-object" — treat the entire body as a single parameter.</param>
         /// <returns>CallRpcPost 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<byte[]> CallRpcPostAsync(string functionName, byte[]? body = null, string? select = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<FileResponse> CallRpcPostAsync(string functionName, System.IO.Stream body = null, string? select = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (functionName == null)
                 throw new System.ArgumentNullException("functionName");
@@ -251,8 +249,7 @@ namespace Supabase.Database.Gen
 
                     if (prefer != null)
                         request_.Headers.TryAddWithoutValidation("Prefer", ConvertToString(prefer, System.Globalization.CultureInfo.InvariantCulture));
-                    var json_ = System.Text.Json.JsonSerializer.SerializeToUtf8Bytes(body, JsonSerializerSettings);
-                    var content_ = new System.Net.Http.ByteArrayContent(json_);
+                    var content_ = new System.Net.Http.StreamContent(body);
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/octet-stream");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -293,14 +290,12 @@ namespace Supabase.Database.Gen
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 200 || status_ == 206)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<byte[]>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            return objectResponse_.Object;
+                            var responseStream_ = response_.Content == null ? System.IO.Stream.Null : await ReadAsStreamAsync(response_.Content, cancellationToken).ConfigureAwait(false);
+                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, null, response_);
+                            disposeClient_ = false; disposeResponse_ = false; // response and client are disposed by FileResponse
+                            return fileResponse_;
                         }
                         else
                         if (status_ == 400)
@@ -336,7 +331,7 @@ namespace Supabase.Database.Gen
         /// <param name="filters">Horizontal filters — rows matching these filters will be deleted.</param>
         /// <returns>DeleteRows 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<byte[]> DeleteRowsAsync(string table, string? select = null, System.Collections.Generic.IDictionary<string, string>? filters = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<FileResponse> DeleteRowsAsync(string table, string? select = null, System.Collections.Generic.IDictionary<string, string>? filters = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (table == null)
                 throw new System.ArgumentNullException("table");
@@ -394,14 +389,12 @@ namespace Supabase.Database.Gen
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 200 || status_ == 206)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<byte[]>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            return objectResponse_.Object;
+                            var responseStream_ = response_.Content == null ? System.IO.Stream.Null : await ReadAsStreamAsync(response_.Content, cancellationToken).ConfigureAwait(false);
+                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, null, response_);
+                            disposeClient_ = false; disposeResponse_ = false; // response and client are disposed by FileResponse
+                            return fileResponse_;
                         }
                         else
                         if (status_ == 400)
@@ -451,7 +444,7 @@ namespace Supabase.Database.Gen
         /// <param name="range_Unit">Unit for the Range header. Defaults to "items".</param>
         /// <returns>SelectRows 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<byte[]> SelectRowsAsync(string table, string? select = null, string? order = null, double? limit = null, double? offset = null, System.Collections.Generic.IDictionary<string, string>? filters = null, string? accept = null, string? accept_Profile = null, string? prefer = null, string? range = null, string? range_Unit = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<FileResponse> SelectRowsAsync(string table, string? select = null, string? order = null, double? limit = null, double? offset = null, System.Collections.Generic.IDictionary<string, string>? filters = null, string? accept = null, string? accept_Profile = null, string? prefer = null, string? range = null, string? range_Unit = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (table == null)
                 throw new System.ArgumentNullException("table");
@@ -529,14 +522,12 @@ namespace Supabase.Database.Gen
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 200 || status_ == 206)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<byte[]>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            return objectResponse_.Object;
+                            var responseStream_ = response_.Content == null ? System.IO.Stream.Null : await ReadAsStreamAsync(response_.Content, cancellationToken).ConfigureAwait(false);
+                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, null, response_);
+                            disposeClient_ = false; disposeResponse_ = false; // response and client are disposed by FileResponse
+                            return fileResponse_;
                         }
                         else
                         if (status_ == 400)
@@ -573,7 +564,7 @@ namespace Supabase.Database.Gen
         /// <br/>Key: column name. Value: "{operator}.{value}" e.g. {"id": "eq.5"}.</param>
         /// <returns>UpdateRows 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<byte[]> UpdateRowsAsync(byte[] body, string table, string? select = null, System.Collections.Generic.IDictionary<string, string>? filters = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<FileResponse> UpdateRowsAsync(System.IO.Stream body, string table, string? select = null, System.Collections.Generic.IDictionary<string, string>? filters = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (table == null)
                 throw new System.ArgumentNullException("table");
@@ -593,8 +584,7 @@ namespace Supabase.Database.Gen
 
                     if (prefer != null)
                         request_.Headers.TryAddWithoutValidation("Prefer", ConvertToString(prefer, System.Globalization.CultureInfo.InvariantCulture));
-                    var json_ = System.Text.Json.JsonSerializer.SerializeToUtf8Bytes(body, JsonSerializerSettings);
-                    var content_ = new System.Net.Http.ByteArrayContent(json_);
+                    var content_ = new System.Net.Http.StreamContent(body);
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/octet-stream");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("PATCH");
@@ -638,14 +628,12 @@ namespace Supabase.Database.Gen
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 200 || status_ == 206)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<byte[]>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            return objectResponse_.Object;
+                            var responseStream_ = response_.Content == null ? System.IO.Stream.Null : await ReadAsStreamAsync(response_.Content, cancellationToken).ConfigureAwait(false);
+                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, null, response_);
+                            disposeClient_ = false; disposeResponse_ = false; // response and client are disposed by FileResponse
+                            return fileResponse_;
                         }
                         else
                         if (status_ == 400)
@@ -686,7 +674,7 @@ namespace Supabase.Database.Gen
         /// <br/>     "return=headers-only", "resolution=merge-duplicates".</param>
         /// <returns>InsertRows 201 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<byte[]> InsertRowsAsync(byte[] body, string table, string? select = null, string? columns = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<FileResponse> InsertRowsAsync(System.IO.Stream body, string table, string? select = null, string? columns = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (table == null)
                 throw new System.ArgumentNullException("table");
@@ -706,8 +694,7 @@ namespace Supabase.Database.Gen
 
                     if (prefer != null)
                         request_.Headers.TryAddWithoutValidation("Prefer", ConvertToString(prefer, System.Globalization.CultureInfo.InvariantCulture));
-                    var json_ = System.Text.Json.JsonSerializer.SerializeToUtf8Bytes(body, JsonSerializerSettings);
-                    var content_ = new System.Net.Http.ByteArrayContent(json_);
+                    var content_ = new System.Net.Http.StreamContent(body);
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/octet-stream");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -753,12 +740,10 @@ namespace Supabase.Database.Gen
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 201)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<byte[]>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            return objectResponse_.Object;
+                            var responseStream_ = response_.Content == null ? System.IO.Stream.Null : await ReadAsStreamAsync(response_.Content, cancellationToken).ConfigureAwait(false);
+                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, null, response_);
+                            disposeClient_ = false; disposeResponse_ = false; // response and client are disposed by FileResponse
+                            return fileResponse_;
                         }
                         else
                         if (status_ == 400)
@@ -797,7 +782,7 @@ namespace Supabase.Database.Gen
         /// <br/>     "resolution=ignore-duplicates".</param>
         /// <returns>UpsertRows 200 response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<byte[]> UpsertRowsAsync(byte[] body, string table, string? select = null, string? on_conflict = null, System.Collections.Generic.IDictionary<string, string>? filters = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<FileResponse> UpsertRowsAsync(System.IO.Stream body, string table, string? select = null, string? on_conflict = null, System.Collections.Generic.IDictionary<string, string>? filters = null, string? content_Profile = null, string? prefer = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (table == null)
                 throw new System.ArgumentNullException("table");
@@ -817,8 +802,7 @@ namespace Supabase.Database.Gen
 
                     if (prefer != null)
                         request_.Headers.TryAddWithoutValidation("Prefer", ConvertToString(prefer, System.Globalization.CultureInfo.InvariantCulture));
-                    var json_ = System.Text.Json.JsonSerializer.SerializeToUtf8Bytes(body, JsonSerializerSettings);
-                    var content_ = new System.Net.Http.ByteArrayContent(json_);
+                    var content_ = new System.Net.Http.StreamContent(body);
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/octet-stream");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("PUT");
@@ -866,14 +850,12 @@ namespace Supabase.Database.Gen
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 200 || status_ == 206)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<byte[]>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            return objectResponse_.Object;
+                            var responseStream_ = response_.Content == null ? System.IO.Stream.Null : await ReadAsStreamAsync(response_.Content, cancellationToken).ConfigureAwait(false);
+                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, null, response_);
+                            disposeClient_ = false; disposeResponse_ = false; // response and client are disposed by FileResponse
+                            return fileResponse_;
                         }
                         else
                         if (status_ == 400)
@@ -1167,6 +1149,68 @@ namespace Supabase.Database.Gen
 
     }
 
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.7.1.0 (NJsonSchema v11.6.1.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class FileParameter
+    {
+        public FileParameter(System.IO.Stream data)
+            : this (data, null, null)
+        {
+        }
+
+        public FileParameter(System.IO.Stream data, string? fileName)
+            : this (data, fileName, null)
+        {
+        }
+
+        public FileParameter(System.IO.Stream data, string? fileName, string? contentType)
+        {
+            Data = data;
+            FileName = fileName;
+            ContentType = contentType;
+        }
+
+        public System.IO.Stream Data { get; private set; }
+
+        public string? FileName { get; private set; }
+
+        public string? ContentType { get; private set; }
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.7.1.0 (NJsonSchema v11.6.1.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class FileResponse : System.IDisposable
+    {
+        private System.IDisposable? _client;
+        private System.IDisposable? _response;
+
+        public int StatusCode { get; private set; }
+
+        public System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> Headers { get; private set; }
+
+        public System.IO.Stream Stream { get; private set; }
+
+        public bool IsPartial
+        {
+            get { return StatusCode == 206; }
+        }
+
+        public FileResponse(int statusCode, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.IO.Stream stream, System.IDisposable? client, System.IDisposable? response)
+        {
+            StatusCode = statusCode;
+            Headers = headers;
+            Stream = stream;
+            _client = client;
+            _response = response;
+        }
+
+        public void Dispose()
+        {
+            Stream.Dispose();
+            if (_response != null)
+                _response.Dispose();
+            if (_client != null)
+                _client.Dispose();
+        }
+    }
 
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.7.1.0 (NJsonSchema v11.6.1.0 (Newtonsoft.Json v13.0.0.0))")]

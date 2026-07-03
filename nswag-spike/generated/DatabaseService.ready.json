@@ -55,7 +55,8 @@
                         "content": {
                             "application/octet-stream": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/CallRpcGetOutputPayload"
+                                    "type": "string",
+                                    "format": "binary"
                                 }
                             }
                         }
@@ -78,7 +79,8 @@
                     "content": {
                         "application/octet-stream": {
                             "schema": {
-                                "$ref": "#/components/schemas/CallRpcPostInputPayload"
+                                "type": "string",
+                                "format": "binary"
                             }
                         }
                     }
@@ -129,7 +131,8 @@
                         "content": {
                             "application/octet-stream": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/CallRpcPostOutputPayload"
+                                    "type": "string",
+                                    "format": "binary"
                                 }
                             }
                         }
@@ -205,7 +208,8 @@
                         "content": {
                             "application/octet-stream": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/DeleteRowsOutputPayload"
+                                    "type": "string",
+                                    "format": "binary"
                                 }
                             }
                         }
@@ -339,7 +343,8 @@
                         "content": {
                             "application/octet-stream": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/SelectRowsOutputPayload"
+                                    "type": "string",
+                                    "format": "binary"
                                 }
                             }
                         }
@@ -362,7 +367,8 @@
                     "content": {
                         "application/octet-stream": {
                             "schema": {
-                                "$ref": "#/components/schemas/UpdateRowsInputPayload"
+                                "type": "string",
+                                "format": "binary"
                             }
                         }
                     },
@@ -423,7 +429,8 @@
                         "content": {
                             "application/octet-stream": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/UpdateRowsOutputPayload"
+                                    "type": "string",
+                                    "format": "binary"
                                 }
                             }
                         }
@@ -446,7 +453,8 @@
                     "content": {
                         "application/octet-stream": {
                             "schema": {
-                                "$ref": "#/components/schemas/InsertRowsInputPayload"
+                                "type": "string",
+                                "format": "binary"
                             }
                         }
                     },
@@ -513,7 +521,8 @@
                         "content": {
                             "application/octet-stream": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/InsertRowsOutputPayload"
+                                    "type": "string",
+                                    "format": "binary"
                                 }
                             }
                         }
@@ -536,7 +545,8 @@
                     "content": {
                         "application/octet-stream": {
                             "schema": {
-                                "$ref": "#/components/schemas/UpsertRowsInputPayload"
+                                "type": "string",
+                                "format": "binary"
                             }
                         }
                     },
@@ -608,7 +618,8 @@
                         "content": {
                             "application/octet-stream": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/UpsertRowsOutputPayload"
+                                    "type": "string",
+                                    "format": "binary"
                                 }
                             }
                         }
@@ -629,19 +640,6 @@
     },
     "components": {
         "schemas": {
-            "CallRpcGetOutputPayload": {
-                "type": "string",
-                "format": "byte"
-            },
-            "CallRpcPostInputPayload": {
-                "type": "string",
-                "description": "Named parameters as a JSON object, or a single argument when combined\nwith Prefer: params=single-object.",
-                "format": "byte"
-            },
-            "CallRpcPostOutputPayload": {
-                "type": "string",
-                "format": "byte"
-            },
             "DatabaseErrorResponseContent": {
                 "type": "object",
                 "properties": {
@@ -663,47 +661,12 @@
                     }
                 }
             },
-            "DeleteRowsOutputPayload": {
-                "type": "string",
-                "format": "byte"
-            },
-            "InsertRowsInputPayload": {
-                "type": "string",
-                "description": "JSON object or array of objects to insert.",
-                "format": "byte"
-            },
-            "InsertRowsOutputPayload": {
-                "type": "string",
-                "format": "byte"
-            },
-            "SelectRowsOutputPayload": {
-                "type": "string",
-                "format": "byte"
-            },
             "StringMap": {
                 "type": "object",
                 "additionalProperties": {
                     "type": "string"
                 },
                 "description": "Generic string-to-string map \u2014 used for arbitrary query parameter collections\n(e.g. PostgREST filter params, RPC GET arguments)."
-            },
-            "UpdateRowsInputPayload": {
-                "type": "string",
-                "description": "Partial JSON object with fields to update.",
-                "format": "byte"
-            },
-            "UpdateRowsOutputPayload": {
-                "type": "string",
-                "format": "byte"
-            },
-            "UpsertRowsInputPayload": {
-                "type": "string",
-                "description": "JSON object or array of objects to upsert.",
-                "format": "byte"
-            },
-            "UpsertRowsOutputPayload": {
-                "type": "string",
-                "format": "byte"
             },
             "FilterOperator": {
                 "type": "string",

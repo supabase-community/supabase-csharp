@@ -66,7 +66,7 @@ changes without them.
 
 | Toolchain | Status | Assessment |
 |---|---|---|
-| **NSwag → CSharpClient** | ✅ run | Plain, dependency-free output; models are usable POCOs. Requires fixes for serialization defaults, AOT (reflection-based serialization), and naming; all are local changes. Recommended, in models-only mode. |
+| **NSwag → CSharpClient** | ✅ run | Plain, dependency-free output; models are usable POCOs. Remaining local fixes: null-omission serialization config, AOT (source-generated serializer context), naming. Optional-field typing and streaming schemas fixed upstream (supabase/sdk#55). Recommended, in models-only mode. |
 | **Kiota (Microsoft)** | ✅ run | Client is AOT-safe, streams as generated, delegates transport to a runtime. Requires an 8-package runtime; models expose Kiota types on the public API. Not recommended unless a whole generated client and runtime are adopted fleet-wide. |
 | **@typespec/http-client-csharp** | ⏸ assessed, not run | Consumes TypeSpec, not OpenAPI, so it would require an OpenAPI→TypeSpec conversion step; emits `System.ClientModel`-dependent code. Relevant only if the organisation adopts TypeSpec as source of truth. |
 | **OpenAPI Generator → csharp** | ⏸ assessed, not run | Default output is RestSharp-based; an `httpclient` option exists. Assessed as adding no capability beyond NSwag's models. |
@@ -107,8 +107,8 @@ technique, are adopted.
 | Model coupling | plain POCOs (`[JsonPropertyName]` only), usable standalone | `IParsable` + `IAdditionalDataHolder`, coupled to the Kiota runtime |
 | Runtime dependencies | none (System.Text.Json only) | 8 packages (`Microsoft.Kiota.*` + `Std.UriTemplate`) |
 | AOT / trimming | ❌ reflection-based System.Text.Json + enum reflection | ✅ explicit `IParsable`, no reflection |
-| Streaming response | 🟡 requires a `byte→binary` model patch → `FileResponse.Stream` | ✅ `Task<Stream>` as generated |
-| Streaming upload | 🟡 requires an inline-binary model patch → `StreamContent` | ✅ `Stream` / `MultipartBody` as generated |
+| Streaming response | ✅ `FileResponse.Stream` as generated — required a `byte→binary` schema fix, since applied upstream (supabase/sdk#55) | ✅ `Task<Stream>` as generated |
+| Streaming upload | ✅ `Stream` → `StreamContent` as generated — required an inline-binary schema fix, since applied upstream (supabase/sdk#55) | ✅ `Stream` / `MultipartBody` as generated |
 | Transport placement | inlined in the generated code (~86 LOC per operation), no runtime dependency; regenerated on each run | in an external 8-package runtime; generated code only builds requests |
 | Domain error mapping | wrap `ApiException<T>`, retaining `FailureHint` | generic typed errors; domain reasons rebuilt by hand |
 | Middleware seam | `DelegatingHandler` + `PrepareRequest`/`ProcessResponse` partials | handler pipeline (retry, redirect, auth); the builder tree does not offer a partial-class seam |
@@ -135,8 +135,9 @@ tool:
   (`file_size_limit:0`, `limit:0`, `sortBy:null`), and the server rejects several of these: a
   bucket created with `file_size_limit:0` rejects all uploads with 413; `limit:0` and
   `sortBy:null` return 400. Kiota omits unset fields, so the equivalent calls succeeded. NSwag's
-  request DTOs are therefore not usable as generated; they require a serialization fix
-  (`WhenWritingNull` plus nullable value types). Details are in each `evaluation-*.md`.
+  request DTOs were therefore not usable as generated from the original artifacts; the fix has two
+  halves — nullable value types (model-side, since fixed upstream) and `WhenWritingNull`
+  (client-side configuration). Details are in each `evaluation-*.md`.
 
 **Cause of the divergence, given the same spec.** The OpenAPI marks these fields optional but not
 `nullable`, leaving optionality under-specified; the two generators fill the gap with opposite
@@ -152,11 +153,13 @@ Model quality therefore has two independent axes, and the tools divide across th
 | Axis | Favours | Reason |
 |---|---|---|
 | Usability under a wrapper (ownership, exposability) | NSwag | plain POCOs; Kiota's `IParsable` models expose the runtime on the public API |
-| Request-serialization correctness as generated | Kiota | nullable mapping + omitted nulls; NSwag serializes unset defaults the server rejects |
+| Request-serialization correctness as generated | Kiota | Kiota omits unset members; NSwag writes them as explicit nulls, which the server rejects for some fields (`limit`). Typing no longer differs — both map optional scalars to nullable types since supabase/sdk#55 |
 
 These two results differ in kind: Kiota's coupling is structural (there is no plain-model output),
-while NSwag's serialization gap is a configuration and annotation fix. NSwag can be made correct
-while remaining dependency-free; Kiota's models cannot be decoupled from its runtime.
+while NSwag's serialization gap is a configuration and annotation fix — the annotation half has
+since landed upstream (supabase/sdk#55); the configuration half (`WhenWritingNull`) remains a
+client-side setting. NSwag can be made correct while remaining dependency-free; Kiota's models
+cannot be decoupled from its runtime.
 
 A further conclusion applies regardless of tool: generated models are only as correct as the source
 model. The defects found by the live runs are located in the shared contract model — a work in
@@ -167,6 +170,30 @@ defect in hand-written SDKs would be introduced and fixed per SDK. The corollary
 must target the model: the API evolves, so model accuracy is a state to maintain rather than reach
 once, and a live contract test of this kind should be a permanent stage in any adopted pipeline —
 it validates the model, not the generators.
+
+### Upstream resolution and rerun (July 2026)
+
+The model defects above were fixed in supabase/sdk#55 (list-envelope unwrap, optional-scalar
+nullability, streaming `byte→binary` for Functions/TUS/Database payloads, greedy-label cleanup,
+build reproducibility), and the spike was rerun against the corrected artifacts — same generator
+versions, and for the first time with no local pre-patching of the spec:
+
+- **Both clients compile with 0 errors** from the committed artifacts as-is (the raw spec
+  previously produced 24 C# compile errors without a local wildcard patch).
+- **Kiota live harness: 4/4 pass.** `ListBuckets` returns real counts (previously a silent 0);
+  `ListObjects` counts the uploaded object.
+- **NSwag live harness:** `ListBuckets` deserializes (previously threw); `CreateBucket` succeeds
+  without `file_size_limit` — the server accepts `null` as unset, so the 413-bucket failure is
+  gone; streaming upload works. `ListObjects` still returns 400: NSwag serializes unset members as
+  explicit nulls and the server rejects `limit: null` (it tolerates `file_size_limit: null` —
+  null-tolerance is per-field). This is the generator-side half of the serialization fix
+  (`WhenWritingNull`), unchanged in the recommendation.
+- **NSwag Functions/TUS signatures now stream as generated** (`Stream` body; `FileResponse` via
+  `ResponseHeadersRead`) — the `byte→binary` patch is no longer a local step. The live Functions
+  run remains open (requires a deployed edge function).
+
+The rerun is one complete turn of the loop the contract pipeline requires: generate → validate
+against a live platform → fix the model once → regenerate, with every SDK inheriting the fix.
 
 ## Cost analysis — generated vs. hand-maintained code
 
@@ -303,10 +330,11 @@ generation — a build-versus-buy decision rather than another tool to trial.
 
 - **Set up NSwag models-only generation** from the committed OpenAPI, with the three fixes required
   before any generated type ships (the first two surfaced by the live runs):
-  - *Serialization correctness* — configure `DefaultIgnoreCondition = WhenWritingNull` and make
-    optional value types nullable, so requests stop sending `file_size_limit:0` / `limit:0` /
-    `sortBy:null`. Without this the request DTOs do not work against the server (see *Live-run
-    results*).
+  - *Serialization correctness* — configure `DefaultIgnoreCondition = WhenWritingNull` so unset
+    members are omitted rather than sent as explicit nulls (the server rejects `limit: null`).
+    The typing half — nullable optional value types — is fixed upstream (supabase/sdk#55) and
+    verified by the rerun; without `WhenWritingNull`, `ListObjects` still returns 400 (see
+    *Live-run results*).
   - *AOT/trimming* — add a source-generated `[JsonSerializable] JsonSerializerContext` for the
     generated models and replace the reflection-based enum `ConvertToString`.
   - *Naming* — map generated names to PascalCase (generator configuration or a post-processing
@@ -320,14 +348,13 @@ generation — a build-versus-buy decision rather than another tool to trial.
 - **Do not adopt Kiota:** its client replaces owned, working transport with an unowned builder tree
   plus runtime, without improving on the current code, and its models cannot serve the public API
   without a redundant DTO and mapping layer.
-- **Report model gaps upstream** to `supabase/sdk` — the shared model, not the tool choice, is the
-  larger risk. Priority order (all found or confirmed by the live runs):
-  1. **List-response envelope** — the model wraps arrays the API returns bare
-     (`ListBuckets`/`ListObjects`); Kiota returns empty results silently, NSwag throws. Affects
-     every SDK.
-  2. **Optional fields not marked `nullable`** — leads generators to serialize defaults the server
-     rejects. Marking them nullable fixes this for every SDK.
-  3. Streaming `byte→binary`; required multipart parts; and Auth, which is not modelled.
+- **Model gaps reported and fixed upstream** — the shared model, not the tool choice, was the
+  larger risk, and supabase/sdk#55 implements the fixes for everything the live runs surfaced:
+  the list-response envelope, optional-scalar nullability, streaming `byte→binary`
+  (Functions/TUS/Database), the `{wildcardPath+}` label, and build reproducibility. Verified by
+  rerunning both generators and the live harnesses against the fixed artifacts (see *Live-run
+  results*). Still open upstream: **Auth** (unmodelled — needs models or a formal scope-out) and
+  write operations modelling `200` only (the API can return `204`).
 
 ### Stage 2 — at the next major version
 
@@ -335,8 +362,8 @@ generation — a build-versus-buy decision rather than another tool to trial.
   breaking changes already planned for the feature-parity catch-up, so that the break and the
   revalidation pass are paid once.
 - Preconditions: the contract source has proven reliable through Stage-1 monitoring, and the
-  upstream gaps above are fixed. If they are not, Stage 1 continues as-is — the drift monitor
-  remains a prioritisation tool and no public API changes.
+  remaining upstream gaps (Auth modelling, `204` responses) are resolved. If they are not, Stage 1
+  continues as-is — the drift monitor remains a prioritisation tool and no public API changes.
 
 ## Scope of validity
 
@@ -375,21 +402,23 @@ re-running the evaluation against their own baselines.
 1. The NSwag models-only pipeline with the three fixes (serialization, AOT, naming).
 2. The drift monitor: generated models diffed against public types, committed baseline, two-class
    triage.
-3. Upstream fixes to the shared model (nullability, list envelopes, streaming, Auth) — the
-   higher-leverage work, benefiting every SDK.
+3. Upstream fixes to the shared model — delivered in supabase/sdk#55 (list envelopes, nullability,
+   streaming, path labels, build reproducibility); Auth modelling remains open. The higher-leverage
+   work, benefiting every SDK.
 4. A live contract-test harness (`*-testrun`) as a permanent pipeline stage — the mechanism that
    catches model-versus-production drift before it ships across the fleet.
 5. The Stage-2 replacement decision, prepared as part of the next major release.
 
 **Status of the contract source.** The organisation is evaluating Smithy as the modelling IDL; the
 model is under active development and there is no committed rollout. The defects found by the live
-runs are consistent with that work-in-progress status and are expected to be resolved as the model
-matures. The C# requirement is narrower than that decision: a reliable,
-validated OpenAPI document maintained as the contract artifact, from whichever IDL emits it —
-Smithy and TypeSpec both output OpenAPI, and the C# toolchain consumes only the OpenAPI document.
-The model gaps found by this spike (list envelope, nullability, unmodelled Auth) are input to that
-evaluation. Stage 1 does not depend on the outcome: the drift monitor functions against an
-imperfect specification and contributes to validating it. Stage 2 does depend on it.
+runs were consistent with that work-in-progress status; they have since been fixed in
+supabase/sdk#55 and verified by rerunning the spike against the corrected artifacts — one complete
+turn of the generate → validate-live → fix-the-model loop the pipeline requires. The C# requirement
+is narrower than the IDL decision: a reliable, validated OpenAPI document maintained as the
+contract artifact, from whichever IDL emits it — Smithy and TypeSpec both output OpenAPI, and the
+C# toolchain consumes only the OpenAPI document. The spike's findings (model gaps and their fixes)
+are input to that evaluation. Stage 1 does not depend on the outcome: the drift monitor functions
+against an imperfect specification and contributes to validating it. Stage 2 does depend on it.
 
 **Reversal criteria.** Stop generation entirely if the OpenAPI contract artifact ceases to be
 maintained. Do not proceed to Stage 2 if the shared model remains unvalidated or if only
