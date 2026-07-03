@@ -61,8 +61,9 @@ generated **request** DTOs are not usable as-is against Supabase without a seria
   already does this byte→binary flip for Storage; it must be **extended to Functions**.
 
 ### 3. HttpClient injection — ✅
-Constructor is `public GoTrueGeneratedClient(System.Net.Http.HttpClient httpClient)`. Accepts an
-externally created/`IHttpClientFactory` client. No internally-created `HttpClient`.
+Constructor is `public StorageClient(System.Net.Http.HttpClient httpClient)` (same pattern for
+`FunctionsClient`/`DatabaseClient`). Accepts an externally created/`IHttpClientFactory` client. No
+internally-created `HttpClient`.
 
 ### 4. Middleware / handlers — ✅
 Two seams: (a) the injected `HttpClient` carries any `DelegatingHandler` pipeline (auth headers,
@@ -126,16 +127,23 @@ solved, since the fix is the same.)
   un-refactored transport that DRYs back into the SDK's existing `MakeRequest`, minus our
   `FailureHint` error mapping / serializer injection / dynamic headers. On an already
   thin-wrapper-shaped SDK, generated ops add a layer *beneath* a wrapper we write anyway.
-- **Steal one idea:** add `HttpCompletionOption.ResponseHeadersRead` to the shared `Core` transport.
-- **Unspillable, stays hand-written regardless:** Storage streaming/progress/TUS ergonomics, the
-  PostgREST query builder, Functions method-dispatch, and **all of Auth**.
+- **Adopt one transport technique:** add `HttpCompletionOption.ResponseHeadersRead` to the shared
+  `Core` transport.
+- **Stays hand-written regardless:** Storage streaming/progress/TUS ergonomics, the PostgREST
+  query builder, Functions method-dispatch, and **all of Auth**.
 
 **Why not "adopt" (whole client):** streaming needs model fixes *and* still yields `Stream`/
 `FileResponse` we'd wrap; AOT/trimming fails (reflection STJ); the operation layer is worse-factored
-than what we own. **Why not "reject":** the model slice is a real, low-cost win *if* the org runs
-the Smithy pipeline fleet-wide — C# just taps it. Standalone-for-C# only, the pipeline overhead
-(Smithy upstream, patches, naming template, source-gen for AOT) likely exceeds the value.
+than what we own. **Why not "reject":** the model slice is a real, low-cost win *if* a validated
+OpenAPI contract is maintained centrally (from whichever IDL emits it) — C# reuses it.
+Standalone-for-C# only, the pipeline overhead (contract upstream, patches, naming template,
+source-gen for AOT) likely exceeds the value.
 
-**Net:** NSwag against these Smithy specs is a viable **models generator** and a poor **whole-client
+**Net:** NSwag against these specs is a viable **models generator** and a poor **whole-client
 generator**. Draw the line at models vs operations; feed the Q10 gaps back to `supabase/sdk` so
 every SDK benefits.
+
+The adoption strategy built on this verdict — two stages, drift monitoring, consumer impact of
+integrating generated types into the published API, and the conditions/reversal criteria — is
+defined in the root [`codegen-comparison.md`](../codegen-comparison.md); this document is the
+tool-level evidence.

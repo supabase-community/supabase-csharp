@@ -58,7 +58,7 @@ would be generatable once modelled, session/refresh/PKCE stay hand-written. Mode
 Same as NSwag: generates the row/RPC builders + models; the fluent `.eq()/.select()/.order()`
 builder stays entirely hand-written (row bodies are dynamic). Kiota adds no query-builder help.
 
-### 8. AOT / trimming — ✅ (Kiota's headline win)
+### 8. AOT / trimming — ✅ (no reflection)
 Serialization is **explicit `IParsable`** (`GetFieldDeserializers()` / `Serialize(ISerializationWriter)`)
 — **zero reflection**, 0 `JsonSerializer` calls in generated code. Trim/NativeAOT-safe by
 construction; the Kiota runtime libs are trimmable. This is exactly where NSwag fails.
@@ -81,10 +81,10 @@ POST /object/list/{bucket} → [ {...} ]
 but the Smithy model wraps them (`structure ListBucketsOutput { @required items: BucketList }`), so
 the generated `ListBucketsResponseContent` / `ListObjectsResponseContent` expose an `.Items` envelope
 that **never matches**. The client deserializes the top-level array into an object → `.Items` is
-`null` → returns **0 silently** (no error). This is the worst failure class — a green call with wrong
-data — and it is **tool-independent** (NSwag emits the same envelope from the same model) and hits
-**every SDK**. It is also a textbook "model not validated against production" defect: the hand-written
-Smithy shape invented an envelope the server doesn't send. **Raise on `supabase/sdk`:** model the
+`null` → returns **0 silently** (no error). This is a call that succeeds while returning wrong
+data — the failure mode hardest to detect — and it is **tool-independent** (NSwag emits the same
+envelope from the same model) and hits **every SDK**. It is a model-not-validated-against-production
+defect: the modelled shape does not match what the server sends. **Raise on `supabase/sdk`:** model the
 list outputs as top-level lists (or fix the server contract). This is the most important gap found.
 
 ## Good / bad
@@ -97,23 +97,27 @@ list outputs as top-level lists (or fix the server contract). This is the most i
 
 **Bad (for this SDK's wrapper architecture)**
 - **8-package runtime dependency**, and it goes **public** (see below).
-- **Models bleed through the public API.** Every model is
+- **Models reach the public API.** Every model is
   `public partial class X : IAdditionalDataHolder, IParsable` exposing
   `Microsoft.Kiota.Abstractions.Serialization` types (`IParseNode`, `ISerializationWriter`).
   Returning one from a wrapper puts `Microsoft.Kiota.Abstractions` on your public surface → forced
   transitive dep on every consumer. **To stay Kiota-agnostic you must hand-write a full parallel
   DTO layer + mapping** — which erases the reason to generate models at all.
-- **Un-ownable**: request-builder tree (51 files) + external runtime; you don't own the transport.
-- **All-or-nothing**: can't cherry-pick models (they need the runtime) — no models-only adoption.
+- **External ownership**: request-builder tree (51 files) + external runtime; transport lives in
+  the runtime, not in code the team can edit.
+- **No models-only path**: the models require the runtime, so they cannot be adopted without it.
 - **No domain error mapping**: generic typed errors; `FailureHint`-style reasons are rebuilt by hand.
 - **Resists the partial seam** used to own product-specific behavior.
 
 ## Recommendation for supabase-csharp — **reject as an included artifact**
-Kiota is the better-engineered client (AOT, streaming, factored transport) and would be the right
-choice **only if** the team adopted a *whole* generated client + the Kiota runtime fleet-wide and
-hand-wrote ergonomic wrappers over the builders. Under this SDK's model — generated code kept
-**internal beneath a hand-written wrapper**, minimal/ownable dependencies — Kiota fails the decisive
-test: **its models can't serve as your DTOs without leaking Kiota into the public API**, forcing a
-full agnostic-DTO + mapping layer. That negates the one thing worth generating (ownable models).
+Kiota's client is AOT-safe, streams as generated, and delegates transport to a maintained runtime.
+It fits **only if** the team adopts a *whole* generated client + the Kiota runtime fleet-wide and
+hand-writes ergonomic wrappers over the builders — or for an SDK built from scratch, where there is
+no owned transport to replace and no published API to break (see the root document's *Scope of
+validity*). Under this SDK's model — generated code kept **internal beneath a hand-written
+wrapper**, minimal dependencies — Kiota fails the decisive test: **its models cannot serve as the
+SDK's DTOs without placing `Microsoft.Kiota.Abstractions` on the public API**, forcing a full
+agnostic-DTO + mapping layer. That negates the one thing worth generating (usable models).
 
-See the root `codegen-comparison.md` for the head-to-head and the overall recommendation.
+See the root [`codegen-comparison.md`](../codegen-comparison.md) for the full comparison, the
+two-stage adoption strategy, and its conditions; this document is the tool-level evidence.
