@@ -8,7 +8,7 @@
       "prerelease": false,
       "release-type": "simple",
       "extra-files": [
-        "Supabase/Supbase.csproj"
+        "Supabase/Supabase.csproj"
       ]
     }
   },
