@@ -20,8 +20,8 @@
         <Summary>A C# implementation of the Supabase client</Summary>
         <PackageTags>supabase</PackageTags>
         <!-- x-release-please-start-version -->
-        <ReleaseVersion>1.1.1</ReleaseVersion>
-        <PackageVersion>1.1.1</PackageVersion>
+        <ReleaseVersion>1.2.0</ReleaseVersion>
+        <PackageVersion>1.2.0</PackageVersion>
         <!-- x-release-please-end -->
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageIcon>icon.png</PackageIcon>
@@ -34,7 +34,7 @@
     </PropertyGroup>
    
     <PropertyGroup Condition=" '$(Version)' == '' ">
-        <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">1.1.1</VersionPrefix> <!-- x-release-please-version -->
+        <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">1.2.0</VersionPrefix> <!-- x-release-please-version -->
         <Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
     </PropertyGroup>
     <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
