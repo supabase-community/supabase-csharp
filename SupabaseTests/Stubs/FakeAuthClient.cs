@@ -68,6 +68,11 @@ namespace SupabaseTests.Stubs
             throw new NotImplementedException();
         }
 
+        public Task RefreshToken(string accessToken, string refreshToken)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<MfaEnrollResponse> Enroll(MfaEnrollParams mfaEnrollParams)
         {
             throw new NotImplementedException();
