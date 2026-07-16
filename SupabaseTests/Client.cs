@@ -82,11 +82,11 @@ namespace SupabaseTests
             _instance.Postgrest = new FakeRestClient();
             _instance.Storage = new FakeStorageClient();
 
-            Assert.ThrowsExceptionAsync<NotImplementedException>(() => _instance.Auth.GetUser(""));
-            Assert.ThrowsExceptionAsync<NotImplementedException>(() => _instance.Functions.Invoke(""));
-            Assert.ThrowsExceptionAsync<NotImplementedException>(() => _instance.Realtime.ConnectAsync());
-            Assert.ThrowsExceptionAsync<NotImplementedException>(() => _instance.Postgrest.Rpc("", null));
-            Assert.ThrowsExceptionAsync<NotImplementedException>(() => _instance.Storage.ListBuckets());
+            Assert.ThrowsAsync<NotImplementedException>(() => _instance.Auth.GetUser(""));
+            Assert.ThrowsAsync<NotImplementedException>(() => _instance.Functions.Invoke(""));
+            Assert.ThrowsAsync<NotImplementedException>(() => _instance.Realtime.ConnectAsync());
+            Assert.ThrowsAsync<NotImplementedException>(() => _instance.Postgrest.Rpc("", null));
+            Assert.ThrowsAsync<NotImplementedException>(() => _instance.Storage.ListBuckets());
         }
     }
 }
