@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.2.0](https://github.com/supabase-community/supabase-csharp/compare/v1.1.2...v1.2.0) (2026-07-16)
+
+
+### Features
+
+* add dependabot ([#202](https://github.com/supabase-community/supabase-csharp/issues/202)) ([e04cc98](https://github.com/supabase-community/supabase-csharp/commit/e04cc988b45c1d8ab29bbab41a5aac3c19877e81))
+* add sdk compliance file for capabilities matrix ([#267](https://github.com/supabase-community/supabase-csharp/issues/267)) ([3fad62f](https://github.com/supabase-community/supabase-csharp/commit/3fad62f9bc8edad8abec2ba5c06dd504e5e78630))
+* add support for trusted publishing ([#276](https://github.com/supabase-community/supabase-csharp/issues/276)) ([5eefb2c](https://github.com/supabase-community/supabase-csharp/commit/5eefb2cb486861cc6117d69584fd4ac470abf897))
+
+
+### Bug Fixes
+
+* correct csproj filename typo in release-please config ([#274](https://github.com/supabase-community/supabase-csharp/issues/274)) ([4884c6e](https://github.com/supabase-community/supabase-csharp/commit/4884c6eef5a4a535d3c76e6ffe831e5fa8f00008))
+* lower Newtonsoft.Json minimum version to 13.0.2 ([#275](https://github.com/supabase-community/supabase-csharp/issues/275)) ([d2233e2](https://github.com/supabase-community/supabase-csharp/commit/d2233e256217e59c22ef76edc93c9b682673d4c5))
+
 ## [1.1.2](https://github.com/supabase-community/supabase-csharp/compare/v1.1.1...v1.1.2) (2025-07-07)
 
 
