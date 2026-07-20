@@ -46,7 +46,7 @@
         <PackageReference Include="Supabase.Core" Version="1.1.0" />
         <PackageReference Include="Supabase.Functions" Version="2.1.1" />
         <PackageReference Include="Supabase.Gotrue" Version="6.1.0" />
-        <PackageReference Include="Supabase.Postgrest" Version="4.2.0" />
+        <PackageReference Include="Supabase.Postgrest" Version="4.3.0" />
         <PackageReference Include="Supabase.Realtime" Version="7.2.1" />
         <PackageReference Include="Supabase.Storage" Version="2.4.2" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
