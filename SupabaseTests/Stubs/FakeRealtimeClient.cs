@@ -80,7 +80,7 @@ namespace SupabaseTests.Stubs
             throw new NotImplementedException();
         }
 
-        public ClientOptions Options { get; }
+        public ClientOptions Options { get; } = new ClientOptions();
         public JsonSerializerSettings SerializerSettings { get; }
         public IRealtimeSocket Socket { get; }
         public ReadOnlyDictionary<string, RealtimeChannel> Subscriptions { get; }
