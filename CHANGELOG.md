@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/supabase-community/supabase-csharp/compare/v1.2.0...v1.3.0) (2026-07-20)
+
+
+### Features
+
+* wire Realtime's Postgrest client automatically so models from postgres_changes support Update/Delete ([#282](https://github.com/supabase-community/supabase-csharp/issues/282)) ([584cc1c](https://github.com/supabase-community/supabase-csharp/commit/584cc1c4589d4162d73deb8b487d36cab1f96333))
+
 ## [1.2.0](https://github.com/supabase-community/supabase-csharp/compare/v1.1.2...v1.2.0) (2026-07-16)
 
 
