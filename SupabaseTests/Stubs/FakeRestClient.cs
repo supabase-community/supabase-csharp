@@ -15,6 +15,11 @@ namespace SupabaseTests.Stubs
             throw new NotImplementedException();
         }
 
+        public T Attach<T>(T model) where T : BaseModel
+        {
+            throw new NotImplementedException();
+        }
+
         public string BaseUrl => throw new NotImplementedException();
 
         public ClientOptions Options => throw new NotImplementedException();
