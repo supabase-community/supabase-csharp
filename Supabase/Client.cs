@@ -129,6 +129,7 @@ namespace Supabase
             _postgrest = postgrest;
             _storage = storage;
             _options = options;
+            _realtime.Options.PostgrestClient = _postgrest;
         }
 
         /// <summary>
@@ -175,18 +176,19 @@ namespace Supabase
             _auth.AddStateChangedListener(Auth_StateChanged);
             _auth.GetHeaders = GetAuthHeaders;
 
+            _postgrest = new Postgrest.Client(restUrl, new Postgrest.ClientOptions { Schema = schema });
+            _postgrest.GetHeaders = GetAuthHeaders;
+
             // Init Realtime
 
             var realtimeOptions = new Realtime.ClientOptions
             {
-                Parameters = { ApiKey = _supabaseKey }
+                Parameters = { ApiKey = _supabaseKey },
+                PostgrestClient = _postgrest
             };
 
             _realtime = new Realtime.Client(realtimeUrl, realtimeOptions);
             _realtime.GetHeaders = GetAuthHeaders;
-
-            _postgrest = new Postgrest.Client(restUrl, new Postgrest.ClientOptions { Schema = schema });
-            _postgrest.GetHeaders = GetAuthHeaders;
 
             _functions = new Functions.Client(functionsUrl);
             _functions.GetHeaders = GetAuthHeaders;
