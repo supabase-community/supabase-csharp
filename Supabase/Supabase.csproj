@@ -43,7 +43,7 @@
     
     <ItemGroup>
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.301" PrivateAssets="All" />
-        <PackageReference Include="Supabase.Core" Version="1.1.0" />
+        <PackageReference Include="Supabase.Core" Version="1.2.0" />
         <PackageReference Include="Supabase.Functions" Version="2.1.1" />
         <PackageReference Include="Supabase.Gotrue" Version="6.1.0" />
         <PackageReference Include="Supabase.Postgrest" Version="4.3.0" />
