@@ -20397,6 +20397,25 @@ references:
   isSpec: "True"
   fullName: Supabase.Storage.UploadSignedUrl.Token
   nameWithType: UploadSignedUrl.Token
+- uid: Supabase.SupabaseDiagnostics
+  name: SupabaseDiagnostics
+  href: api/Supabase.SupabaseDiagnostics.html
+  commentId: T:Supabase.SupabaseDiagnostics
+  fullName: Supabase.SupabaseDiagnostics
+  nameWithType: SupabaseDiagnostics
+- uid: Supabase.SupabaseDiagnostics.SourceNames
+  name: SourceNames
+  href: api/Supabase.SupabaseDiagnostics.html#Supabase_SupabaseDiagnostics_SourceNames
+  commentId: P:Supabase.SupabaseDiagnostics.SourceNames
+  fullName: Supabase.SupabaseDiagnostics.SourceNames
+  nameWithType: SupabaseDiagnostics.SourceNames
+- uid: Supabase.SupabaseDiagnostics.SourceNames*
+  name: SourceNames
+  href: api/Supabase.SupabaseDiagnostics.html#Supabase_SupabaseDiagnostics_SourceNames_
+  commentId: Overload:Supabase.SupabaseDiagnostics.SourceNames
+  isSpec: "True"
+  fullName: Supabase.SupabaseDiagnostics.SourceNames
+  nameWithType: SupabaseDiagnostics.SourceNames
 - uid: Supabase.SupabaseModel
   name: SupabaseModel
   href: api/Supabase.SupabaseModel.html
