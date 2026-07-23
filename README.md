@@ -43,6 +43,37 @@ the administration of users, bypassing database roles, etc.). If you are using
 the `service_key` **be sure it is not exposed client side.** Additionally, if you need to use both a service account and
 a public/user account, please do so using a separate client instance for each._
 
+## Observability (OpenTelemetry)
+
+The clients emit traces and metrics through `System.Diagnostics`, so you can wire them into
+OpenTelemetry (or any `ActivityListener`/`MeterListener`) without the clients taking a dependency on
+the OpenTelemetry packages. Emission is zero-cost while nothing is listening, so it is always on and
+stays silent until you subscribe.
+
+Rather than registering each client's source by hand, use `SupabaseDiagnostics.SourceNames`, which
+gathers the names of every instrumented client. Each client shares one name between its
+`ActivitySource` and its `Meter`, so the same list works for tracing and metrics:
+
+```csharp
+using OpenTelemetry.Metrics;
+using OpenTelemetry.Trace;
+using Supabase;
+
+// Requires the OpenTelemetry.Extensions.Hosting and an exporter package (e.g. OTLP) in your app.
+builder.Services.AddOpenTelemetry()
+    .WithTracing(tracing => tracing
+        .AddSource(SupabaseDiagnostics.SourceNames.ToArray())
+        .AddOtlpExporter())
+    .WithMetrics(metrics => metrics
+        .AddMeter(SupabaseDiagnostics.SourceNames.ToArray())
+        .AddOtlpExporter());
+```
+
+This covers the Auth (Gotrue), Postgrest, Functions, and Storage clients. Realtime is **not** yet
+instrumented, so no websocket telemetry is emitted. URLs are recorded without their query string, and
+no token, credential, or payload is placed in a tag. See each client's own README for the specific
+spans and metrics it produces.
+
 ## Documentation
 
 - [Getting Started](https://github.com/supabase-community/supabase-csharp/wiki#getting-started)
