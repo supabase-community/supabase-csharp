@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/supabase-community/supabase-csharp/compare/v1.3.0...v1.4.0) (2026-07-23)
+
+
+### Features
+
+* expose aggregated telemetry source names for OpenTelemetry ([#285](https://github.com/supabase-community/supabase-csharp/issues/285)) ([bc29898](https://github.com/supabase-community/supabase-csharp/commit/bc29898d89d7d98b4f2d4e31a0c64678a9672210))
+
 ## [1.3.0](https://github.com/supabase-community/supabase-csharp/compare/v1.2.0...v1.3.0) (2026-07-20)
 
 
