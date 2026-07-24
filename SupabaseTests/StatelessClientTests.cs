@@ -48,14 +48,26 @@ public class StatelessClientTests
     }
 
     [TestMethod]
-    public void GetRestOptions_ShouldComposeSchemaAndKey()
+    public void GetRestOptions_ShouldComposeSchemaKeyAndAuthHeaders()
     {
         var restOptions = GetRestOptions("my-key", new Supabase.SupabaseOptions { Schema = "custom" });
         using (new AssertionScope())
         {
             restOptions.Schema.Should().Be("custom");
             restOptions.Headers.Should().ContainKey("apiKey").WhoseValue.Should().Be("my-key");
+            restOptions.Headers.Should().ContainKey("Authorization").WhoseValue.Should().Be("Bearer my-key",
+                "with no developer Authorization the bearer falls back to the supabase key");
+            restOptions.Headers.Should().ContainKey("X-Client-Info");
         }
+    }
+
+    [TestMethod]
+    public void GetRestOptions_ShouldMergeDeveloperSuppliedHeaders_GivenCustomHeader()
+    {
+        var options = new Supabase.SupabaseOptions();
+        options.Headers["X-Custom"] = "custom-value";
+        GetRestOptions("my-key", options).Headers.Should().ContainKey("X-Custom")
+            .WhoseValue.Should().Be("custom-value", "developer headers must flow through to the child clients");
     }
 
     [TestMethod]

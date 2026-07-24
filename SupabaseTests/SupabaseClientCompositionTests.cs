@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Net.WebSockets;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -199,5 +200,35 @@ public class SupabaseClientCompositionTests
     public void SupabaseClient_ShouldExposeAdminAuthClient_GivenServiceKey()
     {
         UrlClient().AdminAuth("service-key").Should().NotBeNull();
+    }
+
+    [TestMethod]
+    public void SupabaseClient_ShouldPreferSessionTokenOverApiKey_GivenActiveSession()
+    {
+        var client = UrlClient();
+        var auth = Substitute.For<IGotrueClient<User, Session>>();
+        auth.CurrentSession.Returns(new Session { AccessToken = "session-token" });
+        client.Auth = auth;
+        client.Postgrest.GetHeaders!().Should().ContainKey("Authorization")
+            .WhoseValue.Should().Be("Bearer session-token",
+                "an active session's access token must take precedence over the api key as the bearer");
+    }
+
+    [TestMethod]
+    public void SupabaseClient_ShouldStopListeningToPreviousAuth_GivenAuthReplaced()
+    {
+        var previous = Substitute.For<IGotrueClient<User, Session>>();
+        var client = DiClient(auth: previous);
+        client.Auth = Substitute.For<IGotrueClient<User, Session>>();
+        previous.Received().RemoveStateChangedListener(Arg.Any<IGotrueClient<User, Session>.AuthEventHandler>());
+    }
+
+    [TestMethod]
+    public void SupabaseClient_ShouldDisconnectPreviousRealtime_GivenRealtimeReplaced()
+    {
+        var previous = RealtimeSubstitute();
+        var client = DiClient(realtime: previous);
+        client.Realtime = Substitute.For<IRealtimeClient<RealtimeSocket, RealtimeChannel>>();
+        previous.Received().Disconnect(Arg.Any<WebSocketCloseStatus>(), Arg.Any<string>());
     }
 }
