@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Manual test-run harness for the NSwag-generated Storage client (SDK-1107).
+    Hand-written (ownable) console app; drives the generated client against a LOCAL Supabase
+    platform (`supabase start`). Standalone, in the solution, not referenced by the product.
+    Mirror of ../kiota-testrun for a like-for-like comparison. See README.md.
+  -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Supabase.Spike.NSwagTestRun</RootNamespace>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- brings the generated NSwag client + System.Text.Json transitively -->
+    <ProjectReference Include="..\nswag-spike\spike-nswag.csproj" />
+  </ItemGroup>
+
+</Project>
