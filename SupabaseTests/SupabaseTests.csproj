@@ -6,6 +6,9 @@
     <ReleaseVersion>0.8.5</ReleaseVersion>
     <OutputType>Library</OutputType>
     <TargetFramework>net8.0</TargetFramework>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest</AnalysisLevel>
   </PropertyGroup>
 
   <ItemGroup>
