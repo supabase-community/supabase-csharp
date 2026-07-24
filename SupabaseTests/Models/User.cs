@@ -2,12 +2,11 @@
 using Supabase.Postgrest.Attributes;
 using Supabase.Postgrest.Models;
 
-namespace SupabaseTests.Models
+namespace SupabaseTests.Models;
+
+[Table("users")]
+public class User : BaseModel
 {
-    [Table("users")]
-    public class User : BaseModel
-    {
-        [JsonProperty("username")]
-        public string Username { get; set; }
-    }
+    [JsonProperty("username")]
+    public string Username { get; set; }
 }
