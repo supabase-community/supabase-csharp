@@ -71,14 +71,20 @@ public class StatelessClientTests
     }
 
     [TestMethod]
-    public void Functions_ShouldReturnClient_GivenUrlAndKey()
+    public void Functions_ShouldCarryDeveloperHeadersToClient_GivenCustomHeader()
     {
-        Functions(SupabaseUrl, "my-key", FormatOptions()).Should().NotBeNull();
+        var options = FormatOptions();
+        options.Headers["X-Custom"] = "custom-value";
+        Functions(SupabaseUrl, "my-key", options).GetHeaders!().Should().ContainKey("X-Custom")
+            .WhoseValue.Should().Be("custom-value", "developer headers must reach the composed functions client");
     }
 
     [TestMethod]
-    public void Storage_ShouldReturnClient_GivenUrlAndKey()
+    public void Storage_ShouldCarryDeveloperHeadersToClient_GivenCustomHeader()
     {
-        Storage(SupabaseUrl, "my-key", FormatOptions()).Should().NotBeNull();
+        var options = FormatOptions();
+        options.Headers["X-Custom"] = "custom-value";
+        Storage(SupabaseUrl, "my-key", options).Headers.Should().ContainKey("X-Custom")
+            .WhoseValue.Should().Be("custom-value", "developer headers must reach the composed storage client");
     }
 }
