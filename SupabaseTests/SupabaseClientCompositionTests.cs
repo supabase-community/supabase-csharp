@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.WebSockets;
+using System.Threading.Tasks;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -37,13 +38,14 @@ public class SupabaseClientCompositionTests
     private static Supabase.Client DiClient(
         IGotrueClient<User, Session> auth = null,
         IRealtimeClient<RealtimeSocket, RealtimeChannel> realtime = null,
-        IPostgrestClient postgrest = null) =>
+        IPostgrestClient postgrest = null,
+        SupabaseOptions options = null) =>
         new(auth ?? Substitute.For<IGotrueClient<User, Session>>(),
             realtime ?? RealtimeSubstitute(),
             Substitute.For<IFunctionsClient>(),
             postgrest ?? Substitute.For<IPostgrestClient>(),
             Substitute.For<IStorageClient<Bucket, FileObject>>(),
-            new SupabaseOptions());
+            options ?? new SupabaseOptions());
 
     // The umbrella writes Options.PostgrestClient during construction, so the substitute needs real Options.
     private static IRealtimeClient<RealtimeSocket, RealtimeChannel> RealtimeSubstitute()
@@ -175,6 +177,30 @@ public class SupabaseClientCompositionTests
     }
 
     [TestMethod]
+    public async Task SupabaseClient_ShouldRetrieveSessionAndConnectRealtime_GivenAutoConnectEnabled()
+    {
+        var auth = Substitute.For<IGotrueClient<User, Session>>();
+        var realtime = RealtimeSubstitute();
+        var client = DiClient(auth: auth, realtime: realtime,
+            options: new SupabaseOptions { AutoConnectRealtime = true });
+        await client.InitializeAsync();
+        await auth.Received().RetrieveSessionAsync();
+        await realtime.Received().ConnectAsync();
+    }
+
+    [TestMethod]
+    public async Task SupabaseClient_ShouldNotConnectRealtime_GivenAutoConnectDisabled()
+    {
+        var auth = Substitute.For<IGotrueClient<User, Session>>();
+        var realtime = RealtimeSubstitute();
+        var client = DiClient(auth: auth, realtime: realtime,
+            options: new SupabaseOptions { AutoConnectRealtime = false });
+        await client.InitializeAsync();
+        await auth.Received().RetrieveSessionAsync();
+        await realtime.DidNotReceive().ConnectAsync();
+    }
+
+    [TestMethod]
     public void SupabaseClient_ShouldDelegateRpcToPostgrest()
     {
         var postgrest = Substitute.For<IPostgrestClient>();
@@ -183,9 +209,32 @@ public class SupabaseClientCompositionTests
     }
 
     [TestMethod]
-    public void SupabaseClient_ShouldReturnQueryableTable_GivenFrom()
+    public void SupabaseClient_ShouldConfigurePostgrestWithSchema_GivenCustomSchema()
     {
-        UrlClient().From<Models.Channel>().Should().NotBeNull();
+        var client = UrlClient(new SupabaseOptions { AutoConnectRealtime = false, Schema = "custom" });
+        client.Postgrest.Options.Schema.Should().Be("custom",
+            "the umbrella must pass the developer's schema down to the Postgrest client it builds");
+    }
+
+    [TestMethod]
+    public void SupabaseClient_ShouldConfigureAuthFromUrlAndOptions_GivenAutoRefreshDisabled()
+    {
+        var client = UrlClient(new SupabaseOptions { AutoConnectRealtime = false, AutoRefreshToken = false });
+        using (new AssertionScope())
+        {
+            client.Auth.Options.Url.Should().Be("http://localhost/auth/v1",
+                "the auth client must be built against the derived auth url, not the Gotrue default");
+            client.Auth.Options.AutoRefreshToken.Should().BeFalse(
+                "the developer's AutoRefreshToken choice must reach the auth client");
+        }
+    }
+
+    [TestMethod]
+    public void SupabaseClient_ShouldWireTableToClientAuthHeaders_GivenFrom()
+    {
+        var table = UrlClient().From<Models.Channel>();
+        table.GetHeaders!().Should().ContainKey("apiKey").WhoseValue.Should().Be("test-key",
+            "queries built from the umbrella must carry its auth headers, or every request is unauthenticated");
     }
 
     [TestMethod]
