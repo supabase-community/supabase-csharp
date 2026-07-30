@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/supabase-community/supabase-csharp/compare/v1.4.0...v1.5.0) (2026-07-30)
+
+
+### Features
+
+* bump Supabase dependencies ([#293](https://github.com/supabase-community/supabase-csharp/issues/293)) ([6658bc2](https://github.com/supabase-community/supabase-csharp/commit/6658bc21c2312d0309b25be5c84722770a0c6f52))
+
 ## [1.4.0](https://github.com/supabase-community/supabase-csharp/compare/v1.3.0...v1.4.0) (2026-07-23)
 
 
