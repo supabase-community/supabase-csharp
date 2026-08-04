@@ -257,10 +257,8 @@ namespace Supabase
         ///</summary>
         internal Dictionary<string, string> GetAuthHeaders()
         {
-            var headers = new Dictionary<string, string>
-            {
-                ["X-Client-Info"] = Util.GetAssemblyVersion(typeof(Client))
-            };
+            var headers = CaseInsensitiveHeaders();
+            headers["X-Client-Info"] = Util.GetAssemblyVersion(typeof(Client));
 
             if (_supabaseKey != null)
                 headers["apiKey"] = _supabaseKey;
@@ -282,5 +280,7 @@ namespace Supabase
 
             return headers;
         }
+
+        private static Dictionary<string, string> CaseInsensitiveHeaders() => new(StringComparer.OrdinalIgnoreCase);
     }
 }
