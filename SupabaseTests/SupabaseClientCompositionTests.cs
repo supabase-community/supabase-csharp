@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Net.WebSockets;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -137,6 +139,24 @@ public class SupabaseClientCompositionTests
         UrlClient(options).Postgrest.GetHeaders!().Should().ContainKey("Authorization")
             .WhoseValue.Should().Be("Bearer developer-token",
                 "an explicit Authorization header must win over the key-derived bearer (issue #5)");
+    }
+
+    [TestMethod]
+    public void SupabaseClient_ShouldPreferDeveloperApiKeyHeader_GivenApiKeyInOptions()
+    {
+        var options = new SupabaseOptions
+        {
+            AutoConnectRealtime = false,
+            Headers =
+            {
+                ["apikey"] = "developer-key"
+            }
+        };
+        UrlClient(options).Postgrest.GetHeaders!()
+            .Where(header => string.Equals(header.Key, "apikey", StringComparison.OrdinalIgnoreCase))
+            .Should().ContainSingle(
+                "a developer apikey must replace the key-derived one, not be sent alongside it as a duplicate header that breaks header-based RLS (issue #19)")
+            .Which.Value.Should().Be("developer-key");
     }
 
     [TestMethod]
