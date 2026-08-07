@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.6.0](https://github.com/supabase-community/supabase-csharp/compare/v1.5.0...v1.6.0) (2026-08-07)
+
+
+### Features
+
+* bump Supabase dependencies ([#301](https://github.com/supabase-community/supabase-csharp/issues/301)) ([91c35d2](https://github.com/supabase-community/supabase-csharp/commit/91c35d23c7906f9f7662411fca99161791a87af2))
+
+
+### Bug Fixes
+
+* match auth header names case-insensitively (enables developer override) ([#295](https://github.com/supabase-community/supabase-csharp/issues/295)) ([ac057a2](https://github.com/supabase-community/supabase-csharp/commit/ac057a2d4b3abb4b7ed916e004110db79881dc9a))
+
 ## [1.5.0](https://github.com/supabase-community/supabase-csharp/compare/v1.4.0...v1.5.0) (2026-07-30)
 
 
