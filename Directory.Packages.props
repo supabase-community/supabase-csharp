@@ -1,0 +1,36 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+  <!--
+    Central Package Management: every package version for the whole solution lives here.
+    Individual projects reference packages with <PackageReference Include="..." /> (no Version).
+    Divergences resolved during consolidation:
+      - MSTest.TestAdapter/TestFramework unified to 4.3.3 (was 4.3.2 in five test projects).
+      - WireMock.Net unified to 2.13.0 (was 2.12.0 in three test projects).
+      - System.IdentityModel.Tokens.Jwt kept at 7.5.1 (Gotrue production) here; Functions.Tests
+        pins 8.19.2 locally via VersionOverride so production is not bumped to a new major.
+  -->
+  <ItemGroup>
+    <!-- Production dependencies -->
+    <PackageVersion Include="BirdMessenger" Version="4.0.0" />
+    <PackageVersion Include="MimeMapping" Version="4.0.0" />
+    <PackageVersion Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageVersion Include="System.Diagnostics.DiagnosticSource" Version="8.0.1" />
+    <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="7.5.1" />
+    <PackageVersion Include="Websocket.Client" Version="5.5.0" />
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.301" />
+
+    <!-- Test dependencies -->
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
+    <PackageVersion Include="MSTest.TestAdapter" Version="4.3.3" />
+    <PackageVersion Include="MSTest.TestFramework" Version="4.3.3" />
+    <PackageVersion Include="FluentAssertions" Version="[7.2.2]" />
+    <PackageVersion Include="NSubstitute" Version="[6.0.0]" />
+    <PackageVersion Include="coverlet.collector" Version="10.0.1" />
+    <PackageVersion Include="WireMock.Net" Version="2.13.0" />
+    <PackageVersion Include="Npgsql" Version="[8.0.6]" />
+    <PackageVersion Include="Microsoft.IdentityModel.Tokens" Version="8.19.2" />
+  </ItemGroup>
+</Project>
