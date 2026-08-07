@@ -43,17 +43,20 @@
     
     <ItemGroup>
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.301" PrivateAssets="All" />
-        <PackageReference Include="Supabase.Core" Version="1.2.0" />
-        <PackageReference Include="Supabase.Functions" Version="2.2.0" />
-        <PackageReference Include="Supabase.Gotrue" Version="6.3.0" />
-        <PackageReference Include="Supabase.Postgrest" Version="4.4.0" />
-        <PackageReference Include="Supabase.Realtime" Version="7.4.0" />
-        <PackageReference Include="Supabase.Storage" Version="2.7.0" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Core\Core\Core.csproj" />
+        <ProjectReference Include="..\..\Functions\Functions\Functions.csproj" />
+        <ProjectReference Include="..\..\Gotrue\Gotrue\Gotrue.csproj" />
+        <ProjectReference Include="..\..\Postgrest\Postgrest\Postgrest.csproj" />
+        <ProjectReference Include="..\..\Realtime\Realtime\Realtime.csproj" />
+        <ProjectReference Include="..\..\Storage\Storage\Storage.csproj" />
     </ItemGroup>
     
     <ItemGroup>
-        <None Include="..\.github\icon.png" Pack="true" Link="icon.png" PackagePath="\" />
+        <None Include="..\icon.png" Pack="true" Link="icon.png" PackagePath="\" />
         <None Include="..\README.md" Pack="true" Link="README.md" PackagePath="\" />
     </ItemGroup>
 </Project>

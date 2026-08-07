@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Supabase.Postgrest;
-using SupabaseTests.Models;
+using Supabase.Tests.Models;
 using static Supabase.StatelessClient;
 
-namespace SupabaseTests;
+namespace Supabase.Tests;
 
 /// <summary>
 /// Proves the composed client actually round-trips against a live Supabase CLI stack
@@ -64,7 +64,7 @@ public class SupabaseClientDatabaseTests
     public async Task StatelessFrom_ShouldReturnSameDataAsHandBuiltPostgrestClient()
     {
         var options = StackOptions();
-        var handBuilt = await new Client(string.Format(options.RestUrlFormat, "http://localhost"),
+        var handBuilt = await new Postgrest.Client(string.Format(options.RestUrlFormat, "http://localhost"),
             GetRestOptions(ServiceKey, options)).Table<Channel>().Get();
         var stateless = await From<Channel>("http://localhost", ServiceKey, options).Get();
         stateless.Models.Count.Should().Be(handBuilt.Models.Count);

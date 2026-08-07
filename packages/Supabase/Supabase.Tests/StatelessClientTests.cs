@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static Supabase.Gotrue.Constants;
 using static Supabase.StatelessClient;
 
-namespace SupabaseTests;
+namespace Supabase.Tests;
 
 /// <summary>
 /// The stateless facade owns the same composition concern as <see cref="Supabase.Client"/> — building
@@ -75,7 +75,7 @@ public class StatelessClientTests
     {
         var options = FormatOptions();
         options.Headers["X-Custom"] = "custom-value";
-        Functions(SupabaseUrl, "my-key", options).GetHeaders!().Should().ContainKey("X-Custom")
+        StatelessClient.Functions(SupabaseUrl, "my-key", options).GetHeaders!().Should().ContainKey("X-Custom")
             .WhoseValue.Should().Be("custom-value", "developer headers must reach the composed functions client");
     }
 
@@ -84,7 +84,7 @@ public class StatelessClientTests
     {
         var options = FormatOptions();
         options.Headers["X-Custom"] = "custom-value";
-        Storage(SupabaseUrl, "my-key", options).Headers.Should().ContainKey("X-Custom")
+        StatelessClient.Storage(SupabaseUrl, "my-key", options).Headers.Should().ContainKey("X-Custom")
             .WhoseValue.Should().Be("custom-value", "developer headers must reach the composed storage client");
     }
 }
