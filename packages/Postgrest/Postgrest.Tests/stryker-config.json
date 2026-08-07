@@ -1,0 +1,32 @@
+{
+  "stryker-config": {
+    "project": "Postgrest.csproj",
+    "test-projects": [
+      "Postgrest.Tests.csproj"
+    ],
+    "target-framework": "net8.0",
+    "reporters": [
+      "json",
+      "progress"
+    ],
+    "mutate": [
+      "QueryFilter.cs",
+      "QueryOptions.cs",
+      "QueryOrderer.cs",
+      "Helpers.cs",
+      "IntRange.cs",
+      "PostgrestContractResolver.cs",
+      "PostgrestInstrumentation.cs",
+      "Linq/WhereExpressionVisitor.cs",
+      "Linq/SelectExpressionVisitor.cs",
+      "Linq/SetExpressionVisitor.cs",
+      "Converters/DateTimeConverter.cs",
+      "Converters/IntConverter.cs",
+      "Converters/RangeConverter.cs",
+      "Extensions/EnumExtensions.cs",
+      "Extensions/RangeExtensions.cs",
+      "Extensions/UriExtensions.cs",
+      "Extensions/TypeExtensions.cs"
+    ]
+  }
+}
