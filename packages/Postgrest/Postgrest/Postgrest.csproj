@@ -7,15 +7,12 @@
         <Title>Supabase.Postgrest</Title>
         <AssemblyName>Supabase.Postgrest</AssemblyName>
         <PackageId>Supabase.Postgrest</PackageId>
+        <PackageProjectUrl>https://github.com/supabase-community/supabase-csharp/tree/master/packages/Postgrest</PackageProjectUrl>
         <RootNamespace>Supabase.Postgrest</RootNamespace>
-        <Authors>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Authors>
         <PackOnBuild>true</PackOnBuild>
-        <Copyright>MIT</Copyright>
         <NeutralLanguage>en-US</NeutralLanguage>
         <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <Owners>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Owners>
-        <PackageProjectUrl>https://github.com/supabase-community/postgrest-csharp</PackageProjectUrl>
         <Summary>Library to interact with postgREST servers</Summary>
         <Description>Postgrest-csharp is written primarily as a helper library for supabase/supabase-csharp, however, it should be easy enough to use outside of the supabase ecosystem.
             The bulk of this library is a translation and c-sharp-ification of the supabase/postgrest-js library.
@@ -29,8 +26,6 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageIcon>icon.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <RepositoryUrl>https://github.com/supabase-community/postgrest-csharp</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>

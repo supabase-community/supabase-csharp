@@ -3,17 +3,14 @@
         <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
         <Title>Supabase.Realtime</Title>
         <PackageId>Supabase.Realtime</PackageId>
+        <PackageProjectUrl>https://github.com/supabase-community/supabase-csharp/tree/master/packages/Realtime</PackageProjectUrl>
         <RootNamespace>Supabase.Realtime</RootNamespace>
         <AssemblyName>Supabase.Realtime</AssemblyName>
-        <Authors>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Authors>
         <Description>Realtime-csharp is written as a client library for supabase/realtime.</Description>
         <PackOnBuild>true</PackOnBuild>
-        <Copyright>MIT</Copyright>
         <NeutralLanguage>en</NeutralLanguage>
         <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <Owners>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Owners>
-        <PackageProjectUrl>https://github.com/supabase/realtime-csharp</PackageProjectUrl>
         <Summary>Realtime-csharp is written as a  client library for supabase/realtime.</Summary>
         <PackageTags>supabase, realtime, phoenix</PackageTags>
         <!-- x-release-please-start-version -->
@@ -23,7 +20,6 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageIcon>icon.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <RepositoryUrl>https://github.com/supabase/realtime-csharp</RepositoryUrl>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
