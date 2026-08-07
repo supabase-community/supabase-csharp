@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<IsPackable>false</IsPackable>
+		<TargetFramework>net8.0</TargetFramework>
+		<AssemblyName>Realtime.Tests</AssemblyName>
+		<RootNamespace>Realtime.Tests</RootNamespace>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+		<AnalysisLevel>latest</AnalysisLevel>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
+		<PackageReference Include="MSTest.TestAdapter" Version="4.3.2" />
+		<PackageReference Include="MSTest.TestFramework" Version="4.3.2" />
+		<PackageReference Include="coverlet.collector" Version="10.0.1">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="FluentAssertions" Version="[7.2.2]" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Realtime\Realtime.csproj" />
+	</ItemGroup>
+
+	<!--
+	  Mutation-harness scoping: Stryker cannot filter by [TestCategory], so when STRYKER_MUTATION=true we
+	  compile-exclude the E2E tests (which drive the live Supabase CLI stack, are slow, and are
+	  non-deterministic per-mutant). Stryker then runs only the fast, hermetic Unit tests once per mutant.
+	  The mutate scope is pinned in stryker-config.json. MSBuild resolves the environment variable
+	  automatically; Stryker's child build inherits it.
+	-->
+	<ItemGroup Condition="'$(STRYKER_MUTATION)' == 'true'">
+		<Compile Remove="Connection\ClientConnectionTests.cs" />
+		<Compile Remove="Channels\ChannelSubscriptionTests.cs" />
+		<Compile Remove="Channels\ChannelMessagingTests.cs" />
+		<Compile Remove="PostgresChanges\PostgresChangesDeliveryTests.cs" />
+		<Compile Remove="Broadcast\BroadcastRelayTests.cs" />
+		<Compile Remove="Presence\PresenceTrackingTests.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="Fixtures\**\*.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+</Project>

@@ -1,0 +1,31 @@
+{
+  "stryker-config": {
+    "project": "Realtime.csproj",
+    "test-projects": [
+      "Realtime.Tests.csproj"
+    ],
+    "target-framework": "net8.0",
+    "reporters": [
+      "json",
+      "progress"
+    ],
+    "mutate": [
+      "Utils.cs",
+      "CustomContractResolver.cs",
+      "Converters/IntArrayConverter.cs",
+      "Converters/StringArrayConverter.cs",
+      "Converters/DateTimeConverter.cs",
+      "Channel/JoinPush.cs",
+      "Channel/ChannelOptions.cs",
+      "Exceptions/FailureHint.cs",
+      "Exceptions/RealtimeException.cs",
+      "Broadcast/BroadcastOptions.cs",
+      "Presence/PresenceOptions.cs",
+      "PostgresChanges/PostgresChangesOptions.cs",
+      "PostgresChanges/PostgresChangesFilter.cs",
+      "PostgresChanges/PostgresChangesResponse.cs",
+      "Socket/SocketResponse.cs",
+      "Socket/SocketResponsePayload.cs"
+    ]
+  }
+}

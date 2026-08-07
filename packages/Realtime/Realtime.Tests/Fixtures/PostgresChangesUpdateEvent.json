@@ -1,0 +1,17 @@
+{
+    "topic": "realtime:public:todos",
+    "event": "postgres_changes",
+    "payload": {
+        "data": {
+            "columns": [{"name": "id", "type": "int8"}, {"name": "details", "type": "text"}],
+            "commit_timestamp": "2023-09-11T15:30:21+00:00",
+            "schema": "public",
+            "table": "todos",
+            "type": "UPDATE",
+            "old_record": {"id": 12, "details": "previous", "user_id": 1},
+            "record": {"id": 12, "details": "test...", "user_id": 1}
+        },
+        "ids": [1]
+    },
+    "ref": null
+}
