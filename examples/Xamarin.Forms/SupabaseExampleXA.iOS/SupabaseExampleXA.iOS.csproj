@@ -135,7 +135,7 @@
       <Project>{0F986F22-CF68-40E8-B193-45880B7C4D49}</Project>
       <Name>SupabaseExampleXA</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Supabase\Supabase.csproj">
+    <ProjectReference Include="..\..\..\packages\Supabase\Supabase\Supabase.csproj">
       <Project>{313E0FFC-E478-4365-99FA-70B8BBC92A5D}</Project>
       <Name>Supabase</Name>
     </ProjectReference>

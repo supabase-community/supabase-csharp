@@ -2,7 +2,7 @@ using System;
 using Supabase.Postgrest.Attributes;
 using Supabase.Postgrest.Models;
 
-namespace SupabaseTests.Models;
+namespace Supabase.Tests.Models;
 
 [Table("channels")]
 public class Channel : BaseModel

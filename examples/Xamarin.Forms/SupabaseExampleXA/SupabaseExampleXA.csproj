@@ -19,6 +19,6 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Supabase\Supabase.csproj" />
+    <ProjectReference Include="..\..\..\packages\Supabase\Supabase\Supabase.csproj" />
   </ItemGroup>
 </Project>

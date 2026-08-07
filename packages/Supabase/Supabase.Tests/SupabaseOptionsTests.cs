@@ -3,7 +3,7 @@ using FluentAssertions.Execution;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Supabase;
 
-namespace SupabaseTests;
+namespace Supabase.Tests;
 
 /// <summary>
 /// The defaults on <see cref="SupabaseOptions"/> are a public contract: they are what a client built with

@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 using Supabase.Postgrest.Attributes;
 using Supabase.Postgrest.Models;
 
-namespace SupabaseTests.Models;
+namespace Supabase.Tests.Models;
 
 [Table("users")]
 public class User : BaseModel

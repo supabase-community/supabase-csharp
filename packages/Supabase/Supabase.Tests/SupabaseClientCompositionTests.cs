@@ -19,7 +19,7 @@ using Supabase.Storage;
 using Supabase.Storage.Interfaces;
 using static Supabase.Gotrue.Constants;
 
-namespace SupabaseTests;
+namespace Supabase.Tests;
 
 /// <summary>
 /// The umbrella <see cref="Supabase.Client"/> owns no transport of its own — every request belongs to a

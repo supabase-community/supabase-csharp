@@ -6,7 +6,7 @@ using FluentAssertions;
 using FluentAssertions.Execution;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace SupabaseTests;
+namespace Supabase.Tests;
 
 /// <summary>
 /// Mechanized guardrails for the suite itself: these fail the build when a test class or method drifts
