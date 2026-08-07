@@ -1,0 +1,17 @@
+<Project>
+  <!--
+    Shared package metadata for every Supabase.* package in the monorepo. Now that all
+    packages live in one repository, the repository URL, licence, authors and copyright
+    are uniform, so they live here instead of being duplicated (and drifting) across each
+    csproj. Package-specific metadata (PackageId, Title, Description, tags, version, icon,
+    readme, and PackageProjectUrl which deep-links to each package's folder) stays in the
+    individual projects.
+  -->
+  <PropertyGroup>
+    <Authors>Supabase</Authors>
+    <Copyright>MIT</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/supabase-community/supabase-csharp</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+</Project>

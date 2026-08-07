@@ -3,18 +3,15 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<PackOnBuild>true</PackOnBuild>
 		<PackageId>Supabase.Functions</PackageId>
+		<PackageProjectUrl>https://github.com/supabase-community/supabase-csharp/tree/master/packages/Functions</PackageProjectUrl>
 		<RootNamespace>Supabase.Functions</RootNamespace>
 		<AssemblyName>Supabase.Functions</AssemblyName>
-		<Authors>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Authors>
-		<Copyright>MIT</Copyright>
 		<NeutralLanguage>en</NeutralLanguage>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Owners>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Owners>
 		<Summary>A C# client for Supabase Functions</Summary>
 		<Title>Function</Title>
 		<Description>A C# client for Supabase Functions</Description>
 		<PackageIconUrl>https://avatars.githubusercontent.com/u/54469796?s=200&amp;v=4</PackageIconUrl>
-		<PackageProjectUrl>https://github.com/supabase-community/functions-csharp</PackageProjectUrl>
 		<PackageTags>supabase, functions</PackageTags>
     <!-- x-release-please-start-version -->
 		<PackageVersion>2.2.0</PackageVersion>
@@ -23,7 +20,6 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<RepositoryUrl>https://github.com/supabase-community/functions-csharp</RepositoryUrl>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>

@@ -3,15 +3,12 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <PackOnBuild>true</PackOnBuild>
         <PackageId>Supabase.Storage</PackageId>
+        <PackageProjectUrl>https://github.com/supabase-community/supabase-csharp/tree/master/packages/Storage</PackageProjectUrl>
         <RootNamespace>Supabase.Storage</RootNamespace>
         <AssemblyName>Supabase.Storage</AssemblyName>
-        <Authors>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Authors>
         <Description>A C# implementation of the Supabase Storage client</Description>
-        <Copyright>MIT</Copyright>
         <NeutralLanguage>en-US</NeutralLanguage>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <Owners>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Owners>
-        <PackageProjectUrl>https://github.com/supabase-community/storage-csharp</PackageProjectUrl>
         <Summary>A C# implementation of the Supabase Storage client</Summary>
         <Title>Supabase Storage</Title>
         <PackageIconUrl>https://avatars.githubusercontent.com/u/54469796?s=200&amp;v=4</PackageIconUrl>
@@ -20,8 +17,6 @@
         <ReleaseVersion>2.7.0</ReleaseVersion>
         <PackageVersion>2.7.0</PackageVersion>
         <!-- x-release-please-end -->
-        <RepositoryUrl>https://github.com/supabase-community/storage-csharp</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageIcon>icon.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>

@@ -7,16 +7,13 @@
         <PackOnBuild>true</PackOnBuild>
         <Title>Supabase</Title>
         <PackageId>Supabase</PackageId>
+        <PackageProjectUrl>https://github.com/supabase-community/supabase-csharp/tree/master/packages/Supabase</PackageProjectUrl>
         <RootNamespace>Supabase</RootNamespace>
         <AssemblyName>Supabase</AssemblyName>
-        <Authors>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Authors>
         <Description>A C# implementation of the Supabase client</Description>
-        <Copyright>MIT</Copyright>
         <NeutralLanguage>en</NeutralLanguage>
         <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <Owners>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Owners>
-        <PackageProjectUrl>https://github.com/supabase-community/supabase-csharp</PackageProjectUrl>
         <Summary>A C# implementation of the Supabase client</Summary>
         <PackageTags>supabase</PackageTags>
         <!-- x-release-please-start-version -->
@@ -26,7 +23,6 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageIcon>icon.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <RepositoryUrl>https://github.com/supabase-community/supabase-csharp</RepositoryUrl>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
