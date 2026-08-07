@@ -1,21 +1,3 @@
-[submodule "modules/gotrue-csharp"]
-	path = modules/gotrue-csharp
-	url = https://github.com/supabase-community/gotrue-csharp
-[submodule "modules/postgrest-csharp"]
-	path = modules/postgrest-csharp
-	url = https://github.com/supabase-community/postgrest-csharp
-[submodule "modules/realtime-csharp"]
-	path = modules/realtime-csharp
-	url = https://github.com/supabase-community/realtime-csharp
-[submodule "modules/storage-csharp"]
-	path = modules/storage-csharp
-	url = https://github.com/supabase-community/storage-csharp
-[submodule "modules/functions-csharp"]
-	path = modules/functions-csharp
-	url = https://github.com/supabase-community/functions-csharp
-[submodule "modules/core-csharp"]
-	path = modules/core-csharp
-	url = git@github.com:supabase-community/core-csharp.git
 [submodule "Documentation"]
 	path = Documentation
 	url = git@github.com:supabase-community/supabase-csharp.wiki.git
