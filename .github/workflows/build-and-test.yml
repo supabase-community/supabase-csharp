@@ -6,39 +6,45 @@ on:
   pull_request:
     branches: [master]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      AWS_BUCKET: ${{ secrets.AWS_BUCKET }}
-      AWS_REGION: ${{ secrets.AWS_REGION }}
-
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
+      # Use the SDK pinned in global.json so CI matches local builds.
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 8.x
+          global-json-file: global.json
 
-      - uses: supabase/setup-cli@v1
+      # The E2E tier runs against a local Supabase stack (migrations, edge functions,
+      # buckets and the realtime publication all come from supabase/).
+      - name: Setup Supabase CLI
+        uses: supabase/setup-cli@v1
         with:
           version: latest
 
-      - name: Start supabase
+      - name: Start Supabase
         run: supabase start
-        
-      - name: Restore dependencies
+
+      - name: Restore
         run: dotnet restore
 
       - name: Build
         run: dotnet build --configuration Release --no-restore
 
-#      - name: Initialize Testing Stack
-#        run: docker compose up -d
-
+      # -m:1 runs the test projects one at a time. `dotnet test` on a solution launches a
+      # VSTest process per project via MSBuild, and by default MSBuild runs them in parallel;
+      # since the E2E tier shares one stateful Supabase stack (Postgrest's fixture
+      # truncates/reseeds public between runs), parallel assemblies against the same database
+      # would be flaky. MSBuild -m:1 is the lever here -- a VSTest .runsettings MaxCpuCount
+      # does not help, as it only governs assemblies within a single VSTest process.
       - name: Test
-        run: dotnet test --no-restore
+        run: dotnet test Supabase.sln --configuration Release --no-build -m:1
+
