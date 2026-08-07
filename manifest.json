@@ -12,20 +12,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Client.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Client.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Supabase.Client",
-      "Summary": "<p sourcefile=\"api/Supabase.Client.yml\" sourcestartlinenumber=\"1\">A class representing the Supabase Client, coordinating between all child APIs</p>\n"
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/Supabase.Core.Attributes.MapToAttribute.yml",
       "output": {
         ".html": {
@@ -149,20 +135,6 @@
       "IsMRef": true,
       "Title": "Supabase.Core",
       "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.DefaultSupabaseSessionHandler.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.DefaultSupabaseSessionHandler.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Supabase.DefaultSupabaseSessionHandler",
-      "Summary": "<p sourcefile=\"api/Supabase.DefaultSupabaseSessionHandler.yml\" sourcestartlinenumber=\"1\">Represents the default session handler for Gotrue - it does nothing by default.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1506,62 +1478,6 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Supabase.Gotrue",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Interfaces.ISupabaseClient-6.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Interfaces.ISupabaseClient-6.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>",
-      "Summary": "<p sourcefile=\"api/Supabase.Interfaces.ISupabaseClient-6.yml\" sourcestartlinenumber=\"1\">Contract for what a SupabaseClient should implement</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Interfaces.ISupabaseFunctions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Interfaces.ISupabaseFunctions.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Supabase.Interfaces.ISupabaseFunctions",
-      "Summary": "<p sourcefile=\"api/Supabase.Interfaces.ISupabaseFunctions.yml\" sourcestartlinenumber=\"1\">Contract representing a wrapper <xref href=\"Supabase.Functions\" data-throw-if-not-resolved=\"false\"></xref> client.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Interfaces.ISupabaseTable-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Interfaces.ISupabaseTable-2.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Supabase.Interfaces.ISupabaseTable<TModel, TChannel>",
-      "Summary": "<p sourcefile=\"api/Supabase.Interfaces.ISupabaseTable-2.yml\" sourcestartlinenumber=\"1\">Contract representing a supabase wrapped postgrest <xref href=\"Supabase.Postgrest.Interfaces.IPostgrestTable%601\" data-throw-if-not-resolved=\"false\"></xref></p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.Interfaces.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.Interfaces.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Supabase.Interfaces",
       "Summary": null
     },
     {
@@ -3400,20 +3316,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.StatelessClient.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.StatelessClient.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Supabase.StatelessClient",
-      "Summary": "<p sourcefile=\"api/Supabase.StatelessClient.yml\" sourcestartlinenumber=\"1\">A Static class representing a Supabase Client.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/Supabase.Storage.Bucket.yml",
       "output": {
         ".html": {
@@ -3805,84 +3707,14 @@
       "Summary": null
     },
     {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.SupabaseDiagnostics.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.SupabaseDiagnostics.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Supabase.SupabaseDiagnostics",
-      "Summary": "<p sourcefile=\"api/Supabase.SupabaseDiagnostics.yml\" sourcestartlinenumber=\"1\">Aggregates the diagnostic source names emitted by the Supabase clients so consumers of the\nmeta-package can register them all with OpenTelemetry in one place, without importing each\nsub-package's namespace or hardcoding (case-sensitive) source names.</p>\n<p sourcefile=\"api/Supabase.SupabaseDiagnostics.yml\" sourcestartlinenumber=\"5\">Each client uses the same name for its <xref href=\"System.Diagnostics.ActivitySource\" data-throw-if-not-resolved=\"false\"></xref> and\nits <xref href=\"System.Diagnostics.Metrics.Meter\" data-throw-if-not-resolved=\"false\"></xref>, so <xref href=\"Supabase.SupabaseDiagnostics.SourceNames\" data-throw-if-not-resolved=\"false\"></xref> works for\nboth <code>TracerProviderBuilder.AddSource(...)</code> and <code>MeterProviderBuilder.AddMeter(...)</code>.\nRealtime is not yet instrumented and is therefore not included.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.SupabaseModel.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.SupabaseModel.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Supabase.SupabaseModel",
-      "Summary": "<p sourcefile=\"api/Supabase.SupabaseModel.yml\" sourcestartlinenumber=\"1\">Depreciated</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.SupabaseOptions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.SupabaseOptions.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Supabase.SupabaseOptions",
-      "Summary": "<p sourcefile=\"api/Supabase.SupabaseOptions.yml\" sourcestartlinenumber=\"1\">Options available for Supabase Client Configuration</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.SupabaseTable-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.SupabaseTable-1.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Supabase.SupabaseTable<TModel>",
-      "Summary": "<p sourcefile=\"api/Supabase.SupabaseTable-1.yml\" sourcestartlinenumber=\"1\">A Supabase wrapper for a Postgrest Table.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Supabase.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Supabase.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Supabase",
-      "Summary": null
-    },
-    {
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "api/toc.html"
-        },
         ".json": {
           "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
         }
       },
       "version": ""
@@ -3901,11 +3733,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "toc.html"
-        },
         ".json": {
           "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
         }
       },
       "version": ""
