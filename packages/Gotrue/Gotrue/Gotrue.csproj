@@ -54,9 +54,9 @@
         <LangVersion>8.0</LangVersion>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-        <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="8.0.1"/>
-        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.1" />
+        <PackageReference Include="Newtonsoft.Json" />
+        <PackageReference Include="System.Diagnostics.DiagnosticSource"/>
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\..\Core\Core\Core.csproj" />

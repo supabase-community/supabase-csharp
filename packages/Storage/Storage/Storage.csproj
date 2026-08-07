@@ -40,10 +40,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="BirdMessenger" Version="4.0.0" />
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-        <PackageReference Include="MimeMapping" Version="4.0.0" />
-        <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="8.0.1" />
+        <PackageReference Include="BirdMessenger" />
+        <PackageReference Include="Newtonsoft.Json" />
+        <PackageReference Include="MimeMapping" />
+        <PackageReference Include="System.Diagnostics.DiagnosticSource" />
     </ItemGroup>
 
     <ItemGroup>

@@ -40,7 +40,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="System.Diagnostics.DiagnosticSource" Version="8.0.1" />
+		<PackageReference Include="System.Diagnostics.DiagnosticSource" />
 	</ItemGroup>
 
 	<ItemGroup>
