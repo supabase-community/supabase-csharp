@@ -253,12 +253,8 @@ PublishScripts/
 
 # NuGet Packages
 *.nupkg
-# The packages folder can be ignored because of Package Restore
-**/[Pp]ackages/*
-# except build/, which is used as an MSBuild target.
-!**/[Pp]ackages/build/
-# Uncomment if necessary however generally it will be regenerated when needed
-#!**/[Pp]ackages/repositories.config
+# NOTE: the legacy "**/[Pp]ackages/*" Package Restore ignore is intentionally omitted:
+# this monorepo uses packages/ as the SOURCE root, so it must be tracked.
 # NuGet v3's project.json files produces more ignorable files
 *.nuget.props
 *.nuget.targets
