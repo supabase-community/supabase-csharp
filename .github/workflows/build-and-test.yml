@@ -17,14 +17,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Use the SDK pinned in global.json so CI matches local builds.
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           global-json-file: global.json
 
-      # The E2E tier runs against a local Supabase stack (migrations, edge functions,
-      # buckets and the realtime publication all come from supabase/).
       - name: Setup Supabase CLI
         uses: supabase/setup-cli@v1
         with:
@@ -39,12 +36,6 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release --no-restore
 
-      # -m:1 runs the test projects one at a time. `dotnet test` on a solution launches a
-      # VSTest process per project via MSBuild, and by default MSBuild runs them in parallel;
-      # since the E2E tier shares one stateful Supabase stack (Postgrest's fixture
-      # truncates/reseeds public between runs), parallel assemblies against the same database
-      # would be flaky. MSBuild -m:1 is the lever here -- a VSTest .runsettings MaxCpuCount
-      # does not help, as it only governs assemblies within a single VSTest process.
       - name: Test
         run: dotnet test Supabase.sln --configuration Release --no-build -m:1
 
