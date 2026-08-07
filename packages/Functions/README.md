@@ -75,7 +75,7 @@ We are more than happy to have contributions! Please submit a PR.
 
 ### Testing
 
-To run the tests locally you must have docker and docker-compose installed. Then in the root of the repository run:
+To run the tests locally you must have the [Supabase CLI](https://supabase.com/docs/guides/cli) installed. Then in the root of the repository run:
 
-- `docker-compose up -d`
+- `supabase start`
 - `dotnet test`
