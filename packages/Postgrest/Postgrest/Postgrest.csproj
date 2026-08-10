@@ -17,14 +17,12 @@
         <Description>Postgrest-csharp is written primarily as a helper library for supabase/supabase-csharp, however, it should be easy enough to use outside of the supabase ecosystem.
             The bulk of this library is a translation and c-sharp-ification of the supabase/postgrest-js library.
         </Description>
-        <PackageIconUrl>https://avatars.githubusercontent.com/u/54469796?s=200&amp;v=4</PackageIconUrl>
         <PackageTags>supabase,postgrest</PackageTags>
         <!-- x-release-please-start-version -->
         <ReleaseVersion>4.4.0</ReleaseVersion>
         <PackageVersion>4.4.0</PackageVersion>
         <!-- x-release-please-end -->
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageIcon>icon.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -49,7 +47,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="..\icon.png" Pack="true" Link="icon.png" PackagePath="\" />
-        <None Include="..\README.md" Pack="true" Link="README.md" PackagePath="\" />
+        <None Include="..\README.md" Pack="true" PackagePath="\" Visible="false" />
     </ItemGroup>
 </Project>

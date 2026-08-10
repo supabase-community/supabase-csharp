@@ -11,14 +11,12 @@
         <Owners>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Owners>
         <Summary>A C# implementation of the Supabase Storage client</Summary>
         <Title>Supabase Storage</Title>
-        <PackageIconUrl>https://avatars.githubusercontent.com/u/54469796?s=200&amp;v=4</PackageIconUrl>
         <PackageTags>supabase, storage</PackageTags>
         <!-- x-release-please-start-version -->
         <ReleaseVersion>2.7.0</ReleaseVersion>
         <PackageVersion>2.7.0</PackageVersion>
         <!-- x-release-please-end -->
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageIcon>icon.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
         <IncludeSymbols>true</IncludeSymbols>
@@ -46,7 +44,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="..\icon.png" Pack="true" Link="icon.png" PackagePath="\" />
-        <None Include="..\README.md" Pack="true" Link="README.md" PackagePath="\" />
+        <None Include="..\README.md" Pack="true" PackagePath="\" Visible="false" />
     </ItemGroup>
 </Project>

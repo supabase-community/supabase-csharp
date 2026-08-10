@@ -1,20 +1,69 @@
 # Supabase.Functions
 
-[![Build and Test](https://github.com/supabase-community/functions-csharp/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/supabase-community/functions-csharp/actions/workflows/build-and-test.yml)
-[![NuGet](https://img.shields.io/nuget/vpre/Supabase.Functions)](https://www.nuget.com/packages/Supabase.Functions/)
+[![Build and Test](https://github.com/supabase-community/supabase-csharp/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/supabase-community/supabase-csharp/actions/workflows/build-and-test.yml)
+[![NuGet](https://img.shields.io/nuget/vpre/Supabase.Functions)](https://www.nuget.org/packages/Supabase.Functions/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](../../LICENSE)
 
----
+A C# client for invoking [Supabase Edge Functions](https://supabase.com/docs/guides/functions).
 
-## [Notice]: v2.0.0 renames this package from `functions-csharp` to `Supabase.Functions`. The depreciation notice has been set in NuGet. The API remains the same.
+Part of the [Supabase C# SDK](https://github.com/supabase-community/supabase-csharp). Most projects
+use it through the [`Supabase`](../Supabase/README.md) meta-package (`supabase.Functions`); reference
+this package directly when you only need to invoke functions.
 
-C# Client library to interact with Supabase Functions.
+## Installation
+
+```sh
+dotnet add package Supabase.Functions
+```
+
+Targets .NET Standard 2.0.
+
+## Getting started
+
+Create a client pointed at your project's Functions URL, then invoke a function by name:
+
+```csharp
+using Supabase.Functions;
+
+var client = new Client("https://PROJECT_ID.supabase.co/functions/v1");
+
+// Invoke and read the raw string response.
+var body = await client.Invoke("hello-world", token: SUPABASE_ANON_KEY);
+```
+
+`Invoke` needs a bearer token to authorize the request — your project's anon key, or a user's access
+token. Through the `Supabase` meta-package the token is supplied for you.
+
+### Deserializing the response
+
+Use the generic overload to deserialize the JSON body into a type:
+
+```csharp
+var result = await client.Invoke<MyResponse>("hello-world", token: SUPABASE_ANON_KEY);
+```
+
+### Passing a body, headers, method, or region
+
+`InvokeFunctionOptions` covers the common per-call settings:
+
+```csharp
+var options = new Client.InvokeFunctionOptions
+{
+    Body = new Dictionary<string, object> { { "name", "world" } },
+    Headers = new Dictionary<string, string> { { "x-trace", "abc" } },
+    HttpMethod = HttpMethod.Post,
+    FunctionRegion = FunctionRegion.UsEast1
+};
+
+var result = await client.Invoke<MyResponse>("hello-world", token: SUPABASE_ANON_KEY, options);
+```
 
 ## Observability (OpenTelemetry)
 
 The client emits traces and metrics through `System.Diagnostics`, so you can wire them into
-OpenTelemetry (or any `ActivityListener`/`MeterListener`) without the client taking a dependency
-on the OpenTelemetry packages. Emission is zero-cost while nothing is listening, so it is always
-on and stays silent until you subscribe.
+OpenTelemetry (or any `ActivityListener` / `MeterListener`) without taking a dependency on the
+OpenTelemetry packages. Emission is zero-cost while nothing is listening, so it is always on and stays
+silent until you subscribe.
 
 Register the client's `ActivitySource` and `Meter` by name. Use the `FunctionsDiagnostics.SourceName`
 constant rather than hardcoding the string, so a typo becomes a compile error instead of a silent
@@ -25,7 +74,7 @@ using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
 using Supabase.Functions;
 
-// Requires the OpenTelemetry.Extensions.Hosting and an exporter package (e.g. OTLP) in your app.
+// Requires OpenTelemetry.Extensions.Hosting and an exporter package (e.g. OTLP) in your app.
 builder.Services.AddOpenTelemetry()
     .WithTracing(tracing => tracing
         .AddSource(FunctionsDiagnostics.SourceName)
@@ -59,23 +108,11 @@ using var listener = new ActivityListener
 ActivitySource.AddActivityListener(listener);
 ```
 
-## Package made possible through the efforts of:
-
-Join the ranks! See a problem? Help fix it!
-
-<a href="https://github.com/supabase-community/functions-csharp/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=supabase-community/functions-csharp" />
-</a>
-
-<small>Made with [contrib.rocks](https://contrib.rocks).</small>
-
 ## Contributing
 
-We are more than happy to have contributions! Please submit a PR.
+Contributions are welcome. See the [repository root](https://github.com/supabase-community/supabase-csharp)
+for how to build and test the SDK.
 
-### Testing
+## License
 
-To run the tests locally you must have the [Supabase CLI](https://supabase.com/docs/guides/cli) installed. Then in the root of the repository run:
-
-- `supabase start`
-- `dotnet test`
+[MIT](../../LICENSE)

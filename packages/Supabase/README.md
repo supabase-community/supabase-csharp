@@ -1,65 +1,113 @@
-# Supabase.Csharp
+# Supabase
 
- [![Build and Test](https://github.com/supabase-community/supabase-csharp/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/supabase-community/supabase-csharp/actions/workflows/build-and-test.yml)
- [![NuGet](https://img.shields.io/nuget/vpre/Supabase)](https://www.nuget.org/packages/Supabase/)
+[![Build and Test](https://github.com/supabase-community/supabase-csharp/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/supabase-community/supabase-csharp/actions/workflows/build-and-test.yml)
+[![NuGet](https://img.shields.io/nuget/vpre/Supabase)](https://www.nuget.org/packages/Supabase/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](../../LICENSE)
 
-Documentation can be found [below](#getting-started), on
-the [Supabase Developer Documentation](https://supabase.com/docs/reference/csharp/introduction) and additionally in
-the [Generated API Docs](https://supabase-community.github.io/supabase-csharp/api/Supabase.Client.html).
+The unified C# client for [Supabase](https://supabase.com). One client composes Auth, Database,
+Storage, Realtime, and Edge Functions, so you configure your project once and reach every service
+from a single object.
 
-[**CHANGELOG is available in the repository root.
-**](https://github.com/supabase-community/supabase-csharp/blob/master/CHANGELOG.md)
+Part of the [Supabase C# SDK](https://github.com/supabase-community/supabase-csharp). To use a single
+service on its own, reference its package instead — see [Individual services](#individual-services).
 
-## [NOTICE FOR v1.0.0]
+## Installation
 
-- The `supabase-csharp` Nuget package has been renamed to `Supabase` and a depreciation notice set to encourage
-  adoption.
-- Almost all APIs stay the same when migrating from v0.16.x _except_ the change in namespace from `Postgrest`
-  to `Supabase.Postgrest`. Some minor refactoring will be required in the codebase.
-- The assembly name has been changed from `supabase` to `Supabase`.
+```sh
+dotnet add package Supabase
+```
 
-## Features
+Targets .NET Standard 2.1, so it runs on .NET Core / .NET 5+, Xamarin, MAUI, and Unity. See the
+[wiki](https://github.com/supabase-community/supabase-csharp/wiki) for platform-specific guides.
 
-- [x] Integration with [Supabase.Realtime](https://github.com/supabase-community/realtime-csharp)
-  - Realtime listeners for database changes
-- [x] Integration with [Postgrest](https://github.com/supabase-community/postgrest-csharp)
-  - Access your database using a REST API generated from your schema & database functions
-- [x] Integration with [Gotrue](https://github.com/supabase-community/gotrue-csharp)
-  - User authentication, including OAuth, email/password, and native sign-in
-- [x] Integration with [Supabase Storage](https://github.com/supabase-community/storage-csharp)
-  - Store files in S3 with additional managed metadata
-- [x] Integration with [Supabase Edge Functions](https://github.com/supabase-community/functions-csharp)
-  - Run serverless functions on the edge
-- [x] [Nuget Release](https://www.nuget.org/packages/supabase-csharp)
+## Getting started
 
-## Quickstart
+Create a project in the [Supabase dashboard](https://app.supabase.com) and grab your project URL and
+public (anon) key from **Settings → API**. Then initialize the client:
 
-1. To get started, create a new project in the [Supabase Admin Panel](https://app.supabase.io).
-2. Grab your Supabase URL and Supabase Public Key from the Admin Panel (Settings -> API Keys).
-3. Initialize the client!
+```csharp
+using Supabase;
 
-_Reminder: `supabase-csharp` has some APIs that require the `service_key` rather than the `public_key` (for instance:
-the administration of users, bypassing database roles, etc.). If you are using
-the `service_key` **be sure it is not exposed client side.** Additionally, if you need to use both a service account and
-a public/user account, please do so using a separate client instance for each._
+var url = Environment.GetEnvironmentVariable("SUPABASE_URL");
+var key = Environment.GetEnvironmentVariable("SUPABASE_KEY");
+
+var options = new SupabaseOptions
+{
+    AutoRefreshToken = true,
+    AutoConnectRealtime = true
+};
+
+var supabase = new Client(url, key, options);
+await supabase.InitializeAsync();
+```
+
+`InitializeAsync()` wires up the child clients and, if a session has been persisted, restores and
+refreshes it. Once it returns, reach each service from the client:
+
+```csharp
+// Auth
+var session = await supabase.Auth.SignIn("user@example.com", "password");
+
+// Database (models derive from BaseModel — see the Postgrest package)
+var response = await supabase.From<Movie>().Get();
+var movies = response.Models;
+
+// Call a Postgres function
+await supabase.Rpc("some_rpc", new { some_arg = "value" });
+
+// Storage
+await supabase.Storage.From("avatars").Upload("./local.png", "me.png");
+
+// Realtime
+var channel = supabase.Realtime.Channel("movies");
+await channel.Subscribe();
+
+// Edge Functions
+await supabase.Functions.Invoke("hello-world");
+```
+
+## Configuration
+
+Pass a `SupabaseOptions` to the constructor:
+
+| Option | Default | Purpose |
+| --- | --- | --- |
+| `AutoRefreshToken` | `true` | Refresh the user's access token in the background before it expires. |
+| `AutoConnectRealtime` | `false` | Connect the Realtime socket during `InitializeAsync()`. |
+| `SessionHandler` | no-op | Persist, restore, and destroy the auth session (see below). |
+| `Schema` | `"public"` | Postgres schema used by Database and Realtime. |
+| `Headers` | empty | Extra headers forwarded to every child client. |
+| `StorageClientOptions` | defaults | Options passed through to the Storage client. |
+
+### Session persistence
+
+By default the client does not persist the auth session, so the user is signed out when the process
+ends. Provide a `SessionHandler` to save, load, and destroy the session — for example to a file or to
+the platform's secure storage. See
+[Authorization with Gotrue](https://github.com/supabase-community/supabase-csharp/wiki/Authorization-with-Gotrue#offline-support)
+in the wiki for a worked example.
+
+> **A note on keys:** some APIs (user administration, bypassing RLS, etc.) require the `service_key`
+> rather than the public/anon key. Never expose a `service_key` in client-side code, and use a
+> separate client instance for service and user contexts.
 
 ## Observability (OpenTelemetry)
 
 The clients emit traces and metrics through `System.Diagnostics`, so you can wire them into
-OpenTelemetry (or any `ActivityListener`/`MeterListener`) without the clients taking a dependency on
-the OpenTelemetry packages. Emission is zero-cost while nothing is listening, so it is always on and
-stays silent until you subscribe.
+OpenTelemetry (or any `ActivityListener` / `MeterListener`) without taking a dependency on the
+OpenTelemetry packages. Emission is zero-cost while nothing is listening, so it is always on and stays
+silent until you subscribe.
 
-Rather than registering each client's source by hand, use `SupabaseDiagnostics.SourceNames`, which
-gathers the names of every instrumented client. Each client shares one name between its
-`ActivitySource` and its `Meter`, so the same list works for tracing and metrics:
+Register every instrumented source at once with `SupabaseDiagnostics.SourceNames` — each client
+shares one name between its `ActivitySource` and its `Meter`, so the same list works for tracing and
+metrics:
 
 ```csharp
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
 using Supabase;
 
-// Requires the OpenTelemetry.Extensions.Hosting and an exporter package (e.g. OTLP) in your app.
+// Requires OpenTelemetry.Extensions.Hosting and an exporter package (e.g. OTLP) in your app.
 builder.Services.AddOpenTelemetry()
     .WithTracing(tracing => tracing
         .AddSource(SupabaseDiagnostics.SourceNames.ToArray())
@@ -69,40 +117,36 @@ builder.Services.AddOpenTelemetry()
         .AddOtlpExporter());
 ```
 
-This covers the Auth (Gotrue), Postgrest, Functions, and Storage clients. Realtime is **not** yet
-instrumented, so no websocket telemetry is emitted. URLs are recorded without their query string, and
-no token, credential, or payload is placed in a tag. See each client's own README for the specific
-spans and metrics it produces.
+This covers the Auth, Postgrest, Functions, and Storage clients. Realtime is **not** yet instrumented,
+so no websocket telemetry is emitted. URLs are recorded without their query string, and no token,
+credential, or payload is placed in a tag. Each service package's README documents the specific spans
+and metrics it produces.
+
+## Individual services
+
+Each service is also published as a standalone package, useful when you only need one:
+
+| Service | Package | Docs |
+| --- | --- | --- |
+| Auth | `Supabase.Gotrue` | [README](../Gotrue/README.md) |
+| Database | `Supabase.Postgrest` | [README](../Postgrest/README.md) |
+| Storage | `Supabase.Storage` | [README](../Storage/README.md) |
+| Realtime | `Supabase.Realtime` | [README](../Realtime/README.md) |
+| Functions | `Supabase.Functions` | [README](../Functions/README.md) |
 
 ## Documentation
 
 - [Getting Started](https://github.com/supabase-community/supabase-csharp/wiki#getting-started)
-- [Unity](https://github.com/supabase-community/supabase-csharp/wiki/Unity)
-- [Desktop/Mobile Clients (e.g. Xamarin, MAUI, etc.)](https://github.com/supabase-community/supabase-csharp/wiki/Desktop-Clients)
-- [Server-Side Applications](https://github.com/supabase-community/supabase-csharp/wiki/Server-Side-Applications)
-- [Release Notes/Breaking Changes](https://github.com/supabase-community/supabase-csharp/wiki/Release-Notes)
-- [Using the Client](https://github.com/supabase-community/supabase-csharp/wiki#using-the-client)
+- [Supabase C# reference](https://supabase.com/docs/reference/csharp/introduction)
+- [Generated API docs](https://supabase-community.github.io/supabase-csharp/api/Supabase.Client.html)
 - [Examples](https://github.com/supabase-community/supabase-csharp/wiki/Examples)
-
-### Specific Features
-
-- [Offline Support](https://github.com/supabase-community/supabase-csharp/wiki/Authorization-with-Gotrue#offline-support)
-- [Refresh Token Thread](https://github.com/supabase-community/supabase-csharp/wiki/Authorization-with-Gotrue#updated-refresh-token-handling)
-- [Native Sign in with Apple]([Documentation/NativeSignInWithApple.md](https://github.com/supabase-community/supabase-csharp/wiki/Authorization-with-Gotrue#native-sign-in-with-apple))
-
-### Troubleshooting
-
-- [Troubleshooting](https://github.com/supabase-community/supabase-csharp/wiki/Troubleshooting)
-- [Discussion Forum](https://github.com/supabase-community/supabase-csharp/discussions)
-
-## Package made possible through the efforts of
-
-<a href="https://github.com/supabase-community/supabase-csharp/graphs/contributors">
-  <img src="https://contrib-generator.fly.dev/repo/generate?repo=supabase-community/supabase-csharp,supabase-community/postgrest-csharp,supabase-community/realtime-csharp,supabase-community/gotrue-csharp&size=64&strokeWidth=4&strokeColor=3ecf8e&padding=12"/>
-</a>
-
-Join the ranks! See a problem? Help fix it!
+- [Troubleshooting](https://github.com/supabase-community/supabase-csharp/wiki/Troubleshooting) · [Discussions](https://github.com/supabase-community/supabase-csharp/discussions)
 
 ## Contributing
 
-We are more than happy to have contributions! Please submit a PR.
+Contributions are welcome. See the [repository root](https://github.com/supabase-community/supabase-csharp)
+for how to build and test the SDK.
+
+## License
+
+[MIT](../../LICENSE)

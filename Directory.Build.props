@@ -3,9 +3,14 @@
     Shared package metadata for every Supabase.* package in the monorepo. Now that all
     packages live in one repository, the repository URL, licence, authors and copyright
     are uniform, so they live here instead of being duplicated (and drifting) across each
-    csproj. Package-specific metadata (PackageId, Title, Description, tags, version, icon,
+    csproj. Package-specific metadata (PackageId, Title, Description, tags, version,
     readme, and PackageProjectUrl which deep-links to each package's folder) stays in the
     individual projects.
+
+    The package icon is identical across all packages, so it lives once at resources/icon.png
+    and is packed from here. Referenced via $(MSBuildThisFileDirectory) so it resolves from
+    any project depth, and marked Visible="false" so it does not appear as a linked file in
+    the IDE project tree.
   -->
   <PropertyGroup>
     <Authors>Supabase</Authors>
@@ -14,4 +19,12 @@
     <RepositoryUrl>https://github.com/supabase-community/supabase-csharp</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
+
+  <!-- Shared package icon, applied to packable projects only (test projects set IsPackable=false). -->
+  <PropertyGroup Condition="'$(IsPackable)' != 'false'">
+    <PackageIcon>icon.png</PackageIcon>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(IsPackable)' != 'false'">
+    <None Include="$(MSBuildThisFileDirectory)resources\icon.png" Pack="true" PackagePath="\" Visible="false" />
+  </ItemGroup>
 </Project>

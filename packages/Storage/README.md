@@ -1,58 +1,88 @@
 # Supabase.Storage
 
-[![Build and Test](https://github.com/supabase-community/storage-csharp/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/supabase-community/storage-csharp/acionts/workflows/build-and-test.yml)
-[![NuGet](https://img.shields.io/nuget/vpre/Supabase.Storage")](https://www.nuget.org/packages/Supabase.Storage/)
+[![Build and Test](https://github.com/supabase-community/supabase-csharp/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/supabase-community/supabase-csharp/actions/workflows/build-and-test.yml)
+[![NuGet](https://img.shields.io/nuget/vpre/Supabase.Storage)](https://www.nuget.org/packages/Supabase.Storage/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](../../LICENSE)
 
----
+A C# client for [Supabase Storage](https://supabase.com/docs/guides/storage) — upload, download, and
+serve files from buckets, with signed and public URLs.
 
-Integrate your [Supabase](https://supabase.io) projects with C#.
+Part of the [Supabase C# SDK](https://github.com/supabase-community/supabase-csharp). Most projects
+use it through the [`Supabase`](../Supabase/README.md) meta-package (`supabase.Storage`); reference
+this package directly when you only need storage.
 
-## [Notice]: v2.0.0 renames this package from `storage-csharp` to `Supabase.Storage`. The depreciation notice has been set in NuGet. The API remains the same.
+## Installation
 
-## Examples (using supabase-csharp)
+```sh
+dotnet add package Supabase.Storage
+```
 
-```c#
-public async void Main()
+Targets .NET Standard 2.0.
+
+## Getting started
+
+Create a client pointed at your project's Storage URL, passing your key as a header:
+
+```csharp
+using Supabase.Storage;
+
+var client = new Client("https://PROJECT_ID.supabase.co/storage/v1", new Dictionary<string, string>
 {
-  // Make sure you set these (or similar)
-  var url = Environment.GetEnvironmentVariable("SUPABASE_URL");
-  var key = Environment.GetEnvironmentVariable("SUPABASE_KEY");
+    { "apikey", SUPABASE_KEY },
+    { "Authorization", $"Bearer {SUPABASE_KEY}" }
+});
+```
 
-  await Supabase.Client.InitializeAsync(url, key);
+### Buckets
 
-  // The Supabase Instance can be accessed at any time using:
-  //  Supabase.Client.Instance {.Realtime|.Auth|etc.}
-  // For ease of readability we'll use this:
-  var instance = Supabase.Client.Instance;
+```csharp
+await client.CreateBucket("avatars");
 
-  // Interact with Supabase Storage
-  var storage = Supabase.Client.Instance.Storage
-  await storage.CreateBucket("testing")
+var bucket = await client.GetBucket("avatars");
+var all = await client.ListBuckets();
 
-  var bucket = storage.From("testing");
+await client.EmptyBucket("avatars");
+await client.DeleteBucket("avatars");
+```
 
-  var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase).Replace("file:", "");
-  var imagePath = Path.Combine(basePath, "Assets", "supabase-csharp.png");
+### Files
 
-  await bucket.Upload(imagePath, "supabase-csharp.png");
+Work with a bucket's files through `From`:
 
-  // If bucket is public, get url
-  bucket.GetPublicUrl("supabase-csharp.png");
+```csharp
+var bucket = client.From("avatars");
 
-  // If bucket is private, generate url
-  await bucket.CreateSignedUrl("supabase-csharp.png", 3600));
+// Upload from a local path or from bytes.
+await bucket.Upload("./local.png", "me.png");
+await bucket.Upload(bytes, "me.png");
 
-  // Download it!
-  await bucket.Download("supabase-csharp.png", Path.Combine(basePath, "testing-download.png"));
-}
+// List, move, copy, remove.
+var files = await bucket.List();
+await bucket.Move("me.png", "old/me.png");
+await bucket.Copy("old/me.png", "backup/me.png");
+await bucket.Remove("old/me.png");
+
+// Download to a local path (returns the path) or into memory (returns bytes).
+await bucket.Download("me.png", "./downloaded.png");
+byte[] data = await bucket.Download("me.png");
+```
+
+### URLs
+
+```csharp
+// Public bucket: build a URL directly (pass null for no image transform).
+var publicUrl = bucket.GetPublicUrl("me.png", null);
+
+// Private bucket: sign a URL that expires (seconds).
+var signedUrl = await bucket.CreateSignedUrl("me.png", 3600);
 ```
 
 ## Observability (OpenTelemetry)
 
 The client emits traces and metrics through `System.Diagnostics`, so you can wire them into
-OpenTelemetry (or any `ActivityListener`/`MeterListener`) without the client taking a dependency
-on the OpenTelemetry packages. Emission is zero-cost while nothing is listening, so it is always
-on and stays silent until you subscribe.
+OpenTelemetry (or any `ActivityListener` / `MeterListener`) without taking a dependency on the
+OpenTelemetry packages. Emission is zero-cost while nothing is listening, so it is always on and stays
+silent until you subscribe.
 
 Register the client's `ActivitySource` and `Meter` by name. Use the `StorageDiagnostics.SourceName`
 constant rather than hardcoding the string, so a typo becomes a compile error instead of a silent
@@ -63,7 +93,7 @@ using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
 using Supabase.Storage;
 
-// Requires the OpenTelemetry.Extensions.Hosting and an exporter package (e.g. OTLP) in your app.
+// Requires OpenTelemetry.Extensions.Hosting and an exporter package (e.g. OTLP) in your app.
 builder.Services.AddOpenTelemetry()
     .WithTracing(tracing => tracing
         .AddSource(StorageDiagnostics.SourceName)
@@ -76,10 +106,10 @@ builder.Services.AddOpenTelemetry()
 Once subscribed you get:
 
 - A client span per request, named `{METHOD} {path}` and following OpenTelemetry HTTP conventions
-  (method, status code, and a sanitized URL). The query string is **never** recorded — Storage
-  signed URLs carry a `token` there. Upload and download spans additionally carry a
-  `storage.transfer.direction` tag (`upload` / `download`). The resumable (TUS) upload is reported
-  as a single operation span covering the whole transfer, rather than one span per underlying chunk
+  (method, status code, and a sanitized URL). The query string is **never** recorded — Storage signed
+  URLs carry a `token` there. Upload and download spans additionally carry a
+  `storage.transfer.direction` tag (`upload` / `download`). The resumable (TUS) upload is reported as
+  a single operation span covering the whole transfer, rather than one span per underlying chunk
   request.
 - `supabase.storage.http.request.duration` (seconds) for control-plane requests.
 - `supabase.storage.transfer.duration` (seconds) and `supabase.storage.transfer.size` (bytes) for
@@ -101,16 +131,11 @@ using var listener = new ActivityListener
 ActivitySource.AddActivityListener(listener);
 ```
 
-## Package made possible through the efforts of:
-
-Join the ranks! See a problem? Help fix it!
-
-<a href="https://github.com/supabase-community/storage-csharp/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=supabase-community/storage-csharp" />
-</a>
-
-Made with [contrib.rocks](https://contrib.rocks/preview?repo=supabase-community%storage-csharp).
-
 ## Contributing
 
-We are more than happy to have contributions! Please submit a PR.
+Contributions are welcome. See the [repository root](https://github.com/supabase-community/supabase-csharp)
+for how to build and test the SDK.
+
+## License
+
+[MIT](../../LICENSE)

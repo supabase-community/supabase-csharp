@@ -1,26 +1,29 @@
-<p align="center">
-<img width="300" src=".github/supabase-core.png"/>
-</p>
-<p align="center">
-  <img src="https://github.com/supabase-community/core-csharp/workflows/Build%20And%20Test/badge.svg"/>
-  <a href="https://www.nuget.org/packages/Supabase.Core/">
-    <img src="https://img.shields.io/nuget/vpre/Supabase.Core"/>
-  </a>
-</p>
+# Supabase.Core
 
-This repo contains shared resources for the [supabase-csharp](https://github.com/supabase-community/supabase-csharp)
-repo and its dependent libraries.
+[![Build and Test](https://github.com/supabase-community/supabase-csharp/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/supabase-community/supabase-csharp/actions/workflows/build-and-test.yml)
+[![NuGet](https://img.shields.io/nuget/vpre/Supabase.Core)](https://www.nuget.org/packages/Supabase.Core/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](../../LICENSE)
 
-## Package made possible through the efforts of:
+Shared primitives for the [Supabase C# SDK](https://github.com/supabase-community/supabase-csharp) —
+common helpers, extensions, attributes, and diagnostics used across the `Supabase.*` packages.
 
-Join the ranks! See a problem? Help fix it!
+This package is an internal building block. You normally get it transitively by installing
+[`Supabase`](../Supabase/README.md) or any individual service package (Auth, Postgrest, Storage,
+Realtime, Functions), and rarely reference it directly.
 
-<a href="https://github.com/supabase-community/core-csharp/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=supabase-community/core-csharp" />
-</a>
+## Installation
 
-Made with [contrib.rocks](https://contrib.rocks/preview?repo=supabase-community%core-csharp).
+```sh
+dotnet add package Supabase.Core
+```
+
+Targets .NET Standard 2.0.
 
 ## Contributing
 
-We are more than happy to have contributions! Please submit a PR.
+Contributions are welcome. See the [repository root](https://github.com/supabase-community/supabase-csharp)
+for how to build and test the SDK.
+
+## License
+
+[MIT](../../LICENSE)
