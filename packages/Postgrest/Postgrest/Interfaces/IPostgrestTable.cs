@@ -78,9 +78,24 @@ namespace Supabase.Postgrest.Interfaces
 
         /// <summary>
         /// Executes a delete request using the defined query params on the current instance.
+        ///
+        /// The deleted rows are returned in <see cref="ModeledResponse{T}.Models"/> (subject to
+        /// <see cref="QueryOptions.Returning"/>). A row-level-security policy that hides a row, or a filter that
+        /// matches nothing, is not an error in PostgREST: the request succeeds and returns an empty representation.
+        /// Inspect <see cref="ModeledResponse{T}.Models"/> to tell "nothing was deleted" apart from "deleted" —
+        /// the SDK does not decide that for you.
         /// </summary>
-        /// <returns></returns>
-        Task Delete(QueryOptions? options = null, CancellationToken cancellationToken = default);
+        /// <returns>The response, whose <see cref="ModeledResponse{T}.Models"/> holds the rows that were deleted.</returns>
+        /// <example>
+        /// <code>
+        /// var response = await client.Table&lt;Todo&gt;().Filter("id", Operator.Equals, "1").Delete();
+        /// if (response.Models.Count == 0)
+        /// {
+        ///     // Nothing was deleted: the row did not exist, or an RLS policy hid it. Decide how to react.
+        /// }
+        /// </code>
+        /// </example>
+        Task<ModeledResponse<TModel>> Delete(QueryOptions? options = null, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Executes a delete request using the model's primary key as the filter for the request.

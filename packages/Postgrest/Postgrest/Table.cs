@@ -26,7 +26,7 @@ namespace Supabase.Postgrest
 {
     /// <summary>
     /// Class created from a model derived from `BaseModel` that can generate query requests to a Postgrest Endpoint.
-    /// 
+    ///
     /// Representative of a `USE $TABLE` command.
     /// </summary>
     /// <typeparam name="TModel">Model derived from `BaseModel`.</typeparam>
@@ -79,10 +79,9 @@ namespace Supabase.Postgrest
         /// <param name="options">Optional client configuration.</param>
         public Table(string baseUrl, JsonSerializerSettings serializerSettings, ClientOptions? options = null)
         {
-            BaseUrl = baseUrl;
-
-            _options = options ?? new ClientOptions();
-            _serializerSettings = serializerSettings;
+            this.BaseUrl = baseUrl;
+            this._options = options ?? new ClientOptions();
+            this._serializerSettings = serializerSettings;
 
             foreach (var property in typeof(TModel).GetProperties())
             {
@@ -91,11 +90,11 @@ namespace Supabase.Postgrest
                 foreach (ReferenceAttribute attr in attrs)
                 {
                     attr.ParseProperties(new List<ReferenceAttribute> { attr });
-                    _references.Add(attr);
+                    this._references.Add(attr);
                 }
             }
 
-            TableName = FindTableName();
+            this.TableName = FindTableName();
         }
 
         /// <inheritdoc />
@@ -111,7 +110,7 @@ namespace Supabase.Postgrest
             if (visitor.Columns.Count > 1)
                 throw new ArgumentException("Only one column should be returned from the predicate.");
 
-            return Filter(visitor.Columns.First(), op, criterion);
+            return this.Filter(visitor.Columns.First(), op, criterion);
         }
 
         /// <inheritdoc />
@@ -124,11 +123,11 @@ namespace Supabase.Postgrest
                     {
                         case Operator.Equals:
                         case Operator.Is:
-                            _filters.Add(new QueryFilter(columnName, Operator.Is, QueryFilter.NullVal));
+                            this._filters.Add(new QueryFilter(columnName, Operator.Is, QueryFilter.NullVal));
                             break;
                         case Operator.Not:
                         case Operator.NotEqual:
-                            _filters.Add(new QueryFilter(columnName, Operator.Not,
+                            this._filters.Add(new QueryFilter(columnName, Operator.Not,
                                 new QueryFilter(columnName, Operator.Is, QueryFilter.NullVal)));
                             break;
                         default:
@@ -139,34 +138,34 @@ namespace Supabase.Postgrest
 
                     return this;
                 case string stringCriterion:
-                    _filters.Add(new QueryFilter(columnName, op, stringCriterion));
+                    this._filters.Add(new QueryFilter(columnName, op, stringCriterion));
                     return this;
                 case int intCriterion:
-                    _filters.Add(new QueryFilter(columnName, op, intCriterion));
+                    this._filters.Add(new QueryFilter(columnName, op, intCriterion));
                     return this;
                 case long longCriterion:
-                    _filters.Add(new QueryFilter(columnName, op, longCriterion));
+                    this._filters.Add(new QueryFilter(columnName, op, longCriterion));
                     return this;
                 case float floatCriterion:
-                    _filters.Add(new QueryFilter(columnName, op, floatCriterion));
+                    this._filters.Add(new QueryFilter(columnName, op, floatCriterion));
                     return this;
                 case IDictionary dictCriteria:
-                    _filters.Add(new QueryFilter(columnName, op, dictCriteria));
+                    this._filters.Add(new QueryFilter(columnName, op, dictCriteria));
                     return this;
                 case IList listCriteria:
-                    _filters.Add(new QueryFilter(columnName, op, listCriteria));
+                    this._filters.Add(new QueryFilter(columnName, op, listCriteria));
                     return this;
                 case IntRange rangeCriteria:
-                    _filters.Add(new QueryFilter(columnName, op, rangeCriteria));
+                    this._filters.Add(new QueryFilter(columnName, op, rangeCriteria));
                     return this;
                 case FullTextSearchConfig fullTextSearchCriteria:
-                    _filters.Add(new QueryFilter(columnName, op, fullTextSearchCriteria));
+                    this._filters.Add(new QueryFilter(columnName, op, fullTextSearchCriteria));
                     return this;
                 case DateTime dtSearchCriteria:
-                    _filters.Add(new QueryFilter(columnName, op, dtSearchCriteria));
+                    this._filters.Add(new QueryFilter(columnName, op, dtSearchCriteria));
                     return this;
                 case DateTimeOffset dtoSearchCriteria:
-                    _filters.Add(new QueryFilter(columnName, op, dtoSearchCriteria));
+                    this._filters.Add(new QueryFilter(columnName, op, dtoSearchCriteria));
                     return this;
                 default:
                     throw new PostgrestException(
@@ -180,13 +179,12 @@ namespace Supabase.Postgrest
         /// <inheritdoc />
         public IPostgrestTable<TModel> Not(IPostgrestQueryFilter filter)
         {
-            _filters.Add(new QueryFilter(Operator.Not, filter));
+            this._filters.Add(new QueryFilter(Operator.Not, filter));
             return this;
         }
 
         /// <inheritdoc />
-        public IPostgrestTable<TModel> Not<TCriterion>(string columnName, Operator op, TCriterion? criterion) =>
-            Not(new QueryFilter(columnName, op, criterion));
+        public IPostgrestTable<TModel> Not<TCriterion>(string columnName, Operator op, TCriterion? criterion) => this.Not(new QueryFilter(columnName, op, criterion));
 
         /// <inheritdoc />
         public IPostgrestTable<TModel> Not<TCriterion>(Expression<Func<TModel, object>> predicate, Operator op,
@@ -201,12 +199,11 @@ namespace Supabase.Postgrest
             if (visitor.Columns.Count > 1)
                 throw new ArgumentException("Only one column should be returned from the predicate.");
 
-            return Not(new QueryFilter(visitor.Columns.First(), op, criterion));
+            return this.Not(new QueryFilter(visitor.Columns.First(), op, criterion));
         }
 
         /// <inheritdoc />
-        public IPostgrestTable<TModel> Not<TCriterion>(string columnName, Operator op, List<TCriterion> criteria) =>
-            Not(new QueryFilter(columnName, op, criteria.Cast<object>().ToList()));
+        public IPostgrestTable<TModel> Not<TCriterion>(string columnName, Operator op, List<TCriterion> criteria) => this.Not(new QueryFilter(columnName, op, criteria.Cast<object>().ToList()));
 
         /// <inheritdoc />
         public IPostgrestTable<TModel> Not<TCriterion>(Expression<Func<TModel, object>> predicate, Operator op,
@@ -221,12 +218,11 @@ namespace Supabase.Postgrest
             if (visitor.Columns.Count > 1)
                 throw new ArgumentException("Only one column should be returned from the predicate.");
 
-            return Not(new QueryFilter(visitor.Columns.First(), op, criteria.Cast<object>().ToList()));
+            return this.Not(new QueryFilter(visitor.Columns.First(), op, criteria.Cast<object>().ToList()));
         }
 
         /// <inheritdoc />
-        public IPostgrestTable<TModel> Not(string columnName, Operator op, Dictionary<string, object> criteria) =>
-            Not(new QueryFilter(columnName, op, criteria));
+        public IPostgrestTable<TModel> Not(string columnName, Operator op, Dictionary<string, object> criteria) => this.Not(new QueryFilter(columnName, op, criteria));
 
         /// <inheritdoc />
         public IPostgrestTable<TModel> Not(Expression<Func<TModel, object>> predicate, Operator op,
@@ -241,21 +237,21 @@ namespace Supabase.Postgrest
             if (visitor.Columns.Count > 1)
                 throw new ArgumentException("Only one column should be returned from the predicate.");
 
-            return Not(new QueryFilter(visitor.Columns.First(), op, criteria));
+            return this.Not(new QueryFilter(visitor.Columns.First(), op, criteria));
         }
 
 
         /// <inheritdoc />
         public IPostgrestTable<TModel> And(List<IPostgrestQueryFilter> filters)
         {
-            _filters.Add(new QueryFilter(Operator.And, filters));
+            this._filters.Add(new QueryFilter(Operator.And, filters));
             return this;
         }
 
         /// <inheritdoc />
         public IPostgrestTable<TModel> Or(List<IPostgrestQueryFilter> filters)
         {
-            _filters.Add(new QueryFilter(Operator.Or, filters));
+            this._filters.Add(new QueryFilter(Operator.Or, filters));
             return this;
         }
 
@@ -264,7 +260,7 @@ namespace Supabase.Postgrest
         {
             foreach (var kvp in model.PrimaryKey)
             {
-                _filters.Add(new QueryFilter(kvp.Key.ColumnName, Operator.Equals, kvp.Value));
+                this._filters.Add(new QueryFilter(kvp.Key.ColumnName, Operator.Equals, kvp.Value));
             }
 
             return this;
@@ -275,7 +271,7 @@ namespace Supabase.Postgrest
         {
             foreach (var param in query)
             {
-                _filters.Add(new QueryFilter(param.Key, Operator.Equals, param.Value));
+                this._filters.Add(new QueryFilter(param.Key, Operator.Equals, param.Value));
             }
 
             return this;
@@ -294,14 +290,14 @@ namespace Supabase.Postgrest
             if (visitor.Columns.Count > 1)
                 throw new ArgumentException("Only one column should be returned from the predicate.");
 
-            return Order(visitor.Columns.First(), ordering, nullPosition);
+            return this.Order(visitor.Columns.First(), ordering, nullPosition);
         }
 
 
         /// <inheritdoc />
         public IPostgrestTable<TModel> Order(string column, Ordering ordering, NullPosition nullPosition = NullPosition.First)
         {
-            _orderers.Add(new QueryOrderer(null, column, ordering, nullPosition));
+            this._orderers.Add(new QueryOrderer(null, column, ordering, nullPosition));
             return this;
         }
 
@@ -309,30 +305,30 @@ namespace Supabase.Postgrest
         public IPostgrestTable<TModel> Order(string foreignTable, string column, Ordering ordering,
             NullPosition nullPosition = NullPosition.First)
         {
-            _orderers.Add(new QueryOrderer(foreignTable, column, ordering, nullPosition));
+            this._orderers.Add(new QueryOrderer(foreignTable, column, ordering, nullPosition));
             return this;
         }
 
         /// <inheritdoc />
         public IPostgrestTable<TModel> Range(int from)
         {
-            _rangeFrom = from;
+            this._rangeFrom = from;
             return this;
         }
 
         /// <inheritdoc />
         public IPostgrestTable<TModel> Range(int from, int to)
         {
-            _rangeFrom = from;
-            _rangeTo = to;
+            this._rangeFrom = from;
+            this._rangeTo = to;
             return this;
         }
 
         /// <inheritdoc />
         public IPostgrestTable<TModel> Select(string columnQuery)
         {
-            _method = HttpMethod.Get;
-            _columnQuery = columnQuery;
+            this._method = HttpMethod.Get;
+            this._columnQuery = columnQuery;
             return this;
         }
 
@@ -346,7 +342,7 @@ namespace Supabase.Postgrest
                 throw new ArgumentException(
                     "Unable to find column(s) to select from the given predicate, did you return an array of Model Properties?");
 
-            return Select(string.Join(",", visitor.Columns));
+            return this.Select(string.Join(",", visitor.Columns));
         }
 
         /// <inheritdoc />
@@ -365,8 +361,7 @@ namespace Supabase.Postgrest
             if (visitor.Filter == null)
                 throw new ArgumentException(
                     "Unable to parse the supplied predicate, did you return a predicate where each left hand of the condition is a Model property?");
-
-            _filters.Add(visitor.Filter);
+            this._filters.Add(visitor.Filter);
 
             return this;
         }
@@ -375,8 +370,8 @@ namespace Supabase.Postgrest
         /// <inheritdoc />
         public IPostgrestTable<TModel> Limit(int limit, string? foreignTableName = null)
         {
-            _limit = limit;
-            _limitForeignKey = foreignTableName;
+            this._limit = limit;
+            this._limitForeignKey = foreignTableName;
             return this;
         }
 
@@ -384,7 +379,7 @@ namespace Supabase.Postgrest
         /// <inheritdoc />
         public IPostgrestTable<TModel> OnConflict(string columnName)
         {
-            _onConflict = columnName;
+            this._onConflict = columnName;
             return this;
         }
 
@@ -399,8 +394,7 @@ namespace Supabase.Postgrest
 
             if (visitor.Columns.Count > 1)
                 throw new ArgumentException("Only one column should be returned from the predicate.");
-
-            OnConflict(visitor.Columns.First());
+            this.OnConflict(visitor.Columns.First());
 
             return this;
         }
@@ -409,8 +403,7 @@ namespace Supabase.Postgrest
         /// <inheritdoc />
         public IPostgrestTable<TModel> Columns(string[] columns)
         {
-            foreach (var column in columns)
-                _columns.Add(column);
+            foreach (var column in columns) this._columns.Add(column);
 
             return this;
         }
@@ -425,27 +418,29 @@ namespace Supabase.Postgrest
             if (visitor.Columns.Count == 0)
                 throw new ArgumentException("Expected predicate to return an array of references to a Model column.");
 
-            return Columns(visitor.Columns.ToArray());
+            return this.Columns(visitor.Columns.ToArray());
         }
 
 
         /// <inheritdoc />
         public IPostgrestTable<TModel> Offset(int offset, string? foreignTableName = null)
         {
-            _offset = offset;
-            _offsetForeignKey = foreignTableName;
+            this._offset = offset;
+            this._offsetForeignKey = foreignTableName;
             return this;
         }
 
 
         /// <inheritdoc />
         public Task<ModeledResponse<TModel>> Insert(TModel model, QueryOptions? options = null,
-            CancellationToken cancellationToken = default) => PerformInsert(model, options, cancellationToken);
+            CancellationToken cancellationToken = default) =>
+            this.PerformInsert(model, options, cancellationToken);
 
 
         /// <inheritdoc />
         public Task<ModeledResponse<TModel>> Insert(ICollection<TModel> models, QueryOptions? options = null,
-            CancellationToken cancellationToken = default) => PerformInsert(models, options, cancellationToken);
+            CancellationToken cancellationToken = default) =>
+            this.PerformInsert(models, options, cancellationToken);
 
 
         /// <inheritdoc />
@@ -457,7 +452,7 @@ namespace Supabase.Postgrest
             // Enforce Upsert
             options.Upsert = true;
 
-            return PerformInsert(model, options, cancellationToken);
+            return this.PerformInsert(model, options, cancellationToken);
         }
 
 
@@ -470,7 +465,7 @@ namespace Supabase.Postgrest
             // Enforce Upsert
             options.Upsert = true;
 
-            return PerformInsert(model, options, cancellationToken);
+            return this.PerformInsert(model, options, cancellationToken);
         }
 
 
@@ -496,7 +491,7 @@ namespace Supabase.Postgrest
                     visitor.ExpectedType.Name, value.GetType().Name));
             }
 
-            _setData.Add(visitor.Column, value);
+            this._setData.Add(visitor.Column, value);
 
             return this;
         }
@@ -511,8 +506,7 @@ namespace Supabase.Postgrest
             if (visitor.Column == null || visitor.Value == default)
                 throw new ArgumentException(
                     "Expression should return a KeyValuePair with a key of a Model Property and a value.");
-
-            _setData.Add(visitor.Column, visitor.Value);
+            this._setData.Add(visitor.Column, visitor.Value);
 
             return this;
         }
@@ -524,14 +518,12 @@ namespace Supabase.Postgrest
         {
             options ??= new QueryOptions();
 
-            if (_setData.Keys.Count == 0)
+            if (this._setData.Keys.Count == 0)
                 throw new ArgumentException("No data has been set to update, was `Set` called?");
+            this._method = new HttpMethod("PATCH");
 
-            _method = new HttpMethod("PATCH");
-
-            var request = Send<TModel>(_method, _setData, options.ToHeaders(), cancellationToken, isUpdate: true);
-
-            Clear();
+            var request = this.Send<TModel>(this._method, this._setData, options.ToHeaders(), cancellationToken, isUpdate: true);
+            this.Clear();
 
             return request;
         }
@@ -542,30 +534,23 @@ namespace Supabase.Postgrest
             CancellationToken cancellationToken = default)
         {
             options ??= new QueryOptions();
+            this._method = new HttpMethod("PATCH");
+            this.Match(model);
 
-            _method = new HttpMethod("PATCH");
-
-            Match(model);
-
-            var request = Send<TModel>(_method, model, options.ToHeaders(), cancellationToken, isUpdate: true);
-
-            Clear();
+            var request = this.Send<TModel>(this._method, model, options.ToHeaders(), cancellationToken, isUpdate: true);
+            this.Clear();
 
             return request;
         }
 
 
         /// <inheritdoc />
-        public Task Delete(QueryOptions? options = null, CancellationToken cancellationToken = default)
+        public Task<ModeledResponse<TModel>> Delete(QueryOptions? options = null, CancellationToken cancellationToken = default)
         {
             options ??= new QueryOptions();
-
-            _method = HttpMethod.Delete;
-
-            var request = Send(_method, null, options.ToHeaders(), cancellationToken);
-
-            Clear();
-
+            this._method = HttpMethod.Delete;
+            var request = this.Send<TModel>(this._method, null, options.ToHeaders(), cancellationToken);
+            this.Clear();
             return request;
         }
 
@@ -574,14 +559,10 @@ namespace Supabase.Postgrest
         public Task<ModeledResponse<TModel>> Delete(TModel model, QueryOptions? options = null,
             CancellationToken cancellationToken = default)
         {
-            options ??= new QueryOptions();
-
-            _method = HttpMethod.Delete;
-
-            Match(model);
-
-            var request = Send<TModel>(_method, null, options.ToHeaders(), cancellationToken);
-            Clear();
+            this._method = HttpMethod.Delete;
+            this.Match(model);
+            var request = this.Send<TModel>(this._method, null, (options ?? new QueryOptions()).ToHeaders(), cancellationToken);
+            this.Clear();
             return request;
         }
 
@@ -589,7 +570,7 @@ namespace Supabase.Postgrest
         /// <inheritdoc />
         public async Task<int> Count(CountType type, CancellationToken cancellationToken = default)
         {
-            _method = HttpMethod.Head;
+            this._method = HttpMethod.Head;
 
             var attr = type.GetAttribute<MapToAttribute>();
 
@@ -598,8 +579,8 @@ namespace Supabase.Postgrest
                 { "Prefer", $"count={attr?.Mapping}" }
             };
 
-            var request = Send(_method, null, headers, cancellationToken);
-            Clear();
+            var request = this.Send(this._method, null, headers, cancellationToken);
+            this.Clear();
 
             var response = await request;
             var countStr = response.ResponseMessage?.Content.Headers.GetValues("Content-Range").FirstOrDefault();
@@ -612,16 +593,15 @@ namespace Supabase.Postgrest
         /// <inheritdoc />
         public async Task<TModel?> Single(CancellationToken cancellationToken = default)
         {
-            _method = HttpMethod.Get;
+            this._method = HttpMethod.Get;
             var headers = new Dictionary<string, string>
             {
                 { "Accept", "application/vnd.pgrst.object+json" },
                 { "Prefer", "return=representation" }
             };
 
-            var request = Send<TModel>(_method, null, headers, cancellationToken);
-
-            Clear();
+            var request = this.Send<TModel>(this._method, null, headers, cancellationToken);
+            this.Clear();
 
             try
             {
@@ -641,15 +621,15 @@ namespace Supabase.Postgrest
         public Task<ModeledResponse<TModel>> Get(CancellationToken cancellationToken = default, CountType type = CountType.Estimated)
         {
             var attr = type.GetAttribute<MapToAttribute>();
-            
+
             var headers = new Dictionary<string, string>
             {
                 { "Prefer", $"count={attr?.Mapping}" }
             };
-            
-            var request = Send<TModel>(_method, null, headers, cancellationToken);
-            Clear();
-            
+
+            var request = this.Send<TModel>(this._method, null, headers, cancellationToken);
+            this.Clear();
+
             return request;
         }
 
@@ -659,26 +639,26 @@ namespace Supabase.Postgrest
         /// <returns></returns>
         public string GenerateUrl()
         {
-            var builder = new UriBuilder($"{BaseUrl}/{TableName}");
+            var builder = new UriBuilder($"{this.BaseUrl}/{this.TableName}");
             var query = HttpUtility.ParseQueryString(builder.Query);
 
-            foreach (var param in _options.QueryParams)
+            foreach (var param in this._options.QueryParams)
                 query.Add(param.Key, param.Value);
 
-            if (_options.Headers.TryGetValue("apikey", out var header))
+            if (this._options.Headers.TryGetValue("apikey", out var header))
                 query.Add("apikey", header);
 
-            if (_columns.Count > 0)
-                query["columns"] = string.Join(",", _columns);
+            if (this._columns.Count > 0)
+                query["columns"] = string.Join(",", this._columns);
 
-            foreach (var parsedFilter in _filters.Select(PrepareFilter))
+            foreach (var parsedFilter in this._filters.Select(this.PrepareFilter))
                 query.Add(parsedFilter.Key, parsedFilter.Value);
 
-            if (_orderers.Count > 0)
+            if (this._orderers.Count > 0)
             {
                 var order = new StringBuilder();
 
-                foreach (var orderer in _orderers)
+                foreach (var orderer in this._orderers)
                 {
                     var nullPosAttr = orderer.NullPosition.GetAttribute<MapToAttribute>();
                     var orderingAttr = orderer.Ordering.GetAttribute<MapToAttribute>();
@@ -691,26 +671,25 @@ namespace Supabase.Postgrest
                     var selector = !string.IsNullOrEmpty(orderer.ForeignTable)
                         ? orderer.ForeignTable + "(" + orderer.Column + ")"
                         : orderer.Column;
-                    
+
                     order.Append($"{selector}.{orderingAttr.Mapping}.{nullPosAttr.Mapping}");
                 }
 
                 query.Add("order", order.ToString());
             }
 
-            if (!string.IsNullOrEmpty(_columnQuery))
-                query["select"] = Regex.Replace(_columnQuery!, @"\s", "");
+            if (!string.IsNullOrEmpty(this._columnQuery))
+                query["select"] = Regex.Replace(this._columnQuery!, @"\s", "");
 
-            if (_references.Count > 0)
+            if (this._references.Count > 0)
             {
                 query["select"] ??= "*";
 
-                foreach (var reference in _references)
+                foreach (var reference in this._references)
                 {
-                    if ((_method == HttpMethod.Get && !reference.IncludeInQuery) ||
-                        (_method == HttpMethod.Post && reference.IgnoreOnInsert) ||
-                        (_method == new HttpMethod("PATCH") && reference.IgnoreOnUpdate) ||
-                        _method == HttpMethod.Delete) continue;
+                    if ((this._method == HttpMethod.Get && !reference.IncludeInQuery) ||
+                        (this._method == HttpMethod.Post && reference.IgnoreOnInsert) ||
+                        (this._method == new HttpMethod("PATCH") && reference.IgnoreOnUpdate) || this._method == HttpMethod.Delete) continue;
 
                     var columns = string.Join(",", reference.Columns.ToArray());
 
@@ -731,19 +710,19 @@ namespace Supabase.Postgrest
                 }
             }
 
-            if (!string.IsNullOrEmpty(_onConflict))
-                query["on_conflict"] = _onConflict;
+            if (!string.IsNullOrEmpty(this._onConflict))
+                query["on_conflict"] = this._onConflict;
 
-            if (_limit != int.MinValue)
+            if (this._limit != int.MinValue)
             {
-                var key = _limitForeignKey != null ? $"{_limitForeignKey}.limit" : "limit";
-                query[key] = _limit.ToString();
+                var key = this._limitForeignKey != null ? $"{this._limitForeignKey}.limit" : "limit";
+                query[key] = this._limit.ToString();
             }
 
-            if (_offset != int.MinValue)
+            if (this._offset != int.MinValue)
             {
-                var key = _offsetForeignKey != null ? $"{_offsetForeignKey}.offset" : "offset";
-                query[key] = _offset.ToString();
+                var key = this._offsetForeignKey != null ? $"{this._offsetForeignKey}.offset" : "offset";
+                query[key] = this._offset.ToString();
             }
 
             builder.Query = query.ToString();
@@ -774,19 +753,19 @@ namespace Supabase.Postgrest
             if (data == null) return new Dictionary<string, string>();
 
             // Specified in constructor;
-            var resolver = (PostgrestContractResolver)_serializerSettings.ContractResolver!;
+            var resolver = (PostgrestContractResolver) this._serializerSettings.ContractResolver!;
 
             resolver.SetState(isInsert, isUpdate, isUpsert);
 
-            var serialized = JsonConvert.SerializeObject(data, _serializerSettings);
+            var serialized = JsonConvert.SerializeObject(data, this._serializerSettings);
 
             resolver.SetState();
 
             // Check if data is a Collection for the Insert Bulk case
             if (data is ICollection<TModel>)
-                return JsonConvert.DeserializeObject<List<object>>(serialized, _passthroughSettings);
+                return JsonConvert.DeserializeObject<List<object>>(serialized, this._passthroughSettings);
 
-            return JsonConvert.DeserializeObject<Dictionary<string, object>>(serialized, _passthroughSettings);
+            return JsonConvert.DeserializeObject<Dictionary<string, object>>(serialized, this._passthroughSettings);
         }
 
         /// <summary>
@@ -817,7 +796,7 @@ namespace Supabase.Postgrest
                                 throw new ArgumentException(
                                     $"Expected all filters supplied to a `{filter.Op}` filter to be non-null.");
 
-                            list.Add(PrepareFilter(subFilter));
+                            list.Add(this.PrepareFilter(subFilter));
                         }
 
                         foreach (var preppedFilter in list)
@@ -830,7 +809,7 @@ namespace Supabase.Postgrest
                     break;
                 case Operator.Not:
                     if (filter.Criteria is QueryFilter notFilter)
-                        return NegatePreparedFilter(notFilter, PrepareFilter(notFilter));
+                        return NegatePreparedFilter(notFilter, this.PrepareFilter(notFilter));
 
                     break;
                 case Operator.Like:
@@ -925,23 +904,18 @@ namespace Supabase.Postgrest
         /// <inheritdoc />
         public void Clear()
         {
-            _columnQuery = null;
-
-            _filters.Clear();
-            _orderers.Clear();
-            _columns.Clear();
-            _setData.Clear();
-
-            _rangeFrom = int.MinValue;
-            _rangeTo = int.MinValue;
-
-            _limit = int.MinValue;
-            _limitForeignKey = null;
-
-            _offset = int.MinValue;
-            _offsetForeignKey = null;
-
-            _onConflict = null;
+            this._columnQuery = null;
+            this._filters.Clear();
+            this._orderers.Clear();
+            this._columns.Clear();
+            this._setData.Clear();
+            this._rangeFrom = int.MinValue;
+            this._rangeTo = int.MinValue;
+            this._limit = int.MinValue;
+            this._limitForeignKey = null;
+            this._offset = int.MinValue;
+            this._offsetForeignKey = null;
+            this._onConflict = null;
         }
 
 
@@ -955,16 +929,14 @@ namespace Supabase.Postgrest
         private Task<ModeledResponse<TModel>> PerformInsert(object data, QueryOptions? options = null,
             CancellationToken cancellationToken = default)
         {
-            _method = HttpMethod.Post;
+            this._method = HttpMethod.Post;
             options ??= new QueryOptions();
 
-            if (!string.IsNullOrEmpty(options.OnConflict))
-                OnConflict(options.OnConflict!);
+            if (!string.IsNullOrEmpty(options.OnConflict)) this.OnConflict(options.OnConflict!);
 
-            var request = Send<TModel>(_method, data, options.ToHeaders(), cancellationToken, isInsert: true,
+            var request = this.Send<TModel>(this._method, data, options.ToHeaders(), cancellationToken, isInsert: true,
                 isUpsert: options.Upsert);
-
-            Clear();
+            this.Clear();
 
             return request;
         }
@@ -973,17 +945,17 @@ namespace Supabase.Postgrest
             CancellationToken cancellationToken = default, bool isInsert = false,
             bool isUpdate = false, bool isUpsert = false)
         {
-            var requestHeaders = Helpers.PrepareRequestHeaders(method, headers, _options, _rangeFrom, _rangeTo);
+            var requestHeaders = Helpers.PrepareRequestHeaders(method, headers, this._options, this._rangeFrom, this._rangeTo);
 
-            if (GetHeaders != null)
+            if (this.GetHeaders != null)
             {
-                requestHeaders = GetHeaders().MergeLeft(requestHeaders);
+                requestHeaders = this.GetHeaders().MergeLeft(requestHeaders);
             }
 
-            var url = GenerateUrl();
-            var preparedData = PrepareRequestData(data, isInsert, isUpdate, isUpsert);
+            var url = this.GenerateUrl();
+            var preparedData = this.PrepareRequestData(data, isInsert, isUpdate, isUpsert);
 
-            Hooks.Instance.NotifyOnRequestPreparedHandlers(this, _options, method, url, _serializerSettings,
+            Hooks.Instance.NotifyOnRequestPreparedHandlers(this, this._options, method, url, this._serializerSettings,
                 preparedData, requestHeaders);
 
             Debugger.Instance.Log(this,
@@ -992,7 +964,7 @@ namespace Supabase.Postgrest
                 $"Data:\n\t{JsonConvert.SerializeObject(preparedData)}");
 
             var operation = PostgrestInstrumentation.ResolveOperation(method, isInsert, isUpdate, isUpsert);
-            return Helpers.MakeRequest(_options, method, url, _serializerSettings, preparedData, requestHeaders,
+            return Helpers.MakeRequest(this._options, method, url, this._serializerSettings, preparedData, requestHeaders,
                 cancellationToken, operation);
         }
 
@@ -1001,15 +973,15 @@ namespace Supabase.Postgrest
             bool isInsert = false,
             bool isUpdate = false, bool isUpsert = false) where TU : BaseModel, new()
         {
-            var requestHeaders = Helpers.PrepareRequestHeaders(method, headers, _options, _rangeFrom, _rangeTo);
+            var requestHeaders = Helpers.PrepareRequestHeaders(method, headers, this._options, this._rangeFrom, this._rangeTo);
 
-            if (GetHeaders != null)
-                requestHeaders = GetHeaders().MergeLeft(requestHeaders);
+            if (this.GetHeaders != null)
+                requestHeaders = this.GetHeaders().MergeLeft(requestHeaders);
 
-            var url = GenerateUrl();
-            var preparedData = PrepareRequestData(data, isInsert, isUpdate, isUpsert);
+            var url = this.GenerateUrl();
+            var preparedData = this.PrepareRequestData(data, isInsert, isUpdate, isUpsert);
 
-            Hooks.Instance.NotifyOnRequestPreparedHandlers(this, _options, method, url, _serializerSettings,
+            Hooks.Instance.NotifyOnRequestPreparedHandlers(this, this._options, method, url, this._serializerSettings,
                 preparedData, requestHeaders);
 
             Debugger.Instance.Log(this,
@@ -1018,8 +990,7 @@ namespace Supabase.Postgrest
                 $"Data:\n\t{JsonConvert.SerializeObject(preparedData)}");
 
             var operation = PostgrestInstrumentation.ResolveOperation(method, isInsert, isUpdate, isUpsert);
-            return Helpers.MakeRequest<TU>(_options, method, url, _serializerSettings, preparedData, requestHeaders,
-                GetHeaders, cancellationToken, operation);
+            return Helpers.MakeRequest<TU>(this._options, method, url, this._serializerSettings, preparedData, requestHeaders, this.GetHeaders, cancellationToken, operation);
         }
 
         private static string FindTableName(object? obj = null)
