@@ -13,8 +13,8 @@
         <Title>Supabase Storage</Title>
         <PackageTags>supabase, storage</PackageTags>
         <!-- x-release-please-start-version -->
-        <ReleaseVersion>2.7.0</ReleaseVersion>
-        <PackageVersion>2.7.0</PackageVersion>
+        <ReleaseVersion>7.5.0</ReleaseVersion>
+        <PackageVersion>7.5.0</PackageVersion>
         <!-- x-release-please-end -->
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -28,7 +28,7 @@
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Version)' == '' ">
-        <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">2.7.0</VersionPrefix> <!-- x-release-please-version -->
+        <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">7.5.0</VersionPrefix> <!-- x-release-please-version -->
         <Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
     </PropertyGroup>
 

@@ -1,5 +1,27 @@
 # Changelog
 
+## [7.5.0](https://github.com/supabase-community/supabase-csharp/compare/v7.4.0...v7.5.0) (2026-08-10)
+
+
+### Features
+
+* add dependabot ([#202](https://github.com/supabase-community/supabase-csharp/issues/202)) ([e04cc98](https://github.com/supabase-community/supabase-csharp/commit/e04cc988b45c1d8ab29bbab41a5aac3c19877e81))
+* add sdk compliance file for capabilities matrix ([#267](https://github.com/supabase-community/supabase-csharp/issues/267)) ([3fad62f](https://github.com/supabase-community/supabase-csharp/commit/3fad62f9bc8edad8abec2ba5c06dd504e5e78630))
+* add support for trusted publishing ([#276](https://github.com/supabase-community/supabase-csharp/issues/276)) ([5eefb2c](https://github.com/supabase-community/supabase-csharp/commit/5eefb2cb486861cc6117d69584fd4ac470abf897))
+* bump Supabase dependencies ([#293](https://github.com/supabase-community/supabase-csharp/issues/293)) ([6658bc2](https://github.com/supabase-community/supabase-csharp/commit/6658bc21c2312d0309b25be5c84722770a0c6f52))
+* bump Supabase dependencies ([#301](https://github.com/supabase-community/supabase-csharp/issues/301)) ([91c35d2](https://github.com/supabase-community/supabase-csharp/commit/91c35d23c7906f9f7662411fca99161791a87af2))
+* expose aggregated telemetry source names for OpenTelemetry ([#285](https://github.com/supabase-community/supabase-csharp/issues/285)) ([bc29898](https://github.com/supabase-community/supabase-csharp/commit/bc29898d89d7d98b4f2d4e31a0c64678a9672210))
+* wire Realtime's Postgrest client automatically so models from postgres_changes support Update/Delete ([#282](https://github.com/supabase-community/supabase-csharp/issues/282)) ([584cc1c](https://github.com/supabase-community/supabase-csharp/commit/584cc1c4589d4162d73deb8b487d36cab1f96333))
+
+
+### Bug Fixes
+
+* 14 - Update gotrue-csharp@2.3.0 ([183a30f](https://github.com/supabase-community/supabase-csharp/commit/183a30f6c879edbe1001bb750878edc185257ccd))
+* 5 ([1d30b7b](https://github.com/supabase-community/supabase-csharp/commit/1d30b7bbf953be8e9f34a2cbfee3f2257c084001))
+* correct csproj filename typo in release-please config ([#274](https://github.com/supabase-community/supabase-csharp/issues/274)) ([4884c6e](https://github.com/supabase-community/supabase-csharp/commit/4884c6eef5a4a535d3c76e6ffe831e5fa8f00008))
+* lower Newtonsoft.Json minimum version to 13.0.2 ([#275](https://github.com/supabase-community/supabase-csharp/issues/275)) ([d2233e2](https://github.com/supabase-community/supabase-csharp/commit/d2233e256217e59c22ef76edc93c9b682673d4c5))
+* match auth header names case-insensitively (enables developer override) ([#295](https://github.com/supabase-community/supabase-csharp/issues/295)) ([ac057a2](https://github.com/supabase-community/supabase-csharp/commit/ac057a2d4b3abb4b7ed916e004110db79881dc9a))
+
 ## [1.6.0](https://github.com/supabase-community/supabase-csharp/compare/v1.5.0...v1.6.0) (2026-08-07)
 
 
