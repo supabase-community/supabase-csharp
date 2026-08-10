@@ -559,11 +559,8 @@ namespace Supabase.Postgrest
         public Task<ModeledResponse<TModel>> Delete(TModel model, QueryOptions? options = null,
             CancellationToken cancellationToken = default)
         {
-            this._method = HttpMethod.Delete;
             this.Match(model);
-            var request = this.Send<TModel>(this._method, null, (options ?? new QueryOptions()).ToHeaders(), cancellationToken);
-            this.Clear();
-            return request;
+            return this.Delete(options, cancellationToken);
         }
 
 
