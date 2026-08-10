@@ -13,8 +13,12 @@ jobs:
       contents: write
       pull-requests: write
       issues: write
+    outputs:
+      releases_created: ${{ steps.release.outputs.releases_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
     steps:
       - uses: googleapis/release-please-action@v4
+        id: release
         with:
           target-branch: ${{ github.ref_name }}
           manifest-file: .release-please-manifest.json
@@ -22,18 +26,18 @@ jobs:
 
   publish:
     needs: release-please
-    if: ${{ github.repository_owner == 'supabase-community' && github.ref == 'refs/heads/master' && (github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && startsWith(github.event.head_commit.message, 'chore(master)'))) }}
+    if: ${{ github.repository_owner == 'supabase-community' && needs.release-please.outputs.releases_created == 'true' }}
     name: build, pack & publish
     runs-on: ubuntu-latest
     permissions:
       id-token: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 8.x
+          global-json-file: global.json
 
       - name: Wait for tests to succeed
         uses: lewagon/wait-on-check-action@v1.3.1
@@ -46,11 +50,8 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
 
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
-
-      - name: Generate package
-        run: dotnet pack ./Supabase/Supabase.csproj --configuration Release
+      - name: Pack all packages
+        run: dotnet pack Supabase.sln --configuration Release --output ./artifacts
 
       - name: NuGet login
         uses: NuGet/login@v1
@@ -58,5 +59,9 @@ jobs:
         with:
           user: supabase_publisher
 
-      - name: Publish on version change
-        run: dotnet nuget push "**/*.nupkg" --source https://api.nuget.org/v3/index.json --api-key ${{ steps.login.outputs.NUGET_API_KEY }}
+      - name: Publish
+        run: >
+          dotnet nuget push "./artifacts/*.nupkg"
+          --source https://api.nuget.org/v3/index.json
+          --api-key ${{ steps.login.outputs.NUGET_API_KEY }}
+          --skip-duplicate

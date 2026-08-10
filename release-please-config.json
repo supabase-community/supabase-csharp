@@ -8,7 +8,13 @@
       "prerelease": false,
       "release-type": "simple",
       "extra-files": [
-        "Supabase/Supabase.csproj"
+        "packages/Core/Core/Core.csproj",
+        "packages/Functions/Functions/Functions.csproj",
+        "packages/Gotrue/Gotrue/Gotrue.csproj",
+        "packages/Postgrest/Postgrest/Postgrest.csproj",
+        "packages/Realtime/Realtime/Realtime.csproj",
+        "packages/Storage/Storage/Storage.csproj",
+        "packages/Supabase/Supabase/Supabase.csproj"
       ]
     }
   },
