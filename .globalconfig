@@ -1,0 +1,30 @@
+is_global = true
+
+# Analyzer severities. These live here rather than in .editorconfig because
+# dotnet_diagnostic.* is a Roslyn mechanism, not a ReSharper one — Rider's
+# editorconfig schema validation does not recognise the property family and
+# flags every line as unsupported. The SDK picks this file up automatically.
+#
+# No glob sections are possible here: .globalconfig applies to every project it
+# is inherited by. Test-project exemptions go in the test .csproj instead:
+#   <NoWarn>$(NoWarn);CA2007;CS1591</NoWarn>
+
+# forward CancellationToken to callees that accept one
+dotnet_diagnostic.CA2016.severity = warning
+
+# CancellationToken parameter goes last
+dotnet_diagnostic.CA1068.severity = warning
+
+# missing XML doc on public API
+dotnet_diagnostic.CS1591.severity = warning
+
+# unused usings
+dotnet_diagnostic.IDE0005.severity = warning
+
+# Deliberately off. Add one at a time, with a build after each:
+#   CA2007  ConfigureAwait(false) on awaits — rubric §8 wants it, but it is a
+#           large diff and has no reliable auto-fix
+#   CA1849  sync call inside an async method — no code fix exists
+#   CA1063  IDisposable implemented correctly
+#   CA2201  do not throw reserved exception types
+#   CA2249  prefer Contains over IndexOf comparisons
