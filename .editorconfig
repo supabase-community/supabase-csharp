@@ -8,42 +8,54 @@ insert_final_newline = true
 indent_style = space
 indent_size = 4
 
+# Markdown uses two trailing spaces as a hard line break; trimming corrupts it.
+[*.md]
+trim_trailing_whitespace = false
+
 [*.cs]
 # --- Language style ---
-csharp_preferred_modifier_order = public, private, protected, internal, new, static, abstract, virtual, sealed, readonly, override, extern, unsafe, volatile, async, file, required:suggestion
+# Severity raised from suggestion to warning: at suggestion, Rider shows a green
+# checkmark but neither `dotnet build` (EnforceCodeStyleInBuild) nor
+# `dotnet format --severity warn` reports it, so the gate cannot see it.
+# Warning-level makes them visible to both, and `dotnet format` auto-fixes most.
+csharp_preferred_modifier_order = public, private, protected, internal, new, static, abstract, virtual, sealed, readonly, override, extern, unsafe, volatile, async, file, required:warning
 csharp_space_after_cast = true
 csharp_new_line_before_members_in_object_initializers = false
-csharp_style_var_for_built_in_types = true:suggestion
-csharp_style_var_when_type_is_apparent = true:suggestion
-csharp_style_var_elsewhere = true:suggestion
+csharp_style_var_for_built_in_types = true:warning
+csharp_style_var_when_type_is_apparent = true:warning
+csharp_style_var_elsewhere = true:warning
 
-dotnet_style_predefined_type_for_locals_parameters_members = true:suggestion
-dotnet_style_predefined_type_for_member_access = true:suggestion
-dotnet_style_qualification_for_field = true:suggestion
-dotnet_style_qualification_for_property = true:suggestion
-dotnet_style_qualification_for_method = true:suggestion
-dotnet_style_qualification_for_event = true:suggestion
-dotnet_style_require_accessibility_modifiers = for_non_interface_members:suggestion
+dotnet_style_predefined_type_for_locals_parameters_members = true:warning
+dotnet_style_predefined_type_for_member_access = true:warning
+dotnet_style_qualification_for_field = true:warning
+dotnet_style_qualification_for_property = true:warning
+dotnet_style_qualification_for_method = true:warning
+dotnet_style_qualification_for_event = true:warning
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:warning
 
 # --- Expression-bodied members: use an expression body when the member is a single statement ---
-csharp_style_expression_bodied_methods = when_on_single_line:suggestion
-csharp_style_expression_bodied_constructors = when_on_single_line:suggestion
-csharp_style_expression_bodied_operators = when_on_single_line:suggestion
-csharp_style_expression_bodied_local_functions = when_on_single_line:suggestion
-csharp_style_expression_bodied_lambdas = when_on_single_line:suggestion
-csharp_style_expression_bodied_properties = when_on_single_line:suggestion
-csharp_style_expression_bodied_indexers = when_on_single_line:suggestion
-csharp_style_expression_bodied_accessors = when_on_single_line:suggestion
+csharp_style_expression_bodied_methods = when_on_single_line:warning
+csharp_style_expression_bodied_constructors = when_on_single_line:warning
+csharp_style_expression_bodied_operators = when_on_single_line:warning
+csharp_style_expression_bodied_local_functions = when_on_single_line:warning
+csharp_style_expression_bodied_lambdas = when_on_single_line:warning
+csharp_style_expression_bodied_properties = when_on_single_line:warning
+csharp_style_expression_bodied_indexers = when_on_single_line:warning
+csharp_style_expression_bodied_accessors = when_on_single_line:warning
+
+# --- Usings & namespaces (auto-fixable by dotnet format) ---
+csharp_style_namespace_declarations = file_scoped:warning
+csharp_using_directive_placement = outside_namespace:warning
+dotnet_sort_system_directives_first = true
+dotnet_separate_import_directive_groups = false
+dotnet_diagnostic.IDE0005.severity = warning
 
 # --- Naming (warning-level) ---
-# private instance / static fields: camelCase, NO underscore prefix (CONVENTIONS §4)
-dotnet_naming_rule.private_fields_camel_case.severity = warning
-dotnet_naming_rule.private_fields_camel_case.symbols = private_fields
-dotnet_naming_rule.private_fields_camel_case.style = camel_case
-dotnet_naming_symbols.private_fields.applicable_kinds = field
-dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+# ORDER MATTERS: naming rules are evaluated in declaration order and the first
+# matching rule wins. The specific rules must precede the general one, or the
+# general private-field rule swallows consts and static readonlys.
 
-# private const: PascalCase (declared before the general rule so it wins)
+# private const: PascalCase
 dotnet_naming_rule.private_const_pascal_case.severity = warning
 dotnet_naming_rule.private_const_pascal_case.symbols = private_const_fields
 dotnet_naming_rule.private_const_pascal_case.style = pascal_case
@@ -59,8 +71,53 @@ dotnet_naming_symbols.private_static_readonly_fields.applicable_kinds = field
 dotnet_naming_symbols.private_static_readonly_fields.applicable_accessibilities = private
 dotnet_naming_symbols.private_static_readonly_fields.required_modifiers = static, readonly
 
+# private instance / static fields: camelCase, NO underscore prefix (CONVENTIONS §4)
+dotnet_naming_rule.private_fields_camel_case.severity = warning
+dotnet_naming_rule.private_fields_camel_case.symbols = private_fields
+dotnet_naming_rule.private_fields_camel_case.style = camel_case
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+
+# Public surface: PascalCase.
+dotnet_naming_rule.public_members_pascal_case.severity = warning
+dotnet_naming_rule.public_members_pascal_case.symbols = public_members
+dotnet_naming_rule.public_members_pascal_case.style = pascal_case
+dotnet_naming_symbols.public_members.applicable_kinds = property, method, event, field
+dotnet_naming_symbols.public_members.applicable_accessibilities = public, protected, protected_internal
+
+# Interfaces: I-prefixed.
+dotnet_naming_rule.interfaces_prefixed.severity = warning
+dotnet_naming_rule.interfaces_prefixed.symbols = interface_symbols
+dotnet_naming_rule.interfaces_prefixed.style = i_prefix
+dotnet_naming_symbols.interface_symbols.applicable_kinds = interface
+
+# Async methods: Async suffix (QUALITY_RUBRIC §1.6).
+dotnet_naming_rule.async_methods_suffix.severity = warning
+dotnet_naming_rule.async_methods_suffix.symbols = async_methods
+dotnet_naming_rule.async_methods_suffix.style = async_suffix
+dotnet_naming_symbols.async_methods.applicable_kinds = method
+dotnet_naming_symbols.async_methods.applicable_accessibilities = public, internal, protected
+dotnet_naming_symbols.async_methods.required_modifiers = async
+
 dotnet_naming_style.camel_case.capitalization = camel_case
 dotnet_naming_style.pascal_case.capitalization = pascal_case
+dotnet_naming_style.i_prefix.capitalization = pascal_case
+dotnet_naming_style.i_prefix.required_prefix = I
+dotnet_naming_style.async_suffix.capitalization = pascal_case
+dotnet_naming_style.async_suffix.required_suffix = Async
+
+# --- Analyzers (NOT style rules; these need EnableNETAnalyzers) ---
+# Style rules above are what dotnet format fixes. These are correctness rules
+# that only report — they back rubric non-negotiables that were previously
+# unenforced.
+dotnet_diagnostic.CA2007.severity = warning   # ConfigureAwait(false) on awaits
+dotnet_diagnostic.CA2016.severity = warning   # forward CancellationToken to callees
+dotnet_diagnostic.CA1068.severity = warning   # CancellationToken parameter goes last
+dotnet_diagnostic.CA2201.severity = warning   # don't throw reserved exception types
+dotnet_diagnostic.CA1063.severity = warning   # IDisposable implemented correctly
+dotnet_diagnostic.CA1849.severity = warning   # no sync call inside an async method
+dotnet_diagnostic.CA2249.severity = warning   # Contains over IndexOf comparisons
+dotnet_diagnostic.CS1591.severity = warning   # missing XML doc on public API
 
 # --- ReSharper / Rider hints (IDE-only; not enforced by dotnet build) ---
 # Collapse blank lines in method bodies to 0 — backs the "no blank lines between arrange/act/assert"
@@ -72,6 +129,12 @@ resharper_braces_for_for = required
 resharper_braces_for_foreach = required
 resharper_braces_for_while = required
 resharper_trailing_comma_in_multiline_lists = true
+
+# --- Test projects ---
+# ConfigureAwait is noise in test code, and tests are not public API.
+[**/{*Tests,*.Tests,Tests}/**/*.cs]
+dotnet_diagnostic.CA2007.severity = none
+dotnet_diagnostic.CS1591.severity = none
 
 [*.{csproj,props,targets,nuspec}]
 indent_size = 2

@@ -18,6 +18,16 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/supabase-community/supabase-csharp</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <!--
+    Test projects keep the documentation file on (so IDE0005 unused-using analysis still runs
+    on build) but suppress CS1591: public test fixtures and their members are not API surface
+    and are not expected to carry XML doc comments.
+  -->
+  <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('.Tests'))">
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
   </PropertyGroup>
 
   <!-- Shared package icon, applied to packable projects only (test projects set IsPackable=false). -->
