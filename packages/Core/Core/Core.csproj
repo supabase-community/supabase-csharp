@@ -1,6 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
 		<PackOnBuild>true</PackOnBuild>
 		<PackageId>Supabase.Core</PackageId>
 		<PackageProjectUrl>https://github.com/supabase-community/supabase-csharp/tree/master/packages/Core</PackageProjectUrl>
@@ -24,7 +23,6 @@
 	
 	<PropertyGroup>
 		<Nullable>enable</Nullable>
-		<LangVersion>default</LangVersion>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
 	</PropertyGroup>
 

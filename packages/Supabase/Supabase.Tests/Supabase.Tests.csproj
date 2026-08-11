@@ -5,12 +5,12 @@
     <IsPackable>false</IsPackable>
     <ReleaseVersion>0.8.5</ReleaseVersion>
     <OutputType>Library</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
     <AssemblyName>Supabase.Tests</AssemblyName>
     <RootNamespace>Supabase.Tests</RootNamespace>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <AnalysisLevel>latest</AnalysisLevel>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>

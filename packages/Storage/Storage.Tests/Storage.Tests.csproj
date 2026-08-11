@@ -1,12 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net10.0</TargetFramework>
         <AssemblyName>Storage.Tests</AssemblyName>
         <RootNamespace>Storage.Tests</RootNamespace>
         <IsPackable>false</IsPackable>
         <Nullable>enable</Nullable>
-        <LangVersion>default</LangVersion>
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
         <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
         <AnalysisLevel>latest</AnalysisLevel>

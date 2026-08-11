@@ -19,6 +19,26 @@
     <RepositoryUrl>https://github.com/supabase-community/supabase-csharp</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!--
+      "latest" tracks the installed SDK's newest C# so packages are never stuck behind the
+      language, independent of the netstandard2.1 target. It is uniform here so it cannot
+      drift per package (it previously did: some projects pinned 8.0/9.0, others latest).
+      Using C# 9+ init-only setters or records on netstandard2.1 needs a local
+      System.Runtime.CompilerServices.IsExternalInit shim.
+    -->
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <!--
+    Target frameworks are uniform across the monorepo: shipped packages ship as
+    netstandard2.1, and test projects run on net10.0. Keyed off the project-name suffix
+    so a new package or test project inherits the right target with no per-project setting.
+  -->
+  <PropertyGroup Condition="!$(MSBuildProjectName.EndsWith('.Tests'))">
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('.Tests'))">
+    <TargetFramework>net10.0</TargetFramework>
   </PropertyGroup>
 
   <!--

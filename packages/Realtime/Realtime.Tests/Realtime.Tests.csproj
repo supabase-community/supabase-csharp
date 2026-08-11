@@ -1,11 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<IsPackable>false</IsPackable>
-		<TargetFramework>net8.0</TargetFramework>
 		<AssemblyName>Realtime.Tests</AssemblyName>
 		<RootNamespace>Realtime.Tests</RootNamespace>
 		<Nullable>enable</Nullable>
-		<LangVersion>latest</LangVersion>
 		<WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
