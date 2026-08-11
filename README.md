@@ -22,9 +22,9 @@ Use the `Supabase` meta-package for the full client, or reference an individual 
 | **Supabase.Functions** | [![NuGet](https://img.shields.io/nuget/vpre/Supabase.Functions)](https://www.nuget.org/packages/Supabase.Functions/) | [`packages/Functions`](./packages/Functions) | Invoke Edge Functions. |
 | **Supabase.Core** | [![NuGet](https://img.shields.io/nuget/vpre/Supabase.Core)](https://www.nuget.org/packages/Supabase.Core/) | [`packages/Core`](./packages/Core) | Shared primitives used by the packages above. Rarely referenced directly. |
 
-Every package targets .NET Standard 2.0 or 2.1, so it runs on .NET Framework, .NET Core / .NET 5+,
-Xamarin, MAUI, and Unity. See the [wiki](https://github.com/supabase-community/supabase-csharp/wiki)
-for platform-specific guides (Unity, desktop/mobile, server-side).
+Every package targets .NET Standard 2.1, so it runs on .NET Core 3.0+ / .NET 5+, recent MAUI, Xamarin, and Unity.
+See the [wiki](https://github.com/supabase-community/supabase-csharp/wiki) for platform-specific guides
+(Unity, desktop/mobile, server-side).
 
 ## Installation
 
@@ -143,7 +143,8 @@ Realtime suite additionally expects `realtime-dev.localhost` to resolve locally 
 
 Releases are automated with [release-please](https://github.com/googleapis/release-please). Commits
 follow [Conventional Commits](https://www.conventionalcommits.org/); the changelog is generated in
-[`CHANGELOG.md`](./CHANGELOG.md).
+[`CHANGELOG.md`](./CHANGELOG.md). For breaking changes and how to adapt to them across major
+versions, see [the migration guides](./docs/migrations).
 
 ## Contributing
 

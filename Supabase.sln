@@ -96,6 +96,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supabase", "packages\Supaba
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supabase.Tests", "packages\Supabase\Supabase.Tests\Supabase.Tests.csproj", "{ACE6D9C0-1F55-4A95-8250-C074D5EBA913}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", "{D1072B4D-1697-4401-9431-F90A6B9AD2BB}"
+	ProjectSection(SolutionItems) = preProject
+		docs\migrations\README.md = docs\migrations\README.md
+		docs\migrations\v8.0.0.md = docs\migrations\v8.0.0.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -300,6 +306,7 @@ Global
 		{48B3645E-6A5B-E050-DA5F-480AE4911C13} = {809F86A1-1C4C-B159-0CD4-DF9D33D876CE}
 		{B898A942-9C1A-4C3F-8992-664B636D0ED8} = {48B3645E-6A5B-E050-DA5F-480AE4911C13}
 		{ACE6D9C0-1F55-4A95-8250-C074D5EBA913} = {48B3645E-6A5B-E050-DA5F-480AE4911C13}
+		{D1072B4D-1697-4401-9431-F90A6B9AD2BB} = {AB28C3BB-F406-476D-9004-804D35EAA048}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {832DE89D-7252-4B03-9301-BB8D36B40992}
