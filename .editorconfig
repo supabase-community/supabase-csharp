@@ -14,10 +14,18 @@ trim_trailing_whitespace = false
 
 [*.cs]
 # --- Language style ---
-# Severity raised from suggestion to warning: at suggestion, Rider shows a green
-# checkmark but neither `dotnet build` (EnforceCodeStyleInBuild) nor
-# `dotnet format --severity warn` reports it, so the gate cannot see it.
-# Warning-level makes them visible to both, and `dotnet format` auto-fixes most.
+# Severity decides who sees a rule. At :suggestion Rider shows a green checkmark
+# but neither `dotnet build` nor `dotnet format --severity warn` reports it, so
+# the gate is blind to it. At :warning both see it.
+#
+# Raising severity only changes who REPORTS a rule. It is safe.
+# What is not safe is `dotnet format` in WRITE mode across a multi-targeted
+# project: it computes a fix per TFM, cannot merge them, and writes conflict
+# markers into the source. Sweep one project at a time, build after each, and
+# only once everything is on a single target framework.
+#
+# The var and predefined-type rules also rewrite code in ways that can change
+# overload resolution — worth a build immediately after formatting those.
 csharp_preferred_modifier_order = public, private, protected, internal, new, static, abstract, virtual, sealed, readonly, override, extern, unsafe, volatile, async, file, required:warning
 csharp_space_after_cast = true
 csharp_new_line_before_members_in_object_initializers = false
@@ -48,7 +56,6 @@ csharp_style_namespace_declarations = file_scoped:warning
 csharp_using_directive_placement = outside_namespace:warning
 dotnet_sort_system_directives_first = true
 dotnet_separate_import_directive_groups = false
-dotnet_diagnostic.IDE0005.severity = warning
 
 # --- Naming (warning-level) ---
 # ORDER MATTERS: naming rules are evaluated in declaration order and the first
@@ -106,18 +113,10 @@ dotnet_naming_style.i_prefix.required_prefix = I
 dotnet_naming_style.async_suffix.capitalization = pascal_case
 dotnet_naming_style.async_suffix.required_suffix = Async
 
-# --- Analyzers (NOT style rules; these need EnableNETAnalyzers) ---
-# Style rules above are what dotnet format fixes. These are correctness rules
-# that only report — they back rubric non-negotiables that were previously
-# unenforced.
-dotnet_diagnostic.CA2007.severity = warning   # ConfigureAwait(false) on awaits
-dotnet_diagnostic.CA2016.severity = warning   # forward CancellationToken to callees
-dotnet_diagnostic.CA1068.severity = warning   # CancellationToken parameter goes last
-dotnet_diagnostic.CA2201.severity = warning   # don't throw reserved exception types
-dotnet_diagnostic.CA1063.severity = warning   # IDisposable implemented correctly
-dotnet_diagnostic.CA1849.severity = warning   # no sync call inside an async method
-dotnet_diagnostic.CA2249.severity = warning   # Contains over IndexOf comparisons
-dotnet_diagnostic.CS1591.severity = warning   # missing XML doc on public API
+# --- Analyzers ---
+# Analyzer severities (dotnet_diagnostic.*) live in .globalconfig at the repo
+# root, not here — Rider's editorconfig validation does not recognise that
+# property family and flags every line as unsupported.
 
 # --- ReSharper / Rider hints (IDE-only; not enforced by dotnet build) ---
 # Collapse blank lines in method bodies to 0 — backs the "no blank lines between arrange/act/assert"
@@ -131,10 +130,10 @@ resharper_braces_for_while = required
 resharper_trailing_comma_in_multiline_lists = true
 
 # --- Test projects ---
-# ConfigureAwait is noise in test code, and tests are not public API.
-[**/{*Tests,*.Tests,Tests}/**/*.cs]
-dotnet_diagnostic.CA2007.severity = none
-dotnet_diagnostic.CS1591.severity = none
+# ConfigureAwait is noise in test code, and tests are not public API. This
+# exemption cannot live here (see the Analyzers note above) — put it in the
+# test .csproj instead:
+#   <NoWarn>$(NoWarn);CA2007;CS1591</NoWarn>
 
 [*.{csproj,props,targets,nuspec}]
 indent_size = 2
