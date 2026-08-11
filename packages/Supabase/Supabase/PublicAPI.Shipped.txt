@@ -1,0 +1,82 @@
+#nullable enable
+Supabase.Client
+Supabase.Client.AdminAuth(string! serviceKey) -> Supabase.Gotrue.Interfaces.IGotrueAdminClient<Supabase.Gotrue.User!>!
+Supabase.Client.Auth.get -> Supabase.Gotrue.Interfaces.IGotrueClient<Supabase.Gotrue.User!, Supabase.Gotrue.Session!>!
+Supabase.Client.Auth.set -> void
+Supabase.Client.Client(Supabase.Gotrue.Interfaces.IGotrueClient<Supabase.Gotrue.User!, Supabase.Gotrue.Session!>! auth, Supabase.Realtime.Interfaces.IRealtimeClient<Supabase.Realtime.RealtimeSocket!, Supabase.Realtime.RealtimeChannel!>! realtime, Supabase.Functions.Interfaces.IFunctionsClient! functions, Supabase.Postgrest.Interfaces.IPostgrestClient! postgrest, Supabase.Storage.Interfaces.IStorageClient<Supabase.Storage.Bucket!, Supabase.Storage.FileObject!>! storage, Supabase.SupabaseOptions! options) -> void
+Supabase.Client.Client(string! supabaseUrl, string? supabaseKey, Supabase.SupabaseOptions? options = null) -> void
+Supabase.Client.From<TModel>() -> Supabase.Interfaces.ISupabaseTable<TModel!, Supabase.Realtime.RealtimeChannel!>!
+Supabase.Client.Functions.get -> Supabase.Functions.Interfaces.IFunctionsClient!
+Supabase.Client.Functions.set -> void
+Supabase.Client.InitializeAsync() -> System.Threading.Tasks.Task<Supabase.Interfaces.ISupabaseClient<Supabase.Gotrue.User!, Supabase.Gotrue.Session!, Supabase.Realtime.RealtimeSocket!, Supabase.Realtime.RealtimeChannel!, Supabase.Storage.Bucket!, Supabase.Storage.FileObject!>!>!
+Supabase.Client.Postgrest.get -> Supabase.Postgrest.Interfaces.IPostgrestClient!
+Supabase.Client.Postgrest.set -> void
+Supabase.Client.Realtime.get -> Supabase.Realtime.Interfaces.IRealtimeClient<Supabase.Realtime.RealtimeSocket!, Supabase.Realtime.RealtimeChannel!>!
+Supabase.Client.Realtime.set -> void
+Supabase.Client.Rpc(string! procedureName, object? parameters) -> System.Threading.Tasks.Task<Supabase.Postgrest.Responses.BaseResponse!>!
+Supabase.Client.Rpc<TModeledResponse>(string! procedureName, object? parameters) -> System.Threading.Tasks.Task<TModeledResponse?>!
+Supabase.Client.Storage.get -> Supabase.Storage.Interfaces.IStorageClient<Supabase.Storage.Bucket!, Supabase.Storage.FileObject!>!
+Supabase.Client.Storage.set -> void
+Supabase.DefaultSupabaseSessionHandler
+Supabase.DefaultSupabaseSessionHandler.DefaultSupabaseSessionHandler() -> void
+Supabase.DefaultSupabaseSessionHandler.DestroySession() -> void
+Supabase.DefaultSupabaseSessionHandler.LoadSession() -> Supabase.Gotrue.Session?
+Supabase.DefaultSupabaseSessionHandler.SaveSession(Supabase.Gotrue.Session! session) -> void
+Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>
+Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.AdminAuth(string! serviceKey) -> Supabase.Gotrue.Interfaces.IGotrueAdminClient<Supabase.Gotrue.User!>!
+Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Auth.get -> Supabase.Gotrue.Interfaces.IGotrueClient<TUser!, TSession!>!
+Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Auth.set -> void
+Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.From<TModel>() -> Supabase.Interfaces.ISupabaseTable<TModel!, TChannel>!
+Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Functions.get -> Supabase.Functions.Interfaces.IFunctionsClient!
+Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Functions.set -> void
+Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.InitializeAsync() -> System.Threading.Tasks.Task<Supabase.Interfaces.ISupabaseClient<TUser!, TSession!, TSocket, TChannel, TBucket!, TFileObject!>!>!
+Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Postgrest.get -> Supabase.Postgrest.Interfaces.IPostgrestClient!
+Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Postgrest.set -> void
+Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Realtime.get -> Supabase.Realtime.Interfaces.IRealtimeClient<TSocket, TChannel>!
+Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Realtime.set -> void
+Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Rpc(string! procedureName, object? parameters) -> System.Threading.Tasks.Task<Supabase.Postgrest.Responses.BaseResponse!>!
+Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Rpc<TModeledResponse>(string! procedureName, object? parameters) -> System.Threading.Tasks.Task<TModeledResponse?>!
+Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Storage.get -> Supabase.Storage.Interfaces.IStorageClient<TBucket!, TFileObject!>!
+Supabase.Interfaces.ISupabaseClient<TUser, TSession, TSocket, TChannel, TBucket, TFileObject>.Storage.set -> void
+Supabase.Interfaces.ISupabaseFunctions
+Supabase.Interfaces.ISupabaseFunctions.Invoke(string! functionName, System.Collections.Generic.Dictionary<string!, object!>? body = null) -> System.Threading.Tasks.Task<string!>!
+Supabase.Interfaces.ISupabaseFunctions.Invoke<T>(string! functionName, System.Collections.Generic.Dictionary<string!, object!>? body = null) -> System.Threading.Tasks.Task<T?>!
+Supabase.Interfaces.ISupabaseFunctions.RawInvoke(string! functionName, System.Collections.Generic.Dictionary<string!, object!>? body = null) -> System.Threading.Tasks.Task<System.Net.Http.HttpContent!>!
+Supabase.Interfaces.ISupabaseTable<TModel, TChannel>
+Supabase.Interfaces.ISupabaseTable<TModel, TChannel>.On(Supabase.Realtime.PostgresChanges.PostgresChangesOptions.ListenType listenType, Supabase.Realtime.Interfaces.IRealtimeChannel.PostgresChangesHandler! handler) -> System.Threading.Tasks.Task<TChannel>!
+Supabase.StatelessClient
+Supabase.SupabaseDiagnostics
+Supabase.SupabaseModel
+Supabase.SupabaseModel.SupabaseModel() -> void
+Supabase.SupabaseOptions
+Supabase.SupabaseOptions.AuthUrlFormat.get -> string!
+Supabase.SupabaseOptions.AuthUrlFormat.set -> void
+Supabase.SupabaseOptions.AutoConnectRealtime.get -> bool
+Supabase.SupabaseOptions.AutoConnectRealtime.set -> void
+Supabase.SupabaseOptions.AutoRefreshToken.get -> bool
+Supabase.SupabaseOptions.AutoRefreshToken.set -> void
+Supabase.SupabaseOptions.FunctionsUrlFormat.get -> string!
+Supabase.SupabaseOptions.FunctionsUrlFormat.set -> void
+Supabase.SupabaseOptions.Headers -> System.Collections.Generic.Dictionary<string!, string!>!
+Supabase.SupabaseOptions.RealtimeUrlFormat.get -> string!
+Supabase.SupabaseOptions.RealtimeUrlFormat.set -> void
+Supabase.SupabaseOptions.RestUrlFormat.get -> string!
+Supabase.SupabaseOptions.RestUrlFormat.set -> void
+Supabase.SupabaseOptions.Schema -> string!
+Supabase.SupabaseOptions.SessionHandler.get -> Supabase.Gotrue.Interfaces.IGotrueSessionPersistence<Supabase.Gotrue.Session!>!
+Supabase.SupabaseOptions.SessionHandler.set -> void
+Supabase.SupabaseOptions.StorageClientOptions.get -> Supabase.Storage.ClientOptions!
+Supabase.SupabaseOptions.StorageClientOptions.set -> void
+Supabase.SupabaseOptions.StorageUrlFormat.get -> string!
+Supabase.SupabaseOptions.StorageUrlFormat.set -> void
+Supabase.SupabaseOptions.SupabaseOptions() -> void
+Supabase.SupabaseTable<TModel>
+Supabase.SupabaseTable<TModel>.On(Supabase.Realtime.PostgresChanges.PostgresChangesOptions.ListenType listenType, Supabase.Realtime.Interfaces.IRealtimeChannel.PostgresChangesHandler! handler) -> System.Threading.Tasks.Task<Supabase.Realtime.RealtimeChannel!>!
+Supabase.SupabaseTable<TModel>.SupabaseTable(Supabase.Postgrest.Interfaces.IPostgrestClient! postgrestClient, Supabase.Realtime.Interfaces.IRealtimeClient<Supabase.Realtime.RealtimeSocket!, Supabase.Realtime.RealtimeChannel!>! realtimeClient, string! schema = "public") -> void
+static Supabase.StatelessClient.From<T>(string! supabaseUrl, string! supabaseKey, Supabase.SupabaseOptions? options = null) -> Supabase.SupabaseTable<T!>!
+static Supabase.StatelessClient.Functions(string! supabaseUrl, string! supabaseKey, Supabase.SupabaseOptions? options = null) -> Supabase.Functions.Interfaces.IFunctionsClient!
+static Supabase.StatelessClient.GetAuthOptions(string! supabaseUrl, string? supabaseKey = null, Supabase.SupabaseOptions? options = null) -> Supabase.Gotrue.ClientOptions!
+static Supabase.StatelessClient.GetRestOptions(string? supabaseKey = null, Supabase.SupabaseOptions? options = null) -> Supabase.Postgrest.ClientOptions!
+static Supabase.StatelessClient.Rpc(string! supabaseUrl, string! supabaseKey, string! procedureName, System.Collections.Generic.Dictionary<string!, object!>! parameters, Supabase.SupabaseOptions? options = null) -> System.Threading.Tasks.Task<Supabase.Postgrest.Responses.BaseResponse!>!
+static Supabase.StatelessClient.Storage(string! supabaseUrl, string? supabaseKey = null, Supabase.SupabaseOptions? options = null) -> Supabase.Storage.Interfaces.IStorageClient<Supabase.Storage.Bucket!, Supabase.Storage.FileObject!>!
+static Supabase.SupabaseDiagnostics.SourceNames.get -> System.Collections.Generic.IReadOnlyList<string!>!
