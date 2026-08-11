@@ -1,6 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
         <Title>Supabase.Realtime</Title>
         <PackageId>Supabase.Realtime</PackageId>
         <PackageProjectUrl>https://github.com/supabase-community/supabase-csharp/tree/master/packages/Realtime</PackageProjectUrl>
@@ -23,7 +22,6 @@
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <Nullable>enable</Nullable>
-        <LangVersion>latest</LangVersion>
         <WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>
     </PropertyGroup>
 
@@ -47,11 +45,7 @@
         <ProjectReference Include="..\..\Postgrest\Postgrest\Postgrest.csproj" />
     </ItemGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-        <PackageReference Include="Websocket.Client" />
-    </ItemGroup>
-    
-    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
+    <ItemGroup>
         <PackageReference Include="Websocket.Client" />
     </ItemGroup>
 

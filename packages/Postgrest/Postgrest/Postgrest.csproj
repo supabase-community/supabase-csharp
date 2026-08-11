@@ -1,7 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-        <LangVersion>9.0</LangVersion>
         <WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>
         <Nullable>enable</Nullable>
         <Title>Supabase.Postgrest</Title>

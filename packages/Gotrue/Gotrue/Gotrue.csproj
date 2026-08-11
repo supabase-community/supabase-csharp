@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netstandard2.1</TargetFramework>
         <PackOnBuild>true</PackOnBuild>
         <PackageId>Supabase.Gotrue</PackageId>
         <PackageProjectUrl>https://github.com/supabase-community/supabase-csharp/tree/master/packages/Gotrue</PackageProjectUrl>
@@ -27,7 +26,6 @@
     </PropertyGroup>
     <PropertyGroup>
         <Nullable>enable</Nullable>
-        <LangVersion>9.0</LangVersion>
         <WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>
     </PropertyGroup>
     <PropertyGroup>
@@ -39,12 +37,6 @@
         </VersionSuffix>
         <Version Condition=" '$(VersionSuffix)' != '' ">$(VersionPrefix)-$(VersionSuffix)</Version>
         <Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-        <LangVersion>8.0</LangVersion>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-        <LangVersion>8.0</LangVersion>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" />
