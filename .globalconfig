@@ -21,6 +21,31 @@ dotnet_diagnostic.CS1591.severity = warning
 # unused usings
 dotnet_diagnostic.IDE0005.severity = warning
 
+# Public API tracking (Microsoft.CodeAnalysis.PublicApiAnalyzers).
+#
+# Kept at "suggestion" on purpose: declaring public surface in PublicAPI.*.txt is
+# bookkeeping, not a compile concern, and it must never break the inner loop.
+# At default severity these are warnings, which TreatWarningsAsErrors (on in Core)
+# turns into build errors — so adding a public method would stop you building and
+# running your tests until you updated a text file. That is the wrong moment to
+# enforce it.
+#
+# "suggestion" keeps them out of every build (Core stays warning-less, tests always
+# run) while the IDE still shows the "add to public API" hint, and `dotnet format`
+# can still act on them. Enforcement lives in one place instead: the quality gate,
+# which runs `dotnet format analyzers --verify-no-changes --diagnostics RS0016,RS0017`
+# as a blocking stage before a PR. Undeclared surface fails the gate, never the build.
+#   RS0016  symbol is not part of the declared public API   (add it to Unshipped)
+#   RS0017  symbol is declared shipped but no longer present (remove it from Shipped)
+#   RS0027  public API with optional parameter needs an overload
+#   RS0037  PublicAPI.txt is missing '#nullable enable'
+#   RS0041  public API uses oblivious (un-annotated) reference types
+dotnet_diagnostic.RS0016.severity = suggestion
+dotnet_diagnostic.RS0017.severity = suggestion
+dotnet_diagnostic.RS0027.severity = suggestion
+dotnet_diagnostic.RS0037.severity = suggestion
+dotnet_diagnostic.RS0041.severity = suggestion
+
 # Deliberately off. Add one at a time, with a build after each:
 #   CA2007  ConfigureAwait(false) on awaits — rubric §8 wants it, but it is a
 #           large diff and has no reliable auto-fix
