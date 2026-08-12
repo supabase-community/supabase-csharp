@@ -4,15 +4,10 @@
     "test-projects": [
       "Gotrue.Tests.csproj"
     ],
-    "target-framework": "net8.0",
+    "target-framework": "net10.0",
     "reporters": [
       "json",
       "progress"
-    ],
-    "mutate": [
-      "Helpers.cs",
-      "Exceptions/FailureReason.cs",
-      "GotrueInstrumentation.cs"
     ]
   }
 }
