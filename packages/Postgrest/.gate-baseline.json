@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "package": "Postgrest",
+  "project": "Postgrest/Postgrest.csproj",
+  "testProject": "Postgrest.Tests/Postgrest.Tests.csproj",
+  "warnings": { "total": 188, "byCode": {"IDE0009":154,"IDE0161":10,"IDE0022":8,"IDE0005":6,"CS0109":4,"IDE0053":2,"CS1685":2,"CS0659":2} },
+  "mutationScore": null,
+  "updated": "2026-08-11T11:39:06Z"
+}

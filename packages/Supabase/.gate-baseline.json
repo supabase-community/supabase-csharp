@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "package": "Supabase",
+  "project": "Supabase/Supabase.csproj",
+  "testProject": "Supabase.Tests/Supabase.Tests.csproj",
+  "warnings": { "total": 42, "byCode": {"IDE0009":10,"CS8625":10,"CS8600":8,"CS8618":6,"IDE0005":4,"IDE0022":2,"CS0618":2} },
+  "mutationScore": null,
+  "updated": "2026-08-11T12:38:46Z"
+}
