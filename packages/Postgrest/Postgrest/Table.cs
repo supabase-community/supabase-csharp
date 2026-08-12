@@ -591,27 +591,22 @@ public class Table<TModel> : IPostgrestTable<TModel> where TModel : BaseModel, n
     public async Task<TModel?> Single(CancellationToken cancellationToken = default)
     {
         this.method = HttpMethod.Get;
-        var headers = new Dictionary<string, string>
-        {
-            { "Accept", "application/vnd.pgrst.object+json" },
-            { "Prefer", "return=representation" }
-        };
 
-        var request = this.Send<TModel>(this.method, null, headers, cancellationToken);
+        // Fetch a list and enforce cardinality client-side, as postgrest-js's maybeSingle() does:
+        // asking PostgREST for a single object answers zero rows and several rows with the same 406.
+        var request = this.Send<TModel>(this.method, null, null, cancellationToken);
         this.Clear();
 
-        try
-        {
-            var result = await request;
-            return result.Models.FirstOrDefault();
-        }
-        catch (PostgrestException e)
-        {
-            if (e.Response!.StatusCode == HttpStatusCode.NotAcceptable)
-                return null;
+        var result = await request;
 
-            throw;
-        }
+        if (result.Models.Count > 1)
+            throw new PostgrestException($"The query matched {result.Models.Count} rows when at most one was expected.")
+            {
+                Response = result.ResponseMessage,
+                StatusCode = (int)HttpStatusCode.NotAcceptable
+            };
+
+        return result.Models.FirstOrDefault();
     }
 
     /// <inheritdoc />

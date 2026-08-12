@@ -413,9 +413,10 @@ namespace Supabase.Postgrest.Interfaces
 
         /// <summary>
         /// Executes a query that expects to have a single object returned, rather than returning list of models
-        /// it will return a single model.
+        /// it will return a single model. Returns null when the query matches no rows.
         /// </summary>
         /// <param name="cancellationToken"></param>
+        /// <exception cref="Exceptions.PostgrestException">The query matches more than one row.</exception>
         /// <returns></returns>
         Task<TModel?> Single(CancellationToken cancellationToken = default);
 
