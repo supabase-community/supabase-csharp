@@ -1,0 +1,1 @@
+﻿{"friendly_name":"My Phone","factor_type":"totp","issuer":"example.com"}

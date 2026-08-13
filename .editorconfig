@@ -135,6 +135,14 @@ resharper_trailing_comma_in_multiline_lists = true
 # test .csproj instead:
 #   <NoWarn>$(NoWarn);CA2007;CS1591</NoWarn>
 
+# Test method names follow the `Sut_ShouldConsequence_GivenScenario` convention
+# (underscores) and are not suffixed `Async`, so every test method trips the
+# public-member-PascalCase and async-suffix naming rules — IDE1006. That is
+# inherent to the convention, not a defect, so silence IDE1006 in test code only.
+# (Build never emitted it; this is what the IDE and `dotnet format` surface.)
+[**/*.Tests/**/*.cs]
+dotnet_diagnostic.IDE1006.severity = none
+
 [*.{csproj,props,targets,nuspec}]
 indent_size = 2
 

@@ -47,6 +47,18 @@ internal sealed class ReceivedRequest
 
     internal ReceivedRequest(IRequestMessage request) => this.request = request;
 
+    /// <summary>
+    ///     The exact request body the SDK put on the wire, verbatim — the bytes a wire-shape snapshot pins.
+    /// </summary>
+    internal string RawBody
+    {
+        get
+        {
+            this.request.Body.Should().NotBeNull("the request should have a body");
+            return this.request.Body!;
+        }
+    }
+
     internal ReceivedRequest WithPath(string path)
     {
         request.Path.Should().Be(path);

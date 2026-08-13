@@ -57,4 +57,17 @@
   <ItemGroup Condition="'$(IsPackable)' != 'false'">
     <None Include="$(MSBuildThisFileDirectory)resources\icon.png" Pack="true" PackagePath="\" Visible="false" />
   </ItemGroup>
+
+  <!--
+    Verify (approval tests) auto-discovers SolutionDir by searching only the project directory and its
+    two parents for a .sln. Test projects nest three deep (packages/<Name>/<Name>.Tests), and the gate
+    builds each test project directly rather than via the solution, so that search misses Supabase.sln at
+    the repo root and Verify emits a spurious "No solution files found" warning on every test build. This
+    file sits at the repo root beside the solution, so point Verify at it explicitly. Guarded so a real
+    solution build (which sets SolutionDir itself) still wins.
+  -->
+  <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('.Tests')) And ('$(SolutionDir)' == '' Or '$(SolutionDir)' == '*Undefined*')">
+    <SolutionDir>$(MSBuildThisFileDirectory)</SolutionDir>
+    <SolutionName>Supabase</SolutionName>
+  </PropertyGroup>
 </Project>

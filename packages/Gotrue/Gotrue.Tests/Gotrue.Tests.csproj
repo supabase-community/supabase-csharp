@@ -21,6 +21,7 @@
     <PackageReference Include="MSTest.TestFramework"/>
     <PackageReference Include="NSubstitute"/>
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
+    <PackageReference Include="Verify.MSTest"/>
     <PackageReference Include="WireMock.Net"/>
   </ItemGroup>
 
