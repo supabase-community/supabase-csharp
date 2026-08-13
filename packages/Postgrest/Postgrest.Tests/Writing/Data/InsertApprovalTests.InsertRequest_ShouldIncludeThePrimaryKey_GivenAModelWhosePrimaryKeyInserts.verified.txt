@@ -1,0 +1,1 @@
+﻿{"username":"supabot","data":null,"favorite_numbers":null,"favorite_name":null,"age_range":null,"catchphrase":null,"status":"ONLINE","inserted_at":"0001-01-01T00:00:00","updated_at":"0001-01-01T00:00:00"}
