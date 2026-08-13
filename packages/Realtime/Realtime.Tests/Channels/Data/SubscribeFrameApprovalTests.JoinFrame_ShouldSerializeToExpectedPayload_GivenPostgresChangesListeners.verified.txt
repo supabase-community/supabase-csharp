@@ -1,0 +1,1 @@
+﻿{"topic":"realtime:public:todos","event":"phx_join","payload":{"config":{"postgres_changes":[{"schema":"public","table":"todos","event":"INSERT"},{"schema":"public","table":"messages","filter":"id=eq.1","event":"*"}],"private":false}},"ref":"1","join_ref":"1"}
