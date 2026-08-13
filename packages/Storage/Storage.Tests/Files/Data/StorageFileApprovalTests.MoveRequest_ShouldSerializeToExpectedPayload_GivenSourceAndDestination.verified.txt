@@ -1,0 +1,1 @@
+﻿{"bucketId":"photos","sourceKey":"old/cat.png","destinationKey":"new/cat.png","destinationBucket":null}

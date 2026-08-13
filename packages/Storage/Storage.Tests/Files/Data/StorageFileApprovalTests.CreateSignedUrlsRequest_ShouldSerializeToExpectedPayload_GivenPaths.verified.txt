@@ -1,0 +1,1 @@
+﻿{"expiresIn":3600,"paths":["cat.png","dog.png"]}

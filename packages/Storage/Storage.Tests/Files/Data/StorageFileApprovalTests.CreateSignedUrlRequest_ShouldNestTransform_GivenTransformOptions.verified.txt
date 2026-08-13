@@ -1,0 +1,1 @@
+﻿{"expiresIn":3600,"transform":{"width":100,"height":200,"resize":"cover","quality":80,"format":"origin"}}
