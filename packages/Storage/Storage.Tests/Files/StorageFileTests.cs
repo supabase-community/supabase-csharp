@@ -7,7 +7,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Storage.Tests;
 using Supabase.Storage;
 using Supabase.Storage.Interfaces;
 using FileOptions = Supabase.Storage.FileOptions;
@@ -21,32 +20,15 @@ namespace Storage.Tests.Files;
 /// </summary>
 [TestClass]
 [TestCategory("E2E")]
-public class StorageFileTests
+public class StorageFileTests : StorageE2EFixture
 {
-    private Client Storage => Helpers.GetServiceClient();
-
-    private string bucketId = string.Empty;
     private IStorageFileApi<FileObject> bucket = null!;
 
     [TestInitialize]
     public async Task TestInitialize()
     {
-        this.bucketId = Guid.NewGuid().ToString();
-        if (await this.Storage.GetBucket(this.bucketId) == null)
-            await this.Storage.CreateBucket(this.bucketId, new BucketUpsertOptions { Public = true });
-        this.bucket = this.Storage.From(this.bucketId);
-    }
-
-    [TestCleanup]
-    public async Task TestCleanup()
-    {
-        var files = await this.bucket.List();
-        foreach (var file in files!)
-        {
-            if (file.Name is not null)
-                await this.bucket.Remove(new List<string> { file.Name });
-        }
-        await this.Storage.DeleteBucket(this.bucketId);
+        var bucketId = await this.NewBucket(new BucketUpsertOptions { Public = true });
+        this.bucket = this.Storage.From(bucketId);
     }
 
     [TestMethod]
@@ -245,21 +227,15 @@ public class StorageFileTests
     [TestMethod]
     public async Task Copy_ShouldDuplicateTheFileToAnotherBucket()
     {
-        await this.Storage.CreateBucket("copyfile", new BucketUpsertOptions { Public = true });
-        var localBucket = this.Storage.From("copyfile");
+        var destinationId = await this.NewBucket(new BucketUpsertOptions { Public = true });
+        var localBucket = this.Storage.From(destinationId);
         var name = $"{Guid.NewGuid()}.bin";
         await this.bucket.Upload(new byte[] { 0x0, 0x1 }, name);
-        await this.bucket.Copy(name, "new-file.bin", new DestinationOptions { DestinationBucket = "copyfile" });
+        await this.bucket.Copy(name, "new-file.bin", new DestinationOptions { DestinationBucket = destinationId });
         var items = await this.bucket.List();
         var copied = await localBucket.List();
         copied!.Find(f => f.Name == "new-file.bin").Should().NotBeNull();
         items!.Find(f => f.Name == name).Should().NotBeNull();
-        foreach (var file in copied)
-        {
-            if (file.Name is not null)
-                await localBucket.Remove(new List<string> { file.Name });
-        }
-        await this.Storage.DeleteBucket("copyfile");
     }
 
     [TestMethod]

@@ -1,8 +1,6 @@
-using System;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Storage.Tests;
 using Supabase.Storage;
 using Supabase.Storage.Exceptions;
 
@@ -11,72 +9,57 @@ namespace Storage.Tests.Buckets;
 /// <summary>
 /// End-to-end tests asserting the anon (public-key) client is denied bucket administration against a
 /// running local Supabase stack: listing yields nothing, getting an existing bucket resolves to null,
-/// and create/update/empty/delete all surface a <see cref="SupabaseStorageException"/>.
+/// and create/update/empty/delete all surface a <see cref="SupabaseStorageException"/>. Buckets are
+/// provisioned with the service client through the fixture so they are always torn down.
 /// </summary>
 [TestClass]
 [TestCategory("E2E")]
-public class StorageBucketAnonTests
+public class StorageBucketAnonTests : StorageE2EFixture
 {
-    private Client AdminStorage => Helpers.GetServiceClient();
-    private Client Storage => Helpers.GetPublicClient();
-
     [TestMethod]
     public async Task ListBuckets_ShouldBeEmptyAndDenyUpload()
     {
-        (await this.Storage.ListBuckets()).Should().BeEmpty();
-        var act = async () =>
-        {
-            var newParentBucket = "parent";
-            if (await this.AdminStorage.GetBucket("parent") == null)
-                newParentBucket = await this.AdminStorage.CreateBucket("parent");
-            await this.Storage.From(newParentBucket).Upload(new byte[] { 0x0, 0x0, 0x0 }, "child/test.bin");
-        };
+        (await this.PublicStorage.ListBuckets()).Should().BeEmpty();
+        var id = await this.NewBucket();
+        var act = () => this.PublicStorage.From(id).Upload(new byte[] { 0x0, 0x0, 0x0 }, "child/test.bin");
         await act.Should().ThrowAsync<SupabaseStorageException>();
     }
 
     [TestMethod]
     public async Task GetBucket_ShouldReturnNull_GivenNoPermission()
     {
-        var id = Guid.NewGuid().ToString();
-        await this.AdminStorage.CreateBucket(id);
-        (await this.Storage.GetBucket(id)).Should().BeNull();
-        await this.AdminStorage.DeleteBucket(id);
+        var id = await this.NewBucket();
+        (await this.PublicStorage.GetBucket(id)).Should().BeNull();
     }
 
     [TestMethod]
     public async Task CreateBucket_ShouldThrow_GivenNoPermission()
     {
-        var act = () => this.Storage.CreateBucket("parent");
+        var act = () => this.PublicStorage.CreateBucket("anon-create-should-be-denied");
         await act.Should().ThrowAsync<SupabaseStorageException>();
     }
 
     [TestMethod]
     public async Task UpdateBucket_ShouldThrow_GivenNoPermission()
     {
-        var id = Guid.NewGuid().ToString();
-        await this.AdminStorage.CreateBucket(id);
-        var act = () => this.Storage.UpdateBucket(id, new BucketUpsertOptions { Public = true });
+        var id = await this.NewBucket();
+        var act = () => this.PublicStorage.UpdateBucket(id, new BucketUpsertOptions { Public = true });
         await act.Should().ThrowAsync<SupabaseStorageException>();
-        await this.AdminStorage.DeleteBucket(id);
     }
 
     [TestMethod]
     public async Task EmptyBucket_ShouldThrow_GivenNoPermission()
     {
-        var id = Guid.NewGuid().ToString();
-        await this.AdminStorage.CreateBucket(id);
-        var act = () => this.Storage.EmptyBucket(id);
+        var id = await this.NewBucket();
+        var act = () => this.PublicStorage.EmptyBucket(id);
         await act.Should().ThrowAsync<SupabaseStorageException>();
-        await this.AdminStorage.DeleteBucket(id);
     }
 
     [TestMethod]
     public async Task DeleteBucket_ShouldThrow_GivenNoPermission()
     {
-        var id = Guid.NewGuid().ToString();
-        await this.AdminStorage.CreateBucket(id);
-        var act = () => this.Storage.DeleteBucket(id);
+        var id = await this.NewBucket();
+        var act = () => this.PublicStorage.DeleteBucket(id);
         await act.Should().ThrowAsync<SupabaseStorageException>();
-        await this.AdminStorage.DeleteBucket(id);
     }
 }
