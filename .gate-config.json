@@ -1,0 +1,5 @@
+{
+  "_comment": "Repo-wide gate settings. Per-package measurements (warning counts, mutation score) live in each package's .gate-baseline.json, which may also override any key here.",
+  "formatBaseRef": "origin/master",
+  "e2eHealthUrl": "http://127.0.0.1:54321/auth/v1/health"
+}

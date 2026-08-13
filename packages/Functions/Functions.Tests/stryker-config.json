@@ -1,8 +1,8 @@
 {
   "stryker-config": {
-    "project": "Realtime.csproj",
+    "project": "Functions.csproj",
     "test-projects": [
-      "Realtime.Tests.csproj"
+      "Functions.Tests.csproj"
     ],
     "target-framework": "net10.0",
     "reporters": [

@@ -1,0 +1,34 @@
+#nullable enable
+Supabase.Core.Attributes.MapToAttribute
+Supabase.Core.Attributes.MapToAttribute.Formatter.get -> string?
+Supabase.Core.Attributes.MapToAttribute.Formatter.set -> void
+Supabase.Core.Attributes.MapToAttribute.MapToAttribute(string! mapping, string? formatter = null) -> void
+Supabase.Core.Attributes.MapToAttribute.Mapping.get -> string!
+Supabase.Core.Attributes.MapToAttribute.Mapping.set -> void
+Supabase.Core.Diagnostics.ActivityExtensions
+Supabase.Core.Diagnostics.ActivityExtensions.extension(System.Diagnostics.Activity?)
+Supabase.Core.Diagnostics.ActivityExtensions.extension(System.Diagnostics.Activity?).SetFailure(System.Exception! exception) -> System.Diagnostics.Activity?
+Supabase.Core.Diagnostics.ActivityExtensions.extension(System.Diagnostics.Activity?).SetHttpRequestTags(string! method, System.Uri! uri) -> System.Diagnostics.Activity?
+Supabase.Core.Diagnostics.ActivityExtensions.extension(System.Diagnostics.Activity?).SetHttpResponseTags(int statusCode) -> System.Diagnostics.Activity?
+Supabase.Core.Diagnostics.Instrumentation
+Supabase.Core.Diagnostics.UrlSanitizer
+Supabase.Core.Extensions.DictionaryExtensions
+Supabase.Core.Helpers
+Supabase.Core.Interfaces.IGettableHeaders
+Supabase.Core.Interfaces.IGettableHeaders.GetHeaders.get -> System.Func<System.Collections.Generic.Dictionary<string!, string!>!>?
+Supabase.Core.Interfaces.IGettableHeaders.GetHeaders.set -> void
+Supabase.Core.Util
+static Supabase.Core.Diagnostics.ActivityExtensions.SetFailure(this System.Diagnostics.Activity? activity, System.Exception! exception) -> System.Diagnostics.Activity?
+static Supabase.Core.Diagnostics.ActivityExtensions.SetHttpRequestTags(this System.Diagnostics.Activity? activity, string! method, System.Uri! uri) -> System.Diagnostics.Activity?
+static Supabase.Core.Diagnostics.ActivityExtensions.SetHttpResponseTags(this System.Diagnostics.Activity? activity, int statusCode) -> System.Diagnostics.Activity?
+static Supabase.Core.Diagnostics.Instrumentation.CreateActivitySource(System.Reflection.Assembly! assembly, string! name) -> System.Diagnostics.ActivitySource!
+static Supabase.Core.Diagnostics.Instrumentation.CreateMeter(System.Reflection.Assembly! assembly, string! name) -> System.Diagnostics.Metrics.Meter!
+static Supabase.Core.Diagnostics.Instrumentation.GetVersion(System.Reflection.Assembly! assembly) -> string!
+static Supabase.Core.Diagnostics.UrlSanitizer.Sanitize(System.Uri! uri) -> string!
+static Supabase.Core.Diagnostics.UrlSanitizer.Sanitize(string! url) -> string!
+static Supabase.Core.Extensions.DictionaryExtensions.MergeLeft<T, TKey, TValue>(this T me, params System.Collections.Generic.IDictionary<TKey, TValue>![]! others) -> T
+static Supabase.Core.Helpers.GetCustomAttribute<T>(System.Type! type) -> T!
+static Supabase.Core.Helpers.GetCustomAttribute<T>(object! obj) -> T!
+static Supabase.Core.Helpers.GetMappedToAttr(System.Enum! obj) -> Supabase.Core.Attributes.MapToAttribute!
+static Supabase.Core.Helpers.GetPropertyValue<T>(object! obj, string! propName) -> T
+static Supabase.Core.Util.GetAssemblyVersion(System.Type! clientType) -> string!

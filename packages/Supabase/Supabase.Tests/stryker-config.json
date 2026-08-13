@@ -1,8 +1,8 @@
 {
   "stryker-config": {
-    "project": "Realtime.csproj",
+    "project": "Supabase.csproj",
     "test-projects": [
-      "Realtime.Tests.csproj"
+      "Supabase.Tests.csproj"
     ],
     "target-framework": "net10.0",
     "reporters": [

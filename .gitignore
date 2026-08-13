@@ -404,3 +404,8 @@ ASALocalRun/
 SupabaseExample/Properties/launchSettings.json
 
 .history
+
+# Quality gate run artifacts (logs, report.json, warning lists) — regenerated on
+# every run. The committed .gate-baseline.json lives outside this dir, so it stays
+# tracked.
+.gate/

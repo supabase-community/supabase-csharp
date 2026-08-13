@@ -1,0 +1,304 @@
+#nullable enable
+Supabase.Storage.Bucket
+Supabase.Storage.Bucket.AllowedMimes.get -> System.Collections.Generic.List<string!>?
+Supabase.Storage.Bucket.AllowedMimes.set -> void
+Supabase.Storage.Bucket.Bucket() -> void
+Supabase.Storage.Bucket.CreatedAt.get -> System.DateTime?
+Supabase.Storage.Bucket.CreatedAt.set -> void
+Supabase.Storage.Bucket.FileSizeLimit.get -> string?
+Supabase.Storage.Bucket.FileSizeLimit.set -> void
+Supabase.Storage.Bucket.Id.get -> string?
+Supabase.Storage.Bucket.Id.set -> void
+Supabase.Storage.Bucket.Name.get -> string?
+Supabase.Storage.Bucket.Name.set -> void
+Supabase.Storage.Bucket.Owner.get -> string?
+Supabase.Storage.Bucket.Owner.set -> void
+Supabase.Storage.Bucket.Public.get -> bool
+Supabase.Storage.Bucket.Public.set -> void
+Supabase.Storage.Bucket.UpdatedAt.get -> System.DateTime?
+Supabase.Storage.Bucket.UpdatedAt.set -> void
+Supabase.Storage.BucketUpsertOptions
+Supabase.Storage.BucketUpsertOptions.AllowedMimes.get -> System.Collections.Generic.List<string!>?
+Supabase.Storage.BucketUpsertOptions.AllowedMimes.set -> void
+Supabase.Storage.BucketUpsertOptions.BucketUpsertOptions() -> void
+Supabase.Storage.BucketUpsertOptions.FileSizeLimit.get -> string?
+Supabase.Storage.BucketUpsertOptions.FileSizeLimit.set -> void
+Supabase.Storage.BucketUpsertOptions.Public.get -> bool
+Supabase.Storage.BucketUpsertOptions.Public.set -> void
+Supabase.Storage.Client
+Supabase.Storage.Client.Client(string! url, Supabase.Storage.ClientOptions? options, System.Collections.Generic.Dictionary<string!, string!>? headers = null) -> void
+Supabase.Storage.Client.Client(string! url, System.Collections.Generic.Dictionary<string!, string!>? headers = null) -> void
+Supabase.Storage.Client.From(string! id) -> Supabase.Storage.Interfaces.IStorageFileApi<Supabase.Storage.FileObject!>!
+Supabase.Storage.ClientOptions
+Supabase.Storage.ClientOptions.ClientOptions() -> void
+Supabase.Storage.ClientOptions.HttpDownloadTimeout -> System.TimeSpan
+Supabase.Storage.ClientOptions.HttpRequestTimeout -> System.TimeSpan
+Supabase.Storage.ClientOptions.HttpUploadTimeout -> System.TimeSpan
+Supabase.Storage.CreateSignedUrlResponse
+Supabase.Storage.CreateSignedUrlResponse.CreateSignedUrlResponse() -> void
+Supabase.Storage.CreateSignedUrlResponse.SignedUrl.get -> string?
+Supabase.Storage.CreateSignedUrlResponse.SignedUrl.set -> void
+Supabase.Storage.CreateSignedUrlsResponse
+Supabase.Storage.CreateSignedUrlsResponse.CreateSignedUrlsResponse() -> void
+Supabase.Storage.CreateSignedUrlsResponse.Path.get -> string?
+Supabase.Storage.CreateSignedUrlsResponse.Path.set -> void
+Supabase.Storage.DestinationOptions
+Supabase.Storage.DestinationOptions.DestinationBucket.get -> string?
+Supabase.Storage.DestinationOptions.DestinationBucket.set -> void
+Supabase.Storage.DestinationOptions.DestinationOptions() -> void
+Supabase.Storage.DownloadOptions
+Supabase.Storage.DownloadOptions.CacheNonce.get -> string?
+Supabase.Storage.DownloadOptions.CacheNonce.set -> void
+Supabase.Storage.DownloadOptions.DownloadOptions() -> void
+Supabase.Storage.DownloadOptions.FileName.get -> string?
+Supabase.Storage.DownloadOptions.FileName.set -> void
+Supabase.Storage.ErrorResponse
+Supabase.Storage.ErrorResponse.ErrorResponse() -> void
+Supabase.Storage.ErrorResponse.Message.get -> string?
+Supabase.Storage.ErrorResponse.Message.set -> void
+Supabase.Storage.ErrorResponse.StatusCode.get -> int
+Supabase.Storage.ErrorResponse.StatusCode.set -> void
+Supabase.Storage.Exceptions.FailureHint
+Supabase.Storage.Exceptions.FailureHint.Reason
+Supabase.Storage.Exceptions.FailureHint.Reason.AlreadyExists = 4 -> Supabase.Storage.Exceptions.FailureHint.Reason
+Supabase.Storage.Exceptions.FailureHint.Reason.EntityTooLarge = 6 -> Supabase.Storage.Exceptions.FailureHint.Reason
+Supabase.Storage.Exceptions.FailureHint.Reason.Internal = 2 -> Supabase.Storage.Exceptions.FailureHint.Reason
+Supabase.Storage.Exceptions.FailureHint.Reason.InvalidInput = 5 -> Supabase.Storage.Exceptions.FailureHint.Reason
+Supabase.Storage.Exceptions.FailureHint.Reason.NotAuthorized = 1 -> Supabase.Storage.Exceptions.FailureHint.Reason
+Supabase.Storage.Exceptions.FailureHint.Reason.NotFound = 3 -> Supabase.Storage.Exceptions.FailureHint.Reason
+Supabase.Storage.Exceptions.FailureHint.Reason.Unknown = 0 -> Supabase.Storage.Exceptions.FailureHint.Reason
+Supabase.Storage.Exceptions.SupabaseStorageException
+Supabase.Storage.Exceptions.SupabaseStorageException.AddReason() -> void
+Supabase.Storage.Exceptions.SupabaseStorageException.Content.get -> string?
+Supabase.Storage.Exceptions.SupabaseStorageException.Reason.get -> Supabase.Storage.Exceptions.FailureHint.Reason
+Supabase.Storage.Exceptions.SupabaseStorageException.Response.get -> System.Net.Http.HttpResponseMessage?
+Supabase.Storage.Exceptions.SupabaseStorageException.StatusCode.get -> int
+Supabase.Storage.Exceptions.SupabaseStorageException.SupabaseStorageException(string? message) -> void
+Supabase.Storage.Exceptions.SupabaseStorageException.SupabaseStorageException(string? message, System.Exception? innerException) -> void
+Supabase.Storage.Extensions.DownloadOptionsExtension
+Supabase.Storage.Extensions.PurgeCacheOptionsExtension
+Supabase.Storage.Extensions.TransformOptionsExtension
+Supabase.Storage.FileObject
+Supabase.Storage.FileObject.BucketId.get -> string?
+Supabase.Storage.FileObject.BucketId.set -> void
+Supabase.Storage.FileObject.Buckets.get -> Supabase.Storage.Bucket?
+Supabase.Storage.FileObject.Buckets.set -> void
+Supabase.Storage.FileObject.CreatedAt.get -> System.DateTime?
+Supabase.Storage.FileObject.CreatedAt.set -> void
+Supabase.Storage.FileObject.FileObject() -> void
+Supabase.Storage.FileObject.Id.get -> string?
+Supabase.Storage.FileObject.Id.set -> void
+Supabase.Storage.FileObject.IsFolder.get -> bool
+Supabase.Storage.FileObject.LastAccessedAt.get -> System.DateTime?
+Supabase.Storage.FileObject.LastAccessedAt.set -> void
+Supabase.Storage.FileObject.MetaData -> System.Collections.Generic.Dictionary<string!, object!>!
+Supabase.Storage.FileObject.Name.get -> string?
+Supabase.Storage.FileObject.Name.set -> void
+Supabase.Storage.FileObject.Owner.get -> string?
+Supabase.Storage.FileObject.Owner.set -> void
+Supabase.Storage.FileObject.UpdatedAt.get -> System.DateTime?
+Supabase.Storage.FileObject.UpdatedAt.set -> void
+Supabase.Storage.FileObjectV2
+Supabase.Storage.FileObjectV2.BucketId.get -> string?
+Supabase.Storage.FileObjectV2.BucketId.set -> void
+Supabase.Storage.FileObjectV2.CacheControl.get -> string?
+Supabase.Storage.FileObjectV2.CacheControl.set -> void
+Supabase.Storage.FileObjectV2.ContentType.get -> string?
+Supabase.Storage.FileObjectV2.ContentType.set -> void
+Supabase.Storage.FileObjectV2.CreatedAt.get -> System.DateTime?
+Supabase.Storage.FileObjectV2.CreatedAt.set -> void
+Supabase.Storage.FileObjectV2.Etag.get -> string?
+Supabase.Storage.FileObjectV2.Etag.set -> void
+Supabase.Storage.FileObjectV2.FileObjectV2() -> void
+Supabase.Storage.FileObjectV2.Id.get -> string!
+Supabase.Storage.FileObjectV2.Id.set -> void
+Supabase.Storage.FileObjectV2.LastAccessedAt.get -> System.DateTime?
+Supabase.Storage.FileObjectV2.LastAccessedAt.set -> void
+Supabase.Storage.FileObjectV2.LastModified.get -> System.DateTime?
+Supabase.Storage.FileObjectV2.LastModified.set -> void
+Supabase.Storage.FileObjectV2.Metadata.get -> System.Collections.Generic.Dictionary<string!, string!>?
+Supabase.Storage.FileObjectV2.Metadata.set -> void
+Supabase.Storage.FileObjectV2.Name.get -> string?
+Supabase.Storage.FileObjectV2.Name.set -> void
+Supabase.Storage.FileObjectV2.Size.get -> int?
+Supabase.Storage.FileObjectV2.Size.set -> void
+Supabase.Storage.FileObjectV2.UpdatedAt.get -> System.DateTime?
+Supabase.Storage.FileObjectV2.UpdatedAt.set -> void
+Supabase.Storage.FileObjectV2.Version.get -> string!
+Supabase.Storage.FileObjectV2.Version.set -> void
+Supabase.Storage.FileOptions
+Supabase.Storage.FileOptions.CacheControl.get -> string!
+Supabase.Storage.FileOptions.CacheControl.set -> void
+Supabase.Storage.FileOptions.ContentType.get -> string!
+Supabase.Storage.FileOptions.ContentType.set -> void
+Supabase.Storage.FileOptions.Duplex.get -> string?
+Supabase.Storage.FileOptions.Duplex.set -> void
+Supabase.Storage.FileOptions.FileOptions() -> void
+Supabase.Storage.FileOptions.Headers.get -> System.Collections.Generic.Dictionary<string!, string!>?
+Supabase.Storage.FileOptions.Headers.set -> void
+Supabase.Storage.FileOptions.Metadata.get -> System.Collections.Generic.Dictionary<string!, string!>?
+Supabase.Storage.FileOptions.Metadata.set -> void
+Supabase.Storage.FileOptions.Upsert.get -> bool
+Supabase.Storage.FileOptions.Upsert.set -> void
+Supabase.Storage.GenericResponse
+Supabase.Storage.GenericResponse.GenericResponse() -> void
+Supabase.Storage.GenericResponse.Message.get -> string?
+Supabase.Storage.GenericResponse.Message.set -> void
+Supabase.Storage.Header
+Supabase.Storage.Header.Add(System.Collections.Generic.Dictionary<string!, string!>! headers) -> void
+Supabase.Storage.Header.Add(string! key, string! value) -> void
+Supabase.Storage.Header.Get() -> System.Collections.Generic.Dictionary<string!, string!>!
+Supabase.Storage.Header.Header() -> void
+Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>
+Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.CreateBucket(string! id, Supabase.Storage.BucketUpsertOptions? options = null) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.DeleteBucket(string! id) -> System.Threading.Tasks.Task<Supabase.Storage.GenericResponse?>!
+Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.EmptyBucket(string! id) -> System.Threading.Tasks.Task<Supabase.Storage.GenericResponse?>!
+Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.GetBucket(string! id) -> System.Threading.Tasks.Task<TBucket?>!
+Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.Headers.get -> System.Collections.Generic.Dictionary<string!, string!>!
+Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.Headers.set -> void
+Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.ListBuckets() -> System.Threading.Tasks.Task<System.Collections.Generic.List<TBucket!>?>!
+Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.Options.get -> Supabase.Storage.ClientOptions!
+Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.PurgeBucketCache(string! id, Supabase.Storage.PurgeCacheOptions? options = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Supabase.Storage.GenericResponse?>!
+Supabase.Storage.Interfaces.IStorageBucketApi<TBucket>.UpdateBucket(string! id, Supabase.Storage.BucketUpsertOptions? options = null) -> System.Threading.Tasks.Task<TBucket?>!
+Supabase.Storage.Interfaces.IStorageClient<TBucket, TFileObject>
+Supabase.Storage.Interfaces.IStorageClient<TBucket, TFileObject>.From(string! id) -> Supabase.Storage.Interfaces.IStorageFileApi<TFileObject!>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Copy(string! fromPath, string! toPath, Supabase.Storage.DestinationOptions? options = null) -> System.Threading.Tasks.Task<bool>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.CreateSignedUrl(string! path, int expiresIn, Supabase.Storage.TransformOptions? transformOptions = null, Supabase.Storage.DownloadOptions? options = null) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.CreateSignedUrls(System.Collections.Generic.List<string!>! paths, int expiresIn, Supabase.Storage.DownloadOptions? options = null) -> System.Threading.Tasks.Task<System.Collections.Generic.List<Supabase.Storage.CreateSignedUrlsResponse!>?>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.CreateUploadSignedUrl(string! supabasePath) -> System.Threading.Tasks.Task<Supabase.Storage.UploadSignedUrl!>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Download(string! supabasePath, Supabase.Storage.TransformOptions? transformOptions = null, System.EventHandler<float>? onProgress = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string? cacheNonce = null) -> System.Threading.Tasks.Task<byte[]!>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Download(string! supabasePath, System.EventHandler<float>? onProgress = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string? cacheNonce = null) -> System.Threading.Tasks.Task<byte[]!>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Download(string! supabasePath, string! localPath, Supabase.Storage.TransformOptions? transformOptions = null, System.EventHandler<float>? onProgress = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string? cacheNonce = null) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Download(string! supabasePath, string! localPath, System.EventHandler<float>? onProgress = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string? cacheNonce = null) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.DownloadPublicFile(string! supabasePath, Supabase.Storage.TransformOptions? transformOptions = null, System.EventHandler<float>? onProgress = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string? cacheNonce = null) -> System.Threading.Tasks.Task<byte[]!>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.DownloadPublicFile(string! supabasePath, string! localPath, Supabase.Storage.TransformOptions? transformOptions = null, System.EventHandler<float>? onProgress = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string? cacheNonce = null) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.GetPublicUrl(string! path, Supabase.Storage.TransformOptions? transformOptions = null, Supabase.Storage.DownloadOptions? options = null) -> string!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Info(string! path) -> System.Threading.Tasks.Task<Supabase.Storage.FileObjectV2?>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.List(string! path = "", Supabase.Storage.SearchOptions? options = null) -> System.Threading.Tasks.Task<System.Collections.Generic.List<TFileObject!>?>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Move(string! fromPath, string! toPath, Supabase.Storage.DestinationOptions? options = null) -> System.Threading.Tasks.Task<bool>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Options.get -> Supabase.Storage.ClientOptions!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.PurgeCache(string! path, Supabase.Storage.PurgeCacheOptions? options = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Supabase.Storage.GenericResponse?>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Remove(System.Collections.Generic.List<string!>! paths) -> System.Threading.Tasks.Task<System.Collections.Generic.List<TFileObject!>?>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Remove(string! path) -> System.Threading.Tasks.Task<TFileObject?>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Update(byte[]! data, string! supabasePath, Supabase.Storage.FileOptions? options = null, System.EventHandler<float>? onProgress = null) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Update(string! localFilePath, string! supabasePath, Supabase.Storage.FileOptions? options = null, System.EventHandler<float>? onProgress = null) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Upload(byte[]! data, string! supabasePath, Supabase.Storage.FileOptions? options = null, System.EventHandler<float>? onProgress = null, bool inferContentType = true, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.Upload(string! localFilePath, string! supabasePath, Supabase.Storage.FileOptions? options = null, System.EventHandler<float>? onProgress = null, bool inferContentType = true, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.UploadOrResume(byte[]! data, string! fileName, Supabase.Storage.FileOptions! options, System.EventHandler<float>? onProgress = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.UploadOrResume(string! localPath, string! fileName, Supabase.Storage.FileOptions! options, System.EventHandler<float>? onProgress = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.UploadToSignedUrl(byte[]! data, Supabase.Storage.UploadSignedUrl! url, Supabase.Storage.FileOptions? options = null, System.EventHandler<float>? onProgress = null, bool inferContentType = true) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.Interfaces.IStorageFileApi<TFileObject>.UploadToSignedUrl(string! localFilePath, Supabase.Storage.UploadSignedUrl! url, Supabase.Storage.FileOptions? options = null, System.EventHandler<float>? onProgress = null, bool inferContentType = true) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.PurgeCacheOptions
+Supabase.Storage.PurgeCacheOptions.PurgeCacheOptions() -> void
+Supabase.Storage.PurgeCacheOptions.Transformations.get -> bool?
+Supabase.Storage.PurgeCacheOptions.Transformations.set -> void
+Supabase.Storage.SearchOptions
+Supabase.Storage.SearchOptions.Limit.get -> int
+Supabase.Storage.SearchOptions.Limit.set -> void
+Supabase.Storage.SearchOptions.Offset.get -> int
+Supabase.Storage.SearchOptions.Offset.set -> void
+Supabase.Storage.SearchOptions.Search.get -> string!
+Supabase.Storage.SearchOptions.Search.set -> void
+Supabase.Storage.SearchOptions.SearchOptions() -> void
+Supabase.Storage.SearchOptions.SortBy.get -> Supabase.Storage.SortBy!
+Supabase.Storage.SearchOptions.SortBy.set -> void
+Supabase.Storage.SortBy
+Supabase.Storage.SortBy.Column.get -> string?
+Supabase.Storage.SortBy.Column.set -> void
+Supabase.Storage.SortBy.Order.get -> string?
+Supabase.Storage.SortBy.Order.set -> void
+Supabase.Storage.SortBy.SortBy() -> void
+Supabase.Storage.StorageBucketApi
+Supabase.Storage.StorageBucketApi.CreateBucket(string! id, Supabase.Storage.BucketUpsertOptions? options = null) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.StorageBucketApi.DeleteBucket(string! id) -> System.Threading.Tasks.Task<Supabase.Storage.GenericResponse?>!
+Supabase.Storage.StorageBucketApi.EmptyBucket(string! id) -> System.Threading.Tasks.Task<Supabase.Storage.GenericResponse?>!
+Supabase.Storage.StorageBucketApi.GetBucket(string! id) -> System.Threading.Tasks.Task<Supabase.Storage.Bucket?>!
+Supabase.Storage.StorageBucketApi.GetHeaders.get -> System.Func<System.Collections.Generic.Dictionary<string!, string!>!>?
+Supabase.Storage.StorageBucketApi.GetHeaders.set -> void
+Supabase.Storage.StorageBucketApi.Headers.get -> System.Collections.Generic.Dictionary<string!, string!>!
+Supabase.Storage.StorageBucketApi.Headers.set -> void
+Supabase.Storage.StorageBucketApi.ListBuckets() -> System.Threading.Tasks.Task<System.Collections.Generic.List<Supabase.Storage.Bucket!>?>!
+Supabase.Storage.StorageBucketApi.Options.get -> Supabase.Storage.ClientOptions!
+Supabase.Storage.StorageBucketApi.Options.set -> void
+Supabase.Storage.StorageBucketApi.PurgeBucketCache(string! id, Supabase.Storage.PurgeCacheOptions? options = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Supabase.Storage.GenericResponse?>!
+Supabase.Storage.StorageBucketApi.StorageBucketApi(string! url, Supabase.Storage.ClientOptions? options, System.Collections.Generic.Dictionary<string!, string!>? headers = null) -> void
+Supabase.Storage.StorageBucketApi.StorageBucketApi(string! url, System.Collections.Generic.Dictionary<string!, string!>? headers = null) -> void
+Supabase.Storage.StorageBucketApi.UpdateBucket(string! id, Supabase.Storage.BucketUpsertOptions? options = null) -> System.Threading.Tasks.Task<Supabase.Storage.Bucket?>!
+Supabase.Storage.StorageBucketApi.Url.get -> string!
+Supabase.Storage.StorageBucketApi.Url.set -> void
+Supabase.Storage.StorageDiagnostics
+Supabase.Storage.StorageFileApi
+Supabase.Storage.StorageFileApi.BucketId.get -> string?
+Supabase.Storage.StorageFileApi.BucketId.set -> void
+Supabase.Storage.StorageFileApi.Copy(string! fromPath, string! toPath, Supabase.Storage.DestinationOptions? options = null) -> System.Threading.Tasks.Task<bool>!
+Supabase.Storage.StorageFileApi.CreateSignedUrl(string! path, int expiresIn, Supabase.Storage.TransformOptions? transformOptions = null, Supabase.Storage.DownloadOptions? downloadOptions = null) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.StorageFileApi.CreateSignedUrls(System.Collections.Generic.List<string!>! paths, int expiresIn, Supabase.Storage.DownloadOptions? downloadOptions = null) -> System.Threading.Tasks.Task<System.Collections.Generic.List<Supabase.Storage.CreateSignedUrlsResponse!>?>!
+Supabase.Storage.StorageFileApi.CreateUploadSignedUrl(string! supabasePath) -> System.Threading.Tasks.Task<Supabase.Storage.UploadSignedUrl!>!
+Supabase.Storage.StorageFileApi.Download(string! supabasePath, Supabase.Storage.TransformOptions? transformOptions = null, System.EventHandler<float>? onProgress = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string? cacheNonce = null) -> System.Threading.Tasks.Task<byte[]!>!
+Supabase.Storage.StorageFileApi.Download(string! supabasePath, System.EventHandler<float>? onProgress = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string? cacheNonce = null) -> System.Threading.Tasks.Task<byte[]!>!
+Supabase.Storage.StorageFileApi.Download(string! supabasePath, string! localPath, Supabase.Storage.TransformOptions? transformOptions = null, System.EventHandler<float>? onProgress = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string? cacheNonce = null) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.StorageFileApi.Download(string! supabasePath, string! localPath, System.EventHandler<float>? onProgress = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string? cacheNonce = null) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.StorageFileApi.DownloadPublicFile(string! supabasePath, Supabase.Storage.TransformOptions? transformOptions = null, System.EventHandler<float>? onProgress = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string? cacheNonce = null) -> System.Threading.Tasks.Task<byte[]!>!
+Supabase.Storage.StorageFileApi.DownloadPublicFile(string! supabasePath, string! localPath, Supabase.Storage.TransformOptions? transformOptions = null, System.EventHandler<float>? onProgress = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string? cacheNonce = null) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.StorageFileApi.GetPublicUrl(string! path, Supabase.Storage.TransformOptions? transformOptions, Supabase.Storage.DownloadOptions? downloadOptions = null) -> string!
+Supabase.Storage.StorageFileApi.Headers.get -> System.Collections.Generic.Dictionary<string!, string!>!
+Supabase.Storage.StorageFileApi.Headers.set -> void
+Supabase.Storage.StorageFileApi.Info(string! path) -> System.Threading.Tasks.Task<Supabase.Storage.FileObjectV2?>!
+Supabase.Storage.StorageFileApi.List(string! path = "", Supabase.Storage.SearchOptions? options = null) -> System.Threading.Tasks.Task<System.Collections.Generic.List<Supabase.Storage.FileObject!>?>!
+Supabase.Storage.StorageFileApi.Move(string! fromPath, string! toPath, Supabase.Storage.DestinationOptions? options = null) -> System.Threading.Tasks.Task<bool>!
+Supabase.Storage.StorageFileApi.Options.get -> Supabase.Storage.ClientOptions!
+Supabase.Storage.StorageFileApi.Options.set -> void
+Supabase.Storage.StorageFileApi.PurgeCache(string! path, Supabase.Storage.PurgeCacheOptions? options = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Supabase.Storage.GenericResponse?>!
+Supabase.Storage.StorageFileApi.Remove(System.Collections.Generic.List<string!>! paths) -> System.Threading.Tasks.Task<System.Collections.Generic.List<Supabase.Storage.FileObject!>?>!
+Supabase.Storage.StorageFileApi.Remove(string! path) -> System.Threading.Tasks.Task<Supabase.Storage.FileObject?>!
+Supabase.Storage.StorageFileApi.StorageFileApi(string! url, System.Collections.Generic.Dictionary<string!, string!>? headers = null, string? bucketId = null) -> void
+Supabase.Storage.StorageFileApi.StorageFileApi(string! url, string! bucketId, Supabase.Storage.ClientOptions? options, System.Collections.Generic.Dictionary<string!, string!>? headers = null) -> void
+Supabase.Storage.StorageFileApi.Update(byte[]! data, string! supabasePath, Supabase.Storage.FileOptions? options = null, System.EventHandler<float>? onProgress = null) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.StorageFileApi.Update(string! localFilePath, string! supabasePath, Supabase.Storage.FileOptions? options = null, System.EventHandler<float>? onProgress = null) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.StorageFileApi.Upload(byte[]! data, string! supabasePath, Supabase.Storage.FileOptions? options = null, System.EventHandler<float>? onProgress = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.StorageFileApi.Upload(byte[]! data, string! supabasePath, Supabase.Storage.FileOptions? options = null, System.EventHandler<float>? onProgress = null, bool inferContentType = true, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.StorageFileApi.Upload(string! localFilePath, string! supabasePath, Supabase.Storage.FileOptions? options = null, System.EventHandler<float>? onProgress = null, bool inferContentType = true, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.StorageFileApi.UploadOrResume(byte[]! data, string! fileName, Supabase.Storage.FileOptions? options, System.EventHandler<float>? onProgress = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Supabase.Storage.StorageFileApi.UploadOrResume(string! localPath, string! fileName, Supabase.Storage.FileOptions? options, System.EventHandler<float>? onProgress = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Supabase.Storage.StorageFileApi.UploadToSignedUrl(byte[]! data, Supabase.Storage.UploadSignedUrl! signedUrl, Supabase.Storage.FileOptions? options = null, System.EventHandler<float>? onProgress = null, bool inferContentType = true) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.StorageFileApi.UploadToSignedUrl(string! localFilePath, Supabase.Storage.UploadSignedUrl! signedUrl, Supabase.Storage.FileOptions? options = null, System.EventHandler<float>? onProgress = null, bool inferContentType = true) -> System.Threading.Tasks.Task<string!>!
+Supabase.Storage.StorageFileApi.Url.get -> string!
+Supabase.Storage.StorageFileApi.Url.set -> void
+Supabase.Storage.TransformOptions
+Supabase.Storage.TransformOptions.Format.get -> string!
+Supabase.Storage.TransformOptions.Format.set -> void
+Supabase.Storage.TransformOptions.Height.get -> int?
+Supabase.Storage.TransformOptions.Height.set -> void
+Supabase.Storage.TransformOptions.Quality.get -> int
+Supabase.Storage.TransformOptions.Quality.set -> void
+Supabase.Storage.TransformOptions.Resize.get -> Supabase.Storage.TransformOptions.ResizeType
+Supabase.Storage.TransformOptions.Resize.set -> void
+Supabase.Storage.TransformOptions.ResizeType
+Supabase.Storage.TransformOptions.ResizeType.Contain = 1 -> Supabase.Storage.TransformOptions.ResizeType
+Supabase.Storage.TransformOptions.ResizeType.Cover = 0 -> Supabase.Storage.TransformOptions.ResizeType
+Supabase.Storage.TransformOptions.ResizeType.Fill = 2 -> Supabase.Storage.TransformOptions.ResizeType
+Supabase.Storage.TransformOptions.TransformOptions() -> void
+Supabase.Storage.TransformOptions.Width.get -> int?
+Supabase.Storage.TransformOptions.Width.set -> void
+Supabase.Storage.UploadMemoryCache
+Supabase.Storage.UploadMemoryCache.UploadMemoryCache() -> void
+Supabase.Storage.UploadSignedUrl
+Supabase.Storage.UploadSignedUrl.Key.get -> string!
+Supabase.Storage.UploadSignedUrl.SignedUrl.get -> System.Uri!
+Supabase.Storage.UploadSignedUrl.Token.get -> string!
+Supabase.Storage.UploadSignedUrl.UploadSignedUrl(System.Uri! signedUrl, string! token, string! key) -> void
+const Supabase.Storage.StorageDiagnostics.SourceName = "Supabase.Storage" -> string!
+readonly Supabase.Storage.StorageFileApi.StorageHeader -> Supabase.Storage.Header!
+static Supabase.Storage.Exceptions.FailureHint.DetectReason(Supabase.Storage.Exceptions.SupabaseStorageException! storageException) -> Supabase.Storage.Exceptions.FailureHint.Reason
+static Supabase.Storage.Extensions.DownloadOptionsExtension.ToQueryCollection(this Supabase.Storage.DownloadOptions! download) -> System.Collections.Specialized.NameValueCollection!
+static Supabase.Storage.Extensions.PurgeCacheOptionsExtension.ToPurgeUrl(this Supabase.Storage.PurgeCacheOptions? options, string! baseUrl) -> string!
+static Supabase.Storage.Extensions.PurgeCacheOptionsExtension.ToQueryCollection(this Supabase.Storage.PurgeCacheOptions! options) -> System.Collections.Specialized.NameValueCollection!
+static Supabase.Storage.Extensions.TransformOptionsExtension.ToQueryCollection(this Supabase.Storage.TransformOptions! transform) -> System.Collections.Specialized.NameValueCollection!
+static Supabase.Storage.UploadMemoryCache.Clear() -> void
+static Supabase.Storage.UploadMemoryCache.Count.get -> int
+static Supabase.Storage.UploadMemoryCache.Remove(string! key) -> bool
+static Supabase.Storage.UploadMemoryCache.Set(string! key, string! url, System.TimeSpan? ttl = null) -> void
+static Supabase.Storage.UploadMemoryCache.SetDefaultTtl(System.TimeSpan ttl) -> void
+static Supabase.Storage.UploadMemoryCache.TryGet(string! key, out string? url) -> bool
+static readonly Supabase.Storage.DownloadOptions.UseOriginalFileName -> Supabase.Storage.DownloadOptions!

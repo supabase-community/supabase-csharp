@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "package": "Storage",
+  "project": "Storage/Storage.csproj",
+  "testProject": "Storage.Tests/Storage.Tests.csproj",
+  "warnings": { "total": 246, "byCode": {"CS1591":226,"IDE0005":14,"CS8618":4,"CS1574":2} },
+  "mutationScore": null,
+  "updated": "2026-08-11T11:39:19Z"
+}
