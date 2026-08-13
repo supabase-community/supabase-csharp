@@ -1,0 +1,1 @@
+﻿{"id":null,"string_value":"text","bool_value":false,"unique_value":"unique","int_value":null,"long_value":null,"float_value":0.0,"double_value":0.0,"datetime_value":null,"list_of_strings":null,"list_of_ints":null,"list_of_floats":null,"int_range":null,"uuidv4":null}

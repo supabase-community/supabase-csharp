@@ -21,6 +21,7 @@
 		<PackageReference Include="FluentAssertions" />
 		<PackageReference Include="NSubstitute" />
 		<PackageReference Include="Npgsql" />
+		<PackageReference Include="Verify.MSTest" />
 		<PackageReference Include="WireMock.Net" />
 	</ItemGroup>
 
