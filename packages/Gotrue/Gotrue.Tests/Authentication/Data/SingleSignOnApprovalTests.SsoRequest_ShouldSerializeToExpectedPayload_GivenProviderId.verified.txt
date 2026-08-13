@@ -1,0 +1,1 @@
+﻿{"provider_id":"11111111-1111-1111-1111-111111111111","redirect_to":null,"skip_http_redirect":true,"code_challenge":null,"code_challenge_method":null}

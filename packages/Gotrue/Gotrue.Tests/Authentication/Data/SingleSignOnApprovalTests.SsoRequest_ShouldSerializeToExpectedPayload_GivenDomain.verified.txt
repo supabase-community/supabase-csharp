@@ -1,0 +1,1 @@
+﻿{"domain":"example.com","redirect_to":null,"skip_http_redirect":true,"code_challenge":null,"code_challenge_method":null}

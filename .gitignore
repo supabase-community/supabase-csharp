@@ -409,3 +409,8 @@ SupabaseExample/Properties/launchSettings.json
 # every run. The committed .gate-baseline.json lives outside this dir, so it stays
 # tracked.
 .gate/
+
+# Verify (approval test) received files — the transient actual output written on a
+# snapshot mismatch. Only the *.verified.* files are the committed contract; a
+# committed *.received.* would make the diff meaningless.
+*.received.*
