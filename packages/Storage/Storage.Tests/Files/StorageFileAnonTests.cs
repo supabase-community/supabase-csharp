@@ -5,7 +5,6 @@ using System.Reflection;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Storage.Tests;
 using Supabase.Storage;
 using Supabase.Storage.Exceptions;
 using Supabase.Storage.Interfaces;
@@ -19,35 +18,17 @@ namespace Storage.Tests.Files;
 /// </summary>
 [TestClass]
 [TestCategory("E2E")]
-public class StorageFileAnonTests
+public class StorageFileAnonTests : StorageE2EFixture
 {
-    private Client AdminStorage => Helpers.GetServiceClient();
-    private Client Storage => Helpers.GetPublicClient();
-
-    private string bucketId = string.Empty;
     private IStorageFileApi<FileObject> adminBucket = null!;
     private IStorageFileApi<FileObject> bucket = null!;
 
     [TestInitialize]
     public async Task TestInitialize()
     {
-        this.bucketId = Guid.NewGuid().ToString();
-        if (await this.Storage.GetBucket(this.bucketId) == null)
-            await this.AdminStorage.CreateBucket(this.bucketId, new BucketUpsertOptions { Public = false });
-        this.adminBucket = this.AdminStorage.From(this.bucketId);
-        this.bucket = this.Storage.From(this.bucketId);
-    }
-
-    [TestCleanup]
-    public async Task TestCleanup()
-    {
-        var files = await this.adminBucket.List();
-        foreach (var file in files!)
-        {
-            if (file.Name is not null)
-                await this.adminBucket.Remove(new List<string> { file.Name });
-        }
-        await this.AdminStorage.DeleteBucket(this.bucketId);
+        var bucketId = await this.NewBucket(new BucketUpsertOptions { Public = false });
+        this.adminBucket = this.Storage.From(bucketId);
+        this.bucket = this.PublicStorage.From(bucketId);
     }
 
     [TestMethod]
