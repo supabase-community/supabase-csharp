@@ -181,7 +181,7 @@ if [[ "$MODE" != "fast" ]]; then
   else add 5a "Public API declared" block "" SKIP "not run — build failed" ""; fi
   stage_api_diff
   if tests_green; then stage_e2e
-  else add 7 "E2E / acceptance" signal "" SKIP "not run — build or inner loop not green" ""; fi
+  else add 7 "E2E / acceptance" block "" SKIP "not run — build or inner loop not green" ""; fi
 fi
 
 # -------------------------------------------------------------------- verdict

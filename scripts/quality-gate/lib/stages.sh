@@ -74,14 +74,23 @@ default_base_ref() {
 }
 
 changed_cs_files() {  # repo-RELATIVE paths, committed + staged + unstaged + untracked
-  local root base
+  local root base scope_rel
   root="$(git -C "$SCOPE_DIR" rev-parse --show-toplevel 2>/dev/null)" || return 1
   base="$(default_base_ref)"
+  # Only files inside the gated scope are this run's concern. The diff is taken from
+  # the repo root (so paths are repo-relative and route to their project), but a run
+  # over `packages` must not be failed by a changed .cs that lives in the gate's own
+  # fixtures, in scripts/, or in any tree the invocation does not gate. scope_rel is
+  # the scope as a repo-relative prefix ("" when the scope IS the repo root, i.e. no
+  # filtering — every discovered project is under root anyway).
+  scope_rel="${SCOPE_DIR#"$root"}"; scope_rel="${scope_rel#/}"
   {
     [[ -n "$base" ]] && git -C "$root" diff --name-only --diff-filter=ACMR "$base"...HEAD -- '*.cs' 2>/dev/null
     git -C "$root" diff --name-only --diff-filter=ACMR HEAD -- '*.cs' 2>/dev/null
     git -C "$root" ls-files --others --exclude-standard -- '*.cs' 2>/dev/null
-  } | sed '/^$/d' | sort -u
+  } | sed '/^$/d' \
+    | awk -v s="$scope_rel" '{ if (s == "" || index($0, s "/") == 1) print }' \
+    | sort -u
 }
 
 # `dotnet format --include` resolves paths against the *process* cwd and silently
@@ -98,7 +107,7 @@ stage_format() {
   local files=() rel
   while IFS= read -r rel; do [[ -n "$rel" && -f "$root/$rel" ]] && files+=("$rel"); done < <(changed_cs_files)
   if [[ ${#files[@]} -eq 0 ]]; then
-    add 1b "Format + naming" block "" PASS "no changed .cs files" ""; return
+    add 1b "Format + naming" block "" PASS "no changed .cs files in the gated scope" ""; return
   fi
 
   : > "$log"
@@ -253,11 +262,18 @@ stage_api_diff() {
 }
 
 # ====================================================================== 7  E2E
-# If the stack isn't up this reports SKIP. An authored-but-never-executed E2E must
-# never be folded into "done". Two ways to answer "is the stack up", in order of
-# authority: `supabase status` from the dir holding supabase/config.toml (searched
-# upward from the scope), then a probe of the endpoint the tests use — any HTTP
-# status proves something is listening; only a failed connection means down.
+# Blocking: a failing acceptance test blocks the merge exactly like a failing unit
+# test — there is no green build with a red test. The inner loop (--fast) is the
+# fast local cycle that skips E2E; the full gate, which CI runs, must actually run
+# them. So: stack down is INCOMPLETE, never a pass (an authored-but-never-executed
+# E2E must never be folded into "done"); a real E2E failure is FAIL. The one thing
+# that is NOT a failure is a package that carries no E2E tests at all — that is a
+# definitive "nothing to run here", recorded as a non-blocking signal.
+#
+# Two ways to answer "is the stack up", in order of authority: `supabase status`
+# from the dir holding supabase/config.toml (searched upward from the scope), then
+# a probe of the endpoint the tests use — any HTTP status proves something is
+# listening; only a failed connection means down.
 supabase_root() {
   local d="$SCOPE_DIR"
   while [[ "$d" != "/" && -n "$d" ]]; do
@@ -291,7 +307,7 @@ stack_up() {
 
 stage_e2e() {
   if ! stack_up; then
-    add 7 "E2E / acceptance" signal "" SKIP "stack down per $STACK_CHECK — run: supabase start" "$SCOPE_LOGS/7-stack.log"
+    add 7 "E2E / acceptance" block "" SKIP "stack down per $STACK_CHECK — run: supabase start" "$SCOPE_LOGS/7-stack.log"
     return
   fi
   local i log sum ff
@@ -301,13 +317,15 @@ stage_e2e() {
     run "$log" dotnet test "$TEST_PROJECT" -c Release --no-build --filter "TestCategory=E2E" -v minimal
     sum="$(grep -E '^(Passed!|Failed!)' "$log" 2>/dev/null | tail -n1 || true)"
     if [[ $RC -eq 0 ]]; then
-      add 7 "E2E / acceptance" signal "${PKG_NAME[$i]}" PASS "${sum:-green}" "$log"
+      add 7 "E2E / acceptance" block "${PKG_NAME[$i]}" PASS "${sum:-green}" "$log"
     elif no_tests_matched "$log"; then
+      # A package with no E2E tests is not a gap the gate should fail on — the filter
+      # ran and definitively matched nothing. Non-blocking signal, never INCOMPLETE.
       add 7 "E2E / acceptance" signal "${PKG_NAME[$i]}" SKIP \
         "no tests carry [TestCategory(\"E2E\")] in this package" "$log"
     else
       ff="$(first_failure "$log")"
-      add 7 "E2E / acceptance" signal "${PKG_NAME[$i]}" FAIL "${sum:-see log}${ff:+ — first: $ff}" "$log"
+      add 7 "E2E / acceptance" block "${PKG_NAME[$i]}" FAIL "${sum:-see log}${ff:+ — first: $ff}" "$log"
     fi
   done
 }
