@@ -74,14 +74,23 @@ default_base_ref() {
 }
 
 changed_cs_files() {  # repo-RELATIVE paths, committed + staged + unstaged + untracked
-  local root base
+  local root base scope_rel
   root="$(git -C "$SCOPE_DIR" rev-parse --show-toplevel 2>/dev/null)" || return 1
   base="$(default_base_ref)"
+  # Only files inside the gated scope are this run's concern. The diff is taken from
+  # the repo root (so paths are repo-relative and route to their project), but a run
+  # over `packages` must not be failed by a changed .cs that lives in the gate's own
+  # fixtures, in scripts/, or in any tree the invocation does not gate. scope_rel is
+  # the scope as a repo-relative prefix ("" when the scope IS the repo root, i.e. no
+  # filtering — every discovered project is under root anyway).
+  scope_rel="${SCOPE_DIR#"$root"}"; scope_rel="${scope_rel#/}"
   {
     [[ -n "$base" ]] && git -C "$root" diff --name-only --diff-filter=ACMR "$base"...HEAD -- '*.cs' 2>/dev/null
     git -C "$root" diff --name-only --diff-filter=ACMR HEAD -- '*.cs' 2>/dev/null
     git -C "$root" ls-files --others --exclude-standard -- '*.cs' 2>/dev/null
-  } | sed '/^$/d' | sort -u
+  } | sed '/^$/d' \
+    | awk -v s="$scope_rel" '{ if (s == "" || index($0, s "/") == 1) print }' \
+    | sort -u
 }
 
 # `dotnet format --include` resolves paths against the *process* cwd and silently
@@ -98,7 +107,7 @@ stage_format() {
   local files=() rel
   while IFS= read -r rel; do [[ -n "$rel" && -f "$root/$rel" ]] && files+=("$rel"); done < <(changed_cs_files)
   if [[ ${#files[@]} -eq 0 ]]; then
-    add 1b "Format + naming" block "" PASS "no changed .cs files" ""; return
+    add 1b "Format + naming" block "" PASS "no changed .cs files in the gated scope" ""; return
   fi
 
   : > "$log"
