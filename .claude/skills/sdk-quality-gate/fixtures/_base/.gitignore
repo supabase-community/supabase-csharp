@@ -1,0 +1,4 @@
+bin/
+obj/
+.gate/
+.run.log

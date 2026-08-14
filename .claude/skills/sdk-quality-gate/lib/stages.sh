@@ -1,0 +1,313 @@
+# lib/stages.sh — the gauntlet, one definition per stage (QUALITY_RUBRIC §4).
+#
+# Every stage is written ONCE and runs for both scopes. The scope is carried in a
+# handful of globals set by discovery in gate.sh:
+#
+#   PKG_DIR/PKG_NAME/PKG_PROJ/PKG_TEST[]  the package(s) — one entry, or many
+#   BUILD_TARGET   what `dotnet build` compiles: a package's test project
+#                  (fast, single scope) or the .sln (solution scope)
+#   SCAN_TARGET    what security + api-declared inspect: the production project or
+#                  the .sln
+#   SCOPE_DIR      the git / PublicAPI / stack root (package dir, or repo root)
+#
+# Per-package stages (build attribution, tests, e2e) loop over the arrays; the
+# genuinely scope-wide stages (security, api-declared, api-diff) run once.
+
+# Bind the per-package context ($PROJECT, $TEST_PROJECT, $BASELINE, $OUT, …) that
+# warn_verdict / save_baseline / the loggers read.
+_use_pkg() {  # _use_pkg <index>
+  local i="$1"
+  PACKAGE_DIR="${PKG_DIR[$i]}"; PACKAGE_NAME="${PKG_NAME[$i]}"
+  PROJECT="${PKG_PROJ[$i]}"; TEST_PROJECT="${PKG_TEST[$i]}"
+  BASELINE="$PACKAGE_DIR/.gate-baseline.json"
+  OUT="$PACKAGE_DIR/.gate"; LOGS="$OUT/logs"; mkdir -p "$LOGS"
+}
+
+no_tests_matched() { grep -qi 'no test matches the given testcase filter' "$1" 2>/dev/null; }
+
+first_failure() {  # first failed test name, for an actionable summary line
+  grep -oE '^\s*(Failed|X) [A-Za-z0-9_.]+' "$1" 2>/dev/null \
+    | head -n1 | sed -E 's/^\s*(Failed|X) //' || true
+}
+
+# ============================================================ 1a  build + ratchet
+# --no-incremental is load-bearing: on an incremental build, up-to-date projects
+# emit no warnings, so the count reads zero and the ratchet passes on a change that
+# added ten.
+BUILD_OK=0
+stage_build() {
+  local log="$SCOPE_LOGS/1a-build.log"
+  run "$log" dotnet build "$BUILD_TARGET" -c Release --no-incremental -v n -nologo
+  if [[ $RC -ne 0 ]]; then
+    add 1a "Build (analyzers)" block "" FAIL "build failed (exit $RC)" "$log"; BUILD_OK=0; return
+  fi
+  BUILD_OK=1
+  # Attribute the build's warnings to each package by its OWN two csprojs: building
+  # pulls in dependency packages whose warnings are emitted under their own csproj;
+  # counting those would make a package carry its dependencies' debt.
+  local i v
+  for i in "${!PKG_DIR[@]}"; do
+    _use_pkg "$i"
+    parse_warnings "$log" "$OUT/warnings.txt" "$OUT/warnings-by-code.txt" "$PROJECT" "$TEST_PROJECT"
+    v="$(warn_verdict "$OUT/warnings-by-code.txt")"
+    add 1a "Build (analyzers)" block "${PKG_NAME[$i]}" "${v%%|||*}" "${v#*|||}" "$log"
+    save_baseline
+  done
+  # Restore scope for the scope-wide helpers below; a per-package baseline must not
+  # leak into cget for the solution-wide format/api stages.
+  BASELINE=""
+}
+
+# ============================================================ 1b  format + naming
+# dotnet build does not enforce naming (IDE1006) even with EnforceCodeStyleInBuild;
+# dotnet format is the naming gate, which is why it is a separate required stage.
+# Scoped to CHANGED files (QUALITY_RUBRIC §4): running it project-wide would fail a
+# debt-carrying package on legacy code the change never touched.
+
+default_base_ref() {
+  local r; r="$(cget .formatBaseRef)"
+  [[ -n "$r" ]] && { echo "$r"; return; }
+  for c in origin/HEAD origin/main origin/master main master; do
+    git -C "$SCOPE_DIR" rev-parse --verify -q "$c" >/dev/null 2>&1 && { echo "$c"; return; }
+  done
+  echo ""
+}
+
+changed_cs_files() {  # repo-RELATIVE paths, committed + staged + unstaged + untracked
+  local root base
+  root="$(git -C "$SCOPE_DIR" rev-parse --show-toplevel 2>/dev/null)" || return 1
+  base="$(default_base_ref)"
+  {
+    [[ -n "$base" ]] && git -C "$root" diff --name-only --diff-filter=ACMR "$base"...HEAD -- '*.cs' 2>/dev/null
+    git -C "$root" diff --name-only --diff-filter=ACMR HEAD -- '*.cs' 2>/dev/null
+    git -C "$root" ls-files --others --exclude-standard -- '*.cs' 2>/dev/null
+  } | sed '/^$/d' | sort -u
+}
+
+# `dotnet format --include` resolves paths against the *process* cwd and silently
+# matches nothing when given an absolute path — which exits 0 and reads as clean.
+# So: run from the git root and pass repo-relative paths. Includes are routed to
+# the project that owns them, and the stage fails if nothing was inspected, because
+# "inspected nothing" must never report as "clean".
+stage_format() {
+  local log="$SCOPE_LOGS/1b-format.log" root
+  if ! root="$(git -C "$SCOPE_DIR" rev-parse --show-toplevel 2>/dev/null)"; then
+    add 1b "Format + naming" block "" SKIP "not a git repository — cannot scope to changed files" ""
+    return
+  fi
+  local files=() rel
+  while IFS= read -r rel; do [[ -n "$rel" && -f "$root/$rel" ]] && files+=("$rel"); done < <(changed_cs_files)
+  if [[ ${#files[@]} -eq 0 ]]; then
+    add 1b "Format + naming" block "" PASS "no changed .cs files" ""; return
+  fi
+
+  : > "$log"
+  local i p pdir inc rf rc pkg_matched pkg_fail any=0
+  for i in "${!PKG_DIR[@]}"; do
+    pkg_matched=0; pkg_fail=0
+    for p in "${PKG_PROJ[$i]}" "${PKG_TEST[$i]}"; do
+      pdir="$(dirname "$p")"; pdir="${pdir#$root/}"
+      inc=()
+      for rf in "${files[@]}"; do [[ "$rf" == "$pdir/"* ]] && inc+=("$rf"); done
+      [[ ${#inc[@]} -eq 0 ]] && continue
+      pkg_matched=$(( pkg_matched + ${#inc[@]} )); any=1
+      echo "== $p (${#inc[@]} file(s)) ==" >> "$log"
+      set +e
+      ( cd "$root" && dotnet format "$p" --verify-no-changes --severity warn --include "${inc[@]}" ) >>"$log" 2>&1
+      rc=$?
+      set -e
+      [[ $rc -ne 0 ]] && pkg_fail=1
+    done
+    [[ $pkg_matched -eq 0 ]] && continue     # this package holds none of the changed files
+    if [[ $pkg_fail -eq 0 ]]; then
+      add 1b "Format + naming" block "${PKG_NAME[$i]}" PASS "$pkg_matched changed file(s) clean" "$log"
+    else
+      add 1b "Format + naming" block "${PKG_NAME[$i]}" FAIL \
+        "$pkg_matched changed file(s) with violations — fix: (cd $root && dotnet format <proj> --include <files>)" "$log"
+    fi
+  done
+
+  # Includes that matched no gated project mean nothing was inspected — never clean.
+  # An explicit `if`, not `[[ ]] && …`: as a function's last command that idiom
+  # returns non-zero when the test is false, and under `set -e` a stage returning
+  # non-zero would abort the run before the report prints.
+  if [[ $any -eq 0 ]]; then
+    add 1b "Format + naming" block "" FAIL \
+      "matched 0 of ${#files[@]} changed .cs file(s) — none fall under a gated project; nothing was inspected" "$log"
+  fi
+  return 0
+}
+
+# ============================================================= 2  inner loop
+# TestCategory!=E2E also admits uncategorised tests deliberately: the
+# TestConventions guardrails fail on anything uncategorised, so it surfaces as a
+# red test rather than being silently filtered away.
+stage_inner_loop() {
+  local i log sum ff
+  for i in "${!PKG_DIR[@]}"; do
+    _use_pkg "$i"
+    log="$LOGS/2-inner-loop.log"
+    run "$log" dotnet test "$TEST_PROJECT" -c Release --no-build --filter "TestCategory!=E2E" -v minimal
+    sum="$(grep -E '^(Passed!|Failed!)' "$log" 2>/dev/null | tail -n1 || true)"
+    # An empty run is checked BEFORE the exit code: `dotnet test` exits 0 when the
+    # filter matches no tests on current SDKs, so a zero exit with zero tests would
+    # otherwise record PASS "green" — a stage that executed nothing reading as passed.
+    if no_tests_matched "$log"; then
+      add 2 "Inner loop (Unit + Contract)" block "${PKG_NAME[$i]}" FAIL \
+        "no tests matched TestCategory!=E2E — the package has no inner loop" "$log"
+    elif [[ $RC -eq 0 ]]; then
+      add 2 "Inner loop (Unit + Contract)" block "${PKG_NAME[$i]}" PASS "${sum:-green}" "$log"
+    else
+      ff="$(first_failure "$log")"
+      add 2 "Inner loop (Unit + Contract)" block "${PKG_NAME[$i]}" FAIL \
+        "${sum:-tests failed}${ff:+ — first: $ff}" "$log"
+    fi
+  done
+}
+
+# ================================================================= 4  security
+# Trap: `dotnet list package --vulnerable` exits 0 even when it finds
+# vulnerabilities — the exit code is worthless, the text has to be parsed. Clean
+# requires POSITIVE confirmation ("no vulnerable packages"), never merely the
+# absence of the findings line: if the tool's output drifts, absence would read as
+# clean. It needs network — offline is SKIP, never PASS.
+stage_security() {
+  local log="$SCOPE_LOGS/4-security.log"
+  run "$log" dotnet list "$SCAN_TARGET" package --vulnerable --include-transitive
+  if grep -qiE 'unable to load the service index|could not resolve|failed to retrieve' "$log"; then
+    add 4 "Dependency vulnerabilities" block "" SKIP "no network — scan not performed" "$log"
+  elif [[ $RC -ne 0 ]]; then
+    add 4 "Dependency vulnerabilities" block "" SKIP "command failed (exit $RC)" "$log"
+  elif grep -qi 'has the following vulnerable packages' "$log"; then
+    add 4 "Dependency vulnerabilities" block "" FAIL \
+      "$(awk '/^[[:space:]]+> /{n++} END{print n+0}' "$log") vulnerable package(s)" "$log"
+  elif grep -qi 'no vulnerable packages' "$log"; then
+    add 4 "Dependency vulnerabilities" block "" PASS "none known" "$log"
+  else
+    add 4 "Dependency vulnerabilities" block "" SKIP \
+      "scan produced no recognizable result — neither confirmation nor findings (see log)" "$log"
+  fi
+}
+
+# ========================================================= 5a  public API declared
+# Blocking. The compile pins PublicApiAnalyzers diagnostics to "suggestion" so
+# adding a public member never breaks the inner loop; enforcement lives here
+# instead: `dotnet format` re-derives the surface and its exit code says whether
+# the committed PublicAPI.*.txt still match.
+#
+# TRAP: `--diagnostics` takes SPACE-separated ids. Comma-separated ("RS0016,RS0017")
+# is read as one unknown id — matches nothing, fixes nothing, exits 0 (false "in
+# sync"). Do not "tidy" the spaces into commas. Exit 0 (in sync), 2 (out of sync),
+# anything else (could not run) -> SKIP, because "couldn't check" is never "declared".
+stage_api_sync() {
+  local log="$SCOPE_LOGS/5a-api-sync.log"
+  if [[ "$SCAN_TARGET" == *.csproj ]] && ! grep -qi 'PublicApiAnalyzers' "$SCAN_TARGET" 2>/dev/null; then
+    add 5a "Public API declared" block "" SKIP \
+      "PublicApiAnalyzers not referenced by $(basename "$SCAN_TARGET") — surface is untracked" ""; return
+  fi
+  if ! find "$SCOPE_DIR" -name 'PublicAPI.*.txt' -not -path '*/obj/*' 2>/dev/null | grep -q .; then
+    add 5a "Public API declared" block "" SKIP \
+      "no PublicAPI.*.txt under scope — nothing to verify against" ""; return
+  fi
+  run "$log" dotnet format analyzers "$SCAN_TARGET" --verify-no-changes --severity info --diagnostics RS0016 RS0017
+  case $RC in
+    0) add 5a "Public API declared" block "" PASS "PublicAPI.*.txt matches the compiled surface" "$log" ;;
+    2) add 5a "Public API declared" block "" FAIL \
+         "undeclared or stale public surface — sync + commit: dotnet format analyzers <proj> --severity info --diagnostics RS0016 RS0017" "$log" ;;
+    *) add 5a "Public API declared" block "" SKIP "dotnet format could not run (exit $RC) — see log" "$log" ;;
+  esac
+}
+
+# ============================================================== 5  public API diff
+# Signal, not blocking: the maintainer is the merge gate on breaks and the tool
+# informs that call rather than vetoing it (QUALITY_RUBRIC §4).
+stage_api_diff() {
+  local log="$SCOPE_LOGS/5-api-diff.log" root
+  root="$(git -C "$SCOPE_DIR" rev-parse --show-toplevel 2>/dev/null)" || {
+    add 5 "Public API diff" signal "" SKIP "not a git repository" ""; return; }
+  find "$SCOPE_DIR" -name 'PublicAPI.*.txt' -not -path '*/obj/*' 2>/dev/null | grep -q . || {
+    add 5 "Public API diff" signal "" SKIP "PublicApiAnalyzers not wired — surface changes unreviewed" ""; return; }
+
+  local base; base="$(default_base_ref)"
+  set +e
+  { [[ -n "$base" ]] && git -C "$root" diff --unified=0 "$base"...HEAD -- '*PublicAPI.*.txt'
+    git -C "$root" diff --unified=0 HEAD -- '*PublicAPI.*.txt'; } > "$log" 2>&1
+  set -e
+
+  # API entries only: drop diff headers and the #nullable marker line.
+  local added removed na=0 nr=0
+  added=$(grep -E '^\+[^+]' "$log" 2>/dev/null | grep -v '#nullable' | sed 's/^+//' || true)
+  removed=$(grep -E '^-[^-]' "$log" 2>/dev/null | grep -v '#nullable' | sed 's/^-//' || true)
+  [[ -n "$added" ]]   && na=$(printf '%s\n' "$added"   | wc -l | tr -d ' ')
+  [[ -n "$removed" ]] && nr=$(printf '%s\n' "$removed" | wc -l | tr -d ' ')
+
+  if [[ "$nr" -gt 0 ]]; then
+    { echo; echo "REMOVED (breaking):"; printf '%s\n' "$removed" | sed 's/^/  /'; } >> "$log"
+    add 5 "Public API diff" signal "" FAIL \
+      "$na added, $nr REMOVED — breaking: needs sign-off + [Obsolete] + MIGRATION_vN.md; first: $(printf '%s' "$removed" | head -n1)" "$log"
+  elif [[ "$na" -gt 0 ]]; then
+    add 5 "Public API diff" signal "" PASS "$na member(s) added, additive" "$log"
+  else
+    add 5 "Public API diff" signal "" PASS "no public surface change" "$log"
+  fi
+}
+
+# ====================================================================== 7  E2E
+# If the stack isn't up this reports SKIP. An authored-but-never-executed E2E must
+# never be folded into "done". Two ways to answer "is the stack up", in order of
+# authority: `supabase status` from the dir holding supabase/config.toml (searched
+# upward from the scope), then a probe of the endpoint the tests use — any HTTP
+# status proves something is listening; only a failed connection means down.
+supabase_root() {
+  local d="$SCOPE_DIR"
+  while [[ "$d" != "/" && -n "$d" ]]; do
+    [[ -f "$d/supabase/config.toml" ]] && { echo "$d"; return 0; }
+    d="$(dirname "$d")"
+  done
+  return 1
+}
+
+e2e_url() { local u; u="$(cget .e2eHealthUrl)"; echo "${u:-http://127.0.0.1:54321/auth/v1/health}"; }
+
+STACK_CHECK=""   # how the call was made, so a false negative is diagnosable
+stack_up() {
+  local root
+  if have supabase && root="$(supabase_root)"; then
+    STACK_CHECK="supabase status in $root"
+    ( cd "$root" && supabase status ) >"$SCOPE_LOGS/7-stack.log" 2>&1 && return 0 || return 1
+  fi
+  local url; url="$(e2e_url)"
+  STACK_CHECK="probe of $url"
+  if have curl; then
+    local code
+    code=$(curl -sS -m 3 -o /dev/null -w '%{http_code}' "$url" 2>/dev/null) || code=""
+    [[ "$code" =~ ^[1-5][0-9][0-9]$ ]] && return 0 || return 1
+  fi
+  local hp="${url#*://}"; hp="${hp%%/*}"
+  local host="${hp%%:*}" port="${hp##*:}"
+  [[ "$port" == "$host" ]] && port=80
+  (exec 3<>"/dev/tcp/$host/$port") >/dev/null 2>&1 && return 0 || return 1
+}
+
+stage_e2e() {
+  if ! stack_up; then
+    add 7 "E2E / acceptance" signal "" SKIP "stack down per $STACK_CHECK — run: supabase start" "$SCOPE_LOGS/7-stack.log"
+    return
+  fi
+  local i log sum ff
+  for i in "${!PKG_DIR[@]}"; do
+    _use_pkg "$i"
+    log="$LOGS/7-e2e.log"
+    run "$log" dotnet test "$TEST_PROJECT" -c Release --no-build --filter "TestCategory=E2E" -v minimal
+    sum="$(grep -E '^(Passed!|Failed!)' "$log" 2>/dev/null | tail -n1 || true)"
+    if [[ $RC -eq 0 ]]; then
+      add 7 "E2E / acceptance" signal "${PKG_NAME[$i]}" PASS "${sum:-green}" "$log"
+    elif no_tests_matched "$log"; then
+      add 7 "E2E / acceptance" signal "${PKG_NAME[$i]}" SKIP \
+        "no tests carry [TestCategory(\"E2E\")] in this package" "$log"
+    else
+      ff="$(first_failure "$log")"
+      add 7 "E2E / acceptance" signal "${PKG_NAME[$i]}" FAIL "${sum:-see log}${ff:+ — first: $ff}" "$log"
+    fi
+  done
+}

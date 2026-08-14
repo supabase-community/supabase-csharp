@@ -1,0 +1,10 @@
+{
+  "description": "Every test is categorised E2E, so the inner-loop filter (TestCategory!=E2E) matches nothing. dotnet test exits 0 on an empty filter (current SDKs), so a run that executed zero tests must still FAIL, not read as green.",
+  "mode": "--fast",
+  "exit": 1,
+  "verdict": "FAIL",
+  "stages": [
+    { "id": "1a", "status": "PASS" },
+    { "id": "2",  "status": "FAIL", "detailContains": "no tests matched" }
+  ]
+}

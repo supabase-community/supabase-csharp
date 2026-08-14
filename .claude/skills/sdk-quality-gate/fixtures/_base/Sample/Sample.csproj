@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <!-- Analyzers off on purpose: a fixture's defect must come from its own overlay,
+         not from incidental CA/IDE noise that would make the clean case flaky. The
+         defects we exercise (#warning, trailing whitespace, compile error) don't need
+         them. TreatWarningsAsErrors stays OFF so an added warning is counted, not fatal. -->
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+</Project>

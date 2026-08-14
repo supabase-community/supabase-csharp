@@ -1,0 +1,10 @@
+{
+  "description": "The package builds and is formatted, but a unit test fails. The inner loop must FAIL.",
+  "mode": "--fast",
+  "exit": 1,
+  "verdict": "FAIL",
+  "stages": [
+    { "id": "1a", "status": "PASS" },
+    { "id": "2",  "status": "FAIL" }
+  ]
+}

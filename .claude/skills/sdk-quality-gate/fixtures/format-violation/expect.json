@@ -1,0 +1,11 @@
+{
+  "description": "A changed .cs file has a formatting violation (trailing whitespace). Build and tests are green; format must FAIL. Guards the trap where --include given absolute paths matched nothing and reported clean.",
+  "mode": "--fast",
+  "exit": 1,
+  "verdict": "FAIL",
+  "stages": [
+    { "id": "1a", "status": "PASS" },
+    { "id": "1b", "status": "FAIL" },
+    { "id": "2",  "status": "PASS" }
+  ]
+}
