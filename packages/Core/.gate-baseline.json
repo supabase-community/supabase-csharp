@@ -4,6 +4,5 @@
   "project": "Core/Core.csproj",
   "testProject": "Core.Tests/Core.Tests.csproj",
   "warnings": { "total": 0, "byCode": {} },
-  "mutationScore": 95.96,
-  "updated": "2026-08-11T15:04:41Z"
+  "updated": "2026-08-14T08:21:47Z"
 }

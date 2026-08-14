@@ -4,6 +4,5 @@
   "project": "Functions/Functions.csproj",
   "testProject": "Functions.Tests/Functions.Tests.csproj",
   "warnings": { "total": 12, "byCode": {"IDE0161":12} },
-  "mutationScore": null,
-  "updated": "2026-08-11T11:38:53Z"
+  "updated": "2026-08-14T08:21:47Z"
 }

@@ -4,6 +4,5 @@
   "project": "Realtime/Realtime.csproj",
   "testProject": "Realtime.Tests/Realtime.Tests.csproj",
   "warnings": { "total": 234, "byCode": {"IDE0009":166,"CS1591":28,"IDE0022":26,"IDE0005":4,"CS8618":4,"CS1572":4,"CS8604":2} },
-  "mutationScore": null,
-  "updated": "2026-08-11T12:38:45Z"
+  "updated": "2026-08-14T08:21:47Z"
 }
