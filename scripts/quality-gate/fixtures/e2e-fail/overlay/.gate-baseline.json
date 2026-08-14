@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "package": "e2e-fail",
+  "project": "Sample/Sample.csproj",
+  "testProject": "Sample.Tests/Sample.Tests.csproj",
+  "warnings": { "total": 0, "byCode": {} },
+  "mutationScore": null,
+  "e2eHealthUrl": "http://127.0.0.1:51737/",
+  "updated": "2026-08-14T00:00:00Z"
+}

@@ -79,8 +79,32 @@ for fx in "${fixtures[@]}"; do
 
   mode="$(jq -r '.mode // ""' "$exp")"
   run_log="$work/.run.log"
+
+  # A fixture that exercises E2E needs the gate's stack_up probe to succeed, or the
+  # stage skips as "stack down" and never runs the failing test. Stand up a throwaway
+  # HTTP listener on the health URL the fixture pins (localhost only, no external
+  # network), so E2E actually runs — then tear it down after the gate returns.
+  stack_pid=""
+  if [[ "$(jq -r '.needsStack // false' "$exp")" == "true" ]]; then
+    if ! command -v python3 >/dev/null; then
+      echo "  ${RED}FAIL${OFF}  $name — needs a stack listener but python3 is not available"
+      FAIL=$((FAIL+1)); continue
+    fi
+    url="$(jq -r '.e2eHealthUrl // empty' "$work/.gate-baseline.json")"
+    hp="${url#*://}"; hp="${hp%%/*}"; shost="${hp%%:*}"; sport="${hp##*:}"
+    python3 -m http.server "$sport" --bind "$shost" >/dev/null 2>&1 &
+    stack_pid=$!
+    disown 2>/dev/null || true   # keep job control from printing "Terminated" on kill
+    # Wait until it accepts, so the gate's probe never races the listener's startup.
+    for _ in $(seq 1 30); do
+      (exec 3<>"/dev/tcp/$shost/$sport") 2>/dev/null && { exec 3>&-; break; }
+      sleep 0.1
+    done
+  fi
+
   NO_COLOR=1 bash "$GATE" "$work" $mode >"$run_log" 2>&1
   rc=$?
+  [[ -n "$stack_pid" ]] && kill "$stack_pid" 2>/dev/null
 
   report="$work/.gate/report.json"
   miss=""

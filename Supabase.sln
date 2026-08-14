@@ -102,6 +102,77 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", 
 		docs\migrations\v8.0.0.md = docs\migrations\v8.0.0.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{97E13694-38F0-4D01-BA50-436D9ADCF99C}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\quality-gate\gate.sh = scripts\quality-gate\gate.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{226BEB75-46D1-4366-BBDE-03C9E7A6D6F1}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\quality-gate\lib\common.sh = scripts\quality-gate\lib\common.sh
+		scripts\quality-gate\lib\report.sh = scripts\quality-gate\lib\report.sh
+		scripts\quality-gate\lib\stages.sh = scripts\quality-gate\lib\stages.sh
+		scripts\quality-gate\lib\warnings.sh = scripts\quality-gate\lib\warnings.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fixtures", "fixtures", "{3CC0DE6E-563A-4EA3-AF1A-0AF14FC57FE5}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\quality-gate\fixtures\run-fixtures.sh = scripts\quality-gate\fixtures\run-fixtures.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_base", "_base", "{27BCCB1B-2091-4A34-9966-098BCE684A6E}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\quality-gate\fixtures\_base\.editorconfig = scripts\quality-gate\fixtures\_base\.editorconfig
+		scripts\quality-gate\fixtures\_base\.gitignore = scripts\quality-gate\fixtures\_base\.gitignore
+		scripts\quality-gate\fixtures\_base\Sample\Sample.csproj = scripts\quality-gate\fixtures\_base\Sample\Sample.csproj
+		scripts\quality-gate\fixtures\_base\Sample\Widget.cs = scripts\quality-gate\fixtures\_base\Sample\Widget.cs
+		scripts\quality-gate\fixtures\_base\Sample.Tests\Sample.Tests.csproj = scripts\quality-gate\fixtures\_base\Sample.Tests\Sample.Tests.csproj
+		scripts\quality-gate\fixtures\_base\Sample.Tests\WidgetTests.cs = scripts\quality-gate\fixtures\_base\Sample.Tests\WidgetTests.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "added-warning", "added-warning", "{A024290F-C0C4-4A3B-BE9D-7715CC9AF747}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\quality-gate\fixtures\added-warning\expect.json = scripts\quality-gate\fixtures\added-warning\expect.json
+		scripts\quality-gate\fixtures\added-warning\overlay\.gate-baseline.json = scripts\quality-gate\fixtures\added-warning\overlay\.gate-baseline.json
+		scripts\quality-gate\fixtures\added-warning\overlay\Sample\Widget.cs = scripts\quality-gate\fixtures\added-warning\overlay\Sample\Widget.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build-broken", "build-broken", "{AEA69720-4764-432F-9843-634D152C8C33}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\quality-gate\fixtures\build-broken\expect.json = scripts\quality-gate\fixtures\build-broken\expect.json
+		scripts\quality-gate\fixtures\build-broken\overlay\Sample\Widget.cs = scripts\quality-gate\fixtures\build-broken\overlay\Sample\Widget.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "clean", "clean", "{2A37754C-99C6-4FCA-90DB-41121905D0BE}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\quality-gate\fixtures\clean\expect.json = scripts\quality-gate\fixtures\clean\expect.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "e2e-fail", "e2e-fail", "{FE49CB7D-4B7F-451E-B4ED-50011B7FFFD7}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\quality-gate\fixtures\e2e-fail\expect.json = scripts\quality-gate\fixtures\e2e-fail\expect.json
+		scripts\quality-gate\fixtures\e2e-fail\overlay\.gate-baseline.json = scripts\quality-gate\fixtures\e2e-fail\overlay\.gate-baseline.json
+		scripts\quality-gate\fixtures\e2e-fail\overlay\Sample.Tests\E2ETests.cs = scripts\quality-gate\fixtures\e2e-fail\overlay\Sample.Tests\E2ETests.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "format-violation", "format-violation", "{1E2B584D-174B-4820-967B-FDB389FC03B4}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\quality-gate\fixtures\format-violation\expect.json = scripts\quality-gate\fixtures\format-violation\expect.json
+		scripts\quality-gate\fixtures\format-violation\overlay\Sample\Widget.cs = scripts\quality-gate\fixtures\format-violation\overlay\Sample\Widget.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "no-test-match", "no-test-match", "{097CDFF6-9B52-46C9-88BF-62ED8FE62957}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\quality-gate\fixtures\no-test-match\expect.json = scripts\quality-gate\fixtures\no-test-match\expect.json
+		scripts\quality-gate\fixtures\no-test-match\overlay\Sample.Tests\WidgetTests.cs = scripts\quality-gate\fixtures\no-test-match\overlay\Sample.Tests\WidgetTests.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "red-test", "red-test", "{612A3F59-5D51-4E02-80C1-4E687887B73D}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\quality-gate\fixtures\red-test\expect.json = scripts\quality-gate\fixtures\red-test\expect.json
+		scripts\quality-gate\fixtures\red-test\overlay\Sample.Tests\WidgetTests.cs = scripts\quality-gate\fixtures\red-test\overlay\Sample.Tests\WidgetTests.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -307,6 +378,16 @@ Global
 		{B898A942-9C1A-4C3F-8992-664B636D0ED8} = {48B3645E-6A5B-E050-DA5F-480AE4911C13}
 		{ACE6D9C0-1F55-4A95-8250-C074D5EBA913} = {48B3645E-6A5B-E050-DA5F-480AE4911C13}
 		{D1072B4D-1697-4401-9431-F90A6B9AD2BB} = {AB28C3BB-F406-476D-9004-804D35EAA048}
+		{226BEB75-46D1-4366-BBDE-03C9E7A6D6F1} = {97E13694-38F0-4D01-BA50-436D9ADCF99C}
+		{3CC0DE6E-563A-4EA3-AF1A-0AF14FC57FE5} = {97E13694-38F0-4D01-BA50-436D9ADCF99C}
+		{27BCCB1B-2091-4A34-9966-098BCE684A6E} = {3CC0DE6E-563A-4EA3-AF1A-0AF14FC57FE5}
+		{A024290F-C0C4-4A3B-BE9D-7715CC9AF747} = {3CC0DE6E-563A-4EA3-AF1A-0AF14FC57FE5}
+		{AEA69720-4764-432F-9843-634D152C8C33} = {3CC0DE6E-563A-4EA3-AF1A-0AF14FC57FE5}
+		{2A37754C-99C6-4FCA-90DB-41121905D0BE} = {3CC0DE6E-563A-4EA3-AF1A-0AF14FC57FE5}
+		{FE49CB7D-4B7F-451E-B4ED-50011B7FFFD7} = {3CC0DE6E-563A-4EA3-AF1A-0AF14FC57FE5}
+		{1E2B584D-174B-4820-967B-FDB389FC03B4} = {3CC0DE6E-563A-4EA3-AF1A-0AF14FC57FE5}
+		{097CDFF6-9B52-46C9-88BF-62ED8FE62957} = {3CC0DE6E-563A-4EA3-AF1A-0AF14FC57FE5}
+		{612A3F59-5D51-4E02-80C1-4E687887B73D} = {3CC0DE6E-563A-4EA3-AF1A-0AF14FC57FE5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {832DE89D-7252-4B03-9301-BB8D36B40992}

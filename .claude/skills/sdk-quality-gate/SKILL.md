@@ -1,34 +1,35 @@
 ---
 name: sdk-quality-gate
-description: Use before declaring any Supabase C# SDK change done or opening a PR, and as the Verify step of every flow. Runs the gate.sh script that sits beside this skill — the mechanized gauntlet (build/analyzers with a warning ratchet, format on changed files, inner-loop tests, vulnerability scan, plus public-API and E2E signals) — and reports its verdict. This is the deterministic "is it done" check; do not report a change as done without a PASS.
+description: Use before declaring any Supabase C# SDK change done or opening a PR, and as the Verify step of every flow. Runs the committed scripts/quality-gate/gate.sh script — the mechanized gauntlet (build/analyzers with a warning ratchet, format on changed files, inner-loop tests, vulnerability scan and E2E/acceptance tests, plus a public-API diff signal) — and reports its verdict. This is the deterministic "is it done" check; do not report a change as done without a PASS.
 ---
 
 # Skill: SDK quality gate
 
 The gauntlet is a program, not a procedure. Run it and report what it says.
 
-The script lives beside this file, at `.claude/skills/sdk-quality-gate/gate.sh`.
-Paths below assume the working directory is the workspace root (`sdk-csharp`);
-the script itself is location-independent, so an absolute path works equally well.
+The script lives at `scripts/quality-gate/gate.sh` — committed alongside the code
+so contributors and CI run the identical command, not just agents. Paths below
+assume the working directory is the workspace root (`sdk-csharp`); the script
+itself is location-independent, so an absolute path works equally well.
 
 ```
-.claude/skills/sdk-quality-gate/gate.sh <package>          # full gate — before a PR
-.claude/skills/sdk-quality-gate/gate.sh <package> --fast    # inner loop only
+scripts/quality-gate/gate.sh <package>          # full gate — before a PR
+scripts/quality-gate/gate.sh <package> --fast    # inner loop only
 ```
 
-There are two modes. `--fast` is the inner loop only (build, format, tests); the
-default is the full gate and adds security, public API and E2E. `<package>` is a
-directory — e.g. `gotrue-csharp`, `core-csharp` — and defaults to the current
-directory. Run with `bash <path>` if the executable bit is unset.
+There are two modes. `--fast` is the inner loop only (build, format, tests) — the
+fast local red/green cycle; the default is the full gate and adds security, the
+public-API check and E2E. `<package>` is a directory — e.g. `gotrue-csharp`,
+`core-csharp` — and defaults to the current directory. Run with `bash <path>` if
+the executable bit is unset.
 
 **Mutation testing is not part of the gate.** It is too slow for the inner/PR
 loop and runs in its own scheduled GitHub Action.
 
-**Provisional location.** The gate is not yet committed to the package repos, so
-CI does not run it: a local PASS is currently a local claim, not a verified one.
-Once it has earned trust it moves to `scripts/gate.sh` inside each package repo
-and CI runs the identical command — at which point a local PASS and a CI PASS
-mean the same thing. Until then, say so when reporting a PASS.
+**CI runs the same command.** The `Build and Test` workflow
+(`.github/workflows/build-and-test.yml`) invokes `scripts/quality-gate/gate.sh`
+on every push and pull request, so a local PASS and a CI PASS mean the same
+thing. The blocking-stage verdict here is the one that gates the merge.
 
 ## Reading the verdict
 
@@ -39,10 +40,15 @@ mean the same thing. Until then, say so when reporting a PASS.
 | `INCOMPLETE` | 2 | A blocking stage could not run. Unverified ≠ verified. |
 | `FAIL` | 1 | A blocking stage failed. |
 
-Blocking stages `[B]` decide the verdict. Signal stages `[s]` never fail the
-build — they inform the human merge decision (QUALITY_RUBRIC §4). The maintainer
-is the merge gate on public-API breaks; the tool informs that call, it does not
-veto it.
+Blocking stages `[B]` decide the verdict: build/analyzers, format, the inner loop,
+dependency vulnerabilities, public-API declared, **and E2E/acceptance**. A failing
+E2E blocks the merge exactly like a failing unit test — there is no green build
+with a red test. A package that carries no E2E tests is not a failure; only a real
+E2E failure, or a stack that could not be reached, holds the gate.
+
+The one signal stage `[s]` is the **public-API diff**: it never fails the build,
+because the maintainer is the merge gate on breaking changes — a break may be
+intended. The tool informs that call, it does not veto it (QUALITY_RUBRIC §4).
 
 Stages are skipped only when an earlier failure makes them impossible or
 meaningless — a failed build blocks format and tests; a red inner loop blocks

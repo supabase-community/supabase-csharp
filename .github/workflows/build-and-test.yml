@@ -16,6 +16,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The gate's format stage diffs changed .cs files against origin/master,
+          # so it needs full history rather than a shallow clone.
+          fetch-depth: 0
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -30,12 +34,11 @@ jobs:
       - name: Start Supabase
         run: supabase start
 
-      - name: Restore
-        run: dotnet restore
-
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
-
-      - name: Test
-        run: dotnet test Supabase.sln --configuration Release --no-build -m:1
+      # Runs the same quality gate as contributors and agents (scripts/quality-gate).
+      # Its exit code is the merge gate: build/analyzers, format, inner-loop tests,
+      # dependency vulnerabilities, public-API sync and E2E/acceptance tests are all
+      # blocking — a non-zero exit fails the job. Only the public-API diff is a
+      # signal (breaking changes may be intentional), surfaced but non-blocking.
+      - name: Quality gate
+        run: ./scripts/quality-gate/gate.sh packages
 
