@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "package": "_base",
+  "project": "Sample/Sample.csproj",
+  "testProject": "Sample.Tests/Sample.Tests.csproj",
+  "warnings": { "total": 0, "byCode": {} },
+  "updated": "2026-08-14T12:22:00Z"
+}
