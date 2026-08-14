@@ -105,7 +105,10 @@ These stay human judgment. Walk them; don't recall them:
 - [ ] Orchestration reads as named intent; expected failures returned, not thrown.
 - [ ] Public surface minimal and documented; entry points carry an `<example>`.
 - [ ] Parity deviations noted in the PR description.
-- [ ] Commits follow `type: description` (no scope).
+- [ ] Commits follow `type(scope): description`. The scope is required since the
+      move to a monorepo and names the affected package — `functions`, `gotrue`,
+      `postgrest`, `realtime`, `storage`, `core`, `supabase` (append `!` before
+      the colon for breaking changes, e.g. `feat(functions)!:`).
 
 Every item that becomes mechanizable — an analyzer, an architecture test, a
 `TestConventions` rule — should move out of this list and into the script. The
