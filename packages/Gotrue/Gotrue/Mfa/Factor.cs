@@ -1,26 +1,25 @@
-﻿using System;
-using Newtonsoft.Json;
+using System;
+using System.Text.Json.Serialization;
 
-namespace Supabase.Gotrue.Mfa
+namespace Supabase.Gotrue.Mfa;
+
+public class Factor
 {
-	public class Factor
-	{
-		[JsonProperty("id")]
-		public string Id { get; set; }
+    [JsonPropertyName("id")]
+    public string Id { get; set; }
 
-		[JsonProperty("friendly_name")]
-		public string? FriendlyName { get; set; }
+    [JsonPropertyName("friendly_name")]
+    public string? FriendlyName { get; set; }
 
-		[JsonProperty("factor_type")]
-		public string FactorType { get; set; }
+    [JsonPropertyName("factor_type")]
+    public string FactorType { get; set; }
 
-		[JsonProperty("status")]
-		public string Status { get; set; }
+    [JsonPropertyName("status")]
+    public string Status { get; set; }
 
-		[JsonProperty("created_at")]
-		public DateTime CreatedAt { get; set; }
+    [JsonPropertyName("created_at")]
+    public DateTime CreatedAt { get; set; }
 
-		[JsonProperty("updated_at")]
-		public DateTime UpdatedAt { get; set; }
-	}
+    [JsonPropertyName("updated_at")]
+    public DateTime UpdatedAt { get; set; }
 }

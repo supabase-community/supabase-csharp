@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Collections.Generic;
 
-namespace Supabase.Gotrue.Mfa
+namespace Supabase.Gotrue.Mfa;
+
+public class MfaAdminListFactorsResponse
 {
-	public class MfaAdminListFactorsResponse
-	{
-		public List<Factor> Factors { get; set; } = new List<Factor>();
-	}
+    public List<Factor> Factors { get; set; } = new List<Factor>();
 }

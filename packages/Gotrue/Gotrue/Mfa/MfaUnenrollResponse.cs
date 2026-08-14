@@ -1,10 +1,9 @@
-﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
-namespace Supabase.Gotrue.Mfa
+namespace Supabase.Gotrue.Mfa;
+
+public class MfaUnenrollResponse
 {
-	public class MfaUnenrollResponse
-	{
-		[JsonProperty("id")]
-		public string Id { get; set; }
-	}
+    [JsonPropertyName("id")]
+    public string Id { get; set; }
 }

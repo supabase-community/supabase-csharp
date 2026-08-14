@@ -3,8 +3,8 @@
 using System;
 using System.Linq;
 using System.Net.Http;
+using System.Text.Json.Nodes;
 using FluentAssertions;
-using Newtonsoft.Json.Linq;
 using WireMock;
 using WireMock.RequestBuilders;
 using WireMock.Server;
@@ -23,17 +23,17 @@ internal sealed class MockGotrueServer : IDisposable
 
     private readonly WireMockServer server = WireMockServer.Start();
 
-    internal string Url => server.Url!;
+    internal string Url => this.server.Url!;
 
-    public void Dispose() => server.Stop();
+    public void Dispose() => this.server.Stop();
 
-    internal IRespondWithAProvider Given(IRequestBuilder requestBuilder) => server.Given(requestBuilder);
+    internal IRespondWithAProvider Given(IRequestBuilder requestBuilder) => this.server.Given(requestBuilder);
 
-    internal void Reset() => server.ResetMappings();
+    internal void Reset() => this.server.ResetMappings();
 
     internal ReceivedRequest VerifySingleReceivedRequest()
     {
-        var entry = server.LogEntries.Should().ContainSingle("the SDK should emit exactly one request").Which;
+        var entry = this.server.LogEntries.Should().ContainSingle("the SDK should emit exactly one request").Which;
         return new ReceivedRequest(entry.RequestMessage!);
     }
 }
@@ -61,70 +61,70 @@ internal sealed class ReceivedRequest
 
     internal ReceivedRequest WithPath(string path)
     {
-        request.Path.Should().Be(path);
+        this.request.Path.Should().Be(path);
         return this;
     }
 
     internal ReceivedRequest WithMethod(HttpMethod method)
     {
-        request.Method.Should().Be(method.ToString());
+        this.request.Method.Should().Be(method.ToString());
         return this;
     }
 
     internal ReceivedRequest WithQueryParam(string name, string expected)
     {
-        request.Query.Should().ContainKey(name).WhoseValue.Single().Should().Be(expected);
+        this.request.Query.Should().ContainKey(name).WhoseValue.Single().Should().Be(expected);
         return this;
     }
 
     internal ReceivedRequest WithHeader(string name, string expected)
     {
-        request.Headers.Should().ContainKey(name).WhoseValue.Single().Should().Be(expected);
+        this.request.Headers.Should().ContainKey(name).WhoseValue.Single().Should().Be(expected);
         return this;
     }
 
     internal ReceivedRequest WithJsonContentType()
     {
-        request.Headers.Should().ContainKey("Content-Type").WhoseValue.Single().Should().StartWith("application/json");
+        this.request.Headers.Should().ContainKey("Content-Type").WhoseValue.Single().Should().StartWith("application/json");
         return this;
     }
 
     internal ReceivedRequest WithExactJsonBody(string field, string expected)
     {
-        request.Body.Should().NotBeNull("the request should have a body");
-        var body = JObject.Parse(request.Body!);
-        body[field]?.Value<string>().Should().Be(expected);
+        this.request.Body.Should().NotBeNull("the request should have a body");
+        var body = JsonNode.Parse(this.request.Body!)!.AsObject();
+        body[field]?.GetValue<string>().Should().Be(expected);
         return this;
     }
 
     internal ReceivedRequest WithBooleanJsonBody(string field, bool expected)
     {
-        request.Body.Should().NotBeNull("the request should have a body");
-        var body = JObject.Parse(request.Body!);
-        body[field]?.Value<bool>().Should().Be(expected);
+        this.request.Body.Should().NotBeNull("the request should have a body");
+        var body = JsonNode.Parse(this.request.Body!)!.AsObject();
+        body[field]?.GetValue<bool>().Should().Be(expected);
         return this;
     }
 
     internal ReceivedRequest WithNestedJsonBody(string parent, string field, string expected)
     {
-        request.Body.Should().NotBeNull("the request should have a body");
-        var body = JObject.Parse(request.Body!);
-        body[parent]?[field]?.Value<string>().Should().Be(expected);
+        this.request.Body.Should().NotBeNull("the request should have a body");
+        var body = JsonNode.Parse(this.request.Body!)!.AsObject();
+        body[parent]?[field]?.GetValue<string>().Should().Be(expected);
         return this;
     }
 
     internal ReceivedRequest WithoutJsonBodyField(string field)
     {
-        request.Body.Should().NotBeNull("the request should have a body");
-        var body = JObject.Parse(request.Body!);
+        this.request.Body.Should().NotBeNull("the request should have a body");
+        var body = JsonNode.Parse(this.request.Body!)!.AsObject();
         body.ContainsKey(field).Should().BeFalse($"'{field}' should be omitted when not supplied");
         return this;
     }
 
     internal string? ReadJsonBodyField(string field)
     {
-        request.Body.Should().NotBeNull("the request should have a body");
-        var body = JObject.Parse(request.Body!);
-        return body[field]?.Value<string>();
+        this.request.Body.Should().NotBeNull("the request should have a body");
+        var body = JsonNode.Parse(this.request.Body!)!.AsObject();
+        return body[field]?.GetValue<string>();
     }
 }

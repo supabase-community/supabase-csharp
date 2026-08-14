@@ -1,12 +1,12 @@
-﻿#region
+#region
 
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Web;
-using Newtonsoft.Json;
 using Supabase.Core.Diagnostics;
 using Supabase.Gotrue.Exceptions;
 using Supabase.Gotrue.Interfaces;
@@ -17,975 +17,974 @@ using static Supabase.Gotrue.Exceptions.FailureHint.Reason;
 
 #endregion
 
-namespace Supabase.Gotrue
+namespace Supabase.Gotrue;
+
+/// <inheritdoc />
+public class Client : IGotrueClient<User, Session>
 {
-    /// <inheritdoc />
-    public class Client : IGotrueClient<User, Session>
-    {
-        /// <summary>
-        ///     The underlying API requests object that sends the requests
-        /// </summary>
-        private readonly IGotrueApi<User, Session> _api;
+    /// <summary>
+    ///     The underlying API requests object that sends the requests
+    /// </summary>
+    private readonly IGotrueApi<User, Session> api;
 
-        /// <summary>
-        ///     Handlers for notifications of state changes.
-        /// </summary>
-        private readonly List<IGotrueClient<User, Session>.AuthEventHandler> _authEventHandlers =
-            new List<IGotrueClient<User, Session>.AuthEventHandler>();
+    /// <summary>
+    ///     Handlers for notifications of state changes.
+    /// </summary>
+    private readonly List<IGotrueClient<User, Session>.AuthEventHandler> authEventHandlers =
+        new List<IGotrueClient<User, Session>.AuthEventHandler>();
 
-        /// <summary>
-        ///     Gets notifications if there is a failure not visible by exceptions (e.g. background thread refresh failure)
-        /// </summary>
+    /// <summary>
+    ///     Gets notifications if there is a failure not visible by exceptions (e.g. background thread refresh failure)
+    /// </summary>
 #pragma warning disable CS0618 // internal plumbing for the obsolete debug surface, removed together in v8
-        private DebugNotification? _debugNotification;
+    private DebugNotification? debugNotification;
 #pragma warning restore CS0618
 
-        /// <summary>
-        ///     Object called to persist the session (e.g. filesystem or cookie)
-        /// </summary>
-        private IGotruePersistenceListener<Session>? _sessionPersistence;
+    /// <summary>
+    ///     Object called to persist the session (e.g. filesystem or cookie)
+    /// </summary>
+    private IGotruePersistenceListener<Session>? sessionPersistence;
 
-        /// <summary>
-        ///     Initializes the GoTrue stateful client.
-        ///     You will likely want to at least specify a
-        ///     <see>
-        ///         <cref>ClientOptions.Url</cref>
-        ///     </see>
-        ///     Sessions are not automatically retrieved when this object is created.
-        ///     If you want to load the session from your persistence store,
-        ///     <see>
-        ///         <cref>GotrueSessionPersistence</cref>
-        ///     </see>
-        ///     .
-        ///     If you want to load/refresh the session,
-        ///     <see>
-        ///         <cref>RetrieveSessionAsync</cref>
-        ///     </see>
-        ///     .
-        ///     For a typical client application, you'll want to load the session from persistence
-        ///     and then refresh it. If your application is listening for session changes, you'll
-        ///     get two SignIn notifications if the persisted session is valid - one for the
-        ///     session loaded from disk, and a second on a successful session refresh.
-        ///     <remarks></remarks>
-        ///     <example>
-        ///         var client = new Supabase.Gotrue.Client(options);
-        ///         client.LoadSession();
-        ///         await client.RetrieveSessionAsync();
-        ///     </example>
-        /// </summary>
-        /// <param name="options"></param>
-        public Client(ClientOptions? options = null)
+    /// <summary>
+    ///     Initializes the GoTrue stateful client.
+    ///     You will likely want to at least specify a
+    ///     <see>
+    ///         <cref>ClientOptions.Url</cref>
+    ///     </see>
+    ///     Sessions are not automatically retrieved when this object is created.
+    ///     If you want to load the session from your persistence store,
+    ///     <see>
+    ///         <cref>GotrueSessionPersistence</cref>
+    ///     </see>
+    ///     .
+    ///     If you want to load/refresh the session,
+    ///     <see>
+    ///         <cref>RetrieveSessionAsync</cref>
+    ///     </see>
+    ///     .
+    ///     For a typical client application, you'll want to load the session from persistence
+    ///     and then refresh it. If your application is listening for session changes, you'll
+    ///     get two SignIn notifications if the persisted session is valid - one for the
+    ///     session loaded from disk, and a second on a successful session refresh.
+    ///     <remarks></remarks>
+    ///     <example>
+    ///         var client = new Supabase.Gotrue.Client(options);
+    ///         client.LoadSession();
+    ///         await client.RetrieveSessionAsync();
+    ///     </example>
+    /// </summary>
+    /// <param name="options"></param>
+    public Client(ClientOptions? options = null)
+    {
+        options ??= new ClientOptions();
+        this.Options = options;
+        this.api = new Api(options.Url, options.Headers);
+        if (options.AutoRefreshToken)
         {
-            options ??= new ClientOptions();
-            Options = options;
-            _api = new Api(options.Url, options.Headers);
-            if (options.AutoRefreshToken)
+            this.TokenRefresh = new TokenRefresh(this);
+            this.authEventHandlers.Add(this.TokenRefresh.ManageAutoRefresh);
+        }
+    }
+
+    /// <summary>
+    ///     Get the TokenRefresh object, if it exists
+    /// </summary>
+    public TokenRefresh? TokenRefresh { get; }
+
+    /// <inheritdoc />
+    public void SetPersistence(IGotrueSessionPersistence<Session> persistence)
+    {
+        if (this.sessionPersistence != null)
+        {
+            this.authEventHandlers.Remove(this.sessionPersistence.EventHandler);
+        }
+        this.sessionPersistence = new PersistenceListener(persistence);
+        this.authEventHandlers.Add(this.sessionPersistence.EventHandler);
+    }
+
+    /// <inheritdoc />
+    public ClientOptions Options { get; }
+
+    /// <inheritdoc />
+    public Task<User?> GetUser(string jwt) => this.api.GetUser(jwt);
+
+    /// <inheritdoc />
+    public void NotifyAuthStateChange(AuthState stateChanged)
+    {
+        foreach (var handler in this.authEventHandlers)
+        {
+            try
             {
-                TokenRefresh = new TokenRefresh(this);
-                _authEventHandlers.Add(TokenRefresh.ManageAutoRefresh);
+                handler.Invoke(this, stateChanged);
+            }
+            catch (Exception e)
+            {
+                this.debugNotification?.Log("Auth State Change Handler Failure", e);
             }
         }
+    }
 
-        /// <summary>
-        ///     Get the TokenRefresh object, if it exists
-        /// </summary>
-        public TokenRefresh? TokenRefresh { get; }
+    /// <inheritdoc />
+    public User? CurrentUser => this.CurrentSession?.User;
 
-        /// <inheritdoc />
-        public void SetPersistence(IGotrueSessionPersistence<Session> persistence)
+    /// <inheritdoc />
+    public void AddStateChangedListener(IGotrueClient<User, Session>.AuthEventHandler authEventHandler)
+    {
+        if (this.authEventHandlers.Contains(authEventHandler))
         {
-            if (_sessionPersistence != null)
-            {
-                _authEventHandlers.Remove(_sessionPersistence.EventHandler);
-            }
-            _sessionPersistence = new PersistenceListener(persistence);
-            _authEventHandlers.Add(_sessionPersistence.EventHandler);
+            return;
         }
+        this.authEventHandlers.Add(authEventHandler);
+    }
 
-        /// <inheritdoc />
-        public ClientOptions Options { get; }
-
-        /// <inheritdoc />
-        public Task<User?> GetUser(string jwt) => _api.GetUser(jwt);
-
-        /// <inheritdoc />
-        public void NotifyAuthStateChange(AuthState stateChanged)
+    /// <inheritdoc />
+    public void RemoveStateChangedListener(IGotrueClient<User, Session>.AuthEventHandler authEventHandler)
+    {
+        if (!this.authEventHandlers.Contains(authEventHandler))
         {
-            foreach (var handler in _authEventHandlers)
-            {
-                try
+            return;
+        }
+        this.authEventHandlers.Remove(authEventHandler);
+    }
+
+    /// <inheritdoc />
+    public void ClearStateChangedListeners() => this.authEventHandlers.Clear();
+
+    /// <inheritdoc />
+    public bool Online { get; set; } = true;
+
+    /// <inheritdoc />
+    public Session? CurrentSession { get; private set; }
+
+    /// <inheritdoc />
+    public Task<Session?> SignUp(string email, string password, SignUpOptions? options = null) =>
+        this.SignUp(SignUpType.Email, email, password, options);
+
+    /// <inheritdoc />
+    public async Task<Session?> SignUp(SignUpType type, string identifier, string password,
+        SignUpOptions? options = null)
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.SignUp);
+        activity?.SetTag(GotrueInstrumentation.Tags.SignUpType, type.ToString());
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        this.DestroySession();
+        var session = type switch
+        {
+            SignUpType.Email => await this.api.SignUpWithEmail(identifier, password, options),
+            SignUpType.Phone => await this.api.SignUpWithPhone(identifier, password, options),
+            _ => throw new ArgumentOutOfRangeException(nameof(type), type, null),
+        };
+        if (session?.User?.IsConfirmed == true || session?.User != null && this.Options.AllowUnconfirmedUserSessions)
+        {
+            this.UpdateSession(session);
+            this.NotifyAuthStateChange(SignedIn);
+            return this.CurrentSession;
+        }
+        return session;
+    }
+
+    /// <inheritdoc />
+    public async Task<bool> SignIn(string email, SignInOptions? options = null)
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.SendMagicLink);
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        await this.api.SendMagicLinkEmail(email, options);
+        return true;
+    }
+
+    /// <inheritdoc />
+    public async Task<Session?> SignInWithIdToken(Provider provider, string idToken, string? accessToken = null, string? nonce = null,
+        string? captchaToken = null)
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.SignInWithIdToken);
+        activity?.SetTag(GotrueInstrumentation.Tags.Provider, provider.ToString());
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        this.DestroySession();
+        var result = await this.api.SignInWithIdToken(provider, idToken, accessToken, nonce, captchaToken);
+        this.UpdateSession(result);
+        this.NotifyAuthStateChange(SignedIn);
+        return result;
+    }
+
+    /// <inheritdoc />
+    public async Task<PasswordlessSignInState> SignInWithOtp(SignInWithPasswordlessEmailOptions options)
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.SignInWithOtp);
+        activity?.SetTag(GotrueInstrumentation.Tags.OtpChannel, GotrueInstrumentation.Channels.Email);
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        this.DestroySession();
+        return await this.api.SignInWithOtp(options);
+    }
+
+    /// <inheritdoc />
+    public async Task<PasswordlessSignInState> SignInWithOtp(SignInWithPasswordlessPhoneOptions options)
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.SignInWithOtp);
+        activity?.SetTag(GotrueInstrumentation.Tags.OtpChannel, GotrueInstrumentation.Channels.Phone);
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        this.DestroySession();
+        return await this.api.SignInWithOtp(options);
+    }
+
+    /// <inheritdoc />
+    public Task<bool> SendMagicLink(string email, SignInOptions? options = null) => this.SignIn(email, options);
+
+    /// <inheritdoc />
+    public Task<Session?> SignIn(string email, string password) => this.SignIn(SignInType.Email, email, password);
+
+    /// <inheritdoc />
+    public Task<Session?> SignInWithPassword(string email, string password) => this.SignIn(email, password);
+
+    /// <inheritdoc />
+    public async Task<Session?> SignIn(SignInType type, string identifierOrToken, string? password = null,
+        string? scopes = null)
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.SignIn);
+        activity?.SetTag(GotrueInstrumentation.Tags.SignInType, type.ToString());
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        Session? newSession;
+        switch (type)
+        {
+            case SignInType.Email:
+                newSession = await this.api.SignInWithEmail(identifierOrToken, password!);
+                this.UpdateSession(newSession);
+                break;
+            case SignInType.Phone:
+                if (string.IsNullOrEmpty(password))
                 {
-                    handler.Invoke(this, stateChanged);
-                }
-                catch (Exception e)
-                {
-                    _debugNotification?.Log("Auth State Change Handler Failure", e);
-                }
-            }
-        }
-
-        /// <inheritdoc />
-        public User? CurrentUser => CurrentSession?.User;
-
-        /// <inheritdoc />
-        public void AddStateChangedListener(IGotrueClient<User, Session>.AuthEventHandler authEventHandler)
-        {
-            if (_authEventHandlers.Contains(authEventHandler))
-            {
-                return;
-            }
-            _authEventHandlers.Add(authEventHandler);
-        }
-
-        /// <inheritdoc />
-        public void RemoveStateChangedListener(IGotrueClient<User, Session>.AuthEventHandler authEventHandler)
-        {
-            if (!_authEventHandlers.Contains(authEventHandler))
-            {
-                return;
-            }
-            _authEventHandlers.Remove(authEventHandler);
-        }
-
-        /// <inheritdoc />
-        public void ClearStateChangedListeners() => _authEventHandlers.Clear();
-
-        /// <inheritdoc />
-        public bool Online { get; set; } = true;
-
-        /// <inheritdoc />
-        public Session? CurrentSession { get; private set; }
-
-        /// <inheritdoc />
-        public Task<Session?> SignUp(string email, string password, SignUpOptions? options = null) =>
-            SignUp(SignUpType.Email, email, password, options);
-
-        /// <inheritdoc />
-        public async Task<Session?> SignUp(SignUpType type, string identifier, string password,
-            SignUpOptions? options = null)
-        {
-            using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.SignUp);
-            activity?.SetTag(GotrueInstrumentation.Tags.SignUpType, type.ToString());
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            DestroySession();
-            var session = type switch
-            {
-                SignUpType.Email => await _api.SignUpWithEmail(identifier, password, options),
-                SignUpType.Phone => await _api.SignUpWithPhone(identifier, password, options),
-                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null),
-            };
-            if (session?.User?.IsConfirmed == true || session?.User != null && Options.AllowUnconfirmedUserSessions)
-            {
-                UpdateSession(session);
-                NotifyAuthStateChange(SignedIn);
-                return CurrentSession;
-            }
-            return session;
-        }
-
-        /// <inheritdoc />
-        public async Task<bool> SignIn(string email, SignInOptions? options = null)
-        {
-            using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.SendMagicLink);
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            await _api.SendMagicLinkEmail(email, options);
-            return true;
-        }
-
-        /// <inheritdoc />
-        public async Task<Session?> SignInWithIdToken(Provider provider, string idToken, string? accessToken = null, string? nonce = null,
-            string? captchaToken = null)
-        {
-            using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.SignInWithIdToken);
-            activity?.SetTag(GotrueInstrumentation.Tags.Provider, provider.ToString());
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            DestroySession();
-            var result = await _api.SignInWithIdToken(provider, idToken, accessToken, nonce, captchaToken);
-            UpdateSession(result);
-            NotifyAuthStateChange(SignedIn);
-            return result;
-        }
-
-        /// <inheritdoc />
-        public async Task<PasswordlessSignInState> SignInWithOtp(SignInWithPasswordlessEmailOptions options)
-        {
-            using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.SignInWithOtp);
-            activity?.SetTag(GotrueInstrumentation.Tags.OtpChannel, GotrueInstrumentation.Channels.Email);
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            DestroySession();
-            return await _api.SignInWithOtp(options);
-        }
-
-        /// <inheritdoc />
-        public async Task<PasswordlessSignInState> SignInWithOtp(SignInWithPasswordlessPhoneOptions options)
-        {
-            using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.SignInWithOtp);
-            activity?.SetTag(GotrueInstrumentation.Tags.OtpChannel, GotrueInstrumentation.Channels.Phone);
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            DestroySession();
-            return await _api.SignInWithOtp(options);
-        }
-
-        /// <inheritdoc />
-        public Task<bool> SendMagicLink(string email, SignInOptions? options = null) => SignIn(email, options);
-
-        /// <inheritdoc />
-        public Task<Session?> SignIn(string email, string password) => SignIn(SignInType.Email, email, password);
-
-        /// <inheritdoc />
-        public Task<Session?> SignInWithPassword(string email, string password) => SignIn(email, password);
-
-        /// <inheritdoc />
-        public async Task<Session?> SignIn(SignInType type, string identifierOrToken, string? password = null,
-            string? scopes = null)
-        {
-            using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.SignIn);
-            activity?.SetTag(GotrueInstrumentation.Tags.SignInType, type.ToString());
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            Session? newSession;
-            switch (type)
-            {
-                case SignInType.Email:
-                    newSession = await _api.SignInWithEmail(identifierOrToken, password!);
-                    UpdateSession(newSession);
-                    break;
-                case SignInType.Phone:
-                    if (string.IsNullOrEmpty(password))
-                    {
-                        await _api.SendMobileOTP(identifierOrToken);
-                        return null;
-                    }
-                    newSession = await _api.SignInWithPhone(identifierOrToken, password!);
-                    UpdateSession(newSession);
-                    break;
-                case SignInType.RefreshToken:
-                    if (CurrentSession == null || string.IsNullOrEmpty(CurrentSession.AccessToken))
-                    {
-                        throw new GotrueException("Not logged in.", NoSessionFound);
-                    }
-                    await RefreshToken(CurrentSession.AccessToken!, identifierOrToken);
-                    return CurrentSession;
-                default: throw new ArgumentOutOfRangeException(nameof(type), type, null);
-            }
-
-            // Handle case when a user registers and has not confirmed email (and options do not allow for this), return null for session.
-            if (newSession?.User?.IsConfirmed != true &&
-                (newSession?.User == null || !Options.AllowUnconfirmedUserSessions))
-            {
-                return null;
-            }
-            NotifyAuthStateChange(SignedIn);
-            return CurrentSession;
-        }
-
-        /// <inheritdoc />
-        public Task<ProviderAuthState> SignIn(Provider provider, SignInOptions? options = null)
-        {
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            DestroySession();
-            var providerUri = _api.GetUriForProvider(provider, options);
-            return Task.FromResult(providerUri);
-        }
-
-        /// <inheritdoc />
-        public Task<SSOResponse?> SignInWithSSO(Guid providerId, SignInWithSSOOptions? options = null)
-        {
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            DestroySession();
-            return _api.SignInWithSSO(providerId, options);
-        }
-
-        /// <inheritdoc />
-        public Task<SSOResponse?> SignInWithSSO(string domain, SignInWithSSOOptions? options = null)
-        {
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            DestroySession();
-            return _api.SignInWithSSO(domain, options);
-        }
-
-        /// <inheritdoc />
-        public async Task<Session?> SignInAnonymously(SignInAnonymouslyOptions? options = null)
-        {
-            using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.SignInAnonymously);
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            DestroySession();
-            var newSession = await _api.SignInAnonymously(options);
-            UpdateSession(newSession);
-            NotifyAuthStateChange(SignedIn);
-            return CurrentSession;
-        }
-
-        /// <inheritdoc />
-        public async Task<Session?> VerifyOTP(string phone, string token, MobileOtpType type = MobileOtpType.SMS)
-        {
-            using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.VerifyOtp);
-            activity?.SetTag(GotrueInstrumentation.Tags.OtpChannel, GotrueInstrumentation.Channels.Phone);
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            DestroySession();
-            var session = await _api.VerifyMobileOTP(phone, token, type);
-            if (session?.AccessToken != null)
-            {
-                UpdateSession(session);
-                NotifyAuthStateChange(SignedIn);
-                return session;
-            }
-            return null;
-        }
-
-        /// <inheritdoc />
-        public async Task<Session?> VerifyOTP(string email, string token, EmailOtpType type = EmailOtpType.MagicLink)
-        {
-            using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.VerifyOtp);
-            activity?.SetTag(GotrueInstrumentation.Tags.OtpChannel, GotrueInstrumentation.Channels.Email);
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            DestroySession();
-            var session = await _api.VerifyEmailOTP(email, token, type);
-            if (session?.AccessToken != null)
-            {
-                UpdateSession(session);
-                NotifyAuthStateChange(SignedIn);
-                return session;
-            }
-            return null;
-        }
-
-        /// <inheritdoc />
-        public async Task<Session?> VerifyTokenHash(string tokenHash, EmailOtpType type = EmailOtpType.Email)
-        {
-            using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.VerifyTokenHash);
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            DestroySession();
-            var session = await _api.VerifyTokenHash(tokenHash, type);
-            if (session?.AccessToken != null)
-            {
-                UpdateSession(session);
-                NotifyAuthStateChange(SignedIn);
-                return session;
-            }
-            return null;
-        }
-
-        /// <inheritdoc />
-        public Task<ProviderAuthState> LinkIdentity(Provider provider, SignInOptions options)
-        {
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            if (CurrentSession == null || CurrentUser == null)
-            {
-                throw new GotrueException("A valid session is required.", NoSessionFound);
-            }
-            if (options.FlowType != OAuthFlowType.PKCE)
-            {
-                throw new GotrueException("PKCE flow type is required for this action.", InvalidFlowType);
-            }
-            return _api.LinkIdentity(CurrentSession.AccessToken!, provider, options);
-        }
-
-        /// <inheritdoc />
-        public async Task<Session?> LinkIdentityWithIdToken(LinkIdentityWithIdTokenOptions options)
-        {
-            using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.LinkIdentityWithIdToken);
-            activity?.SetTag(GotrueInstrumentation.Tags.Provider, options.Provider.ToString());
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            if (CurrentSession == null || CurrentUser == null)
-            {
-                throw new GotrueException("A valid session is required.", NoSessionFound);
-            }
-            var result = await _api.LinkIdentityWithIdToken(CurrentSession.AccessToken!, options).ConfigureAwait(false);
-            if (result?.AccessToken != null)
-            {
-                UpdateSession(result);
-                NotifyAuthStateChange(SignedIn);
-            }
-            return result;
-        }
-
-        /// <inheritdoc />
-        public Task<bool> UnlinkIdentity(UserIdentity userIdentity)
-        {
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            if (CurrentSession == null || CurrentUser == null)
-            {
-                throw new GotrueException("A valid session is required.", NoSessionFound);
-            }
-            return _api.UnlinkIdentity(CurrentSession.AccessToken!, userIdentity);
-        }
-
-        /// <inheritdoc />
-        public async Task SignOut(SignOutScope scope = SignOutScope.Global)
-        {
-            using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.SignOut);
-            activity?.SetTag(GotrueInstrumentation.Tags.SignOutScope, scope.ToString());
-            if (CurrentSession?.AccessToken != null)
-            {
-                await _api.SignOut(CurrentSession.AccessToken, scope);
-            }
-            UpdateSession(null);
-            NotifyAuthStateChange(SignedOut);
-        }
-
-        /// <inheritdoc />
-        public async Task<User?> Update(UserAttributes attributes)
-        {
-            using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.UpdateUser);
-            if (CurrentSession == null || string.IsNullOrEmpty(CurrentSession.AccessToken))
-            {
-                throw new GotrueException("Not Logged in.");
-            }
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            var result = await _api.UpdateUser(CurrentSession.AccessToken!, attributes);
-            CurrentSession.User = result;
-            NotifyAuthStateChange(UserUpdated);
-            return result;
-        }
-
-        /// <inheritdoc />
-        public async Task<bool> Reauthenticate()
-        {
-            if (CurrentSession == null || string.IsNullOrEmpty(CurrentSession.AccessToken))
-            {
-                throw new GotrueException("Not Logged in.", NoSessionFound);
-            }
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            var response = await _api.Reauthenticate(CurrentSession.AccessToken!);
-            return response.ResponseMessage?.IsSuccessStatusCode ?? false;
-        }
-
-        /// <inheritdoc />
-        public async Task<bool> ResetPasswordForEmail(string email)
-        {
-            var result = await _api.ResetPasswordForEmail(email);
-            result.ResponseMessage?.EnsureSuccessStatusCode();
-            return true;
-        }
-
-        /// <inheritdoc />
-        public async Task<ResetPasswordForEmailState> ResetPasswordForEmail(ResetPasswordForEmailOptions options)
-        {
-            var state = await _api.ResetPasswordForEmail(options);
-            return state;
-        }
-
-        /// <inheritdoc />
-        public async Task<Session?> RefreshSession()
-        {
-            using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.RefreshSession);
-            if (CurrentSession == null || string.IsNullOrEmpty(CurrentSession.AccessToken))
-            {
-                throw new GotrueException("Not Logged in.", NoSessionFound);
-            }
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            await RefreshToken();
-            var user = await _api.GetUser(CurrentSession.AccessToken);
-            CurrentSession.User = user;
-            return CurrentSession;
-        }
-
-        /// <inheritdoc />
-        public async Task<Session> SetSession(string accessToken, string refreshToken, bool forceAccessTokenRefresh = false)
-        {
-            using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.SetSession);
-            DestroySession();
-            if (string.IsNullOrEmpty(accessToken) || string.IsNullOrEmpty(refreshToken))
-            {
-                throw new GotrueException("`accessToken` and `refreshToken` cannot be empty.", NoSessionFound);
-            }
-            var payload = new JwtSecurityTokenHandler().ReadJwtToken(accessToken).Payload;
-            if (payload == null || payload.ValidTo == DateTime.MinValue)
-            {
-                throw new GotrueException("`accessToken`'s payload was of an unknown structure.", NoSessionFound);
-            }
-            if (payload.ValidTo < DateTime.UtcNow || forceAccessTokenRefresh)
-            {
-                var result = await _api.RefreshAccessToken(accessToken, refreshToken);
-                if (result == null || string.IsNullOrEmpty(result.AccessToken))
-                {
-                    throw new GotrueException("Could not generate a session given the provided parameters.", NoSessionFound);
-                }
-                CurrentSession = result;
-                NotifyAuthStateChange(SignedIn);
-                return CurrentSession;
-            }
-            var iat = payload.IssuedAt;
-            var exp = payload.ValidTo;
-            var expiresIn = (long) (exp - iat).TotalSeconds;
-            CurrentSession = new Session
-            {
-                AccessToken = accessToken,
-                RefreshToken = refreshToken,
-                TokenType = "bearer",
-                ExpiresIn = expiresIn,
-                User = await _api.GetUser(accessToken),
-            };
-            NotifyAuthStateChange(SignedIn);
-            return CurrentSession;
-        }
-
-        /// <summary>
-        ///     Parses a <see cref="Session" /> out of a <see cref="Uri" />'s Query parameters.
-        /// </summary>
-        /// <param name="uri"></param>
-        /// <param name="storeSession"></param>
-        /// <returns></returns>
-        public async Task<Session?> GetSessionFromUrl(Uri uri, bool storeSession = true)
-        {
-            var query = string.IsNullOrEmpty(uri.Fragment)
-                ? HttpUtility.ParseQueryString(uri.Query)
-                : HttpUtility.ParseQueryString('?' + uri.Fragment.TrimStart('#'));
-            var errorDescription = query.Get("error_description");
-            if (!string.IsNullOrEmpty(errorDescription))
-            {
-                throw new GotrueException(errorDescription, BadSessionUrl);
-            }
-            var accessToken = query.Get("access_token");
-            if (string.IsNullOrEmpty(accessToken))
-            {
-                throw new GotrueException("No access_token detected.", BadSessionUrl);
-            }
-            var expiresIn = query.Get("expires_in");
-            if (string.IsNullOrEmpty(expiresIn))
-            {
-                throw new GotrueException("No expires_in detected.", BadSessionUrl);
-            }
-            var refreshToken = query.Get("refresh_token");
-            if (string.IsNullOrEmpty(refreshToken))
-            {
-                throw new GotrueException("No refresh_token detected.", BadSessionUrl);
-            }
-            var tokenType = query.Get("token_type");
-            if (string.IsNullOrEmpty(tokenType))
-            {
-                throw new GotrueException("No token_type detected.", BadSessionUrl);
-            }
-            var user = await _api.GetUser(accessToken);
-            var session = new Session
-            {
-                AccessToken = accessToken,
-                ExpiresIn = long.Parse(expiresIn),
-                RefreshToken = refreshToken,
-                TokenType = tokenType,
-                User = user,
-            };
-            if (storeSession)
-            {
-                UpdateSession(session);
-                NotifyAuthStateChange(SignedIn);
-                if (query.Get("type") == "recovery")
-                {
-                    NotifyAuthStateChange(PasswordRecovery);
-                }
-            }
-            return session;
-        }
-
-        /// <inheritdoc />
-        public async Task<Session?> RetrieveSessionAsync()
-        {
-            using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.RetrieveSession);
-
-            // No session, so just return.
-            if (CurrentSession == null)
-            {
-                return null;
-            }
-
-            // If we aren't online, we can't refresh the token
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-
-            // We have a session, and hasn't expired, and we seem to be online. Let's try to refresh it.
-            if (Options.AutoRefreshToken && CurrentSession?.RefreshToken != null)
-            {
-                try
-                {
-                    await RefreshToken();
-                    return CurrentSession;
-                }
-                catch (Exception e)
-                {
-                    // Never log the session itself here - it contains the access and refresh tokens.
-                    _debugNotification?.Log($"Failed to refresh token ({e.Message})", e);
-                    _debugNotification?.Log($"Destroying session created at {CurrentSession?.CreatedAt:O} (expires in {CurrentSession?.ExpiresIn}s) that could not be refreshed");
-                    activity.SetFailure(e);
-                    DestroySession();
+                    await this.api.SendMobileOTP(identifierOrToken);
                     return null;
                 }
-            }
-            return CurrentSession;
+                newSession = await this.api.SignInWithPhone(identifierOrToken, password!);
+                this.UpdateSession(newSession);
+                break;
+            case SignInType.RefreshToken:
+                if (this.CurrentSession == null || string.IsNullOrEmpty(this.CurrentSession.AccessToken))
+                {
+                    throw new GotrueException("Not logged in.", NoSessionFound);
+                }
+                await this.RefreshToken(this.CurrentSession.AccessToken!, identifierOrToken);
+                return this.CurrentSession;
+            default: throw new ArgumentOutOfRangeException(nameof(type), type, null);
         }
 
-        /// <inheritdoc />
-        public async Task<Session?> ExchangeCodeForSession(string codeVerifier, string authCode)
+        // Handle case when a user registers and has not confirmed email (and options do not allow for this), return null for session.
+        if (newSession?.User?.IsConfirmed != true &&
+            (newSession?.User == null || !this.Options.AllowUnconfirmedUserSessions))
         {
-            using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.ExchangeCode);
-            var result = await _api.ExchangeCodeForSession(codeVerifier, authCode);
-            if (result != null)
+            return null;
+        }
+        this.NotifyAuthStateChange(SignedIn);
+        return this.CurrentSession;
+    }
+
+    /// <inheritdoc />
+    public Task<ProviderAuthState> SignIn(Provider provider, SignInOptions? options = null)
+    {
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        this.DestroySession();
+        var providerUri = this.api.GetUriForProvider(provider, options);
+        return Task.FromResult(providerUri);
+    }
+
+    /// <inheritdoc />
+    public Task<SSOResponse?> SignInWithSSO(Guid providerId, SignInWithSSOOptions? options = null)
+    {
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        this.DestroySession();
+        return this.api.SignInWithSSO(providerId, options);
+    }
+
+    /// <inheritdoc />
+    public Task<SSOResponse?> SignInWithSSO(string domain, SignInWithSSOOptions? options = null)
+    {
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        this.DestroySession();
+        return this.api.SignInWithSSO(domain, options);
+    }
+
+    /// <inheritdoc />
+    public async Task<Session?> SignInAnonymously(SignInAnonymouslyOptions? options = null)
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.SignInAnonymously);
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        this.DestroySession();
+        var newSession = await this.api.SignInAnonymously(options);
+        this.UpdateSession(newSession);
+        this.NotifyAuthStateChange(SignedIn);
+        return this.CurrentSession;
+    }
+
+    /// <inheritdoc />
+    public async Task<Session?> VerifyOTP(string phone, string token, MobileOtpType type = MobileOtpType.SMS)
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.VerifyOtp);
+        activity?.SetTag(GotrueInstrumentation.Tags.OtpChannel, GotrueInstrumentation.Channels.Phone);
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        this.DestroySession();
+        var session = await this.api.VerifyMobileOTP(phone, token, type);
+        if (session?.AccessToken != null)
+        {
+            this.UpdateSession(session);
+            this.NotifyAuthStateChange(SignedIn);
+            return session;
+        }
+        return null;
+    }
+
+    /// <inheritdoc />
+    public async Task<Session?> VerifyOTP(string email, string token, EmailOtpType type = EmailOtpType.MagicLink)
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.VerifyOtp);
+        activity?.SetTag(GotrueInstrumentation.Tags.OtpChannel, GotrueInstrumentation.Channels.Email);
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        this.DestroySession();
+        var session = await this.api.VerifyEmailOTP(email, token, type);
+        if (session?.AccessToken != null)
+        {
+            this.UpdateSession(session);
+            this.NotifyAuthStateChange(SignedIn);
+            return session;
+        }
+        return null;
+    }
+
+    /// <inheritdoc />
+    public async Task<Session?> VerifyTokenHash(string tokenHash, EmailOtpType type = EmailOtpType.Email)
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.VerifyTokenHash);
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        this.DestroySession();
+        var session = await this.api.VerifyTokenHash(tokenHash, type);
+        if (session?.AccessToken != null)
+        {
+            this.UpdateSession(session);
+            this.NotifyAuthStateChange(SignedIn);
+            return session;
+        }
+        return null;
+    }
+
+    /// <inheritdoc />
+    public Task<ProviderAuthState> LinkIdentity(Provider provider, SignInOptions options)
+    {
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        if (this.CurrentSession == null || this.CurrentUser == null)
+        {
+            throw new GotrueException("A valid session is required.", NoSessionFound);
+        }
+        if (options.FlowType != OAuthFlowType.PKCE)
+        {
+            throw new GotrueException("PKCE flow type is required for this action.", InvalidFlowType);
+        }
+        return this.api.LinkIdentity(this.CurrentSession.AccessToken!, provider, options);
+    }
+
+    /// <inheritdoc />
+    public async Task<Session?> LinkIdentityWithIdToken(LinkIdentityWithIdTokenOptions options)
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.LinkIdentityWithIdToken);
+        activity?.SetTag(GotrueInstrumentation.Tags.Provider, options.Provider.ToString());
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        if (this.CurrentSession == null || this.CurrentUser == null)
+        {
+            throw new GotrueException("A valid session is required.", NoSessionFound);
+        }
+        var result = await this.api.LinkIdentityWithIdToken(this.CurrentSession.AccessToken!, options).ConfigureAwait(false);
+        if (result?.AccessToken != null)
+        {
+            this.UpdateSession(result);
+            this.NotifyAuthStateChange(SignedIn);
+        }
+        return result;
+    }
+
+    /// <inheritdoc />
+    public Task<bool> UnlinkIdentity(UserIdentity userIdentity)
+    {
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        if (this.CurrentSession == null || this.CurrentUser == null)
+        {
+            throw new GotrueException("A valid session is required.", NoSessionFound);
+        }
+        return this.api.UnlinkIdentity(this.CurrentSession.AccessToken!, userIdentity);
+    }
+
+    /// <inheritdoc />
+    public async Task SignOut(SignOutScope scope = SignOutScope.Global)
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.SignOut);
+        activity?.SetTag(GotrueInstrumentation.Tags.SignOutScope, scope.ToString());
+        if (this.CurrentSession?.AccessToken != null)
+        {
+            await this.api.SignOut(this.CurrentSession.AccessToken, scope);
+        }
+        this.UpdateSession(null);
+        this.NotifyAuthStateChange(SignedOut);
+    }
+
+    /// <inheritdoc />
+    public async Task<User?> Update(UserAttributes attributes)
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.UpdateUser);
+        if (this.CurrentSession == null || string.IsNullOrEmpty(this.CurrentSession.AccessToken))
+        {
+            throw new GotrueException("Not Logged in.");
+        }
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        var result = await this.api.UpdateUser(this.CurrentSession.AccessToken!, attributes);
+        this.CurrentSession.User = result;
+        this.NotifyAuthStateChange(UserUpdated);
+        return result;
+    }
+
+    /// <inheritdoc />
+    public async Task<bool> Reauthenticate()
+    {
+        if (this.CurrentSession == null || string.IsNullOrEmpty(this.CurrentSession.AccessToken))
+        {
+            throw new GotrueException("Not Logged in.", NoSessionFound);
+        }
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        var response = await this.api.Reauthenticate(this.CurrentSession.AccessToken!);
+        return response.ResponseMessage?.IsSuccessStatusCode ?? false;
+    }
+
+    /// <inheritdoc />
+    public async Task<bool> ResetPasswordForEmail(string email)
+    {
+        var result = await this.api.ResetPasswordForEmail(email);
+        result.ResponseMessage?.EnsureSuccessStatusCode();
+        return true;
+    }
+
+    /// <inheritdoc />
+    public async Task<ResetPasswordForEmailState> ResetPasswordForEmail(ResetPasswordForEmailOptions options)
+    {
+        var state = await this.api.ResetPasswordForEmail(options);
+        return state;
+    }
+
+    /// <inheritdoc />
+    public async Task<Session?> RefreshSession()
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.RefreshSession);
+        if (this.CurrentSession == null || string.IsNullOrEmpty(this.CurrentSession.AccessToken))
+        {
+            throw new GotrueException("Not Logged in.", NoSessionFound);
+        }
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        await this.RefreshToken();
+        var user = await this.api.GetUser(this.CurrentSession.AccessToken);
+        this.CurrentSession.User = user;
+        return this.CurrentSession;
+    }
+
+    /// <inheritdoc />
+    public async Task<Session> SetSession(string accessToken, string refreshToken, bool forceAccessTokenRefresh = false)
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.SetSession);
+        this.DestroySession();
+        if (string.IsNullOrEmpty(accessToken) || string.IsNullOrEmpty(refreshToken))
+        {
+            throw new GotrueException("`accessToken` and `refreshToken` cannot be empty.", NoSessionFound);
+        }
+        var payload = new JwtSecurityTokenHandler().ReadJwtToken(accessToken).Payload;
+        if (payload == null || payload.ValidTo == DateTime.MinValue)
+        {
+            throw new GotrueException("`accessToken`'s payload was of an unknown structure.", NoSessionFound);
+        }
+        if (payload.ValidTo < DateTime.UtcNow || forceAccessTokenRefresh)
+        {
+            var result = await this.api.RefreshAccessToken(accessToken, refreshToken);
+            if (result == null || string.IsNullOrEmpty(result.AccessToken))
             {
-                UpdateSession(result);
-                NotifyAuthStateChange(SignedIn);
-                return CurrentSession;
+                throw new GotrueException("Could not generate a session given the provided parameters.", NoSessionFound);
             }
+            this.CurrentSession = result;
+            this.NotifyAuthStateChange(SignedIn);
+            return this.CurrentSession;
+        }
+        var iat = payload.IssuedAt;
+        var exp = payload.ValidTo;
+        var expiresIn = (long) (exp - iat).TotalSeconds;
+        this.CurrentSession = new Session
+        {
+            AccessToken = accessToken,
+            RefreshToken = refreshToken,
+            TokenType = "bearer",
+            ExpiresIn = expiresIn,
+            User = await this.api.GetUser(accessToken),
+        };
+        this.NotifyAuthStateChange(SignedIn);
+        return this.CurrentSession;
+    }
+
+    /// <summary>
+    ///     Parses a <see cref="Session" /> out of a <see cref="Uri" />'s Query parameters.
+    /// </summary>
+    /// <param name="uri"></param>
+    /// <param name="storeSession"></param>
+    /// <returns></returns>
+    public async Task<Session?> GetSessionFromUrl(Uri uri, bool storeSession = true)
+    {
+        var query = string.IsNullOrEmpty(uri.Fragment)
+            ? HttpUtility.ParseQueryString(uri.Query)
+            : HttpUtility.ParseQueryString('?' + uri.Fragment.TrimStart('#'));
+        var errorDescription = query.Get("error_description");
+        if (!string.IsNullOrEmpty(errorDescription))
+        {
+            throw new GotrueException(errorDescription, BadSessionUrl);
+        }
+        var accessToken = query.Get("access_token");
+        if (string.IsNullOrEmpty(accessToken))
+        {
+            throw new GotrueException("No access_token detected.", BadSessionUrl);
+        }
+        var expiresIn = query.Get("expires_in");
+        if (string.IsNullOrEmpty(expiresIn))
+        {
+            throw new GotrueException("No expires_in detected.", BadSessionUrl);
+        }
+        var refreshToken = query.Get("refresh_token");
+        if (string.IsNullOrEmpty(refreshToken))
+        {
+            throw new GotrueException("No refresh_token detected.", BadSessionUrl);
+        }
+        var tokenType = query.Get("token_type");
+        if (string.IsNullOrEmpty(tokenType))
+        {
+            throw new GotrueException("No token_type detected.", BadSessionUrl);
+        }
+        var user = await this.api.GetUser(accessToken);
+        var session = new Session
+        {
+            AccessToken = accessToken,
+            ExpiresIn = long.Parse(expiresIn),
+            RefreshToken = refreshToken,
+            TokenType = tokenType,
+            User = user,
+        };
+        if (storeSession)
+        {
+            this.UpdateSession(session);
+            this.NotifyAuthStateChange(SignedIn);
+            if (query.Get("type") == "recovery")
+            {
+                this.NotifyAuthStateChange(PasswordRecovery);
+            }
+        }
+        return session;
+    }
+
+    /// <inheritdoc />
+    public async Task<Session?> RetrieveSessionAsync()
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.RetrieveSession);
+
+        // No session, so just return.
+        if (this.CurrentSession == null)
+        {
             return null;
         }
 
-        /// <summary>
-        ///     Headers sent to the API on every request.
-        /// </summary>
-        public Func<Dictionary<string, string>>? GetHeaders
+        // If we aren't online, we can't refresh the token
+        if (!this.Online)
         {
-            get => _api.GetHeaders;
-            set => _api.GetHeaders = value;
+            throw new GotrueException("Only supported when online", Offline);
         }
 
-        /// <inheritdoc />
-        [Obsolete("The debug listener is replaced by OpenTelemetry-compatible diagnostics: subscribe to the ActivitySource and Meter named \"Supabase.Gotrue\". This member will be removed in v8.")]
-        public void AddDebugListener(Action<string, Exception?> listener)
+        // We have a session, and hasn't expired, and we seem to be online. Let's try to refresh it.
+        if (this.Options.AutoRefreshToken && this.CurrentSession?.RefreshToken != null)
         {
-#pragma warning disable CS0618 // internal plumbing for the obsolete debug surface, removed together in v8
-            _debugNotification ??= new DebugNotification();
-#pragma warning restore CS0618
-            _debugNotification.AddDebugListener(listener);
-        }
-
-        /// <inheritdoc />
-        public async Task RefreshToken(string accessToken, string refreshToken)
-        {
-            using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.RefreshToken);
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            if (string.IsNullOrEmpty(accessToken) || string.IsNullOrEmpty(refreshToken))
-            {
-                throw new GotrueException("No token provided", NoSessionFound);
-            }
             try
             {
-                var result = await _api.RefreshAccessToken(accessToken, refreshToken);
-                if (result == null || string.IsNullOrEmpty(result.AccessToken))
-                {
-                    throw new GotrueException("Could not refresh token from provided session.", NoSessionFound);
-                }
-                CurrentSession = result;
-                NotifyAuthStateChange(TokenRefreshed);
+                await this.RefreshToken();
+                return this.CurrentSession;
             }
-            catch (GotrueException ex) when (ex.Reason is InvalidRefreshToken)
+            catch (Exception e)
             {
-                activity.SetFailure(ex);
-                DestroySession();
-                NotifyAuthStateChange(SignedOut);
-                throw;
-            }
-            catch (Exception ex)
-            {
-                activity.SetFailure(ex);
-                throw;
-            }
-        }
-
-        /// <inheritdoc />
-        public async Task RefreshToken()
-        {
-            using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.RefreshToken);
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            if (CurrentSession == null || string.IsNullOrEmpty(CurrentSession?.AccessToken) || string.IsNullOrEmpty(CurrentSession?.RefreshToken))
-            {
-                throw new GotrueException("No current session.", NoSessionFound);
-            }
-            try
-            {
-                var result = await _api.RefreshAccessToken(CurrentSession.AccessToken!, CurrentSession.RefreshToken!);
-                if (result == null || string.IsNullOrEmpty(result.AccessToken))
-                {
-                    throw new GotrueException("Could not refresh token from provided session.", NoSessionFound);
-                }
-                CurrentSession = result;
-                NotifyAuthStateChange(TokenRefreshed);
-            }
-            catch (GotrueException ex) when (ex.Reason is InvalidRefreshToken)
-            {
-                activity.SetFailure(ex);
-                DestroySession();
-                NotifyAuthStateChange(SignedOut);
-                throw;
-            }
-            catch (Exception ex)
-            {
-                // The auto-refresh timer swallows this exception, so mark the span failed to keep it in traces.
-                activity.SetFailure(ex);
-                throw;
-            }
-        }
-
-        /// <inheritdoc />
-        public void LoadSession()
-        {
-            if (_sessionPersistence != null)
-            {
-                UpdateSession(_sessionPersistence.Persistence.LoadSession());
-            }
-        }
-
-        /// <inheritdoc />
-        public Task<Settings?> Settings()
-        {
-            if (!Online)
-            {
-                return Task.FromResult<Settings?>(null);
-            }
-            return _api.Settings();
-        }
-
-        /// <inheritdoc />
-        public void Debug(string message, Exception? e = null) => _debugNotification?.Log(message, e);
-
-        /// <inheritdoc />
-        public void Shutdown() => NotifyAuthStateChange(AuthState.Shutdown);
-
-        /// <inheritdoc />
-        public async Task<MfaEnrollResponse?> Enroll(MfaEnrollParams mfaEnrollParams)
-        {
-            if (CurrentSession == null || string.IsNullOrEmpty(CurrentSession.AccessToken))
-            {
-                throw new GotrueException("Not Logged in.", NoSessionFound);
-            }
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            return await _api.Enroll(CurrentSession.AccessToken, mfaEnrollParams);
-        }
-
-        /// <inheritdoc />
-        public async Task<MfaChallengeResponse?> Challenge(MfaChallengeParams mfaChallengeParams)
-        {
-            if (CurrentSession == null || string.IsNullOrEmpty(CurrentSession.AccessToken))
-            {
-                throw new GotrueException("Not Logged in.", NoSessionFound);
-            }
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            return await _api.Challenge(CurrentSession.AccessToken, mfaChallengeParams);
-        }
-
-        /// <inheritdoc />
-        public async Task<Session?> Verify(MfaVerifyParams mfaVerifyParams)
-        {
-            if (CurrentSession == null || string.IsNullOrEmpty(CurrentSession.AccessToken))
-            {
-                throw new GotrueException("Not Logged in.", NoSessionFound);
-            }
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            var result = await _api.Verify(CurrentSession.AccessToken, mfaVerifyParams);
-            if (result == null || string.IsNullOrEmpty(result.AccessToken))
-            {
-                throw new GotrueException("Could not verify MFA.", MfaChallengeUnverified);
-            }
-            var session = new Session
-            {
-                AccessToken = result.AccessToken,
-                RefreshToken = result.RefreshToken,
-                TokenType = "bearer",
-                ExpiresIn = result.ExpiresIn,
-                User = result.User,
-            };
-            UpdateSession(session);
-            NotifyAuthStateChange(MfaChallengeVerified);
-            return session;
-        }
-
-        /// <inheritdoc />
-        public async Task<Session?> ChallengeAndVerify(MfaChallengeAndVerifyParams mfaChallengeAndVerifyParams)
-        {
-            if (CurrentSession == null || string.IsNullOrEmpty(CurrentSession.AccessToken))
-            {
-                throw new GotrueException("Not Logged in.", NoSessionFound);
-            }
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            var challengeResponse = await _api.Challenge(CurrentSession.AccessToken, new MfaChallengeParams
-            {
-                FactorId = mfaChallengeAndVerifyParams.FactorId,
-            });
-            if (challengeResponse == null)
-            {
+                // Never log the session itself here - it contains the access and refresh tokens.
+                this.debugNotification?.Log($"Failed to refresh token ({e.Message})", e);
+                this.debugNotification?.Log($"Destroying session created at {this.CurrentSession?.CreatedAt:O} (expires in {this.CurrentSession?.ExpiresIn}s) that could not be refreshed");
+                activity.SetFailure(e);
+                this.DestroySession();
                 return null;
             }
-            var result = await _api.Verify(CurrentSession.AccessToken, new MfaVerifyParams
-            {
-                FactorId = mfaChallengeAndVerifyParams.FactorId,
-                Code = mfaChallengeAndVerifyParams.Code,
-                ChallengeId = challengeResponse.Id,
-            });
+        }
+        return this.CurrentSession;
+    }
+
+    /// <inheritdoc />
+    public async Task<Session?> ExchangeCodeForSession(string codeVerifier, string authCode)
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.ExchangeCode);
+        var result = await this.api.ExchangeCodeForSession(codeVerifier, authCode);
+        if (result != null)
+        {
+            this.UpdateSession(result);
+            this.NotifyAuthStateChange(SignedIn);
+            return this.CurrentSession;
+        }
+        return null;
+    }
+
+    /// <summary>
+    ///     Headers sent to the API on every request.
+    /// </summary>
+    public Func<Dictionary<string, string>>? GetHeaders
+    {
+        get => this.api.GetHeaders;
+        set => this.api.GetHeaders = value;
+    }
+
+    /// <inheritdoc />
+    [Obsolete("The debug listener is replaced by OpenTelemetry-compatible diagnostics: subscribe to the ActivitySource and Meter named \"Supabase.Gotrue\". This member will be removed in v8.")]
+    public void AddDebugListener(Action<string, Exception?> listener)
+    {
+#pragma warning disable CS0618 // internal plumbing for the obsolete debug surface, removed together in v8
+        this.debugNotification ??= new DebugNotification();
+#pragma warning restore CS0618
+        this.debugNotification.AddDebugListener(listener);
+    }
+
+    /// <inheritdoc />
+    public async Task RefreshToken(string accessToken, string refreshToken)
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.RefreshToken);
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        if (string.IsNullOrEmpty(accessToken) || string.IsNullOrEmpty(refreshToken))
+        {
+            throw new GotrueException("No token provided", NoSessionFound);
+        }
+        try
+        {
+            var result = await this.api.RefreshAccessToken(accessToken, refreshToken);
             if (result == null || string.IsNullOrEmpty(result.AccessToken))
             {
-                throw new GotrueException("Could not verify MFA.", MfaChallengeUnverified);
+                throw new GotrueException("Could not refresh token from provided session.", NoSessionFound);
             }
-            var session = new Session
-            {
-                AccessToken = result.AccessToken,
-                RefreshToken = result.RefreshToken,
-                TokenType = "bearer",
-                ExpiresIn = result.ExpiresIn,
-                User = result.User,
-            };
-            UpdateSession(session);
-            NotifyAuthStateChange(MfaChallengeVerified);
-            return session;
+            this.CurrentSession = result;
+            this.NotifyAuthStateChange(TokenRefreshed);
         }
-
-        /// <inheritdoc />
-        public async Task<MfaUnenrollResponse?> Unenroll(MfaUnenrollParams mfaUnenrollParams)
+        catch (GotrueException ex) when (ex.Reason is InvalidRefreshToken)
         {
-            if (CurrentSession == null || string.IsNullOrEmpty(CurrentSession.AccessToken))
-            {
-                throw new GotrueException("Not Logged in.", NoSessionFound);
-            }
-            if (!Online)
-            {
-                throw new GotrueException("Only supported when online", Offline);
-            }
-            return await _api.Unenroll(CurrentSession.AccessToken, mfaUnenrollParams);
+            activity.SetFailure(ex);
+            this.DestroySession();
+            this.NotifyAuthStateChange(SignedOut);
+            throw;
         }
-
-        /// <inheritdoc />
-        public Task<MfaListFactorsResponse?> ListFactors()
+        catch (Exception ex)
         {
-            if (CurrentSession == null || string.IsNullOrEmpty(CurrentSession.AccessToken))
-            {
-                throw new GotrueException("Not Logged in.", NoSessionFound);
-            }
-            var response = new MfaListFactorsResponse
-            {
-                All = CurrentSession.User!.Factors,
-                Totp = CurrentSession.User!.Factors?.Where(x => x.FactorType == "totp" && x.Status == "verified").ToList(),
-            };
-            return Task.FromResult(response);
+            activity.SetFailure(ex);
+            throw;
         }
-
-        public Task<MfaGetAuthenticatorAssuranceLevelResponse?> GetAuthenticatorAssuranceLevel()
-        {
-            if (CurrentSession == null || string.IsNullOrEmpty(CurrentSession.AccessToken))
-            {
-                throw new GotrueException("Not Logged in.", NoSessionFound);
-            }
-            var payload = new JwtSecurityTokenHandler().ReadJwtToken(CurrentSession.AccessToken).Payload;
-            if (payload == null || payload.ValidTo == DateTime.MinValue)
-            {
-                throw new GotrueException("`accessToken`'s payload was of an unknown structure.", NoSessionFound);
-            }
-            AuthenticatorAssuranceLevel? currentLevel = null;
-            if (payload.ContainsKey("aal"))
-            {
-                currentLevel = Enum.TryParse(payload["aal"].ToString(), out AuthenticatorAssuranceLevel parsedLevel) ? parsedLevel : (AuthenticatorAssuranceLevel?) null;
-            }
-            var nextLevel = currentLevel;
-            var verifiedFactors = CurrentSession.User!.Factors?.Where(factor => factor.Status == "verified").ToList() ?? new List<Factor>();
-            if (verifiedFactors.Count > 0)
-            {
-                nextLevel = AuthenticatorAssuranceLevel.aal2;
-            }
-            var currentAuthenticationMethods = payload.Amr.Select(x => JsonConvert.DeserializeObject<AmrEntry>(x));
-            var response = new MfaGetAuthenticatorAssuranceLevelResponse
-            {
-                CurrentLevel = currentLevel,
-                NextLevel = nextLevel,
-                CurrentAuthenticationMethods = currentAuthenticationMethods.ToArray(),
-            };
-            return Task.FromResult(response);
-        }
-
-        /// <summary>
-        ///     Saves the session
-        /// </summary>
-        /// <param name="session"></param>
-        private void UpdateSession(Session? session)
-        {
-            if (session == null)
-            {
-                CurrentSession = null;
-                NotifyAuthStateChange(SignedOut);
-                return;
-            }
-            var dirty = CurrentSession != session;
-            CurrentSession = session;
-            if (dirty)
-            {
-                NotifyAuthStateChange(UserUpdated);
-            }
-        }
-
-        /// <summary>
-        ///     Clears the session
-        /// </summary>
-        private void DestroySession() => UpdateSession(null);
     }
+
+    /// <inheritdoc />
+    public async Task RefreshToken()
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.RefreshToken);
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        if (this.CurrentSession == null || string.IsNullOrEmpty(this.CurrentSession?.AccessToken) || string.IsNullOrEmpty(this.CurrentSession?.RefreshToken))
+        {
+            throw new GotrueException("No current session.", NoSessionFound);
+        }
+        try
+        {
+            var result = await this.api.RefreshAccessToken(this.CurrentSession.AccessToken!, this.CurrentSession.RefreshToken!);
+            if (result == null || string.IsNullOrEmpty(result.AccessToken))
+            {
+                throw new GotrueException("Could not refresh token from provided session.", NoSessionFound);
+            }
+            this.CurrentSession = result;
+            this.NotifyAuthStateChange(TokenRefreshed);
+        }
+        catch (GotrueException ex) when (ex.Reason is InvalidRefreshToken)
+        {
+            activity.SetFailure(ex);
+            this.DestroySession();
+            this.NotifyAuthStateChange(SignedOut);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            // The auto-refresh timer swallows this exception, so mark the span failed to keep it in traces.
+            activity.SetFailure(ex);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public void LoadSession()
+    {
+        if (this.sessionPersistence != null)
+        {
+            this.UpdateSession(this.sessionPersistence.Persistence.LoadSession());
+        }
+    }
+
+    /// <inheritdoc />
+    public Task<Settings?> Settings()
+    {
+        if (!this.Online)
+        {
+            return Task.FromResult<Settings?>(null);
+        }
+        return this.api.Settings();
+    }
+
+    /// <inheritdoc />
+    public void Debug(string message, Exception? e = null) => this.debugNotification?.Log(message, e);
+
+    /// <inheritdoc />
+    public void Shutdown() => this.NotifyAuthStateChange(AuthState.Shutdown);
+
+    /// <inheritdoc />
+    public async Task<MfaEnrollResponse?> Enroll(MfaEnrollParams mfaEnrollParams)
+    {
+        if (this.CurrentSession == null || string.IsNullOrEmpty(this.CurrentSession.AccessToken))
+        {
+            throw new GotrueException("Not Logged in.", NoSessionFound);
+        }
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        return await this.api.Enroll(this.CurrentSession.AccessToken, mfaEnrollParams);
+    }
+
+    /// <inheritdoc />
+    public async Task<MfaChallengeResponse?> Challenge(MfaChallengeParams mfaChallengeParams)
+    {
+        if (this.CurrentSession == null || string.IsNullOrEmpty(this.CurrentSession.AccessToken))
+        {
+            throw new GotrueException("Not Logged in.", NoSessionFound);
+        }
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        return await this.api.Challenge(this.CurrentSession.AccessToken, mfaChallengeParams);
+    }
+
+    /// <inheritdoc />
+    public async Task<Session?> Verify(MfaVerifyParams mfaVerifyParams)
+    {
+        if (this.CurrentSession == null || string.IsNullOrEmpty(this.CurrentSession.AccessToken))
+        {
+            throw new GotrueException("Not Logged in.", NoSessionFound);
+        }
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        var result = await this.api.Verify(this.CurrentSession.AccessToken, mfaVerifyParams);
+        if (result == null || string.IsNullOrEmpty(result.AccessToken))
+        {
+            throw new GotrueException("Could not verify MFA.", MfaChallengeUnverified);
+        }
+        var session = new Session
+        {
+            AccessToken = result.AccessToken,
+            RefreshToken = result.RefreshToken,
+            TokenType = "bearer",
+            ExpiresIn = result.ExpiresIn,
+            User = result.User,
+        };
+        this.UpdateSession(session);
+        this.NotifyAuthStateChange(MfaChallengeVerified);
+        return session;
+    }
+
+    /// <inheritdoc />
+    public async Task<Session?> ChallengeAndVerify(MfaChallengeAndVerifyParams mfaChallengeAndVerifyParams)
+    {
+        if (this.CurrentSession == null || string.IsNullOrEmpty(this.CurrentSession.AccessToken))
+        {
+            throw new GotrueException("Not Logged in.", NoSessionFound);
+        }
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        var challengeResponse = await this.api.Challenge(this.CurrentSession.AccessToken, new MfaChallengeParams
+        {
+            FactorId = mfaChallengeAndVerifyParams.FactorId,
+        });
+        if (challengeResponse == null)
+        {
+            return null;
+        }
+        var result = await this.api.Verify(this.CurrentSession.AccessToken, new MfaVerifyParams
+        {
+            FactorId = mfaChallengeAndVerifyParams.FactorId,
+            Code = mfaChallengeAndVerifyParams.Code,
+            ChallengeId = challengeResponse.Id,
+        });
+        if (result == null || string.IsNullOrEmpty(result.AccessToken))
+        {
+            throw new GotrueException("Could not verify MFA.", MfaChallengeUnverified);
+        }
+        var session = new Session
+        {
+            AccessToken = result.AccessToken,
+            RefreshToken = result.RefreshToken,
+            TokenType = "bearer",
+            ExpiresIn = result.ExpiresIn,
+            User = result.User,
+        };
+        this.UpdateSession(session);
+        this.NotifyAuthStateChange(MfaChallengeVerified);
+        return session;
+    }
+
+    /// <inheritdoc />
+    public async Task<MfaUnenrollResponse?> Unenroll(MfaUnenrollParams mfaUnenrollParams)
+    {
+        if (this.CurrentSession == null || string.IsNullOrEmpty(this.CurrentSession.AccessToken))
+        {
+            throw new GotrueException("Not Logged in.", NoSessionFound);
+        }
+        if (!this.Online)
+        {
+            throw new GotrueException("Only supported when online", Offline);
+        }
+        return await this.api.Unenroll(this.CurrentSession.AccessToken, mfaUnenrollParams);
+    }
+
+    /// <inheritdoc />
+    public Task<MfaListFactorsResponse?> ListFactors()
+    {
+        if (this.CurrentSession == null || string.IsNullOrEmpty(this.CurrentSession.AccessToken))
+        {
+            throw new GotrueException("Not Logged in.", NoSessionFound);
+        }
+        var response = new MfaListFactorsResponse
+        {
+            All = this.CurrentSession.User!.Factors,
+            Totp = this.CurrentSession.User!.Factors?.Where(x => x.FactorType == "totp" && x.Status == "verified").ToList(),
+        };
+        return Task.FromResult(response);
+    }
+
+    public Task<MfaGetAuthenticatorAssuranceLevelResponse?> GetAuthenticatorAssuranceLevel()
+    {
+        if (this.CurrentSession == null || string.IsNullOrEmpty(this.CurrentSession.AccessToken))
+        {
+            throw new GotrueException("Not Logged in.", NoSessionFound);
+        }
+        var payload = new JwtSecurityTokenHandler().ReadJwtToken(this.CurrentSession.AccessToken).Payload;
+        if (payload == null || payload.ValidTo == DateTime.MinValue)
+        {
+            throw new GotrueException("`accessToken`'s payload was of an unknown structure.", NoSessionFound);
+        }
+        AuthenticatorAssuranceLevel? currentLevel = null;
+        if (payload.ContainsKey("aal"))
+        {
+            currentLevel = Enum.TryParse(payload["aal"].ToString(), out AuthenticatorAssuranceLevel parsedLevel) ? parsedLevel : (AuthenticatorAssuranceLevel?) null;
+        }
+        var nextLevel = currentLevel;
+        var verifiedFactors = this.CurrentSession.User!.Factors?.Where(factor => factor.Status == "verified").ToList() ?? new List<Factor>();
+        if (verifiedFactors.Count > 0)
+        {
+            nextLevel = AuthenticatorAssuranceLevel.aal2;
+        }
+        var currentAuthenticationMethods = payload.Amr.Select(x => JsonSerializer.Deserialize<AmrEntry>(x, Helpers.SerializerOptions));
+        var response = new MfaGetAuthenticatorAssuranceLevelResponse
+        {
+            CurrentLevel = currentLevel,
+            NextLevel = nextLevel,
+            CurrentAuthenticationMethods = currentAuthenticationMethods.ToArray(),
+        };
+        return Task.FromResult(response);
+    }
+
+    /// <summary>
+    ///     Saves the session
+    /// </summary>
+    /// <param name="session"></param>
+    private void UpdateSession(Session? session)
+    {
+        if (session == null)
+        {
+            this.CurrentSession = null;
+            this.NotifyAuthStateChange(SignedOut);
+            return;
+        }
+        var dirty = this.CurrentSession != session;
+        this.CurrentSession = session;
+        if (dirty)
+        {
+            this.NotifyAuthStateChange(UserUpdated);
+        }
+    }
+
+    /// <summary>
+    ///     Clears the session
+    /// </summary>
+    private void DestroySession() => this.UpdateSession(null);
 }
