@@ -1,16 +1,15 @@
-﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
-namespace Supabase.Storage
+namespace Supabase.Storage;
+
+public class CreateSignedUrlResponse
 {
-    public class CreateSignedUrlResponse
-    {
-        [JsonProperty("signedURL")]
-        public string? SignedUrl { get; set; }
-    }
+    [JsonPropertyName("signedURL")]
+    public string? SignedUrl { get; set; }
+}
 
-    public class CreateSignedUrlsResponse: CreateSignedUrlResponse
-    {
-        [JsonProperty("path")]
-        public string? Path { get; set; }
-    }
+public class CreateSignedUrlsResponse : CreateSignedUrlResponse
+{
+    [JsonPropertyName("path")]
+    public string? Path { get; set; }
 }

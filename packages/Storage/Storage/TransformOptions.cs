@@ -1,75 +1,74 @@
-﻿using System.Runtime.Serialization;
-using Newtonsoft.Json;
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using Supabase.Core.Attributes;
 
-namespace Supabase.Storage
+namespace Supabase.Storage;
+
+public class TransformOptions
 {
-    public class TransformOptions
+    /// <summary>
+    /// The resize mode can be cover, contain or fill. Defaults to cover.
+    /// - Cover resizes the image to maintain it's aspect ratio while filling the entire width and height.
+    /// - Contain resizes the image to maintain it's aspect ratio while fitting the entire image within the width and height.
+    /// - Fill resizes the image to fill the entire width and height.If the object's aspect ratio does not match the width and height, the image will be stretched to fit.
+    /// </summary>
+    public enum ResizeType
     {
-        /// <summary>
-        /// The resize mode can be cover, contain or fill. Defaults to cover.
-        /// - Cover resizes the image to maintain it's aspect ratio while filling the entire width and height.
-        /// - Contain resizes the image to maintain it's aspect ratio while fitting the entire image within the width and height.
-        /// - Fill resizes the image to fill the entire width and height.If the object's aspect ratio does not match the width and height, the image will be stretched to fit.
-        /// </summary>
-        public enum ResizeType
-        {
-            [MapTo("cover"), EnumMember(Value = "cover")]
-            Cover,
-            [MapTo("contain"), EnumMember(Value = "contain")]
-            Contain,
-            [MapTo("fill"), EnumMember(Value = "fill")]
-            Fill
-        }
-
-        /// <summary>
-        /// The width of the image in pixels.
-        /// </summary>
-        [JsonProperty("width")]
-        public int? Width { get; set; }
-
-        /// <summary>
-        /// The height of the image in pixels.
-        /// </summary>
-        [JsonProperty("height")]
-        public int? Height { get; set; }
-
-        /// <summary>
-        /// The resize mode can be cover, contain or fill. Defaults to cover.
-        /// - Cover resizes the image to maintain it's aspect ratio while filling the entire width and height.
-        /// - Contain resizes the image to maintain it's aspect ratio while fitting the entire image within the width and height.
-        /// - Fill resizes the image to fill the entire width and height.If the object's aspect ratio does not match the width and height, the image will be stretched to fit.
-        /// </summary>
-        [JsonProperty("resize")]
-        public ResizeType Resize { get; set; } = ResizeType.Cover;
-
-        /// <summary>
-        /// Set the quality of the returned image, this is percentage based, default 80
-        /// </summary>
-        [JsonProperty("quality")]
-        public int Quality { get; set; } = 80;
-
-        /// <summary>
-        /// Specify the format of the image requested.
-        ///
-        /// When using 'origin' we force the format to be the same as the original image,
-        /// bypassing automatic browser optimisation such as webp conversion
-        /// </summary>
-        [JsonProperty("format")]
-        public string Format { get; set; } = "origin";
-
-        private static readonly TransformOptions Default = new();
-
-        /// <summary>
-        /// True when no transform has been requested — every field still holds its constructed default,
-        /// so the caller wants the original object, not a render. Callers use this to keep an
-        /// unconfigured instance off the image-render endpoint (issue #37).
-        /// </summary>
-        internal bool IsEmpty =>
-            Width == Default.Width
-            && Height == Default.Height
-            && Resize == Default.Resize
-            && Quality == Default.Quality
-            && Format == Default.Format;
+        [MapTo("cover"), EnumMember(Value = "cover")]
+        Cover,
+        [MapTo("contain"), EnumMember(Value = "contain")]
+        Contain,
+        [MapTo("fill"), EnumMember(Value = "fill")]
+        Fill
     }
+
+    /// <summary>
+    /// The width of the image in pixels.
+    /// </summary>
+    [JsonPropertyName("width")]
+    public int? Width { get; set; }
+
+    /// <summary>
+    /// The height of the image in pixels.
+    /// </summary>
+    [JsonPropertyName("height")]
+    public int? Height { get; set; }
+
+    /// <summary>
+    /// The resize mode can be cover, contain or fill. Defaults to cover.
+    /// - Cover resizes the image to maintain it's aspect ratio while filling the entire width and height.
+    /// - Contain resizes the image to maintain it's aspect ratio while fitting the entire image within the width and height.
+    /// - Fill resizes the image to fill the entire width and height.If the object's aspect ratio does not match the width and height, the image will be stretched to fit.
+    /// </summary>
+    [JsonPropertyName("resize")]
+    public ResizeType Resize { get; set; } = ResizeType.Cover;
+
+    /// <summary>
+    /// Set the quality of the returned image, this is percentage based, default 80
+    /// </summary>
+    [JsonPropertyName("quality")]
+    public int Quality { get; set; } = 80;
+
+    /// <summary>
+    /// Specify the format of the image requested.
+    ///
+    /// When using 'origin' we force the format to be the same as the original image,
+    /// bypassing automatic browser optimisation such as webp conversion
+    /// </summary>
+    [JsonPropertyName("format")]
+    public string Format { get; set; } = "origin";
+
+    private static readonly TransformOptions Default = new();
+
+    /// <summary>
+    /// True when no transform has been requested — every field still holds its constructed default,
+    /// so the caller wants the original object, not a render. Callers use this to keep an
+    /// unconfigured instance off the image-render endpoint (issue #37).
+    /// </summary>
+    internal bool IsEmpty =>
+        this.Width == Default.Width
+        && this.Height == Default.Height
+        && this.Resize == Default.Resize
+        && this.Quality == Default.Quality
+        && this.Format == Default.Format;
 }
