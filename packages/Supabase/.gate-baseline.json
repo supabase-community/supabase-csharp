@@ -3,6 +3,6 @@
   "package": "Supabase",
   "project": "Supabase/Supabase.csproj",
   "testProject": "Supabase.Tests/Supabase.Tests.csproj",
-  "warnings": { "total": 42, "byCode": {"IDE0009":10,"CS8625":10,"CS8600":8,"CS8618":6,"IDE0005":4,"IDE0022":2,"CS0618":2} },
-  "updated": "2026-08-14T08:21:47Z"
+  "warnings": { "total": 40, "byCode": {"IDE0009":10,"CS8625":10,"CS8600":8,"IDE0005":4,"CS8618":4,"IDE0022":2,"CS0618":2} },
+  "updated": "2026-08-17T12:35:55Z"
 }

@@ -75,7 +75,7 @@ async void Initialize()
 bool SaveSession(Session session)
 {
     var path = Path.Join(FileSystem.CacheDirectory, ".gotrue.cache");
-    File.WriteAllText(path, JsonConvert.SerializeObject(session));
+    File.WriteAllText(path, JsonSerializer.Serialize(session));
     return true;
 }
 ```
