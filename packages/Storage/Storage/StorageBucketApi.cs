@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
@@ -9,159 +9,155 @@ using Supabase.Storage.Exceptions;
 using Supabase.Storage.Extensions;
 using Supabase.Storage.Interfaces;
 
-namespace Supabase.Storage
+namespace Supabase.Storage;
+
+public class StorageBucketApi : IStorageBucketApi<Bucket>
 {
-    public class StorageBucketApi : IStorageBucketApi<Bucket>
+    public ClientOptions Options { get; protected set; }
+    protected string Url { get; set; }
+
+    private readonly Dictionary<string, string> initializedHeaders;
+    private Dictionary<string, string> headers;
+    public Dictionary<string, string> Headers
     {
-        public ClientOptions Options { get; protected set; }
-        protected string Url { get; set; }
-
-        private readonly Dictionary<string, string> _initializedHeaders;
-        private Dictionary<string, string> _headers;
-        public Dictionary<string, string> Headers
+        get
         {
-            get
-            {
-                if (GetHeaders != null)
-                    _headers = GetHeaders();
+            if (this.GetHeaders != null)
+                this.headers = this.GetHeaders();
 
-                return _headers.MergeLeft(_initializedHeaders);
-            }
-            set
-            {
-                _headers = value;
-
-                if (!_headers.ContainsKey("X-Client-Info"))
-                    _headers.Add("X-Client-Info", Util.GetAssemblyVersion(typeof(Client)));
-            }
+            return this.headers.MergeLeft(this.initializedHeaders);
         }
-
-        /// <summary>
-        /// Function that can be set to return dynamic headers.
-        /// 
-        /// Headers specified in the constructor will ALWAYS take precendece over headers returned by this function.
-        /// </summary>
-        public Func<Dictionary<string, string>>? GetHeaders { get; set; }
-
-        protected StorageBucketApi(string url, ClientOptions? options, Dictionary<string, string>? headers = null) : this(url, headers)
+        set
         {
-            Options = options ?? new ClientOptions();
+            this.headers = value;
+
+            if (!this.headers.ContainsKey("X-Client-Info"))
+                this.headers.Add("X-Client-Info", Util.GetAssemblyVersion(typeof(Client)));
         }
+    }
 
-        protected StorageBucketApi(string url, Dictionary<string, string>? headers = null)
+    /// <summary>
+    /// Function that can be set to return dynamic headers.
+    /// 
+    /// Headers specified in the constructor will ALWAYS take precendece over headers returned by this function.
+    /// </summary>
+    public Func<Dictionary<string, string>>? GetHeaders { get; set; }
+
+    protected StorageBucketApi(string url, ClientOptions? options, Dictionary<string, string>? headers = null) : this(url, headers) => this.Options = options ?? new ClientOptions();
+
+    protected StorageBucketApi(string url, Dictionary<string, string>? headers = null)
+    {
+        this.Url = url;
+        this.Options ??= new ClientOptions();
+
+        // Initializes HttpClients with Timeouts to be Reused [Re: #8](https://github.com/supabase-community/storage-csharp/issues/8)
+        Helpers.Initialize(this.Options);
+
+        headers ??= new Dictionary<string, string>();
+        this.headers = headers;
+        this.initializedHeaders = headers;
+    }
+
+    /// <summary>
+    /// Retrieves the details of all Storage buckets within an existing product.
+    /// </summary>
+    /// <returns></returns>
+    public Task<List<Bucket>?> ListBuckets() =>
+         Helpers.MakeRequestAsync<List<Bucket>>(HttpMethod.Get, $"{this.Url}/bucket", null, this.Headers);
+
+    /// <summary>
+    /// Retrieves the details of an existing Storage bucket.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public async Task<Bucket?> GetBucket(string id)
+    {
+        try
         {
-            Url = url;
-            Options ??= new ClientOptions();
-
-			// Initializes HttpClients with Timeouts to be Reused [Re: #8](https://github.com/supabase-community/storage-csharp/issues/8)
-			Helpers.Initialize(Options);
-
-            headers ??= new Dictionary<string, string>();
-            _headers = headers;
-            _initializedHeaders = headers;
-        }
-
-        /// <summary>
-        /// Retrieves the details of all Storage buckets within an existing product.
-        /// </summary>
-        /// <returns></returns>
-        public Task<List<Bucket>?> ListBuckets() =>
-             Helpers.MakeRequest<List<Bucket>>(HttpMethod.Get, $"{Url}/bucket", null, Headers);
-
-        /// <summary>
-        /// Retrieves the details of an existing Storage bucket.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public async Task<Bucket?> GetBucket(string id)
-        {
-            try
-            {
-                var result = await Helpers.MakeRequest<Bucket>(HttpMethod.Get, $"{Url}/bucket/{id}", null, Headers);
-                return result;
-            }
-            catch (SupabaseStorageException ex)
-            {
-                if (ex.Reason == FailureHint.Reason.NotFound)
-                    return null;
-                else
-                    throw;
-            }
-        }
-
-        /// <summary>
-        /// Creates a new Storage bucket
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="options"></param>
-        /// <returns>Bucket Id</returns>
-        public async Task<string> CreateBucket(string id, BucketUpsertOptions? options = null)
-        {
-            options ??= new BucketUpsertOptions();
-
-            var data = new Bucket
-            {
-                Id = id,
-                Name = id,
-                Public = options.Public,
-                FileSizeLimit = options.FileSizeLimit,
-                AllowedMimes = options.AllowedMimes
-            };
-
-            var result = await Helpers.MakeRequest<Bucket>(HttpMethod.Post, $"{Url}/bucket", data, Headers);
-
-            return result?.Name!;
-        }
-
-        /// <summary>
-        /// Updates a Storage bucket
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="options"></param>
-        /// <returns></returns>
-        public async Task<Bucket?> UpdateBucket(string id, BucketUpsertOptions? options = null)
-        {
-            options ??= new BucketUpsertOptions();
-
-            var data = new Bucket
-            {
-                Id = id,
-                Public = options.Public,
-                FileSizeLimit = options.FileSizeLimit,
-                AllowedMimes = options.AllowedMimes
-            };
-
-            var result = await Helpers.MakeRequest<Bucket>(HttpMethod.Put, $"{Url}/bucket/{id}", data, Headers);
-
+            var result = await Helpers.MakeRequestAsync<Bucket>(HttpMethod.Get, $"{this.Url}/bucket/{id}", null, this.Headers);
             return result;
         }
-
-        /// <summary>
-        /// Removes all objects inside a single bucket.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public Task<GenericResponse?> EmptyBucket(string id) =>
-            Helpers.MakeRequest<GenericResponse>(HttpMethod.Post, $"{Url}/bucket/{id}/empty", null, Headers);
-
-        /// <summary>
-        /// Deletes an existing bucket. A bucket can't be deleted with existing objects inside it.
-        /// You must first <see cref="EmptyBucket(string)"/>
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public Task<GenericResponse?> DeleteBucket(string id) =>
-            Helpers.MakeRequest<GenericResponse>(HttpMethod.Delete, $"{Url}/bucket/{id}", null, Headers);
-
-        /// <inheritdoc />
-        public Task<GenericResponse?> PurgeBucketCache(
-            string id,
-            PurgeCacheOptions? options = null,
-            CancellationToken cancellationToken = default
-        )
+        catch (SupabaseStorageException ex)
         {
-            var url = options.ToPurgeUrl($"{Url}/cdn/{id}");
-            return Helpers.MakeRequest<GenericResponse>(HttpMethod.Delete, url, null, Headers, cancellationToken);
+            if (ex.Reason == FailureHint.Reason.NotFound)
+                return null;
+            else
+                throw;
         }
+    }
+
+    /// <summary>
+    /// Creates a new Storage bucket
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="options"></param>
+    /// <returns>Bucket Id</returns>
+    public async Task<string> CreateBucket(string id, BucketUpsertOptions? options = null)
+    {
+        options ??= new BucketUpsertOptions();
+
+        var data = new Bucket
+        {
+            Id = id,
+            Name = id,
+            Public = options.Public,
+            FileSizeLimit = options.FileSizeLimit,
+            AllowedMimes = options.AllowedMimes
+        };
+
+        var result = await Helpers.MakeRequestAsync<Bucket>(HttpMethod.Post, $"{this.Url}/bucket", data, this.Headers);
+
+        return result?.Name!;
+    }
+
+    /// <summary>
+    /// Updates a Storage bucket
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="options"></param>
+    /// <returns></returns>
+    public async Task<Bucket?> UpdateBucket(string id, BucketUpsertOptions? options = null)
+    {
+        options ??= new BucketUpsertOptions();
+
+        var data = new Bucket
+        {
+            Id = id,
+            Public = options.Public,
+            FileSizeLimit = options.FileSizeLimit,
+            AllowedMimes = options.AllowedMimes
+        };
+
+        var result = await Helpers.MakeRequestAsync<Bucket>(HttpMethod.Put, $"{this.Url}/bucket/{id}", data, this.Headers);
+
+        return result;
+    }
+
+    /// <summary>
+    /// Removes all objects inside a single bucket.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public Task<GenericResponse?> EmptyBucket(string id) =>
+        Helpers.MakeRequestAsync<GenericResponse>(HttpMethod.Post, $"{this.Url}/bucket/{id}/empty", null, this.Headers);
+
+    /// <summary>
+    /// Deletes an existing bucket. A bucket can't be deleted with existing objects inside it.
+    /// You must first <see cref="EmptyBucket(string)"/>
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public Task<GenericResponse?> DeleteBucket(string id) =>
+        Helpers.MakeRequestAsync<GenericResponse>(HttpMethod.Delete, $"{this.Url}/bucket/{id}", null, this.Headers);
+
+    /// <inheritdoc />
+    public Task<GenericResponse?> PurgeBucketCache(
+        string id,
+        PurgeCacheOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        var url = options.ToPurgeUrl($"{this.Url}/cdn/{id}");
+        return Helpers.MakeRequestAsync<GenericResponse>(HttpMethod.Delete, url, null, this.Headers, cancellationToken);
     }
 }

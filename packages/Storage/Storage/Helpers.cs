@@ -1,168 +1,189 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.Encodings.Web;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
-using Newtonsoft.Json;
-using System.Runtime.CompilerServices;
 using Supabase.Core.Diagnostics;
 using Supabase.Storage.Exceptions;
-using System.Threading;
 
 [assembly: InternalsVisibleTo("Storage.Tests")]
-namespace Supabase.Storage
+namespace Supabase.Storage;
+
+internal static class Helpers
 {
-	internal static class Helpers
-	{
-		internal static HttpClient? HttpRequestClient;
+    /// <summary>
+    /// Serialization settings tuned to match the previous Newtonsoft.Json behavior: case-insensitive
+    /// property matching on deserialize, relaxed escaping so characters such as '+', '&amp;' and
+    /// non-ASCII are written literally rather than as \u escapes, public-field handling (Newtonsoft
+    /// serialized public fields such as <see cref="FileObject.MetaData"/>; System.Text.Json ignores
+    /// them unless <see cref="JsonSerializerOptions.IncludeFields"/> is set), numbers read leniently
+    /// from JSON strings (the Storage API returns error <c>statusCode</c> as a quoted string, which
+    /// Newtonsoft coerced to <see cref="int"/> and <see cref="FailureHint.DetectReason"/> relies on),
+    /// and native CLR typing for <see cref="object"/>-valued members. Shared by every
+    /// serialize/deserialize call in the package.
+    /// </summary>
+    internal static readonly JsonSerializerOptions SerializerOptions = new JsonSerializerOptions
+    {
+        PropertyNameCaseInsensitive = true,
+        IncludeFields = true,
+        NumberHandling = JsonNumberHandling.AllowReadingFromString,
+        Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+        Converters = { new Serialization.ObjectToInferredTypesConverter() },
+    };
 
-		internal static HttpClient? HttpUploadClient;
+    internal static HttpClient? HttpRequestClient;
 
-		internal static HttpClient? HttpDownloadClient;
+    internal static HttpClient? HttpUploadClient;
 
-		/// <summary>
-		/// Initializes HttpClients with their appropriate timeouts. Called at the initialization of StorageBucketApi.
-		/// </summary>
-		/// <param name="options"></param>
-		internal static void Initialize(ClientOptions options)
-		{
-			HttpRequestClient = new HttpClient { Timeout = options.HttpRequestTimeout };
-			HttpDownloadClient = new HttpClient { Timeout = options.HttpDownloadTimeout };
-			HttpUploadClient = new HttpClient { Timeout = options.HttpUploadTimeout };
-		}
+    internal static HttpClient? HttpDownloadClient;
 
-		/// <summary>
-		/// Helper to make a request using the defined parameters to an API Endpoint and coerce into a model. 
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="method"></param>
-		/// <param name="url"></param>
-		/// <param name="data"></param>
-		/// <param name="headers"></param>
-		/// <param name="cancellationToken"></param>
-		/// <returns></returns>
-		public static async Task<T?> MakeRequest<T>(HttpMethod method, string url, object? data = null,
-			Dictionary<string, string>? headers = null, CancellationToken cancellationToken = default) where T : class
-		{
-			var response = await MakeRequest(method, url, data, headers, cancellationToken);
-			var content = await response.Content.ReadAsStringAsync();
+    /// <summary>
+    /// Initializes HttpClients with their appropriate timeouts. Called at the initialization of StorageBucketApi.
+    /// </summary>
+    /// <param name="options"></param>
+    internal static void Initialize(ClientOptions options)
+    {
+        HttpRequestClient = new HttpClient { Timeout = options.HttpRequestTimeout };
+        HttpDownloadClient = new HttpClient { Timeout = options.HttpDownloadTimeout };
+        HttpUploadClient = new HttpClient { Timeout = options.HttpUploadTimeout };
+    }
 
-			return JsonConvert.DeserializeObject<T>(content);
-		}
+    /// <summary>
+    /// Helper to make a request using the defined parameters to an API Endpoint and coerce into a model.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="method"></param>
+    /// <param name="url"></param>
+    /// <param name="data"></param>
+    /// <param name="headers"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    public static async Task<T?> MakeRequestAsync<T>(HttpMethod method, string url, object? data = null,
+        Dictionary<string, string>? headers = null, CancellationToken cancellationToken = default) where T : class
+    {
+        var response = await MakeRequestAsync(method, url, data, headers, cancellationToken);
+        var content = await response.Content.ReadAsStringAsync();
 
-		/// <summary>
-		/// Helper to make a request using the defined parameters to an API Endpoint.
-		/// </summary>
-		/// <param name="method"></param>
-		/// <param name="url"></param>
-		/// <param name="data"></param>
-		/// <param name="headers"></param>
-		/// <param name="cancellationToken"></param>
-		/// <returns></returns>
-		public static async Task<HttpResponseMessage> MakeRequest(HttpMethod method, string url, object? data = null, Dictionary<string, string>? headers = null, CancellationToken cancellationToken = default)
-		{
-			var builder = new UriBuilder(url);
-			var query = HttpUtility.ParseQueryString(builder.Query);
+        return JsonSerializer.Deserialize<T>(content, SerializerOptions);
+    }
 
-			if (data != null && method != HttpMethod.Get)
-			{
-				// Case if it's a Get request the data object is a dictionary<string,string>
-				if (data is Dictionary<string, string> reqParams)
-				{
-					foreach (var param in reqParams)
-						query[param.Key] = param.Value;
-				}
-			}
+    /// <summary>
+    /// Helper to make a request using the defined parameters to an API Endpoint.
+    /// </summary>
+    /// <param name="method"></param>
+    /// <param name="url"></param>
+    /// <param name="data"></param>
+    /// <param name="headers"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    public static async Task<HttpResponseMessage> MakeRequestAsync(HttpMethod method, string url, object? data = null, Dictionary<string, string>? headers = null, CancellationToken cancellationToken = default)
+    {
+        var builder = new UriBuilder(url);
+        var query = HttpUtility.ParseQueryString(builder.Query);
 
-			builder.Query = query.ToString();
+        if (data != null && method != HttpMethod.Get)
+        {
+            // Case if it's a Get request the data object is a dictionary<string,string>
+            if (data is Dictionary<string, string> reqParams)
+            {
+                foreach (var param in reqParams)
+                    query[param.Key] = param.Value;
+            }
+        }
 
-			using var requestMessage = new HttpRequestMessage(method, builder.Uri);
-			
-			if (data != null && method != HttpMethod.Get)
-				requestMessage.Content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
+        builder.Query = query.ToString();
 
-			if (headers != null)
-			{
-				foreach (var kvp in headers)
-					requestMessage.Headers.TryAddWithoutValidation(kvp.Key, kvp.Value);
-			}
+        using var requestMessage = new HttpRequestMessage(method, builder.Uri);
 
-			using var activity = StorageInstrumentation.StartHttpActivity(method, builder.Uri);
-			var startTimestamp = Stopwatch.GetTimestamp();
-			int? statusCode = null;
-			string? errorType = null;
+        if (data != null && method != HttpMethod.Get)
+            requestMessage.Content = new StringContent(JsonSerializer.Serialize(data, SerializerOptions), Encoding.UTF8, "application/json");
 
-			try
-			{
-				var response = await HttpRequestClient!.SendAsync(requestMessage, cancellationToken);
-				statusCode = (int)response.StatusCode;
-				activity.SetHttpResponseTags(statusCode.Value);
+        if (headers != null)
+        {
+            foreach (var kvp in headers)
+                requestMessage.Headers.TryAddWithoutValidation(kvp.Key, kvp.Value);
+        }
 
-				var content = await response.Content.ReadAsStringAsync();
+        using var activity = StorageInstrumentation.StartHttpActivity(method, builder.Uri);
+        var startTimestamp = Stopwatch.GetTimestamp();
+        int? statusCode = null;
+        string? errorType = null;
 
-				if (!response.IsSuccessStatusCode)
-				{
-					var errorResponse = ErrorResponse.TryParse(content);
-					var resolvedStatus = errorResponse?.StatusCode ?? (int)response.StatusCode;
-					errorType = resolvedStatus.ToString();
-					var e = new SupabaseStorageException(errorResponse?.Message ?? content)
-					{
-						Content = content,
-						Response = response,
-						StatusCode = resolvedStatus
-					};
+        try
+        {
+            var response = await HttpRequestClient!.SendAsync(requestMessage, cancellationToken);
+            statusCode = (int) response.StatusCode;
+            activity.SetHttpResponseTags(statusCode.Value);
 
-					e.AddReason();
-					throw e;
-				}
+            var content = await response.Content.ReadAsStringAsync();
 
-				return response;
-			}
-			catch (Exception e) when (!(e is SupabaseStorageException))
-			{
-				// Transport-level failures (no response); Storage surfaces these raw, so tag and rethrow.
-				errorType = e.GetType().FullName;
-				activity.SetFailure(e);
-				throw;
-			}
-			finally
-			{
-				StorageInstrumentation.RecordRequest(method, builder.Uri, statusCode, errorType, startTimestamp);
-			}
-		}
-	}
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorResponse = ErrorResponse.TryParse(content);
+                var resolvedStatus = errorResponse?.StatusCode ?? (int) response.StatusCode;
+                errorType = resolvedStatus.ToString();
+                var e = new SupabaseStorageException(errorResponse?.Message ?? content)
+                {
+                    Content = content,
+                    Response = response,
+                    StatusCode = resolvedStatus
+                };
 
-	public class GenericResponse
-	{
-		[JsonProperty("message")]
-		public string? Message { get; set; }
-	}
+                e.AddReason();
+                throw e;
+            }
 
-	public class ErrorResponse
-	{
-		[JsonProperty("statusCode")]
-		public int StatusCode { get; set; }
+            return response;
+        }
+        catch (Exception e) when (!(e is SupabaseStorageException))
+        {
+            // Transport-level failures (no response); Storage surfaces these raw, so tag and rethrow.
+            errorType = e.GetType().FullName;
+            activity.SetFailure(e);
+            throw;
+        }
+        finally
+        {
+            StorageInstrumentation.RecordRequest(method, builder.Uri, statusCode, errorType, startTimestamp);
+        }
+    }
+}
 
-		[JsonProperty("message")]
-		public string? Message { get; set; }
+public class GenericResponse
+{
+    [JsonPropertyName("message")]
+    public string? Message { get; set; }
+}
 
-		/// <summary>
-		/// Parses a Storage error body, returning null when the body is not the expected JSON
-		/// (e.g. a gateway or plain-text error) so callers fall back to the raw content and status.
-		/// </summary>
-		/// <param name="content">The raw response body.</param>
-		internal static ErrorResponse? TryParse(string content)
-		{
-			try
-			{
-				return JsonConvert.DeserializeObject<ErrorResponse>(content);
-			}
-			catch (JsonException)
-			{
-				return null;
-			}
-		}
-	}
+public class ErrorResponse
+{
+    [JsonPropertyName("statusCode")]
+    public int StatusCode { get; set; }
+
+    [JsonPropertyName("message")]
+    public string? Message { get; set; }
+
+    /// <summary>
+    /// Parses a Storage error body, returning null when the body is not the expected JSON
+    /// (e.g. a gateway or plain-text error) so callers fall back to the raw content and status.
+    /// </summary>
+    /// <param name="content">The raw response body.</param>
+    internal static ErrorResponse? TryParse(string content)
+    {
+        try
+        {
+            return JsonSerializer.Deserialize<ErrorResponse>(content, Helpers.SerializerOptions);
+        }
+        catch (JsonException)
+        {
+            return null;
+        }
+    }
 }

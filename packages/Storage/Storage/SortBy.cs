@@ -1,13 +1,12 @@
-﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
-namespace Supabase.Storage
+namespace Supabase.Storage;
+
+public class SortBy
 {
-    public class SortBy
-    {
-        [JsonProperty("column")]
-        public string? Column { get; set; } = "name";
+    [JsonPropertyName("column")]
+    public string? Column { get; set; } = "name";
 
-        [JsonProperty("order")]
-        public string? Order { get; set; } = "asc";
-    }
+    [JsonPropertyName("order")]
+    public string? Order { get; set; } = "asc";
 }

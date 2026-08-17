@@ -1,41 +1,40 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
-namespace Supabase.Storage
+namespace Supabase.Storage;
+
+public class FileObject
 {
-    public class FileObject
-    {
-        /// <summary>
-        /// Flag representing if this object is a folder, all properties will be null but the name
-        /// </summary>
-        public bool IsFolder => !string.IsNullOrEmpty(Name) && Id == null && CreatedAt == null && UpdatedAt == null;
-        
-        [JsonProperty("name")]
-        public string? Name { get; set; }
+    /// <summary>
+    /// Flag representing if this object is a folder, all properties will be null but the name
+    /// </summary>
+    public bool IsFolder => !string.IsNullOrEmpty(this.Name) && this.Id == null && this.CreatedAt == null && this.UpdatedAt == null;
 
-        [JsonProperty("bucket_id")]
-        public string? BucketId { get; set; }
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-        [JsonProperty("owner")]
-        public string? Owner { get; set; }
+    [JsonPropertyName("bucket_id")]
+    public string? BucketId { get; set; }
 
-        [JsonProperty("id")]
-        public string? Id { get; set; }
+    [JsonPropertyName("owner")]
+    public string? Owner { get; set; }
 
-        [JsonProperty("updated_at")]
-        public DateTime? UpdatedAt { get; set; }
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-        [JsonProperty("created_at")]
-        public DateTime? CreatedAt { get; set; }
+    [JsonPropertyName("updated_at")]
+    public DateTime? UpdatedAt { get; set; }
 
-        [JsonProperty("last_accessed_at")]
-        public DateTime? LastAccessedAt { get; set; }
+    [JsonPropertyName("created_at")]
+    public DateTime? CreatedAt { get; set; }
 
-        [JsonProperty("metadata")]
-        public Dictionary<string, object> MetaData = new Dictionary<string, object>();
+    [JsonPropertyName("last_accessed_at")]
+    public DateTime? LastAccessedAt { get; set; }
 
-        [JsonProperty("buckets")]
-        public Bucket? Buckets { get; set; }
-    }
+    [JsonPropertyName("metadata")]
+    public Dictionary<string, object> MetaData = new Dictionary<string, object>();
+
+    [JsonPropertyName("buckets")]
+    public Bucket? Buckets { get; set; }
 }
