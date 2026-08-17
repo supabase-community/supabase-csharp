@@ -1,7 +1,8 @@
-﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Supabase.Realtime.Models;
 using Supabase.Realtime.Socket;
-using System.Collections.Generic;
 
 namespace Supabase.Realtime.Presence;
 
@@ -11,9 +12,12 @@ namespace Supabase.Realtime.Presence;
 /// <typeparam name="TPresence"></typeparam>
 public class RealtimePresenceDiff<TPresence> : SocketResponse<PresenceDiffPayload<TPresence>> where TPresence : BasePresence
 {
-	/// <inheritdoc />
-	public RealtimePresenceDiff(JsonSerializerSettings serializerSettings) : base(serializerSettings)
-	{}
+    /// <summary>Parameterless constructor used by System.Text.Json when deserializing.</summary>
+    public RealtimePresenceDiff() { }
+
+    /// <inheritdoc />
+    public RealtimePresenceDiff(JsonSerializerOptions serializerSettings) : base(serializerSettings)
+    { }
 }
 
 /// <summary>
@@ -22,17 +26,17 @@ public class RealtimePresenceDiff<TPresence> : SocketResponse<PresenceDiffPayloa
 /// <typeparam name="TPresence"></typeparam>
 public class PresenceDiffPayload<TPresence> where TPresence : BasePresence
 {
-	/// <summary>
-	/// The joining presences.
-	/// </summary>
-	[JsonProperty("joins")]
-	public Dictionary<string, PresenceDiffPayloadMeta<TPresence>>? Joins { get; set; }
+    /// <summary>
+    /// The joining presences.
+    /// </summary>
+    [JsonPropertyName("joins")]
+    public Dictionary<string, PresenceDiffPayloadMeta<TPresence>>? Joins { get; set; }
 
-	/// <summary>
-	/// The leaving presences.
-	/// </summary>
-	[JsonProperty("leaves")]
-	public Dictionary<string, PresenceDiffPayloadMeta<TPresence>>? Leaves { get; set; }
+    /// <summary>
+    /// The leaving presences.
+    /// </summary>
+    [JsonPropertyName("leaves")]
+    public Dictionary<string, PresenceDiffPayloadMeta<TPresence>>? Leaves { get; set; }
 }
 
 /// <summary>
@@ -41,9 +45,9 @@ public class PresenceDiffPayload<TPresence> where TPresence : BasePresence
 /// <typeparam name="TPresence"></typeparam>
 public class PresenceDiffPayloadMeta<TPresence> where TPresence : BasePresence
 {
-	/// <summary>
-	/// The metas containing current presences
-	/// </summary>
-	[JsonProperty("metas")]
-	public List<TPresence>? Metas { get; set; }
+    /// <summary>
+    /// The metas containing current presences
+    /// </summary>
+    [JsonPropertyName("metas")]
+    public List<TPresence>? Metas { get; set; }
 }

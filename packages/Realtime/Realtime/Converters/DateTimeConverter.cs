@@ -1,79 +1,71 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Globalization;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Supabase.Realtime.Converters;
 
-internal class DateTimeConverter : JsonConverter
+/// <summary>
+/// Reads the timestamp strings Postgres emits (mapping the `infinity` sentinels to
+/// <see cref="DateTime.MaxValue"/> / <see cref="DateTime.MinValue"/>) and writes them back with the
+/// configured format, matching the previous read-side custom converter plus write-side IsoDateTimeConverter.
+/// </summary>
+internal class DateTimeConverter : JsonConverter<DateTime>
 {
-    public override bool CanConvert(Type objectType)
+    private readonly string format;
+
+    internal DateTimeConverter(string format) => this.format = format;
+
+    public override DateTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
+        ReadDateTime(reader.GetString()) ?? default;
+
+    public override void Write(Utf8JsonWriter writer, DateTime value, JsonSerializerOptions options) =>
+        writer.WriteStringValue(value.ToUniversalTime().ToString(this.format, CultureInfo.InvariantCulture));
+
+    internal static DateTime? ReadDateTime(string? value)
     {
-        throw new NotImplementedException();
-    }
-
-    public override bool CanWrite => false;
-
-    public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
-    {
-        if (reader.Value != null)
-        {
-            var str = reader.Value.ToString();
-
-            var infinity = ParseInfinity(str);
-
-            if (infinity != null)
-            {
-                return (DateTime)infinity;
-            }
-
-            var date = DateTime.Parse(str);
-            return date;
-        }
-
-        var result = new List<DateTime>();
-
-        try
-        {
-            var jo = JArray.Load(reader);
-
-            foreach (var item in jo.ToArray())
-            {
-                var inner = item.ToString();
-
-                var infinity = ParseInfinity(inner);
-
-                if (infinity != null)
-                {
-                    result.Add((DateTime)infinity);
-                }
-
-                var date = DateTime.Parse(inner);
-                result.Add(date);
-            }
-        }
-        catch (JsonReaderException)
-        {
+        if (value == null)
             return null;
-        }
 
-
-        return result;
+        return ParseInfinity(value) ?? DateTime.Parse(value, CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind);
     }
 
-    private static DateTime? ParseInfinity(string input)
+    private static DateTime? ParseInfinity(string input) =>
+        input.Contains("infinity") ? input.Contains("-") ? DateTime.MinValue : DateTime.MaxValue : null;
+}
+
+/// <summary>
+/// Applies <see cref="DateTimeConverter" />'s single-value handling across a list, matching the previous
+/// read-side converter which handled both <see cref="DateTime" /> and <c>List&lt;DateTime&gt;</c>.
+/// </summary>
+internal class DateTimeListConverter : JsonConverter<List<DateTime>>
+{
+    private readonly string format;
+
+    internal DateTimeListConverter(string format) => this.format = format;
+
+    public override List<DateTime>? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        if (input.Contains("infinity"))
+        if (reader.TokenType != JsonTokenType.StartArray)
+            return null;
+
+        var list = new List<DateTime>();
+        while (reader.Read() && reader.TokenType != JsonTokenType.EndArray)
         {
-            return input.Contains("-") ? DateTime.MinValue : DateTime.MaxValue;
+            var date = DateTimeConverter.ReadDateTime(reader.GetString());
+            if (date != null)
+                list.Add(date.Value);
         }
 
-        return null;
+        return list;
     }
 
-    public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
+    public override void Write(Utf8JsonWriter writer, List<DateTime> value, JsonSerializerOptions options)
     {
-        throw new NotImplementedException();
+        writer.WriteStartArray();
+        foreach (var date in value)
+            writer.WriteStringValue(date.ToUniversalTime().ToString(this.format, CultureInfo.InvariantCulture));
+        writer.WriteEndArray();
     }
 }

@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
-using Supabase.Realtime;
+using Realtime.Tests.Support;
 using Supabase.Realtime.Converters;
 
 namespace Realtime.Tests.Serialization;
@@ -18,13 +19,12 @@ public class ArrayConverterTests
 {
     private class ArrayModel
     {
-        [JsonProperty("intArray")] public List<int> IntArray { get; set; } = new();
-        [JsonProperty("stringArray")] public List<string> StringArray { get; set; } = new();
+        [JsonPropertyName("intArray")] public List<int> IntArray { get; set; } = new();
+        [JsonPropertyName("stringArray")] public List<string> StringArray { get; set; } = new();
     }
 
     private static ArrayModel Coerce(string json) =>
-        JsonConvert.DeserializeObject<ArrayModel>(json,
-            new JsonSerializerSettings { ContractResolver = new CustomContractResolver() })!;
+        JsonSerializer.Deserialize<ArrayModel>(json, Wire.Settings())!;
 
     [TestMethod]
     public void ContractResolver_ShouldCoerceArrayColumns_GivenJsonArrays()
@@ -45,10 +45,7 @@ public class ArrayConverterTests
     }
 
     [TestMethod]
-    public void IntArrayParse_ShouldReadCurlyForm()
-    {
-        IntArrayConverter.Parse("{1,2,3}").Should().Equal(1, 2, 3);
-    }
+    public void IntArrayParse_ShouldReadCurlyForm() => IntArrayConverter.Parse("{1,2,3}").Should().Equal(1, 2, 3);
 
     [TestMethod]
     public void IntArrayParse_ShouldReadBracketForm_GivenWhitespace()
@@ -58,10 +55,7 @@ public class ArrayConverterTests
     }
 
     [TestMethod]
-    public void IntArrayParse_ShouldReturnEmpty_GivenEmptyBraces()
-    {
-        IntArrayConverter.Parse("{}").Should().BeEmpty();
-    }
+    public void IntArrayParse_ShouldReturnEmpty_GivenEmptyBraces() => IntArrayConverter.Parse("{}").Should().BeEmpty();
 
     [TestMethod]
     public void StringArrayParse_ShouldReadBothForms()

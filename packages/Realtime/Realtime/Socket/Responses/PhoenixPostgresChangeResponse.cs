@@ -1,21 +1,21 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Supabase.Realtime.Socket.Responses;
 
 public class PhoenixPostgresChangeResponse
 {
-    [JsonProperty("id")]
-    public int? id { get; set; }
-    
-    [JsonProperty("event")]
-    public string? eventName { get; set; }
-    
-    [JsonProperty("filter")]
-    public string? filter { get; set; }
-    
-    [JsonProperty("schema")]
-    public string? schema { get; set; }
-    
-    [JsonProperty("table")]
-    public string? table { get; set; }
+    [JsonPropertyName("id")]
+    public int? Id { get; set; }
+
+    [JsonPropertyName("event")]
+    public string? EventName { get; set; }
+
+    [JsonPropertyName("filter")]
+    public string? Filter { get; set; }
+
+    [JsonPropertyName("schema")]
+    public string? Schema { get; set; }
+
+    [JsonPropertyName("table")]
+    public string? Table { get; set; }
 }

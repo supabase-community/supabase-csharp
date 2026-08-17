@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using static Supabase.Realtime.Constants;
 
 namespace Supabase.Realtime.Socket;
@@ -11,13 +11,13 @@ public class SocketResponsePayload<T> : SocketResponsePayload where T : class
     /// <summary>
     /// The record referenced.
     /// </summary>
-    [JsonProperty("record")]
+    [JsonPropertyName("record")]
     public new T? Record { get; set; }
 
     /// <summary>
     /// The previous state of the referenced record.
     /// </summary>
-    [JsonProperty("old_record")]
+    [JsonPropertyName("old_record")]
     public new T? OldRecord { get; set; }
 }
 
@@ -33,7 +33,7 @@ public class SocketResponsePayload
     /// 
     /// Will always be an array but can be empty
     /// </summary>
-    [JsonProperty("columns")]
+    [JsonPropertyName("columns")]
     public List<object>? Columns { get; set; }
 
     /// <summary>
@@ -41,7 +41,7 @@ public class SocketResponsePayload
     /// 
     /// Will either be a string or null
     /// </summary>
-    [JsonProperty("commit_timestamp")]
+    [JsonPropertyName("commit_timestamp")]
     public DateTimeOffset? CommitTimestamp { get; set; }
 
     /// <summary>
@@ -49,7 +49,7 @@ public class SocketResponsePayload
     /// 
     /// Will always be an object but can be empty.
     /// </summary>
-    [JsonProperty("record")]
+    [JsonPropertyName("record")]
     public object? Record { get; set; }
 
     /// <summary>
@@ -57,26 +57,26 @@ public class SocketResponsePayload
     /// 
     /// Will always be an object but can be empty.
     /// </summary>
-    [JsonProperty("old_record")]
+    [JsonPropertyName("old_record")]
     public object? OldRecord { get; set; }
 
     /// <summary>
     /// The Schema affected.
     /// </summary>
-    [JsonProperty("schema")]
+    [JsonPropertyName("schema")]
     public string? Schema { get; set; }
 
     /// <summary>
     /// The Table affected.
     /// </summary>
-    [JsonProperty("table")]
+    [JsonPropertyName("table")]
     public string? Table { get; set; }
 
     /// <summary>
     /// The action type performed (INSERT, UPDATE, DELETE, etc.)
     /// </summary>
-    [JsonProperty("type")]
-    public string? _type { get; set; }
+    [JsonPropertyName("type")]
+    public string? ActionType { get; set; }
 
     /// <summary>
     /// The parsed type.
@@ -86,7 +86,7 @@ public class SocketResponsePayload
     {
         get
         {
-            switch (_type)
+            switch (this.ActionType)
             {
                 case "INSERT":
                     return EventType.Insert;
@@ -103,13 +103,13 @@ public class SocketResponsePayload
     /// <summary>
     /// Status of response
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public string? Status { get; set; }
 
     /// <summary>
     /// The unparsed response object
     /// </summary>
-    [JsonProperty("response")]
+    [JsonPropertyName("response")]
     public object? Response { get; set; }
 
     #endregion
@@ -118,7 +118,8 @@ public class SocketResponsePayload
     /// Either null or an array of errors.
     /// See: https://github.com/supabase/walrus/#error-states
     /// </summary>
-    [JsonProperty("errors", NullValueHandling = NullValueHandling.Ignore)]
+    [JsonPropertyName("errors")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public List<string>? Errors { get; set; }
 
     #region Presence
@@ -126,13 +127,13 @@ public class SocketResponsePayload
     /// <summary>
     /// Presence joins (parsed later)
     /// </summary>
-    [JsonProperty("joins")]
+    [JsonPropertyName("joins")]
     public object? Joins { get; set; }
 
     /// <summary>
     /// Presence leaves (parsed later)
     /// </summary>
-    [JsonProperty("leaves")]
+    [JsonPropertyName("leaves")]
     public object? Leaves { get; set; }
 
     #endregion
@@ -142,18 +143,18 @@ public class SocketResponsePayload
     /// <summary>
     /// The channel (system)
     /// </summary>
-    [JsonProperty("channel")]
+    [JsonPropertyName("channel")]
     public string? Channel { get; set; }
 
     /// <summary>
     /// The extension (system)
     /// </summary>
-    [JsonProperty("extension")] public string? Extension { get; set; }
+    [JsonPropertyName("extension")] public string? Extension { get; set; }
 
     /// <summary>
     /// The message (system)
     /// </summary>
-    [JsonProperty("message")] public string? Message { get; set; }
+    [JsonPropertyName("message")] public string? Message { get; set; }
 
     #endregion
 }

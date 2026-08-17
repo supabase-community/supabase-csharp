@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Supabase.Realtime.Models;
 
@@ -10,13 +10,13 @@ public class BasePresence
     /// <summary>
     /// The ref for this event. (can be used to establish sequence)
     /// </summary>
-    [JsonProperty("phx_ref")]
+    [JsonPropertyName("phx_ref")]
     public string? PhoenixRef { get; set; }
 
     /// <summary>
     /// The previous ref for this presence event (can be used to establish sequence)
     /// </summary>
-    [JsonProperty("phx_ref_prev")]
+    [JsonPropertyName("phx_ref_prev")]
     public string? PhoenixPrevRef { get; set; }
 
     /// <summary>

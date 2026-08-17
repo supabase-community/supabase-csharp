@@ -1,14 +1,14 @@
-﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Text.Json;
+using System.Threading.Tasks;
+using Supabase.Realtime.Channel;
+using Supabase.Realtime.Exceptions;
 using Supabase.Realtime.Interfaces;
 using Supabase.Realtime.Models;
 using Supabase.Realtime.Presence;
 using Supabase.Realtime.Presence.Responses;
 using Supabase.Realtime.Socket;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Supabase.Realtime.Channel;
-using Supabase.Realtime.Exceptions;
 using static Supabase.Realtime.Constants;
 
 namespace Supabase.Realtime;
@@ -34,13 +34,13 @@ public class RealtimePresence<TPresenceModel> : IRealtimePresence where TPresenc
     /// </summary>
     public Dictionary<string, List<TPresenceModel>> CurrentState { get; } = new();
 
-    private PresenceOptions _options;
-    private SocketResponse? _currentResponse;
-    private readonly RealtimeChannel _channel;
-    private readonly JsonSerializerSettings _serializerSettings;
+    private PresenceOptions options;
+    private SocketResponse? currentResponse;
+    private readonly RealtimeChannel channel;
+    private readonly JsonSerializerOptions serializerSettings;
 
     private readonly Dictionary<IRealtimePresence.EventType, List<IRealtimePresence.PresenceEventHandler>>
-        _presenceEventListeners = new();
+        presenceEventListeners = new();
 
     /// <summary>
     /// Initializes a realtime presence helper class.
@@ -49,11 +49,11 @@ public class RealtimePresence<TPresenceModel> : IRealtimePresence where TPresenc
     /// <param name="options"></param>
     /// <param name="serializerSettings"></param>
     public RealtimePresence(RealtimeChannel channel, PresenceOptions options,
-        JsonSerializerSettings serializerSettings)
+        JsonSerializerOptions serializerSettings)
     {
-        _channel = channel;
-        _options = options;
-        _serializerSettings = serializerSettings;
+        this.channel = channel;
+        this.options = options;
+        this.serializerSettings = serializerSettings;
     }
 
     /// <summary>
@@ -64,11 +64,11 @@ public class RealtimePresence<TPresenceModel> : IRealtimePresence where TPresenc
     public void AddPresenceEventHandler(IRealtimePresence.EventType eventType,
         IRealtimePresence.PresenceEventHandler handler)
     {
-        if (!_presenceEventListeners.ContainsKey(eventType))
-            _presenceEventListeners[eventType] = new List<IRealtimePresence.PresenceEventHandler>();
+        if (!this.presenceEventListeners.ContainsKey(eventType))
+            this.presenceEventListeners[eventType] = new List<IRealtimePresence.PresenceEventHandler>();
 
-        if (!_presenceEventListeners[eventType].Contains(handler))
-            _presenceEventListeners[eventType].Add(handler);
+        if (!this.presenceEventListeners[eventType].Contains(handler))
+            this.presenceEventListeners[eventType].Add(handler);
     }
 
     /// <summary>
@@ -79,9 +79,9 @@ public class RealtimePresence<TPresenceModel> : IRealtimePresence where TPresenc
     public void RemovePresenceEventHandlers(IRealtimePresence.EventType eventType,
         IRealtimePresence.PresenceEventHandler handler)
     {
-        if (_presenceEventListeners.ContainsKey(eventType) &&
-            _presenceEventListeners[eventType].Contains(handler))
-            _presenceEventListeners[eventType].Remove(handler);
+        if (this.presenceEventListeners.ContainsKey(eventType) &&
+            this.presenceEventListeners[eventType].Contains(handler))
+            this.presenceEventListeners[eventType].Remove(handler);
     }
 
     /// <summary>
@@ -90,10 +90,10 @@ public class RealtimePresence<TPresenceModel> : IRealtimePresence where TPresenc
     /// <param name="eventType"></param>
     public void ClearPresenceEventHandlers(IRealtimePresence.EventType? eventType = null)
     {
-        if (eventType != null && _presenceEventListeners.TryGetValue(eventType.Value, out var list))
+        if (eventType != null && this.presenceEventListeners.TryGetValue(eventType.Value, out var list))
             list.Clear();
         else
-            _presenceEventListeners.Clear();
+            this.presenceEventListeners.Clear();
     }
 
     /// <summary>
@@ -102,9 +102,9 @@ public class RealtimePresence<TPresenceModel> : IRealtimePresence where TPresenc
     /// <param name="eventType"></param>
     private void NotifyPresenceEventHandlers(IRealtimePresence.EventType eventType)
     {
-        if (!_presenceEventListeners.ContainsKey(eventType)) return;
+        if (!this.presenceEventListeners.ContainsKey(eventType)) return;
 
-        foreach (var handler in _presenceEventListeners[eventType].ToArray())
+        foreach (var handler in this.presenceEventListeners[eventType].ToArray())
             handler.Invoke(this, eventType);
     }
 
@@ -116,10 +116,10 @@ public class RealtimePresence<TPresenceModel> : IRealtimePresence where TPresenc
     /// <param name="response"></param>
     public void TriggerSync(SocketResponse response)
     {
-        _currentResponse = response;
-        SetState();
+        this.currentResponse = response;
+        this.SetState();
 
-        NotifyPresenceEventHandlers(IRealtimePresence.EventType.Sync);
+        this.NotifyPresenceEventHandlers(IRealtimePresence.EventType.Sync);
     }
 
     /// <summary>
@@ -131,20 +131,20 @@ public class RealtimePresence<TPresenceModel> : IRealtimePresence where TPresenc
     {
         if (response == null || response.Json == null)
             throw new ArgumentException(
-                $"Expected parsable JSON response, instead received: `{JsonConvert.SerializeObject(response)}`");
+                $"Expected parsable JSON response, instead received: `{JsonSerializer.Serialize(response, this.serializerSettings)}`");
 
-        var obj = JsonConvert.DeserializeObject<RealtimePresenceDiff<TPresenceModel>>(response.Json,
-            _serializerSettings);
+        var obj = JsonSerializer.Deserialize<RealtimePresenceDiff<TPresenceModel>>(response.Json,
+            this.serializerSettings);
 
         if (obj?.Payload == null) return;
 
-        TriggerSync(response);
+        this.TriggerSync(response);
 
         if (obj.Payload.Joins!.Count > 0)
-            NotifyPresenceEventHandlers(IRealtimePresence.EventType.Join);
+            this.NotifyPresenceEventHandlers(IRealtimePresence.EventType.Join);
 
         if (obj.Payload.Leaves!.Count > 0)
-            NotifyPresenceEventHandlers(IRealtimePresence.EventType.Leave);
+            this.NotifyPresenceEventHandlers(IRealtimePresence.EventType.Leave);
     }
 
     /// <summary>
@@ -155,15 +155,12 @@ public class RealtimePresence<TPresenceModel> : IRealtimePresence where TPresenc
     public Task<Push> Track(object? payload, int timeoutMs = DefaultTimeout)
     {
         var eventName = Core.Helpers.GetMappedToAttr(ChannelEventName.Presence).Mapping;
-        var push = new Push(_channel.Socket, _channel, eventName, "track",
+        var push = new Push(this.channel.Socket, this.channel, eventName, "track",
             new Dictionary<string, object?> { { "event", "track" }, { "payload", payload } }, timeoutMs);
 
         var tcs = new TaskCompletionSource<Push>();
 
-        void Handler(IRealtimePush<RealtimeChannel, SocketResponse> chanel, SocketResponse response)
-        {
-            tcs.TrySetResult(push);
-        }
+        void Handler(IRealtimePush<RealtimeChannel, SocketResponse> chanel, SocketResponse response) => tcs.TrySetResult(push);
 
         push.AddMessageReceivedHandler(Handler);
 
@@ -171,10 +168,10 @@ public class RealtimePresence<TPresenceModel> : IRealtimePresence where TPresenc
         {
             if (sender is Push p)
                 tcs.SetException(new RealtimeException($"Failed to send push [{p.Ref}])")
-                    { Reason = FailureHint.Reason.PushTimeout });
+                { Reason = FailureHint.Reason.PushTimeout });
         };
 
-        _channel.Enqueue(push);
+        this.channel.Enqueue(push);
 
         return tcs.Task;
     }
@@ -185,15 +182,12 @@ public class RealtimePresence<TPresenceModel> : IRealtimePresence where TPresenc
     public Task<Push> Untrack()
     {
         var eventName = Core.Helpers.GetMappedToAttr(ChannelEventName.Presence).Mapping;
-        var push = new Push(_channel.Socket, _channel, eventName, "untrack",
+        var push = new Push(this.channel.Socket, this.channel, eventName, "untrack",
             new Dictionary<string, object?> { { "event", "untrack" } });
 
         var tcs = new TaskCompletionSource<Push>();
 
-        void Handler(IRealtimePush<RealtimeChannel, SocketResponse> chanel, SocketResponse response)
-        {
-            tcs.TrySetResult(push);
-        }
+        void Handler(IRealtimePush<RealtimeChannel, SocketResponse> chanel, SocketResponse response) => tcs.TrySetResult(push);
 
         push.AddMessageReceivedHandler(Handler);
 
@@ -201,49 +195,49 @@ public class RealtimePresence<TPresenceModel> : IRealtimePresence where TPresenc
         {
             if (sender is Push p)
                 tcs.TrySetException(new RealtimeException($"Failed to send push [{p.Ref}])")
-                    { Reason = FailureHint.Reason.PushTimeout });
+                { Reason = FailureHint.Reason.PushTimeout });
         };
 
-        _channel.Enqueue(push);
+        this.channel.Enqueue(push);
         return tcs.Task;
     }
 
     /// <summary>
-    /// Sets the internal Presence State from the <see cref="_currentResponse"/>
+    /// Sets the internal Presence State from the <see cref="currentResponse"/>
     /// </summary>
     private void SetState()
     {
-        LastState = new Dictionary<string, List<TPresenceModel>>(CurrentState);
+        this.LastState = new Dictionary<string, List<TPresenceModel>>(this.CurrentState);
 
-        if (_currentResponse?.Json == null) return;
+        if (this.currentResponse?.Json == null) return;
 
         // Is a diff response?
-        if (_currentResponse.Payload!.Joins != null || _currentResponse.Payload!.Leaves != null)
+        if (this.currentResponse.Payload!.Joins != null || this.currentResponse.Payload!.Leaves != null)
         {
-            var state = JsonConvert.DeserializeObject<RealtimePresenceDiff<TPresenceModel>>(_currentResponse.Json,
-                _serializerSettings)!;
+            var state = JsonSerializer.Deserialize<RealtimePresenceDiff<TPresenceModel>>(this.currentResponse.Json,
+                this.serializerSettings)!;
 
             if (state?.Payload == null) return;
 
             // Remove any result that has "left"
             foreach (var item in state.Payload.Leaves!)
-                CurrentState.Remove(item.Key);
+                this.CurrentState.Remove(item.Key);
 
             // Add any results that have come in.
             foreach (var item in state.Payload.Joins!)
-                CurrentState[item.Key] = item.Value.Metas!;
+                this.CurrentState[item.Key] = item.Value.Metas!;
         }
         else
         {
             // It's a presence_state init response
             var state =
-                JsonConvert.DeserializeObject<PresenceStateSocketResponse<TPresenceModel>>(_currentResponse.Json,
-                    _serializerSettings)!;
+                JsonSerializer.Deserialize<PresenceStateSocketResponse<TPresenceModel>>(this.currentResponse.Json,
+                    this.serializerSettings)!;
 
             if (state?.Payload == null) return;
 
             foreach (var item in state.Payload)
-                CurrentState[item.Key] = item.Value.Metas!;
+                this.CurrentState[item.Key] = item.Value.Metas!;
         }
     }
 }

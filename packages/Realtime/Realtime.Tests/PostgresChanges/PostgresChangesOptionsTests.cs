@@ -1,8 +1,8 @@
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Supabase.Realtime.PostgresChanges;
 using static Supabase.Realtime.PostgresChanges.PostgresChangesOptions;
 
@@ -20,22 +20,22 @@ public class PostgresChangesOptionsTests
     [TestMethod]
     public void Table_ShouldBeOmitted_GivenNull()
     {
-        var json = JsonConvert.SerializeObject(new PostgresChangesOptions("public"));
-        JObject.Parse(json).ContainsKey("table").Should().BeFalse();
+        var json = JsonSerializer.Serialize(new PostgresChangesOptions("public"));
+        JsonNode.Parse(json)!.AsObject().ContainsKey("table").Should().BeFalse();
     }
 
     [TestMethod]
     public void Table_ShouldBeSerialized_GivenProvided()
     {
-        var json = JsonConvert.SerializeObject(new PostgresChangesOptions("public", "todos"));
-        JObject.Parse(json)["table"]?.Value<string>().Should().Be("todos");
+        var json = JsonSerializer.Serialize(new PostgresChangesOptions("public", "todos"));
+        JsonNode.Parse(json)!["table"]?.GetValue<string>().Should().Be("todos");
     }
 
     [TestMethod]
     public void Filter_ShouldBeOmitted_GivenNull()
     {
-        var json = JsonConvert.SerializeObject(new PostgresChangesOptions("public", "todos"));
-        JObject.Parse(json).ContainsKey("filter").Should().BeFalse();
+        var json = JsonSerializer.Serialize(new PostgresChangesOptions("public", "todos"));
+        JsonNode.Parse(json)!.AsObject().ContainsKey("filter").Should().BeFalse();
     }
 
     [TestMethod]
@@ -43,10 +43,7 @@ public class PostgresChangesOptionsTests
     [DataRow(ListenType.Inserts, "INSERT")]
     [DataRow(ListenType.Updates, "UPDATE")]
     [DataRow(ListenType.Deletes, "DELETE")]
-    public void Event_ShouldRenderListenType(ListenType listenType, string expected)
-    {
-        new PostgresChangesOptions("public", "todos", listenType).Event.Should().Be(expected);
-    }
+    public void Event_ShouldRenderListenType(ListenType listenType, string expected) => new PostgresChangesOptions("public", "todos", listenType).Event.Should().Be(expected);
 
     [TestMethod]
     public void Equals_ShouldHold_GivenAllDiscriminatorsMatch()

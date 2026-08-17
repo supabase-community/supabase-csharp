@@ -1,16 +1,20 @@
-﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Supabase.Realtime.Models;
 using Supabase.Realtime.Socket;
-using System.Collections.Generic;
 
 namespace Supabase.Realtime.Presence.Responses;
 
 /// <inheritdoc />
-public class PresenceStateSocketResponse<TPresence> : SocketResponse<Dictionary<string, PresenceStatePayload<TPresence>>> 
+public class PresenceStateSocketResponse<TPresence> : SocketResponse<Dictionary<string, PresenceStatePayload<TPresence>>>
     where TPresence : BasePresence
 {
+    /// <summary>Parameterless constructor used by System.Text.Json when deserializing.</summary>
+    public PresenceStateSocketResponse() { }
+
     /// <inheritdoc />
-    public PresenceStateSocketResponse(JsonSerializerSettings serializerSettings) : base(serializerSettings) { }
+    public PresenceStateSocketResponse(JsonSerializerOptions serializerSettings) : base(serializerSettings) { }
 }
 
 /// <summary>
@@ -22,6 +26,6 @@ public class PresenceStatePayload<TPresence> where TPresence : BasePresence
     /// <summary>
     /// The metas containing joins and leaves
     /// </summary>
-    [JsonProperty("metas")]
+    [JsonPropertyName("metas")]
     public List<TPresence>? Metas { get; set; }
 }

@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Supabase.Postgrest.Interfaces;
 using Supabase.Postgrest.Models;
 using Supabase.Realtime.Socket;
@@ -9,8 +10,11 @@ namespace Supabase.Realtime.PostgresChanges;
 /// <inheritdoc />
 public class PostgresChangesResponse<T> : SocketResponse<PostgresChangesPayload<T>> where T : class
 {
+    /// <summary>Parameterless constructor used by System.Text.Json when deserializing.</summary>
+    public PostgresChangesResponse() { }
+
     /// <inheritdoc />
-    public PostgresChangesResponse(JsonSerializerSettings serializerSettings) : base(serializerSettings)
+    public PostgresChangesResponse(JsonSerializerOptions serializerSettings) : base(serializerSettings)
     {
     }
 }
@@ -20,8 +24,11 @@ public class PostgresChangesResponse<T> : SocketResponse<PostgresChangesPayload<
 /// </summary>
 public class PostgresChangesResponse : SocketResponse<PostgresChangesPayload<SocketResponsePayload>>
 {
+    /// <summary>Parameterless constructor used by System.Text.Json when deserializing.</summary>
+    public PostgresChangesResponse() { }
+
     /// <inheritdoc />
-    public PostgresChangesResponse(JsonSerializerSettings serializerSettings) : base(serializerSettings)
+    public PostgresChangesResponse(JsonSerializerOptions serializerSettings) : base(serializerSettings)
     {
     }
 
@@ -39,12 +46,12 @@ public class PostgresChangesResponse : SocketResponse<PostgresChangesPayload<Soc
     /// <returns></returns>
     public virtual TModel? Model<TModel>() where TModel : BaseModel, new()
     {
-        if (Json != null && Payload != null && Payload.Data?.Record != null)
+        if (this.Json != null && this.Payload != null && this.Payload.Data?.Record != null)
         {
-            var response = JsonConvert.DeserializeObject<PostgresChangesResponse<TModel>>(Json, SerializerSettings);
+            var response = JsonSerializer.Deserialize<PostgresChangesResponse<TModel>>(this.Json, this.SerializerSettings);
             var model = response?.Payload?.Data?.Record;
             if (model != null)
-                PostgrestClient?.Attach(model);
+                this.PostgrestClient?.Attach(model);
             return model;
         }
         else
@@ -62,12 +69,12 @@ public class PostgresChangesResponse : SocketResponse<PostgresChangesPayload<Soc
     /// <returns></returns>
     public virtual TModel? OldModel<TModel>() where TModel : BaseModel, new()
     {
-        if (Json != null && Payload != null && Payload.Data?.OldRecord != null)
+        if (this.Json != null && this.Payload != null && this.Payload.Data?.OldRecord != null)
         {
-            var response = JsonConvert.DeserializeObject<PostgresChangesResponse<TModel>>(Json, SerializerSettings);
+            var response = JsonSerializer.Deserialize<PostgresChangesResponse<TModel>>(this.Json, this.SerializerSettings);
             var model = response?.Payload?.Data?.OldRecord;
             if (model != null)
-                PostgrestClient?.Attach(model);
+                this.PostgrestClient?.Attach(model);
             return model;
         }
         else
@@ -86,9 +93,9 @@ public class PostgresChangesPayload<T> where T : class
     /// <summary>
     /// The payload data.
     /// </summary>
-    [JsonProperty("data")]
+    [JsonPropertyName("data")]
     public SocketResponsePayload<T>? Data { get; set; }
-    
-    [JsonProperty("ids")]
+
+    [JsonPropertyName("ids")]
     public List<int?> Ids { get; set; }
 }

@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
-using Supabase.Realtime;
+using Realtime.Tests.Support;
 
 namespace Realtime.Tests.Serialization;
 
@@ -19,31 +20,21 @@ public class DateTimeCoercionTests
 {
     private class DateModel
     {
-        [JsonProperty("at")] public DateTime? At { get; set; }
-        [JsonProperty("many")] public List<DateTime>? Many { get; set; }
+        [JsonPropertyName("at")] public DateTime? At { get; set; }
+        [JsonPropertyName("many")] public List<DateTime>? Many { get; set; }
     }
 
     private static DateModel Parse(string json) =>
-        JsonConvert.DeserializeObject<DateModel>(json,
-            new JsonSerializerSettings { ContractResolver = new CustomContractResolver() })!;
+        JsonSerializer.Deserialize<DateModel>(json, Wire.Settings())!;
 
     [TestMethod]
-    public void At_ShouldParseIsoTimestamp()
-    {
-        Parse("{\"at\":\"2023-09-11T15:30:21Z\"}").At.Should().Be(new DateTime(2023, 9, 11, 15, 30, 21, DateTimeKind.Utc));
-    }
+    public void At_ShouldParseIsoTimestamp() => Parse("{\"at\":\"2023-09-11T15:30:21Z\"}").At.Should().Be(new DateTime(2023, 9, 11, 15, 30, 21, DateTimeKind.Utc));
 
     [TestMethod]
-    public void At_ShouldMapPositiveInfinityToMaxValue()
-    {
-        Parse("{\"at\":\"infinity\"}").At.Should().Be(DateTime.MaxValue);
-    }
+    public void At_ShouldMapPositiveInfinityToMaxValue() => Parse("{\"at\":\"infinity\"}").At.Should().Be(DateTime.MaxValue);
 
     [TestMethod]
-    public void At_ShouldMapNegativeInfinityToMinValue()
-    {
-        Parse("{\"at\":\"-infinity\"}").At.Should().Be(DateTime.MinValue);
-    }
+    public void At_ShouldMapNegativeInfinityToMinValue() => Parse("{\"at\":\"-infinity\"}").At.Should().Be(DateTime.MinValue);
 
     [TestMethod]
     public void Many_ShouldParseArrayOfTimestamps()

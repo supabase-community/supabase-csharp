@@ -1,15 +1,15 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.WebSockets;
 using System.Runtime.InteropServices;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using Supabase.Core.Extensions;
-using Supabase.Realtime.Socket;
 using Supabase.Realtime.Exceptions;
 using Supabase.Realtime.Interfaces;
+using Supabase.Realtime.Socket;
 using Websocket.Client;
 using static Supabase.Realtime.Constants;
 
@@ -22,7 +22,7 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// <summary>
     /// Returns whether or not the connection is alive.
     /// </summary>
-    public bool IsConnected => _connection.IsRunning;
+    public bool IsConnected => this.connection.IsRunning;
 
     /// <summary>
     /// The Socket Endpoint
@@ -33,42 +33,42 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
         {
             var parameters = new Dictionary<string, string?>
             {
-                { "token", _options.Parameters.Token },
-                { "apikey", _options.Parameters.ApiKey },
+                { "token", this.options.Parameters.Token },
+                { "apikey", this.options.Parameters.ApiKey },
                 { "vsn", "1.0.0" }
             };
 
-            return string.Format($"{_endpoint}?{Utils.QueryString(parameters)}");
+            return string.Format($"{this.endpoint}?{Utils.QueryString(parameters)}");
         }
     }
 
     /// <inheritdoc />
     public Func<Dictionary<string, string>>? GetHeaders { get; set; }
-    
+
     /// <summary>
-    /// Shortcut property that merges <see cref="GetHeaders"/> with <see cref="_options"/>
-    /// Headers specified in <see cref="_options"/> take precedence over <see cref="GetHeaders"/>
+    /// Shortcut property that merges <see cref="GetHeaders"/> with <see cref="options"/>
+    /// Headers specified in <see cref="options"/> take precedence over <see cref="GetHeaders"/>
     /// </summary>
-    internal Dictionary<string, string> Headers => GetHeaders != null ? GetHeaders().MergeLeft(_options.Headers) : _options.Headers;
+    internal Dictionary<string, string> Headers => this.GetHeaders != null ? this.GetHeaders().MergeLeft(this.options.Headers) : this.options.Headers;
 
-    private readonly List<IRealtimeSocket.StateEventHandler> _socketEventHandlers = new();
-    private readonly List<IRealtimeSocket.MessageEventHandler> _messageEventHandlers = new();
-    private readonly List<IRealtimeSocket.HeartbeatEventHandler> _heartbeatEventHandlers = new();
-    private readonly List<IRealtimeSocket.ErrorEventHandler> _errorEventHandlers = new();
+    private readonly List<IRealtimeSocket.StateEventHandler> socketEventHandlers = new();
+    private readonly List<IRealtimeSocket.MessageEventHandler> messageEventHandlers = new();
+    private readonly List<IRealtimeSocket.HeartbeatEventHandler> heartbeatEventHandlers = new();
+    private readonly List<IRealtimeSocket.ErrorEventHandler> errorEventHandlers = new();
 
-    private readonly string _endpoint;
-    private readonly ClientOptions _options;
-    private readonly WebsocketClient _connection;
+    private readonly string endpoint;
+    private readonly ClientOptions options;
+    private readonly WebsocketClient connection;
 
-    private CancellationTokenSource? _heartbeatTokenSource;
+    private CancellationTokenSource? heartbeatTokenSource;
 
-    private bool _hasSuccessfullyConnectedOnce;
-    private bool _hasPendingHeartbeat;
-    private string? _pendingHeartbeatRef;
+    private bool hasSuccessfullyConnectedOnce;
+    private bool hasPendingHeartbeat;
+    private string? pendingHeartbeatRef;
 
-    private readonly List<Task> _buffer = new();
-    private bool _isReconnecting;
-    private int _reconnectionAttempts = 0;
+    private readonly List<Task> buffer = new();
+    private bool isReconnecting;
+    private int reconnectionAttempts = 0;
 
     /// <summary>
     /// Initializes this Socket instance.
@@ -77,28 +77,28 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// <param name="options"></param>
     public RealtimeSocket(string endpoint, ClientOptions options)
     {
-        _endpoint = $"{endpoint}/{TransportWebsocket}";
-        _options = options;
+        this.endpoint = $"{endpoint}/{TransportWebsocket}";
+        this.options = options;
 
         if (!options.Headers.ContainsKey("X-Client-Info"))
             options.Headers.Add("X-Client-Info", Core.Util.GetAssemblyVersion(typeof(Client)));
 
-        _connection = new WebsocketClient(new Uri(EndpointUrl), () =>
+        this.connection = new WebsocketClient(new Uri(this.EndpointUrl), () =>
         {
             var socket = new ClientWebSocket();
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Create("BROWSER"))) return socket;
-            
-            foreach (var header in Headers)
+
+            foreach (var header in this.Headers)
                 socket.Options.SetRequestHeader(header.Key, header.Value);
-            
+
             return socket;
         });
     }
 
     void IDisposable.Dispose()
     {
-        _heartbeatTokenSource?.Cancel();
-        DisposeConnection();
+        this.heartbeatTokenSource?.Cancel();
+        this.DisposeConnection();
     }
 
     /// <summary>
@@ -106,16 +106,16 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// </summary>
     public async Task Connect()
     {
-        if (_connection.IsRunning) return;
+        if (this.connection.IsRunning) return;
 
-        _connection.ReconnectTimeout = _options.ReconnectAfterInterval(_reconnectionAttempts);
-        _connection.ErrorReconnectTimeout = TimeSpan.FromSeconds(30);
+        this.connection.ReconnectTimeout = this.options.ReconnectAfterInterval(this.reconnectionAttempts);
+        this.connection.ErrorReconnectTimeout = TimeSpan.FromSeconds(30);
 
-        _connection.ReconnectionHappened.Subscribe(HandleSocketReconnectionHappened);
-        _connection.DisconnectionHappened.Subscribe(HandleSocketDisconnectionHappened);
-        _connection.MessageReceived.Subscribe(HandleSocketMessage);
+        this.connection.ReconnectionHappened.Subscribe(this.HandleSocketReconnectionHappened);
+        this.connection.DisconnectionHappened.Subscribe(this.HandleSocketDisconnectionHappened);
+        this.connection.MessageReceived.Subscribe(this.HandleSocketMessage);
 
-        await _connection.StartOrFail();
+        await this.connection.StartOrFail();
     }
 
     /// <summary>
@@ -125,8 +125,8 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// <param name="reason"></param>
     public void Disconnect(WebSocketCloseStatus code = WebSocketCloseStatus.NormalClosure, string reason = "")
     {
-        _heartbeatTokenSource?.Cancel();
-        _connection.Stop(code, reason);
+        this.heartbeatTokenSource?.Cancel();
+        this.connection.Stop(code, reason);
     }
 
     #region Event Listeners
@@ -137,8 +137,8 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// <param name="handler"></param>
     public void AddStateChangedHandler(IRealtimeSocket.StateEventHandler handler)
     {
-        if (!_socketEventHandlers.Contains(handler))
-            _socketEventHandlers.Add(handler);
+        if (!this.socketEventHandlers.Contains(handler))
+            this.socketEventHandlers.Add(handler);
     }
 
     /// <summary>
@@ -147,8 +147,8 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// <param name="handler"></param>
     public void RemoveStateChangedHandler(IRealtimeSocket.StateEventHandler handler)
     {
-        if (_socketEventHandlers.Contains(handler))
-            _socketEventHandlers.Remove(handler);
+        if (this.socketEventHandlers.Contains(handler))
+            this.socketEventHandlers.Remove(handler);
     }
 
     /// <summary>
@@ -157,11 +157,11 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// <param name="newState"></param>
     private void NotifySocketStateChange(SocketState newState)
     {
-        if (!_socketEventHandlers.Any()) return;
+        if (!this.socketEventHandlers.Any()) return;
 
         Debugger.Instance.Log(this, $"Socket State Change: {newState}");
 
-        foreach (var handler in _socketEventHandlers.ToArray())
+        foreach (var handler in this.socketEventHandlers.ToArray())
             handler.Invoke(this, newState);
     }
 
@@ -169,7 +169,7 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// Clears all of the listeners from receiving event state changes.
     /// </summary>
     public void ClearStateChangedHandlers() =>
-        _socketEventHandlers.Clear();
+        this.socketEventHandlers.Clear();
 
     /// <summary>
     /// Adds a listener to be notified when a message is received.
@@ -177,10 +177,10 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// <param name="handler"></param>
     public void AddMessageReceivedHandler(IRealtimeSocket.MessageEventHandler handler)
     {
-        if (_messageEventHandlers.Contains(handler))
+        if (this.messageEventHandlers.Contains(handler))
             return;
 
-        _messageEventHandlers.Add(handler);
+        this.messageEventHandlers.Add(handler);
     }
 
     /// <summary>
@@ -189,10 +189,10 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// <param name="handler"></param>
     public void RemoveMessageReceivedHandler(IRealtimeSocket.MessageEventHandler handler)
     {
-        if (!_messageEventHandlers.Contains(handler))
+        if (!this.messageEventHandlers.Contains(handler))
             return;
 
-        _messageEventHandlers.Remove(handler);
+        this.messageEventHandlers.Remove(handler);
     }
 
     /// <summary>
@@ -201,7 +201,7 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// <param name="heartbeat"></param>
     private void NotifyMessageReceived(SocketResponse heartbeat)
     {
-        foreach (var handler in _messageEventHandlers.ToArray())
+        foreach (var handler in this.messageEventHandlers.ToArray())
             handler.Invoke(this, heartbeat);
     }
 
@@ -209,7 +209,7 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// Clears all of the listeners from receiving event state changes.
     /// </summary>
     public void ClearMessageReceivedHandlers() =>
-        _messageEventHandlers.Clear();
+        this.messageEventHandlers.Clear();
 
     /// <summary>
     /// Adds a listener to be notified when a message is received.
@@ -217,8 +217,8 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// <param name="handler"></param>
     public void AddHeartbeatHandler(IRealtimeSocket.HeartbeatEventHandler handler)
     {
-        if (!_heartbeatEventHandlers.Contains(handler))
-            _heartbeatEventHandlers.Add(handler);
+        if (!this.heartbeatEventHandlers.Contains(handler))
+            this.heartbeatEventHandlers.Add(handler);
     }
 
     /// <summary>
@@ -227,8 +227,8 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// <param name="handler"></param>
     public void RemoveHeartbeatHandler(IRealtimeSocket.HeartbeatEventHandler handler)
     {
-        if (_heartbeatEventHandlers.Contains(handler))
-            _heartbeatEventHandlers.Remove(handler);
+        if (this.heartbeatEventHandlers.Contains(handler))
+            this.heartbeatEventHandlers.Remove(handler);
     }
 
     /// <summary>
@@ -237,7 +237,7 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// <param name="heartbeat"></param>
     private void NotifyHeartbeatReceived(SocketResponse heartbeat)
     {
-        foreach (var handler in _heartbeatEventHandlers.ToArray())
+        foreach (var handler in this.heartbeatEventHandlers.ToArray())
             handler.Invoke(this, heartbeat);
     }
 
@@ -245,7 +245,7 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// Clears all of the listeners from receiving event state changes.
     /// </summary>
     public void ClearHeartbeatHandlers() =>
-        _heartbeatEventHandlers.Clear();
+        this.heartbeatEventHandlers.Clear();
 
     /// <summary>
     /// Adds an error event handler.
@@ -253,8 +253,8 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// <param name="handler"></param>
     public void AddErrorHandler(IRealtimeSocket.ErrorEventHandler handler)
     {
-        if (!_errorEventHandlers.Contains(handler))
-            _errorEventHandlers.Add(handler);
+        if (!this.errorEventHandlers.Contains(handler))
+            this.errorEventHandlers.Add(handler);
     }
 
     /// <summary>
@@ -264,21 +264,21 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// <exception cref="NotImplementedException"></exception>
     public void RemoveErrorHandler(IRealtimeSocket.ErrorEventHandler handler)
     {
-        if (_errorEventHandlers.Contains(handler))
-            _errorEventHandlers.Remove(handler);
+        if (this.errorEventHandlers.Contains(handler))
+            this.errorEventHandlers.Remove(handler);
     }
 
     /// <summary>
     /// Clears Error Event Handlers
     /// </summary>
     public void ClearErrorHandlers() =>
-        _errorEventHandlers.Clear();
+        this.errorEventHandlers.Clear();
 
     private void NotifyErrorOccurred(RealtimeException exception)
     {
-        NotifySocketStateChange(SocketState.Error);
+        this.NotifySocketStateChange(SocketState.Error);
 
-        foreach (var handler in _errorEventHandlers.ToArray())
+        foreach (var handler in this.errorEventHandlers.ToArray())
             handler.Invoke(this, exception);
     }
 
@@ -293,14 +293,14 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     public void Push(SocketRequest data)
     {
         Debugger.Instance.Log(this,
-            $"Socket Push [topic: {data.Topic}, event: {data.Event}, ref: {data.Ref}]:\n\t{JsonConvert.SerializeObject(data.Payload, Formatting.Indented)}");
+            $"Socket Push [topic: {data.Topic}, event: {data.Event}, ref: {data.Ref}]:\n\t{JsonSerializer.Serialize(data.Payload, new JsonSerializerOptions { WriteIndented = true })}");
 
-        var task = new Task(() => _options.Encode!(data, encoded => _connection.Send(encoded)));
+        var task = new Task(() => this.options.Encode!(data, encoded => this.connection.Send(encoded)));
 
-        if (_connection.IsRunning)
+        if (this.connection.IsRunning)
             task.Start();
         else
-            _buffer.Add(task);
+            this.buffer.Add(task);
     }
 
     /// <summary>
@@ -319,12 +319,12 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
         {
             if (messageResponse.Ref != pingRef) return;
 
-            RemoveMessageReceivedHandler(messageHandler!);
+            this.RemoveMessageReceivedHandler(messageHandler!);
             tsc.SetResult((DateTime.Now - start).TotalMilliseconds);
         };
-        AddMessageReceivedHandler(messageHandler);
+        this.AddMessageReceivedHandler(messageHandler);
 
-        Push(new SocketRequest { Topic = "phoenix", Event = "heartbeat", Ref = pingRef });
+        this.Push(new SocketRequest { Topic = "phoenix", Event = "heartbeat", Ref = pingRef });
 
         return tsc.Task;
     }
@@ -334,21 +334,21 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// </summary>
     private void SendHeartbeat()
     {
-        if (!_connection.IsRunning) return;
+        if (!this.connection.IsRunning) return;
 
-        if (_hasPendingHeartbeat)
+        if (this.hasPendingHeartbeat)
         {
-            _hasPendingHeartbeat = false;
+            this.hasPendingHeartbeat = false;
             Debugger.Instance.Log(this, "Socket Heartbeat Timeout: Attempting to re-establish a connection.");
-            _connection.Stop(WebSocketCloseStatus.EndpointUnavailable, "heartbeat timeout");
+            this.connection.Stop(WebSocketCloseStatus.EndpointUnavailable, "heartbeat timeout");
             return;
         }
 
-        _pendingHeartbeatRef = MakeMsgRef();
+        this.pendingHeartbeatRef = this.MakeMsgRef();
 
-        Push(new SocketRequest
+        this.Push(new SocketRequest
         {
-            Topic = "phoenix", Event = "heartbeat", Ref = _pendingHeartbeatRef,
+            Topic = "phoenix", Event = "heartbeat", Ref = this.pendingHeartbeatRef,
             Payload = new Dictionary<string, string>()
         });
     }
@@ -358,35 +358,35 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// </summary>
     private void HandleSocketOpened()
     {
-        _reconnectionAttempts = 0;
-        _hasSuccessfullyConnectedOnce = true;
+        this.reconnectionAttempts = 0;
+        this.hasSuccessfullyConnectedOnce = true;
 
         // Was a reconnection attempt
-        if (_isReconnecting)
-            NotifySocketStateChange(SocketState.Reconnect);
+        if (this.isReconnecting)
+            this.NotifySocketStateChange(SocketState.Reconnect);
 
         // Reset flag for reconnections
-        _isReconnecting = false;
+        this.isReconnecting = false;
 
-        Debugger.Instance.Log(this, $"Socket Connected to: {EndpointUrl}");
+        Debugger.Instance.Log(this, $"Socket Connected to: {this.EndpointUrl}");
 
-        _heartbeatTokenSource?.Cancel();
-        _hasPendingHeartbeat = false;
-        _heartbeatTokenSource = new CancellationTokenSource();
-        Task.Run(EmitHeartbeat, _heartbeatTokenSource.Token);
+        this.heartbeatTokenSource?.Cancel();
+        this.hasPendingHeartbeat = false;
+        this.heartbeatTokenSource = new CancellationTokenSource();
+        Task.Run(this.EmitHeartbeat, this.heartbeatTokenSource.Token);
 
         // Send any pending `Push` messages that were queued while socket was disconnected.
-        FlushBuffer();
+        this.FlushBuffer();
 
-        NotifySocketStateChange(SocketState.Open);
+        this.NotifySocketStateChange(SocketState.Open);
     }
 
     private async Task EmitHeartbeat()
     {
-        while (_heartbeatTokenSource is { IsCancellationRequested: false })
+        while (this.heartbeatTokenSource is { IsCancellationRequested: false })
         {
-            SendHeartbeat();
-            await Task.Delay(_options.HeartbeatInterval, _heartbeatTokenSource.Token);
+            this.SendHeartbeat();
+            await Task.Delay(this.options.HeartbeatInterval, this.heartbeatTokenSource.Token);
         }
     }
 
@@ -401,9 +401,9 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
         Debugger.Instance.Log(this, $"Socket Reconnection: {reconnectionInfo.Type}");
 
         if (reconnectionInfo.Type != ReconnectionType.Initial)
-            _isReconnecting = true;
+            this.isReconnecting = true;
 
-        HandleSocketOpened();
+        this.HandleSocketOpened();
     }
 
     /// <summary>
@@ -415,9 +415,9 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
         Debugger.Instance.Log(this, $"Socket Disconnection: {disconnectionInfo.Type}", disconnectionInfo.Exception);
 
         if (disconnectionInfo.Exception != null)
-            HandleSocketError(disconnectionInfo);
+            this.HandleSocketError(disconnectionInfo);
         else
-            HandleSocketClosed(disconnectionInfo);
+            this.HandleSocketClosed(disconnectionInfo);
     }
 
     /// <summary>
@@ -426,19 +426,19 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// <param name="args"></param>
     private void HandleSocketMessage(ResponseMessage args)
     {
-        _options.Decode!(args.Text, decoded =>
+        this.options.Decode!(args.Text, decoded =>
         {
             Debugger.Instance.Log(this, $"Socket Message Received:\n\t{args.Text}");
 
             // Send Separate heartbeat event
-            if (decoded!.Ref == _pendingHeartbeatRef)
+            if (decoded!.Ref == this.pendingHeartbeatRef)
             {
-                NotifyHeartbeatReceived(decoded);
+                this.NotifyHeartbeatReceived(decoded);
                 return;
             }
 
             decoded.Json = args.Text;
-            NotifyMessageReceived(decoded);
+            this.NotifyMessageReceived(decoded);
         });
     }
 
@@ -449,18 +449,18 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// <exception cref="Exception"></exception>
     private void HandleSocketError(DisconnectionInfo? disconnectionInfo = null)
     {
-        switch (_hasSuccessfullyConnectedOnce)
+        switch (this.hasSuccessfullyConnectedOnce)
         {
             case true:
-            {
-                _isReconnecting = true;
-                _connection.ReconnectTimeout = _options.ReconnectAfterInterval(++_reconnectionAttempts);
-                var nextInterval = DateTime.Now.AddSeconds(_connection.ReconnectTimeout.Value.Seconds).ToLocalTime();
-                Debugger.Instance.Log(this, $"Next reconnection attempt will occur at: {nextInterval}");
-                break;
-            }
+                {
+                    this.isReconnecting = true;
+                    this.connection.ReconnectTimeout = this.options.ReconnectAfterInterval(++this.reconnectionAttempts);
+                    var nextInterval = DateTime.Now.AddSeconds(this.connection.ReconnectTimeout.Value.Seconds).ToLocalTime();
+                    Debugger.Instance.Log(this, $"Next reconnection attempt will occur at: {nextInterval}");
+                    break;
+                }
             case false when disconnectionInfo is { Exception: not RealtimeException }:
-                NotifyErrorOccurred(RealtimeException.FromDisconnectionInfo(disconnectionInfo));
+                this.NotifyErrorOccurred(RealtimeException.FromDisconnectionInfo(disconnectionInfo));
                 break;
         }
     }
@@ -468,10 +468,7 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// <summary>
     /// Begins the reconnection thread with a progressively increasing interval.
     /// </summary>
-    private void HandleSocketClosed(DisconnectionInfo? disconnectionInfo = null)
-    {
-        Debugger.Instance.Log(this, $"Socket Closed at {DateTime.Now.ToLocalTime()}", disconnectionInfo?.Exception);
-    }
+    private void HandleSocketClosed(DisconnectionInfo? disconnectionInfo = null) => Debugger.Instance.Log(this, $"Socket Closed at {DateTime.Now.ToLocalTime()}", disconnectionInfo?.Exception);
 
     #endregion
 
@@ -494,8 +491,8 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// </summary>
     private async void DisposeConnection()
     {
-        await _connection.Stop(WebSocketCloseStatus.NormalClosure, string.Empty);
-        _connection.Dispose();
+        await this.connection.Stop(WebSocketCloseStatus.NormalClosure, string.Empty);
+        this.connection.Dispose();
     }
 
     /// <summary>
@@ -503,15 +500,15 @@ public class RealtimeSocket : IDisposable, IRealtimeSocket
     /// </summary>
     private void FlushBuffer()
     {
-        if (!_connection.IsRunning || _buffer.Count == 0) return;
+        if (!this.connection.IsRunning || this.buffer.Count == 0) return;
 
         Debugger.Instance.Log(this,
-            $"Socket Flushing Buffer: Connection has been reestablished and socket is sending {_buffer.Count} messages");
-        foreach (var item in _buffer)
+            $"Socket Flushing Buffer: Connection has been reestablished and socket is sending {this.buffer.Count} messages");
+        foreach (var item in this.buffer)
         {
             item.Start();
         }
 
-        _buffer.Clear();
+        this.buffer.Clear();
     }
 }

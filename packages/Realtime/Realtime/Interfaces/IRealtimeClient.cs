@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.WebSockets;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Supabase.Core.Interfaces;
 using Supabase.Realtime.Channel;
@@ -16,7 +16,7 @@ namespace Supabase.Realtime.Interfaces;
 /// </summary>
 /// <typeparam name="TSocket"></typeparam>
 /// <typeparam name="TChannel"></typeparam>
-public interface IRealtimeClient<TSocket, TChannel>: IGettableHeaders
+public interface IRealtimeClient<TSocket, TChannel> : IGettableHeaders
     where TSocket : IRealtimeSocket
     where TChannel : IRealtimeChannel
 {
@@ -28,7 +28,7 @@ public interface IRealtimeClient<TSocket, TChannel>: IGettableHeaders
     /// <summary>
     /// Json serializer settings
     /// </summary>
-    JsonSerializerSettings SerializerSettings { get; }
+    JsonSerializerOptions SerializerSettings { get; }
 
     /// <summary>
     /// The connected realtime socket

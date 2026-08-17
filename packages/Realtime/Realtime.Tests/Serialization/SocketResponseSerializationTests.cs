@@ -1,6 +1,6 @@
+using System.Text.Json;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
 using Realtime.Tests.Support;
 using Supabase.Realtime.Socket;
 using static Supabase.Realtime.Constants;
@@ -50,7 +50,7 @@ public class SocketResponseSerializationTests
     [DataRow("TRUNCATE", EventType.Unknown)]
     public void PayloadType_ShouldMapActionString(string action, EventType expected)
     {
-        var payload = JsonConvert.DeserializeObject<SocketResponsePayload>($"{{\"type\":\"{action}\"}}");
+        var payload = JsonSerializer.Deserialize<SocketResponsePayload>($"{{\"type\":\"{action}\"}}", Wire.Settings());
         payload!.Type.Should().Be(expected);
     }
 
@@ -59,7 +59,7 @@ public class SocketResponseSerializationTests
     {
         const string json =
             "{\"schema\":\"public\",\"table\":\"todos\",\"type\":\"UPDATE\",\"errors\":[\"Error 413: Payload Too Large\"]}";
-        var payload = JsonConvert.DeserializeObject<SocketResponsePayload>(json);
+        var payload = JsonSerializer.Deserialize<SocketResponsePayload>(json, Wire.Settings());
         payload!.Errors.Should().ContainSingle().Which.Should().Be("Error 413: Payload Too Large");
     }
 
@@ -67,7 +67,7 @@ public class SocketResponseSerializationTests
     public void PayloadErrors_ShouldBeNull_GivenAbsent()
     {
         const string json = "{\"schema\":\"public\",\"table\":\"todos\",\"type\":\"UPDATE\",\"errors\":null}";
-        var payload = JsonConvert.DeserializeObject<SocketResponsePayload>(json);
+        var payload = JsonSerializer.Deserialize<SocketResponsePayload>(json, Wire.Settings());
         payload!.Errors.Should().BeNull();
     }
 }

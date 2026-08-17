@@ -1,9 +1,9 @@
 using System;
 using System.IO;
+using System.Text.Json;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
 using Realtime.Tests.Models;
 using Realtime.Tests.Support;
 using Supabase.Postgrest.Exceptions;
@@ -28,7 +28,7 @@ public class PostgresChangesModelTests
     {
         var json = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "Fixtures", "PostgresChangesUpdateEvent.json"));
         var settings = Wire.Settings();
-        var response = JsonConvert.DeserializeObject<PostgresChangesResponse>(json, settings)!;
+        var response = JsonSerializer.Deserialize<PostgresChangesResponse>(json, settings)!;
         response.Json = json;
         response.SerializerSettings = settings;
         response.PostgrestClient = postgrestClient;

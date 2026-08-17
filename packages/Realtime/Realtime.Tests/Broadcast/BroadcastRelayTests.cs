@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
 using Realtime.Tests.Models;
+using Realtime.Tests.Support;
 using Supabase.Postgrest.Interfaces;
 using Supabase.Realtime;
 using Supabase.Realtime.Broadcast;
@@ -27,13 +27,13 @@ public class BroadcastRelayTests
     [TestInitialize]
     public async Task InitializeTest()
     {
-        restClient = Helpers.RestClient();
-        socketClient = Helpers.SocketClient();
-        await socketClient.ConnectAsync();
+        this.restClient = Helpers.RestClient();
+        this.socketClient = Helpers.SocketClient();
+        await this.socketClient.ConnectAsync();
     }
 
     [TestCleanup]
-    public void CleanupTest() => socketClient.Disconnect();
+    public void CleanupTest() => this.socketClient.Disconnect();
 
     [TestMethod]
     public async Task Broadcast_ShouldRelayBetweenClients()
@@ -42,7 +42,7 @@ public class BroadcastRelayTests
         var tsc2 = new TaskCompletionSource<bool>();
         var guid1 = Guid.NewGuid().ToString();
         var guid2 = Guid.NewGuid().ToString();
-        var channel1 = socketClient.Channel("online-users");
+        var channel1 = this.socketClient.Channel("online-users");
         var broadcast1 = channel1.Register<BroadcastExample>(true, true);
         broadcast1.AddBroadcastEventHandler((_, _) =>
         {
@@ -77,7 +77,7 @@ public class BroadcastRelayTests
         var client1 = Helpers.PrivateSocketClient();
         await client1.ConnectAsync();
         var channel1 = client1.Channel("online-users",
-            ChannelOptions.Private(client1.Options, () => Helpers.ApiKey, new JsonSerializerSettings()));
+            ChannelOptions.Private(client1.Options, () => Helpers.ApiKey, Wire.Settings()));
         var broadcast1 = channel1.Register<BroadcastExample>(true, true);
         broadcast1.AddBroadcastEventHandler((_, _) =>
         {
@@ -88,7 +88,7 @@ public class BroadcastRelayTests
         var client2 = Helpers.PrivateSocketClient();
         await client2.ConnectAsync();
         var channel2 = client2.Channel("online-users",
-            ChannelOptions.Private(client2.Options, () => Helpers.ApiKey, new JsonSerializerSettings()));
+            ChannelOptions.Private(client2.Options, () => Helpers.ApiKey, Wire.Settings()));
         var broadcast2 = channel2.Register<BroadcastExample>(true, true);
         broadcast2.AddBroadcastEventHandler((_, _) =>
         {
@@ -108,7 +108,7 @@ public class BroadcastRelayTests
     {
         // Mirrors the most natural usage: Channel(name) -> Subscribe() -> Send(), with no
         // Register<T>(broadcastAck: true). See supabase-community/realtime-csharp#38.
-        var channel = socketClient.Channel("no-ack-broadcast");
+        var channel = this.socketClient.Channel("no-ack-broadcast");
         await channel.Subscribe();
         var sendTask = channel.Send(Constants.ChannelEventName.Broadcast, "test_event",
             new BroadcastExample { UserId = Guid.NewGuid().ToString() });
@@ -126,7 +126,7 @@ public class BroadcastRelayTests
             { "topic", "online-users" },
             { "private", true }
         };
-        await restClient.Rpc("send", send);
+        await this.restClient.Rpc("send", send);
         var tsc = new TaskCompletionSource<bool>();
         var client1 = Helpers.PrivateSocketClient();
         await client1.ConnectAsync();
@@ -141,7 +141,7 @@ public class BroadcastRelayTests
             }
         };
         var channel1 = client1.Channel("online-users",
-            ChannelOptions.Private(client1.Options, () => null, new JsonSerializerSettings()));
+            ChannelOptions.Private(client1.Options, () => null, Wire.Settings()));
         var broadcast1 = channel1.Register<BroadcastExample>(broadcastOptions);
         broadcast1.AddBroadcastEventHandler((_, _) =>
         {
