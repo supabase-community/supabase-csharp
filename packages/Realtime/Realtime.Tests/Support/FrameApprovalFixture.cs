@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json;
 using Supabase.Realtime;
 using Supabase.Realtime.Socket;
 using VerifyMSTest;
@@ -19,5 +19,5 @@ public abstract class FrameApprovalFixture : VerifyBase
 
     /// <summary>Serializes a socket frame exactly as the client encodes it before writing to the websocket.</summary>
     protected string Encode(SocketRequest frame) =>
-        JsonConvert.SerializeObject(frame, this.client.SerializerSettings);
+        JsonSerializer.Serialize(frame, this.client.SerializerSettings);
 }

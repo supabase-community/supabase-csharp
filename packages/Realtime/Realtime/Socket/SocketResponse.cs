@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Supabase.Realtime.Interfaces;
 using static Supabase.Realtime.Constants;
 
@@ -10,15 +11,20 @@ namespace Supabase.Realtime.Socket;
 /// <typeparam name="T"></typeparam>
 public class SocketResponse<T> : SocketResponse where T : class
 {
-	/// <inheritdoc />
-	public SocketResponse(JsonSerializerSettings serializerSettings) : base(serializerSettings)
-	{ }
+    /// <summary>
+    /// Parameterless constructor used by System.Text.Json when deserializing.
+    /// </summary>
+    public SocketResponse() { }
 
-	/// <summary>
-	/// The typed payload response
-	/// </summary>
-	[JsonProperty("payload")]
-	public new T? Payload { get; set; }
+    /// <inheritdoc />
+    public SocketResponse(JsonSerializerOptions serializerSettings) : base(serializerSettings)
+    { }
+
+    /// <summary>
+    /// The typed payload response
+    /// </summary>
+    [JsonPropertyName("payload")]
+    public new T? Payload { get; set; }
 }
 
 /// <summary>
@@ -26,65 +32,68 @@ public class SocketResponse<T> : SocketResponse where T : class
 /// </summary>
 public class SocketResponse : IRealtimeSocketResponse
 {
-	internal JsonSerializerSettings SerializerSettings;
+    internal JsonSerializerOptions? SerializerSettings;
 
-	/// <summary>
-	/// Represents a socket response
-	/// </summary>
-	/// <param name="serializerSettings"></param>
-	public SocketResponse(JsonSerializerSettings serializerSettings)
-	{
-		SerializerSettings = serializerSettings;
-	}
+    /// <summary>
+    /// Parameterless constructor used by System.Text.Json when deserializing. Callers set
+    /// <see cref="SerializerSettings"/> afterward so the typed payload can be re-parsed.
+    /// </summary>
+    public SocketResponse() { }
 
-	/// <summary>
-	/// The internal realtime topic.
-	/// </summary>
-	[JsonProperty("topic")]
-	public string? Topic { get; set; }
+    /// <summary>
+    /// Represents a socket response
+    /// </summary>
+    /// <param name="serializerSettings"></param>
+    public SocketResponse(JsonSerializerOptions serializerSettings) => this.SerializerSettings = serializerSettings;
 
-	/// <summary>
-	/// The internal, raw event given by the socket
-	/// </summary>
-	[JsonProperty("event")]
-	public string? _event { get; set; }
+    /// <summary>
+    /// The internal realtime topic.
+    /// </summary>
+    [JsonPropertyName("topic")]
+    public string? Topic { get; set; }
 
-	/// <summary>
-	/// The typed, parsed event given by this library. 
-	/// </summary>
-	[JsonIgnore]
-	public EventType Event
-	{
-		get
-		{
-			return _event switch
-			{
-				ChannelEventPresenceState => EventType.PresenceState,
-				ChannelEventPresenceDiff => EventType.PresenceDiff,
-				ChannelEventBroadcast => EventType.Broadcast,
-				ChannelEventPostgresChanges => EventType.PostgresChanges,
-				ChannelEventSystem => EventType.System,
-				ChannelEventReply => EventType.PostgresChanges,
-				_ => Payload?.Type ?? EventType.Unknown
-			};
-		}
-	}
+    /// <summary>
+    /// The internal, raw event given by the socket
+    /// </summary>
+    [JsonPropertyName("event")]
+    public string? _event { get; set; }
 
-	/// <summary>
-	/// The payload/response.
-	/// </summary>
-	[JsonProperty("payload")]
-	public SocketResponsePayload? Payload { get; set; }
+    /// <summary>
+    /// The typed, parsed event given by this library.
+    /// </summary>
+    [JsonIgnore]
+    public EventType Event
+    {
+        get
+        {
+            return this._event switch
+            {
+                ChannelEventPresenceState => EventType.PresenceState,
+                ChannelEventPresenceDiff => EventType.PresenceDiff,
+                ChannelEventBroadcast => EventType.Broadcast,
+                ChannelEventPostgresChanges => EventType.PostgresChanges,
+                ChannelEventSystem => EventType.System,
+                ChannelEventReply => EventType.PostgresChanges,
+                _ => this.Payload?.Type ?? EventType.Unknown
+            };
+        }
+    }
 
-	/// <summary>
-	/// An internal reference to this particular feedback loop.
-	/// </summary>
-	[JsonProperty("ref")]
-	public string? Ref { get; set; }
+    /// <summary>
+    /// The payload/response.
+    /// </summary>
+    [JsonPropertyName("payload")]
+    public SocketResponsePayload? Payload { get; set; }
 
-	/// <summary>
-	/// The raw JSON string of the received data.
-	/// </summary>
-	[JsonIgnore]
-	internal string? Json { get; set; }
+    /// <summary>
+    /// An internal reference to this particular feedback loop.
+    /// </summary>
+    [JsonPropertyName("ref")]
+    public string? Ref { get; set; }
+
+    /// <summary>
+    /// The raw JSON string of the received data.
+    /// </summary>
+    [JsonIgnore]
+    internal string? Json { get; set; }
 }

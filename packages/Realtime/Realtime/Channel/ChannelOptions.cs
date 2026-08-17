@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace Supabase.Realtime.Channel;
 
@@ -31,7 +31,7 @@ public class ChannelOptions
     /// <summary>
     /// The Serializer Settings
     /// </summary>
-    public JsonSerializerSettings SerializerSettings { get; }
+    public JsonSerializerOptions SerializerSettings { get; }
 
     /// <summary>
     /// Whether the channel is private, i.e. authorized against the server's Row Level Security
@@ -49,7 +49,7 @@ public class ChannelOptions
     public ChannelOptions(
         ClientOptions clientOptions,
         Func<string?> retrieveAccessToken,
-        JsonSerializerSettings serializerSettings
+        JsonSerializerOptions serializerSettings
     ) : this(clientOptions, retrieveAccessToken, serializerSettings, false)
     {
     }
@@ -57,14 +57,14 @@ public class ChannelOptions
     private ChannelOptions(
         ClientOptions clientOptions,
         Func<string?> retrieveAccessToken,
-        JsonSerializerSettings serializerSettings,
+        JsonSerializerOptions serializerSettings,
         bool isPrivate
     )
     {
-        ClientOptions = clientOptions;
-        SerializerSettings = serializerSettings;
-        RetrieveAccessToken = retrieveAccessToken;
-        IsPrivate = isPrivate;
+        this.ClientOptions = clientOptions;
+        this.SerializerSettings = serializerSettings;
+        this.RetrieveAccessToken = retrieveAccessToken;
+        this.IsPrivate = isPrivate;
     }
 
     /// <summary>
@@ -76,7 +76,7 @@ public class ChannelOptions
     public static ChannelOptions Public(
         ClientOptions clientOptions,
         Func<string?> retrieveAccessToken,
-        JsonSerializerSettings serializerSettings
+        JsonSerializerOptions serializerSettings
     ) => new(clientOptions, retrieveAccessToken, serializerSettings, false);
 
     /// <summary>
@@ -89,6 +89,6 @@ public class ChannelOptions
     public static ChannelOptions Private(
         ClientOptions clientOptions,
         Func<string?> retrieveAccessToken,
-        JsonSerializerSettings serializerSettings
+        JsonSerializerOptions serializerSettings
     ) => new(clientOptions, retrieveAccessToken, serializerSettings, true);
 }

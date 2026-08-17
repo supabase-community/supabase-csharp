@@ -1,8 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
-using Newtonsoft.Json;
 using Supabase.Postgrest.Interfaces;
 using Supabase.Realtime.Socket;
 

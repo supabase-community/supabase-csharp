@@ -1,11 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Net.WebSockets;
+using System.Text.Json;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using Supabase.Realtime.Channel;
 using Supabase.Realtime.Exceptions;
 using Supabase.Realtime.Interfaces;
@@ -32,7 +31,7 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
     /// <summary>
     /// Exposes all Realtime RealtimeChannel Subscriptions for R/O public consumption 
     /// </summary>
-    public ReadOnlyDictionary<string, RealtimeChannel> Subscriptions => new(_subscriptions);
+    public ReadOnlyDictionary<string, RealtimeChannel> Subscriptions => new(this.subscriptions);
 
     /// <summary>
     /// The backing Socket class.
@@ -46,18 +45,18 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
     /// </summary>
     public ClientOptions Options { get; }
 
-    private Func<Dictionary<string, string>>? _getHeaders { get; set; }
-    
+    private Func<Dictionary<string, string>>? getHeaders { get; set; }
+
     /// <inheritdoc />
     public Func<Dictionary<string, string>>? GetHeaders
     {
-        get => _getHeaders;
+        get => this.getHeaders;
         set
         {
-            _getHeaders = value;
-            
-            if (Socket != null)
-                Socket.GetHeaders = value;
+            this.getHeaders = value;
+
+            if (this.Socket != null)
+                this.Socket.GetHeaders = value;
         }
     }
 
@@ -67,34 +66,20 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
     /// By default, Postgrest seems to use a date format that C# and Newtonsoft do not like, so this initial
     /// configuration handles that.
     /// </summary>
-    public JsonSerializerSettings SerializerSettings =>
-        new()
-        {
-            ContractResolver = new CustomContractResolver(),
-            Converters =
-            {
-                // 2020-08-28T12:01:54.763231
-                new IsoDateTimeConverter
-                {
-                    DateTimeStyles = Options.DateTimeStyles,
-                    DateTimeFormat = Options.DateTimeFormat
-                }
-            },
-            MissingMemberHandling = MissingMemberHandling.Ignore
-        };
+    public JsonSerializerOptions SerializerSettings => RealtimeSerializerOptions.Build(this.Options);
 
     /// <summary>
     /// JWT Access token for WALRUS security
     /// </summary>
     private string? AccessToken { get; set; }
 
-    private readonly string _realtimeUrl;
+    private readonly string realtimeUrl;
 
     /// <summary>
     /// Handlers for notifications of state changes.
     /// </summary>
     private readonly List<IRealtimeClient<RealtimeSocket, RealtimeChannel>.SocketStateEventHandler>
-        _socketEventHandlers = new();
+        socketEventHandlers = new();
 
     /// <summary>
     /// Contains all Realtime RealtimeChannel Subscriptions - state managed internally.
@@ -102,7 +87,7 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
     /// Keys are of encoded value: `{database}{:schema?}{:table?}{:col.eq.:value?}`
     /// Values are of type `RealtimeChannel<T> where T : BaseModel, new()`;
     /// </summary>
-    private readonly Dictionary<string, RealtimeChannel> _subscriptions;
+    private readonly Dictionary<string, RealtimeChannel> subscriptions;
 
     /// <summary>
     /// Initializes a Client instance, this method should be called prior to any other method.
@@ -112,13 +97,13 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
     /// <returns>Client</returns>
     public Client(string realtimeUrl, ClientOptions? options = null)
     {
-        _realtimeUrl = realtimeUrl;
-        _subscriptions = new Dictionary<string, RealtimeChannel>();
+        this.realtimeUrl = realtimeUrl;
+        this.subscriptions = new Dictionary<string, RealtimeChannel>();
 
         options ??= new ClientOptions();
-        options.Encode ??= DefaultMessageEncoder;
-        options.Decode ??= DefaultMessageDecoder;
-        Options = options;
+        options.Encode ??= this.DefaultMessageEncoder;
+        options.Decode ??= this.DefaultMessageDecoder;
+        this.Options = options;
     }
 
 
@@ -132,14 +117,14 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
     {
         var tsc = new TaskCompletionSource<IRealtimeClient<RealtimeSocket, RealtimeChannel>>();
 
-        if (Socket != null)
+        if (this.Socket != null)
         {
             Debugger.Instance.Log(this, "Calling `ConnectAsync` on an instance that already has a `Socket`");
             tsc.SetResult(this);
         }
 
-        Socket = new RealtimeSocket(_realtimeUrl, Options);
-        Socket.GetHeaders = GetHeaders;
+        this.Socket = new RealtimeSocket(this.realtimeUrl, this.Options);
+        this.Socket.GetHeaders = this.GetHeaders;
 
         IRealtimeSocket.StateEventHandler? socketStateHandler = null;
         socketStateHandler = (sender, state) =>
@@ -148,23 +133,23 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
 
             sender.RemoveStateChangedHandler(socketStateHandler!);
 
-            Socket.AddMessageReceivedHandler(HandleSocketMessageReceived);
-            Socket.AddHeartbeatHandler(HandleSocketHeartbeat);
+            this.Socket.AddMessageReceivedHandler(this.HandleSocketMessageReceived);
+            this.Socket.AddHeartbeatHandler(this.HandleSocketHeartbeat);
 
-            NotifySocketStateChange(SocketState.Open);
+            this.NotifySocketStateChange(SocketState.Open);
             tsc.TrySetResult(this);
         };
 
-        Socket.AddStateChangedHandler(socketStateHandler);
+        this.Socket.AddStateChangedHandler(socketStateHandler);
 
         try
         {
-            await Socket.Connect();
+            await this.Socket.Connect();
             await tsc.Task;
         }
         catch (WebsocketException ex)
         {
-            Socket = null;
+            this.Socket = null;
             throw new RealtimeException(ex.Message, ex) { Reason = FailureHint.Reason.SocketError };
         }
 
@@ -182,14 +167,14 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
     public IRealtimeClient<RealtimeSocket, RealtimeChannel> Connect(
         Action<IRealtimeClient<RealtimeSocket, RealtimeChannel>, RealtimeException?>? callback = null)
     {
-        if (Socket != null)
+        if (this.Socket != null)
         {
             Debugger.Instance.Log(this, "Calling `ConnectAsync` on an instance that already has a `Socket`");
             callback?.Invoke(this, null);
             return this;
         }
 
-        Socket = new RealtimeSocket(_realtimeUrl, Options);
+        this.Socket = new RealtimeSocket(this.realtimeUrl, this.Options);
         IRealtimeSocket.StateEventHandler? socketStateHandler = null;
         IRealtimeSocket.ErrorEventHandler? errorEventHandler = null;
 
@@ -197,26 +182,26 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
         {
             if (state != SocketState.Open) return;
 
-            Socket.AddMessageReceivedHandler(HandleSocketMessageReceived);
-            Socket.AddHeartbeatHandler(HandleSocketHeartbeat);
+            this.Socket.AddMessageReceivedHandler(this.HandleSocketMessageReceived);
+            this.Socket.AddHeartbeatHandler(this.HandleSocketHeartbeat);
 
             sender.RemoveStateChangedHandler(socketStateHandler!);
             sender.RemoveErrorHandler(errorEventHandler!);
 
-            NotifySocketStateChange(SocketState.Open);
+            this.NotifySocketStateChange(SocketState.Open);
 
             callback?.Invoke(this, null);
         };
 
         errorEventHandler = (sender, ex) =>
         {
-            Socket = null;
+            this.Socket = null;
             callback?.Invoke(this, ex);
         };
 
-        Socket.AddStateChangedHandler(socketStateHandler);
-        Socket.AddErrorHandler(errorEventHandler);
-        Socket.Connect();
+        this.Socket.AddStateChangedHandler(socketStateHandler);
+        this.Socket.AddErrorHandler(errorEventHandler);
+        this.Socket.Connect();
 
         return this;
     }
@@ -227,10 +212,10 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
     public void AddStateChangedHandler(
         IRealtimeClient<RealtimeSocket, RealtimeChannel>.SocketStateEventHandler handler)
     {
-        if (_socketEventHandlers.Contains(handler))
+        if (this.socketEventHandlers.Contains(handler))
             return;
 
-        _socketEventHandlers.Add(handler);
+        this.socketEventHandlers.Add(handler);
     }
 
     /// <summary>
@@ -239,17 +224,17 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
     public void RemoveStateChangedHandler(
         IRealtimeClient<RealtimeSocket, RealtimeChannel>.SocketStateEventHandler handler)
     {
-        if (!_socketEventHandlers.Contains(handler))
+        if (!this.socketEventHandlers.Contains(handler))
             return;
 
-        _socketEventHandlers.Remove(handler);
+        this.socketEventHandlers.Remove(handler);
     }
 
     /// <summary>
     /// Clears all of the listeners from receiving socket state changes.
     /// </summary>
     public void ClearStateChangedHandlers() =>
-        _socketEventHandlers.Clear();
+        this.socketEventHandlers.Clear();
 
     /// <summary>
     /// Notifies all listeners that the current user auth state has changed.
@@ -259,7 +244,7 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
     /// <param name="stateChanged"></param>
     private void NotifySocketStateChange(SocketState stateChanged)
     {
-        foreach (var handler in _socketEventHandlers.ToArray())
+        foreach (var handler in this.socketEventHandlers.ToArray())
             handler.Invoke(this, stateChanged);
     }
 
@@ -289,8 +274,8 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
     /// </summary>
     private void HandleSocketHeartbeat(IRealtimeSocket sender, SocketResponse message)
     {
-        if (!string.IsNullOrEmpty(AccessToken))
-            SetAuth(AccessToken!);
+        if (!string.IsNullOrEmpty(this.AccessToken))
+            this.SetAuth(this.AccessToken!);
     }
 
     /// <summary>
@@ -302,12 +287,12 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
     public IRealtimeClient<RealtimeSocket, RealtimeChannel> Disconnect(
         WebSocketCloseStatus code = WebSocketCloseStatus.NormalClosure, string reason = "Programmatic Disconnect")
     {
-        if (Socket != null)
+        if (this.Socket != null)
         {
-            Socket.RemoveMessageReceivedHandler(HandleSocketMessageReceived);
-            Socket.RemoveStateChangedHandler(HandleSocketStateChanged);
-            Socket.Disconnect(code, reason);
-            Socket = null;
+            this.Socket.RemoveMessageReceivedHandler(this.HandleSocketMessageReceived);
+            this.Socket.RemoveStateChangedHandler(this.HandleSocketStateChanged);
+            this.Socket.Disconnect(code, reason);
+            this.Socket = null;
         }
 
         return this;
@@ -320,18 +305,18 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
     /// <param name="jwt"></param>
     public void SetAuth(string jwt)
     {
-        AccessToken = jwt;
+        this.AccessToken = jwt;
 
-        foreach (var channel in _subscriptions.Values)
+        foreach (var channel in this.subscriptions.Values)
         {
             // See: https://github.com/supabase/realtime-js/pull/126
-            channel.Options.Parameters!["user_token"] = AccessToken;
+            channel.Options.Parameters!["user_token"] = this.AccessToken;
 
             if (channel.HasJoinedOnce && channel.IsJoined)
             {
                 channel.Push(Constants.ChannelAccessToken, payload: new Dictionary<string, string>
                 {
-                    { "access_token", AccessToken }
+                    { "access_token", this.AccessToken }
                 });
             }
         }
@@ -348,7 +333,7 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
     /// <returns></returns>
     /// <exception cref="Exception"></exception>
     public RealtimeChannel Channel(string channelName) =>
-        Channel(channelName, ChannelOptions.Public(Options, () => AccessToken, SerializerSettings));
+        this.Channel(channelName, ChannelOptions.Public(this.Options, () => this.AccessToken, this.SerializerSettings));
 
     /// <summary>
     /// Adds a RealtimeChannel subscription with custom options - if a subscription exists with the same signature, the existing subscription will be returned.
@@ -366,14 +351,14 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
             ? channelName
             : $"realtime:{channelName}";
 
-        if (_subscriptions.TryGetValue(topic, out var channel))
+        if (this.subscriptions.TryGetValue(topic, out var channel))
             return channel;
 
-        if (Socket == null)
+        if (this.Socket == null)
             throw new Exception("Socket must exist, was `Connect` called?");
 
-        var subscription = new RealtimeChannel(Socket!, topic, options);
-        _subscriptions.Add(topic, subscription);
+        var subscription = new RealtimeChannel(this.Socket!, topic, options);
+        this.subscriptions.Add(topic, subscription);
 
         return subscription;
     }
@@ -393,20 +378,20 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
     {
         var key = Utils.GenerateChannelTopic(database, schema, table, column, value);
 
-        if (_subscriptions.TryGetValue(key, out var channel))
+        if (this.subscriptions.TryGetValue(key, out var channel))
             return channel;
 
-        if (Socket == null)
+        if (this.Socket == null)
             throw new Exception("Socket must exist, was `Connect` called?");
 
         var changesOptions = new PostgresChangesOptions(schema, table,
             filter: column != null && value != null ? $"{column}=eq.{value}" : null, parameters: parameters);
-        var options = ChannelOptions.Public(Options, () => AccessToken, SerializerSettings);
+        var options = ChannelOptions.Public(this.Options, () => this.AccessToken, this.SerializerSettings);
 
-        var subscription = new RealtimeChannel(Socket!, key, options);
+        var subscription = new RealtimeChannel(this.Socket!, key, options);
         subscription.RegisterPostgresChangesOptions(changesOptions);
 
-        _subscriptions.Add(key, subscription);
+        this.subscriptions.Add(key, subscription);
 
         return subscription;
     }
@@ -417,12 +402,12 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
     /// <param name="channel"></param>
     public void Remove(RealtimeChannel channel)
     {
-        if (_subscriptions.ContainsKey(channel.Topic))
+        if (this.subscriptions.ContainsKey(channel.Topic))
         {
             if (channel.IsJoined)
                 channel.Unsubscribe();
 
-            _subscriptions.Remove(channel.Topic);
+            this.subscriptions.Remove(channel.Topic);
         }
     }
 
@@ -434,10 +419,7 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
     /// </summary>
     /// <param name="payload"></param>
     /// <param name="callback"></param>
-    private void DefaultMessageEncoder(object payload, Action<string> callback)
-    {
-        callback(JsonConvert.SerializeObject(payload, SerializerSettings));
-    }
+    private void DefaultMessageEncoder(object payload, Action<string> callback) => callback(JsonSerializer.Serialize(payload, payload.GetType(), this.SerializerSettings));
 
     /// <summary>
     /// The default socket message decoder, used to deserialize messages from the socket server.
@@ -449,14 +431,15 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
     /// <param name="callback"></param>
     private void DefaultMessageDecoder(string payload, Action<SocketResponse?> callback)
     {
-        var response = new SocketResponse(SerializerSettings);
-        JsonConvert.PopulateObject(payload, response, SerializerSettings);
+        var response = JsonSerializer.Deserialize<SocketResponse>(payload, this.SerializerSettings);
+        if (response != null)
+            response.SerializerSettings = this.SerializerSettings;
         callback(response);
     }
 
     private void HandleSocketMessageReceived(IRealtimeSocket sender, SocketResponse message)
     {
-        if (message.Topic != null && _subscriptions.TryGetValue(message.Topic, out var subscription))
+        if (message.Topic != null && this.subscriptions.TryGetValue(message.Topic, out var subscription))
             subscription.HandleSocketMessage(message);
     }
 
@@ -466,20 +449,20 @@ public class Client : IRealtimeClient<RealtimeSocket, RealtimeChannel>
         {
             case SocketState.Open:
                 // Ref: https://github.com/supabase/realtime-js/pull/116/files
-                if (!string.IsNullOrEmpty(AccessToken))
-                    SetAuth(AccessToken!);
+                if (!string.IsNullOrEmpty(this.AccessToken))
+                    this.SetAuth(this.AccessToken!);
 
-                NotifySocketStateChange(SocketState.Open);
+                this.NotifySocketStateChange(SocketState.Open);
                 break;
             case SocketState.Reconnect:
                 // Ref: https://github.com/supabase/realtime-js/pull/116/files
-                if (!string.IsNullOrEmpty(AccessToken))
-                    SetAuth(AccessToken!);
+                if (!string.IsNullOrEmpty(this.AccessToken))
+                    this.SetAuth(this.AccessToken!);
 
-                NotifySocketStateChange(SocketState.Reconnect);
+                this.NotifySocketStateChange(SocketState.Reconnect);
                 break;
             default:
-                NotifySocketStateChange(state);
+                this.NotifySocketStateChange(state);
                 break;
         }
     }

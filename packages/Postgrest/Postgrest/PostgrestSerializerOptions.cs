@@ -42,6 +42,9 @@ internal static class PostgrestSerializerOptions
         {
             TypeInfoResolver = resolver,
             PropertyNameCaseInsensitive = true,
+            // PostgREST returns some numeric columns as JSON strings (e.g. "user_id":"1"); Newtonsoft coerced
+            // these into the model's numeric property, System.Text.Json is strict without this.
+            NumberHandling = JsonNumberHandling.AllowReadingFromString,
             Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
             Converters =
             {

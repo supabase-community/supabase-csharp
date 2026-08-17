@@ -1,8 +1,8 @@
 using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Supabase.Realtime.Broadcast;
 using Supabase.Realtime.Channel;
 using Supabase.Realtime.PostgresChanges;
@@ -19,20 +19,14 @@ namespace Realtime.Tests.Serialization;
 [TestCategory("Unit")]
 public class JoinPushConfigTests
 {
-    private static JObject Config(JoinPush joinPush) =>
-        (JObject) JObject.Parse(JsonConvert.SerializeObject(joinPush))["config"]!;
+    private static JsonObject Config(JoinPush joinPush) =>
+        JsonNode.Parse(JsonSerializer.Serialize(joinPush))!["config"]!.AsObject();
 
     [TestMethod]
-    public void ForPrivateChannel_ShouldFlagConfigPrivate()
-    {
-        Config(JoinPush.ForPrivateChannel())["private"]!.Value<bool>().Should().BeTrue();
-    }
+    public void ForPrivateChannel_ShouldFlagConfigPrivate() => Config(JoinPush.ForPrivateChannel())["private"]!.GetValue<bool>().Should().BeTrue();
 
     [TestMethod]
-    public void ForPublicChannel_ShouldNotFlagConfigPrivate()
-    {
-        Config(JoinPush.ForPublicChannel())["private"]!.Value<bool>().Should().BeFalse();
-    }
+    public void ForPublicChannel_ShouldNotFlagConfigPrivate() => Config(JoinPush.ForPublicChannel())["private"]!.GetValue<bool>().Should().BeFalse();
 
     [TestMethod]
     public void ForPublicChannel_ShouldOmitBroadcastAndPresence_GivenAbsent()
@@ -47,22 +41,22 @@ public class JoinPushConfigTests
     {
         var options = new List<PostgresChangesOptions> { new("public", "todos") };
         var config = Config(JoinPush.ForPublicChannel(postgresChangesOptions: options));
-        config["postgres_changes"]!.Should().HaveCount(1);
-        config["postgres_changes"]![0]!["table"]!.Value<string>().Should().Be("todos");
+        config["postgres_changes"]!.AsArray().Count.Should().Be(1);
+        config["postgres_changes"]![0]!["table"]!.GetValue<string>().Should().Be("todos");
     }
 
     [TestMethod]
     public void ForPublicChannel_ShouldSerialiseBroadcast_GivenProvided()
     {
         var config = Config(JoinPush.ForPublicChannel(new BroadcastOptions(broadcastSelf: true, broadcastAck: true)));
-        config["broadcast"]!["self"]!.Value<bool>().Should().BeTrue();
-        config["broadcast"]!["ack"]!.Value<bool>().Should().BeTrue();
+        config["broadcast"]!["self"]!.GetValue<bool>().Should().BeTrue();
+        config["broadcast"]!["ack"]!.GetValue<bool>().Should().BeTrue();
     }
 
     [TestMethod]
     public void ForPublicChannel_ShouldSerialisePresenceKey_GivenProvided()
     {
         var config = Config(JoinPush.ForPublicChannel(presenceOptions: new PresenceOptions("client-1")));
-        config["presence"]!["key"]!.Value<string>().Should().Be("client-1");
+        config["presence"]!["key"]!.GetValue<string>().Should().Be("client-1");
     }
 }

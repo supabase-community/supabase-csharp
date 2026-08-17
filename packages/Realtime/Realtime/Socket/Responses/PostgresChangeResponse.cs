@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Supabase.Realtime.Socket.Responses;
 
 public class PostgresChangeResponse
 {
-   [JsonProperty("postgres_changes")] 
-   public List<PhoenixPostgresChangeResponse> change { get; set; }
+    [JsonPropertyName("postgres_changes")]
+    public List<PhoenixPostgresChangeResponse> Change { get; set; }
 }

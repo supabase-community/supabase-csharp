@@ -1,11 +1,11 @@
-﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Text.Json;
+using System.Threading.Tasks;
 using Supabase.Realtime.Broadcast;
 using Supabase.Realtime.Interfaces;
 using Supabase.Realtime.Models;
 using Supabase.Realtime.Socket;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using static Supabase.Realtime.Constants;
 
 namespace Supabase.Realtime;
@@ -22,22 +22,22 @@ namespace Supabase.Realtime;
 /// <typeparam name="TBroadcastModel">A model representing expected payload.</typeparam>
 public class RealtimeBroadcast<TBroadcastModel> : IRealtimeBroadcast where TBroadcastModel : BaseBroadcast
 {
-    private readonly RealtimeChannel _channel;
-    private readonly JsonSerializerSettings _serializerSettings;
+    private readonly RealtimeChannel channel;
+    private readonly JsonSerializerOptions serializerSettings;
 
-    private SocketResponse? _lastSocketResponse;
+    private SocketResponse? lastSocketResponse;
 
-    private readonly List<IRealtimeBroadcast.BroadcastEventHandler> _broadcastEventHandlers = new();
+    private readonly List<IRealtimeBroadcast.BroadcastEventHandler> broadcastEventHandlers = new();
 
     /// <summary>
     /// The last received broadcast.
     /// </summary>
     public TBroadcastModel? Current()
     {
-        if (_lastSocketResponse == null) return null;
+        if (this.lastSocketResponse == null) return null;
 
-        var obj = JsonConvert.DeserializeObject<SocketResponse<TBroadcastModel>>(_lastSocketResponse.Json!,
-            _serializerSettings);
+        var obj = JsonSerializer.Deserialize<SocketResponse<TBroadcastModel>>(this.lastSocketResponse.Json!,
+            this.serializerSettings);
 
         if (obj == null || obj.Payload == null) return null;
 
@@ -51,10 +51,10 @@ public class RealtimeBroadcast<TBroadcastModel> : IRealtimeBroadcast where TBroa
     /// <param name="options"></param>
     /// <param name="serializerSettings"></param>
     public RealtimeBroadcast(RealtimeChannel channel, BroadcastOptions options,
-        JsonSerializerSettings serializerSettings)
+        JsonSerializerOptions serializerSettings)
     {
-        _channel = channel;
-        _serializerSettings = serializerSettings;
+        this.channel = channel;
+        this.serializerSettings = serializerSettings;
     }
 
     /// <summary>
@@ -63,8 +63,8 @@ public class RealtimeBroadcast<TBroadcastModel> : IRealtimeBroadcast where TBroa
     /// <param name="broadcastEventHandler"></param>
     public void AddBroadcastEventHandler(IRealtimeBroadcast.BroadcastEventHandler broadcastEventHandler)
     {
-        if (!_broadcastEventHandlers.Contains(broadcastEventHandler))
-            _broadcastEventHandlers.Add(broadcastEventHandler);
+        if (!this.broadcastEventHandlers.Contains(broadcastEventHandler))
+            this.broadcastEventHandlers.Add(broadcastEventHandler);
     }
 
     /// <summary>
@@ -73,20 +73,20 @@ public class RealtimeBroadcast<TBroadcastModel> : IRealtimeBroadcast where TBroa
     /// <param name="broadcastEventHandler"></param>
     public void RemoveBroadcastEventHandler(IRealtimeBroadcast.BroadcastEventHandler broadcastEventHandler)
     {
-        if (_broadcastEventHandlers.Contains(broadcastEventHandler))
-            _broadcastEventHandlers.Remove(broadcastEventHandler);
+        if (this.broadcastEventHandlers.Contains(broadcastEventHandler))
+            this.broadcastEventHandlers.Remove(broadcastEventHandler);
     }
 
     /// <summary>
     /// Clears all broadcast event listeners
     /// </summary>
     public void ClearBroadcastEventHandlers() =>
-        _broadcastEventHandlers.Clear();
+        this.broadcastEventHandlers.Clear();
 
     private void NotifyBroadcastEventHandlers()
     {
-        foreach (var handler in _broadcastEventHandlers.ToArray())
-            handler.Invoke(this, Current());
+        foreach (var handler in this.broadcastEventHandlers.ToArray())
+            handler.Invoke(this, this.Current());
     }
 
     /// <summary>
@@ -98,10 +98,10 @@ public class RealtimeBroadcast<TBroadcastModel> : IRealtimeBroadcast where TBroa
     {
         if (response == null || response.Json == null)
             throw new ArgumentException(
-                $"Expected parsable JSON response, instead received: `{JsonConvert.SerializeObject(response)}`");
+                $"Expected parsable JSON response, instead received: `{JsonSerializer.Serialize(response, this.serializerSettings)}`");
 
-        _lastSocketResponse = response;
-        NotifyBroadcastEventHandlers();
+        this.lastSocketResponse = response;
+        this.NotifyBroadcastEventHandlers();
     }
 
     /// <summary>
@@ -115,6 +115,6 @@ public class RealtimeBroadcast<TBroadcastModel> : IRealtimeBroadcast where TBroa
         if (payload is BaseBroadcast baseBroadcast && string.IsNullOrEmpty(baseBroadcast.Event))
             baseBroadcast.Event = broadcastEventName;
 
-        return _channel.Send(ChannelEventName.Broadcast, broadcastEventName, payload, timeoutMs);
+        return this.channel.Send(ChannelEventName.Broadcast, broadcastEventName, payload, timeoutMs);
     }
 }

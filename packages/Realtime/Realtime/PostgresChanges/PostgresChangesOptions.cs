@@ -1,7 +1,6 @@
-﻿using System;
-using Newtonsoft.Json;
-using Supabase.Core.Attributes;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using Supabase.Core.Attributes;
 
 namespace Supabase.Realtime.PostgresChanges;
 
@@ -53,7 +52,7 @@ public class PostgresChangesOptions
     /// <summary>
     /// The schema for this listener, likely: `public`
     /// </summary>
-    [JsonProperty("schema")]
+    [JsonPropertyName("schema")]
     public string Schema { get; set; }
 
     /// <summary>
@@ -61,28 +60,31 @@ public class PostgresChangesOptions
     /// (a schema-wide listener), the <c>table</c> key is omitted from the join payload rather than
     /// sent as <c>null</c>.
     /// </summary>
-    [JsonProperty("table", NullValueHandling = NullValueHandling.Ignore)]
+    [JsonPropertyName("table")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public string? Table { get; set; }
 
     /// <summary>
     /// The filter for this listener
     /// </summary>
-    [JsonProperty("filter", NullValueHandling = NullValueHandling.Ignore)]
+    [JsonPropertyName("filter")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public string? Filter { get; set; }
 
     /// <summary>
     /// The parameters passed to the server
     /// </summary>
-    [JsonProperty("parameters", NullValueHandling = NullValueHandling.Ignore)]
+    [JsonPropertyName("parameters")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public Dictionary<string, string>? Parameters { get; set; }
 
     /// <summary>
     /// The stringified event listener type
     /// </summary>
-    [JsonProperty("event")]
-    public string Event => Core.Helpers.GetMappedToAttr(_listenType).Mapping!;
-    
-    private readonly ListenType _listenType;
+    [JsonPropertyName("event")]
+    public string Event => Core.Helpers.GetMappedToAttr(this.listenType).Mapping!;
+
+    private readonly ListenType listenType;
 
     /// <summary>
     /// Postgres changes options.
@@ -94,17 +96,14 @@ public class PostgresChangesOptions
     /// <param name="parameters"></param>
     public PostgresChangesOptions(string schema, string? table = null, ListenType eventType = ListenType.All, string? filter = null, Dictionary<string, string>? parameters = null)
     {
-        _listenType = eventType;
-        Schema = schema;
-        Table = table;
-        Filter = filter;
-        Parameters = parameters;
+        this.listenType = eventType;
+        this.Schema = schema;
+        this.Table = table;
+        this.Filter = filter;
+        this.Parameters = parameters;
     }
 
-    private bool Equals(PostgresChangesOptions other)
-    {
-        return _listenType == other._listenType && Schema == other.Schema && Table == other.Table && Filter == other.Filter;
-    }
+    private bool Equals(PostgresChangesOptions other) => this.listenType == other.listenType && this.Schema == other.Schema && this.Table == other.Table && this.Filter == other.Filter;
 
     /// <summary>
     /// Check if object are equals 
@@ -114,8 +113,8 @@ public class PostgresChangesOptions
     public override bool Equals(object? obj)
     {
         if (obj is null) return false;
-        if (obj.GetType() != GetType()) return false;
-        return Equals((PostgresChangesOptions)obj);
+        if (obj.GetType() != this.GetType()) return false;
+        return this.Equals((PostgresChangesOptions) obj);
     }
 
     /// <summary>
@@ -126,10 +125,10 @@ public class PostgresChangesOptions
     {
         unchecked
         {
-            var hashCode = (int)_listenType;
-            hashCode = (hashCode * 397) ^ Schema.GetHashCode();
-            hashCode = (hashCode * 397) ^ (Table != null ? Table.GetHashCode() : 0);
-            hashCode = (hashCode * 397) ^ (Filter != null ? Filter.GetHashCode() : 0);
+            var hashCode = (int) this.listenType;
+            hashCode = (hashCode * 397) ^ this.Schema.GetHashCode();
+            hashCode = (hashCode * 397) ^ (this.Table != null ? this.Table.GetHashCode() : 0);
+            hashCode = (hashCode * 397) ^ (this.Filter != null ? this.Filter.GetHashCode() : 0);
             return hashCode;
         }
     }

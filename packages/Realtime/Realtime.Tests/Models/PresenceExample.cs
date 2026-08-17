@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using Supabase.Realtime.Models;
 
 namespace Realtime.Tests.Models;
@@ -9,5 +9,5 @@ namespace Realtime.Tests.Models;
 /// </summary>
 public class PresenceExample : BasePresence
 {
-    [JsonProperty("time")] public DateTime? Time { get; set; }
+    [JsonPropertyName("time")] public DateTime? Time { get; set; }
 }

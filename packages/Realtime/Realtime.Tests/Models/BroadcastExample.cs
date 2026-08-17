@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using Supabase.Realtime.Models;
 
 namespace Realtime.Tests.Models;
@@ -8,5 +8,5 @@ namespace Realtime.Tests.Models;
 /// </summary>
 public class BroadcastExample : BaseBroadcast
 {
-    [JsonProperty("userId")] public string? UserId { get; set; }
+    [JsonPropertyName("userId")] public string? UserId { get; set; }
 }

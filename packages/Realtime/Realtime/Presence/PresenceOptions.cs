@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Supabase.Realtime.Presence;
 
@@ -10,15 +10,12 @@ public class PresenceOptions
     /// <summary>
     /// key option is used to track presence payload across clients
     /// </summary>
-    [JsonProperty("key")]
+    [JsonPropertyName("key")]
     public string PresenceKey { get; set; }
 
     /// <summary>
     /// Presence options.
     /// </summary>
     /// <param name="presenceKey"></param>
-    public PresenceOptions(string presenceKey)
-    {
-        PresenceKey = presenceKey;
-    }
+    public PresenceOptions(string presenceKey) => this.PresenceKey = presenceKey;
 }

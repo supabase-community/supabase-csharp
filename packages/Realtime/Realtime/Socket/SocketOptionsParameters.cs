@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Supabase.Realtime.Socket;
 
@@ -10,12 +10,12 @@ public class SocketOptionsParameters
     /// <summary>
     /// A user token (used for WALRUS permissions)
     /// </summary>
-    [JsonProperty("token")]
+    [JsonPropertyName("token")]
     public string? Token { get; set; }
 
     /// <summary>
     /// A Supabase hosted public key
     /// </summary>
-    [JsonProperty("apikey")]
+    [JsonPropertyName("apikey")]
     public string? ApiKey { get; set; }
 }

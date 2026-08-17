@@ -1,5 +1,4 @@
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json;
 using Supabase.Realtime;
 using Supabase.Realtime.Channel;
 using Supabase.Realtime.Interfaces;
@@ -18,12 +17,7 @@ internal static class Wire
 {
     private const string Endpoint = "ws://127.0.0.1:54321/realtime/v1";
 
-    public static JsonSerializerSettings Settings() => new()
-    {
-        ContractResolver = new CustomContractResolver(),
-        Converters = { new IsoDateTimeConverter { DateTimeFormat = @"yyyy'-'MM'-'dd' 'HH':'mm':'ss.FFFFFFK" } },
-        MissingMemberHandling = MissingMemberHandling.Ignore
-    };
+    public static JsonSerializerOptions Settings() => RealtimeSerializerOptions.Build(new ClientOptions());
 
     public static ChannelOptions PublicOptions() =>
         ChannelOptions.Public(new ClientOptions(), () => null, Settings());
@@ -43,8 +37,8 @@ internal static class Wire
     public static SocketResponse Decode(string json)
     {
         var settings = Settings();
-        var response = new SocketResponse(settings);
-        JsonConvert.PopulateObject(json, response, settings);
+        var response = JsonSerializer.Deserialize<SocketResponse>(json, settings) ?? new SocketResponse(settings);
+        response.SerializerSettings = settings;
         response.Json = json;
         return response;
     }

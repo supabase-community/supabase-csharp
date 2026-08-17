@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using Supabase.Realtime.Channel;
 
 namespace Supabase.Realtime.Socket;
@@ -11,36 +11,38 @@ public class SocketRequest
     /// <summary>
     /// The type
     /// </summary>
-    [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
+    [JsonPropertyName("type")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public string? Type { get; set; }
 
     /// <summary>
     /// The topic being sent to
     /// </summary>
-    [JsonProperty("topic")]
+    [JsonPropertyName("topic")]
     public string? Topic { get; set; }
 
     /// <summary>
     /// The Event name
     /// </summary>
-    [JsonProperty("event")]
+    [JsonPropertyName("event")]
     public string? Event { get; set; }
 
     /// <summary>
     /// The json serializable payload
     /// </summary>
-    [JsonProperty("payload")]
+    [JsonPropertyName("payload")]
     public object? Payload { get; set; }
 
     /// <summary>
     /// The unique ref for this request.
     /// </summary>
-    [JsonProperty("ref")]
+    [JsonPropertyName("ref")]
     public string? Ref { get; set; }
 
     /// <summary>
     /// The join ref (if applicable)
     /// </summary>
-    [JsonProperty("join_ref", NullValueHandling = NullValueHandling.Ignore)]
+    [JsonPropertyName("join_ref")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public string? JoinRef { get; set; }
 }

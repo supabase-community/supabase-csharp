@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
 using Realtime.Tests.Models;
+using Realtime.Tests.Support;
 using Supabase.Postgrest.Interfaces;
 using Supabase.Realtime;
 using Supabase.Realtime.Interfaces;
@@ -27,19 +28,19 @@ public class ChannelMessagingTests
     [TestInitialize]
     public async Task InitializeTest()
     {
-        restClient = Helpers.RestClient();
-        socketClient = Helpers.SocketClient();
-        await socketClient.ConnectAsync();
+        this.restClient = Helpers.RestClient();
+        this.socketClient = Helpers.SocketClient();
+        await this.socketClient.ConnectAsync();
     }
 
     [TestCleanup]
-    public void CleanupTest() => socketClient.Disconnect();
+    public void CleanupTest() => this.socketClient.Disconnect();
 
     [TestMethod]
     public async Task Unsubscribe_ShouldRaiseClosedState()
     {
         var tsc = new TaskCompletionSource<bool>();
-        var channel = socketClient.Channel("realtime", "public", "todos");
+        var channel = this.socketClient.Channel("realtime", "public", "todos");
         channel.AddStateChangedHandler((_, state) =>
         {
             if (state == ChannelState.Closed)
@@ -55,7 +56,7 @@ public class ChannelMessagingTests
     {
         Todo? result = null;
         var tsc = new TaskCompletionSource<bool>();
-        var channel = socketClient.Channel("realtime", "public", "todos");
+        var channel = this.socketClient.Channel("realtime", "public", "todos");
         var numbers = new List<int> { 4, 5, 6 };
         channel.OnPostgresChange((_, changes) =>
         {
@@ -63,7 +64,7 @@ public class ChannelMessagingTests
             tsc.SetResult(true);
         }, ListenType.Inserts, new PostgresChangesFilter { Table = "todos" });
         await channel.Subscribe();
-        await restClient.Table<Todo>().Insert(new Todo { UserId = 1, Numbers = numbers });
+        await this.restClient.Table<Todo>().Insert(new Todo { UserId = 1, Numbers = numbers });
         await tsc.Task;
         CollectionAssert.AreEqual(numbers, result?.Numbers);
     }
@@ -72,30 +73,31 @@ public class ChannelMessagingTests
     public async Task Subscribe_ShouldSendJoinParameters()
     {
         var parameters = new Dictionary<string, string> { { "key", "value" } };
-        var channel = socketClient.Channel("realtime", "public", "todos", parameters: parameters);
+        var channel = this.socketClient.Channel("realtime", "public", "todos", parameters: parameters);
         await channel.Subscribe();
-        var serialized = JsonConvert.SerializeObject(channel.JoinPush?.Payload);
+        var payloadObj = channel.JoinPush?.Payload;
+        var serialized = payloadObj is null ? "" : JsonSerializer.Serialize(payloadObj, payloadObj.GetType(), Wire.Settings());
         Assert.IsTrue(serialized.Contains("\"key\":\"value\""));
     }
 
     [TestMethod]
     public async Task Channel_ShouldShareJoinState_GivenDuplicateTopics()
     {
-        var first = socketClient.Channel("realtime", "public", "todos");
-        var second = socketClient.Channel("realtime", "public", "todos");
-        var filtered = socketClient.Channel("realtime", "public", "todos", "user_id", "1");
+        var first = this.socketClient.Channel("realtime", "public", "todos");
+        var second = this.socketClient.Channel("realtime", "public", "todos");
+        var filtered = this.socketClient.Channel("realtime", "public", "todos", "user_id", "1");
         Assert.AreEqual(first.Topic, second.Topic);
         await first.Subscribe();
         Assert.AreEqual(first.HasJoinedOnce, second.HasJoinedOnce);
         Assert.AreNotEqual(first.HasJoinedOnce, filtered.HasJoinedOnce);
-        var fourth = socketClient.Channel("realtime", "public", "todos");
+        var fourth = this.socketClient.Channel("realtime", "public", "todos");
         Assert.AreEqual(first.HasJoinedOnce, fourth.HasJoinedOnce);
     }
 
     [TestMethod]
     public async Task Channel_ShouldRegisterAndRemoveHandlers()
     {
-        var channel = socketClient.Channel("test");
+        var channel = this.socketClient.Channel("test");
         IRealtimeChannel.StateChangedHandler stateHandler = (_, _) => Assert.Fail("State Handler was called");
         IRealtimeChannel.MessageReceivedHandler messageReceivedHandler =
             (_, _) => Assert.Fail("Message Handler was called");

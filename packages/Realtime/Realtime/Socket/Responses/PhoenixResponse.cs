@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Supabase.Realtime.Socket.Responses;
 
@@ -10,12 +10,12 @@ public class PhoenixResponse
     /// <summary>
     /// The response.
     /// </summary>
-    [JsonProperty("response")]
+    [JsonPropertyName("response")]
     public PostgresChangeResponse? Response;
 
     /// <summary>
     /// The status.
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public string? Status;
 }
