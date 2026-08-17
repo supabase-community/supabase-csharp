@@ -19,7 +19,6 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageVersion>
     <PackageVersion Include="MimeMapping" Version="4.0.0" />
-    <PackageVersion Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageVersion Include="System.Text.Json" Version="8.0.5" />
     <PackageVersion Include="System.Diagnostics.DiagnosticSource" Version="8.0.1" />
     <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="7.5.1" />

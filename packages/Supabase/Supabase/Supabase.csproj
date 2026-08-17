@@ -40,7 +40,6 @@
         <PrivateAssets>all</PrivateAssets>
       </PackageReference>
         <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
-        <PackageReference Include="Newtonsoft.Json" />
     </ItemGroup>
 
     <ItemGroup>
