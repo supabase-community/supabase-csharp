@@ -41,7 +41,7 @@
       </PackageReference>
         <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
         <PackageReference Include="System.Diagnostics.DiagnosticSource" />
-        <PackageReference Include="Newtonsoft.Json" />
+        <PackageReference Include="System.Text.Json" />
     </ItemGroup>
 
     <ItemGroup>
