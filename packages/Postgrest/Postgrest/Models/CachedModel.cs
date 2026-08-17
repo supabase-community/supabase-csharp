@@ -1,23 +1,22 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
-namespace Supabase.Postgrest.Models
+namespace Supabase.Postgrest.Models;
+
+/// <summary>
+/// Represents a cacheable model
+/// </summary>
+/// <typeparam name="TModel"></typeparam>
+public class CachedModel<TModel> where TModel : BaseModel, new()
 {
     /// <summary>
-    /// Represents a cacheable model
+    /// The stored Models
     /// </summary>
-    /// <typeparam name="TModel"></typeparam>
-    public class CachedModel<TModel> where TModel : BaseModel, new()
-    {
-        /// <summary>
-        /// The stored Models
-        /// </summary>
-        [JsonProperty("response")] public List<TModel>? Models { get; set; }
+    [JsonPropertyName("response")] public List<TModel>? Models { get; set; }
 
-        /// <summary>
-        /// Cache time in UTC.
-        /// </summary>
-        [JsonProperty("cachedAt")] public DateTime CachedAt { get; set; }
-    }
+    /// <summary>
+    /// Cache time in UTC.
+    /// </summary>
+    [JsonPropertyName("cachedAt")] public DateTime CachedAt { get; set; }
 }

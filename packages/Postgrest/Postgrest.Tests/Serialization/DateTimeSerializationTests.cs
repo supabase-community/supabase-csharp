@@ -1,8 +1,8 @@
 using System;
 using System.Globalization;
+using System.Text.Json;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
 using Postgrest.Tests.Models;
 using Supabase.Postgrest;
 
@@ -18,10 +18,10 @@ namespace Postgrest.Tests.Serialization;
 public class DateTimeSerializationTests
 {
     private static KitchenSink Deserialize(string json) =>
-        JsonConvert.DeserializeObject<KitchenSink>(json, Client.SerializerSettings())!;
+        JsonSerializer.Deserialize<KitchenSink>(json, Client.SerializerSettings())!;
 
     private static string Serialize(KitchenSink model) =>
-        JsonConvert.SerializeObject(model, Client.SerializerSettings());
+        JsonSerializer.Serialize(model, Client.SerializerSettings());
 
     private static DateTime ParseUtc(string wireValue) =>
         DateTimeOffset.Parse(wireValue, CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind).UtcDateTime;

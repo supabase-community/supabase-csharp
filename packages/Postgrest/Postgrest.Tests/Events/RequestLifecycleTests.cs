@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
 using NSubstitute;
 using Postgrest.Tests.Models;
 using Postgrest.Tests.Support;
@@ -31,7 +31,7 @@ public class RequestLifecycleTests
         {
             await client.Table<Movie>().Get();
             handler.Received().Invoke(Arg.Any<object>(), Arg.Any<ClientOptions>(), Arg.Any<HttpMethod>(),
-                Arg.Any<string>(), Arg.Any<JsonSerializerSettings>(), Arg.Any<object?>(),
+                Arg.Any<string>(), Arg.Any<JsonSerializerOptions>(), Arg.Any<object?>(),
                 Arg.Any<Dictionary<string, string>?>());
         }
         finally

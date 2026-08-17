@@ -1,6 +1,6 @@
+using System.Text.Json;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
 using Postgrest.Tests.Models;
 using Supabase.Postgrest;
 
@@ -19,26 +19,26 @@ public class EnumSerializationTests
     private readonly Todo todo = new() { UserId = 1, Status = Todo.TodoStatus.IN_PROGRESS };
 
     private static string Serialize(object model, bool serializeEnumsAsStrings = false) =>
-        JsonConvert.SerializeObject(model,
+        JsonSerializer.Serialize(model, model.GetType(),
             Client.SerializerSettings(new ClientOptions { SerializeEnumsAsStrings = serializeEnumsAsStrings }));
 
     [TestMethod]
     public void Write_ShouldSerializeAsUnderlyingInteger_GivenSerializeEnumsAsStringsOff() =>
-        Serialize(movie).Should().Contain("\"status\":1");
+        Serialize(this.movie).Should().Contain("\"status\":1");
 
     [TestMethod]
     public void Write_ShouldSerializeAsStringName_GivenSerializeEnumsAsStringsOn() =>
-        Serialize(movie, serializeEnumsAsStrings: true).Should().Contain("\"status\":\"OffDisplay\"");
+        Serialize(this.movie, serializeEnumsAsStrings: true).Should().Contain("\"status\":\"OffDisplay\"");
 
     [TestMethod]
     public void Write_ShouldRoundTrip_GivenSerializeEnumsAsStringsOn()
     {
         var settings = Client.SerializerSettings(new ClientOptions { SerializeEnumsAsStrings = true });
-        var json = JsonConvert.SerializeObject(movie, settings);
-        JsonConvert.DeserializeObject<Movie>(json, settings)!.Status.Should().Be(MovieStatus.OffDisplay);
+        var json = JsonSerializer.Serialize(this.movie, settings);
+        JsonSerializer.Deserialize<Movie>(json, settings)!.Status.Should().Be(MovieStatus.OffDisplay);
     }
 
     [TestMethod]
     public void Write_ShouldHonorEnumMemberMapping_GivenTypeLevelJsonConverter() =>
-        Serialize(todo).Should().Contain("\"status\":\"IN PROGRESS\"");
+        Serialize(this.todo).Should().Contain("\"status\":\"IN PROGRESS\"");
 }
