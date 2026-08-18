@@ -23,13 +23,13 @@ public class PresenceTrackingTests
     [TestInitialize]
     public async Task InitializeTest()
     {
-        restClient = Helpers.RestClient();
-        socketClient = Helpers.SocketClient();
-        await socketClient.ConnectAsync();
+        this.restClient = Helpers.RestClient();
+        this.socketClient = Helpers.SocketClient();
+        await this.socketClient.ConnectAsync();
     }
 
     [TestCleanup]
-    public void CleanupTest() => socketClient.Disconnect();
+    public void CleanupTest() => this.socketClient.Disconnect();
 
     [TestMethod]
     public async Task Track_ShouldSyncPresenceBetweenClients()
@@ -45,7 +45,7 @@ public class PresenceTrackingTests
         // shared topic, which showed up as CI-only failures (slower round-trip widens the overlap
         // window) that never reproduced locally.
         var topic = $"online-users-{Guid.NewGuid()}";
-        var channel1 = socketClient.Channel(topic);
+        var channel1 = this.socketClient.Channel(topic);
         var presence1 = channel1.Register<PresenceExample>(guid1);
         presence1.AddPresenceEventHandler(IRealtimePresence.EventType.Sync, (_, _) =>
         {
