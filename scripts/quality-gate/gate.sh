@@ -191,10 +191,10 @@ if [[ $BUILD_OK -eq 1 ]]; then
     stage_inner_loop
   elif [[ $STACK_OK -eq 1 ]]; then
     stage_tests_full
-    # id 7 never silently vanishes just because it folded into id 2 this run —
-    # non-blocking signal, so it costs nothing in the verdict, only in clarity.
-    add 7 "E2E / acceptance" signal "" SKIP \
-      "folded into stage 2 — unfiltered run covers unit+contract+E2E together" ""
+    # No separate id-7 row here: stage_tests_full's own per-package rows already
+    # carry the full outcome (label says "Unit + Contract + E2E"), so a second row
+    # would only restate it — and imprecisely, since "E2E ran" isn't uniformly true
+    # across every package (a package with zero E2E tests has nothing to report).
     stage_coverage
   else
     stage_inner_loop

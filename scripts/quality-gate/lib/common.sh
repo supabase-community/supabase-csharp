@@ -36,15 +36,22 @@ run() { local log="$1"; shift; set +e; "$@" >"$log" 2>&1; RC=$?; set -e; }
 # Production project = the one non-test csproj. Exclusion patterns are QUOTED so
 # find does the matching: passed unquoted through a variable, the shell would glob
 # '*Tests*' against the cwd first and the exclusion would silently stop working.
+#
+# scripts/quality-gate/fixtures is the gate's OWN test harness — tiny throwaway
+# Sample/Sample.Tests projects planted for run-fixtures.sh, never gated content.
+# Excluded here so a broad-scope run (e.g. bare `gate.sh` at the repo root) never
+# discovers one as a real package to build/test/format-check.
 find_production_project() {  # find_production_project <dir>
   find "$1" -name '*.csproj' -not -name '*Tests*' \
-    -not -path '*/bin/*' -not -path '*/obj/*' 2>/dev/null | sort | head -n1
+    -not -path '*/bin/*' -not -path '*/obj/*' \
+    -not -path '*/scripts/quality-gate/fixtures/*' 2>/dev/null | sort | head -n1
 }
 find_test_project() {  # find_test_project <dir>
   find "$1" \( -name '*Tests*.csproj' -o -name '*.Tests.csproj' \) \
-    -not -path '*/bin/*' -not -path '*/obj/*' 2>/dev/null | sort -u | head -n1
+    -not -path '*/bin/*' -not -path '*/obj/*' \
+    -not -path '*/scripts/quality-gate/fixtures/*' 2>/dev/null | sort -u | head -n1
 }
 all_test_projects() {  # all_test_projects <dir>
   find "$1" -name '*Tests*.csproj' -o -name '*.Tests.csproj' 2>/dev/null \
-    | grep -v '/bin/\|/obj/' | sort -u
+    | grep -v '/bin/\|/obj/\|/scripts/quality-gate/fixtures/' | sort -u
 }

@@ -53,11 +53,15 @@ unfiltered pass** — unit, contract and E2E together, under stage id `2` — so
 red unit test no longer prevents E2E from executing in the same run (they either
 both ran, or neither did). That same run is also the coverage source: `2b`
 measures line coverage across the whole suite, not just the inner loop, so
-"coverage" always means the full picture. If the stack is unreachable, the gate
-falls back to running the inner loop alone for local feedback, and both E2E (`7`)
-and coverage (`2b`) SKIP — "full" coverage isn't measurable without the E2E half
-of the suite, and a check that couldn't run must never read as passed. Either
-way, a stack that can't be reached holds the gate at `INCOMPLETE`.
+"coverage" always means the full picture. **Stage `7` doesn't appear in the
+report at all when this happens** — id `2`'s own per-package rows (labeled
+"Tests (Unit + Contract + E2E)") already carry the full outcome, so a separate
+E2E row would only restate it, and imprecisely at that (a package with zero E2E
+tests has nothing to "fold in"). If the stack is unreachable, the gate falls back
+to running the inner loop alone for local feedback, and both E2E (`7`) and
+coverage (`2b`) SKIP with a reason — "full" coverage isn't measurable without the
+E2E half of the suite, and a check that couldn't run must never read as passed.
+Either way, a stack that can't be reached holds the gate at `INCOMPLETE`.
 
 Dropped intentionally: a package with zero `[TestCategory("E2E")]` tests used to
 get its own non-blocking signal row under `7` ("no E2E tests in this package").

@@ -83,12 +83,21 @@ changed_cs_files() {  # repo-RELATIVE paths, committed + staged + unstaged + unt
   # fixtures, in scripts/, or in any tree the invocation does not gate. scope_rel is
   # the scope as a repo-relative prefix ("" when the scope IS the repo root, i.e. no
   # filtering — every discovered project is under root anyway).
+  #
+  # The fixtures exclusion below is unconditional, not folded into that scope_rel
+  # filter: a bare `gate.sh` run (scope_rel="") covers the whole repo, and a changed
+  # .cs planted under scripts/quality-gate/fixtures/*/overlay never belongs to any
+  # discovered package (those overlay fragments aren't complete, buildable projects)
+  # — left unfiltered, such a file can never be attributed to a package's format
+  # check, and if it's the only changed .cs file, that reads as "matched 0 changed
+  # files — nothing was inspected", a false FAIL on code that isn't gated at all.
   scope_rel="${SCOPE_DIR#"$root"}"; scope_rel="${scope_rel#/}"
   {
     [[ -n "$base" ]] && git -C "$root" diff --name-only --diff-filter=ACMR "$base"...HEAD -- '*.cs' 2>/dev/null
     git -C "$root" diff --name-only --diff-filter=ACMR HEAD -- '*.cs' 2>/dev/null
     git -C "$root" ls-files --others --exclude-standard -- '*.cs' 2>/dev/null
   } | sed '/^$/d' \
+    | grep -v '^scripts/quality-gate/fixtures/' \
     | awk -v s="$scope_rel" '{ if (s == "" || index($0, s "/") == 1) print }' \
     | sort -u
 }
