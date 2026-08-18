@@ -42,7 +42,8 @@ public class BroadcastRelayTests
         var tsc2 = new TaskCompletionSource<bool>();
         var guid1 = Guid.NewGuid().ToString();
         var guid2 = Guid.NewGuid().ToString();
-        var channel1 = this.socketClient.Channel("online-users");
+        var topic = $"online-users-{Guid.NewGuid()}";
+        var channel1 = this.socketClient.Channel(topic);
         var broadcast1 = channel1.Register<BroadcastExample>(true, true);
         broadcast1.AddBroadcastEventHandler((_, _) =>
         {
@@ -52,7 +53,7 @@ public class BroadcastRelayTests
         });
         var client2 = Helpers.SocketClient();
         await client2.ConnectAsync();
-        var channel2 = client2.Channel("online-users");
+        var channel2 = client2.Channel(topic);
         var broadcast2 = channel2.Register<BroadcastExample>(true, true);
         broadcast2.AddBroadcastEventHandler((_, _) =>
         {
@@ -74,9 +75,10 @@ public class BroadcastRelayTests
         var tsc2 = new TaskCompletionSource<bool>();
         var guid1 = Guid.NewGuid().ToString();
         var guid2 = Guid.NewGuid().ToString();
+        var topic = $"online-users-{Guid.NewGuid()}";
         var client1 = Helpers.PrivateSocketClient();
         await client1.ConnectAsync();
-        var channel1 = client1.Channel("online-users",
+        var channel1 = client1.Channel(topic,
             ChannelOptions.Private(client1.Options, () => Helpers.ApiKey, Wire.Settings()));
         var broadcast1 = channel1.Register<BroadcastExample>(true, true);
         broadcast1.AddBroadcastEventHandler((_, _) =>
@@ -87,7 +89,7 @@ public class BroadcastRelayTests
         });
         var client2 = Helpers.PrivateSocketClient();
         await client2.ConnectAsync();
-        var channel2 = client2.Channel("online-users",
+        var channel2 = client2.Channel(topic,
             ChannelOptions.Private(client2.Options, () => Helpers.ApiKey, Wire.Settings()));
         var broadcast2 = channel2.Register<BroadcastExample>(true, true);
         broadcast2.AddBroadcastEventHandler((_, _) =>
@@ -120,10 +122,15 @@ public class BroadcastRelayTests
     [TestMethod]
     public async Task Broadcast_ShouldReplayHistory_GivenPrivateChannel()
     {
+        // Unique per run: this test seeds history on the topic via RPC, then expects to replay it
+        // back — the shared literal "online-users" would also replay stray "user" events left
+        // behind by other tests/runs on the same topic, on top of the cross-test collision risk
+        // described in PresenceTrackingTests.
+        var topic = $"online-users-{Guid.NewGuid()}";
         var send = new Dictionary<string, object>
         {
             { "event", "user" },
-            { "topic", "online-users" },
+            { "topic", topic },
             { "private", true }
         };
         await this.restClient.Rpc("send", send);
@@ -140,7 +147,7 @@ public class BroadcastRelayTests
                 Since = DateTimeOffset.UtcNow.AddDays(-3).ToUnixTimeMilliseconds()
             }
         };
-        var channel1 = client1.Channel("online-users",
+        var channel1 = client1.Channel(topic,
             ChannelOptions.Private(client1.Options, () => null, Wire.Settings()));
         var broadcast1 = channel1.Register<BroadcastExample>(broadcastOptions);
         broadcast1.AddBroadcastEventHandler((_, _) =>
