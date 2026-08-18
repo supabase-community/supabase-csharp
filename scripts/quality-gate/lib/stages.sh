@@ -30,6 +30,19 @@ first_failure() {  # first failed test name, for an actionable summary line
     | head -n1 | sed -E 's/^\s*(Failed|X) //' || true
 }
 
+# The actual reason for the first failure — MSTest's own console output already
+# carries this (an "Error Message:" block through "Stack Trace:", even at -v
+# minimal), it just never left the log file: the report only ever surfaced the
+# failing test's NAME, not why. That's a real diagnosability gap — a CI failure
+# was previously undiagnosable without runner shell access, only the source-code
+# archaeology that produced this fix. One line, capped, safe to put in a report
+# detail field or a CI console.
+first_failure_detail() {
+  awk '/^[[:space:]]*Error Message:$/{f=1;next} /^[[:space:]]*Stack Trace:$/{exit} f' "$1" 2>/dev/null \
+    | sed -E 's/^[[:space:]]+//' | tr '\n' ' ' | sed -E 's/[[:space:]]+/ /g; s/ +$//' \
+    | cut -c1-240
+}
+
 # ============================================================ 1a  build + ratchet
 # --no-incremental is load-bearing: on an incremental build, up-to-date projects
 # emit no warnings, so the count reads zero and the ratchet passes on a change that
@@ -152,7 +165,7 @@ stage_format() {
 # TestConventions guardrails fail on anything uncategorised, so it surfaces as a
 # red test rather than being silently filtered away.
 stage_inner_loop() {
-  local i log sum ff
+  local i log sum ff fd
   for i in "${!PKG_DIR[@]}"; do
     _use_pkg "$i"
     log="$LOGS/2-inner-loop.log"
@@ -167,9 +180,9 @@ stage_inner_loop() {
     elif [[ $RC -eq 0 ]]; then
       add 2 "Inner loop (Unit + Contract)" block "${PKG_NAME[$i]}" PASS "${sum:-green}" "$log"
     else
-      ff="$(first_failure "$log")"
+      ff="$(first_failure "$log")"; fd="$(first_failure_detail "$log")"
       add 2 "Inner loop (Unit + Contract)" block "${PKG_NAME[$i]}" FAIL \
-        "${sum:-tests failed}${ff:+ — first: $ff}" "$log"
+        "${sum:-tests failed}${ff:+ — first: $ff}${fd:+ — $fd}" "$log"
     fi
   done
 }
@@ -310,7 +323,7 @@ stage_e2e() {
     add 7 "E2E / acceptance" block "" SKIP "stack down per $STACK_CHECK — run: supabase start" "$SCOPE_LOGS/7-stack.log"
     return
   fi
-  local i log sum ff
+  local i log sum ff fd
   for i in "${!PKG_DIR[@]}"; do
     _use_pkg "$i"
     log="$LOGS/7-e2e.log"
@@ -324,8 +337,8 @@ stage_e2e() {
       add 7 "E2E / acceptance" signal "${PKG_NAME[$i]}" SKIP \
         "no tests carry [TestCategory(\"E2E\")] in this package" "$log"
     else
-      ff="$(first_failure "$log")"
-      add 7 "E2E / acceptance" block "${PKG_NAME[$i]}" FAIL "${sum:-see log}${ff:+ — first: $ff}" "$log"
+      ff="$(first_failure "$log")"; fd="$(first_failure_detail "$log")"
+      add 7 "E2E / acceptance" block "${PKG_NAME[$i]}" FAIL "${sum:-see log}${ff:+ — first: $ff}${fd:+ — $fd}" "$log"
     fi
   done
 }
