@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "package": "stack-down",
+  "project": "Sample/Sample.csproj",
+  "testProject": "Sample.Tests/Sample.Tests.csproj",
+  "warnings": { "total": 0, "byCode": {} },
+  "e2eHealthUrl": "http://127.0.0.1:51739/",
+  "updated": "2026-08-18T00:00:00Z"
+}
