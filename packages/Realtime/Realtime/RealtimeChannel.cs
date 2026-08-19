@@ -246,7 +246,7 @@ public class RealtimeChannel : IRealtimeChannel
             throw new InvalidOperationException(
                 "Register can only be called with presence options for a channel once.");
 
-        this.PresenceOptions = new PresenceOptions(presenceKey);
+        this.PresenceOptions = new PresenceOptions(presenceKey, enabled: true);
         var instance = new RealtimePresence<TPresenceResponse>(this, this.PresenceOptions, this.Options.SerializerSettings);
         this.presence = instance;
 

@@ -14,6 +14,9 @@ Supabase.Realtime.PostgresChanges.PostgresChangesResponse.PostgresChangesRespons
 Supabase.Realtime.PostgresChanges.PostgresChangesResponse.PostgresChangesResponse(System.Text.Json.JsonSerializerOptions! serializerSettings) -> void
 Supabase.Realtime.PostgresChanges.PostgresChangesResponse<T>.PostgresChangesResponse() -> void
 Supabase.Realtime.PostgresChanges.PostgresChangesResponse<T>.PostgresChangesResponse(System.Text.Json.JsonSerializerOptions! serializerSettings) -> void
+Supabase.Realtime.Presence.PresenceOptions.Enabled.get -> bool
+Supabase.Realtime.Presence.PresenceOptions.Enabled.set -> void
+Supabase.Realtime.Presence.PresenceOptions.PresenceOptions(string! presenceKey, bool enabled = false) -> void
 Supabase.Realtime.Presence.RealtimePresenceDiff<TPresence>.RealtimePresenceDiff() -> void
 Supabase.Realtime.Presence.RealtimePresenceDiff<TPresence>.RealtimePresenceDiff(System.Text.Json.JsonSerializerOptions! serializerSettings) -> void
 Supabase.Realtime.Presence.Responses.PresenceStateSocketResponse<TPresence>.PresenceStateSocketResponse() -> void
