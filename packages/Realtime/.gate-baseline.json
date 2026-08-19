@@ -3,6 +3,6 @@
   "package": "Realtime",
   "project": "Realtime/Realtime.csproj",
   "testProject": "Realtime.Tests/Realtime.Tests.csproj",
-  "warnings": { "total": 172, "byCode": {"IDE0009":126,"CS1591":28,"IDE0022":4,"IDE0005":4,"CS8618":4,"CS1572":4,"CS8604":2} },
-  "updated": "2026-08-17T09:46:09Z"
+  "warnings": { "total": 158, "byCode": {"IDE0009":116,"CS1591":28,"IDE0022":4,"IDE0005":4,"CS8618":4,"CS8604":2} },
+  "updated": "2026-08-18T14:05:59Z"
 }

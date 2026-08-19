@@ -65,8 +65,15 @@ public class PresenceTrackingTests
         });
         await channel1.Subscribe();
         await channel2.Subscribe();
-        await presence1.Track(new PresenceExample { Time = DateTime.Now });
-        await presence2.Track(new PresenceExample { Time = DateTime.Now });
+
+        // 30s, not the SDK's 10s DefaultTimeout: a real CI failure (RealtimeException:
+        // "Failed to send push [...]") showed this Track() push got NO response at all —
+        // neither a reply nor a presence diff — within the default window. That's the
+        // actual failure mechanism; the wait-and-assert below never even runs when a
+        // Track()/Untrack() push times out, since the exception propagates first.
+        const int pushTimeoutMs = 30000;
+        await presence1.Track(new PresenceExample { Time = DateTime.Now }, pushTimeoutMs);
+        await presence2.Track(new PresenceExample { Time = DateTime.Now }, pushTimeoutMs);
 
         // Both peers must observe each other's presence before either untracks. Untracking
         // immediately (the previous behavior here) raced the join sync event against the
@@ -74,9 +81,9 @@ public class PresenceTrackingTests
         // won, but under CI's slower/noisier network to the live stack, delivery order could
         // flip and the confirmation would never arrive — a genuine test race, not gate flakiness.
         var bothSynced = Task.WhenAll(tsc.Task, tsc2.Task);
-        var completed = await Task.WhenAny(bothSynced, Task.Delay(15000));
+        var completed = await Task.WhenAny(bothSynced, Task.Delay(pushTimeoutMs));
         Assert.AreSame(bothSynced, completed, "Timed out waiting for both clients to observe each other's presence.");
 
-        await presence1.Untrack();
+        await presence1.Untrack(pushTimeoutMs);
     }
 }

@@ -179,11 +179,12 @@ public class RealtimePresence<TPresenceModel> : IRealtimePresence where TPresenc
     /// <summary>
     /// Untracks an event.
     /// </summary>
-    public Task<Push> Untrack()
+    /// <param name="timeoutMs"></param>
+    public Task<Push> Untrack(int timeoutMs = DefaultTimeout)
     {
         var eventName = Core.Helpers.GetMappedToAttr(ChannelEventName.Presence).Mapping;
         var push = new Push(this.channel.Socket, this.channel, eventName, "untrack",
-            new Dictionary<string, object?> { { "event", "untrack" } });
+            new Dictionary<string, object?> { { "event", "untrack" } }, timeoutMs);
 
         var tcs = new TaskCompletionSource<Push>();
 

@@ -16,14 +16,20 @@ _tag() { [[ "$1" == block ]] && printf '[B]' || printf '[s]'; }
 
 emit_row() {  # emit_row <name> <kind> <pkg> <status> <detail>
   local b; b="$(_badge "$4")"
+  # A detail can be multi-line now (one line per failing test). Indent
+  # continuation lines so they read as nested under the row instead of
+  # dumping flush-left mid-table.
+  local d
   if [[ $MULTI -eq 1 ]]; then
     if [[ "$1" != "$_LAST_PHASE" ]]; then
       _LAST_PHASE="$1"; printf '  %s %s\n' "$(_tag "$2")" "$1"
     fi
-    if [[ -n "$3" ]]; then printf '        %s %-11s %s\n' "$b" "$3" "${DIM}$5${OFF}"
-    else                   printf '        %s %s\n'       "$b"       "${DIM}$5${OFF}"; fi
+    d="${5//$'\n'/$'\n'            }"
+    if [[ -n "$3" ]]; then printf '        %s %-11s %s\n' "$b" "$3" "${DIM}$d${OFF}"
+    else                   printf '        %s %s\n'       "$b"       "${DIM}$d${OFF}"; fi
   else
-    printf '  %s %s %-28s %s\n' "$b" "$(_tag "$2")" "$1" "${DIM}$5${OFF}"
+    d="${5//$'\n'/$'\n'          }"
+    printf '  %s %s %-28s %s\n' "$b" "$(_tag "$2")" "$1" "${DIM}$d${OFF}"
   fi
 }
 
@@ -40,7 +46,18 @@ add() {
 statuses_of() { local i; for i in "${!R_ID[@]}"; do
   [[ "${R_ID[$i]}" == "$1" ]] && echo "${R_STATUS[$i]}"; done; }
 
-esc() { sed -e 's/\\/\\\\/g' -e 's/"/\\"/g' <<<"$1" | tr -d '\n'; }
+# A detail can now be multi-line (one line per failing test — see failure_details
+# in lib/stages.sh). JSON has no literal newline inside a string; the old
+# implementation (`tr -d '\n'`) silently DELETED them instead, which would have
+# run every failure's name and message together with no separator. Escape them
+# as the two characters `\n`, same as backslash/quote, so the content survives.
+esc() {
+  local s="$1"
+  s="${s//\\/\\\\}"
+  s="${s//\"/\\\"}"
+  s="${s//$'\n'/\\n}"
+  printf '%s' "$s"
+}
 
 write_report() {  # write_report <verdict> <exitCode>
   { echo '{'

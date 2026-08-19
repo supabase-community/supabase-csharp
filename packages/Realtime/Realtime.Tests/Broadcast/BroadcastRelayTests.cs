@@ -63,9 +63,14 @@ public class BroadcastRelayTests
         });
         await channel1.Subscribe();
         await channel2.Subscribe();
-        await broadcast1.Send("user", new BroadcastExample { UserId = guid1 });
-        await broadcast2.Send("user", new BroadcastExample { UserId = guid2 });
-        await Task.WhenAll(tsc.Task, tsc2.Task);
+        // 30s, not the SDK's 10s DefaultTimeout — see PresenceTrackingTests for why: a
+        // real CI failure showed a push getting NO response within the default window.
+        const int pushTimeoutMs = 30000;
+        await broadcast1.Send("user", new BroadcastExample { UserId = guid1 }, pushTimeoutMs);
+        await broadcast2.Send("user", new BroadcastExample { UserId = guid2 }, pushTimeoutMs);
+        var bothRelayed = Task.WhenAll(tsc.Task, tsc2.Task);
+        var completed = await Task.WhenAny(bothRelayed, Task.Delay(pushTimeoutMs));
+        Assert.AreSame(bothRelayed, completed, "Timed out waiting for both clients to receive the relayed broadcast.");
     }
 
     [TestMethod]
@@ -100,9 +105,14 @@ public class BroadcastRelayTests
         });
         await channel1.Subscribe();
         await channel2.Subscribe();
-        await broadcast1.Send("user", new BroadcastExample { UserId = guid1 });
-        await broadcast2.Send("user", new BroadcastExample { UserId = guid2 });
-        await Task.WhenAll(tsc.Task, tsc2.Task);
+        // 30s, not the SDK's 10s DefaultTimeout — see PresenceTrackingTests for why: a
+        // real CI failure showed a push getting NO response within the default window.
+        const int pushTimeoutMs = 30000;
+        await broadcast1.Send("user", new BroadcastExample { UserId = guid1 }, pushTimeoutMs);
+        await broadcast2.Send("user", new BroadcastExample { UserId = guid2 }, pushTimeoutMs);
+        var bothRelayed = Task.WhenAll(tsc.Task, tsc2.Task);
+        var completed = await Task.WhenAny(bothRelayed, Task.Delay(pushTimeoutMs));
+        Assert.AreSame(bothRelayed, completed, "Timed out waiting for both clients to receive the relayed broadcast.");
     }
 
     [TestMethod]

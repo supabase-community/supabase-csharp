@@ -1,8 +1,6 @@
-﻿using Supabase.Realtime.Socket;
-using System;
 using System.Threading.Tasks;
 using Supabase.Realtime.Channel;
-using Supabase.Realtime.Models;
+using Supabase.Realtime.Socket;
 using static Supabase.Realtime.Constants;
 
 namespace Supabase.Realtime.Interfaces;
@@ -20,7 +18,7 @@ public interface IRealtimePresence
     /// <summary>
     /// Mapping of presence event types
     /// </summary>
-    public enum EventType
+    enum EventType
     {
         /// <summary>
         /// Sync event (both join and leave)
@@ -46,9 +44,8 @@ public interface IRealtimePresence
     /// <summary>
     /// Untracks a client
     /// </summary>
-    /// <param name="payload"></param>
     /// <param name="timeoutMs"></param>
-    Task<Push> Untrack();
+    Task<Push> Untrack(int timeoutMs = DefaultTimeout);
 
     /// <summary>
     /// Add a presence event handler
@@ -69,7 +66,7 @@ public interface IRealtimePresence
     /// </summary>
     /// <param name="eventType"></param>
     void ClearPresenceEventHandlers(EventType? eventType = null);
-        
+
     internal void TriggerSync(SocketResponse response);
     internal void TriggerDiff(SocketResponse args);
 }

@@ -9,6 +9,7 @@ Supabase.Realtime.Channel.ChannelOptions.ChannelOptions(Supabase.Realtime.Client
 Supabase.Realtime.Channel.ChannelOptions.SerializerSettings.get -> System.Text.Json.JsonSerializerOptions!
 Supabase.Realtime.Client.SerializerSettings.get -> System.Text.Json.JsonSerializerOptions!
 Supabase.Realtime.Interfaces.IRealtimeClient<TSocket, TChannel>.SerializerSettings.get -> System.Text.Json.JsonSerializerOptions!
+Supabase.Realtime.Interfaces.IRealtimePresence.Untrack(int timeoutMs = 10000) -> System.Threading.Tasks.Task<Supabase.Realtime.Channel.Push!>!
 Supabase.Realtime.PostgresChanges.PostgresChangesResponse.PostgresChangesResponse() -> void
 Supabase.Realtime.PostgresChanges.PostgresChangesResponse.PostgresChangesResponse(System.Text.Json.JsonSerializerOptions! serializerSettings) -> void
 Supabase.Realtime.PostgresChanges.PostgresChangesResponse<T>.PostgresChangesResponse() -> void
@@ -19,6 +20,7 @@ Supabase.Realtime.Presence.Responses.PresenceStateSocketResponse<TPresence>.Pres
 Supabase.Realtime.Presence.Responses.PresenceStateSocketResponse<TPresence>.PresenceStateSocketResponse(System.Text.Json.JsonSerializerOptions! serializerSettings) -> void
 Supabase.Realtime.RealtimeBroadcast<TBroadcastModel>.RealtimeBroadcast(Supabase.Realtime.RealtimeChannel! channel, Supabase.Realtime.Broadcast.BroadcastOptions! options, System.Text.Json.JsonSerializerOptions! serializerSettings) -> void
 Supabase.Realtime.RealtimePresence<TPresenceModel>.RealtimePresence(Supabase.Realtime.RealtimeChannel! channel, Supabase.Realtime.Presence.PresenceOptions! options, System.Text.Json.JsonSerializerOptions! serializerSettings) -> void
+Supabase.Realtime.RealtimePresence<TPresenceModel>.Untrack(int timeoutMs = 10000) -> System.Threading.Tasks.Task<Supabase.Realtime.Channel.Push!>!
 Supabase.Realtime.Socket.Responses.PhoenixPostgresChangeResponse.EventName.get -> string?
 Supabase.Realtime.Socket.Responses.PhoenixPostgresChangeResponse.EventName.set -> void
 Supabase.Realtime.Socket.Responses.PhoenixPostgresChangeResponse.Filter.get -> string?
