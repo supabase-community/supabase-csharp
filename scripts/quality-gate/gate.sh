@@ -29,6 +29,7 @@
 #   lib/common.sh    environment, jq readers, project discovery, run()
 #   lib/report.sh    the row store, streaming renderer and report.json
 #   lib/warnings.sh  the analyzer ratchet and per-package baseline IO
+#   lib/coverage.sh  the line-coverage ratchet and per-package baseline IO
 #   lib/stages.sh    one definition of each gauntlet stage, for both scopes
 #
 set -euo pipefail
@@ -37,6 +38,7 @@ SELF_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SELF_DIR/lib/common.sh"
 source "$SELF_DIR/lib/report.sh"
 source "$SELF_DIR/lib/warnings.sh"
+source "$SELF_DIR/lib/coverage.sh"
 source "$SELF_DIR/lib/stages.sh"
 
 # -------------------------------------------------------------------- options
@@ -148,14 +150,19 @@ SCOPE_OUT="$SCOPE_DIR/.gate"; SCOPE_LOGS="$SCOPE_OUT/logs"; mkdir -p "$SCOPE_LOG
 # stages below impossible. A format violation says nothing about whether the tests
 # pass, so it must not hide them. Anything not run is still recorded as SKIP with a
 # reason — a stage that silently vanishes reads as verified when it wasn't.
-
-# tests_green: build compiled AND every inner-loop row passed. E2E is worth minutes
-# only then, because E2E-ing a package with red unit tests tells you nothing.
-tests_green() {
-  [[ $BUILD_OK -eq 1 ]] || return 1
-  local s; while IFS= read -r s; do [[ "$s" == "PASS" ]] || return 1; done < <(statuses_of 2)
-  return 0
-}
+#
+# Three test-execution paths (STACK_OK probed once, right after the build, so
+# both "which test path to run" and "which SKIP markers to emit" share one
+# network check instead of probing twice):
+#   --fast                    stage_inner_loop, filtered TestCategory!=E2E — the
+#                              fast local cycle; no coverage, verdict is PARTIAL.
+#   full mode, stack up       stage_tests_full — ONE unfiltered run (every
+#                              TestCategory together) that is both the test result
+#                              and the coverage source, then stage_coverage.
+#   full mode, stack down     stage_inner_loop as a fallback, so local dev still
+#                              gets build/test feedback without `supabase start`;
+#                              E2E and coverage both SKIP — "full" coverage isn't
+#                              measurable without the E2E half of the suite.
 
 if [[ $MULTI -eq 1 ]]; then
   echo "${DIM}$(basename "$SLN")  ·  ${#PKG_DIR[@]} packages  ·  mode=$MODE${OFF}"
@@ -165,9 +172,33 @@ fi
 echo
 
 stage_build
+STACK_OK=0
+if [[ $BUILD_OK -eq 1 && "$MODE" != "fast" ]]; then
+  # stage_build just reset $BASELINE to "" (so it doesn't leak into the
+  # scope-wide stages below) — restore it to a package's own baseline before
+  # probing, so a per-package e2eHealthUrl override is actually read. Without
+  # this, the probe silently falls through to $CONFIG / the hardcoded default,
+  # which can false-positive against an unrelated stack already running on the
+  # default port. First package is representative for a solution run.
+  BASELINE="${PKG_DIR[0]}/.gate-baseline.json"
+  if stack_up; then STACK_OK=1; fi
+  BASELINE=""
+fi
+
 if [[ $BUILD_OK -eq 1 ]]; then
   stage_format
-  stage_inner_loop
+  if [[ "$MODE" == "fast" ]]; then
+    stage_inner_loop
+  elif [[ $STACK_OK -eq 1 ]]; then
+    stage_tests_full
+    # No separate id-7 row here: stage_tests_full's own per-package rows already
+    # carry the full outcome (label says "Unit + Contract + E2E"), so a second row
+    # would only restate it — and imprecisely, since "E2E ran" isn't uniformly true
+    # across every package (a package with zero E2E tests has nothing to report).
+    stage_coverage
+  else
+    stage_inner_loop
+  fi
 else
   add 1b "Format + naming"              block "" SKIP "not run — build failed" ""
   add 2  "Inner loop (Unit + Contract)" block "" SKIP "not run — build failed" ""
@@ -180,8 +211,14 @@ if [[ "$MODE" != "fast" ]]; then
   if [[ $BUILD_OK -eq 1 ]]; then stage_api_sync
   else add 5a "Public API declared" block "" SKIP "not run — build failed" ""; fi
   stage_api_diff
-  if tests_green; then stage_e2e
-  else add 7 "E2E / acceptance" block "" SKIP "not run — build or inner loop not green" ""; fi
+
+  if [[ $BUILD_OK -eq 0 ]]; then
+    add 7  "E2E / acceptance" block "" SKIP "not run — build failed" ""
+    add 2b "Coverage (line)"  block "" SKIP "not run — build failed" ""
+  elif [[ $STACK_OK -eq 0 ]]; then
+    add 7  "E2E / acceptance" block "" SKIP "stack down per $STACK_CHECK — run: supabase start" "$SCOPE_LOGS/7-stack.log"
+    add 2b "Coverage (line)"  block "" SKIP "not measured — stack down, full run did not execute" ""
+  fi
 fi
 
 # -------------------------------------------------------------------- verdict

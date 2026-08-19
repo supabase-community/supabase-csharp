@@ -83,12 +83,21 @@ changed_cs_files() {  # repo-RELATIVE paths, committed + staged + unstaged + unt
   # fixtures, in scripts/, or in any tree the invocation does not gate. scope_rel is
   # the scope as a repo-relative prefix ("" when the scope IS the repo root, i.e. no
   # filtering — every discovered project is under root anyway).
+  #
+  # The fixtures exclusion below is unconditional, not folded into that scope_rel
+  # filter: a bare `gate.sh` run (scope_rel="") covers the whole repo, and a changed
+  # .cs planted under scripts/quality-gate/fixtures/*/overlay never belongs to any
+  # discovered package (those overlay fragments aren't complete, buildable projects)
+  # — left unfiltered, such a file can never be attributed to a package's format
+  # check, and if it's the only changed .cs file, that reads as "matched 0 changed
+  # files — nothing was inspected", a false FAIL on code that isn't gated at all.
   scope_rel="${SCOPE_DIR#"$root"}"; scope_rel="${scope_rel#/}"
   {
     [[ -n "$base" ]] && git -C "$root" diff --name-only --diff-filter=ACMR "$base"...HEAD -- '*.cs' 2>/dev/null
     git -C "$root" diff --name-only --diff-filter=ACMR HEAD -- '*.cs' 2>/dev/null
     git -C "$root" ls-files --others --exclude-standard -- '*.cs' 2>/dev/null
   } | sed '/^$/d' \
+    | grep -v '^scripts/quality-gate/fixtures/' \
     | awk -v s="$scope_rel" '{ if (s == "" || index($0, s "/") == 1) print }' \
     | sort -u
 }
@@ -261,19 +270,13 @@ stage_api_diff() {
   fi
 }
 
-# ====================================================================== 7  E2E
-# Blocking: a failing acceptance test blocks the merge exactly like a failing unit
-# test — there is no green build with a red test. The inner loop (--fast) is the
-# fast local cycle that skips E2E; the full gate, which CI runs, must actually run
-# them. So: stack down is INCOMPLETE, never a pass (an authored-but-never-executed
-# E2E must never be folded into "done"); a real E2E failure is FAIL. The one thing
-# that is NOT a failure is a package that carries no E2E tests at all — that is a
-# definitive "nothing to run here", recorded as a non-blocking signal.
-#
+# ================================================================ stack probe
 # Two ways to answer "is the stack up", in order of authority: `supabase status`
 # from the dir holding supabase/config.toml (searched upward from the scope), then
 # a probe of the endpoint the tests use — any HTTP status proves something is
-# listening; only a failed connection means down.
+# listening; only a failed connection means down. Called once from gate.sh
+# (cached in $STACK_OK) to decide both which test path to run and which SKIP
+# markers to emit, rather than probing twice.
 supabase_root() {
   local d="$SCOPE_DIR"
   while [[ "$d" != "/" && -n "$d" ]]; do
@@ -305,27 +308,61 @@ stack_up() {
   (exec 3<>"/dev/tcp/$host/$port") >/dev/null 2>&1 && return 0 || return 1
 }
 
-stage_e2e() {
-  if ! stack_up; then
-    add 7 "E2E / acceptance" block "" SKIP "stack down per $STACK_CHECK — run: supabase start" "$SCOPE_LOGS/7-stack.log"
-    return
-  fi
-  local i log sum ff
+# ============================================================ 2  tests (full)
+# Full mode, stack reachable: one UNFILTERED dotnet test run per package — every
+# TestCategory, unit/contract/E2E together — instead of the two disjoint filtered
+# runs (inner loop, then E2E-if-green) that --fast still uses. This is what makes
+# "full coverage" (unit+contract+E2E, not just the inner loop) measurable from a
+# single Cobertura report, with no third test execution and no cross-run merge.
+#
+# TRADEOFF, deliberate: a red unit test no longer blocks E2E from running in the
+# same pass (previously E2E was "worth minutes only when the inner loop is
+# green"). Both categories execute together now; the row FAILs if either does.
+stage_tests_full() {
+  local i log sum ff resdir
   for i in "${!PKG_DIR[@]}"; do
     _use_pkg "$i"
-    log="$LOGS/7-e2e.log"
-    run "$log" dotnet test "$TEST_PROJECT" -c Release --no-build --filter "TestCategory=E2E" -v minimal
+    log="$LOGS/2-tests.log"; resdir="$LOGS/coverage"; rm -rf "$resdir"
+    run "$log" dotnet test "$TEST_PROJECT" -c Release --no-build \
+      --collect:"XPlat Code Coverage" --results-directory "$resdir" -v minimal
     sum="$(grep -E '^(Passed!|Failed!)' "$log" 2>/dev/null | tail -n1 || true)"
-    if [[ $RC -eq 0 ]]; then
-      add 7 "E2E / acceptance" block "${PKG_NAME[$i]}" PASS "${sum:-green}" "$log"
-    elif no_tests_matched "$log"; then
-      # A package with no E2E tests is not a gap the gate should fail on — the filter
-      # ran and definitively matched nothing. Non-blocking signal, never INCOMPLETE.
-      add 7 "E2E / acceptance" signal "${PKG_NAME[$i]}" SKIP \
-        "no tests carry [TestCategory(\"E2E\")] in this package" "$log"
+    if no_tests_matched "$log"; then
+      add 2 "Tests (Unit + Contract + E2E)" block "${PKG_NAME[$i]}" FAIL \
+        "no tests matched — the package has no tests at all" "$log"
+    elif [[ $RC -eq 0 ]]; then
+      add 2 "Tests (Unit + Contract + E2E)" block "${PKG_NAME[$i]}" PASS "${sum:-green}" "$log"
     else
       ff="$(first_failure "$log")"
-      add 7 "E2E / acceptance" block "${PKG_NAME[$i]}" FAIL "${sum:-see log}${ff:+ — first: $ff}" "$log"
+      add 2 "Tests (Unit + Contract + E2E)" block "${PKG_NAME[$i]}" FAIL \
+        "${sum:-tests failed}${ff:+ — first: $ff}" "$log"
     fi
+  done
+}
+
+# =========================================================== 2b  coverage
+# Blocking. Reads the SAME run's Cobertura output that stage_tests_full just
+# produced — it never runs dotnet test itself. "Full" coverage only exists when
+# the unfiltered run executed, so this must only ever be called when it did;
+# gate.sh emits SKIP markers directly (never calling this function) for the
+# build-failed and stack-down cases, same causal-skip pattern as every other
+# stage: a check that could not run must never report as passed, and coverage
+# that could not be confirmed "full" must never be reported as if it were.
+stage_coverage() {
+  local i cov log
+  for i in "${!PKG_DIR[@]}"; do
+    _use_pkg "$i"
+    log="$LOGS/2-tests.log"
+    cov="$(find "$LOGS/coverage" -name 'coverage.cobertura.xml' 2>/dev/null | head -n1)"
+    if [[ -z "$cov" || ! -s "$cov" ]]; then
+      add 2b "Coverage (line)" block "${PKG_NAME[$i]}" SKIP "no coverage report produced — see log" "$log"
+      continue
+    fi
+    if ! parse_coverage "$cov"; then
+      add 2b "Coverage (line)" block "${PKG_NAME[$i]}" SKIP "0 instrumentable lines — nothing to measure" "$log"
+      continue
+    fi
+    local v; v="$(coverage_verdict)"
+    add 2b "Coverage (line)" block "${PKG_NAME[$i]}" "${v%%|||*}" "${v#*|||}" "$log"
+    save_coverage_baseline
   done
 }

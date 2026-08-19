@@ -1,5 +1,5 @@
 {
-  "description": "A failing E2E test in standard (full) mode. Build, format and the inner loop are green and the stack is reachable, so E2E actually runs — and because E2E is blocking, its failure must FAIL the gate (exit 1). Guards the rule that a red acceptance test blocks the merge exactly like a red unit test.",
+  "description": "A failing E2E test in full mode with the stack reachable. Build and format are green; the unfiltered run (unit + contract + E2E together) includes the failing acceptance test, so id 2 — not a separate E2E stage — goes FAIL. Coverage is still measured from that same run despite the test failure. Guards the rule that a red acceptance test blocks the merge exactly like a red unit test.",
   "mode": "",
   "needsStack": true,
   "exit": 1,
@@ -7,7 +7,7 @@
   "stages": [
     { "id": "1a", "status": "PASS" },
     { "id": "1b", "status": "PASS" },
-    { "id": "2",  "status": "PASS" },
-    { "id": "7",  "status": "FAIL", "detailContains": "Failed" }
+    { "id": "2",  "status": "FAIL", "detailContains": "Failed" },
+    { "id": "2b", "status": "PASS" }
   ]
 }

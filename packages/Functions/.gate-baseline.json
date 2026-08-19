@@ -3,6 +3,14 @@
   "package": "Functions",
   "project": "Functions/Functions.csproj",
   "testProject": "Functions.Tests/Functions.Tests.csproj",
-  "warnings": { "total": 12, "byCode": {"IDE0161":12} },
-  "updated": "2026-08-14T08:21:47Z"
+  "warnings": {
+    "total": 12,
+    "byCode": {
+      "IDE0161": 12
+    }
+  },
+  "updated": "2026-08-14T08:21:47Z",
+  "coverage": {
+    "line": 82.35
+  }
 }
