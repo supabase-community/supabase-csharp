@@ -8,6 +8,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Web;
 using Supabase.Core.Diagnostics;
+using Supabase.Core.Http;
 using Supabase.Gotrue.Exceptions;
 using Supabase.Gotrue.Interfaces;
 using Supabase.Gotrue.Mfa;
@@ -78,7 +79,7 @@ public class Client : IGotrueClient<User, Session>
     {
         options ??= new ClientOptions();
         this.Options = options;
-        this.api = new Api(options.Url, options.Headers);
+        this.api = new Api(options.Url, options.Headers, options.HttpClient ?? (options.Proxy != null ? DefaultHttpClientFactory.Create(proxy: options.Proxy) : null), options.Retry);
         if (options.AutoRefreshToken)
         {
             this.TokenRefresh = new TokenRefresh(this);
