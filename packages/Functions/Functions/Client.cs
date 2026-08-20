@@ -6,11 +6,13 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using Supabase.Core;
 using Supabase.Core.Diagnostics;
 using Supabase.Core.Extensions;
+using Supabase.Core.Http;
 using Supabase.Functions.Exceptions;
 using Supabase.Functions.Interfaces;
 
@@ -32,7 +34,7 @@ public partial class Client : IFunctionsClient
         Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
     };
 
-    private HttpClient httpClient = new HttpClient();
+    private readonly HttpClient httpClient;
     private readonly string baseUrl;
     private readonly FunctionRegion region;
 
@@ -43,15 +45,21 @@ public partial class Client : IFunctionsClient
     /// </summary>
     public Func<Dictionary<string, string>>? GetHeaders { get; set; }
 
+    /// <summary>The options this client was constructed with.</summary>
+    public ClientOptions Options { get; }
+
     /// <summary>
     /// Initializes a functions client
     /// </summary>
     /// <param name="baseUrl"></param>
     /// <param name="region"></param>
-    public Client(string baseUrl, FunctionRegion? region = null)
+    /// <param name="options"></param>
+    public Client(string baseUrl, FunctionRegion? region = null, ClientOptions? options = null)
     {
         this.baseUrl = baseUrl;
         this.region = region ?? FunctionRegion.Any;
+        this.Options = options ?? new ClientOptions();
+        this.httpClient = this.Options.HttpClient ?? DefaultHttpClientFactory.Create(proxy: this.Options.Proxy);
     }
 
     /// <summary>
@@ -60,16 +68,18 @@ public partial class Client : IFunctionsClient
     /// <param name="functionName">Function Name, will be appended to BaseUrl</param>
     /// <param name="token">Anon Key.</param>
     /// <param name="options">Options</param>
+    /// <param name="cancellationToken"></param>
     /// <returns></returns>
     public async Task<HttpContent> RawInvoke(
         string functionName,
         string? token = null,
-        InvokeFunctionOptions? options = null
+        InvokeFunctionOptions? options = null,
+        CancellationToken cancellationToken = default
     )
     {
         var url = $"{this.baseUrl}/{functionName}";
 
-        return (await this.HandleRequest(functionName, url, token, options)).Content;
+        return (await this.HandleRequest(functionName, url, token, options, cancellationToken)).Content;
     }
 
     /// <summary>
@@ -78,15 +88,17 @@ public partial class Client : IFunctionsClient
     /// <param name="functionName">Function Name, will be appended to BaseUrl</param>
     /// <param name="token">Anon Key.</param>
     /// <param name="options">Options</param>
+    /// <param name="cancellationToken"></param>
     /// <returns></returns>
     public async Task<string> Invoke(
         string functionName,
         string? token = null,
-        InvokeFunctionOptions? options = null
+        InvokeFunctionOptions? options = null,
+        CancellationToken cancellationToken = default
     )
     {
         var url = $"{this.baseUrl}/{functionName}";
-        var response = await this.HandleRequest(functionName, url, token, options);
+        var response = await this.HandleRequest(functionName, url, token, options, cancellationToken);
 
         return await response.Content.ReadAsStringAsync();
     }
@@ -98,16 +110,18 @@ public partial class Client : IFunctionsClient
     /// <param name="functionName">Function Name, will be appended to BaseUrl</param>
     /// <param name="token">Anon Key.</param>
     /// <param name="options">Options</param>
+    /// <param name="cancellationToken"></param>
     /// <returns></returns>
     public async Task<T?> Invoke<T>(
         string functionName,
         string? token = null,
-        InvokeFunctionOptions? options = null
+        InvokeFunctionOptions? options = null,
+        CancellationToken cancellationToken = default
     )
         where T : class
     {
         var url = $"{this.baseUrl}/{functionName}";
-        var response = await this.HandleRequest(functionName, url, token, options);
+        var response = await this.HandleRequest(functionName, url, token, options, cancellationToken);
 
         var content = await response.Content.ReadAsStringAsync();
 
@@ -121,13 +135,15 @@ public partial class Client : IFunctionsClient
     /// <param name="url"></param>
     /// <param name="token"></param>
     /// <param name="options"></param>
+    /// <param name="cancellationToken"></param>
     /// <returns></returns>
     /// <exception cref="FunctionsException"></exception>
     private async Task<HttpResponseMessage> HandleRequest(
         string functionName,
         string url,
         string? token = null,
-        InvokeFunctionOptions? options = null
+        InvokeFunctionOptions? options = null,
+        CancellationToken cancellationToken = default
     )
     {
         options ??= new InvokeFunctionOptions();
@@ -144,48 +160,25 @@ public partial class Client : IFunctionsClient
 
         options.Headers["X-Client-Info"] = Util.GetAssemblyVersion(typeof(Client));
 
-        var region = options.FunctionRegion;
-        if (region == null)
-        {
-            region = this.region;
-        }
-
+        var region = options.FunctionRegion ?? this.region;
         if (region != FunctionRegion.Any)
         {
             options.Headers["x-region"] = region.ToString();
         }
 
-        var builder = new UriBuilder(url);
-        var query = HttpUtility.ParseQueryString(builder.Query);
+        var uri = BuildUri(url);
 
-        builder.Query = query.ToString();
-
-        using var requestMessage = new HttpRequestMessage(options.HttpMethod, builder.Uri);
-        requestMessage.Content = new StringContent(
-            JsonSerializer.Serialize(options.Body, SerializerOptions),
-            Encoding.UTF8,
-            "application/json"
-        );
-
-        foreach (var kvp in options.Headers)
-        {
-            requestMessage.Headers.TryAddWithoutValidation(kvp.Key, kvp.Value);
-        }
-
-        if (this.httpClient.Timeout != options.HttpTimeout)
-        {
-            this.httpClient = new HttpClient();
-            this.httpClient.Timeout = options.HttpTimeout;
-        }
-
-        using var activity = FunctionsInstrumentation.StartInvokeActivity(options.HttpMethod, builder.Uri, functionName);
+        using var activity = FunctionsInstrumentation.StartInvokeActivity(options.HttpMethod, uri, functionName);
         var startTimestamp = Stopwatch.GetTimestamp();
         int? statusCode = null;
         string? errorType = null;
 
+        using var timeoutCts = new CancellationTokenSource(options.HttpTimeout);
+        using var linkedCts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, timeoutCts.Token);
+
         try
         {
-            var response = await this.httpClient.SendAsync(requestMessage);
+            var response = await RetryExecutor.SendAsync(this.httpClient, () => BuildRequestMessage(options, uri), this.Options.Retry, linkedCts.Token);
             statusCode = (int) response.StatusCode;
             var isRelayError = response.Headers.Contains("x-relay-error");
             activity.SetHttpResponseTags(statusCode.Value);
@@ -216,7 +209,14 @@ public partial class Client : IFunctionsClient
             exception.AddReason();
             throw exception;
         }
-        catch (Exception e) when (!(e is FunctionsException))
+        catch (OperationCanceledException) when (timeoutCts.IsCancellationRequested && !cancellationToken.IsCancellationRequested)
+        {
+            var timeoutException = new TimeoutException($"The request timed out after {options.HttpTimeout}.");
+            errorType = timeoutException.GetType().FullName;
+            activity.SetFailure(timeoutException);
+            throw new TaskCanceledException(timeoutException.Message, timeoutException, cancellationToken);
+        }
+        catch (Exception e) when (e is not FunctionsException)
         {
             // Transport-level failures (no response); Functions surfaces these raw, so tag and rethrow.
             errorType = e.GetType().FullName;
@@ -225,7 +225,30 @@ public partial class Client : IFunctionsClient
         }
         finally
         {
-            FunctionsInstrumentation.RecordInvoke(options.HttpMethod, builder.Uri, functionName, statusCode, errorType, startTimestamp);
+            FunctionsInstrumentation.RecordInvoke(options.HttpMethod, uri, functionName, statusCode, errorType, startTimestamp);
         }
+    }
+
+    private static Uri BuildUri(string url)
+    {
+        var builder = new UriBuilder(url);
+        var query = HttpUtility.ParseQueryString(builder.Query);
+        builder.Query = query.ToString();
+        return builder.Uri;
+    }
+
+    private static HttpRequestMessage BuildRequestMessage(InvokeFunctionOptions options, Uri uri)
+    {
+        var request = new HttpRequestMessage(options.HttpMethod, uri)
+        {
+            Content = new StringContent(JsonSerializer.Serialize(options.Body, SerializerOptions), Encoding.UTF8, "application/json")
+        };
+
+        foreach (var kvp in options.Headers)
+        {
+            request.Headers.TryAddWithoutValidation(kvp.Key, kvp.Value);
+        }
+
+        return request;
     }
 }
