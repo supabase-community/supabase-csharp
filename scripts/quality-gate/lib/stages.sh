@@ -308,6 +308,26 @@ stack_up() {
   (exec 3<>"/dev/tcp/$host/$port") >/dev/null 2>&1 && return 0 || return 1
 }
 
+# Coverlet's VSTest collector instruments every assembly it can find in the test
+# output dir by default — every ProjectReference along with the package under
+# test, not just the package itself. Left unscoped, a package's "own" coverage
+# report silently includes its dependencies' code too: a shared dependency (e.g.
+# Core) gaining new, legitimately-uncovered-from-here lines then drags down every
+# consumer's number, for a reason that has nothing to do with that consumer's own
+# code or tests. That dependency's coverage is already tracked on its own row —
+# counting it a second time, inside an unrelated package's number, is simply
+# wrong, not just noisy. `;Include=[<AssemblyName>]*` scopes the collector to
+# exactly the module under test. Confirmed necessary and sufficient directly: on
+# a branch that only changes Core, every *downstream* package's row FAILed with
+# multi-point regressions before this filter, and the newly-added Core classes
+# (0% covered, as expected — they're exercised by Core's own tests) were exactly
+# the extra lines showing up inside e.g. Functions' report. With the filter, that
+# report contains only Functions' own classes.
+pkg_assembly_name() {  # pkg_assembly_name <production-csproj>
+  local n; n="$(grep -oE '<AssemblyName>[^<]+</AssemblyName>' "$1" 2>/dev/null | head -n1 | sed -E 's/<[^>]+>//g')"
+  [[ -n "$n" ]] && echo "$n" || basename "$1" .csproj
+}
+
 # ============================================================ 2  tests (full)
 # Full mode, stack reachable: one UNFILTERED dotnet test run per package — every
 # TestCategory, unit/contract/E2E together — instead of the two disjoint filtered
@@ -320,12 +340,13 @@ stack_up() {
 # same pass (previously E2E was "worth minutes only when the inner loop is
 # green"). Both categories execute together now; the row FAILs if either does.
 stage_tests_full() {
-  local i log sum ff resdir hermetic_log hermetic_dir
+  local i log sum ff resdir hermetic_log hermetic_dir asm
   for i in "${!PKG_DIR[@]}"; do
     _use_pkg "$i"
+    asm="$(pkg_assembly_name "$PROJECT")"
     log="$LOGS/2-tests.log"; resdir="$LOGS/coverage"; rm -rf "$resdir"
     run "$log" dotnet test "$TEST_PROJECT" -c Release --no-build \
-      --collect:"XPlat Code Coverage" --results-directory "$resdir" -v minimal
+      --collect:"XPlat Code Coverage;Include=[$asm]*" --results-directory "$resdir" -v minimal
     sum="$(grep -E '^(Passed!|Failed!)' "$log" 2>/dev/null | tail -n1 || true)"
     if no_tests_matched "$log"; then
       add 2 "Tests (Unit + Contract + E2E)" block "${PKG_NAME[$i]}" FAIL \
@@ -345,7 +366,7 @@ stage_tests_full() {
     # above — this run exists only to produce a reproducible Cobertura report.
     hermetic_log="$LOGS/2c-hermetic-coverage.log"; hermetic_dir="$LOGS/coverage-hermetic"; rm -rf "$hermetic_dir"
     run "$hermetic_log" dotnet test "$TEST_PROJECT" -c Release --no-build --filter "TestCategory!=E2E" \
-      --collect:"XPlat Code Coverage" --results-directory "$hermetic_dir" -v minimal
+      --collect:"XPlat Code Coverage;Include=[$asm]*" --results-directory "$hermetic_dir" -v minimal
   done
 }
 
