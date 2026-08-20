@@ -4,13 +4,30 @@
 # ever moves the right way automatically; moving it the wrong way needs a human
 # hand-edit, so the regression shows up in code review.
 #
+# The ratchet is scoped to HERMETIC tests only — unit + contract, no real I/O, no
+# real clock, no live external process — never to E2E. A coverage delta is only
+# evidence that a diff changed something when the run producing it is fully
+# reproducible; E2E tests exist specifically to exercise real, live dependencies
+# (containers, network, timing), so their execution path can legitimately vary
+# run-to-run for reasons that have nothing to do with the code under test. Gating
+# merges on a single-run E2E coverage delta gates on infrastructure noise, not on
+# test discipline — this was verified directly, not assumed: the same commit run
+# twice locally produced byte-identical hermetic coverage both times, while two
+# real CI runs of identical, untouched package code showed multi-point swings
+# wherever E2E contributed. E2E's correctness contract stays pass/fail
+# (stage_tests_full, unchanged, still fully blocking) — its coverage contribution
+# is still measured and reported alongside (stage_coverage's "full incl. E2E"
+# figure), so E2E-only-covered code is never hidden, it just isn't what fails a PR.
+#
 # The source is a Cobertura XML written by coverlet.collector (already referenced
 # by every test csproj) via `dotnet test --collect:"XPlat Code Coverage"`. Kept in
 # its own file rather than folded into warnings.sh: that file is explicitly
 # scoped to the analyzer ratchet — a text-parsed build-log concern — while this is
 # an XML-parsed test-artifact concern.
 
-COVERAGE_EPSILON="0.01"   # percentage points; absorbs rounding jitter between runs
+COVERAGE_EPSILON="0.01"   # percentage points. The hermetic source is fully
+                          # reproducible (see above), so this absorbs only
+                          # floating-point rounding — not run-to-run flake.
 
 COV_PCT=""; COV_COVERED=""; COV_VALID=""
 
@@ -34,12 +51,13 @@ parse_coverage() {
   COV_PCT="$(awk -v c="$covered" -v v="$valid" 'BEGIN{printf "%.2f", (c/v)*100}')"
 }
 
-# Compare $COV_PCT against $BASELINE's coverage.line. Echoes "STATUS|||detail".
-# No ceiling: any measured decrease beyond the epsilon fails, no matter how high
-# the baseline already is — a capped ratchet would let a large chunk of untested
-# new code land, once at the cap, without the aggregate dipping below it.
+# Compare $COV_PCT against $BASELINE's coverage.hermeticLine. Echoes
+# "STATUS|||detail". No ceiling: any measured decrease beyond the epsilon fails,
+# no matter how high the baseline already is — a capped ratchet would let a large
+# chunk of untested new code land, once at the cap, without the aggregate dipping
+# below it.
 coverage_verdict() {
-  local base; base="$(bget .coverage.line)"
+  local base; base="$(bget .coverage.hermeticLine)"
   if [[ -z "$base" ]]; then
     echo "PASS|||${COV_PCT}% line coverage (${COV_COVERED}/${COV_VALID}) — baseline established by this run"
     return
@@ -55,17 +73,21 @@ coverage_verdict() {
 
 # Written whenever $COV_PCT improves on the baseline beyond the epsilon, or when
 # the baseline has no coverage key yet. Uses a targeted jq merge — touching only
-# .coverage — rather than reconstructing the whole file from a heredoc the way
-# save_baseline (warnings) does: that approach only knows about
+# .coverage.hermeticLine — rather than reconstructing the whole file from a
+# heredoc the way save_baseline (warnings) does: that approach only knows about
 # schema/package/project/testProject/warnings/updated and silently drops any
 # other key (mutationScore, e2eHealthUrl, formatBaseRef) whenever it fires. Since
 # save_baseline already ran earlier in the same gate.sh invocation (stage_build),
 # a merge here avoids stomping whatever it just wrote.
+#
+# Must be called while $COV_PCT/$COV_COVERED/$COV_VALID still reflect the
+# HERMETIC report — stage_coverage re-parses the full (incl. E2E) report
+# afterward, for display only, which overwrites these globals.
 save_coverage_baseline() {
-  local base; base="$(bget .coverage.line)"
+  local base; base="$(bget .coverage.hermeticLine)"
   [[ -n "$COV_PCT" ]] || return 0
   if [[ -z "$base" ]] || awk -v c="$COV_PCT" -v b="$base" -v e="$COVERAGE_EPSILON" 'BEGIN{exit !(c>b+e)}'; then
-    jq --argjson line "$COV_PCT" '.coverage = {line: $line}' "$BASELINE" > "$BASELINE.tmp" && mv "$BASELINE.tmp" "$BASELINE"
+    jq --argjson line "$COV_PCT" '.coverage.hermeticLine = $line' "$BASELINE" > "$BASELINE.tmp" && mv "$BASELINE.tmp" "$BASELINE"
     echo "${GRN}baseline raised${OFF} (coverage ${base:-–}%→$COV_PCT%) ${DIM}— commit $BASELINE${OFF}"
   fi
 }
