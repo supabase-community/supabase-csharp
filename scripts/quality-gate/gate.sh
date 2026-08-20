@@ -156,9 +156,12 @@ SCOPE_OUT="$SCOPE_DIR/.gate"; SCOPE_LOGS="$SCOPE_OUT/logs"; mkdir -p "$SCOPE_LOG
 # network check instead of probing twice):
 #   --fast                    stage_inner_loop, filtered TestCategory!=E2E — the
 #                              fast local cycle; no coverage, verdict is PARTIAL.
-#   full mode, stack up       stage_tests_full — ONE unfiltered run (every
-#                              TestCategory together) that is both the test result
-#                              and the coverage source, then stage_coverage.
+#   full mode, stack up       stage_tests_full — an unfiltered run (every
+#                              TestCategory together) that is the test-correctness
+#                              result, plus a second filtered run that sources the
+#                              coverage ratchet from a hermetic report — then
+#                              stage_coverage (see lib/coverage.sh: the ratchet is
+#                              hermetic-only by design, E2E stays pass/fail).
 #   full mode, stack down     stage_inner_loop as a fallback, so local dev still
 #                              gets build/test feedback without `supabase start`;
 #                              E2E and coverage both SKIP — "full" coverage isn't
@@ -214,10 +217,10 @@ if [[ "$MODE" != "fast" ]]; then
 
   if [[ $BUILD_OK -eq 0 ]]; then
     add 7  "E2E / acceptance" block "" SKIP "not run — build failed" ""
-    add 2b "Coverage (line)"  block "" SKIP "not run — build failed" ""
+    add 2b "Coverage (line, unit+contract)"  block "" SKIP "not run — build failed" ""
   elif [[ $STACK_OK -eq 0 ]]; then
     add 7  "E2E / acceptance" block "" SKIP "stack down per $STACK_CHECK — run: supabase start" "$SCOPE_LOGS/7-stack.log"
-    add 2b "Coverage (line)"  block "" SKIP "not measured — stack down, full run did not execute" ""
+    add 2b "Coverage (line, unit+contract)"  block "" SKIP "not measured — stack down, full run did not execute" ""
   fi
 fi
 
