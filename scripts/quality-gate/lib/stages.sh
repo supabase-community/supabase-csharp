@@ -312,14 +312,15 @@ stack_up() {
 # Full mode, stack reachable: one UNFILTERED dotnet test run per package — every
 # TestCategory, unit/contract/E2E together — instead of the two disjoint filtered
 # runs (inner loop, then E2E-if-green) that --fast still uses. This is what makes
-# "full coverage" (unit+contract+E2E, not just the inner loop) measurable from a
-# single Cobertura report, with no third test execution and no cross-run merge.
+# "full coverage" (unit+contract+E2E, not just the inner loop) measurable, and it
+# is the single source of test-correctness truth: this row's PASS/FAIL is what
+# blocks on a red test, E2E included.
 #
 # TRADEOFF, deliberate: a red unit test no longer blocks E2E from running in the
 # same pass (previously E2E was "worth minutes only when the inner loop is
 # green"). Both categories execute together now; the row FAILs if either does.
 stage_tests_full() {
-  local i log sum ff resdir
+  local i log sum ff resdir hermetic_log hermetic_dir
   for i in "${!PKG_DIR[@]}"; do
     _use_pkg "$i"
     log="$LOGS/2-tests.log"; resdir="$LOGS/coverage"; rm -rf "$resdir"
@@ -336,33 +337,53 @@ stage_tests_full() {
       add 2 "Tests (Unit + Contract + E2E)" block "${PKG_NAME[$i]}" FAIL \
         "${sum:-tests failed}${ff:+ — first: $ff}" "$log"
     fi
+
+    # A second, filtered pass sources the coverage ratchet below from a hermetic
+    # (unit+contract-only) report — see lib/coverage.sh for why the ratchet must
+    # not read the unfiltered run above. Not a correctness check of its own: the
+    # same tests already ran, and any failure already surfaced, in the pass just
+    # above — this run exists only to produce a reproducible Cobertura report.
+    hermetic_log="$LOGS/2c-hermetic-coverage.log"; hermetic_dir="$LOGS/coverage-hermetic"; rm -rf "$hermetic_dir"
+    run "$hermetic_log" dotnet test "$TEST_PROJECT" -c Release --no-build --filter "TestCategory!=E2E" \
+      --collect:"XPlat Code Coverage" --results-directory "$hermetic_dir" -v minimal
   done
 }
 
 # =========================================================== 2b  coverage
-# Blocking. Reads the SAME run's Cobertura output that stage_tests_full just
-# produced — it never runs dotnet test itself. "Full" coverage only exists when
-# the unfiltered run executed, so this must only ever be called when it did;
-# gate.sh emits SKIP markers directly (never calling this function) for the
-# build-failed and stack-down cases, same causal-skip pattern as every other
-# stage: a check that could not run must never report as passed, and coverage
-# that could not be confirmed "full" must never be reported as if it were.
+# Blocking, but scoped to the HERMETIC (unit+contract) report the filtered pass
+# above just produced — never dotnet test itself. That report only exists when
+# stage_tests_full ran, so this must only ever be called when it did; gate.sh
+# emits SKIP markers directly (never calling this function) for the build-failed
+# and stack-down cases, same causal-skip pattern as every other stage: a check
+# that could not run must never report as passed.
+#
+# The full (unit+contract+E2E) report is also read here, but only to append an
+# informational figure to the detail string — never to gate the verdict or move
+# the baseline. See lib/coverage.sh's header for why: E2E is non-hermetic by
+# design, so its coverage contribution is real and worth showing, just not a
+# reproducible enough signal to block a merge on.
 stage_coverage() {
-  local i cov log
+  local i cov cov_full log detail v
   for i in "${!PKG_DIR[@]}"; do
     _use_pkg "$i"
-    log="$LOGS/2-tests.log"
-    cov="$(find "$LOGS/coverage" -name 'coverage.cobertura.xml' 2>/dev/null | head -n1)"
+    log="$LOGS/2c-hermetic-coverage.log"
+    cov="$(find "$LOGS/coverage-hermetic" -name 'coverage.cobertura.xml' 2>/dev/null | head -n1)"
     if [[ -z "$cov" || ! -s "$cov" ]]; then
-      add 2b "Coverage (line)" block "${PKG_NAME[$i]}" SKIP "no coverage report produced — see log" "$log"
+      add 2b "Coverage (line, unit+contract)" block "${PKG_NAME[$i]}" SKIP "no coverage report produced — see log" "$log"
       continue
     fi
     if ! parse_coverage "$cov"; then
-      add 2b "Coverage (line)" block "${PKG_NAME[$i]}" SKIP "0 instrumentable lines — nothing to measure" "$log"
+      add 2b "Coverage (line, unit+contract)" block "${PKG_NAME[$i]}" SKIP "0 instrumentable lines — nothing to measure" "$log"
       continue
     fi
-    local v; v="$(coverage_verdict)"
-    add 2b "Coverage (line)" block "${PKG_NAME[$i]}" "${v%%|||*}" "${v#*|||}" "$log"
-    save_coverage_baseline
+    v="$(coverage_verdict)"
+    save_coverage_baseline   # while COV_* still reflects the hermetic report parsed above
+
+    detail="${v#*|||}"
+    cov_full="$(find "$LOGS/coverage" -name 'coverage.cobertura.xml' 2>/dev/null | head -n1)"
+    if [[ -n "$cov_full" && -s "$cov_full" ]] && parse_coverage "$cov_full"; then
+      detail="$detail · full incl. E2E: ${COV_PCT}% (${COV_COVERED}/${COV_VALID})"
+    fi
+    add 2b "Coverage (line, unit+contract)" block "${PKG_NAME[$i]}" "${v%%|||*}" "$detail" "$LOGS/2-tests.log"
   done
 }
