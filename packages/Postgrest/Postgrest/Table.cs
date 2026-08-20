@@ -603,7 +603,7 @@ public class Table<TModel> : IPostgrestTable<TModel> where TModel : BaseModel, n
             throw new PostgrestException($"The query matched {result.Models.Count} rows when at most one was expected.")
             {
                 Response = result.ResponseMessage,
-                StatusCode = (int)HttpStatusCode.NotAcceptable
+                StatusCode = (int) HttpStatusCode.NotAcceptable
             };
 
         return result.Models.FirstOrDefault();
