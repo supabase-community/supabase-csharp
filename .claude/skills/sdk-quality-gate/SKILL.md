@@ -1,6 +1,6 @@
 ---
 name: sdk-quality-gate
-description: Use before declaring any Supabase C# SDK change done or opening a PR, and as the Verify step of every flow. Runs the committed scripts/quality-gate/gate.sh script — the mechanized gauntlet (build/analyzers with a warning ratchet, format on changed files, inner-loop tests, vulnerability scan and E2E/acceptance tests, plus a public-API diff signal) — and reports its verdict. This is the deterministic "is it done" check; do not report a change as done without a PASS.
+description: Use before declaring any Supabase C# SDK change done or opening a PR, and as the Verify step of every flow. Runs the committed scripts/quality-gate/gate.sh script — the mechanized gauntlet (build/analyzers with a warning ratchet, format on changed files, tests, a line-coverage ratchet, vulnerability scan and E2E/acceptance tests, plus a public-API diff signal) — and reports its verdict. This is the deterministic "is it done" check; do not report a change as done without a PASS.
 ---
 
 # Skill: SDK quality gate
@@ -19,7 +19,8 @@ scripts/quality-gate/gate.sh <package> --fast    # inner loop only
 
 There are two modes. `--fast` is the inner loop only (build, format, tests) — the
 fast local red/green cycle; the default is the full gate and adds security, the
-public-API check and E2E. `<package>` is a directory — e.g. `gotrue-csharp`,
+public-API check, E2E and a line-coverage ratchet. `<package>` is a directory —
+e.g. `gotrue-csharp`,
 `core-csharp` — and defaults to the current directory. Run with `bash <path>` if
 the executable bit is unset.
 
@@ -40,20 +41,43 @@ thing. The blocking-stage verdict here is the one that gates the merge.
 | `INCOMPLETE` | 2 | A blocking stage could not run. Unverified ≠ verified. |
 | `FAIL` | 1 | A blocking stage failed. |
 
-Blocking stages `[B]` decide the verdict: build/analyzers, format, the inner loop,
-dependency vulnerabilities, public-API declared, **and E2E/acceptance**. A failing
-E2E blocks the merge exactly like a failing unit test — there is no green build
-with a red test. A package that carries no E2E tests is not a failure; only a real
-E2E failure, or a stack that could not be reached, holds the gate.
+Blocking stages `[B]` decide the verdict: build/analyzers, format, tests,
+line coverage, dependency vulnerabilities, public-API declared, **and
+E2E/acceptance**. A failing E2E test blocks the merge exactly like a failing unit
+test — there is no green build with a red test.
+
+**Test execution differs by mode.** `--fast` runs the inner loop only
+(`TestCategory!=E2E`) — no coverage measured, verdict is `PARTIAL`. The full gate,
+when the local/CI Supabase stack is reachable, runs every test **in one
+unfiltered pass** — unit, contract and E2E together, under stage id `2` — so a
+red unit test no longer prevents E2E from executing in the same run (they either
+both ran, or neither did). That same run is also the coverage source: `2b`
+measures line coverage across the whole suite, not just the inner loop, so
+"coverage" always means the full picture. **Stage `7` doesn't appear in the
+report at all when this happens** — id `2`'s own per-package rows (labeled
+"Tests (Unit + Contract + E2E)") already carry the full outcome, so a separate
+E2E row would only restate it, and imprecisely at that (a package with zero E2E
+tests has nothing to "fold in"). If the stack is unreachable, the gate falls back
+to running the inner loop alone for local feedback, and both E2E (`7`) and
+coverage (`2b`) SKIP with a reason — "full" coverage isn't measurable without the
+E2E half of the suite, and a check that couldn't run must never read as passed.
+Either way, a stack that can't be reached holds the gate at `INCOMPLETE`.
+
+Dropped intentionally: a package with zero `[TestCategory("E2E")]` tests used to
+get its own non-blocking signal row under `7` ("no E2E tests in this package").
+Now that E2E runs folded into the unfiltered stage `2`, that distinction isn't
+separately observable without a second test-discovery pass, so it's gone — not a
+regression to chase, just a note so its absence isn't a surprise.
 
 The one signal stage `[s]` is the **public-API diff**: it never fails the build,
 because the maintainer is the merge gate on breaking changes — a break may be
 intended. The tool informs that call, it does not veto it (QUALITY_RUBRIC §4).
 
 Stages are skipped only when an earlier failure makes them impossible or
-meaningless — a failed build blocks format and tests; a red inner loop blocks
-E2E. Nothing else suppresses a stage, and anything not run is still reported as
-`SKIP` with its reason.
+meaningless — a failed build blocks format, tests, E2E and coverage; a stack
+that can't be reached blocks E2E and coverage specifically (tests still run via
+the inner-loop fallback). Nothing else suppresses a stage, and anything not run
+is still reported as `SKIP` with its reason.
 
 ## Reporting
 
@@ -74,7 +98,8 @@ Not acceptable repairs:
 - re-categorising a test so a filter skips it
 - deleting or `[Ignore]`-ing a red test
 - retrying or quarantining a flaky E2E — flakiness is a design defect
-- hand-editing `.gate-baseline.json` upward to make a stage pass
+- hand-editing `.gate-baseline.json` the wrong way (warnings up, coverage down)
+  to make a stage pass
 
 If a blocking stage fails for a reason outside the change's scope, stop and
 report it. Do not work around it and continue.
@@ -82,15 +107,29 @@ report it. Do not work around it and continue.
 ## Baselines
 
 `<package>/.gate-baseline.json` is committed and holds the discovered project
-paths and the warning count per code. It is created on the
-first run and **ratchets down automatically** — no flags. Raising a number means
-editing the file by hand, so the increase appears in code review.
+paths, the warning count per code, and line coverage. It is created on the
+first run and **ratchets automatically** — no flags. Warnings ratchet *down*
+(fewer is better); coverage ratchets *up* (more is better, `coverage.line`, a
+single percentage, compared with a small epsilon to absorb rounding jitter
+between runs). Either direction, moving the number the wrong way means editing
+the file by hand, so the regression appears in code review.
+
+**Coverage has no ceiling.** It must always be at or above the best ever
+recorded — never capped at, say, 95%, because a cap reopens exactly the
+regression window the ratchet exists to close: once at a cap, a large chunk of
+fully untested new code could land without the aggregate dipping below it,
+especially against a large existing denominator. If coverage nears 100% and the
+remaining gaps are genuinely low-value to test (a guard clause, an unreachable
+`default:` arm), the answer is `[ExcludeFromCodeCoverage]` on those specific
+lines — not a gate-level threshold. That's a per-line, reviewed-in-diff opt-out;
+a reviewer sees it and can push back, unlike a global cap that quietly loosens
+the bar for everyone forever.
 
 Optional keys: `formatBaseRef` (default: `origin/HEAD`, then `main`/`master`)
 for the changed-file comparison, and `e2eHealthUrl` if the local stack isn't on
 the default port.
 
-When the script reports `baseline lowered`, commit the file.
+When the script reports `baseline lowered` or `baseline raised`, commit the file.
 
 ## What the script cannot check
 

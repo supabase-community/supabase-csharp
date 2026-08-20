@@ -1,0 +1,13 @@
+{
+  "description": "Full mode with no reachable stack. Build/format are green and the inner-loop fallback runs (keeping local dev feedback without `supabase start`), but E2E and coverage both require the unfiltered run, which never executed — both must SKIP, never PASS, forcing INCOMPLETE.",
+  "mode": "",
+  "exit": 2,
+  "verdict": "INCOMPLETE",
+  "stages": [
+    { "id": "1a", "status": "PASS" },
+    { "id": "1b", "status": "PASS" },
+    { "id": "2",  "status": "PASS" },
+    { "id": "7",  "status": "SKIP", "detailContains": "stack down" },
+    { "id": "2b", "status": "SKIP", "detailContains": "not measured" }
+  ]
+}

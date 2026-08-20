@@ -3,6 +3,23 @@
   "package": "Gotrue",
   "project": "Gotrue/Gotrue.csproj",
   "testProject": "Gotrue.Tests/Gotrue.Tests.csproj",
-  "warnings": { "total": 540, "byCode": {"IDE0009":324,"CS1591":126,"CS8618":60,"CS8619":8,"IDE0005":4,"CS8604":4,"CS8601":4,"CS1573":4,"CS1572":4,"CS1574":2} },
-  "updated": "2026-08-14T12:52:38Z"
+  "warnings": {
+    "total": 540,
+    "byCode": {
+      "IDE0009": 324,
+      "CS1591": 126,
+      "CS8618": 60,
+      "CS8619": 8,
+      "IDE0005": 4,
+      "CS8604": 4,
+      "CS8601": 4,
+      "CS1573": 4,
+      "CS1572": 4,
+      "CS1574": 2
+    }
+  },
+  "updated": "2026-08-14T12:52:38Z",
+  "coverage": {
+    "hermeticLine": 41.58
+  }
 }

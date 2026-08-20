@@ -1,0 +1,13 @@
+{
+  "description": "A new, untested method drops line coverage below the committed baseline (100%→50%). Tests still pass; only the coverage ratchet must FAIL.",
+  "mode": "",
+  "needsStack": true,
+  "exit": 1,
+  "verdict": "FAIL",
+  "stages": [
+    { "id": "1a", "status": "PASS" },
+    { "id": "1b", "status": "PASS" },
+    { "id": "2",  "status": "PASS" },
+    { "id": "2b", "status": "FAIL", "detailContains": "regression" }
+  ]
+}
