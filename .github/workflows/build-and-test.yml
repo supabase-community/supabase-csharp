@@ -45,45 +45,16 @@ jobs:
         run: supabase start
 
       # Runs the same quality gate as contributors and agents (scripts/quality-gate).
-      # Its exit code is the merge gate: build/analyzers, format, inner-loop tests,
+      # Its exit code is the merge gate: build/analyzers, inner-loop tests,
       # dependency vulnerabilities, public-API sync and E2E/acceptance tests are all
       # blocking — a non-zero exit fails the job. Only the public-API diff is a
       # signal (breaking changes may be intentional), surfaced but non-blocking.
+      #
+      # PR runs pass --bypass-format: a fork contributor can't always fix a format
+      # violation themselves the way an agent can, and blocking the merge on it
+      # would just be the friction this exists to remove. format-master.yml
+      # auto-formats master after merge regardless, so nothing stays unformatted
+      # for long. Local/agent runs and the push-to-master run keep format blocking.
       - name: Quality gate
-        run: ./scripts/quality-gate/gate.sh packages
-
-  # Runs `dotnet format` on the PR's changed files and posts the fix as a one-click
-  # "suggested change" comment via reviewdog — so a contributor never has to run
-  # `dotnet format` locally to clear the gate's blocking format stage above. Kept as
-  # its own job (no Supabase stack, no `needs:`) so it stays fast and still posts a
-  # suggestion even if build-and-test fails on something unrelated (e.g. a red
-  # test). Never needs write access to the fork's branch — pull-requests: write on
-  # the base repo's GITHUB_TOKEN is enough to post a review comment.
-  format-suggest:
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          # format-suggest.sh's changed-file scoping diffs against origin/master,
-          # same reasoning as build-and-test's checkout above.
-          fetch-depth: 0
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          global-json-file: global.json
-
-      - name: Apply dotnet format to changed files
-        run: ./scripts/quality-gate/format-suggest.sh packages
-
-      - name: Suggest fixes
-        uses: reviewdog/action-suggester@v1
-        with:
-          tool_name: dotnet-format
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+        run: ./scripts/quality-gate/gate.sh packages ${{ github.event_name == 'pull_request' && '--bypass-format' || '' }}
 

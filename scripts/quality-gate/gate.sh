@@ -2,8 +2,16 @@
 #
 # gate.sh — the Supabase C# SDK quality gauntlet (QUALITY_RUBRIC §4), as a program.
 #
-#   gate.sh [dir]           full gate — build, tests, security, public API, E2E
-#   gate.sh [dir] --fast    inner loop only — the agent's red/green cycle
+#   gate.sh [dir]                full gate — build, tests, security, public API, E2E
+#   gate.sh [dir] --fast         inner loop only — the agent's red/green cycle
+#   gate.sh [dir] --bypass-format  format + naming reports as a signal, not a
+#                                blocking stage, for this run. For PR-time CI
+#                                only: a human contributor can't always fix a
+#                                format violation themselves the way an agent
+#                                can, and master gets auto-formatted after merge
+#                                regardless (see .github/workflows/format-master.yml).
+#                                Local/agent runs should not use this — it stays
+#                                blocking by default.
 #
 # One directory with several packages runs as a solution: one build, one scan, one
 # API check, per-package tests, and a single verdict. A single package keeps the
@@ -43,13 +51,14 @@ source "$SELF_DIR/lib/stages.sh"
 
 # -------------------------------------------------------------------- options
 
-PACKAGE_DIR="$PWD"; MODE="standard"; ALL=0; CLI_PROJECT=""
+PACKAGE_DIR="$PWD"; MODE="standard"; ALL=0; CLI_PROJECT=""; BYPASS_FORMAT=0
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --fast) MODE="fast"; shift ;;
     --full) shift ;;   # accepted as an alias: the default run is already the full gate
     --all)  ALL=1; shift ;;
-    -h|--help) sed -n '3,12p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    --bypass-format) BYPASS_FORMAT=1; shift ;;
+    -h|--help) sed -n '3,18p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     -*) echo "unknown option: $1  (try --help)" >&2; exit 3 ;;
     *)  PACKAGE_DIR="$1"; shift ;;
   esac
