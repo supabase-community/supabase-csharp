@@ -10,6 +10,8 @@ override Supabase.Postgrest.Converters.PostgrestStringEnumConverter.CreateConver
 static Supabase.Postgrest.Client.SerializerSettings(Supabase.Postgrest.ClientOptions? options = null) -> System.Text.Json.JsonSerializerOptions!
 Supabase.Postgrest.Attributes.ColumnAttribute.ColumnAttribute(string? columnName = null, System.Text.Json.Serialization.JsonIgnoreCondition nullValueHandling = System.Text.Json.Serialization.JsonIgnoreCondition.Never, bool ignoreOnInsert = false, bool ignoreOnUpdate = false) -> void
 Supabase.Postgrest.Attributes.ColumnAttribute.NullValueHandling.get -> System.Text.Json.Serialization.JsonIgnoreCondition
+Supabase.Postgrest.ClientOptions.Retry.get -> Supabase.Core.Http.RetryOptions!
+Supabase.Postgrest.ClientOptions.Retry.set -> void
 Supabase.Postgrest.Converters.DateTimeListConverter
 Supabase.Postgrest.Converters.DateTimeListConverter.DateTimeListConverter() -> void
 Supabase.Postgrest.Converters.PostgrestStringEnumConverter
