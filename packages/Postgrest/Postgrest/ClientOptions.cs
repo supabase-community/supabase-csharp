@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Globalization;
+using System.Net;
+using System.Net.Http;
 using Supabase.Core.Http;
 #pragma warning disable CS1591
 namespace Supabase.Postgrest;
@@ -31,4 +33,10 @@ public class ClientOptions
 
     /// <summary>Retry policy applied to each request. Default (<see cref="RetryOptions.MaxRetries"/> 0) sends once, unretried.</summary>
     public RetryOptions Retry { get; set; } = new RetryOptions();
+
+    /// <summary>An HttpClient to send requests through. When null, the client builds and owns its own.</summary>
+    public HttpClient? HttpClient { get; set; }
+
+    /// <summary>A proxy to route requests through. Only used when <see cref="HttpClient"/> is not supplied.</summary>
+    public IWebProxy? Proxy { get; set; }
 }
