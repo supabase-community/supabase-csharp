@@ -12,6 +12,15 @@
 #                                regardless (see .github/workflows/format-master.yml).
 #                                Local/agent runs should not use this — it stays
 #                                blocking by default.
+#   gate.sh [dir] --overwrite-baseline  persist the changes to .gate-baseline.json
+#                                (warnings down, coverage up). WITHOUT it, the gate
+#                                is read-only: it still reads the baseline and
+#                                produces a verdict, but never writes. This keeps a
+#                                contributor's run from silently editing a committed
+#                                file they've no reason to touch — updating the baseline is a
+#                                maintainer/CI concern, done post-merge on master
+#                                (see .github/workflows/build-and-test.yml), never
+#                                on a PR run.
 #
 # One directory with several packages runs as a solution: one build, one scan, one
 # API check, per-package tests, and a single verdict. A single package keeps the
@@ -21,7 +30,7 @@
 # in its own scheduled GitHub Action.
 #
 # Config that belongs to the package lives in a committed .gate-baseline.json, not
-# on the command line. The file is created on the first run.
+# on the command line. The file is created on the first run with --overwrite-baseline.
 #
 # Exit codes:
 #   0  all blocking stages passed
@@ -36,8 +45,8 @@
 # orchestration. The stages and their machinery live in lib/ beside it:
 #   lib/common.sh    environment, jq readers, project discovery, run()
 #   lib/report.sh    the row store, streaming renderer and report.json
-#   lib/warnings.sh  the analyzer ratchet and per-package baseline IO
-#   lib/coverage.sh  the line-coverage ratchet and per-package baseline IO
+#   lib/warnings.sh  the analyzer and per-package baseline IO
+#   lib/coverage.sh  the line-coverage and per-package baseline IO
 #   lib/stages.sh    one definition of each gauntlet stage, for both scopes
 #
 set -euo pipefail
@@ -51,14 +60,15 @@ source "$SELF_DIR/lib/stages.sh"
 
 # -------------------------------------------------------------------- options
 
-PACKAGE_DIR="$PWD"; MODE="standard"; ALL=0; CLI_PROJECT=""; BYPASS_FORMAT=0
+PACKAGE_DIR="$PWD"; MODE="standard"; ALL=0; CLI_PROJECT=""; BYPASS_FORMAT=0; OVERWRITE_BASELINE=0
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --fast) MODE="fast"; shift ;;
     --full) shift ;;   # accepted as an alias: the default run is already the full gate
     --all)  ALL=1; shift ;;
     --bypass-format) BYPASS_FORMAT=1; shift ;;
-    -h|--help) sed -n '3,18p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    --overwrite-baseline) OVERWRITE_BASELINE=1; shift ;;
+    -h|--help) sed -n '3,23p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     -*) echo "unknown option: $1  (try --help)" >&2; exit 3 ;;
     *)  PACKAGE_DIR="$1"; shift ;;
   esac
@@ -122,9 +132,9 @@ SCOPE_OUT="$SCOPE_DIR/.gate"; SCOPE_LOGS="$SCOPE_OUT/logs"; mkdir -p "$SCOPE_LOG
 #   full mode, stack up       stage_tests_full — an unfiltered run (every
 #                              TestCategory together) that is the test-correctness
 #                              result, plus a second filtered run that sources the
-#                              coverage ratchet from a hermetic report — then
-#                              stage_coverage (see lib/coverage.sh: the ratchet is
-#                              hermetic-only by design, E2E stays pass/fail).
+#                              coverage baseline from a hermetic report — then
+#                              stage_coverage (see lib/coverage.sh: the coverage
+#                              baseline is hermetic-only by design, E2E stays pass/fail).
 #   full mode, stack down     stage_inner_loop as a fallback, so local dev still
 #                              gets build/test feedback without `supabase start`;
 #                              E2E and coverage both SKIP — "full" coverage isn't
