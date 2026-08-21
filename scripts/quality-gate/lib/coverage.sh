@@ -25,9 +25,19 @@
 # scoped to the analyzer ratchet — a text-parsed build-log concern — while this is
 # an XML-parsed test-artifact concern.
 
-COVERAGE_EPSILON="0.01"   # percentage points. The hermetic source is fully
-                          # reproducible (see above), so this absorbs only
-                          # floating-point rounding — not run-to-run flake.
+COVERAGE_EPSILON="1.0"    # percentage points. Absorbs CI run-to-run jitter, not
+                          # just float rounding. Even hermetic (unit+contract)
+                          # coverage isn't byte-reproducible on a loaded CI runner:
+                          # async continuations — retry/backoff Task.Delay, cancellation
+                          # races, background timers — get scheduled differently run to
+                          # run, flipping a few lines either way (observed: the same
+                          # commit alternating 613/615 of 1479 lines on Gotrue across
+                          # identical master runs). 1% gives headroom over that noise
+                          # while still failing a real regression — an untested method
+                          # is far more than 1% of a package. Applied symmetrically
+                          # (coverage_verdict fails below −ε; save_coverage_baseline
+                          # ratchets only above +ε), so a lucky-high run never locks the
+                          # baseline onto a peak the next run can't reach.
 
 COV_PCT=""; COV_COVERED=""; COV_VALID=""
 
