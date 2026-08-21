@@ -4,19 +4,19 @@
   "project": "Supabase/Supabase.csproj",
   "testProject": "Supabase.Tests/Supabase.Tests.csproj",
   "warnings": {
-    "total": 40,
+    "total": 38,
     "byCode": {
       "IDE0009": 10,
       "CS8625": 10,
       "CS8600": 8,
-      "IDE0005": 4,
       "CS8618": 4,
       "IDE0022": 2,
+      "IDE0005": 2,
       "CS0618": 2
     }
   },
-  "updated": "2026-08-17T12:35:55Z",
+  "updated": "2026-08-21T13:32:03Z",
   "coverage": {
-    "hermeticLine": 80.53
+    "hermeticLine": 80.73
   }
 }
