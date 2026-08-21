@@ -30,10 +30,10 @@ first_failure() {  # first failed test name, for an actionable summary line
     | head -n1 | sed -E 's/^\s*(Failed|X) //' || true
 }
 
-# ============================================================ 1a  build + ratchet
+# ============================================================ 1a  build + baseline
 # --no-incremental is load-bearing: on an incremental build, up-to-date projects
-# emit no warnings, so the count reads zero and the ratchet passes on a change that
-# added ten.
+# emit no warnings, so the count reads zero and the baseline check passes on a
+# change that added ten.
 BUILD_OK=0
 stage_build() {
   local log="$SCOPE_LOGS/1a-build.log"
@@ -51,7 +51,9 @@ stage_build() {
     parse_warnings "$log" "$OUT/warnings.txt" "$OUT/warnings-by-code.txt" "$PROJECT" "$TEST_PROJECT"
     v="$(warn_verdict "$OUT/warnings-by-code.txt")"
     add 1a "Build (analyzers)" block "${PKG_NAME[$i]}" "${v%%|||*}" "${v#*|||}" "$log"
-    save_baseline
+    # Read-only unless --overwrite-baseline: a PR/local run reads the baseline for
+    # its verdict but never writes it (updating it is a post-merge maintainer step).
+    if [[ "${OVERWRITE_BASELINE:-0}" -eq 1 ]]; then save_baseline; fi
   done
   # Restore scope for the scope-wide helpers below; a per-package baseline must not
   # leak into cget for the solution-wide format/api stages.
@@ -370,9 +372,9 @@ stage_tests_full() {
         "${sum:-tests failed}${ff:+ — first: $ff}" "$log"
     fi
 
-    # A second, filtered pass sources the coverage ratchet below from a hermetic
-    # (unit+contract-only) report — see lib/coverage.sh for why the ratchet must
-    # not read the unfiltered run above. Not a correctness check of its own: the
+    # A second, filtered pass sources the coverage baseline below from a hermetic
+    # (unit+contract-only) report — see lib/coverage.sh for why the coverage baseline
+    # must not read the unfiltered run above. Not a correctness check of its own: the
     # same tests already ran, and any failure already surfaced, in the pass just
     # above — this run exists only to produce a reproducible Cobertura report.
     hermetic_log="$LOGS/2c-hermetic-coverage.log"; hermetic_dir="$LOGS/coverage-hermetic"; rm -rf "$hermetic_dir"
@@ -409,7 +411,10 @@ stage_coverage() {
       continue
     fi
     v="$(coverage_verdict)"
-    save_coverage_baseline   # while COV_* still reflects the hermetic report parsed above
+    # Read-only unless --overwrite-baseline (see stage_build). Guarded here too so a
+    # PR/local run's verdict never has the side effect of raising the coverage baseline.
+    # while COV_* still reflects the hermetic report parsed above:
+    if [[ "${OVERWRITE_BASELINE:-0}" -eq 1 ]]; then save_coverage_baseline; fi
 
     detail="${v#*|||}"
     cov_full="$(find "$LOGS/coverage" -name 'coverage.cobertura.xml' 2>/dev/null | head -n1)"
