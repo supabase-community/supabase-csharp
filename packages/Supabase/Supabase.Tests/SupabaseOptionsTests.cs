@@ -1,7 +1,6 @@
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Supabase;
 
 namespace Supabase.Tests;
 
@@ -26,6 +25,7 @@ public class SupabaseOptionsTests
             options.RealtimeUrlFormat.Should().Be("{0}/realtime/v1");
             options.StorageUrlFormat.Should().Be("{0}/storage/v1");
             options.FunctionsUrlFormat.Should().Be("{0}/functions/v1");
+            options.PostgrestRetry.MaxRetries.Should().Be(0);
         }
     }
 }

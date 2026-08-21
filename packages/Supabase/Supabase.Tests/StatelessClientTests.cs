@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Supabase.Core.Http;
 using static Supabase.Gotrue.Constants;
 using static Supabase.StatelessClient;
 
@@ -68,6 +70,14 @@ public class StatelessClientTests
         options.Headers["X-Custom"] = "custom-value";
         GetRestOptions("my-key", options).Headers.Should().ContainKey("X-Custom")
             .WhoseValue.Should().Be("custom-value", "developer headers must flow through to the child clients");
+    }
+
+    [TestMethod]
+    public void GetRestOptions_ShouldForwardPostgrestRetry_GivenCustomRetryOptions()
+    {
+        var retry = new RetryOptions { MaxRetries = 2, BaseDelay = TimeSpan.FromMilliseconds(5) };
+        var restOptions = GetRestOptions("my-key", new Supabase.SupabaseOptions { PostgrestRetry = retry });
+        restOptions.Retry.Should().BeSameAs(retry, "the retry policy must reach the Postgrest client");
     }
 
     [TestMethod]

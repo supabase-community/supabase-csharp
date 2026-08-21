@@ -12,6 +12,7 @@ using System.Web;
 using Supabase.Core;
 using Supabase.Core.Diagnostics;
 using Supabase.Core.Extensions;
+using Supabase.Core.Http;
 using Supabase.Postgrest.Exceptions;
 using Supabase.Postgrest.Models;
 using Supabase.Postgrest.Responses;
@@ -93,7 +94,7 @@ internal static class Helpers
 
         builder.Query = query.ToString();
 
-        using var requestMessage = new HttpRequestMessage(method, builder.Uri);
+        string? body = null;
 
         if (data != null && method != HttpMethod.Get)
         {
@@ -101,16 +102,28 @@ internal static class Helpers
 
             if (!string.IsNullOrWhiteSpace(stringContent) && HasValues(stringContent))
             {
-                requestMessage.Content = new StringContent(stringContent, Encoding.UTF8, "application/json");
+                body = stringContent;
             }
         }
 
-        if (headers != null)
+        HttpRequestMessage CreateRequest()
         {
-            foreach (var kvp in headers)
+            var requestMessage = new HttpRequestMessage(method, builder.Uri);
+
+            if (body != null)
             {
-                requestMessage.Headers.TryAddWithoutValidation(kvp.Key, kvp.Value);
+                requestMessage.Content = new StringContent(body, Encoding.UTF8, "application/json");
             }
+
+            if (headers != null)
+            {
+                foreach (var kvp in headers)
+                {
+                    requestMessage.Headers.TryAddWithoutValidation(kvp.Key, kvp.Value);
+                }
+            }
+
+            return requestMessage;
         }
 
         using var activity = PostgrestInstrumentation.StartHttpActivity(method, builder.Uri, operation);
@@ -120,7 +133,7 @@ internal static class Helpers
 
         try
         {
-            using var response = await Client.SendAsync(requestMessage, cancellationToken).ConfigureAwait(false);
+            using var response = await RetryExecutor.SendAsync(Client, CreateRequest, clientOptions.Retry, cancellationToken).ConfigureAwait(false);
             statusCode = (int) response.StatusCode;
             activity.SetHttpResponseTags(statusCode.Value);
 
