@@ -43,6 +43,7 @@ public class Table<TModel> : IPostgrestTable<TModel> where TModel : BaseModel, n
 
     private readonly ClientOptions options;
     private readonly JsonSerializerOptions serializerSettings;
+    private readonly HttpClient? httpClient;
 
     private HttpMethod method = HttpMethod.Get;
 
@@ -82,6 +83,7 @@ public class Table<TModel> : IPostgrestTable<TModel> where TModel : BaseModel, n
         this.BaseUrl = baseUrl;
         this.options = options ?? new ClientOptions();
         this.serializerSettings = serializerSettings;
+        this.httpClient = Helpers.ResolveHttpClient(this.options);
 
         foreach (var property in typeof(TModel).GetProperties())
         {
@@ -950,7 +952,7 @@ public class Table<TModel> : IPostgrestTable<TModel> where TModel : BaseModel, n
             $"Data:\n\t{JsonSerializer.Serialize(preparedData, PostgrestSerializerOptions.Passthrough)}");
 
         var operation = PostgrestInstrumentation.ResolveOperation(method, isInsert, isUpdate, isUpsert);
-        return Helpers.MakeRequestAsync(this.options, method, url, this.serializerSettings, preparedData, requestHeaders,
+        return Helpers.MakeRequestAsync(this.options, this.httpClient, method, url, this.serializerSettings, preparedData, requestHeaders,
             cancellationToken, operation);
     }
 
@@ -976,7 +978,7 @@ public class Table<TModel> : IPostgrestTable<TModel> where TModel : BaseModel, n
             $"Data:\n\t{JsonSerializer.Serialize(preparedData, PostgrestSerializerOptions.Passthrough)}");
 
         var operation = PostgrestInstrumentation.ResolveOperation(method, isInsert, isUpdate, isUpsert);
-        return Helpers.MakeRequestAsync<TU>(this.options, method, url, this.serializerSettings, preparedData, requestHeaders, this.GetHeaders, cancellationToken, operation);
+        return Helpers.MakeRequestAsync<TU>(this.options, this.httpClient, method, url, this.serializerSettings, preparedData, requestHeaders, this.GetHeaders, cancellationToken, operation);
     }
 
     private static string FindTableName(object? obj = null)

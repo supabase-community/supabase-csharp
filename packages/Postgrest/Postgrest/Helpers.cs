@@ -29,6 +29,14 @@ internal static class Helpers
     private static readonly Guid AppSession = Guid.NewGuid();
 
     /// <summary>
+    /// Resolves the client a request should be sent through, once per <see cref="Postgrest.Client"/>/<see cref="Table{TModel}"/>
+    /// construction: the caller-injected <see cref="ClientOptions.HttpClient"/>, else a proxy-configured client when
+    /// <see cref="ClientOptions.Proxy"/> is set, else null (callers fall back to the shared default <see cref="Client"/>).
+    /// </summary>
+    internal static HttpClient? ResolveHttpClient(ClientOptions options) =>
+        options.HttpClient ?? (options.Proxy != null ? DefaultHttpClientFactory.Create(proxy: options.Proxy) : null);
+
+    /// <summary>
     /// Mirrors Newtonsoft's <c>JToken.HasValues</c>: true only when the serialized payload is a non-empty
     /// object or array. An empty body (e.g. an update whose columns were all dropped) is not sent.
     /// </summary>
@@ -44,10 +52,11 @@ internal static class Helpers
     }
 
     /// <summary>
-    /// Helper to make a request using the defined parameters to an API Endpoint and coerce into a model. 
+    /// Helper to make a request using the defined parameters to an API Endpoint and coerce into a model.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="clientOptions"></param>
+    /// <param name="httpClient">The resolved client to send through. Defaults to a shared client when null.</param>
     /// <param name="method"></param>
     /// <param name="url"></param>
     /// <param name="data"></param>
@@ -57,10 +66,10 @@ internal static class Helpers
     /// <param name="cancellationToken"></param>
     /// <param name="operation">Logical operation name recorded on telemetry (select/insert/update/…).</param>
     /// <returns></returns>
-    public static async Task<ModeledResponse<T>> MakeRequestAsync<T>(ClientOptions clientOptions, HttpMethod method, string url, JsonSerializerOptions serializerSettings, object? data = null,
+    public static async Task<ModeledResponse<T>> MakeRequestAsync<T>(ClientOptions clientOptions, HttpClient? httpClient, HttpMethod method, string url, JsonSerializerOptions serializerSettings, object? data = null,
         Dictionary<string, string>? headers = null, Func<Dictionary<string, string>>? getHeaders = null, CancellationToken cancellationToken = default, string? operation = null) where T : BaseModel, new()
     {
-        var baseResponse = await MakeRequestAsync(clientOptions, method, url, serializerSettings, data, headers, cancellationToken, operation);
+        var baseResponse = await MakeRequestAsync(clientOptions, httpClient, method, url, serializerSettings, data, headers, cancellationToken, operation);
         return new ModeledResponse<T>(baseResponse, serializerSettings, getHeaders);
     }
 
@@ -68,6 +77,7 @@ internal static class Helpers
     /// Helper to make a request using the defined parameters to an API Endpoint.
     /// </summary>
     /// <param name="clientOptions"></param>
+    /// <param name="httpClient">The resolved client to send through. Defaults to a shared client when null.</param>
     /// <param name="method"></param>
     /// <param name="url"></param>
     /// <param name="data"></param>
@@ -76,7 +86,7 @@ internal static class Helpers
     /// <param name="cancellationToken"></param>
     /// <param name="operation">Logical operation name recorded on telemetry (select/insert/update/…).</param>
     /// <returns></returns>
-    public static async Task<BaseResponse> MakeRequestAsync(ClientOptions clientOptions, HttpMethod method, string url, JsonSerializerOptions serializerSettings, object? data = null,
+    public static async Task<BaseResponse> MakeRequestAsync(ClientOptions clientOptions, HttpClient? httpClient, HttpMethod method, string url, JsonSerializerOptions serializerSettings, object? data = null,
         Dictionary<string, string>? headers = null, CancellationToken cancellationToken = default, string? operation = null)
     {
         var builder = new UriBuilder(url);
@@ -133,7 +143,7 @@ internal static class Helpers
 
         try
         {
-            using var response = await RetryExecutor.SendAsync(Client, CreateRequest, clientOptions.Retry, cancellationToken).ConfigureAwait(false);
+            using var response = await RetryExecutor.SendAsync(httpClient ?? Client, CreateRequest, clientOptions.Retry, cancellationToken).ConfigureAwait(false);
             statusCode = (int) response.StatusCode;
             activity.SetHttpResponseTags(statusCode.Value);
 
