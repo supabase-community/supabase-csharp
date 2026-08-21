@@ -1,5 +1,46 @@
 # Changelog
 
+## [8.0.0](https://github.com/supabase-community/supabase-csharp/compare/v7.4.0...v8.0.0) (2026-08-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* **postgrest:** throw on multi-row Single() result instead of returning null ([#346](https://github.com/supabase-community/supabase-csharp/issues/346))
+* **gotrue:** add retry/backoff and injectable HttpClient support ([#371](https://github.com/supabase-community/supabase-csharp/issues/371))
+* **supabase:** migrate from Newtonsoft.Json to System.Text.Json ([#360](https://github.com/supabase-community/supabase-csharp/issues/360))
+* **realtime:** migrate from Newtonsoft.Json to System.Text.Json
+* **postgrest:** migrate from Newtonsoft.Json to System.Text.Json
+* **storage:** migrate from Newtonsoft.Json to System.Text.Json ([#358](https://github.com/supabase-community/supabase-csharp/issues/358))
+* **gotrue:** migrate from Newtonsoft.Json to System.Text.Json ([#357](https://github.com/supabase-community/supabase-csharp/issues/357))
+* **functions:** migrate from Newtonsoft.Json to System.Text.Json ([#356](https://github.com/supabase-community/supabase-csharp/issues/356))
+* packages now target netstandard2.1 instead of netstandard2.0. .NET Framework consumers (netstandard2.0 is its ceiling) and pre-netstandard2.1 runtimes (Mono <6.4, older Xamarin/Unity) can no longer reference these packages and must move to a netstandard2.1-capable target (.NET Core 3.0+/.NET 5+).
+* **postgrest:** IPostgrestTable.Delete(QueryOptions?, CancellationToken) and its Table implementation now return Task<ModeledResponse> instead of Task. await table.Delete() is unaffected; code that assigns the result to Task or captures the method group must be recompiled/adjusted.
+
+### Features
+
+* **core:** add retry/backoff plumbing for injectable HttpClient support ([#367](https://github.com/supabase-community/supabase-csharp/issues/367)) ([eda8d8d](https://github.com/supabase-community/supabase-csharp/commit/eda8d8d3458469369b78fe2d5148e0d588acbd6e))
+* **functions:** add retry/backoff and injectable HttpClient support ([#370](https://github.com/supabase-community/supabase-csharp/issues/370)) ([21e198a](https://github.com/supabase-community/supabase-csharp/commit/21e198afa5f21638e34476322c3867917277e01f))
+* **functions:** migrate from Newtonsoft.Json to System.Text.Json ([#356](https://github.com/supabase-community/supabase-csharp/issues/356)) ([3f9780d](https://github.com/supabase-community/supabase-csharp/commit/3f9780dd331626901e297bb3ce1a88399eb86240))
+* **gotrue:** add retry/backoff and injectable HttpClient support ([#371](https://github.com/supabase-community/supabase-csharp/issues/371)) ([74a72d0](https://github.com/supabase-community/supabase-csharp/commit/74a72d0921373ad9375853ebd53bf3d2fc65c93d))
+* **gotrue:** migrate from Newtonsoft.Json to System.Text.Json ([#357](https://github.com/supabase-community/supabase-csharp/issues/357)) ([0d58f45](https://github.com/supabase-community/supabase-csharp/commit/0d58f4581b7e77fd155c4460c698245dd22cb980))
+* **postgrest:** add injectable HttpClient support ([#376](https://github.com/supabase-community/supabase-csharp/issues/376)) ([f6bfa69](https://github.com/supabase-community/supabase-csharp/commit/f6bfa69a19ce72eee2c631d0910aa462fffa0a50))
+* **postgrest:** add opt-in retry option ([#375](https://github.com/supabase-community/supabase-csharp/issues/375)) ([07b6bfe](https://github.com/supabase-community/supabase-csharp/commit/07b6bfea86beb232bae41d1941dfbbde2780b259))
+* **postgrest:** migrate from Newtonsoft.Json to System.Text.Json ([fe5364b](https://github.com/supabase-community/supabase-csharp/commit/fe5364b5598cb48dc73536a409da05162361fd11))
+* **realtime:** migrate from Newtonsoft.Json to System.Text.Json ([c6767dc](https://github.com/supabase-community/supabase-csharp/commit/c6767dcdf72196b8bb3e3800857d1998d8f76f4a))
+* **storage:** migrate from Newtonsoft.Json to System.Text.Json ([#358](https://github.com/supabase-community/supabase-csharp/issues/358)) ([673970c](https://github.com/supabase-community/supabase-csharp/commit/673970c93da740ddb9ff5dbcd4b87b13167f42ae))
+* **supabase:** migrate from Newtonsoft.Json to System.Text.Json ([#360](https://github.com/supabase-community/supabase-csharp/issues/360)) ([1915bf1](https://github.com/supabase-community/supabase-csharp/commit/1915bf182d00dc446337dee48339b9436016d027))
+
+
+### Bug Fixes
+
+* **postgrest:** return deleted rows from parameterless Delete ([#342](https://github.com/supabase-community/supabase-csharp/issues/342)) ([a7ef38c](https://github.com/supabase-community/supabase-csharp/commit/a7ef38cedd849c7ad0994140b936c7b62b7644e6)), closes [#334](https://github.com/supabase-community/supabase-csharp/issues/334)
+* **postgrest:** throw on multi-row Single() result instead of returning null ([#346](https://github.com/supabase-community/supabase-csharp/issues/346)) ([52985c2](https://github.com/supabase-community/supabase-csharp/commit/52985c27b56071bb6b12ba147779af033dbd9a86))
+
+
+### Build System
+
+* retarget packages to netstandard2.1 ([#344](https://github.com/supabase-community/supabase-csharp/issues/344)) ([41ac485](https://github.com/supabase-community/supabase-csharp/commit/41ac485682af185c12904b451a72b28039b21eaa))
+
 ## [1.6.0](https://github.com/supabase-community/supabase-csharp/compare/v1.5.0...v1.6.0) (2026-08-07)
 
 
