@@ -65,6 +65,11 @@ stage_build() {
 # debt-carrying package on legacy code the change never touched.
 
 default_base_ref() {
+  # Override for callers that already know the exact commit to diff against —
+  # e.g. format-master.yml, which runs ON master post-merge, where every one of
+  # origin/HEAD/main/master below IS the current commit (a no-op diff). Not read
+  # from .gate-config.json: this is a per-invocation override, not repo config.
+  [[ -n "${GATE_FORMAT_BASE_REF:-}" ]] && { echo "$GATE_FORMAT_BASE_REF"; return; }
   local r; r="$(cget .formatBaseRef)"
   [[ -n "$r" ]] && { echo "$r"; return; }
   for c in origin/HEAD origin/main origin/master main master; do
@@ -109,14 +114,20 @@ changed_cs_files() {  # repo-RELATIVE paths, committed + staged + unstaged + unt
 # "inspected nothing" must never report as "clean".
 stage_format() {
   local log="$SCOPE_LOGS/1b-format.log" root
+  # --bypass-format (PR-time CI only, see gate.sh): report as a signal, not a
+  # blocking stage. A human contributor can't always fix a violation themselves
+  # the way an agent can; master gets auto-formatted post-merge regardless (see
+  # .github/workflows/format-master.yml), so this run's verdict shouldn't block
+  # on it. Local/agent runs never set this — format stays blocking for them.
+  local kind="block"; [[ "${BYPASS_FORMAT:-0}" -eq 1 ]] && kind="signal"
   if ! root="$(git -C "$SCOPE_DIR" rev-parse --show-toplevel 2>/dev/null)"; then
-    add 1b "Format + naming" block "" SKIP "not a git repository — cannot scope to changed files" ""
+    add 1b "Format + naming" "$kind" "" SKIP "not a git repository — cannot scope to changed files" ""
     return
   fi
   local files=() rel
   while IFS= read -r rel; do [[ -n "$rel" && -f "$root/$rel" ]] && files+=("$rel"); done < <(changed_cs_files)
   if [[ ${#files[@]} -eq 0 ]]; then
-    add 1b "Format + naming" block "" PASS "no changed .cs files in the gated scope" ""; return
+    add 1b "Format + naming" "$kind" "" PASS "no changed .cs files in the gated scope" ""; return
   fi
 
   : > "$log"
@@ -138,9 +149,9 @@ stage_format() {
     done
     [[ $pkg_matched -eq 0 ]] && continue     # this package holds none of the changed files
     if [[ $pkg_fail -eq 0 ]]; then
-      add 1b "Format + naming" block "${PKG_NAME[$i]}" PASS "$pkg_matched changed file(s) clean" "$log"
+      add 1b "Format + naming" "$kind" "${PKG_NAME[$i]}" PASS "$pkg_matched changed file(s) clean" "$log"
     else
-      add 1b "Format + naming" block "${PKG_NAME[$i]}" FAIL \
+      add 1b "Format + naming" "$kind" "${PKG_NAME[$i]}" FAIL \
         "$pkg_matched changed file(s) with violations — fix: (cd $root && dotnet format <proj> --include <files>)" "$log"
     fi
   done
@@ -150,7 +161,7 @@ stage_format() {
   # returns non-zero when the test is false, and under `set -e` a stage returning
   # non-zero would abort the run before the report prints.
   if [[ $any -eq 0 ]]; then
-    add 1b "Format + naming" block "" FAIL \
+    add 1b "Format + naming" "$kind" "" FAIL \
       "matched 0 of ${#files[@]} changed .cs file(s) — none fall under a gated project; nothing was inspected" "$log"
   fi
   return 0

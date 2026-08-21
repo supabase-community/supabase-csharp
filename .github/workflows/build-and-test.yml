@@ -45,10 +45,16 @@ jobs:
         run: supabase start
 
       # Runs the same quality gate as contributors and agents (scripts/quality-gate).
-      # Its exit code is the merge gate: build/analyzers, format, inner-loop tests,
+      # Its exit code is the merge gate: build/analyzers, inner-loop tests,
       # dependency vulnerabilities, public-API sync and E2E/acceptance tests are all
       # blocking — a non-zero exit fails the job. Only the public-API diff is a
       # signal (breaking changes may be intentional), surfaced but non-blocking.
+      #
+      # PR runs pass --bypass-format: a fork contributor can't always fix a format
+      # violation themselves the way an agent can, and blocking the merge on it
+      # would just be the friction this exists to remove. format-master.yml
+      # auto-formats master after merge regardless, so nothing stays unformatted
+      # for long. Local/agent runs and the push-to-master run keep format blocking.
       - name: Quality gate
-        run: ./scripts/quality-gate/gate.sh packages
+        run: ./scripts/quality-gate/gate.sh packages ${{ github.event_name == 'pull_request' && '--bypass-format' || '' }}
 
