@@ -42,4 +42,9 @@ public abstract class RequestApprovalFixture : VerifyBase
     ///     own method so the snapshot file lands next to the test (domain-first layout), not beside this fixture.
     /// </summary>
     protected string EmittedRequestBody => this.server.VerifySingleReceivedRequest().RawBody;
+
+    /// <summary>
+    ///     The single request the SDK emitted, for assertions over path/query/headers.
+    /// </summary>
+    protected ReceivedRequest EmittedRequest => this.server.VerifySingleReceivedRequest();
 }

@@ -588,7 +588,15 @@ public class Api : IGotrueApi<User, Session>
     public async Task<ProviderAuthState> LinkIdentity(string token, Provider provider, SignInOptions options)
     {
         var state = Helpers.GetUrlForProvider($"{this.Url}/user/identities/authorize", provider, options);
-        await this.MakeRequestAsync(HttpMethod.Get, state.Uri.ToString(), null, this.CreateAuthedRequestHeaders(token));
+
+        // Without this the server responds with a redirect to the provider's
+        // sign-in page, which the browser follows without the Authorization
+        // header and the request then fails with "No API key found in
+        // request" (#378). Skipping the redirect returns the provider URL in
+        // the response body for the client to navigate to, matching
+        // auth-js' linkIdentity behavior.
+        var uri = Helpers.AddQueryParams(state.Uri.ToString(), new Dictionary<string, string> { { "skip_http_redirect", "true" } });
+        await this.MakeRequestAsync(HttpMethod.Get, uri.ToString(), null, this.CreateAuthedRequestHeaders(token));
         return state;
     }
 
