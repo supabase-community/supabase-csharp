@@ -15,6 +15,8 @@ public class PostgresFilterBuilderTests
     [DataRow(2, "2")]
     [DataRow(2D, "2")]
     [DataRow(2F, "2")]
+    [DataRow(1.5D, "1.5")]
+    [DataRow(1.5F, "1.5")]
     [DataRow(true, "true")]
     [DataRow("Hello, World", "\"Hello, World\"")]
     public void Filter_ShouldCreateEqual_GivenInput(object value, string expect)
@@ -43,6 +45,21 @@ public class PostgresFilterBuilderTests
             .Eq(column1, "test")
             .Eq(column2, "test")
             .Build();
+
+        Assert.IsNotNull(result);
+        Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    [DataRow("open", "open")]
+    [DataRow("closed", "closed")]
+    public void Filter_ShouldCreateIsDistinct_GivenInput(object value, string expect)
+    {
+        const string column = "status";
+        const PostgresChangesFilterOperator filterOperator = PostgresChangesFilterOperator.IsDistinct;
+        var expected = $"{column}={filterOperator.ToMappedString()}.{expect}";
+
+        var result = PostgresFilterBuilder.Builder().IsDistinct(column, value).Build();
 
         Assert.IsNotNull(result);
         Assert.AreEqual(expected, result);

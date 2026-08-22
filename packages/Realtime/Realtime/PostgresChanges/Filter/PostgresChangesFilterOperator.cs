@@ -60,7 +60,7 @@ public enum PostgresChangesFilterOperator
     IMatch,
 
     /// <summary>Value is distinct from.</summary>
-    [MapTo("is_distinct")]
+    [MapTo("isdistinct")]
     IsDistinct,
 }
 

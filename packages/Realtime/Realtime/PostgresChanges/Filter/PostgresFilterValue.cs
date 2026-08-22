@@ -104,7 +104,7 @@ public class PostgresFilterValue
         {
             null => "null",
             bool parsed => parsed.ToString().ToLowerInvariant(),
-            decimal => Convert.ToString(value, CultureInfo.InvariantCulture) ?? "null",
+            float or double or decimal => Convert.ToString(value, CultureInfo.InvariantCulture) ?? "null",
             string parsed => SerializeString(parsed),
             _ => SerializeString(value.ToString() ?? "null"),
         };
