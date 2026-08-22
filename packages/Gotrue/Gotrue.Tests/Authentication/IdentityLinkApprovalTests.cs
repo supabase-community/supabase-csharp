@@ -25,4 +25,18 @@ public class IdentityLinkApprovalTests : RequestApprovalFixture
             new LinkIdentityWithIdTokenOptions(Constants.Provider.Google, "id-token-value"));
         await this.Verify(this.EmittedRequestBody).UseDirectory("Data");
     }
+
+    /// <summary>
+    ///     Regression (#378): the provider-link GET must ask the server to skip its redirect so the
+    ///     browser is not sent to the provider without the Authorization header ("No API key found
+    ///     in request"). auth-js' linkIdentity sets skip_http_redirect for exactly this reason.
+    /// </summary>
+    [TestMethod]
+    public async Task LinkIdentityRequest_ShouldCarrySkipHttpRedirect_GivenAnyProvider()
+    {
+        await this.Api.LinkIdentity("user-jwt", Constants.Provider.GitHub, new SignInOptions());
+        this.EmittedRequest
+            .WithPath("/user/identities/authorize")
+            .WithQueryParam("skip_http_redirect", "true");
+    }
 }
