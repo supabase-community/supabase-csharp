@@ -133,7 +133,8 @@ internal static class Helpers
                 {
                     Content = content,
                     Response = response,
-                    StatusCode = resolvedStatus
+                    StatusCode = resolvedStatus,
+                    Code = errorResponse?.Code,
                 };
 
                 e.AddReason();
@@ -166,6 +167,12 @@ public class ErrorResponse
 {
     [JsonPropertyName("statusCode")]
     public int StatusCode { get; set; }
+
+    /// <summary>
+    /// Gets or sets the error code returned by the Storage service.
+    /// </summary>
+    [JsonPropertyName("code")]
+    public string? Code { get; set; }
 
     [JsonPropertyName("message")]
     public string? Message { get; set; }

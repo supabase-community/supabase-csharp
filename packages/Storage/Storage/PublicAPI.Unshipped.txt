@@ -1,1 +1,4 @@
 #nullable enable
+Supabase.Storage.ErrorResponse.Code.get -> string?
+Supabase.Storage.ErrorResponse.Code.set -> void
+Supabase.Storage.Exceptions.SupabaseStorageException.Code.get -> string?
