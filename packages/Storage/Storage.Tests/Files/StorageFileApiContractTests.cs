@@ -352,6 +352,15 @@ public class StorageFileApiContractTests
     }
 
     [TestMethod]
+    public async Task PurgeCache_ShouldEncodeDelimiters_GivenAKeyWithUrlDelimiters()
+    {
+        this.Respond("/storage/v1/cdn/*", "DELETE", 200, "{\"message\":\"success\"}");
+        await this.client.From(Bucket).PurgeCache("folder/a?b#c.png");
+        this.SingleRequest().AbsoluteUrl.Should().EndWith($"/storage/v1/cdn/{Bucket}/folder/a%3Fb%23c.png",
+            "an unescaped '?' or '#' truncates the key into a query string or fragment");
+    }
+
+    [TestMethod]
     public async Task Upload_ShouldSurfaceStorageException_GivenNonJsonError()
     {
         const string body = "<html><head><title>413 Request Entity Too Large</title></head></html>";
