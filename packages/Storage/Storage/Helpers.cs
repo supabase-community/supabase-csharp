@@ -11,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using Supabase.Core.Diagnostics;
+using Supabase.Core.Http;
 using Supabase.Storage.Exceptions;
 
 [assembly: InternalsVisibleTo("Storage.Tests")]
@@ -38,37 +39,38 @@ internal static class Helpers
         Converters = { new Serialization.ObjectToInferredTypesConverter() },
     };
 
-    internal static HttpClient? HttpRequestClient;
-
-    internal static HttpClient? HttpUploadClient;
-
-    internal static HttpClient? HttpDownloadClient;
-
     /// <summary>
-    /// Initializes HttpClients with their appropriate timeouts. Called at the initialization of StorageBucketApi.
+    /// Resolves the client that carries metadata/API requests (list, create, delete, sign, etc.), once
+    /// per <see cref="StorageBucketApi"/>/<see cref="StorageFileApi"/> construction: the caller-injected
+    /// <see cref="ClientOptions.HttpRequestClient"/>, else a timeout/proxy-configured client of its own.
     /// </summary>
-    /// <param name="options"></param>
-    internal static void Initialize(ClientOptions options)
-    {
-        HttpRequestClient = new HttpClient { Timeout = options.HttpRequestTimeout };
-        HttpDownloadClient = new HttpClient { Timeout = options.HttpDownloadTimeout };
-        HttpUploadClient = new HttpClient { Timeout = options.HttpUploadTimeout };
-    }
+    internal static HttpClient ResolveRequestClient(ClientOptions options) =>
+        options.HttpRequestClient ?? DefaultHttpClientFactory.Create(options.HttpRequestTimeout, options.Proxy);
+
+    /// <summary>Resolves the client that carries file uploads, mirroring <see cref="ResolveRequestClient"/>.</summary>
+    internal static HttpClient ResolveUploadClient(ClientOptions options) =>
+        options.HttpUploadClient ?? DefaultHttpClientFactory.Create(options.HttpUploadTimeout, options.Proxy);
+
+    /// <summary>Resolves the client that carries file downloads, mirroring <see cref="ResolveRequestClient"/>.</summary>
+    internal static HttpClient ResolveDownloadClient(ClientOptions options) =>
+        options.HttpDownloadClient ?? DefaultHttpClientFactory.Create(options.HttpDownloadTimeout, options.Proxy);
 
     /// <summary>
     /// Helper to make a request using the defined parameters to an API Endpoint and coerce into a model.
     /// </summary>
     /// <typeparam name="T"></typeparam>
+    /// <param name="httpClient">The resolved client to send through.</param>
+    /// <param name="retry">Retry policy applied to this request.</param>
     /// <param name="method"></param>
     /// <param name="url"></param>
     /// <param name="data"></param>
     /// <param name="headers"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    public static async Task<T?> MakeRequestAsync<T>(HttpMethod method, string url, object? data = null,
+    public static async Task<T?> MakeRequestAsync<T>(HttpClient httpClient, RetryOptions retry, HttpMethod method, string url, object? data = null,
         Dictionary<string, string>? headers = null, CancellationToken cancellationToken = default) where T : class
     {
-        var response = await MakeRequestAsync(method, url, data, headers, cancellationToken);
+        var response = await MakeRequestAsync(httpClient, retry, method, url, data, headers, cancellationToken);
         var content = await response.Content.ReadAsStringAsync();
 
         return JsonSerializer.Deserialize<T>(content, SerializerOptions);
@@ -77,13 +79,15 @@ internal static class Helpers
     /// <summary>
     /// Helper to make a request using the defined parameters to an API Endpoint.
     /// </summary>
+    /// <param name="httpClient">The resolved client to send through.</param>
+    /// <param name="retry">Retry policy applied to this request.</param>
     /// <param name="method"></param>
     /// <param name="url"></param>
     /// <param name="data"></param>
     /// <param name="headers"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    public static async Task<HttpResponseMessage> MakeRequestAsync(HttpMethod method, string url, object? data = null, Dictionary<string, string>? headers = null, CancellationToken cancellationToken = default)
+    public static async Task<HttpResponseMessage> MakeRequestAsync(HttpClient httpClient, RetryOptions retry, HttpMethod method, string url, object? data = null, Dictionary<string, string>? headers = null, CancellationToken cancellationToken = default)
     {
         var builder = new UriBuilder(url);
         var query = HttpUtility.ParseQueryString(builder.Query);
@@ -100,15 +104,24 @@ internal static class Helpers
 
         builder.Query = query.ToString();
 
-        using var requestMessage = new HttpRequestMessage(method, builder.Uri);
+        var body = data != null && method != HttpMethod.Get
+            ? JsonSerializer.Serialize(data, SerializerOptions)
+            : null;
 
-        if (data != null && method != HttpMethod.Get)
-            requestMessage.Content = new StringContent(JsonSerializer.Serialize(data, SerializerOptions), Encoding.UTF8, "application/json");
-
-        if (headers != null)
+        HttpRequestMessage CreateRequest()
         {
-            foreach (var kvp in headers)
-                requestMessage.Headers.TryAddWithoutValidation(kvp.Key, kvp.Value);
+            var requestMessage = new HttpRequestMessage(method, builder.Uri);
+
+            if (body != null)
+                requestMessage.Content = new StringContent(body, Encoding.UTF8, "application/json");
+
+            if (headers != null)
+            {
+                foreach (var kvp in headers)
+                    requestMessage.Headers.TryAddWithoutValidation(kvp.Key, kvp.Value);
+            }
+
+            return requestMessage;
         }
 
         using var activity = StorageInstrumentation.StartHttpActivity(method, builder.Uri);
@@ -118,7 +131,7 @@ internal static class Helpers
 
         try
         {
-            var response = await HttpRequestClient!.SendAsync(requestMessage, cancellationToken);
+            var response = await RetryExecutor.SendAsync(httpClient, CreateRequest, retry, cancellationToken).ConfigureAwait(false);
             statusCode = (int) response.StatusCode;
             activity.SetHttpResponseTags(statusCode.Value);
 
