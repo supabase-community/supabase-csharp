@@ -1,6 +1,9 @@
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using Supabase.Gotrue;
 using Supabase.Gotrue.Interfaces;
+using Supabase.Realtime.Sockets;
 
 namespace Supabase;
 
@@ -45,6 +48,35 @@ public class SupabaseOptions
     /// Retry policy passed to the Postgrest client. Defaults to no retries.
     /// </summary>
     public Supabase.Core.Http.RetryOptions PostgrestRetry { get; set; } = new();
+
+    /// <summary>
+    /// Retry policy passed to the Auth client. Defaults to no retries.
+    /// </summary>
+    public Supabase.Core.Http.RetryOptions GotrueRetry { get; set; } = new();
+
+    /// <summary>
+    /// Retry policy passed to the Functions client. Defaults to no retries.
+    /// </summary>
+    public Supabase.Core.Http.RetryOptions FunctionsRetry { get; set; } = new();
+
+    /// <summary>
+    /// An HttpClient shared by the Auth, Postgrest, and Functions clients. Storage configures its own set
+    /// of clients via <see cref="StorageClientOptions"/>; Realtime has no HTTP transport (see
+    /// <see cref="WebSocketFactory"/>). When null, each client builds and owns its own.
+    /// </summary>
+    public HttpClient? HttpClient { get; set; }
+
+    /// <summary>
+    /// A proxy shared by the Auth, Postgrest, and Functions clients. Only used when <see cref="HttpClient"/>
+    /// is not supplied.
+    /// </summary>
+    public IWebProxy? Proxy { get; set; }
+
+    /// <summary>
+    /// Builds the WebSocket transport the Realtime client connects through. Left null, the default
+    /// <see cref="System.Net.WebSockets.ClientWebSocket"/>-backed transport is used.
+    /// </summary>
+    public IWebSocketFactory? WebSocketFactory { get; set; }
 
     /// <summary>
     /// The Supabase Auth Url Format
