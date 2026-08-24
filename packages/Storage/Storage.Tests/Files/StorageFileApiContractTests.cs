@@ -293,6 +293,21 @@ public class StorageFileApiContractTests
     }
 
     [TestMethod]
+    public async Task Download_ShouldSurfaceServiceCode_GivenJsonError()
+    {
+        const string body =
+            "{\"statusCode\":\"404\",\"error\":\"not_found\",\"code\":\"NoSuchKey\",\"message\":\"Object not found\"}";
+        this.Respond($"/storage/v1/object/{Bucket}/missing.bin", "GET", 404, body);
+        var act = () => this.client.From(Bucket).Download("missing.bin", (EventHandler<float>?) null);
+        var exception = (await act.Should().ThrowAsync<SupabaseStorageException>()).Which;
+        using (new AssertionScope())
+        {
+            exception.Code.Should().Be("NoSuchKey");
+            exception.Reason.Should().Be(FailureHint.Reason.NotFound);
+        }
+    }
+
+    [TestMethod]
     public async Task Download_ShouldSendTheCacheNonceInTheQuery_GivenACacheNonce()
     {
         this.server.Given(Request.Create().WithPath($"/storage/v1/object/{Bucket}/a.bin").UsingGet())
