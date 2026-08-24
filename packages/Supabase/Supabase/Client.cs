@@ -51,7 +51,10 @@ public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeCha
         new AdminClient(serviceKey, new Gotrue.ClientOptions
         {
             Url = string.Format(this.options.AuthUrlFormat, this.supabaseUrl),
-            AutoRefreshToken = this.options.AutoRefreshToken
+            AutoRefreshToken = this.options.AutoRefreshToken,
+            HttpClient = this.options.HttpClient,
+            Proxy = this.options.Proxy,
+            Retry = this.options.GotrueRetry
         })
         {
             GetHeaders = this.GetAuthHeaders,
@@ -168,13 +171,22 @@ public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeCha
         var gotrueOptions = new Gotrue.ClientOptions
         {
             Url = authUrl,
-            AutoRefreshToken = this.options.AutoRefreshToken
+            AutoRefreshToken = this.options.AutoRefreshToken,
+            HttpClient = this.options.HttpClient,
+            Proxy = this.options.Proxy,
+            Retry = this.options.GotrueRetry
         };
         this.auth = new Gotrue.Client(gotrueOptions);
         this.auth.SetPersistence(this.options.SessionHandler);
         this.auth.AddStateChangedListener(this.Auth_StateChanged);
         this.auth.GetHeaders = this.GetAuthHeaders;
-        this.postgrest = new Postgrest.Client(restUrl, new Postgrest.ClientOptions { Schema = schema, Retry = this.options.PostgrestRetry });
+        this.postgrest = new Postgrest.Client(restUrl, new Postgrest.ClientOptions
+        {
+            Schema = schema,
+            Retry = this.options.PostgrestRetry,
+            HttpClient = this.options.HttpClient,
+            Proxy = this.options.Proxy
+        });
         this.postgrest.GetHeaders = this.GetAuthHeaders;
 
         // Init Realtime
@@ -182,11 +194,17 @@ public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeCha
         var realtimeOptions = new Realtime.ClientOptions
         {
             Parameters = { ApiKey = this.supabaseKey },
-            PostgrestClient = this.postgrest
+            PostgrestClient = this.postgrest,
+            WebSocketFactory = this.options.WebSocketFactory
         };
         this.realtime = new Realtime.Client(realtimeUrl, realtimeOptions);
         this.realtime.GetHeaders = this.GetAuthHeaders;
-        this.functions = new Functions.Client(functionsUrl);
+        this.functions = new Functions.Client(functionsUrl, options: new Functions.ClientOptions
+        {
+            HttpClient = this.options.HttpClient,
+            Proxy = this.options.Proxy,
+            Retry = this.options.FunctionsRetry
+        });
         this.functions.GetHeaders = this.GetAuthHeaders;
         this.storage = new Storage.Client(storageUrl, this.options.StorageClientOptions);
         this.storage.GetHeaders = this.GetAuthHeaders;

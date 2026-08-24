@@ -1,3 +1,13 @@
 #nullable enable
+Supabase.SupabaseOptions.FunctionsRetry.get -> Supabase.Core.Http.RetryOptions!
+Supabase.SupabaseOptions.FunctionsRetry.set -> void
+Supabase.SupabaseOptions.GotrueRetry.get -> Supabase.Core.Http.RetryOptions!
+Supabase.SupabaseOptions.GotrueRetry.set -> void
+Supabase.SupabaseOptions.HttpClient.get -> System.Net.Http.HttpClient?
+Supabase.SupabaseOptions.HttpClient.set -> void
 Supabase.SupabaseOptions.PostgrestRetry.get -> Supabase.Core.Http.RetryOptions!
 Supabase.SupabaseOptions.PostgrestRetry.set -> void
+Supabase.SupabaseOptions.Proxy.get -> System.Net.IWebProxy?
+Supabase.SupabaseOptions.Proxy.set -> void
+Supabase.SupabaseOptions.WebSocketFactory.get -> Supabase.Realtime.Sockets.IWebSocketFactory?
+Supabase.SupabaseOptions.WebSocketFactory.set -> void

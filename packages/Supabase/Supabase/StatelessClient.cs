@@ -32,7 +32,10 @@ public static class StatelessClient
         return new Gotrue.ClientOptions
         {
             Url = string.Format(options.AuthUrlFormat, supabaseUrl),
-            Headers = headers
+            Headers = headers,
+            HttpClient = options.HttpClient,
+            Proxy = options.Proxy,
+            Retry = options.GotrueRetry
         };
     }
 
@@ -52,7 +55,9 @@ public static class StatelessClient
         {
             Schema = options.Schema,
             Headers = headers,
-            Retry = options.PostgrestRetry
+            Retry = options.PostgrestRetry,
+            HttpClient = options.HttpClient,
+            Proxy = options.Proxy
         };
     }
 
@@ -69,7 +74,7 @@ public static class StatelessClient
 
         var headers = GetAuthHeaders(supabaseKey, options).MergeLeft(options.Headers);
 
-        return new Storage.Client(string.Format(options.StorageUrlFormat, supabaseUrl), headers);
+        return new Storage.Client(string.Format(options.StorageUrlFormat, supabaseUrl), options.StorageClientOptions, headers);
     }
 
     /// <summary>
@@ -98,7 +103,12 @@ public static class StatelessClient
         }
 
         var headers = GetAuthHeaders(supabaseKey, options).MergeLeft(options.Headers);
-        var client = new Functions.Client(functionsUrl);
+        var client = new Functions.Client(functionsUrl, options: new Functions.ClientOptions
+        {
+            HttpClient = options.HttpClient,
+            Proxy = options.Proxy,
+            Retry = options.FunctionsRetry
+        });
         client.GetHeaders = () => headers;
 
         return client;
@@ -119,7 +129,11 @@ public static class StatelessClient
         var restOptions = GetRestOptions(supabaseKey, options);
         restOptions.Headers.MergeLeft(options.Headers);
 
-        var realtimeOptions = new Realtime.ClientOptions { Parameters = { ApiKey = supabaseKey } };
+        var realtimeOptions = new Realtime.ClientOptions
+        {
+            Parameters = { ApiKey = supabaseKey },
+            WebSocketFactory = options.WebSocketFactory
+        };
 
         var postgrestClient = new Postgrest.Client(restUrl, restOptions);
         var realtimeClient = new Realtime.Client(realtimeUrl, realtimeOptions);
