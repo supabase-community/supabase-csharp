@@ -56,7 +56,7 @@ public class PostgresChangesDeliveryTests
     public async Task OnPostgresChange_ShouldThrowError_GivenOnChangeAfterSubscribe()
     {
         var tsc = new TaskCompletionSource<bool>();
-        var channel = socketClient.Channel("example");
+        var channel = this.socketClient.Channel("example");
         channel.OnPostgresChange((_, changes) =>
         {
             var model = changes.Model<Todo>();
@@ -77,8 +77,7 @@ public class PostgresChangesDeliveryTests
     [TestMethod]
     public async Task OnPostgresChange_ShouldThrowError_GivenRegisterChangesAfterSubscribe()
     {
-        var tsc = new TaskCompletionSource<bool>();
-        var channel = socketClient.Channel("example");
+        var channel = this.socketClient.Channel("example");
         await channel.Subscribe();
 
         var act = () => channel.RegisterPostgresChangesOptions(new PostgresChangesOptions("example"));

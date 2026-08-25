@@ -68,7 +68,7 @@ public static class FailureHint
             DisconnectionType.NoMessageReceived => Reason.ConnectionStale,
             DisconnectionType.Lost => Reason.ConnectionLost,
             DisconnectionType.ByServer => Reason.Unknown,
-            _ => Reason.Unknown
+            _ => Reason.Unknown,
         };
     }
 }
