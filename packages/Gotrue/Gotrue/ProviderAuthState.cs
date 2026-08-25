@@ -22,6 +22,7 @@ namespace Supabase.Gotrue
         /// The state parameter included in the OAuth URL for CSRF protection (RFC 6749 §10.12).
         /// Validate this against the state echoed back in the OAuth callback.
         /// </summary>
+        [Obsolete("Provider-side OAuth state is managed by the GoTrue server; it is no longer sent to the authorize endpoint (issue #377). This value is generated locally but has no effect on sign-in. For server-side CSRF, carry your token via SignInOptions.RedirectTo. This property is non-functional and will be removed in v8.")]
         public string State { get; set; } = null!;
 
         /// <summary>

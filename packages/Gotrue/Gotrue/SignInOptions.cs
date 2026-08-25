@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using static Supabase.Gotrue.Constants;
 
 namespace Supabase.Gotrue
@@ -36,6 +37,7 @@ namespace Supabase.Gotrue
         /// Store the returned <see cref="ProviderAuthState.State"/> value and validate it
         /// against the state echoed back in the OAuth callback.
         /// </summary>
+        [Obsolete("Provider-side OAuth state is managed by the GoTrue server; supplying it here caused sign-in to fail with bad_oauth_state (issue #377) and is no longer sent to the authorize endpoint. For server-side CSRF, carry your token via RedirectTo. This property is non-functional and will be removed in v8.")]
         public string? State { get; set; }
     }
 }

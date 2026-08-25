@@ -69,24 +69,30 @@ public class PkceContractTests
     }
 
     [TestMethod]
-    public async Task SignIn_ShouldAutoGenerateStateInAuthUrl_GivenNoStateProvided()
+    public async Task SignIn_ShouldNotAddStateToAuthUrl_GivenNoStateProvided()
     {
+        // Provider-side state is owned by the GoTrue server; injecting our own breaks sign-in
+        // with bad_oauth_state (issue #377). The obsolete State value is still populated locally.
         var result = await client.SignIn(Provider.Github, new SignInOptions { FlowType = OAuthFlowType.PKCE });
+#pragma warning disable CS0618 // Type or member is obsolete
         result.State.Should().NotBeNullOrEmpty();
-        result.Uri.Query.Should().Contain($"state={result.State}");
+#pragma warning restore CS0618
+        result.Uri.Query.Should().NotContain("state=");
     }
 
     [TestMethod]
-    public async Task SignIn_ShouldUseDeveloperProvidedStateInAuthUrl_GivenStateProvided()
+    public async Task SignIn_ShouldNotAddStateToAuthUrl_GivenDeveloperProvidedState()
     {
         var customState = "my-server-generated-csrf-token";
         var result = await client.SignIn(Provider.Github, new SignInOptions
         {
             FlowType = OAuthFlowType.PKCE,
+#pragma warning disable CS0618 // Type or member is obsolete
             State = customState,
         });
         result.State.Should().Be(customState);
-        result.Uri.Query.Should().Contain($"state={customState}");
+#pragma warning restore CS0618
+        result.Uri.Query.Should().NotContain("state=").And.NotContain(customState);
     }
 
     private void StubJsonOk(string path) =>

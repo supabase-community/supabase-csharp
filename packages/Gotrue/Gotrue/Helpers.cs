@@ -115,9 +115,14 @@ namespace Supabase.Gotrue
 			if (attr == null)
 				throw new Exception("Unknown provider");
 
-			var state = !string.IsNullOrEmpty(options.State) ? options.State : GenerateNonce();
-			query.Add("state", state);
-			result.State = state;
+			// The provider-side OAuth `state` is generated and validated by the GoTrue server
+			// (its flow_state). Sending our own `state` on the authorize request collides with
+			// that and makes sign-in fail with `bad_oauth_state` (issue #377), so it is no longer
+			// added to the URL. The obsolete State members are still populated for binary/source
+			// compatibility and will be removed in v8. For server-side CSRF, carry a token via RedirectTo.
+#pragma warning disable CS0618 // Type or member is obsolete
+			result.State = !string.IsNullOrEmpty(options.State) ? options.State! : GenerateNonce();
+#pragma warning restore CS0618
 
 			query.Add("provider", attr.Mapping);
 
