@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -168,6 +169,13 @@ internal static class Helpers
             StorageInstrumentation.RecordRequest(method, builder.Uri, statusCode, errorType, startTimestamp);
         }
     }
+
+    /// <summary>
+    /// Percent-encodes each segment of a storage path so a <c>?</c> or <c>#</c> in a key can't start
+    /// a query string or fragment, while <c>/</c> stays literal as the separator.
+    /// </summary>
+    internal static string EncodePath(string path) =>
+        string.Join("/", path.Split('/').Select(Uri.EscapeDataString));
 }
 
 public class GenericResponse

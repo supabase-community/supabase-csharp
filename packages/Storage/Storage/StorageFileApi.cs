@@ -811,7 +811,7 @@ public class StorageFileApi : IStorageFileApi<FileObject>
         CancellationToken cancellationToken = default
     )
     {
-        var url = options.ToPurgeUrl($"{this.Url}/cdn/{this.GetFinalPath(path)}");
+        var url = options.ToPurgeUrl($"{this.Url}/cdn/{Helpers.EncodePath(this.GetFinalPath(path))}");
         return Helpers.MakeRequestAsync<GenericResponse>(this.requestClient, this.Options.Retry, HttpMethod.Delete, url, null, this.Headers, cancellationToken);
     }
 
