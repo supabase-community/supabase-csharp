@@ -168,7 +168,7 @@ public class StorageBucketApi : IStorageBucketApi<Bucket>
         CancellationToken cancellationToken = default
     )
     {
-        var url = options.ToPurgeUrl($"{this.Url}/cdn/{id}");
+        var url = options.ToPurgeUrl($"{this.Url}/cdn/{Helpers.EncodePath(id)}");
         return Helpers.MakeRequestAsync<GenericResponse>(this.requestClient, this.Options.Retry, HttpMethod.Delete, url, null, this.Headers, cancellationToken);
     }
 }
