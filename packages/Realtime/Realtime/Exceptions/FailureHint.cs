@@ -1,4 +1,3 @@
-using System;
 using Websocket.Client;
 
 namespace Supabase.Realtime.Exceptions;
