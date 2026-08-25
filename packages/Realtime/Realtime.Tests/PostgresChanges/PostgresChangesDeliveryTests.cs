@@ -8,6 +8,7 @@ using Supabase.Postgrest.Interfaces;
 using Supabase.Realtime;
 using Supabase.Realtime.Interfaces;
 using Supabase.Realtime.PostgresChanges;
+using Supabase.Realtime.PostgresChanges.Filter;
 using static Supabase.Realtime.Constants;
 using static Supabase.Realtime.PostgresChanges.PostgresChangesOptions;
 
@@ -68,12 +69,13 @@ public class PostgresChangesDeliveryTests
     {
         var tsc = new TaskCompletionSource<bool>();
         var channel = socketClient.Channel("realtime", "public", "todos");
+        var filter = PostgresFilterBuilder.Builder().Eq("details", "Client receives filtered insert callback? ✅");
         channel.OnPostgresChange((_, changes) =>
         {
             Assert.AreEqual("Client receives filtered insert callback? ✅", changes.Model<Todo>()?.Details);
             tsc.SetResult(true);
         }, ListenType.Inserts,
-            new PostgresChangesFilter { Table = "todos", Filter = "details=eq.Client receives filtered insert callback? ✅" });
+            new PostgresChangesFilter { Table = "todos", Filter = filter.Build() });
         await channel.Subscribe();
         await restClient.Table<Todo>().Insert(new Todo { UserId = 1, Details = "Client receives insert callback? ✅" });
         await restClient.Table<Todo>().Insert(new Todo { UserId = 2, Details = "Client receives filtered insert callback? ✅" });
@@ -105,11 +107,12 @@ public class PostgresChangesDeliveryTests
             tsc.SetResult(true);
         }, ListenType.Updates, new PostgresChangesFilter { Table = "todos" });
         const string filter = "Client receives filtered insert callback? ✅";
+        var filterBuilder = PostgresFilterBuilder.Builder().Eq("details", filter);
         channel.OnPostgresChange((_, changes) =>
         {
             Assert.AreEqual("Client receives filtered insert callback? ✅", changes.Model<Todo>()?.Details);
             tsc.SetResult(true);
-        }, ListenType.Inserts, new PostgresChangesFilter { Table = "todos", Filter = $"details=eq.{filter}" });
+        }, ListenType.Inserts, new PostgresChangesFilter { Table = "todos", Filter = filterBuilder.Build() });
         await channel.Subscribe();
         await restClient.Table<Todo>().Set(x => x.Details!, newDetails).Match(model).Update();
         Assert.IsTrue(await tsc.Task);
@@ -164,6 +167,7 @@ public class PostgresChangesDeliveryTests
         var todo1 = await restClient.Table<Todo>().Insert(new Todo { UserId = 1, Details = "Client receives callbacks 1? ✅" });
         var todo2 = await restClient.Table<Todo>().Insert(new Todo { UserId = 2, Details = "Client receives callbacks 2? ✅" });
         await restClient.Table<Todo>().Insert(new Todo { UserId = 3, Details = "Client receives callbacks 3? ✅" });
+        var filterBuilder = PostgresFilterBuilder.Builder().Eq("details", todo1.Model?.Details);
         channel.OnPostgresChange((_, removed) =>
         {
             var result = removed.OldModel<Todo>();
@@ -171,7 +175,7 @@ public class PostgresChangesDeliveryTests
             Assert.AreNotEqual(result?.Details, todo2.Model?.Details);
             tsc.SetResult(true);
         }, ListenType.Deletes,
-            new PostgresChangesFilter { Table = "todos", Filter = $"details=eq.{todo1.Model?.Details}" });
+            new PostgresChangesFilter { Table = "todos", Filter = filterBuilder.Build() });
         await channel.Subscribe();
         await restClient.Table<Todo>().Match(todo1.Models.First()).Delete();
         await restClient.Table<Todo>().Match(todo2.Models.First()).Delete();
@@ -213,6 +217,9 @@ public class PostgresChangesDeliveryTests
         var insertTask3 = new TaskCompletionSource<bool>();
         const string filter1 = "Client receives callbacks 1? ✅";
         const string filter2 = "Client receives callbacks 2? ✅";
+        var filterBuilder1 = PostgresFilterBuilder.Builder().Eq("details", filter1).Build();
+        var filterBuilder2 = PostgresFilterBuilder.Builder().Eq("details", filter2).Build();
+
         var channel = socketClient.Channel("realtime", "public", "todos");
         var count = 0;
         channel.OnPostgresChange((_, _) =>
@@ -222,10 +229,10 @@ public class PostgresChangesDeliveryTests
         }, ListenType.Inserts, new PostgresChangesFilter { Table = "todos" });
         channel.OnPostgresChange((_, added) =>
             insertTask2.SetResult(added.Model<Todo>()?.Details == filter1), ListenType.Inserts,
-            new PostgresChangesFilter { Table = "todos", Filter = $"details=eq.{filter1}" });
+            new PostgresChangesFilter { Table = "todos", Filter = filterBuilder1 });
         channel.OnPostgresChange((_, added) =>
             insertTask3.SetResult(added.Model<Todo>()?.Details == filter2), ListenType.Inserts,
-            new PostgresChangesFilter { Table = "todos", Filter = $"details=eq.{filter2}" });
+            new PostgresChangesFilter { Table = "todos", Filter = filterBuilder2 });
         await channel.Subscribe();
         await restClient.Table<Todo>().Insert(new Todo { UserId = 1, Details = "Client receives wildcard callbacks? ✅" });
         await restClient.Table<Todo>().Insert(new Todo { UserId = 1, Details = filter1 });
