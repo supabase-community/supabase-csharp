@@ -6,6 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Realtime.Tests.Models;
 using Supabase.Postgrest.Interfaces;
 using Supabase.Realtime;
+using Supabase.Realtime.Exceptions;
 using Supabase.Realtime.Interfaces;
 using Supabase.Realtime.PostgresChanges;
 using static Supabase.Realtime.Constants;
@@ -49,6 +50,39 @@ public class PostgresChangesDeliveryTests
         await channel.Subscribe();
         await restClient.Table<Todo>().Insert(new Todo { UserId = 1, Details = "Client Models a response? ✅" });
         Assert.IsTrue(await tsc.Task);
+    }
+
+    [TestMethod]
+    public async Task OnPostgresChange_ShouldThrowError_GivenOnChangeAfterSubscribe()
+    {
+        var tsc = new TaskCompletionSource<bool>();
+        var channel = socketClient.Channel("example");
+        channel.OnPostgresChange((_, changes) =>
+        {
+            var model = changes.Model<Todo>();
+            tsc.SetResult(model != null);
+        }, ListenType.Inserts, new PostgresChangesFilter { Table = "*" });
+
+        await channel.Subscribe();
+
+        var act = () => channel.OnPostgresChange((_, changes) =>
+        {
+            var model = changes.Model<Todo>();
+            tsc.SetResult(model != null);
+        }, ListenType.Inserts, new PostgresChangesFilter { Table = "*" });
+
+        Assert.Throws<RealtimeException>(act);
+    }
+
+    [TestMethod]
+    public async Task OnPostgresChange_ShouldThrowError_GivenRegisterChangesAfterSubscribe()
+    {
+        var tsc = new TaskCompletionSource<bool>();
+        var channel = socketClient.Channel("example");
+        await channel.Subscribe();
+
+        var act = () => channel.RegisterPostgresChangesOptions(new PostgresChangesOptions("example"));
+        Assert.Throws<RealtimeException>(act);
     }
 
     [TestMethod]

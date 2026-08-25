@@ -10,6 +10,7 @@ Supabase.Realtime.Channel.ChannelOptions.SerializerSettings.get -> System.Text.J
 Supabase.Realtime.Client.SerializerSettings.get -> System.Text.Json.JsonSerializerOptions!
 Supabase.Realtime.ClientOptions.WebSocketFactory.get -> Supabase.Realtime.Sockets.IWebSocketFactory?
 Supabase.Realtime.ClientOptions.WebSocketFactory.set -> void
+Supabase.Realtime.Exceptions.FailureHint.Reason.StateInvalid = 7 -> Supabase.Realtime.Exceptions.FailureHint.Reason
 Supabase.Realtime.Interfaces.IRealtimeClient<TSocket, TChannel>.SerializerSettings.get -> System.Text.Json.JsonSerializerOptions!
 Supabase.Realtime.PostgresChanges.PostgresChangesResponse.PostgresChangesResponse() -> void
 Supabase.Realtime.PostgresChanges.PostgresChangesResponse.PostgresChangesResponse(System.Text.Json.JsonSerializerOptions! serializerSettings) -> void

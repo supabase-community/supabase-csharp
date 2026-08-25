@@ -48,6 +48,11 @@ public static class FailureHint
         /// If seen, please open an issue.
         /// </summary>
         ConnectionStale,
+
+        /// <summary>
+        /// Cannot make changes after subscribe
+        /// </summary>
+        StateInvalid,
     }
 
     /// <summary>

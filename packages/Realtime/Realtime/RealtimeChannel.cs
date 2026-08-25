@@ -443,6 +443,13 @@ public class RealtimeChannel : IRealtimeChannel
     /// <param name="postgresChangesOptions"></param>
     internal void RegisterPostgresChangesOptions(PostgresChangesOptions postgresChangesOptions)
     {
+        if (this.IsJoined || this.IsJoining)
+            throw new RealtimeException(
+                $"Cannot add `postgres_changes` callbacks for {this.Topic} after `Subscribe()`.")
+            {
+                Reason = FailureHint.Reason.StateInvalid,
+            };
+
         this.PostgresChangesOptions.Add(postgresChangesOptions);
         this.BindPostgresChangesOptions(postgresChangesOptions);
     }
@@ -534,7 +541,7 @@ public class RealtimeChannel : IRealtimeChannel
 
     /// <summary>
     /// Sends a `Push` request under this channel.
-    /// 
+    ///
     /// Maintains a buffer in the event push is called prior to the channel being joined.
     /// </summary>
     /// <param name="eventName"></param>
@@ -885,7 +892,7 @@ public class RealtimeChannel : IRealtimeChannel
     }
 
     /// <summary>
-    /// Try to invoke the handler properly based on event type and socket response 
+    /// Try to invoke the handler properly based on event type and socket response
     /// </summary>
     /// <param name="eventType"></param>
     /// <param name="response"></param>
