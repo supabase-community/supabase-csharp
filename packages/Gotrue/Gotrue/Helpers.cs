@@ -130,10 +130,11 @@ public static class Helpers
         if (attr == null)
             throw new Exception("Unknown provider");
 
-        var state = !string.IsNullOrEmpty(options.State) ? options.State : GenerateNonce();
-        query.Add("state", state);
-        result.State = state;
-
+        // The OAuth `state` is generated and validated by the GoTrue server (its flow_state);
+        // it is not a client parameter. Sending our own collides with that round-trip and makes
+        // sign-in fail with `bad_oauth_state` (issue #377), so we no longer add it — matching
+        // auth-js. For server-side CSRF correlation, carry a token on `RedirectTo`, which GoTrue
+        // echoes back to your callback.
         query.Add("provider", attr.Mapping);
 
         if (!string.IsNullOrEmpty(options.Scopes))
