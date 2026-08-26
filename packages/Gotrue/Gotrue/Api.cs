@@ -588,7 +588,23 @@ public class Api : IGotrueApi<User, Session>
     public async Task<ProviderAuthState> LinkIdentity(string token, Provider provider, SignInOptions options)
     {
         var state = Helpers.GetUrlForProvider($"{this.Url}/user/identities/authorize", provider, options);
-        await this.MakeRequestAsync(HttpMethod.Get, state.Uri.ToString(), null, this.CreateAuthedRequestHeaders(token));
+
+        // Ask the server to return the provider URL in the response body instead of issuing
+        // a 302 redirect. Without this, HttpClient follows the redirect chain and drops the
+        // Authorization/apikey headers on cross-domain hops, causing Kong to reject the
+        // request with "No API key found in request". This matches auth-js behavior.
+        var uri = Helpers.AddQueryParams(state.Uri.ToString(), new Dictionary<string, string> { { "skip_http_redirect", "true" } });
+        var response = await this.MakeRequestAsync(HttpMethod.Get, uri.ToString(), null, this.CreateAuthedRequestHeaders(token));
+
+        if (!string.IsNullOrEmpty(response?.Content))
+        {
+            var payload = JsonSerializer.Deserialize<Dictionary<string, string>>(response.Content);
+            if (payload != null && payload.TryGetValue("url", out var url) && !string.IsNullOrEmpty(url))
+            {
+                state.Uri = new Uri(url);
+            }
+        }
+
         return state;
     }
 
