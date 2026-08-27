@@ -589,21 +589,20 @@ public class Api : IGotrueApi<User, Session>
     {
         var state = Helpers.GetUrlForProvider($"{this.Url}/user/identities/authorize", provider, options);
 
-        // Ask the server to return the provider URL in the response body instead of issuing
-        // a 302 redirect. Without this, HttpClient follows the redirect chain and drops the
-        // Authorization/apikey headers on cross-domain hops, causing Kong to reject the
-        // request with "No API key found in request". This matches auth-js behavior.
+        // Need to skip the HTTP redirect to avoid "No API key found in request" error and match auth-js behavior
         var uri = Helpers.AddQueryParams(state.Uri.ToString(), new Dictionary<string, string> { { "skip_http_redirect", "true" } });
         var response = await this.MakeRequestAsync(HttpMethod.Get, uri.ToString(), null, this.CreateAuthedRequestHeaders(token));
 
-        if (!string.IsNullOrEmpty(response?.Content))
-        {
-            var payload = JsonSerializer.Deserialize<Dictionary<string, string>>(response.Content);
-            if (payload != null && payload.TryGetValue("url", out var url) && !string.IsNullOrEmpty(url))
-            {
-                state.Uri = new Uri(url);
-            }
-        }
+        var content = response?.Content;
+
+        Dictionary<string, string>? payload = null;
+        if (!string.IsNullOrEmpty(content))
+            payload = JsonSerializer.Deserialize<Dictionary<string, string>>(content);
+
+        if (payload == null || !payload.TryGetValue("url", out var url) || string.IsNullOrEmpty(url))
+            throw new GotrueException("Gotrue did not return a provider authorization url for the identity link.", FailureHint.Reason.BadSessionUrl);
+
+        state.Uri = new Uri(url);
 
         return state;
     }

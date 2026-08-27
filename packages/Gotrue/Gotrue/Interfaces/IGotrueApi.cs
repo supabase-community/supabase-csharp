@@ -61,6 +61,7 @@ namespace Supabase.Gotrue.Interfaces
 		/// <param name="provider">Provider to Link</param>
 		/// <param name="options"></param>
 		/// <returns></returns>
+		/// <exception cref="Exceptions.GotrueException">Thrown when the server response does not contain a provider authorization url.</exception>
 		Task<ProviderAuthState> LinkIdentity(string token, Provider provider, SignInOptions options);
 
 		/// <summary>

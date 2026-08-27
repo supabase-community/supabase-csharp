@@ -6,6 +6,7 @@ using FluentAssertions;
 using Gotrue.Tests.Support;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Supabase.Gotrue;
+using Supabase.Gotrue.Exceptions;
 using Supabase.Gotrue.Interfaces;
 using WireMock.RequestBuilders;
 using WireMock.ResponseBuilders;
@@ -61,5 +62,17 @@ public class LinkIdentityContractTests
 
         state.Uri.ToString().Should().Be("https://provider.example.com/authorize?client_id=abc",
             "the provider URL returned in the body replaces the one the SDK would have been redirected to");
+    }
+
+    [TestMethod]
+    public async Task LinkIdentity_ShouldThrow_GivenResponseWithoutProviderUrl()
+    {
+        this.server.Given(Request.Create().WithPath("/user/identities/authorize").UsingGet())
+            .RespondWith(Response.Create().WithStatusCode(200).WithHeader("Content-Type", "application/json").WithBody("{}"));
+
+        var link = () => this.api.LinkIdentity("user-access-token", Constants.Provider.Google,
+            new SignInOptions { FlowType = Constants.OAuthFlowType.PKCE });
+
+        await link.Should().ThrowAsync<GotrueException>("returning the un-redirected SDK-built url would silently send the caller to an endpoint that rejects the request");
     }
 }
