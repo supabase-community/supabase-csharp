@@ -47,6 +47,16 @@ public class Client : IGotrueClient<User, Session>
     private IGotruePersistenceListener<Session>? sessionPersistence;
 
     /// <summary>
+    ///     Guards <see cref="refreshInFlight" />.
+    /// </summary>
+    private readonly object refreshGate = new();
+
+    /// <summary>
+    ///     The running token refresh, shared by concurrent callers. A completed attempt is replaced, never reused.
+    /// </summary>
+    private Task? refreshInFlight;
+
+    /// <summary>
     ///     Initializes the GoTrue stateful client.
     ///     You will likely want to at least specify a
     ///     <see>
@@ -748,9 +758,8 @@ public class Client : IGotrueClient<User, Session>
     }
 
     /// <inheritdoc />
-    public async Task RefreshToken()
+    public Task RefreshToken()
     {
-        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.RefreshToken);
         if (!this.Online)
         {
             throw new GotrueException("Only supported when online", Offline);
@@ -759,9 +768,24 @@ public class Client : IGotrueClient<User, Session>
         {
             throw new GotrueException("No current session.", NoSessionFound);
         }
+        // The startup path and the auto-refresh timer can land here together, and a
+        // refresh token is single-use - concurrent calls share the running attempt.
+        lock (this.refreshGate)
+        {
+            if (this.refreshInFlight is not { IsCompleted: false })
+            {
+                this.refreshInFlight = this.RefreshCurrentSession();
+            }
+            return this.refreshInFlight;
+        }
+    }
+
+    private async Task RefreshCurrentSession()
+    {
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.RefreshToken);
         try
         {
-            var result = await this.api.RefreshAccessToken(this.CurrentSession.AccessToken!, this.CurrentSession.RefreshToken!);
+            var result = await this.api.RefreshAccessToken(this.CurrentSession!.AccessToken!, this.CurrentSession.RefreshToken!);
             if (result == null || string.IsNullOrEmpty(result.AccessToken))
             {
                 throw new GotrueException("Could not refresh token from provided session.", NoSessionFound);
@@ -787,9 +811,19 @@ public class Client : IGotrueClient<User, Session>
     /// <inheritdoc />
     public void LoadSession()
     {
+        Session? session;
+        try
+        {
+            session = this.sessionPersistence?.Persistence.LoadSession();
+        }
+        catch (Exception e)
+        {
+            // A store that fails to load (locked file, corrupt payload) must not crash startup.
+            this.debugNotification?.Log($"Failed to load the persisted session ({e.Message})", e);
+            return;
+        }
         // An empty store is not a sign-out: loading nothing must not clear an
         // existing session or fire SignedOut (which destroys the persistence).
-        var session = this.sessionPersistence?.Persistence.LoadSession();
         if (session != null)
         {
             this.UpdateSession(session);

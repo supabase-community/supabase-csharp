@@ -104,6 +104,50 @@ public class SessionRestoreContractTests
         client.Shutdown();
     }
 
+    [TestMethod]
+    public async Task RefreshToken_ShouldShareOneAttempt_GivenConcurrentCallers()
+    {
+        this.server
+            .Given(Request.Create().WithPath("/token").UsingPost())
+            .RespondWith(Response.Create()
+                .WithStatusCode(200)
+                .WithHeader("Content-Type", "application/json")
+                .WithBody(Fixture("token_success.json")));
+        var client = this.Restore(TestClients.Against(this.server));
+        var first = client.RefreshToken();
+        var second = client.RefreshToken();
+        second.Should().BeSameAs(first, "a refresh token is single-use, so concurrent refreshes must share one attempt");
+        await Task.WhenAll(first, second);
+        var third = client.RefreshToken();
+        third.Should().NotBeSameAs(first, "a completed attempt must not be reused");
+        await third;
+    }
+
+    [TestMethod]
+    public async Task RefreshToken_ShouldRetryAfterAFailedAttempt_GivenSequentialCallers()
+    {
+        var handler = new UnreachableHandler();
+        var client = this.Restore(TestClients.Against(this.server, httpClient: new HttpClient(handler)));
+        for (var i = 0; i < 2; i++)
+        {
+            var act = () => client.RefreshToken();
+            await act.Should().ThrowAsync<Exception>();
+        }
+        handler.Attempts.Should().Be(2, "a failed attempt must not be cached as the in-flight refresh");
+    }
+
+    [TestMethod]
+    public void LoadSession_ShouldNotThrow_GivenAStoreThatFailsToLoad()
+    {
+        var store = Substitute.For<IGotrueSessionPersistence<Session>>();
+        store.LoadSession().Returns(_ => throw new IOException("locked"));
+        var client = TestClients.Against(this.server);
+        client.SetPersistence(store);
+        var act = () => client.LoadSession();
+        act.Should().NotThrow();
+        client.CurrentSession.Should().BeNull();
+    }
+
     private IGotrueClient<User, Session> Restore(IGotrueClient<User, Session> client)
     {
         client.SetPersistence(this.persistence);
