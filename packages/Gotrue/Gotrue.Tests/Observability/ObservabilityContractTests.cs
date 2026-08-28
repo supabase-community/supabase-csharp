@@ -197,7 +197,7 @@ public class ObservabilityContractTests
         server.Reset();
         MockTokenFailure();
         var session = await client.RetrieveSessionAsync();
-        session.Should().BeNull("the failed refresh destroys the session");
+        session.Should().NotBeNull("a 5xx is transient, so the session is kept");
         messages.Should().NotBeEmpty("the failed refresh should be reported to debug listeners");
         messages.Should().OnlyContain(message =>
                 !message.Contains("new-access-token") && !message.Contains("new-refresh-token"),

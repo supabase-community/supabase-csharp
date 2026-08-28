@@ -646,10 +646,10 @@ public class Client : IGotrueClient<User, Session>
             return null;
         }
 
-        // If we aren't online, we can't refresh the token
+        // We can't refresh the token offline, so return the session as loaded.
         if (!this.Online)
         {
-            throw new GotrueException("Only supported when online", Offline);
+            return this.CurrentSession;
         }
 
         // We have a session, and hasn't expired, and we seem to be online. Let's try to refresh it.
@@ -660,14 +660,19 @@ public class Client : IGotrueClient<User, Session>
                 await this.RefreshToken();
                 return this.CurrentSession;
             }
+            catch (GotrueException e) when (e.Reason is InvalidRefreshToken or ExpiredRefreshToken)
+            {
+                // RefreshToken already destroyed the session.
+                activity.SetFailure(e);
+                return null;
+            }
             catch (Exception e)
             {
+                // Anything else is treated as transient - keep the session so the next refresh can retry.
                 // Never log the session itself here - it contains the access and refresh tokens.
                 this.debugNotification?.Log($"Failed to refresh token ({e.Message})", e);
-                this.debugNotification?.Log($"Destroying session created at {this.CurrentSession?.CreatedAt:O} (expires in {this.CurrentSession?.ExpiresIn}s) that could not be refreshed");
                 activity.SetFailure(e);
-                this.DestroySession();
-                return null;
+                return this.CurrentSession;
             }
         }
         return this.CurrentSession;
@@ -728,7 +733,7 @@ public class Client : IGotrueClient<User, Session>
             this.CurrentSession = result;
             this.NotifyAuthStateChange(TokenRefreshed);
         }
-        catch (GotrueException ex) when (ex.Reason is InvalidRefreshToken)
+        catch (GotrueException ex) when (ex.Reason is InvalidRefreshToken or ExpiredRefreshToken)
         {
             activity.SetFailure(ex);
             this.DestroySession();
@@ -764,7 +769,7 @@ public class Client : IGotrueClient<User, Session>
             this.CurrentSession = result;
             this.NotifyAuthStateChange(TokenRefreshed);
         }
-        catch (GotrueException ex) when (ex.Reason is InvalidRefreshToken)
+        catch (GotrueException ex) when (ex.Reason is InvalidRefreshToken or ExpiredRefreshToken)
         {
             activity.SetFailure(ex);
             this.DestroySession();
