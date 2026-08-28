@@ -80,6 +80,17 @@ public class SessionRestoreContractTests
         client.Shutdown();
     }
 
+    [TestMethod]
+    public void LoadSession_ShouldNotSignOut_GivenAnEmptyStore()
+    {
+        var empty = SessionPersistenceSubstitute.Tracking();
+        var client = TestClients.Against(this.server);
+        client.SetPersistence(empty);
+        client.LoadSession();
+        client.CurrentSession.Should().BeNull();
+        empty.DidNotReceive().DestroySession();
+    }
+
     private IGotrueClient<User, Session> Restore(IGotrueClient<User, Session> client)
     {
         client.SetPersistence(this.persistence);

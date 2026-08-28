@@ -787,9 +787,12 @@ public class Client : IGotrueClient<User, Session>
     /// <inheritdoc />
     public void LoadSession()
     {
-        if (this.sessionPersistence != null)
+        // An empty store is not a sign-out: loading nothing must not clear an
+        // existing session or fire SignedOut (which destroys the persistence).
+        var session = this.sessionPersistence?.Persistence.LoadSession();
+        if (session != null)
         {
-            this.UpdateSession(this.sessionPersistence.Persistence.LoadSession());
+            this.UpdateSession(session);
         }
     }
 
