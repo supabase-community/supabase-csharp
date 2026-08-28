@@ -15,8 +15,8 @@
         <PackageIconUrl>https://avatars.githubusercontent.com/u/54469796?s=200&amp;v=4</PackageIconUrl>
         <PackageTags>supabase, gotrue</PackageTags>
         <!-- x-release-please-start-version -->
-        <PackageVersion>6.3.1</PackageVersion>
-        <ReleaseVersion>6.3.1</ReleaseVersion>
+        <PackageVersion>6.3.2</PackageVersion>
+        <ReleaseVersion>6.3.2</ReleaseVersion>
         <!-- x-release-please-end -->
         <PackageIcon>icon.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -36,7 +36,7 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Version)' == '' ">
-        <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">6.3.1</VersionPrefix> <!-- x-release-please-version -->
+        <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">6.3.2</VersionPrefix> <!-- x-release-please-version -->
         <VersionSuffix Condition=" '$(VersionSuffix)' == '' ">
         </VersionSuffix>
         <Version Condition=" '$(VersionSuffix)' != '' ">$(VersionPrefix)-$(VersionSuffix)</Version>
