@@ -16,8 +16,10 @@ namespace Supabase.Gotrue
 
 		/// <summary>
 		/// Minimum wait between refresh attempts after one was skipped or failed.
+		/// supabase-js polls on a fixed 30 second tick (AUTO_REFRESH_TICK_DURATION_MS) and
+		/// picks a failed refresh up on the next one, so a failed attempt waits one tick too.
 		/// </summary>
-		private static readonly TimeSpan FailedRefreshRetryFloor = TimeSpan.FromSeconds(30);
+		private static readonly TimeSpan AutoRefreshTickDuration = TimeSpan.FromSeconds(30);
 
 		/// <summary>
 		/// Internal timer reference for token refresh
@@ -102,8 +104,8 @@ namespace Supabase.Gotrue
 			finally
 			{
 				// An expired session schedules at zero, so a refresh that was skipped or
-				// failed must wait before the next attempt instead of hot-looping.
-				CreateNewTimer(refreshed ? TimeSpan.Zero : FailedRefreshRetryFloor);
+				// failed must wait a tick before the next attempt instead of hot-looping.
+				CreateNewTimer(refreshed ? TimeSpan.Zero : AutoRefreshTickDuration);
 			}
 		}
 

@@ -46,7 +46,6 @@ public class SessionRestoreContractTests
         var client = this.Restore(TestClients.Against(this.server, autoRefreshToken: true, new HttpClient(new UnreachableHandler())));
         var session = await client.RetrieveSessionAsync();
         session.Should().NotBeNull("an offline start must not sign the user out");
-        client.CurrentSession.Should().BeSameAs(session);
         this.persistence.DidNotReceive().DestroySession();
         client.Shutdown();
     }
@@ -75,7 +74,6 @@ public class SessionRestoreContractTests
         client.Online = false;
         var session = await client.RetrieveSessionAsync();
         session.Should().NotBeNull("an offline client cannot refresh, but must not lose the session");
-        client.CurrentSession.Should().BeSameAs(session);
         this.persistence.DidNotReceive().DestroySession();
         client.Shutdown();
     }

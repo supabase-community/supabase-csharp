@@ -768,8 +768,7 @@ public class Client : IGotrueClient<User, Session>
         {
             throw new GotrueException("No current session.", NoSessionFound);
         }
-        // The startup path and the auto-refresh timer can land here together, and a
-        // refresh token is single-use - concurrent calls share the running attempt.
+        // Refresh tokens are single-use, and startup can race the auto-refresh timer here - so callers share the in-flight attempt.
         lock (this.refreshGate)
         {
             if (this.refreshInFlight is not { IsCompleted: false })
