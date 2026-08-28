@@ -91,6 +91,19 @@ public class SessionRestoreContractTests
         empty.DidNotReceive().DestroySession();
     }
 
+    [TestMethod]
+    public async Task TokenRefresh_ShouldBackOffBetweenAttempts_GivenARestoredExpiredSession()
+    {
+        var handler = new UnreachableHandler();
+        var client = TestClients.Against(this.server, autoRefreshToken: true, new HttpClient(handler));
+        this.persistence.SaveSession(new Session { AccessToken = "an-access-token", RefreshToken = "a-refresh-token", ExpiresIn = 60, CreatedAt = DateTime.UtcNow.AddHours(-1) });
+        this.Restore(client);
+        await Task.Delay(1500);
+        handler.Attempts.Should().BeGreaterThanOrEqualTo(1, "the first attempt for an expired session fires immediately");
+        handler.Attempts.Should().BeLessThan(3, "a failed refresh must back off, not hot-loop");
+        client.Shutdown();
+    }
+
     private IGotrueClient<User, Session> Restore(IGotrueClient<User, Session> client)
     {
         client.SetPersistence(this.persistence);

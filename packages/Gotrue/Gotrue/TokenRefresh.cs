@@ -15,6 +15,11 @@ namespace Supabase.Gotrue
 		private readonly Client _client;
 
 		/// <summary>
+		/// Minimum wait between refresh attempts after one was skipped or failed.
+		/// </summary>
+		private static readonly TimeSpan FailedRefreshRetryFloor = TimeSpan.FromSeconds(30);
+
+		/// <summary>
 		/// Internal timer reference for token refresh
 		/// <see>
 		///     <cref>AutoRefreshToken</cref>
@@ -79,10 +84,14 @@ namespace Supabase.Gotrue
 		/// </summary>
 		private async void HandleRefreshTimerTick(object _)
 		{
+			var refreshed = false;
 			try
 			{
 				if (_client.Online)
+				{
 					await _client.RefreshToken();
+					refreshed = true;
+				}
 			}
 			catch (Exception ex)
 			{
@@ -92,7 +101,9 @@ namespace Supabase.Gotrue
 			}
 			finally
 			{
-				CreateNewTimer();
+				// An expired session schedules at zero, so a refresh that was skipped or
+				// failed must wait before the next attempt instead of hot-looping.
+				CreateNewTimer(refreshed ? TimeSpan.Zero : FailedRefreshRetryFloor);
 			}
 		}
 
@@ -103,9 +114,9 @@ namespace Supabase.Gotrue
 		/// We pass <see cref="Timeout.InfiniteTimeSpan"/> to ensure the handler only runs once.
 		/// We create a new timer after each refresh so that each refresh runs in a new thread.
 		/// This keeps the refresh going if a thread crashes.
-		/// Creating a thread each refresh is not so expensive when the refresh interval is an hour or longer.
+		/// Creating a thread each refresh is not so expensive at this cadence - at worst one every 30 seconds while refreshes keep failing.
 		/// </summary>
-		private void CreateNewTimer()
+		private void CreateNewTimer(TimeSpan floor = default)
 		{
 			if (_client.CurrentSession == null)
 			{
@@ -117,6 +128,8 @@ namespace Supabase.Gotrue
 			try
 			{
 				TimeSpan refreshDueTime = GetSecondsUntilNextRefresh();
+				if (refreshDueTime < floor)
+					refreshDueTime = floor;
 				_refreshTimer?.Dispose();
 				_refreshTimer = new Timer(HandleRefreshTimerTick, null, refreshDueTime, Timeout.InfiniteTimeSpan);
 
