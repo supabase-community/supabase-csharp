@@ -588,7 +588,22 @@ public class Api : IGotrueApi<User, Session>
     public async Task<ProviderAuthState> LinkIdentity(string token, Provider provider, SignInOptions options)
     {
         var state = Helpers.GetUrlForProvider($"{this.Url}/user/identities/authorize", provider, options);
-        await this.MakeRequestAsync(HttpMethod.Get, state.Uri.ToString(), null, this.CreateAuthedRequestHeaders(token));
+
+        // Need to skip the HTTP redirect to avoid "No API key found in request" error and match auth-js behavior
+        var uri = Helpers.AddQueryParams(state.Uri.ToString(), new Dictionary<string, string> { { "skip_http_redirect", "true" } });
+        var response = await this.MakeRequestAsync(HttpMethod.Get, uri.ToString(), null, this.CreateAuthedRequestHeaders(token));
+
+        var content = response?.Content;
+
+        Dictionary<string, string>? payload = null;
+        if (!string.IsNullOrEmpty(content))
+            payload = JsonSerializer.Deserialize<Dictionary<string, string>>(content);
+
+        if (payload == null || !payload.TryGetValue("url", out var url) || string.IsNullOrEmpty(url))
+            throw new GotrueException("Gotrue did not return a provider authorization url for the identity link.", FailureHint.Reason.BadSessionUrl);
+
+        state.Uri = new Uri(url);
+
         return state;
     }
 
