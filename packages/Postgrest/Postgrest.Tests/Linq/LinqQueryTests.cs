@@ -59,6 +59,16 @@ public class LinqQueryTests
     }
 
     [TestMethod]
+    public async Task Where_ShouldSelectRowsMatchingAnyBranch_GivenThreeChainedOrs()
+    {
+        var client = LocalStack.Client();
+        var response = await client.Table<User>()
+            .Where(x => x.Username == "supabot" || x.Username == "kiwicopple" || x.Status == "OFFLINE").Get();
+        response.Models.Should()
+            .OnlyContain(m => m.Username == "supabot" || m.Username == "kiwicopple" || m.Status == "OFFLINE");
+    }
+
+    [TestMethod]
     public async Task Or_ShouldSelectRowsMatchingAnyBranch()
     {
         var client = LocalStack.Client();

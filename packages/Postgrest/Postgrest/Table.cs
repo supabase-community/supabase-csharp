@@ -777,18 +777,18 @@ public class Table<TModel> : IPostgrestTable<TModel> where TModel : BaseModel, n
             case Operator.And:
                 if (filter.Criteria is List<IPostgrestQueryFilter> subFilters)
                 {
-                    var list = new List<KeyValuePair<string, string>>();
                     foreach (var subFilter in subFilters)
                     {
                         if (subFilter == null)
                             throw new ArgumentException(
                                 $"Expected all filters supplied to a `{filter.Op}` filter to be non-null.");
 
-                        list.Add(this.PrepareFilter(subFilter));
-                    }
+                        var preppedFilter = this.PrepareFilter(subFilter);
 
-                    foreach (var preppedFilter in list)
-                        strBuilder.Append($"{preppedFilter.Key}.{preppedFilter.Value},");
+                        // PostgREST wants `or(a,b)`, not `or.(a,b)` - only column filters take the dot (issue #336).
+                        var separator = IsLogicalGroup(subFilter) ? "" : ".";
+                        strBuilder.Append($"{preppedFilter.Key}{separator}{preppedFilter.Value},");
+                    }
 
                     return new KeyValuePair<string, string>(asAttribute.Mapping,
                         $"({strBuilder.ToString().Trim(',')})");
@@ -888,6 +888,10 @@ public class Table<TModel> : IPostgrestTable<TModel> where TModel : BaseModel, n
         inner.Op is Operator.And or Operator.Or
             ? new KeyValuePair<string, string>($"not.{prepared.Key}", prepared.Value)
             : new KeyValuePair<string, string>(prepared.Key, $"not.{prepared.Value}");
+
+    private static bool IsLogicalGroup(IPostgrestQueryFilter filter) =>
+        filter.Op is Operator.And or Operator.Or ||
+        (filter.Op is Operator.Not && filter.Criteria is QueryFilter { Op: Operator.And or Operator.Or });
 
     /// <inheritdoc />
     public void Clear()
