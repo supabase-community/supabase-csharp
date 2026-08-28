@@ -217,6 +217,7 @@ public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeCha
     public async Task<ISupabaseClient<User, Session, RealtimeSocket, RealtimeChannel, Bucket, FileObject>>
         InitializeAsync()
     {
+        // Don't clobber a session already set by the caller with a stale one from disk.
         if (this.Auth.CurrentSession == null)
             this.Auth.LoadSession();
         await this.Auth.RetrieveSessionAsync();
