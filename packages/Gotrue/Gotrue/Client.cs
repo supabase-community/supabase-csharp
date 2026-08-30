@@ -57,6 +57,12 @@ public class Client : IGotrueClient<User, Session>
     private Task? refreshInFlight;
 
     /// <summary>
+    ///     The refresh token <see cref="refreshInFlight" /> was started for. A caller holding a different one
+    ///     belongs to another session, so it starts its own attempt.
+    /// </summary>
+    private string? refreshInFlightToken;
+
+    /// <summary>
     ///     Initializes the GoTrue stateful client.
     ///     You will likely want to at least specify a
     ///     <see>
@@ -764,7 +770,8 @@ public class Client : IGotrueClient<User, Session>
         {
             throw new GotrueException("Only supported when online", Offline);
         }
-        if (this.CurrentSession == null || string.IsNullOrEmpty(this.CurrentSession?.AccessToken) || string.IsNullOrEmpty(this.CurrentSession?.RefreshToken))
+        var session = this.CurrentSession;
+        if (session == null || string.IsNullOrEmpty(session.AccessToken) || string.IsNullOrEmpty(session.RefreshToken))
         {
             throw new GotrueException("No current session.", NoSessionFound);
         }
@@ -772,28 +779,28 @@ public class Client : IGotrueClient<User, Session>
         // Refresh tokens are single-use, and startup can race the auto-refresh timer here - so callers share the in-flight attempt.
         lock (this.refreshGate)
         {
-            if (this.refreshInFlight is not { IsCompleted: false })
+            if (this.refreshInFlight is not { IsCompleted: false } || this.refreshInFlightToken != session.RefreshToken)
             {
-                this.refreshInFlight = this.RefreshCurrentSession();
+                this.refreshInFlightToken = session.RefreshToken;
+                this.refreshInFlight = this.RefreshCurrentSession(session);
             }
             attempt = this.refreshInFlight;
         }
         await attempt;
     }
 
-    private async Task RefreshCurrentSession()
+    private async Task RefreshCurrentSession(Session session)
     {
         using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.RefreshToken);
-        var refreshToken = this.CurrentSession!.RefreshToken;
         try
         {
-            var result = await this.api.RefreshAccessToken(this.CurrentSession!.AccessToken!, refreshToken!);
+            var result = await this.api.RefreshAccessToken(session.AccessToken!, session.RefreshToken!);
             if (result == null || string.IsNullOrEmpty(result.AccessToken))
             {
                 throw new GotrueException("Could not refresh token from provided session.", NoSessionFound);
             }
             // The session was replaced while this call was in flight, so the result is the previous user's.
-            if (this.CurrentSession?.RefreshToken != refreshToken)
+            if (this.CurrentSession?.RefreshToken != session.RefreshToken)
             {
                 return;
             }
@@ -803,7 +810,7 @@ public class Client : IGotrueClient<User, Session>
         catch (GotrueException ex) when (ex.Reason is InvalidRefreshToken)
         {
             activity.SetFailure(ex);
-            if (this.CurrentSession?.RefreshToken == refreshToken)
+            if (this.CurrentSession?.RefreshToken == session.RefreshToken)
             {
                 this.DestroySession();
                 this.NotifyAuthStateChange(SignedOut);
@@ -821,6 +828,10 @@ public class Client : IGotrueClient<User, Session>
     /// <inheritdoc />
     public void LoadSession()
     {
+        if (this.sessionPersistence == null)
+        {
+            return;
+        }
         Session? session;
         try
         {

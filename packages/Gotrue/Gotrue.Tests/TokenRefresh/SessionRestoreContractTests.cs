@@ -133,6 +133,36 @@ public class SessionRestoreContractTests
     }
 
     [TestMethod]
+    public async Task RefreshToken_ShouldStartItsOwnAttempt_GivenTheSessionWasReplaced()
+    {
+        var handler = new GatedHandler();
+        var client = this.Restore(TestClients.Against(this.server, httpClient: new HttpClient(handler)));
+        var stale = client.RefreshToken();
+        this.persistence.SaveSession(new Session { AccessToken = "another-access-token", RefreshToken = "another-refresh-token", ExpiresIn = 3600 });
+        client.LoadSession();
+        var fresh = client.RefreshToken();
+        handler.Release();
+        await Task.WhenAll(stale, fresh);
+        handler.Attempts.Should().Be(2,
+            "the in-flight attempt holds the previous session's refresh token, so the new session must not join it");
+    }
+
+    [TestMethod]
+    public async Task LoadSession_ShouldKeepTheUserSignedIn_GivenAClientWithoutPersistence()
+    {
+        this.server
+            .Given(Request.Create().WithPath("/token").UsingPost())
+            .RespondWith(Response.Create()
+                .WithStatusCode(200)
+                .WithHeader("Content-Type", "application/json")
+                .WithBody(Fixture("token_success.json")));
+        var client = TestClients.Against(this.server);
+        await client.SignIn("test@example.com", "a-password");
+        client.LoadSession();
+        client.CurrentSession.Should().NotBeNull("a client with no persistence has nothing to load, so LoadSession must leave it alone");
+    }
+
+    [TestMethod]
     public void LoadSession_ShouldClearTheSession_GivenTheStoreWasEmptied()
     {
         var client = this.Restore(TestClients.Against(this.server));
