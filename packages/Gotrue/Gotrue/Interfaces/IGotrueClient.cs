@@ -468,8 +468,8 @@ namespace Supabase.Gotrue.Interfaces
         void AddDebugListener(Action<string, Exception?> listener);
 
         /// <summary>
-        ///     Loads the session from the persistence layer. An empty or failing store is a no-op:
-        ///     it never clears an existing session or signs the user out.
+        ///     Loads the session from the persistence layer. An empty store clears the current
+        ///     session; a store that fails to load is ignored.
         /// </summary>
         void LoadSession();
 

@@ -792,8 +792,7 @@ public class Client : IGotrueClient<User, Session>
             {
                 throw new GotrueException("Could not refresh token from provided session.", NoSessionFound);
             }
-            // A sign-out, or a sign-in as somebody else, while the call was in flight replaced the session:
-            // this result belongs to the previous user, so drop it rather than resurrect them.
+            // The session was replaced while this call was in flight, so the result is the previous user's.
             if (this.CurrentSession?.RefreshToken != refreshToken)
             {
                 return;
