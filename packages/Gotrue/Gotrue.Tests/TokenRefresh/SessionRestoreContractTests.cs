@@ -1,10 +1,13 @@
 #region
 
 using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -12,9 +15,11 @@ using Gotrue.Tests.Support;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
 using Supabase.Gotrue;
+using Supabase.Gotrue.Exceptions;
 using Supabase.Gotrue.Interfaces;
 using WireMock.RequestBuilders;
 using WireMock.ResponseBuilders;
+using static Supabase.Gotrue.Constants.AuthState;
 
 #endregion
 
@@ -28,6 +33,12 @@ namespace Gotrue.Tests.TokenRefresh;
 [TestCategory("Contract")]
 public class SessionRestoreContractTests
 {
+    /// <summary>Bounds every wait on a handler, so a bug fails the test in seconds instead of hanging it.</summary>
+    private static readonly TimeSpan HandlerTimeout = TimeSpan.FromSeconds(10);
+
+    /// <summary>Every client the test built, shut down centrally so a failed assertion cannot leak its refresh timer.</summary>
+    private readonly List<IGotrueClient<User, Session>> clients = new();
+
     private IGotrueSessionPersistence<Session> persistence = null!;
     private MockGotrueServer server = null!;
 
@@ -40,7 +51,20 @@ public class SessionRestoreContractTests
     }
 
     [TestCleanup]
-    public void TestCleanup() => this.server.Dispose();
+    public void TestCleanup()
+    {
+        try
+        {
+            foreach (var client in this.clients)
+            {
+                client.Shutdown();
+            }
+        }
+        finally
+        {
+            this.server.Dispose();
+        }
+    }
 
     [TestMethod]
     public async Task RetrieveSessionAsync_ShouldKeepTheSession_GivenTheRefreshFailsWithANetworkError()
@@ -49,7 +73,6 @@ public class SessionRestoreContractTests
         var session = await client.RetrieveSessionAsync();
         session.Should().NotBeNull("an offline start must not sign the user out");
         this.persistence.DidNotReceive().DestroySession();
-        client.Shutdown();
     }
 
     [TestMethod]
@@ -66,7 +89,6 @@ public class SessionRestoreContractTests
         session.Should().BeNull();
         client.CurrentSession.Should().BeNull();
         this.persistence.Received().DestroySession();
-        client.Shutdown();
     }
 
     [TestMethod]
@@ -77,18 +99,18 @@ public class SessionRestoreContractTests
         var session = await client.RetrieveSessionAsync();
         session.Should().NotBeNull("an offline client cannot refresh, but must not lose the session");
         this.persistence.DidNotReceive().DestroySession();
-        client.Shutdown();
     }
 
     [TestMethod]
     public void LoadSession_ShouldNotSignOut_GivenAnEmptyStore()
     {
-        var empty = SessionPersistenceSubstitute.Tracking();
-        var client = TestClients.Against(this.server);
-        client.SetPersistence(empty);
+        var client = this.Track(TestClients.Against(this.server));
+        var stateChanges = new List<Constants.AuthState>();
+        client.AddStateChangedListener((_, state) => stateChanges.Add(state));
+        client.SetPersistence(SessionPersistenceSubstitute.Tracking());
         client.LoadSession();
         client.CurrentSession.Should().BeNull();
-        empty.DidNotReceive().DestroySession();
+        stateChanges.Should().NotContain(SignedOut, "a cold start with nothing on either side has no session to sign out of");
     }
 
     [TestMethod]
@@ -98,10 +120,10 @@ public class SessionRestoreContractTests
         var client = TestClients.Against(this.server, autoRefreshToken: true, new HttpClient(handler));
         this.persistence.SaveSession(new Session { AccessToken = "an-access-token", RefreshToken = "a-refresh-token", ExpiresIn = 60, CreatedAt = DateTime.UtcNow.AddHours(-1) });
         this.Restore(client);
-        await Task.Delay(1500);
-        handler.Attempts.Should().BeGreaterThanOrEqualTo(1, "the first attempt for an expired session fires immediately");
-        handler.Attempts.Should().BeLessThan(3, "a failed refresh must back off, not hot-loop");
-        client.Shutdown();
+        await handler.Started;
+        await Task.Delay(250);
+        handler.Attempts.Should().Be(1,
+            "the first attempt for an expired session fires immediately, and a failed one must back off a tick before the next");
     }
 
     [TestMethod]
@@ -116,6 +138,7 @@ public class SessionRestoreContractTests
         handler.Attempts.Should().Be(1, "a refresh token is single-use, so concurrent refreshes must share one attempt");
         await client.RefreshToken();
         handler.Attempts.Should().Be(2, "a completed attempt must not be reused");
+        ((Client) client).refreshAttempt.Should().BeNull("a finished attempt must not keep its refresh token in memory");
     }
 
     [TestMethod]
@@ -124,6 +147,7 @@ public class SessionRestoreContractTests
         var handler = new GatedHandler();
         var client = this.Restore(TestClients.Against(this.server, httpClient: new HttpClient(handler)));
         var refresh = client.RefreshToken();
+        await handler.Started;
         this.persistence.SaveSession(new Session { AccessToken = "another-access-token", RefreshToken = "another-refresh-token", ExpiresIn = 3600 });
         client.LoadSession();
         handler.Release();
@@ -138,13 +162,31 @@ public class SessionRestoreContractTests
         var handler = new GatedHandler();
         var client = this.Restore(TestClients.Against(this.server, httpClient: new HttpClient(handler)));
         var stale = client.RefreshToken();
+        await handler.Started;
         this.persistence.SaveSession(new Session { AccessToken = "another-access-token", RefreshToken = "another-refresh-token", ExpiresIn = 3600 });
         client.LoadSession();
         var fresh = client.RefreshToken();
         handler.Release();
         await Task.WhenAll(stale, fresh);
-        handler.Attempts.Should().Be(2,
+        handler.RefreshTokens.Should().Equal(new[] { "a-refresh-token", "another-refresh-token" },
             "the in-flight attempt holds the previous session's refresh token, so the new session must not join it");
+    }
+
+    [TestMethod]
+    public async Task SignOut_ShouldLeaveNoSessionOrRefreshToken_GivenARefreshInFlight()
+    {
+        var handler = new GatedHandler();
+        var client = this.Restore(TestClients.Against(this.server, httpClient: new HttpClient(handler)));
+        var stateChanges = new List<Constants.AuthState>();
+        client.AddStateChangedListener((_, state) => stateChanges.Add(state));
+        var refresh = client.RefreshToken();
+        await handler.Started;
+        await client.SignOut();
+        handler.Release();
+        await refresh;
+        client.CurrentSession.Should().BeNull("the refresh belonged to the session that was signed out");
+        stateChanges.Should().NotContain(TokenRefreshed);
+        ((Client) client).refreshAttempt.Should().BeNull("the refresh token is a secret and must not outlive the sign-out");
     }
 
     [TestMethod]
@@ -156,7 +198,7 @@ public class SessionRestoreContractTests
                 .WithStatusCode(200)
                 .WithHeader("Content-Type", "application/json")
                 .WithBody(Fixture("token_success.json")));
-        var client = TestClients.Against(this.server);
+        var client = this.Track(TestClients.Against(this.server));
         await client.SignIn("test@example.com", "a-password");
         client.LoadSession();
         client.CurrentSession.Should().NotBeNull("a client with no persistence has nothing to load, so LoadSession must leave it alone");
@@ -168,6 +210,7 @@ public class SessionRestoreContractTests
         var handler = new GatedHandler(HttpStatusCode.BadRequest, "token_not_found_error.json");
         var client = this.Restore(TestClients.Against(this.server, autoRefreshToken: true, new HttpClient(handler)));
         var retrieve = client.RetrieveSessionAsync();
+        await handler.Started;
         this.persistence.SaveSession(new Session { AccessToken = "another-access-token", RefreshToken = "another-refresh-token", ExpiresIn = 3600 });
         client.LoadSession();
         handler.Release();
@@ -194,7 +237,7 @@ public class SessionRestoreContractTests
         for (var i = 0; i < 2; i++)
         {
             var act = () => client.RefreshToken();
-            await act.Should().ThrowAsync<Exception>();
+            await act.Should().ThrowAsync<GotrueException>();
         }
         handler.Attempts.Should().Be(2, "a failed attempt must not be cached as the in-flight refresh");
     }
@@ -204,7 +247,7 @@ public class SessionRestoreContractTests
     {
         var store = Substitute.For<IGotrueSessionPersistence<Session>>();
         store.LoadSession().Returns(_ => throw new IOException("locked"));
-        var client = TestClients.Against(this.server);
+        var client = this.Track(TestClients.Against(this.server));
         client.SetPersistence(store);
         var act = () => client.LoadSession();
         act.Should().NotThrow();
@@ -213,8 +256,15 @@ public class SessionRestoreContractTests
 
     private IGotrueClient<User, Session> Restore(IGotrueClient<User, Session> client)
     {
+        this.Track(client);
         client.SetPersistence(this.persistence);
         client.LoadSession();
+        return client;
+    }
+
+    private IGotrueClient<User, Session> Track(IGotrueClient<User, Session> client)
+    {
+        this.clients.Add(client);
         return client;
     }
 
@@ -223,31 +273,52 @@ public class SessionRestoreContractTests
 
     private sealed class UnreachableHandler : HttpMessageHandler
     {
+        private readonly TaskCompletionSource<bool> started = new(TaskCreationOptions.RunContinuationsAsynchronously);
+
         public int Attempts;
+
+        /// <summary>Completes when the first attempt reaches the handler.</summary>
+        public Task Started => this.started.Task.WaitAsync(HandlerTimeout);
 
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             Interlocked.Increment(ref this.Attempts);
+            this.started.TrySetResult(true);
             throw new HttpRequestException("connection refused");
         }
     }
 
     /// <summary>
-    ///     Answers every request with a successful refresh, but not before the test opens the gate - so a
-    ///     refresh can be held in flight while the test does something to the session behind its back.
+    ///     Answers a token refresh, but not before the test opens the gate - so a refresh can be held in
+    ///     flight while the test does something to the session behind its back. Every other call, sign-out
+    ///     included, is answered straight away.
     /// </summary>
     private sealed class GatedHandler(HttpStatusCode status = HttpStatusCode.OK, string fixture = "token_success.json") : HttpMessageHandler
     {
-        private readonly TaskCompletionSource<bool> gate = new();
+        private readonly TaskCompletionSource<bool> gate = new(TaskCreationOptions.RunContinuationsAsynchronously);
+        private readonly ConcurrentQueue<string?> refreshTokens = new();
+        private readonly TaskCompletionSource<bool> started = new(TaskCreationOptions.RunContinuationsAsynchronously);
 
-        public int Attempts;
+        public int Attempts => this.refreshTokens.Count;
+
+        /// <summary>The refresh token each refresh put on the wire, in the order the requests arrived.</summary>
+        public IReadOnlyCollection<string?> RefreshTokens => this.refreshTokens;
+
+        /// <summary>Completes when the first refresh reaches the handler, so a test can act while it is held.</summary>
+        public Task Started => this.started.Task.WaitAsync(HandlerTimeout);
 
         public void Release() => this.gate.TrySetResult(true);
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            Interlocked.Increment(ref this.Attempts);
-            await this.gate.Task;
+            if (!request.RequestUri!.AbsolutePath.EndsWith("/token", StringComparison.Ordinal))
+            {
+                return new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent("{}", Encoding.UTF8, "application/json") };
+            }
+            var body = JsonNode.Parse(await request.Content!.ReadAsStringAsync(cancellationToken))!.AsObject();
+            this.refreshTokens.Enqueue(body["refresh_token"]?.GetValue<string>());
+            this.started.TrySetResult(true);
+            await this.gate.Task.WaitAsync(HandlerTimeout);
             return new HttpResponseMessage(status)
             {
                 Content = new StringContent(Fixture(fixture), Encoding.UTF8, "application/json"),

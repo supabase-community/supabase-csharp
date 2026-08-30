@@ -86,13 +86,13 @@ namespace Supabase.Gotrue
 		/// </summary>
 		private async void HandleRefreshTimerTick(object _)
 		{
-			var refreshed = false;
+			var refreshCompleted = false;
 			try
 			{
 				if (_client.Online)
 				{
 					await _client.RefreshToken();
-					refreshed = true;
+					refreshCompleted = true;
 				}
 			}
 			catch (Exception ex)
@@ -105,7 +105,7 @@ namespace Supabase.Gotrue
 			{
 				// An expired session schedules at zero, so a refresh that was skipped or
 				// failed must wait a tick before the next attempt instead of hot-looping.
-				CreateNewTimer(refreshed ? TimeSpan.Zero : AutoRefreshTickDuration);
+				CreateNewTimer(refreshCompleted ? TimeSpan.Zero : AutoRefreshTickDuration);
 			}
 		}
 
@@ -114,11 +114,11 @@ namespace Supabase.Gotrue
 		/// 
 		/// <para/>
 		/// We pass <see cref="Timeout.InfiniteTimeSpan"/> to ensure the handler only runs once.
-		/// We create a new timer after each refresh so that each refresh runs in a new thread.
-		/// This keeps the refresh going if a thread crashes.
-		/// Creating a thread each refresh is not so expensive at this cadence - at worst one every 30 seconds while refreshes keep failing.
+		/// We create a new timer after each refresh instead of a repeating one, so the next tick is
+		/// scheduled from the session we ended up with rather than from a fixed interval.
+		/// The callbacks run on the thread pool, so a timer per refresh is cheap at this cadence.
 		/// </summary>
-		private void CreateNewTimer(TimeSpan floor = default)
+		private void CreateNewTimer(TimeSpan minimumDelay = default)
 		{
 			if (_client.CurrentSession == null)
 			{
@@ -130,8 +130,8 @@ namespace Supabase.Gotrue
 			try
 			{
 				TimeSpan refreshDueTime = GetSecondsUntilNextRefresh();
-				if (refreshDueTime < floor)
-					refreshDueTime = floor;
+				if (refreshDueTime < minimumDelay)
+					refreshDueTime = minimumDelay;
 				_refreshTimer?.Dispose();
 				_refreshTimer = new Timer(HandleRefreshTimerTick, null, refreshDueTime, Timeout.InfiniteTimeSpan);
 
