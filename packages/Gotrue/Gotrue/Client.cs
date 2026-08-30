@@ -670,7 +670,7 @@ public class Client : IGotrueClient<User, Session>
                 await this.RefreshToken();
                 return this.CurrentSession;
             }
-            catch (GotrueException e) when (e.Reason is InvalidRefreshToken or ExpiredRefreshToken)
+            catch (GotrueException e) when (e.Reason is InvalidRefreshToken)
             {
                 // RefreshToken already destroyed the session.
                 activity.SetFailure(e);
@@ -743,7 +743,7 @@ public class Client : IGotrueClient<User, Session>
             this.CurrentSession = result;
             this.NotifyAuthStateChange(TokenRefreshed);
         }
-        catch (GotrueException ex) when (ex.Reason is InvalidRefreshToken or ExpiredRefreshToken)
+        catch (GotrueException ex) when (ex.Reason is InvalidRefreshToken)
         {
             activity.SetFailure(ex);
             this.DestroySession();
@@ -758,7 +758,7 @@ public class Client : IGotrueClient<User, Session>
     }
 
     /// <inheritdoc />
-    public Task RefreshToken()
+    public async Task RefreshToken()
     {
         if (!this.Online)
         {
@@ -768,6 +768,7 @@ public class Client : IGotrueClient<User, Session>
         {
             throw new GotrueException("No current session.", NoSessionFound);
         }
+        Task attempt;
         // Refresh tokens are single-use, and startup can race the auto-refresh timer here - so callers share the in-flight attempt.
         lock (this.refreshGate)
         {
@@ -775,28 +776,39 @@ public class Client : IGotrueClient<User, Session>
             {
                 this.refreshInFlight = this.RefreshCurrentSession();
             }
-            return this.refreshInFlight;
+            attempt = this.refreshInFlight;
         }
+        await attempt;
     }
 
     private async Task RefreshCurrentSession()
     {
         using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.RefreshToken);
+        var refreshToken = this.CurrentSession!.RefreshToken;
         try
         {
-            var result = await this.api.RefreshAccessToken(this.CurrentSession!.AccessToken!, this.CurrentSession.RefreshToken!);
+            var result = await this.api.RefreshAccessToken(this.CurrentSession!.AccessToken!, refreshToken!);
             if (result == null || string.IsNullOrEmpty(result.AccessToken))
             {
                 throw new GotrueException("Could not refresh token from provided session.", NoSessionFound);
             }
+            // A sign-out, or a sign-in as somebody else, while the call was in flight replaced the session:
+            // this result belongs to the previous user, so drop it rather than resurrect them.
+            if (this.CurrentSession?.RefreshToken != refreshToken)
+            {
+                return;
+            }
             this.CurrentSession = result;
             this.NotifyAuthStateChange(TokenRefreshed);
         }
-        catch (GotrueException ex) when (ex.Reason is InvalidRefreshToken or ExpiredRefreshToken)
+        catch (GotrueException ex) when (ex.Reason is InvalidRefreshToken)
         {
             activity.SetFailure(ex);
-            this.DestroySession();
-            this.NotifyAuthStateChange(SignedOut);
+            if (this.CurrentSession?.RefreshToken == refreshToken)
+            {
+                this.DestroySession();
+                this.NotifyAuthStateChange(SignedOut);
+            }
             throw;
         }
         catch (Exception ex)
@@ -821,9 +833,9 @@ public class Client : IGotrueClient<User, Session>
             this.debugNotification?.Log($"Failed to load the persisted session ({e.Message})", e);
             return;
         }
-        // An empty store is not a sign-out: loading nothing must not clear an
-        // existing session or fire SignedOut (which destroys the persistence).
-        if (session != null)
+        // An emptied store clears the session it was holding, but a cold start with nothing on either
+        // side is a no-op: firing SignedOut there would destroy the persistence.
+        if (session != null || this.CurrentSession != null)
         {
             this.UpdateSession(session);
         }

@@ -2,7 +2,9 @@
 
 using System;
 using System.IO;
+using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -105,20 +107,38 @@ public class SessionRestoreContractTests
     [TestMethod]
     public async Task RefreshToken_ShouldShareOneAttempt_GivenConcurrentCallers()
     {
-        this.server
-            .Given(Request.Create().WithPath("/token").UsingPost())
-            .RespondWith(Response.Create()
-                .WithStatusCode(200)
-                .WithHeader("Content-Type", "application/json")
-                .WithBody(Fixture("token_success.json")));
-        var client = this.Restore(TestClients.Against(this.server));
+        var handler = new GatedHandler();
+        var client = this.Restore(TestClients.Against(this.server, httpClient: new HttpClient(handler)));
         var first = client.RefreshToken();
         var second = client.RefreshToken();
-        second.Should().BeSameAs(first, "a refresh token is single-use, so concurrent refreshes must share one attempt");
+        handler.Release();
         await Task.WhenAll(first, second);
-        var third = client.RefreshToken();
-        third.Should().NotBeSameAs(first, "a completed attempt must not be reused");
-        await third;
+        handler.Attempts.Should().Be(1, "a refresh token is single-use, so concurrent refreshes must share one attempt");
+        await client.RefreshToken();
+        handler.Attempts.Should().Be(2, "a completed attempt must not be reused");
+    }
+
+    [TestMethod]
+    public async Task RefreshToken_ShouldDiscardTheResult_GivenTheSessionWasReplacedMidFlight()
+    {
+        var handler = new GatedHandler();
+        var client = this.Restore(TestClients.Against(this.server, httpClient: new HttpClient(handler)));
+        var refresh = client.RefreshToken();
+        this.persistence.SaveSession(new Session { AccessToken = "another-access-token", RefreshToken = "another-refresh-token", ExpiresIn = 3600 });
+        client.LoadSession();
+        handler.Release();
+        await refresh;
+        client.CurrentSession!.RefreshToken.Should().Be("another-refresh-token",
+            "the refresh belonged to the session that was replaced, so its result must not overwrite the new one");
+    }
+
+    [TestMethod]
+    public void LoadSession_ShouldClearTheSession_GivenTheStoreWasEmptied()
+    {
+        var client = this.Restore(TestClients.Against(this.server));
+        this.persistence.DestroySession();
+        client.LoadSession();
+        client.CurrentSession.Should().BeNull("a store emptied behind the client's back must not leave a stale session in memory");
     }
 
     [TestMethod]
@@ -164,6 +184,29 @@ public class SessionRestoreContractTests
         {
             Interlocked.Increment(ref this.Attempts);
             throw new HttpRequestException("connection refused");
+        }
+    }
+
+    /// <summary>
+    ///     Answers every request with a successful refresh, but not before the test opens the gate - so a
+    ///     refresh can be held in flight while the test does something to the session behind its back.
+    /// </summary>
+    private sealed class GatedHandler : HttpMessageHandler
+    {
+        private readonly TaskCompletionSource<bool> gate = new();
+
+        public int Attempts;
+
+        public void Release() => this.gate.TrySetResult(true);
+
+        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            Interlocked.Increment(ref this.Attempts);
+            await this.gate.Task;
+            return new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new StringContent(Fixture("token_success.json"), Encoding.UTF8, "application/json"),
+            };
         }
     }
 }
