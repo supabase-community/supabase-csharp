@@ -549,6 +549,10 @@ public class Client : IGotrueClient<User, Session>
             throw new GotrueException("Only supported when online", Offline);
         }
         await this.RefreshToken();
+        if (this.CurrentSession == null)
+        {
+            throw new GotrueException("Not Logged in.", NoSessionFound);
+        }
         var user = await this.api.GetUser(this.CurrentSession.AccessToken);
         this.CurrentSession.User = user;
         return this.CurrentSession;
@@ -678,9 +682,9 @@ public class Client : IGotrueClient<User, Session>
             }
             catch (GotrueException e) when (e.Reason is InvalidRefreshToken)
             {
-                // RefreshToken already destroyed the session.
+                // RefreshToken destroyed the session, unless it was replaced mid-flight.
                 activity.SetFailure(e);
-                return null;
+                return this.CurrentSession;
             }
             catch (Exception e)
             {
@@ -835,7 +839,7 @@ public class Client : IGotrueClient<User, Session>
         Session? session;
         try
         {
-            session = this.sessionPersistence?.Persistence.LoadSession();
+            session = this.sessionPersistence.Persistence.LoadSession();
         }
         catch (Exception e)
         {
@@ -1050,5 +1054,12 @@ public class Client : IGotrueClient<User, Session>
     /// <summary>
     ///     Clears the session
     /// </summary>
-    private void DestroySession() => this.UpdateSession(null);
+    private void DestroySession()
+    {
+        lock (this.refreshGate)
+        {
+            this.refreshInFlightToken = null;
+        }
+        this.UpdateSession(null);
+    }
 }
