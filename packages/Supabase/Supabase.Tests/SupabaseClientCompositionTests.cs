@@ -220,6 +220,15 @@ public class SupabaseClientCompositionTests
     }
 
     [TestMethod]
+    public async Task SupabaseClient_ShouldNotReloadTheSession_GivenOneAlreadySet()
+    {
+        var auth = Substitute.For<IGotrueClient<User, Session>>();
+        auth.CurrentSession.Returns(new Session { AccessToken = "an-access-token", RefreshToken = "a-refresh-token" });
+        await DiClient(auth: auth).InitializeAsync();
+        auth.DidNotReceive().LoadSession();
+    }
+
+    [TestMethod]
     public async Task SupabaseClient_ShouldKeepThePersistedSession_GivenAnOfflineStart()
     {
         var persistence = Substitute.For<IGotrueSessionPersistence<Session>>();
