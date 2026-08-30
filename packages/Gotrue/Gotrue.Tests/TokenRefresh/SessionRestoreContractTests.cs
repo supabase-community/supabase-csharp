@@ -163,6 +163,21 @@ public class SessionRestoreContractTests
     }
 
     [TestMethod]
+    public async Task RetrieveSessionAsync_ShouldReturnTheReplacement_GivenTheRejectedRefreshWasForAReplacedSession()
+    {
+        var handler = new GatedHandler(HttpStatusCode.BadRequest, "token_not_found_error.json");
+        var client = this.Restore(TestClients.Against(this.server, autoRefreshToken: true, new HttpClient(handler)));
+        var retrieve = client.RetrieveSessionAsync();
+        this.persistence.SaveSession(new Session { AccessToken = "another-access-token", RefreshToken = "another-refresh-token", ExpiresIn = 3600 });
+        client.LoadSession();
+        handler.Release();
+        var session = await retrieve;
+        session!.RefreshToken.Should().Be("another-refresh-token",
+            "the rejection was for the replaced session, so the live one must be returned, not null");
+        this.persistence.DidNotReceive().DestroySession();
+    }
+
+    [TestMethod]
     public void LoadSession_ShouldClearTheSession_GivenTheStoreWasEmptied()
     {
         var client = this.Restore(TestClients.Against(this.server));
@@ -221,7 +236,7 @@ public class SessionRestoreContractTests
     ///     Answers every request with a successful refresh, but not before the test opens the gate - so a
     ///     refresh can be held in flight while the test does something to the session behind its back.
     /// </summary>
-    private sealed class GatedHandler : HttpMessageHandler
+    private sealed class GatedHandler(HttpStatusCode status = HttpStatusCode.OK, string fixture = "token_success.json") : HttpMessageHandler
     {
         private readonly TaskCompletionSource<bool> gate = new();
 
@@ -233,9 +248,9 @@ public class SessionRestoreContractTests
         {
             Interlocked.Increment(ref this.Attempts);
             await this.gate.Task;
-            return new HttpResponseMessage(HttpStatusCode.OK)
+            return new HttpResponseMessage(status)
             {
-                Content = new StringContent(Fixture("token_success.json"), Encoding.UTF8, "application/json"),
+                Content = new StringContent(Fixture(fixture), Encoding.UTF8, "application/json"),
             };
         }
     }

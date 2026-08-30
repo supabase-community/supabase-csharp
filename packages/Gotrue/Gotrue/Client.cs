@@ -549,13 +549,13 @@ public class Client : IGotrueClient<User, Session>
             throw new GotrueException("Only supported when online", Offline);
         }
         await this.RefreshToken();
-        if (this.CurrentSession == null)
+        var session = this.CurrentSession;
+        if (session == null)
         {
             throw new GotrueException("Not Logged in.", NoSessionFound);
         }
-        var user = await this.api.GetUser(this.CurrentSession.AccessToken);
-        this.CurrentSession.User = user;
-        return this.CurrentSession;
+        session.User = await this.api.GetUser(session.AccessToken);
+        return session;
     }
 
     /// <inheritdoc />
@@ -1039,6 +1039,11 @@ public class Client : IGotrueClient<User, Session>
     {
         if (session == null)
         {
+            // The refresh token is a secret; clearing the session must not leave it behind.
+            lock (this.refreshGate)
+            {
+                this.refreshInFlightToken = null;
+            }
             this.CurrentSession = null;
             this.NotifyAuthStateChange(SignedOut);
             return;
@@ -1054,12 +1059,5 @@ public class Client : IGotrueClient<User, Session>
     /// <summary>
     ///     Clears the session
     /// </summary>
-    private void DestroySession()
-    {
-        lock (this.refreshGate)
-        {
-            this.refreshInFlightToken = null;
-        }
-        this.UpdateSession(null);
-    }
+    private void DestroySession() => this.UpdateSession(null);
 }
