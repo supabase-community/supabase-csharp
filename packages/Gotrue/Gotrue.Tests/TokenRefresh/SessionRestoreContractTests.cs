@@ -318,7 +318,7 @@ public class SessionRestoreContractTests
             var body = JsonNode.Parse(await request.Content!.ReadAsStringAsync(cancellationToken))!.AsObject();
             this.refreshTokens.Enqueue(body["refresh_token"]?.GetValue<string>());
             this.started.TrySetResult(true);
-            await this.gate.Task.WaitAsync(HandlerTimeout);
+            await this.gate.Task.WaitAsync(HandlerTimeout, cancellationToken);
             return new HttpResponseMessage(status)
             {
                 Content = new StringContent(Fixture(fixture), Encoding.UTF8, "application/json"),
