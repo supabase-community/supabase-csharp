@@ -97,4 +97,34 @@ public class StatelessClientTests
         StatelessClient.Storage(SupabaseUrl, "my-key", options).Headers.Should().ContainKey("X-Custom")
             .WhoseValue.Should().Be("custom-value", "developer headers must reach the composed storage client");
     }
+
+    [TestMethod]
+    [DataRow("sb_publishable_abc123")]
+    [DataRow("sb_secret_abc123")]
+    public void Functions_ShouldOmitBearer_GivenNewFormatKey(string key)
+    {
+        var headers = StatelessClient.Functions(SupabaseUrl, key, FormatOptions()).GetHeaders!();
+        using (new AssertionScope())
+        {
+            headers.Should().ContainKey("apiKey").WhoseValue.Should().Be(key);
+            headers.Should().NotContainKey("Authorization",
+                "an opaque (non-JWT) key must not be sent as a Bearer token to the Edge Functions gateway");
+        }
+    }
+
+    [TestMethod]
+    public void Functions_ShouldSendKeyAsBearer_GivenLegacyKey()
+    {
+        StatelessClient.Functions(SupabaseUrl, "legacy-jwt-key", FormatOptions()).GetHeaders!()
+            .Should().ContainKey("Authorization").WhoseValue.Should().Be("Bearer legacy-jwt-key",
+                "legacy JWT keys are unchanged on the functions path");
+    }
+
+    [TestMethod]
+    public void GetRestOptions_ShouldStillSendKeyAsBearer_GivenNewFormatKey()
+    {
+        GetRestOptions("sb_publishable_abc123", FormatOptions()).Headers.Should().ContainKey("Authorization")
+            .WhoseValue.Should().Be("Bearer sb_publishable_abc123",
+                "only the functions path omits the key-as-bearer; database keeps it (exact-match exception)");
+    }
 }
