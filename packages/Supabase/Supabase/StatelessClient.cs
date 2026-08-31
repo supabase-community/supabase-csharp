@@ -102,7 +102,7 @@ public static class StatelessClient
             functionsUrl = string.Format(options.FunctionsUrlFormat, supabaseUrl);
         }
 
-        var headers = GetAuthHeaders(supabaseKey, options).MergeLeft(options.Headers);
+        var headers = GetAuthHeaders(supabaseKey, options, omitApiKeyAsBearer: true).MergeLeft(options.Headers);
         var client = new Functions.Client(functionsUrl, options: new Functions.ClientOptions
         {
             HttpClient = options.HttpClient,
@@ -158,8 +158,10 @@ public static class StatelessClient
     }
 
 
-    internal static Dictionary<string, string> GetAuthHeaders(string? supabaseKey, SupabaseOptions options)
+    internal static Dictionary<string, string> GetAuthHeaders(string? supabaseKey, SupabaseOptions options, bool omitApiKeyAsBearer = false)
     {
+        ApiKey.CheckFormat(supabaseKey);
+
         var headers = new Dictionary<string, string>();
 
         headers["X-Client-Info"] = Util.GetAssemblyVersion(typeof(Client));
@@ -174,7 +176,9 @@ public static class StatelessClient
         {
             headers["Authorization"] = header;
         }
-        else
+        // The stateless client has no session, so the key is the only Bearer candidate. A
+        // new-format (opaque) key must not be sent as a Bearer token on the Edge Functions path.
+        else if (!(omitApiKeyAsBearer && ApiKey.IsNewApiKey(supabaseKey)))
         {
             headers["Authorization"] = $"Bearer {supabaseKey}";
         }

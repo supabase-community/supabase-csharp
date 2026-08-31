@@ -45,8 +45,11 @@ public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeCha
     /// Returns a Stateless Gotrue Admin client given a service_key JWT. This should really only be accessed from a
     /// server environment where a private service_key would remain secure.
     /// </summary>
-    /// <param name="serviceKey"></param>
-    /// <returns></returns>
+    /// <param name="serviceKey">
+    /// A secret key (<c>sb_secret_…</c>) or the legacy <c>service_role</c> key. It grants elevated,
+    /// RLS-bypassing access, so only supply it from a secure server environment.
+    /// </param>
+    /// <returns>An admin client scoped to the supplied service key.</returns>
     public IGotrueAdminClient<User> AdminAuth(string serviceKey) =>
         new AdminClient(serviceKey, new Gotrue.ClientOptions
         {
@@ -57,7 +60,7 @@ public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeCha
             Retry = this.options.GotrueRetry
         })
         {
-            GetHeaders = this.GetAuthHeaders,
+            GetHeaders = () => this.GetAuthHeaders(),
         };
 
     /// <summary>
@@ -114,14 +117,16 @@ public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeCha
     private readonly SupabaseOptions options;
 
     /// <summary>
-    /// Constructor supplied for dependency injection support.
+    /// Constructor supplied for dependency injection support. The children are used as provided; the
+    /// caller is responsible for wiring their auth headers (unlike the url/key constructor, which
+    /// builds and wires them itself).
     /// </summary>
-    /// <param name="auth"></param>
-    /// <param name="realtime"></param>
-    /// <param name="functions"></param>
-    /// <param name="postgrest"></param>
-    /// <param name="storage"></param>
-    /// <param name="options"></param>
+    /// <param name="auth">The Gotrue (auth) client.</param>
+    /// <param name="realtime">The Realtime client; its <c>Options.PostgrestClient</c> is set to <paramref name="postgrest"/>.</param>
+    /// <param name="functions">The Edge Functions client.</param>
+    /// <param name="postgrest">The Postgrest (database) client.</param>
+    /// <param name="storage">The Storage client.</param>
+    /// <param name="options">Client configuration.</param>
     public Client(IGotrueClient<User, Session> auth, IRealtimeClient<RealtimeSocket, RealtimeChannel> realtime,
         IFunctionsClient functions, IPostgrestClient postgrest, IStorageClient<Bucket, FileObject> storage,
         SupabaseOptions options)
@@ -138,14 +143,24 @@ public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeCha
     /// <summary>
     /// Creates a new Supabase Client.
     /// </summary>
-    /// <param name="supabaseUrl"></param>
-    /// <param name="supabaseKey"></param>
-    /// <param name="options"></param>
+    /// <param name="supabaseUrl">
+    /// The project URL from <b>Settings → API</b>, e.g. <c>https://xyzcompany.supabase.co</c>. The
+    /// service URLs (auth, rest, realtime, storage, functions) are derived from it.
+    /// </param>
+    /// <param name="supabaseKey">
+    /// The project API key. Use a publishable key (<c>sb_publishable_…</c>) or the legacy public
+    /// (anon) key for client-side apps; a secret key (<c>sb_secret_…</c>) or the legacy
+    /// <c>service_role</c> key only in trusted server-side contexts, as it bypasses RLS. New-format
+    /// (<c>sb_…</c>) keys are opaque, not JWTs, and are sent on the <c>apikey</c> header.
+    /// </param>
+    /// <param name="options">Client configuration; a default <see cref="SupabaseOptions"/> is used when null.</param>
     public Client(string supabaseUrl, string? supabaseKey, SupabaseOptions? options = null)
     {
         this.supabaseUrl = supabaseUrl;
         this.supabaseKey = supabaseKey;
         this.options = options ?? new SupabaseOptions();
+
+        ApiKey.CheckFormat(supabaseKey);
 
         var authUrl = string.Format(this.options.AuthUrlFormat, supabaseUrl);
         var restUrl = string.Format(this.options.RestUrlFormat, supabaseUrl);
@@ -179,7 +194,7 @@ public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeCha
         this.auth = new Gotrue.Client(gotrueOptions);
         this.auth.SetPersistence(this.options.SessionHandler);
         this.auth.AddStateChangedListener(this.Auth_StateChanged);
-        this.auth.GetHeaders = this.GetAuthHeaders;
+        this.auth.GetHeaders = () => this.GetAuthHeaders();
         this.postgrest = new Postgrest.Client(restUrl, new Postgrest.ClientOptions
         {
             Schema = schema,
@@ -187,7 +202,7 @@ public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeCha
             HttpClient = this.options.HttpClient,
             Proxy = this.options.Proxy
         });
-        this.postgrest.GetHeaders = this.GetAuthHeaders;
+        this.postgrest.GetHeaders = () => this.GetAuthHeaders();
 
         // Init Realtime
 
@@ -198,16 +213,18 @@ public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeCha
             WebSocketFactory = this.options.WebSocketFactory
         };
         this.realtime = new Realtime.Client(realtimeUrl, realtimeOptions);
-        this.realtime.GetHeaders = this.GetAuthHeaders;
+        this.realtime.GetHeaders = () => this.GetAuthHeaders();
         this.functions = new Functions.Client(functionsUrl, options: new Functions.ClientOptions
         {
             HttpClient = this.options.HttpClient,
             Proxy = this.options.Proxy,
             Retry = this.options.FunctionsRetry
         });
-        this.functions.GetHeaders = this.GetAuthHeaders;
+        // Edge Functions must not receive a new-format (opaque) API key on the Authorization
+        // header — the gateway would try to parse it as a JWT and reject the request.
+        this.functions.GetHeaders = () => this.GetAuthHeaders(omitApiKeyAsBearer: true);
         this.storage = new Storage.Client(storageUrl, this.options.StorageClientOptions);
-        this.storage.GetHeaders = this.GetAuthHeaders;
+        this.storage.GetHeaders = () => this.GetAuthHeaders();
     }
 
 
@@ -267,8 +284,13 @@ public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeCha
 
     /// <summary>
     /// Produces a dictionary of Headers that will be supplied to child clients.
-    ///</summary>
-    internal Dictionary<string, string> GetAuthHeaders()
+    /// </summary>
+    /// <param name="omitApiKeyAsBearer">
+    /// When true, a new-format (opaque) API key is not used as the <c>Authorization: Bearer</c>
+    /// stand-in for an absent session — only the <c>apikey</c> header carries it. Used by the Edge
+    /// Functions path, whose gateway rejects opaque keys parsed as a JWT.
+    /// </param>
+    internal Dictionary<string, string> GetAuthHeaders(bool omitApiKeyAsBearer = false)
     {
         var headers = CaseInsensitiveHeaders();
         headers["X-Client-Info"] = Util.GetAssemblyVersion(typeof(Client));
@@ -283,8 +305,11 @@ public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeCha
         }
         else
         {
-            var bearer = this.Auth.CurrentSession?.AccessToken ?? this.supabaseKey;
-            headers["Authorization"] = $"Bearer {bearer}";
+            var accessToken = this.Auth.CurrentSession?.AccessToken;
+            if (accessToken != null)
+                headers["Authorization"] = $"Bearer {accessToken}";
+            else if (!(omitApiKeyAsBearer && ApiKey.IsNewApiKey(this.supabaseKey)))
+                headers["Authorization"] = $"Bearer {this.supabaseKey}";
         }
 
         // Add supplied headers from `ClientOptions` by developer
