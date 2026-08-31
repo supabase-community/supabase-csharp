@@ -47,6 +47,16 @@ public class Client : IGotrueClient<User, Session>
     private IGotruePersistenceListener<Session>? sessionPersistence;
 
     /// <summary>
+    ///     Guards <see cref="refreshAttempt" /> and the writes to <see cref="CurrentSession" />.
+    /// </summary>
+    private readonly object refreshGate = new();
+
+    /// <summary>
+    ///     The running token refresh, shared by concurrent callers. A completed attempt is replaced, never reused.
+    /// </summary>
+    internal RefreshAttempt? refreshAttempt;
+
+    /// <summary>
     ///     Initializes the GoTrue stateful client.
     ///     You will likely want to at least specify a
     ///     <see>
@@ -64,9 +74,9 @@ public class Client : IGotrueClient<User, Session>
     ///     </see>
     ///     .
     ///     For a typical client application, you'll want to load the session from persistence
-    ///     and then refresh it. If your application is listening for session changes, you'll
-    ///     get two SignIn notifications if the persisted session is valid - one for the
-    ///     session loaded from disk, and a second on a successful session refresh.
+    ///     and then refresh it. If your application is listening for session changes, a valid
+    ///     persisted session raises UserUpdated when it is loaded from disk, and TokenRefreshed
+    ///     once the refresh succeeds - neither step raises SignedIn.
     ///     <remarks></remarks>
     ///     <example>
     ///         var client = new Supabase.Gotrue.Client(options);
@@ -533,9 +543,13 @@ public class Client : IGotrueClient<User, Session>
             throw new GotrueException("Only supported when online", Offline);
         }
         await this.RefreshToken();
-        var user = await this.api.GetUser(this.CurrentSession.AccessToken);
-        this.CurrentSession.User = user;
-        return this.CurrentSession;
+        var session = this.CurrentSession;
+        if (session == null)
+        {
+            throw new GotrueException("Not Logged in.", NoSessionFound);
+        }
+        session.User = await this.api.GetUser(session.AccessToken);
+        return session;
     }
 
     /// <inheritdoc />
@@ -646,10 +660,10 @@ public class Client : IGotrueClient<User, Session>
             return null;
         }
 
-        // If we aren't online, we can't refresh the token
+        // We can't refresh the token offline, so return the session as loaded.
         if (!this.Online)
         {
-            throw new GotrueException("Only supported when online", Offline);
+            return this.CurrentSession;
         }
 
         // We have a session, and hasn't expired, and we seem to be online. Let's try to refresh it.
@@ -660,14 +674,19 @@ public class Client : IGotrueClient<User, Session>
                 await this.RefreshToken();
                 return this.CurrentSession;
             }
+            catch (GotrueException e) when (e.Reason is InvalidRefreshToken)
+            {
+                // RefreshToken destroyed the session, unless it was replaced mid-flight.
+                activity.SetFailure(e);
+                return this.CurrentSession;
+            }
             catch (Exception e)
             {
+                // Anything else is treated as transient - keep the session so the next refresh can retry.
                 // Never log the session itself here - it contains the access and refresh tokens.
                 this.debugNotification?.Log($"Failed to refresh token ({e.Message})", e);
-                this.debugNotification?.Log($"Destroying session created at {this.CurrentSession?.CreatedAt:O} (expires in {this.CurrentSession?.ExpiresIn}s) that could not be refreshed");
                 activity.SetFailure(e);
-                this.DestroySession();
-                return null;
+                return this.CurrentSession;
             }
         }
         return this.CurrentSession;
@@ -745,30 +764,83 @@ public class Client : IGotrueClient<User, Session>
     /// <inheritdoc />
     public async Task RefreshToken()
     {
-        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.RefreshToken);
         if (!this.Online)
         {
             throw new GotrueException("Only supported when online", Offline);
         }
-        if (this.CurrentSession == null || string.IsNullOrEmpty(this.CurrentSession?.AccessToken) || string.IsNullOrEmpty(this.CurrentSession?.RefreshToken))
+        Task attempt;
+        // Refresh tokens are single-use, and startup can race the auto-refresh timer here - so callers share the in-flight attempt.
+        // The session is read and the attempt registered under one hold of the gate, so a sign-out cannot interleave.
+        lock (this.refreshGate)
         {
-            throw new GotrueException("No current session.", NoSessionFound);
+            var session = this.CurrentSession;
+            if (session == null || string.IsNullOrEmpty(session.AccessToken) || string.IsNullOrEmpty(session.RefreshToken))
+            {
+                throw new GotrueException("No current session.", NoSessionFound);
+            }
+            if (this.refreshAttempt is { Refresh.IsCompleted: false } current && current.Token == session.RefreshToken)
+            {
+                attempt = current.Refresh;
+            }
+            else
+            {
+                attempt = this.RefreshCurrentSession(session.AccessToken!, session.RefreshToken!);
+                this.refreshAttempt = new RefreshAttempt(session.RefreshToken!, attempt);
+            }
         }
         try
         {
-            var result = await this.api.RefreshAccessToken(this.CurrentSession.AccessToken!, this.CurrentSession.RefreshToken!);
+            await attempt;
+        }
+        finally
+        {
+            // Only this attempt's own registration is cleared, so a later attempt is never deregistered.
+            lock (this.refreshGate)
+            {
+                if (ReferenceEquals(this.refreshAttempt?.Refresh, attempt))
+                {
+                    this.refreshAttempt = null;
+                }
+            }
+        }
+    }
+
+    private async Task RefreshCurrentSession(string accessToken, string refreshToken)
+    {
+        // The refresh gate is held while this method starts, and app code must never run under it.
+        await Task.Yield();
+        using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.RefreshToken);
+        try
+        {
+            var result = await this.api.RefreshAccessToken(accessToken, refreshToken);
             if (result == null || string.IsNullOrEmpty(result.AccessToken))
             {
                 throw new GotrueException("Could not refresh token from provided session.", NoSessionFound);
             }
-            this.CurrentSession = result;
+            lock (this.refreshGate)
+            {
+                // The session was replaced while this call was in flight, so the result is the previous user's.
+                if (this.CurrentSession?.RefreshToken != refreshToken)
+                {
+                    return;
+                }
+                this.CurrentSession = result;
+            }
             this.NotifyAuthStateChange(TokenRefreshed);
         }
         catch (GotrueException ex) when (ex.Reason is InvalidRefreshToken)
         {
             activity.SetFailure(ex);
-            this.DestroySession();
-            this.NotifyAuthStateChange(SignedOut);
+            bool stillOurs;
+            lock (this.refreshGate)
+            {
+                stillOurs = this.CurrentSession?.RefreshToken == refreshToken;
+            }
+            if (stillOurs)
+            {
+                this.DestroySession();
+                this.NotifyAuthStateChange(SignedOut);
+            }
             throw;
         }
         catch (Exception ex)
@@ -782,9 +854,28 @@ public class Client : IGotrueClient<User, Session>
     /// <inheritdoc />
     public void LoadSession()
     {
-        if (this.sessionPersistence != null)
+        if (this.sessionPersistence == null)
         {
-            this.UpdateSession(this.sessionPersistence.Persistence.LoadSession());
+            return;
+        }
+        var before = this.CurrentSession;
+        Session? session;
+        try
+        {
+            session = this.sessionPersistence.Persistence.LoadSession();
+        }
+        catch (Exception e)
+        {
+            // A store that fails to load (locked file, corrupt payload) must not crash startup.
+            this.debugNotification?.Log($"Failed to load the persisted session ({e.Message})", e);
+            return;
+        }
+        // An emptied store clears the session it was holding, but a cold start with nothing on either
+        // side is a no-op: firing SignedOut there would destroy the persistence.
+        // A sign-in that completed while the store was being read wins over what the read came back with.
+        if ((session != null || before != null) && ReferenceEquals(this.CurrentSession, before))
+        {
+            this.UpdateSession(session);
         }
     }
 
@@ -970,14 +1061,22 @@ public class Client : IGotrueClient<User, Session>
     /// <param name="session"></param>
     private void UpdateSession(Session? session)
     {
+        bool dirty;
+        lock (this.refreshGate)
+        {
+            dirty = this.CurrentSession != session;
+            this.CurrentSession = session;
+            if (session == null)
+            {
+                // The session and the in-flight attempt clear together, so a concurrent RefreshToken cannot see one without the other.
+                this.refreshAttempt = null;
+            }
+        }
         if (session == null)
         {
-            this.CurrentSession = null;
             this.NotifyAuthStateChange(SignedOut);
             return;
         }
-        var dirty = this.CurrentSession != session;
-        this.CurrentSession = session;
         if (dirty)
         {
             this.NotifyAuthStateChange(UserUpdated);
@@ -988,4 +1087,15 @@ public class Client : IGotrueClient<User, Session>
     ///     Clears the session
     /// </summary>
     private void DestroySession() => this.UpdateSession(null);
+
+    /// <summary>
+    ///     A token refresh in flight, with the refresh token it was started for. A caller holding a different
+    ///     one belongs to another session, so it starts its own attempt instead of joining this one.
+    /// </summary>
+    internal readonly struct RefreshAttempt(string token, Task refresh)
+    {
+        internal string Token { get; } = token;
+
+        internal Task Refresh { get; } = refresh;
+    }
 }

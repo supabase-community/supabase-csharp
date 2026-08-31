@@ -212,11 +212,14 @@ public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeCha
 
 
     /// <summary>
-    /// Attempts to retrieve the session from Gotrue (set in <see cref="SupabaseOptions"/>) and connects to realtime (if `options.AutoConnectRealtime` is set)
+    /// Restores the session persisted by <see cref="SupabaseOptions.SessionHandler"/>, refreshes it, and connects to realtime (if `options.AutoConnectRealtime` is set)
     /// </summary>
     public async Task<ISupabaseClient<User, Session, RealtimeSocket, RealtimeChannel, Bucket, FileObject>>
         InitializeAsync()
     {
+        // Don't clobber a session already set by the caller with a stale one from disk.
+        if (this.Auth.CurrentSession == null)
+            this.Auth.LoadSession();
         await this.Auth.RetrieveSessionAsync();
 
         if (this.options.AutoConnectRealtime)

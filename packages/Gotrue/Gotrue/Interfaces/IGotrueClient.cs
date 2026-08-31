@@ -129,8 +129,10 @@ namespace Supabase.Gotrue.Interfaces
         /// <summary>
         ///     Typically called as part of the startup process for the client.
         ///     This will take the currently loaded session (e.g. from a persistence implementation) and
-        ///     if possible attempt to refresh it. If the loaded session is expired or invalid, it will
-        ///     log the user out.
+        ///     if possible attempt to refresh it. The user is logged out only when the server rejects
+        ///     the refresh token as invalid; any other failure keeps the session, so a returned session
+        ///     is not a guarantee that its access token is still valid. When the client is marked
+        ///     offline the session is returned without a refresh attempt.
         /// </summary>
         /// <returns></returns>
         Task<TSession?> RetrieveSessionAsync();
@@ -466,7 +468,8 @@ namespace Supabase.Gotrue.Interfaces
         void AddDebugListener(Action<string, Exception?> listener);
 
         /// <summary>
-        ///     Loads the session from the persistence layer.
+        ///     Loads the session from the persistence layer. An empty store clears the current
+        ///     session; a store that fails to load is ignored.
         /// </summary>
         void LoadSession();
 

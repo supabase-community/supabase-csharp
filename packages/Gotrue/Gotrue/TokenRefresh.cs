@@ -15,6 +15,13 @@ namespace Supabase.Gotrue
 		private readonly Client _client;
 
 		/// <summary>
+		/// Minimum wait between refresh attempts after one was skipped or failed.
+		/// supabase-js polls on a fixed 30 second tick (AUTO_REFRESH_TICK_DURATION_MS) and
+		/// picks a failed refresh up on the next one, so a failed attempt waits one tick too.
+		/// </summary>
+		private static readonly TimeSpan AutoRefreshTickDuration = TimeSpan.FromSeconds(30);
+
+		/// <summary>
 		/// Internal timer reference for token refresh
 		/// <see>
 		///     <cref>AutoRefreshToken</cref>
@@ -59,12 +66,12 @@ namespace Supabase.Gotrue
 					// Turn off auto-refresh timer
 					break;
 				case UserUpdated:
+				case TokenRefreshed:
 					if (Debug)
 						_client.Debug("Refresh Timer restarted");
 					CreateNewTimer();
 					break;
 				case PasswordRecovery:
-				case TokenRefreshed:
 				case MfaChallengeVerified:
 					// Doesn't affect auto refresh
 					break;
@@ -79,10 +86,14 @@ namespace Supabase.Gotrue
 		/// </summary>
 		private async void HandleRefreshTimerTick(object _)
 		{
+			var refreshCompleted = false;
 			try
 			{
 				if (_client.Online)
+				{
 					await _client.RefreshToken();
+					refreshCompleted = true;
+				}
 			}
 			catch (Exception ex)
 			{
@@ -92,7 +103,9 @@ namespace Supabase.Gotrue
 			}
 			finally
 			{
-				CreateNewTimer();
+				// An expired session schedules at zero, so a refresh that was skipped or
+				// failed must wait a tick before the next attempt instead of hot-looping.
+				CreateNewTimer(refreshCompleted ? TimeSpan.Zero : AutoRefreshTickDuration);
 			}
 		}
 
@@ -101,11 +114,11 @@ namespace Supabase.Gotrue
 		/// 
 		/// <para/>
 		/// We pass <see cref="Timeout.InfiniteTimeSpan"/> to ensure the handler only runs once.
-		/// We create a new timer after each refresh so that each refresh runs in a new thread.
-		/// This keeps the refresh going if a thread crashes.
-		/// Creating a thread each refresh is not so expensive when the refresh interval is an hour or longer.
+		/// We create a new timer after each refresh instead of a repeating one, so the next tick is
+		/// scheduled from the session we ended up with rather than from a fixed interval.
+		/// The callbacks run on the thread pool, so a timer per refresh is cheap at this cadence.
 		/// </summary>
-		private void CreateNewTimer()
+		private void CreateNewTimer(TimeSpan minimumDelay = default)
 		{
 			if (_client.CurrentSession == null)
 			{
@@ -117,6 +130,8 @@ namespace Supabase.Gotrue
 			try
 			{
 				TimeSpan refreshDueTime = GetSecondsUntilNextRefresh();
+				if (refreshDueTime < minimumDelay)
+					refreshDueTime = minimumDelay;
 				_refreshTimer?.Dispose();
 				_refreshTimer = new Timer(HandleRefreshTimerTick, null, refreshDueTime, Timeout.InfiniteTimeSpan);
 
