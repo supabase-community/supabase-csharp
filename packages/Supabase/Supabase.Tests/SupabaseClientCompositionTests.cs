@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Net.WebSockets;
+using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -208,6 +210,45 @@ public class SupabaseClientCompositionTests
     }
 
     [TestMethod]
+    public async Task SupabaseClient_ShouldRestoreThePersistedSessionBeforeRefreshingIt_GivenInitialize()
+    {
+        var auth = Substitute.For<IGotrueClient<User, Session>>();
+        await DiClient(auth: auth).InitializeAsync();
+        Received.InOrder(() =>
+        {
+            auth.LoadSession();
+            auth.RetrieveSessionAsync();
+        });
+    }
+
+    [TestMethod]
+    public async Task SupabaseClient_ShouldNotReloadTheSession_GivenOneAlreadySet()
+    {
+        var auth = Substitute.For<IGotrueClient<User, Session>>();
+        auth.CurrentSession.Returns(new Session { AccessToken = "an-access-token", RefreshToken = "a-refresh-token" });
+        await DiClient(auth: auth).InitializeAsync();
+        auth.DidNotReceive().LoadSession();
+    }
+
+    [TestMethod]
+    public async Task SupabaseClient_ShouldKeepThePersistedSession_GivenAnOfflineStart()
+    {
+        var persistence = Substitute.For<IGotrueSessionPersistence<Session>>();
+        persistence.LoadSession().Returns(new Session { AccessToken = "an-access-token", RefreshToken = "a-refresh-token", ExpiresIn = 3600 });
+        var client = new Supabase.Client("http://localhost", "a-key",
+            new SupabaseOptions
+            {
+                AutoConnectRealtime = false,
+                SessionHandler = persistence,
+                HttpClient = new HttpClient(new UnreachableHandler()),
+            });
+        await client.InitializeAsync();
+        client.Auth.CurrentSession.Should().NotBeNull("an unreachable auth server must not sign the user out");
+        persistence.DidNotReceive().DestroySession();
+        client.Auth.Shutdown();
+    }
+
+    [TestMethod]
     public async Task SupabaseClient_ShouldNotConnectRealtime_GivenAutoConnectDisabled()
     {
         var auth = Substitute.For<IGotrueClient<User, Session>>();
@@ -380,5 +421,11 @@ public class SupabaseClientCompositionTests
         var client = DiClient(realtime: previous);
         client.Realtime = Substitute.For<IRealtimeClient<RealtimeSocket, RealtimeChannel>>();
         previous.Received().Disconnect(Arg.Any<WebSocketCloseStatus>(), Arg.Any<string>());
+    }
+
+    private sealed class UnreachableHandler : HttpMessageHandler
+    {
+        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken) =>
+            throw new HttpRequestException("connection refused");
     }
 }
