@@ -66,12 +66,12 @@ namespace Supabase.Gotrue
 					// Turn off auto-refresh timer
 					break;
 				case UserUpdated:
+				case TokenRefreshed:
 					if (Debug)
 						_client.Debug("Refresh Timer restarted");
 					CreateNewTimer();
 					break;
 				case PasswordRecovery:
-				case TokenRefreshed:
 				case MfaChallengeVerified:
 					// Doesn't affect auto refresh
 					break;

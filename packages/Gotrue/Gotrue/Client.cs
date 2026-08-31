@@ -858,6 +858,7 @@ public class Client : IGotrueClient<User, Session>
         {
             return;
         }
+        var before = this.CurrentSession;
         Session? session;
         try
         {
@@ -871,7 +872,8 @@ public class Client : IGotrueClient<User, Session>
         }
         // An emptied store clears the session it was holding, but a cold start with nothing on either
         // side is a no-op: firing SignedOut there would destroy the persistence.
-        if (session != null || this.CurrentSession != null)
+        // A sign-in that completed while the store was being read wins over what the read came back with.
+        if ((session != null || before != null) && ReferenceEquals(this.CurrentSession, before))
         {
             this.UpdateSession(session);
         }

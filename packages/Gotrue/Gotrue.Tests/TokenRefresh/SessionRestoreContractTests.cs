@@ -127,6 +127,20 @@ public class SessionRestoreContractTests
     }
 
     [TestMethod]
+    public async Task TokenRefresh_ShouldRescheduleFromTheRefreshedSession_GivenARefreshOutsideTheTimer()
+    {
+        var handler = new GatedHandler(fixture: "token_success_expiring.json");
+        var client = this.Restore(TestClients.Against(this.server, autoRefreshToken: true, new HttpClient(handler)));
+        handler.Release();
+        await client.RetrieveSessionAsync();
+        var secondAttempt = () => handler.SecondAttempt;
+        await secondAttempt.Should().NotThrowAsync(
+            "the refreshed session expires in a second, so the timer must be rescheduled from it instead of the restored session's deadline an hour out");
+        // Every refresh hands back the same one second session, so stop the timer now the point is made.
+        client.Online = false;
+    }
+
+    [TestMethod]
     public async Task RefreshToken_ShouldShareOneAttempt_GivenConcurrentCallers()
     {
         var handler = new GatedHandler();
@@ -182,11 +196,11 @@ public class SessionRestoreContractTests
         var refresh = client.RefreshToken();
         await handler.Started;
         await client.SignOut();
+        ((Client) client).refreshAttempt.Should().BeNull("the refresh token is a secret and must not outlive the sign-out");
         handler.Release();
         await refresh;
         client.CurrentSession.Should().BeNull("the refresh belonged to the session that was signed out");
         stateChanges.Should().NotContain(TokenRefreshed);
-        ((Client) client).refreshAttempt.Should().BeNull("the refresh token is a secret and must not outlive the sign-out");
     }
 
     [TestMethod]
@@ -202,6 +216,35 @@ public class SessionRestoreContractTests
         await client.SignIn("test@example.com", "a-password");
         client.LoadSession();
         client.CurrentSession.Should().NotBeNull("a client with no persistence has nothing to load, so LoadSession must leave it alone");
+    }
+
+    [TestMethod]
+    public async Task LoadSession_ShouldKeepTheSignedInSession_GivenTheSignInCompletedDuringTheRead()
+    {
+        this.server
+            .Given(Request.Create().WithPath("/token").UsingPost())
+            .RespondWith(Response.Create()
+                .WithStatusCode(200)
+                .WithHeader("Content-Type", "application/json")
+                .WithBody(Fixture("token_success.json")));
+        using var readStarted = new ManualResetEventSlim();
+        using var gate = new ManualResetEventSlim();
+        var store = Substitute.For<IGotrueSessionPersistence<Session>>();
+        store.LoadSession().Returns(_ =>
+        {
+            readStarted.Set();
+            gate.Wait(HandlerTimeout);
+            return new Session { AccessToken = "a-stale-access-token", RefreshToken = "a-stale-token", ExpiresIn = 3600 };
+        });
+        var client = this.Track(TestClients.Against(this.server));
+        client.SetPersistence(store);
+        var load = Task.Run(client.LoadSession);
+        readStarted.Wait(HandlerTimeout).Should().BeTrue();
+        await client.SignIn("test@example.com", "a-password");
+        gate.Set();
+        await load;
+        client.CurrentSession!.RefreshToken.Should().Be("new-refresh-token",
+            "the sign-in completed while the store was being read, so the session it produced must not be overwritten by the slower load");
     }
 
     [TestMethod]
@@ -297,6 +340,7 @@ public class SessionRestoreContractTests
     {
         private readonly TaskCompletionSource<bool> gate = new(TaskCreationOptions.RunContinuationsAsynchronously);
         private readonly ConcurrentQueue<string?> refreshTokens = new();
+        private readonly TaskCompletionSource<bool> secondAttempt = new(TaskCreationOptions.RunContinuationsAsynchronously);
         private readonly TaskCompletionSource<bool> started = new(TaskCreationOptions.RunContinuationsAsynchronously);
 
         public int Attempts => this.refreshTokens.Count;
@@ -306,6 +350,9 @@ public class SessionRestoreContractTests
 
         /// <summary>Completes when the first refresh reaches the handler, so a test can act while it is held.</summary>
         public Task Started => this.started.Task.WaitAsync(HandlerTimeout);
+
+        /// <summary>Completes when a second refresh reaches the handler, so a test can wait for the next scheduled one.</summary>
+        public Task SecondAttempt => this.secondAttempt.Task.WaitAsync(HandlerTimeout);
 
         public void Release() => this.gate.TrySetResult(true);
 
@@ -318,6 +365,10 @@ public class SessionRestoreContractTests
             var body = JsonNode.Parse(await request.Content!.ReadAsStringAsync(cancellationToken))!.AsObject();
             this.refreshTokens.Enqueue(body["refresh_token"]?.GetValue<string>());
             this.started.TrySetResult(true);
+            if (this.refreshTokens.Count >= 2)
+            {
+                this.secondAttempt.TrySetResult(true);
+            }
             await this.gate.Task.WaitAsync(HandlerTimeout, cancellationToken);
             return new HttpResponseMessage(status)
             {
