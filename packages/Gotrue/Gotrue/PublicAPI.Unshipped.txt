@@ -6,6 +6,8 @@ Supabase.Gotrue.ClientOptions.Proxy.get -> System.Net.IWebProxy?
 Supabase.Gotrue.ClientOptions.Proxy.set -> void
 Supabase.Gotrue.ClientOptions.Retry.get -> Supabase.Core.Http.RetryOptions!
 Supabase.Gotrue.ClientOptions.Retry.set -> void
+Supabase.Gotrue.Exceptions.FailureHint.Reason.CloudflareNetworkError = 21 -> Supabase.Gotrue.Exceptions.FailureHint.Reason
+Supabase.Gotrue.Exceptions.FailureHint.Reason.NetworkError = 20 -> Supabase.Gotrue.Exceptions.FailureHint.Reason
 Supabase.Gotrue.NetworkStatus.NetworkStatus(System.Net.Http.HttpClient? httpClient = null) -> void
 Supabase.Gotrue.NetworkStatus.PingCheckAsync(string! url) -> System.Threading.Tasks.Task<bool>!
 *REMOVED*Supabase.Gotrue.NetworkStatus.PingCheck(string! url) -> System.Threading.Tasks.Task<bool>!
