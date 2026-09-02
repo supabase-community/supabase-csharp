@@ -1,6 +1,7 @@
 #region
 
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Supabase.Core.Interfaces;
 using Supabase.Gotrue.Exceptions;
@@ -95,6 +96,15 @@ public interface IGotrueClient<TUser, TSession> : IGettableHeaders
     /// </summary>
     /// <param name="stateChanged"></param>
     void NotifyAuthStateChange(AuthState stateChanged);
+
+    /// <summary>
+    ///     Notifies all listeners that the current user auth state has changed, awaiting the persistence
+    ///     write so an async store can be persisted before the call returns. This is mainly used internally
+    ///     to fire notifications - most client applications won't need this.
+    /// </summary>
+    /// <param name="stateChanged"></param>
+    /// <param name="cancellationToken"></param>
+    Task NotifyAuthStateChangeAsync(AuthState stateChanged, CancellationToken cancellationToken = default);
 
     /// <summary>
     ///     Converts a URL to a session. For client apps, this probably requires setting up URL handlers.
@@ -472,6 +482,14 @@ public interface IGotrueClient<TUser, TSession> : IGettableHeaders
     ///     session; a store that fails to load is ignored.
     /// </summary>
     void LoadSession();
+
+    /// <summary>
+    ///     Loads the session from the persistence layer asynchronously, awaiting an async-only store
+    ///     (e.g. Blazor WASM local storage) rather than blocking on it. An empty store clears the current
+    ///     session; a store that fails to load is ignored.
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    Task LoadSessionAsync(CancellationToken cancellationToken = default);
 
     /// <summary>
     ///     Retrieves the settings from the server
