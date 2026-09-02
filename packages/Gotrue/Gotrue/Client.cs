@@ -200,7 +200,6 @@ public class Client : IGotrueClient<User, Session>
         {
             throw new GotrueException("Only supported when online", Offline);
         }
-        await this.DestroySessionAsync().ConfigureAwait(false);
         var session = type switch
         {
             SignUpType.Email => await this.api.SignUpWithEmail(identifier, password, options),
@@ -238,7 +237,6 @@ public class Client : IGotrueClient<User, Session>
         {
             throw new GotrueException("Only supported when online", Offline);
         }
-        await this.DestroySessionAsync().ConfigureAwait(false);
         var result = await this.api.SignInWithIdToken(provider, idToken, accessToken, nonce, captchaToken);
         await this.UpdateSessionAsync(result).ConfigureAwait(false);
         await this.NotifyAuthStateChangeAsync(SignedIn).ConfigureAwait(false);
@@ -254,7 +252,6 @@ public class Client : IGotrueClient<User, Session>
         {
             throw new GotrueException("Only supported when online", Offline);
         }
-        await this.DestroySessionAsync().ConfigureAwait(false);
         return await this.api.SignInWithOtp(options);
     }
 
@@ -267,7 +264,6 @@ public class Client : IGotrueClient<User, Session>
         {
             throw new GotrueException("Only supported when online", Offline);
         }
-        await this.DestroySessionAsync().ConfigureAwait(false);
         return await this.api.SignInWithOtp(options);
     }
 
@@ -333,7 +329,6 @@ public class Client : IGotrueClient<User, Session>
         {
             throw new GotrueException("Only supported when online", Offline);
         }
-        await this.DestroySessionAsync().ConfigureAwait(false);
         return this.api.GetUriForProvider(provider, options);
     }
 
@@ -344,7 +339,6 @@ public class Client : IGotrueClient<User, Session>
         {
             throw new GotrueException("Only supported when online", Offline);
         }
-        await this.DestroySessionAsync().ConfigureAwait(false);
         return await this.api.SignInWithSSO(providerId, options).ConfigureAwait(false);
     }
 
@@ -355,7 +349,6 @@ public class Client : IGotrueClient<User, Session>
         {
             throw new GotrueException("Only supported when online", Offline);
         }
-        await this.DestroySessionAsync().ConfigureAwait(false);
         return await this.api.SignInWithSSO(domain, options).ConfigureAwait(false);
     }
 
@@ -367,7 +360,6 @@ public class Client : IGotrueClient<User, Session>
         {
             throw new GotrueException("Only supported when online", Offline);
         }
-        await this.DestroySessionAsync().ConfigureAwait(false);
         var newSession = await this.api.SignInAnonymously(options);
         await this.UpdateSessionAsync(newSession).ConfigureAwait(false);
         await this.NotifyAuthStateChangeAsync(SignedIn).ConfigureAwait(false);
@@ -383,7 +375,6 @@ public class Client : IGotrueClient<User, Session>
         {
             throw new GotrueException("Only supported when online", Offline);
         }
-        await this.DestroySessionAsync().ConfigureAwait(false);
         var session = await this.api.VerifyMobileOTP(phone, token, type);
         if (session?.AccessToken != null)
         {
@@ -403,7 +394,6 @@ public class Client : IGotrueClient<User, Session>
         {
             throw new GotrueException("Only supported when online", Offline);
         }
-        await this.DestroySessionAsync().ConfigureAwait(false);
         var session = await this.api.VerifyEmailOTP(email, token, type);
         if (session?.AccessToken != null)
         {
@@ -422,7 +412,6 @@ public class Client : IGotrueClient<User, Session>
         {
             throw new GotrueException("Only supported when online", Offline);
         }
-        await this.DestroySessionAsync().ConfigureAwait(false);
         var session = await this.api.VerifyTokenHash(tokenHash, type);
         if (session?.AccessToken != null)
         {
@@ -573,7 +562,6 @@ public class Client : IGotrueClient<User, Session>
     public async Task<Session> SetSession(string accessToken, string refreshToken, bool forceAccessTokenRefresh = false)
     {
         using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.SetSession);
-        await this.DestroySessionAsync().ConfigureAwait(false);
         if (string.IsNullOrEmpty(accessToken) || string.IsNullOrEmpty(refreshToken))
         {
             throw new GotrueException("`accessToken` and `refreshToken` cannot be empty.", NoSessionFound);

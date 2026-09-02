@@ -40,7 +40,6 @@ public class OAuthSignInTests : AuthClientFixture
     public async Task SignIn_ShouldReturnPkceVerifierAndChallengeUrl_GivenPkceFlow()
     {
         var result = await this.Client.SignIn(Constants.Provider.Github, new SignInOptions { FlowType = Constants.OAuthFlowType.PKCE });
-        this.VerifySignedOut();
         result.PKCEVerifier.Should().NotBeNullOrEmpty();
         result.Uri.Query.Should().Contain("flow_type=pkce")
             .And.Contain("code_challenge=")
