@@ -613,9 +613,19 @@ public class Client : IGotrueClient<User, Session>
             RefreshToken = refreshToken,
             TokenType = "bearer",
             ExpiresIn = expiresIn,
-            User = await this.api.GetUser(accessToken),
         };
+        // Installed before the user is fetched, so a refresh meanwhile moves to these tokens instead of spending them.
         this.SetCurrentSession(session);
+        try
+        {
+            session.User = await this.api.GetUser(accessToken);
+        }
+        catch
+        {
+            // Nothing was announced yet, so the failed install just goes away.
+            this.TryReplaceSession(null, refreshToken);
+            throw;
+        }
         await this.NotifyAuthStateChangeAsync(SignedIn).ConfigureAwait(false);
         return session;
     }
