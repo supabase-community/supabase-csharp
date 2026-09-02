@@ -72,7 +72,7 @@ public class SessionRestoreContractTests
         var client = this.Restore(TestClients.Against(this.server, autoRefreshToken: true, new HttpClient(new UnreachableHandler())));
         var session = await client.RetrieveSessionAsync();
         session.Should().NotBeNull("an offline start must not sign the user out");
-        this.persistence.DidNotReceive().DestroySession();
+        await this.persistence.DidNotReceive().DestroySessionAsync(Arg.Any<CancellationToken>());
     }
 
     [TestMethod]
@@ -88,7 +88,45 @@ public class SessionRestoreContractTests
         var session = await client.RetrieveSessionAsync();
         session.Should().BeNull();
         client.CurrentSession.Should().BeNull();
-        this.persistence.Received().DestroySession();
+        await this.persistence.Received().DestroySessionAsync(Arg.Any<CancellationToken>());
+    }
+
+    [TestMethod]
+    public async Task LoadSessionAsync_ShouldRestoreAnAsyncOnlyStore_GivenItsSyncMembersThrow()
+    {
+        var store = SessionPersistenceSubstitute.AsyncOnly();
+        await store.SaveSessionAsync(new Session { AccessToken = "an-access-token", RefreshToken = "a-refresh-token", ExpiresIn = 3600 });
+        var client = this.Track(TestClients.Against(this.server));
+        client.SetPersistence(store);
+
+        await client.LoadSessionAsync();
+
+        client.CurrentSession!.RefreshToken.Should().Be("a-refresh-token", "the async load restores the persisted session");
+        store.DidNotReceive().LoadSession();
+        store.DidNotReceive().SaveSession(Arg.Any<Session>());
+    }
+
+    [TestMethod]
+    public async Task RetrieveSessionAsync_ShouldDestroyAnAsyncOnlyStore_GivenTheServerRejectsTheRefreshToken()
+    {
+        this.server
+            .Given(Request.Create().WithPath("/token").UsingPost())
+            .RespondWith(Response.Create()
+                .WithStatusCode(400)
+                .WithHeader("Content-Type", "application/json")
+                .WithBody(Fixture("token_not_found_error.json")));
+        var store = SessionPersistenceSubstitute.AsyncOnly();
+        await store.SaveSessionAsync(new Session { AccessToken = "an-access-token", RefreshToken = "a-refresh-token", ExpiresIn = 3600 });
+        var client = this.Track(TestClients.Against(this.server, autoRefreshToken: true));
+        client.SetPersistence(store);
+        await client.LoadSessionAsync();
+
+        var session = await client.RetrieveSessionAsync();
+
+        session.Should().BeNull("the server rejected the refresh token, so the session is destroyed");
+        (await store.LoadSessionAsync()).Should().BeNull();
+        await store.Received().DestroySessionAsync(Arg.Any<CancellationToken>());
+        store.DidNotReceive().DestroySession();
     }
 
     [TestMethod]
@@ -98,7 +136,7 @@ public class SessionRestoreContractTests
         client.Online = false;
         var session = await client.RetrieveSessionAsync();
         session.Should().NotBeNull("an offline client cannot refresh, but must not lose the session");
-        this.persistence.DidNotReceive().DestroySession();
+        await this.persistence.DidNotReceive().DestroySessionAsync(Arg.Any<CancellationToken>());
     }
 
     [TestMethod]
@@ -260,7 +298,7 @@ public class SessionRestoreContractTests
         var session = await retrieve;
         session!.RefreshToken.Should().Be("another-refresh-token",
             "the rejection was for the replaced session, so the live one must be returned, not null");
-        this.persistence.DidNotReceive().DestroySession();
+        await this.persistence.DidNotReceive().DestroySessionAsync(Arg.Any<CancellationToken>());
     }
 
     [TestMethod]
