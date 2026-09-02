@@ -270,9 +270,9 @@ public class StatelessClient : IGotrueStatelessClient<User, Session>
         await this.GetApi(options).UpdateUserById(serviceRoleToken, userId, userData);
 
     /// <inheritdoc />
-    public async Task<bool> DeleteUser(string uid, string serviceRoleToken, StatelessClientOptions options)
+    public async Task<bool> DeleteUser(string uid, string serviceRoleToken, StatelessClientOptions options, bool shouldSoftDelete = false)
     {
-        var result = await this.GetApi(options).DeleteUser(uid, serviceRoleToken);
+        var result = await this.GetApi(options).DeleteUser(uid, serviceRoleToken, shouldSoftDelete);
         result.ResponseMessage?.EnsureSuccessStatusCode();
         return true;
     }

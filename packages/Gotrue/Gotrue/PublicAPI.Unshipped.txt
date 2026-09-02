@@ -21,3 +21,9 @@ Supabase.Gotrue.StatelessClient.StatelessClientOptions.Proxy.get -> System.Net.I
 Supabase.Gotrue.StatelessClient.StatelessClientOptions.Proxy.set -> void
 Supabase.Gotrue.StatelessClient.StatelessClientOptions.Retry.get -> Supabase.Core.Http.RetryOptions!
 Supabase.Gotrue.StatelessClient.StatelessClientOptions.Retry.set -> void
+Supabase.Gotrue.AdminClient.DeleteUser(string! uid, bool shouldSoftDelete = false) -> System.Threading.Tasks.Task<bool>!
+Supabase.Gotrue.Api.DeleteUser(string! uid, string! jwt, bool shouldSoftDelete = false) -> System.Threading.Tasks.Task<Supabase.Gotrue.Responses.BaseResponse!>!
+Supabase.Gotrue.Interfaces.IGotrueAdminClient<TUser>.DeleteUser(string! uid, bool shouldSoftDelete = false) -> System.Threading.Tasks.Task<bool>!
+Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.DeleteUser(string! uid, string! jwt, bool shouldSoftDelete = false) -> System.Threading.Tasks.Task<Supabase.Gotrue.Responses.BaseResponse!>!
+Supabase.Gotrue.Interfaces.IGotrueStatelessClient<TUser, TSession>.DeleteUser(string! uid, string! serviceRoleToken, Supabase.Gotrue.StatelessClient.StatelessClientOptions! options, bool shouldSoftDelete = false) -> System.Threading.Tasks.Task<bool>!
+Supabase.Gotrue.StatelessClient.DeleteUser(string! uid, string! serviceRoleToken, Supabase.Gotrue.StatelessClient.StatelessClientOptions! options, bool shouldSoftDelete = false) -> System.Threading.Tasks.Task<bool>!
