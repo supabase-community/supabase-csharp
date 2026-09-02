@@ -302,6 +302,33 @@ public class SessionRestoreContractTests
     }
 
     [TestMethod]
+    public async Task RetrieveSessionAsync_ShouldKeepTheReplacementPersisted_GivenTheRejectionLandedAfterASignIn()
+    {
+        var destroyStarted = new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
+        var destroyGate = new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
+        this.persistence = HeldDestroyStore(destroyStarted, destroyGate.Task);
+        this.persistence.SaveSession(new Session { AccessToken = "an-access-token", RefreshToken = "a-refresh-token", ExpiresIn = 3600 });
+        var handler = new GatedHandler(HttpStatusCode.BadRequest, "token_not_found_error.json");
+        var client = this.Restore(TestClients.Against(this.server, autoRefreshToken: true, new HttpClient(handler)));
+        var retrieve = client.RetrieveSessionAsync();
+        await handler.Started;
+        handler.Release();
+        await destroyStarted.Task.WaitAsync(HandlerTimeout);
+
+        // The sign-in installs and persists its session while the rejection's destroy is still in flight.
+        this.persistence.SaveSession(new Session { AccessToken = "another-access-token", RefreshToken = "another-refresh-token", ExpiresIn = 3600 });
+        client.LoadSession();
+        var signIn = client.NotifyAuthStateChangeAsync(SignedIn);
+        destroyGate.SetResult(true);
+        await signIn;
+        await retrieve;
+
+        this.persistence.LoadSession()!.RefreshToken.Should().Be("another-refresh-token",
+            "the destroy belonged to the rejected session, so it must not wipe what the sign-in saved (issue #396)");
+        client.CurrentSession!.RefreshToken.Should().Be("another-refresh-token");
+    }
+
+    [TestMethod]
     public void LoadSession_ShouldClearTheSession_GivenTheStoreWasEmptied()
     {
         var client = this.Restore(TestClients.Against(this.server));
@@ -347,6 +374,21 @@ public class SessionRestoreContractTests
     {
         this.clients.Add(client);
         return client;
+    }
+
+    /// <summary>
+    ///     A tracking store whose async destroy waits on a gate, so a test can hold a sign-out's write in flight.
+    /// </summary>
+    private static IGotrueSessionPersistence<Session> HeldDestroyStore(TaskCompletionSource<bool> started, Task gate)
+    {
+        var store = SessionPersistenceSubstitute.Tracking();
+        store.DestroySessionAsync(Arg.Any<CancellationToken>()).Returns(async _ =>
+        {
+            started.TrySetResult(true);
+            await gate;
+            store.DestroySession();
+        });
+        return store;
     }
 
     private static string Fixture(string name) =>

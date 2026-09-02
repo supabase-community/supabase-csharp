@@ -39,6 +39,10 @@ public class RefreshContractTests
     {
         server = new MockGotrueServer();
         client = TestClients.Against(server);
+        var persistence = SessionPersistenceSubstitute.Tracking();
+        persistence.SaveSession(new Session { AccessToken = AccessToken, RefreshToken = RefreshTokenValue, ExpiresIn = 3600 });
+        this.client.SetPersistence(persistence);
+        this.client.LoadSession();
     }
 
     [TestCleanup]
@@ -96,13 +100,26 @@ public class RefreshContractTests
     }
 
     [TestMethod]
-    public async Task RefreshToken_ShouldThrowUnknownAndDestroySession_GivenUnrecognizedError()
+    public async Task RefreshToken_ShouldThrowUnknownAndKeepSession_GivenUnrecognizedError()
     {
         MockErrorResponse(500, Fixture("unclassified_error.json"));
         var refresh = () => client.RefreshToken(AccessToken, RefreshTokenValue);
         var exception = await refresh.Should().ThrowAsync<GotrueException>();
         exception.Which.Reason.Should().Be(Unknown);
-        client.CurrentSession.Should().BeNull();
+        client.CurrentSession.Should().NotBeNull();
+    }
+
+    [TestMethod]
+    public async Task RefreshToken_ShouldKeepTheCurrentSession_GivenAForeignTokenIsRejected()
+    {
+        var stateChanges = new List<Constants.AuthState>();
+        this.client.AddStateChangedListener((_, state) => stateChanges.Add(state));
+        this.MockErrorResponse(400, Fixture("token_not_found_error.json"));
+        var refresh = () => this.client.RefreshToken("another-access-token", "another-refresh-token");
+        await refresh.Should().ThrowAsync<GotrueException>();
+        this.client.CurrentSession!.RefreshToken.Should().Be(RefreshTokenValue,
+            "a refresh rejected for another session must not sign the current one out (issue #396)");
+        stateChanges.Should().NotContain(SignedOut);
     }
 
     private void MockSuccessResponse() =>

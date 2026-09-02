@@ -523,9 +523,10 @@ public interface IGotrueClient<TUser, TSession> : IGettableHeaders
     ///     current session with the result. Useful when resuming from a persisted session:
     ///     the refresh token is one-time-use and never expires server-side, so it can mint a
     ///     new session even if the access token has long expired.
-    ///     If the server rejects the refresh token, the current session is destroyed and a
+    ///     If the server rejects the refresh token, a
     ///     <see cref="Exceptions.GotrueException" /> with reason
-    ///     <see cref="Exceptions.FailureHint.Reason.InvalidRefreshToken" /> is thrown.
+    ///     <see cref="Exceptions.FailureHint.Reason.InvalidRefreshToken" /> is thrown, and the
+    ///     session is destroyed if it is still the current one.
     /// </summary>
     /// <param name="accessToken">The access token to send as the bearer authorization.</param>
     /// <param name="refreshToken">The refresh token to exchange for a new session.</param>

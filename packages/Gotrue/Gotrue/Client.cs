@@ -53,6 +53,11 @@ public class Client : IGotrueClient<User, Session>
     private readonly object refreshGate = new();
 
     /// <summary>
+    ///     Orders persistence writes, so a destroy in flight cannot land after the save that replaced it.
+    /// </summary>
+    private readonly SemaphoreSlim persistenceGate = new(1, 1);
+
+    /// <summary>
     ///     The running token refresh, shared by concurrent callers. A completed attempt is replaced, never reused.
     /// </summary>
     internal RefreshAttempt? refreshAttempt;
@@ -129,13 +134,23 @@ public class Client : IGotrueClient<User, Session>
         {
             return;
         }
+        await this.persistenceGate.WaitAsync(cancellationToken).ConfigureAwait(false);
         try
         {
+            // A SignedOut that finds a session was raced by a sign-in, and must not wipe what that sign-in saved.
+            if (stateChanged == SignedOut && this.CurrentSession != null)
+            {
+                return;
+            }
             await this.sessionPersistence.EventHandlerAsync(this, stateChanged, cancellationToken).ConfigureAwait(false);
         }
         catch (Exception e)
         {
             this.debugNotification?.Log("Auth State Change Handler Failure", e);
+        }
+        finally
+        {
+            this.persistenceGate.Release();
         }
     }
 
@@ -756,7 +771,7 @@ public class Client : IGotrueClient<User, Session>
         catch (GotrueException ex) when (ex.Reason is InvalidRefreshToken)
         {
             activity.SetFailure(ex);
-            await this.DestroySessionAsync().ConfigureAwait(false);
+            await this.ClearRejectedSessionAsync(refreshToken).ConfigureAwait(false);
             throw;
         }
         catch (Exception ex)
@@ -832,15 +847,7 @@ public class Client : IGotrueClient<User, Session>
         catch (GotrueException ex) when (ex.Reason is InvalidRefreshToken)
         {
             activity.SetFailure(ex);
-            bool stillOurs;
-            lock (this.refreshGate)
-            {
-                stillOurs = this.CurrentSession?.RefreshToken == refreshToken;
-            }
-            if (stillOurs)
-            {
-                await this.DestroySessionAsync().ConfigureAwait(false);
-            }
+            await this.ClearRejectedSessionAsync(refreshToken).ConfigureAwait(false);
             throw;
         }
         catch (Exception ex)
@@ -1125,7 +1132,15 @@ public class Client : IGotrueClient<User, Session>
         }
     }
 
-    private Task DestroySessionAsync(CancellationToken cancellationToken = default) => this.UpdateSessionAsync(null, cancellationToken);
+    // Only signs out the session the token belonged to.
+    private async Task ClearRejectedSessionAsync(string refreshToken)
+    {
+        if (!this.TryReplaceSession(null, refreshToken) || this.CurrentSession != null)
+        {
+            return;
+        }
+        await this.NotifyAuthStateChangeAsync(SignedOut).ConfigureAwait(false);
+    }
 
     /// <summary>
     ///     A token refresh in flight, with the refresh token it was started for. A caller holding a different
