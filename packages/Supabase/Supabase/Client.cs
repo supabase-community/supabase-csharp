@@ -236,7 +236,7 @@ public class Client : ISupabaseClient<User, Session, RealtimeSocket, RealtimeCha
     {
         // Don't clobber a session already set by the caller with a stale one from disk.
         if (this.Auth.CurrentSession == null)
-            this.Auth.LoadSession();
+            await this.Auth.LoadSessionAsync().ConfigureAwait(false);
         await this.Auth.RetrieveSessionAsync();
 
         if (this.options.AutoConnectRealtime)

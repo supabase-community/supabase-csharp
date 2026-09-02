@@ -1,5 +1,7 @@
 #nullable enable
 Supabase.Gotrue.Api.Api(string! url, System.Collections.Generic.Dictionary<string!, string!>? headers = null, System.Net.Http.HttpClient? httpClient = null, Supabase.Core.Http.RetryOptions? retry = null) -> void
+Supabase.Gotrue.Client.LoadSessionAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Supabase.Gotrue.Client.NotifyAuthStateChangeAsync(Supabase.Gotrue.Constants.AuthState stateChanged, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
 Supabase.Gotrue.ClientOptions.HttpClient.get -> System.Net.Http.HttpClient?
 Supabase.Gotrue.ClientOptions.HttpClient.set -> void
 Supabase.Gotrue.ClientOptions.Proxy.get -> System.Net.IWebProxy?
@@ -8,6 +10,12 @@ Supabase.Gotrue.ClientOptions.Retry.get -> Supabase.Core.Http.RetryOptions!
 Supabase.Gotrue.ClientOptions.Retry.set -> void
 Supabase.Gotrue.Exceptions.FailureHint.Reason.CloudflareNetworkError = 21 -> Supabase.Gotrue.Exceptions.FailureHint.Reason
 Supabase.Gotrue.Exceptions.FailureHint.Reason.NetworkError = 20 -> Supabase.Gotrue.Exceptions.FailureHint.Reason
+Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.LoadSessionAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.NotifyAuthStateChangeAsync(Supabase.Gotrue.Constants.AuthState stateChanged, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Supabase.Gotrue.Interfaces.IGotruePersistenceListener<TSession>.EventHandlerAsync(Supabase.Gotrue.Interfaces.IGotrueClient<Supabase.Gotrue.User!, TSession!>! sender, Supabase.Gotrue.Constants.AuthState stateChanged, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Supabase.Gotrue.Interfaces.IGotrueSessionPersistence<TSession>.DestroySessionAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Supabase.Gotrue.Interfaces.IGotrueSessionPersistence<TSession>.LoadSessionAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<TSession?>!
+Supabase.Gotrue.Interfaces.IGotrueSessionPersistence<TSession>.SaveSessionAsync(TSession! session, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
 Supabase.Gotrue.NetworkStatus.NetworkStatus(System.Net.Http.HttpClient? httpClient = null) -> void
 Supabase.Gotrue.NetworkStatus.PingCheckAsync(string! url) -> System.Threading.Tasks.Task<bool>!
 *REMOVED*Supabase.Gotrue.NetworkStatus.PingCheck(string! url) -> System.Threading.Tasks.Task<bool>!
@@ -15,6 +23,7 @@ Supabase.Gotrue.NetworkStatus.PingCheckAsync(string! url) -> System.Threading.Ta
 *REMOVED*Supabase.Gotrue.ProviderAuthState.State.set -> void
 *REMOVED*Supabase.Gotrue.SignInOptions.State.get -> string?
 *REMOVED*Supabase.Gotrue.SignInOptions.State.set -> void
+Supabase.Gotrue.PersistenceListener.EventHandlerAsync(Supabase.Gotrue.Interfaces.IGotrueClient<Supabase.Gotrue.User!, Supabase.Gotrue.Session!>! sender, Supabase.Gotrue.Constants.AuthState stateChanged, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
 Supabase.Gotrue.StatelessClient.StatelessClientOptions.HttpClient.get -> System.Net.Http.HttpClient?
 Supabase.Gotrue.StatelessClient.StatelessClientOptions.HttpClient.set -> void
 Supabase.Gotrue.StatelessClient.StatelessClientOptions.Proxy.get -> System.Net.IWebProxy?
