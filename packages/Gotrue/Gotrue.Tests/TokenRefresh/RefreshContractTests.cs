@@ -91,7 +91,7 @@ public class RefreshContractTests
         MockErrorResponse(400, Fixture("token_not_found_error.json"));
         var refresh = () => client.RefreshToken(AccessToken, RefreshTokenValue);
         await refresh.Should().ThrowAsync<GotrueException>();
-        stateChanges.Should().Contain(SignedOut,
+        stateChanges.Should().ContainSingle(state => state == SignedOut,
             "a rejected refresh must notify listeners the session ended — the auto-refresh timer swallows the exception, so the SignedOut event is the only way a background refresh failure reaches the app (issue #91)");
     }
 

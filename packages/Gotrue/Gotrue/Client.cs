@@ -497,7 +497,6 @@ public class Client : IGotrueClient<User, Session>
             await this.api.SignOut(this.CurrentSession.AccessToken, scope);
         }
         await this.UpdateSessionAsync(null).ConfigureAwait(false);
-        await this.NotifyAuthStateChangeAsync(SignedOut).ConfigureAwait(false);
     }
 
     /// <inheritdoc />
@@ -769,7 +768,6 @@ public class Client : IGotrueClient<User, Session>
         {
             activity.SetFailure(ex);
             await this.DestroySessionAsync().ConfigureAwait(false);
-            await this.NotifyAuthStateChangeAsync(SignedOut).ConfigureAwait(false);
             throw;
         }
         catch (Exception ex)
@@ -857,7 +855,6 @@ public class Client : IGotrueClient<User, Session>
             if (stillOurs)
             {
                 await this.DestroySessionAsync().ConfigureAwait(false);
-                await this.NotifyAuthStateChangeAsync(SignedOut).ConfigureAwait(false);
             }
             throw;
         }

@@ -61,7 +61,7 @@ public abstract class AuthClientFixture
     {
         using (new AssertionScope())
         {
-            StateChanges.Should().Contain(SignedOut);
+            StateChanges.Should().ContainSingle(state => state == SignedOut);
             Persistence.LoadSession().Should().BeNull();
             Client.CurrentSession.Should().BeNull();
             Client.CurrentUser.Should().BeNull();
