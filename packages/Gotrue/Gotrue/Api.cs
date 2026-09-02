@@ -784,10 +784,11 @@ public class Api : IGotrueApi<User, Session>
     /// </summary>
     /// <param name="uid">The user uid you want to remove.</param>
     /// <param name="jwt">A valid JWT. Must be a full-access API key (e.g. service_role key).</param>
+    /// <param name="shouldSoftDelete">When true, the user is soft-deleted (identifiable by the hashed user id but not reversible) instead of hard-deleted. Defaults to a hard delete.</param>
     /// <returns></returns>
-    public Task<BaseResponse> DeleteUser(string uid, string jwt)
+    public Task<BaseResponse> DeleteUser(string uid, string jwt, bool shouldSoftDelete = false)
     {
-        var data = new Dictionary<string, string>();
+        var data = new Dictionary<string, object> { { "should_soft_delete", shouldSoftDelete } };
         return this.MakeRequestAsync(HttpMethod.Delete, $"{this.Url}/admin/users/{uid}", data, this.CreateAuthedRequestHeaders(jwt));
     }
 

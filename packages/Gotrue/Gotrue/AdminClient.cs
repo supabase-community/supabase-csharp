@@ -70,9 +70,9 @@ public class AdminClient : IGotrueAdminClient<User>
     }
 
     /// <inheritdoc />
-    public async Task<bool> DeleteUser(string uid)
+    public async Task<bool> DeleteUser(string uid, bool shouldSoftDelete = false)
     {
-        var result = await this.api.DeleteUser(uid, this.serviceKey);
+        var result = await this.api.DeleteUser(uid, this.serviceKey, shouldSoftDelete);
         result.ResponseMessage?.EnsureSuccessStatusCode();
         return true;
     }
