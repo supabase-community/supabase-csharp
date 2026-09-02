@@ -507,7 +507,8 @@ public class Client : IGotrueClient<User, Session>
     public async Task<User?> Update(UserAttributes attributes)
     {
         using var activity = GotrueInstrumentation.Source.StartActivity(GotrueInstrumentation.Spans.UpdateUser);
-        if (this.CurrentSession == null || string.IsNullOrEmpty(this.CurrentSession.AccessToken))
+        var session = this.CurrentSession;
+        if (session == null || string.IsNullOrEmpty(session.AccessToken))
         {
             throw new GotrueException("Not Logged in.");
         }
@@ -515,8 +516,14 @@ public class Client : IGotrueClient<User, Session>
         {
             throw new GotrueException("Only supported when online", Offline);
         }
-        var result = await this.api.UpdateUser(this.CurrentSession.AccessToken!, attributes);
-        this.CurrentSession.User = result;
+        var result = await this.api.UpdateUser(session.AccessToken!, attributes);
+        // The session may have refreshed meanwhile, so the update lands on the current one if it is still this user's.
+        var current = this.CurrentSession;
+        if (current == null || current.User?.Id != result?.Id)
+        {
+            return result;
+        }
+        current.User = result;
         await this.NotifyAuthStateChangeAsync(UserUpdated).ConfigureAwait(false);
         return result;
     }
