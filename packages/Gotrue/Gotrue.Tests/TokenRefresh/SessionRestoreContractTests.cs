@@ -165,17 +165,15 @@ public class SessionRestoreContractTests
     }
 
     [TestMethod]
-    public async Task TokenRefresh_ShouldRescheduleFromTheRefreshedSession_GivenARefreshOutsideTheTimer()
+    public async Task TokenRefresh_ShouldWaitATick_GivenTheRefreshedSessionIsAboutToExpire()
     {
         var handler = new GatedHandler(fixture: "token_success_expiring.json");
         var client = this.Restore(TestClients.Against(this.server, autoRefreshToken: true, new HttpClient(handler)));
         handler.Release();
         await client.RetrieveSessionAsync();
-        var secondAttempt = () => handler.SecondAttempt;
-        await secondAttempt.Should().NotThrowAsync(
-            "the refreshed session expires in a second, so the timer must be rescheduled from it instead of the restored session's deadline an hour out");
-        // Every refresh hands back the same one second session, so stop the timer now the point is made.
-        client.Online = false;
+        await Task.Delay(250);
+        handler.Attempts.Should().Be(1,
+            "the refreshed session expires in a second, so without a floor the timer re-arms at zero and hammers the token endpoint (issue #396)");
     }
 
     [TestMethod]
@@ -420,7 +418,6 @@ public class SessionRestoreContractTests
     {
         private readonly TaskCompletionSource<bool> gate = new(TaskCreationOptions.RunContinuationsAsynchronously);
         private readonly ConcurrentQueue<string?> refreshTokens = new();
-        private readonly TaskCompletionSource<bool> secondAttempt = new(TaskCreationOptions.RunContinuationsAsynchronously);
         private readonly TaskCompletionSource<bool> started = new(TaskCreationOptions.RunContinuationsAsynchronously);
 
         public int Attempts => this.refreshTokens.Count;
@@ -430,9 +427,6 @@ public class SessionRestoreContractTests
 
         /// <summary>Completes when the first refresh reaches the handler, so a test can act while it is held.</summary>
         public Task Started => this.started.Task.WaitAsync(HandlerTimeout);
-
-        /// <summary>Completes when a second refresh reaches the handler, so a test can wait for the next scheduled one.</summary>
-        public Task SecondAttempt => this.secondAttempt.Task.WaitAsync(HandlerTimeout);
 
         public void Release() => this.gate.TrySetResult(true);
 
@@ -445,10 +439,6 @@ public class SessionRestoreContractTests
             var body = JsonNode.Parse(await request.Content!.ReadAsStringAsync(cancellationToken))!.AsObject();
             this.refreshTokens.Enqueue(body["refresh_token"]?.GetValue<string>());
             this.started.TrySetResult(true);
-            if (this.refreshTokens.Count >= 2)
-            {
-                this.secondAttempt.TrySetResult(true);
-            }
             await this.gate.Task.WaitAsync(HandlerTimeout, cancellationToken);
             return new HttpResponseMessage(status)
             {

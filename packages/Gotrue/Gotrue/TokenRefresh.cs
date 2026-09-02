@@ -13,11 +13,16 @@ public class TokenRefresh
     private readonly Client _client;
 
     /// <summary>
-    /// Minimum wait between refresh attempts after one was skipped or failed.
-    /// supabase-js polls on a fixed 30 second tick (AUTO_REFRESH_TICK_DURATION_MS) and
-    /// picks a failed refresh up on the next one, so a failed attempt waits one tick too.
+    /// Minimum wait between refresh attempts.
+    /// supabase-js polls on a fixed 30 second tick (AUTO_REFRESH_TICK_DURATION_MS) and picks a
+    /// refresh up on the next one, so an attempt never follows another sooner than a tick.
     /// </summary>
     private static readonly TimeSpan AutoRefreshTickDuration = TimeSpan.FromSeconds(30);
+
+    /// <summary>
+    /// Guards the timer field, so a stop and a re-arm cannot interleave.
+    /// </summary>
+    private readonly object timerGate = new();
 
     /// <summary>
     /// Internal timer reference for token refresh
@@ -26,6 +31,11 @@ public class TokenRefresh
     /// </see>
     /// </summary>
     private Timer? _refreshTimer;
+
+    /// <summary>
+    /// Set by Shutdown, so a tick or refresh still in flight cannot bring the timer back.
+    /// </summary>
+    private volatile bool stopped;
 
     /// <summary>
     /// Turn on debug logging for the TokenRefresh
@@ -54,23 +64,42 @@ public class TokenRefresh
                 // Turn on auto-refresh timer
                 break;
             case SignedOut:
+                this.StopTimer();
+                break;
             case Shutdown:
-                if (this.Debug)
-                    this._client.Debug("Refresh Timer stopped");
-                this._refreshTimer?.Dispose();
-                // Turn off auto-refresh timer
+                this.stopped = true;
+                this.StopTimer();
                 break;
             case UserUpdated:
-            case TokenRefreshed:
                 if (this.Debug)
                     this._client.Debug("Refresh Timer restarted");
                 this.CreateNewTimer();
+                break;
+            case TokenRefreshed:
+                if (this.Debug)
+                    this._client.Debug("Refresh Timer restarted");
+                // A fresh token needs no refresh within a tick, so a zero expires_in cannot hot-loop.
+                this.CreateNewTimer(AutoRefreshTickDuration);
                 break;
             case PasswordRecovery:
             case MfaChallengeVerified:
                 // Doesn't affect auto refresh
                 break;
             default: throw new ArgumentOutOfRangeException(nameof(stateChanged), stateChanged, null);
+        }
+    }
+
+    private void StopTimer()
+    {
+        lock (this.timerGate)
+        {
+            // A sign-in raced this SignedOut, so its timer stays.
+            if (!this.stopped && this._client.CurrentSession != null)
+                return;
+            if (this.Debug)
+                this._client.Debug("Refresh Timer stopped");
+            this._refreshTimer?.Dispose();
+            this._refreshTimer = null;
         }
     }
 
@@ -98,9 +127,12 @@ public class TokenRefresh
         }
         finally
         {
-            // An expired session schedules at zero, so a refresh that was skipped or
-            // failed must wait a tick before the next attempt instead of hot-looping.
-            this.CreateNewTimer(refreshCompleted ? TimeSpan.Zero : AutoRefreshTickDuration);
+            // A successful refresh is rescheduled by TokenRefreshed, a skipped or failed
+            // one waits a tick instead of hot-looping on a session that schedules at zero.
+            if (!refreshCompleted)
+            {
+                this.CreateNewTimer(AutoRefreshTickDuration);
+            }
         }
     }
 
@@ -115,20 +147,22 @@ public class TokenRefresh
     /// </summary>
     private void CreateNewTimer(TimeSpan minimumDelay = default)
     {
-        if (this._client.CurrentSession == null)
-        {
-            if (this.Debug)
-                this._client.Debug($"No session, refresh timer not started");
-            return;
-        }
-
         try
         {
             var refreshDueTime = this.GetSecondsUntilNextRefresh();
             if (refreshDueTime < minimumDelay)
                 refreshDueTime = minimumDelay;
-            this._refreshTimer?.Dispose();
-            this._refreshTimer = new Timer(this.HandleRefreshTimerTick, null, refreshDueTime, Timeout.InfiniteTimeSpan);
+            lock (this.timerGate)
+            {
+                if (this.stopped || this._client.CurrentSession == null)
+                {
+                    if (this.Debug)
+                        this._client.Debug($"No session, refresh timer not started");
+                    return;
+                }
+                this._refreshTimer?.Dispose();
+                this._refreshTimer = new Timer(this.HandleRefreshTimerTick, null, refreshDueTime, Timeout.InfiniteTimeSpan);
+            }
 
             if (this.Debug)
                 this._client.Debug($"Refresh timer scheduled {refreshDueTime.TotalMinutes} minutes");
