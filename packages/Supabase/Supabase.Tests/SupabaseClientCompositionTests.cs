@@ -216,7 +216,7 @@ public class SupabaseClientCompositionTests
         await DiClient(auth: auth).InitializeAsync();
         Received.InOrder(() =>
         {
-            auth.LoadSession();
+            auth.LoadSessionAsync();
             auth.RetrieveSessionAsync();
         });
     }
@@ -227,14 +227,15 @@ public class SupabaseClientCompositionTests
         var auth = Substitute.For<IGotrueClient<User, Session>>();
         auth.CurrentSession.Returns(new Session { AccessToken = "an-access-token", RefreshToken = "a-refresh-token" });
         await DiClient(auth: auth).InitializeAsync();
-        auth.DidNotReceive().LoadSession();
+        await auth.DidNotReceive().LoadSessionAsync();
     }
 
     [TestMethod]
     public async Task SupabaseClient_ShouldKeepThePersistedSession_GivenAnOfflineStart()
     {
         var persistence = Substitute.For<IGotrueSessionPersistence<Session>>();
-        persistence.LoadSession().Returns(new Session { AccessToken = "an-access-token", RefreshToken = "a-refresh-token", ExpiresIn = 3600 });
+        persistence.LoadSessionAsync(Arg.Any<CancellationToken>())
+            .Returns(Task.FromResult<Session?>(new Session { AccessToken = "an-access-token", RefreshToken = "a-refresh-token", ExpiresIn = 3600 }));
         var client = new Supabase.Client("http://localhost", "a-key",
             new SupabaseOptions
             {
@@ -244,7 +245,7 @@ public class SupabaseClientCompositionTests
             });
         await client.InitializeAsync();
         client.Auth.CurrentSession.Should().NotBeNull("an unreachable auth server must not sign the user out");
-        persistence.DidNotReceive().DestroySession();
+        await persistence.DidNotReceive().DestroySessionAsync(Arg.Any<CancellationToken>());
         client.Auth.Shutdown();
     }
 
