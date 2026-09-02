@@ -578,14 +578,14 @@ public class Client : IGotrueClient<User, Session>
             {
                 throw new GotrueException("Could not generate a session given the provided parameters.", NoSessionFound);
             }
-            this.CurrentSession = result;
+            this.SetCurrentSession(result);
             await this.NotifyAuthStateChangeAsync(SignedIn).ConfigureAwait(false);
-            return this.CurrentSession;
+            return result;
         }
         var iat = payload.IssuedAt;
         var exp = payload.ValidTo;
         var expiresIn = (long) (exp - iat).TotalSeconds;
-        this.CurrentSession = new Session
+        var session = new Session
         {
             AccessToken = accessToken,
             RefreshToken = refreshToken,
@@ -593,8 +593,9 @@ public class Client : IGotrueClient<User, Session>
             ExpiresIn = expiresIn,
             User = await this.api.GetUser(accessToken),
         };
+        this.SetCurrentSession(session);
         await this.NotifyAuthStateChangeAsync(SignedIn).ConfigureAwait(false);
-        return this.CurrentSession;
+        return session;
     }
 
     /// <summary>
@@ -749,7 +750,7 @@ public class Client : IGotrueClient<User, Session>
             {
                 throw new GotrueException("Could not refresh token from provided session.", NoSessionFound);
             }
-            this.CurrentSession = result;
+            this.SetCurrentSession(result);
             await this.NotifyAuthStateChangeAsync(TokenRefreshed).ConfigureAwait(false);
         }
         catch (GotrueException ex) when (ex.Reason is InvalidRefreshToken)
@@ -821,14 +822,10 @@ public class Client : IGotrueClient<User, Session>
             {
                 throw new GotrueException("Could not refresh token from provided session.", NoSessionFound);
             }
-            lock (this.refreshGate)
+            // The session was replaced while this call was in flight, so the result is the previous user's.
+            if (!this.TryReplaceSession(result, refreshToken))
             {
-                // The session was replaced while this call was in flight, so the result is the previous user's.
-                if (this.CurrentSession?.RefreshToken != refreshToken)
-                {
-                    return;
-                }
-                this.CurrentSession = result;
+                return;
             }
             await this.NotifyAuthStateChangeAsync(TokenRefreshed).ConfigureAwait(false);
         }
@@ -1104,6 +1101,20 @@ public class Client : IGotrueClient<User, Session>
             return SignedOut;
         }
         return dirty ? UserUpdated : null;
+    }
+
+    // Writes the session only while the given refresh token is still the current one.
+    private bool TryReplaceSession(Session? session, string expectedRefreshToken)
+    {
+        lock (this.refreshGate)
+        {
+            if (this.CurrentSession?.RefreshToken != expectedRefreshToken)
+            {
+                return false;
+            }
+            this.SetCurrentSession(session);
+            return true;
+        }
     }
 
     private async Task UpdateSessionAsync(Session? session, CancellationToken cancellationToken = default)
