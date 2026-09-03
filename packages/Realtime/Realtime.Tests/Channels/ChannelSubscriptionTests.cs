@@ -94,14 +94,14 @@ public class ChannelSubscriptionTests
         var first = client.Channel("realtime", "public", "todos");
         var second = client.Channel("realtime", "public", "todos");
         const string token =
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.C8oVtF5DICct_4HcdSKt8pdrxBFMQOAnPpbiiUbaXAY";
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0";
         client.SetAuth(token);
         foreach (var subscription in client.Subscriptions.Values)
-            Assert.IsNull(subscription.LastPush);
+            Assert.IsNull(subscription.LastPush, "SetAuth stores the token but must not push it to a channel that has not joined yet");
         await first.Subscribe();
         await second.Subscribe();
         client.SetAuth(token);
         foreach (var subscription in client.Subscriptions.Values)
-            Assert.IsTrue(subscription.LastPush?.EventName == ChannelAccessToken);
+            Assert.IsTrue(subscription.LastPush?.EventName == ChannelAccessToken, "once joined, SetAuth pushes the refreshed access_token to the channel");
     }
 }
