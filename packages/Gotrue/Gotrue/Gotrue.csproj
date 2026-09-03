@@ -13,8 +13,8 @@
         <Description>A C# client for gotrue</Description>
         <PackageTags>supabase, gotrue</PackageTags>
         <!-- x-release-please-start-version -->
-        <PackageVersion>6.3.0</PackageVersion>
-        <ReleaseVersion>6.3.0</ReleaseVersion>
+        <PackageVersion>8.0.0</PackageVersion>
+        <ReleaseVersion>8.0.0</ReleaseVersion>
         <!-- x-release-please-end -->
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
@@ -32,7 +32,7 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Version)' == '' ">
-        <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">6.3.0</VersionPrefix> <!-- x-release-please-version -->
+        <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">8.0.0</VersionPrefix> <!-- x-release-please-version -->
         <VersionSuffix Condition=" '$(VersionSuffix)' == '' ">
         </VersionSuffix>
         <Version Condition=" '$(VersionSuffix)' != '' ">$(VersionPrefix)-$(VersionSuffix)</Version>
