@@ -24,7 +24,7 @@ public class PresenceOptions
     /// Presence options.
     /// </summary>
     /// <param name="presenceKey"></param>
-    public PresenceOptions(string presenceKey) => this.PresenceKey = presenceKey;
+    public PresenceOptions(string presenceKey) : this(presenceKey, enabled: true) { }
 
     /// <summary>
     /// Presence options.
