@@ -656,10 +656,10 @@ public class RealtimeChannel : IRealtimeChannel
     /// Generates the Join Push message by merging broadcast, presence, and postgres_changes options.
     /// </summary>
     /// <returns></returns>
-    private Push GenerateJoinPush() => new(this.Socket, this, ChannelEventJoin,
+    internal Push GenerateJoinPush() => new(this.Socket, this, ChannelEventJoin,
         payload: this.Options.IsPrivate
-            ? Channel.JoinPush.ForPrivateChannel(this.BroadcastOptions, this.PresenceOptions, this.PostgresChangesOptions)
-            : Channel.JoinPush.ForPublicChannel(this.BroadcastOptions, this.PresenceOptions, this.PostgresChangesOptions));
+            ? Channel.JoinPush.ForPrivateChannel(this.BroadcastOptions, this.PresenceOptions, this.PostgresChangesOptions, this.Options.RetrieveAccessToken())
+            : Channel.JoinPush.ForPublicChannel(this.BroadcastOptions, this.PresenceOptions, this.PostgresChangesOptions, this.Options.RetrieveAccessToken()));
 
     /// <summary>
     /// Generates an auth push.

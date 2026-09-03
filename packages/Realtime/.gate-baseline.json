@@ -4,10 +4,10 @@
   "project": "Realtime/Realtime.csproj",
   "testProject": "Realtime.Tests/Realtime.Tests.csproj",
   "warnings": {
-    "total": 96,
+    "total": 54,
     "byCode": {
-      "IDE0009": 52,
       "CS1591": 28,
+      "IDE0009": 10,
       "IDE0022": 4,
       "CS8618": 4,
       "CS1572": 4,
@@ -15,8 +15,8 @@
       "CS8604": 2
     }
   },
-  "updated": "2026-08-25T05:06:01Z",
+  "updated": "2026-09-03T09:51:04Z",
   "coverage": {
-    "hermeticLine": 45.79
+    "hermeticLine": 46.20
   }
 }
