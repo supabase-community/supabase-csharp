@@ -45,4 +45,15 @@ public class PresenceRegistrationTests
         presence["key"]!.GetValue<string>().Should().Be("some-key");
         presence["enabled"]!.GetValue<bool>().Should().BeTrue();
     }
+
+    [TestMethod]
+    public void GenerateJoinPush_ShouldOmitPresence_GivenNoRegistration()
+    {
+        var channel = Wire.Channel();
+        var payload = channel.GenerateJoinPush().Payload!;
+        var config = JsonNode.Parse(JsonSerializer.Serialize(payload, payload.GetType(), Wire.Settings()))!["config"]!
+            .AsObject();
+
+        config.ContainsKey("presence").Should().BeFalse();
+    }
 }

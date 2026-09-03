@@ -24,8 +24,14 @@ public class PresenceOptions
     /// Presence options.
     /// </summary>
     /// <param name="presenceKey"></param>
+    public PresenceOptions(string presenceKey) => this.PresenceKey = presenceKey;
+
+    /// <summary>
+    /// Presence options.
+    /// </summary>
+    /// <param name="presenceKey"></param>
     /// <param name="enabled"></param>
-    public PresenceOptions(string presenceKey, bool enabled = true)
+    public PresenceOptions(string presenceKey, bool enabled)
     {
         this.PresenceKey = presenceKey;
         this.Enabled = enabled;

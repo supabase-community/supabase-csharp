@@ -78,7 +78,7 @@ public class RealtimeChannel : IRealtimeChannel
     /// <summary>
     /// The saved Presence Options, set in <see cref="Register{TPresenceResponse}(string)"/> or <see cref="Register{TPresenceResponse}(PresenceOptions)"/>
     /// </summary>
-    public PresenceOptions? PresenceOptions { get; private set; } = new(string.Empty);
+    public PresenceOptions? PresenceOptions { get; private set; }
 
     /// <summary>
     /// The saved Postgres Changes Options, set in <see cref="Register(PostgresChanges.PostgresChangesOptions)"/>
@@ -248,7 +248,7 @@ public class RealtimeChannel : IRealtimeChannel
     /// </summary>
     /// <typeparam name="TPresenceResponse">The model representing a presence payload.</typeparam>
     /// <param name="options">The presence options to configure the channel's presence behavior.</param>
-    /// <returns></returns>
+    /// <returns>A <see cref="RealtimePresence{TPresenceResponse}"/> instance for managing presence state.</returns>
     /// <exception cref="InvalidOperationException">Thrown if called multiple times.</exception>
     public RealtimePresence<TPresenceResponse> Register<TPresenceResponse>(PresenceOptions options)
         where TPresenceResponse : BasePresence

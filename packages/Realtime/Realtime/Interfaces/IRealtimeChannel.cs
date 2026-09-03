@@ -263,11 +263,11 @@ public interface IRealtimeChannel
         where TPresenceResponse : BasePresence;
 
     /// <summary>
-    /// Register presence options, must be called to use <see cref="IRealtimePresence"/>, and prior to <see cref="Subscribe"/>
+    /// Registers a <see cref="RealtimePresence{TPresenceResponse}"/> instance with the specified options.
     /// </summary>
-    /// <param name="options"></param>
-    /// <typeparam name="TPresenceResponse"></typeparam>
-    /// <returns></returns>
+    /// <typeparam name="TPresenceResponse">The model representing a presence payload.</typeparam>
+    /// <param name="options">The presence options to configure the channel's behavior.</param>
+    /// <returns>A <see cref="RealtimePresence{TPresenceResponse}"/> instance for managing presence state.</returns>
     RealtimePresence<TPresenceResponse> Register<TPresenceResponse>(PresenceOptions options)
         where TPresenceResponse : BasePresence;
 
