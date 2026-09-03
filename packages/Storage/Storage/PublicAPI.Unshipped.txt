@@ -1,14 +1,1 @@
 #nullable enable
-Supabase.Storage.ClientOptions.HttpDownloadClient.get -> System.Net.Http.HttpClient?
-Supabase.Storage.ClientOptions.HttpDownloadClient.set -> void
-Supabase.Storage.ClientOptions.HttpRequestClient.get -> System.Net.Http.HttpClient?
-Supabase.Storage.ClientOptions.HttpRequestClient.set -> void
-Supabase.Storage.ClientOptions.HttpUploadClient.get -> System.Net.Http.HttpClient?
-Supabase.Storage.ClientOptions.HttpUploadClient.set -> void
-Supabase.Storage.ClientOptions.Proxy.get -> System.Net.IWebProxy?
-Supabase.Storage.ClientOptions.Proxy.set -> void
-Supabase.Storage.ClientOptions.Retry.get -> Supabase.Core.Http.RetryOptions!
-Supabase.Storage.ClientOptions.Retry.set -> void
-Supabase.Storage.ErrorResponse.Code.get -> string?
-Supabase.Storage.ErrorResponse.Code.set -> void
-Supabase.Storage.Exceptions.SupabaseStorageException.Code.get -> string?
