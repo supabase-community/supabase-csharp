@@ -159,13 +159,12 @@ public interface IGotrueClient<TUser, TSession> : IGettableHeaders
 
     /// <summary>
     ///     Sets a new session given a user's access token and their refresh token.
-    ///     1. Will destroy the current session (if existing)
-    ///     2. Raise a <see cref="AuthState.SignedOut" /> event.
-    ///     3. Decode token
-    ///     3a. If expired (or bool <paramref name="forceAccessTokenRefresh"></paramref> set), force an access token refresh.
-    ///     3b. If not expired, set the <see cref="CurrentSession" /> and retrieve <see cref="CurrentUser" /> from the server
+    ///     1. Decode token
+    ///     1a. If expired (or bool <paramref name="forceAccessTokenRefresh"></paramref> set), force an access token refresh.
+    ///     1b. If not expired, set the <see cref="CurrentSession" /> and retrieve <see cref="CurrentUser" /> from the server
     ///     using the <paramref name="accessToken" />.
-    ///     4. Raise a `<see cref="AuthState.SignedIn" /> event if successful.
+    ///     2. Raise a `<see cref="AuthState.SignedIn" /> event if successful.
+    ///     The current session (if any) is kept until the new one replaces it.
     /// </summary>
     /// <param name="accessToken"></param>
     /// <param name="refreshToken"></param>
@@ -211,7 +210,6 @@ public interface IGotrueClient<TUser, TSession> : IGettableHeaders
     ///     if you are using phone sign in with the 'whatsapp' channel. The whatsapp
     ///     channel is not supported on other providers at this time.
     /// </summary>
-    /// <remarks>Calling this method will wipe out the current session (if any)</remarks>
     /// <param name="options"></param>
     /// <returns></returns>
     Task<PasswordlessSignInState> SignInWithOtp(SignInWithPasswordlessEmailOptions options);
@@ -228,7 +226,6 @@ public interface IGotrueClient<TUser, TSession> : IGettableHeaders
     ///     if you are using phone sign in with the 'whatsapp' channel. The whatsapp
     ///     channel is not supported on other providers at this time.
     /// </summary>
-    /// <remarks>Calling this method will wipe out the current session (if any)</remarks>
     /// <param name="options"></param>
     /// <returns></returns>
     Task<PasswordlessSignInState> SignInWithOtp(SignInWithPasswordlessPhoneOptions options);
@@ -274,7 +271,6 @@ public interface IGotrueClient<TUser, TSession> : IGettableHeaders
     ///     the ID token.
     /// </param>
     /// <param name="captchaToken">Verification token received when the user completes the captcha on the site.</param>
-    /// <remarks>Calling this method will eliminate the current session (if any).</remarks>
     /// <exception>
     ///     <cref>InvalidProviderException</cref>
     /// </exception>
@@ -328,7 +324,6 @@ public interface IGotrueClient<TUser, TSession> : IGettableHeaders
     ///     Signs up a user with an email or phone identifier.
     /// </summary>
     /// <remarks>
-    ///     Calling this method logs out the current session (if any).
     ///     Returns a <see cref="Session" /> whose <see cref="Session.User" /> is the signed-up user. Whether that
     ///     session is usable depends on your project's Confirm email/phone settings:
     ///     - Confirmation required: the user must confirm first. The returned user is unconfirmed
@@ -359,7 +354,6 @@ public interface IGotrueClient<TUser, TSession> : IGettableHeaders
     ///     Signs up a user by email address.
     /// </summary>
     /// <remarks>
-    ///     Calling this method logs out the current session (if any).
     ///     Returns a <see cref="Session" /> whose <see cref="Session.User" /> is the signed-up user. Whether that
     ///     session is usable depends on your project's Confirm email setting:
     ///     - Confirm email enabled: the user must confirm their address first. The returned user is unconfirmed
@@ -529,9 +523,10 @@ public interface IGotrueClient<TUser, TSession> : IGettableHeaders
     ///     current session with the result. Useful when resuming from a persisted session:
     ///     the refresh token is one-time-use and never expires server-side, so it can mint a
     ///     new session even if the access token has long expired.
-    ///     If the server rejects the refresh token, the current session is destroyed and a
+    ///     If the server rejects the refresh token, a
     ///     <see cref="Exceptions.GotrueException" /> with reason
-    ///     <see cref="Exceptions.FailureHint.Reason.InvalidRefreshToken" /> is thrown.
+    ///     <see cref="Exceptions.FailureHint.Reason.InvalidRefreshToken" /> is thrown, and the
+    ///     session is destroyed if it is still the current one.
     /// </summary>
     /// <param name="accessToken">The access token to send as the bearer authorization.</param>
     /// <param name="refreshToken">The refresh token to exchange for a new session.</param>
