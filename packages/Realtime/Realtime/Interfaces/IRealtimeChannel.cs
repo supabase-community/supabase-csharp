@@ -263,6 +263,15 @@ public interface IRealtimeChannel
         where TPresenceResponse : BasePresence;
 
     /// <summary>
+    /// Register presence options, must be called to use <see cref="IRealtimePresence"/>, and prior to <see cref="Subscribe"/>
+    /// </summary>
+    /// <param name="options"></param>
+    /// <typeparam name="TPresenceResponse"></typeparam>
+    /// <returns></returns>
+    RealtimePresence<TPresenceResponse> Register<TPresenceResponse>(PresenceOptions options)
+        where TPresenceResponse : BasePresence;
+
+    /// <summary>
     /// Register postgres_changes options, must be called to use <see cref="PostgresChangesHandler"/>, and
     /// prior to <see cref="Subscribe"/>
     /// </summary>

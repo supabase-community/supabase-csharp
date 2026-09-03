@@ -1,1 +1,7 @@
 #nullable enable
+*REMOVED*Supabase.Realtime.Presence.PresenceOptions.PresenceOptions(string! presenceKey) -> void
+Supabase.Realtime.Interfaces.IRealtimeChannel.Register<TPresenceResponse>(Supabase.Realtime.Presence.PresenceOptions! options) -> Supabase.Realtime.RealtimePresence<TPresenceResponse!>!
+Supabase.Realtime.Presence.PresenceOptions.Enabled.get -> bool
+Supabase.Realtime.Presence.PresenceOptions.Enabled.set -> void
+Supabase.Realtime.Presence.PresenceOptions.PresenceOptions(string! presenceKey, bool enabled = true) -> void
+Supabase.Realtime.RealtimeChannel.Register<TPresenceResponse>(Supabase.Realtime.Presence.PresenceOptions! options) -> Supabase.Realtime.RealtimePresence<TPresenceResponse!>!

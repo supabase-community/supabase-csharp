@@ -76,7 +76,7 @@ public class RealtimeChannel : IRealtimeChannel
     public BroadcastOptions? BroadcastOptions { get; private set; } = new();
 
     /// <summary>
-    /// The saved Presence Options, set in <see cref="Register{TPresenceResponse}(string)"/>
+    /// The saved Presence Options, set in <see cref="Register{TPresenceResponse}(string)"/> or <see cref="Register{TPresenceResponse}(PresenceOptions)"/>
     /// </summary>
     public PresenceOptions? PresenceOptions { get; private set; } = new(string.Empty);
 
@@ -240,14 +240,25 @@ public class RealtimeChannel : IRealtimeChannel
     /// <returns></returns>
     /// <exception cref="InvalidOperationException">Thrown if called multiple times.</exception>
     public RealtimePresence<TPresenceResponse> Register<TPresenceResponse>(string presenceKey)
+        where TPresenceResponse : BasePresence =>
+        this.Register<TPresenceResponse>(new PresenceOptions(presenceKey, enabled: true));
+
+    /// <summary>
+    /// Registers a <see cref="RealtimePresence{TPresenceResponse}"/> instance with the specified options.
+    /// </summary>
+    /// <typeparam name="TPresenceResponse">The model representing a presence payload.</typeparam>
+    /// <param name="options">The presence options to configure the channel's presence behavior.</param>
+    /// <returns></returns>
+    /// <exception cref="InvalidOperationException">Thrown if called multiple times.</exception>
+    public RealtimePresence<TPresenceResponse> Register<TPresenceResponse>(PresenceOptions options)
         where TPresenceResponse : BasePresence
     {
         if (this.presence != null)
             throw new InvalidOperationException(
                 "Register can only be called with presence options for a channel once.");
 
-        this.PresenceOptions = new PresenceOptions(presenceKey);
-        var instance = new RealtimePresence<TPresenceResponse>(this, this.PresenceOptions, this.Options.SerializerSettings);
+        this.PresenceOptions = options;
+        var instance = new RealtimePresence<TPresenceResponse>(this, options, this.Options.SerializerSettings);
         this.presence = instance;
 
         this.PresenceSync = (_, response) => this.presence.TriggerSync(response);

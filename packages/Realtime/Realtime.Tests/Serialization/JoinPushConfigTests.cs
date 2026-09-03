@@ -58,5 +58,6 @@ public class JoinPushConfigTests
     {
         var config = Config(JoinPush.ForPublicChannel(presenceOptions: new PresenceOptions("client-1")));
         config["presence"]!["key"]!.GetValue<string>().Should().Be("client-1");
+        config["presence"]!["enabled"]!.GetValue<bool>().Should().BeTrue();
     }
 }
