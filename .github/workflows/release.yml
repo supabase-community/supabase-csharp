@@ -68,7 +68,7 @@ jobs:
 
   mark-api-shipped:
     needs: [release-please, publish]
-    if: ${{ github.repository_owner == 'supabase-community' && needs.release-please.outputs.releases_created == 'true' }}
+    if: ${{ github.repository_owner == 'supabase-community' && (needs.release-please.outputs.releases_created == 'true'|| github.event_name == 'workflow_dispatch') }}
     name: mark public API shipped
     runs-on: ubuntu-latest
     permissions:
