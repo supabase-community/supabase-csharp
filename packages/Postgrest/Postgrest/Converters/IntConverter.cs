@@ -7,9 +7,8 @@ using System.Text.Json.Serialization;
 namespace Supabase.Postgrest.Converters;
 
 /// <summary>
-/// Reads a <c>List&lt;int&gt;</c> from the JSON array Postgrest returns (e.g. <c>[1,2,3]</c>) or from a
-/// Postgres array literal (<c>"{1,2,3}"</c>). Writes a plain JSON array, which Postgrest accepts for
-/// array columns and which keeps the output independent of the current culture.
+/// Reads a <c>List&lt;int&gt;</c> from a JSON array (<c>[1,2,3]</c>) or a Postgres array literal
+/// (<c>"{1,2,3}"</c>), and writes a JSON array.
 /// </summary>
 public class IntArrayConverter : JsonConverter<List<int>>
 {
@@ -21,18 +20,7 @@ public class IntArrayConverter : JsonConverter<List<int>>
             case JsonTokenType.Null:
                 return null;
             case JsonTokenType.String:
-                var literal = reader.GetString()!;
-                var contents = literal.Trim('{', '}');
-                if (contents.Length == 0)
-                    return new List<int>();
-                var result = new List<int>();
-                foreach (var part in contents.Split(','))
-                {
-                    if (!int.TryParse(part, NumberStyles.Integer, CultureInfo.InvariantCulture, out var item))
-                        throw new JsonException($"Cannot read '{literal}' as List<int>.");
-                    result.Add(item);
-                }
-                return result;
+                return ParseLiteral(reader.GetString()!);
             case JsonTokenType.StartArray:
                 var list = new List<int>();
                 while (reader.Read() && reader.TokenType != JsonTokenType.EndArray)
@@ -41,6 +29,24 @@ public class IntArrayConverter : JsonConverter<List<int>>
             default:
                 throw new JsonException($"Unexpected token {reader.TokenType} when reading List<int>.");
         }
+    }
+
+    private static List<int> ParseLiteral(string literal)
+    {
+        var contents = literal.Trim('{', '}');
+        if (contents.Length == 0)
+            return new List<int>();
+
+        var result = new List<int>();
+        foreach (var part in contents.Split(','))
+        {
+            if (!int.TryParse(part, NumberStyles.Integer, CultureInfo.InvariantCulture, out var item))
+                throw new JsonException($"Cannot read '{literal}' as List<int>.");
+
+            result.Add(item);
+        }
+
+        return result;
     }
 
     /// <inheritdoc />
