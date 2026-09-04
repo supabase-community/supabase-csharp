@@ -8,7 +8,7 @@ namespace Supabase.Realtime.Presence;
 public class PresenceOptions
 {
     /// <summary>
-    /// key option is used to track presence payload across clients
+    /// Key option is used to track presence payload across clients
     /// </summary>
     [JsonPropertyName("key")]
     public string PresenceKey { get; set; }
@@ -18,22 +18,27 @@ public class PresenceOptions
     /// <c>enabled: true</c> to receive the initial <c>presence_state</c> sync.
     /// </summary>
     [JsonPropertyName("enabled")]
-    public bool Enabled { get; set; }
+    public bool Enabled { get; private set; }
 
     /// <summary>
-    /// Presence options.
+    /// Presence options with tracking enabled. Equivalent to <see cref="WithPresence"/>.
     /// </summary>
-    /// <param name="presenceKey"></param>
-    public PresenceOptions(string presenceKey) : this(presenceKey, enabled: true) { }
-
-    /// <summary>
-    /// Presence options.
-    /// </summary>
-    /// <param name="presenceKey"></param>
-    /// <param name="enabled"></param>
-    public PresenceOptions(string presenceKey, bool enabled)
+    /// <param name="presenceKey">used to track presence payload across clients</param>
+    public PresenceOptions(string presenceKey)
     {
         this.PresenceKey = presenceKey;
-        this.Enabled = enabled;
+        this.Enabled = true;
     }
+
+    /// <summary>
+    /// Creates presence options that receive the initial <c>presence_state</c> sync and updates from other clients.
+    /// </summary>
+    /// <param name="presenceKey">Used to track presence payload across clients</param>
+    public static PresenceOptions WithPresence(string presenceKey) => new(presenceKey);
+
+    /// <summary>
+    /// Creates presence options that do not receive presence updates from other clients. This client can still make itself visible to others via <c>Track</c>.
+    /// </summary>
+    /// <param name="presenceKey">Used to track presence payload across clients</param>
+    public static PresenceOptions WithoutPresence(string presenceKey) => new(presenceKey) { Enabled = false };
 }
