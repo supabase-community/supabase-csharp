@@ -14,8 +14,26 @@ public class PresenceOptions
     public string PresenceKey { get; set; }
 
     /// <summary>
+    /// Whether presence tracking is enabled for this channel join. Requires
+    /// <c>enabled: true</c> to receive the initial <c>presence_state</c> sync.
+    /// </summary>
+    [JsonPropertyName("enabled")]
+    public bool Enabled { get; set; }
+
+    /// <summary>
     /// Presence options.
     /// </summary>
     /// <param name="presenceKey"></param>
-    public PresenceOptions(string presenceKey) => this.PresenceKey = presenceKey;
+    public PresenceOptions(string presenceKey) : this(presenceKey, enabled: true) { }
+
+    /// <summary>
+    /// Presence options.
+    /// </summary>
+    /// <param name="presenceKey"></param>
+    /// <param name="enabled"></param>
+    public PresenceOptions(string presenceKey, bool enabled)
+    {
+        this.PresenceKey = presenceKey;
+        this.Enabled = enabled;
+    }
 }

@@ -263,6 +263,15 @@ public interface IRealtimeChannel
         where TPresenceResponse : BasePresence;
 
     /// <summary>
+    /// Registers a <see cref="RealtimePresence{TPresenceResponse}"/> instance with the specified options.
+    /// </summary>
+    /// <typeparam name="TPresenceResponse">The model representing a presence payload.</typeparam>
+    /// <param name="options">The presence options to configure the channel's behavior.</param>
+    /// <returns>A <see cref="RealtimePresence{TPresenceResponse}"/> instance for managing presence state.</returns>
+    RealtimePresence<TPresenceResponse> Register<TPresenceResponse>(PresenceOptions options)
+        where TPresenceResponse : BasePresence;
+
+    /// <summary>
     /// Register postgres_changes options, must be called to use <see cref="PostgresChangesHandler"/>, and
     /// prior to <see cref="Subscribe"/>
     /// </summary>
