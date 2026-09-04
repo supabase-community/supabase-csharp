@@ -1,5 +1,17 @@
 # Changelog
 
+## [8.1.0](https://github.com/supabase-community/supabase-csharp/compare/v8.0.0...v8.1.0) (2026-09-04)
+
+
+### Features
+
+* **realtime:** add `enabled` flag for opt-in initial presence sync ([#407](https://github.com/supabase-community/supabase-csharp/issues/407)) ([ecb6b11](https://github.com/supabase-community/supabase-csharp/commit/ecb6b11546dc97e1979e71b07fed5e572987d028))
+
+
+### Bug Fixes
+
+* **postgrest:** write int arrays as json arrays and reject bad literals with JsonException ([#408](https://github.com/supabase-community/supabase-csharp/issues/408)) ([e479c9e](https://github.com/supabase-community/supabase-csharp/commit/e479c9e65d2be03753da22b75cd8843e08a508ee))
+
 ## [8.0.0](https://github.com/supabase-community/supabase-csharp/compare/v7.4.0...v8.0.0) (2026-09-03)
 
 
