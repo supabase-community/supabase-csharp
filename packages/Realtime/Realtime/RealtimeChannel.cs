@@ -241,7 +241,7 @@ public class RealtimeChannel : IRealtimeChannel
     /// <exception cref="InvalidOperationException">Thrown if called multiple times.</exception>
     public RealtimePresence<TPresenceResponse> Register<TPresenceResponse>(string presenceKey)
         where TPresenceResponse : BasePresence =>
-        this.Register<TPresenceResponse>(new PresenceOptions(presenceKey, enabled: true));
+        this.Register<TPresenceResponse>(PresenceOptions.WithPresence(presenceKey));
 
     /// <summary>
     /// Registers a <see cref="RealtimePresence{TPresenceResponse}"/> instance with the specified options.

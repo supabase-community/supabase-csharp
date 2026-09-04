@@ -39,11 +39,22 @@ public class PresenceRegistrationTests
     public void Register_ShouldIncludeEnabledInJoinPayload_GivenPresenceOptions()
     {
         var channel = Wire.Channel();
-        channel.Register<PresenceExample>(new PresenceOptions("some-key", enabled: true));
+        channel.Register<PresenceExample>(PresenceOptions.WithPresence("some-key"));
 
         var presence = PresenceConfig(channel);
         presence["key"]!.GetValue<string>().Should().Be("some-key");
         presence["enabled"]!.GetValue<bool>().Should().BeTrue();
+    }
+
+    [TestMethod]
+    public void Register_ShouldDisableEnabledInJoinPayload_GivenPresenceOptionsWithoutPresence()
+    {
+        var channel = Wire.Channel();
+        channel.Register<PresenceExample>(PresenceOptions.WithoutPresence("some-key"));
+
+        var presence = PresenceConfig(channel);
+        presence["key"]!.GetValue<string>().Should().Be("some-key");
+        presence["enabled"]!.GetValue<bool>().Should().BeFalse();
     }
 
     [TestMethod]
