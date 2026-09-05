@@ -1,1 +1,2 @@
 #nullable enable
+static Supabase.Core.Http.RetryExecutor.SendAsync(System.Net.Http.HttpClient! client, System.Func<System.Net.Http.HttpRequestMessage!>! requestFactory, Supabase.Core.Http.RetryOptions! options, System.Net.Http.HttpCompletionOption completionOption, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage!>!

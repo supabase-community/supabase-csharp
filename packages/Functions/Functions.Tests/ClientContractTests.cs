@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using Supabase.Core.Http;
 using Supabase.Functions;
 using Supabase.Functions.Exceptions;
 using WireMock;
+using WireMock.Models;
 using WireMock.RequestBuilders;
 using WireMock.ResponseBuilders;
 using WireMock.Server;
@@ -28,6 +30,7 @@ namespace Functions.Tests;
 public class ClientContractTests
 {
     private const string FunctionName = "hello";
+    private static readonly TimeSpan Deadline = TimeSpan.FromSeconds(5);
 
     private WireMockServer server = null!;
     private Client client = null!;
@@ -215,16 +218,8 @@ public class ClientContractTests
     [TestMethod]
     public async Task Invoke_ShouldRetryUntilSuccess_GivenRetryableStatus()
     {
-        this.client = new Client($"{this.server.Url}/functions/v1", options: new ClientOptions
-        {
-            Retry = new RetryOptions { MaxRetries = 1, BaseDelay = TimeSpan.FromMilliseconds(1) }
-        });
-        this.server.Given(Request.Create().WithPath($"/functions/v1/{FunctionName}").UsingAnyMethod())
-            .InScenario("retry").WillSetStateTo("retried")
-            .RespondWith(Response.Create().WithStatusCode(503));
-        this.server.Given(Request.Create().WithPath($"/functions/v1/{FunctionName}").UsingAnyMethod())
-            .InScenario("retry").WhenStateIs("retried")
-            .RespondWith(Response.Create().WithStatusCode(200).WithBody("recovered"));
+        this.client = this.RetryingClient();
+        this.RespondWithFailureThenSuccess();
 
         var result = await this.client.Invoke(FunctionName);
 
@@ -251,9 +246,103 @@ public class ClientContractTests
             "caller-triggered cancellation must not be mis-reported as an HttpTimeout");
     }
 
+    [TestMethod]
+    public async Task InvokeStream_ShouldReturnBeforeBodyCompletes()
+    {
+        var holdBodyOpen = new TaskCompletionSource();
+        this.RespondWithEvents(async queue =>
+        {
+            queue.Write("data: first\n\n");
+            await holdBodyOpen.Task;
+        });
+
+        try
+        {
+            using var response = await this.client.InvokeStream(FunctionName).WaitAsync(Deadline);
+            using var reader = new StreamReader(await response.Content.ReadAsStreamAsync());
+            (await reader.ReadLineAsync().WaitAsync(Deadline)).Should().Be("data: first");
+        }
+        finally
+        {
+            holdBodyOpen.TrySetResult();
+        }
+    }
+
+    [TestMethod]
+    public async Task InvokeStream_ShouldThrowFunctionsException_GivenServerError()
+    {
+        this.RespondWith(500, "internal boom");
+        var act = () => this.client.InvokeStream(FunctionName);
+        var exception = (await act.Should().ThrowAsync<FunctionsException>()).Which;
+        using (new AssertionScope())
+        {
+            exception.StatusCode.Should().Be(500);
+            exception.Content.Should().Be("internal boom");
+            (await exception.Response!.Content.ReadAsStringAsync()).Should().Be("internal boom");
+        }
+    }
+
+    [TestMethod]
+    public async Task InvokeStream_ShouldThrowTimeoutException_GivenRelayErrorBodyStallsPastHttpTimeout()
+    {
+        // WireMock SSE responses use status 200; mark this one as a relay error.
+        var holdBodyOpen = new TaskCompletionSource();
+        this.RespondWithEvents(async queue =>
+        {
+            queue.Write("partial");
+            await holdBodyOpen.Task;
+        }, Response.Create().WithHeader("x-relay-error", "true"));
+
+        try
+        {
+            var act = () => this.client.InvokeStream(FunctionName, options: new InvokeFunctionOptions { HttpTimeout = TimeSpan.FromMilliseconds(100) });
+            (await act.Should().ThrowAsync<TaskCanceledException>().WaitAsync(Deadline)).Which.InnerException.Should().BeOfType<TimeoutException>();
+        }
+        finally
+        {
+            holdBodyOpen.TrySetResult();
+        }
+    }
+
+    [TestMethod]
+    public async Task InvokeStream_ShouldRetryUntilSuccess_GivenRetryableStatus()
+    {
+        this.client = this.RetryingClient();
+        this.RespondWithFailureThenSuccess();
+
+        using var response = await this.client.InvokeStream(FunctionName);
+
+        (await response.Content.ReadAsStringAsync()).Should().Be("recovered");
+    }
+
     private void RespondWith(int statusCode, string body) =>
         this.server.Given(Request.Create().WithPath($"/functions/v1/{FunctionName}").UsingAnyMethod())
             .RespondWith(Response.Create().WithStatusCode(statusCode).WithHeader("Content-Type", "application/json").WithBody(body));
+
+    private Client RetryingClient() =>
+        new($"{this.server.Url}/functions/v1", options: new ClientOptions
+        {
+            Retry = new RetryOptions { MaxRetries = 1, BaseDelay = TimeSpan.FromMilliseconds(1) }
+        });
+
+    private void RespondWithFailureThenSuccess()
+    {
+        this.server.Given(Request.Create().WithPath($"/functions/v1/{FunctionName}").UsingAnyMethod())
+            .InScenario("retry").WillSetStateTo("retried")
+            .RespondWith(Response.Create().WithStatusCode(503));
+        this.server.Given(Request.Create().WithPath($"/functions/v1/{FunctionName}").UsingAnyMethod())
+            .InScenario("retry").WhenStateIs("retried")
+            .RespondWith(Response.Create().WithStatusCode(200).WithBody("recovered"));
+    }
+
+    private void RespondWithEvents(Func<IBlockingQueue<string?>, Task> body, IResponseBuilder? response = null) =>
+        this.server.Given(Request.Create().WithPath($"/functions/v1/{FunctionName}").UsingAnyMethod())
+            .RespondWith((response ?? Response.Create()).WithHeader("Content-Type", "text/event-stream")
+                .WithSseBody(async (_, queue) =>
+                {
+                    await body(queue);
+                    queue.Close();
+                }));
 
     private IRequestMessage SingleRequest() => this.server.LogEntries.Should().ContainSingle().Which.RequestMessage!;
 
