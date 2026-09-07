@@ -10,6 +10,7 @@ using Supabase.Core.Http;
 using Supabase.Functions;
 using Supabase.Functions.Exceptions;
 using WireMock;
+using WireMock.Models;
 using WireMock.RequestBuilders;
 using WireMock.ResponseBuilders;
 using WireMock.Server;
@@ -28,6 +29,7 @@ namespace Functions.Tests;
 public class ClientContractTests
 {
     private const string FunctionName = "hello";
+    private static readonly TimeSpan Deadline = TimeSpan.FromSeconds(5);
 
     private WireMockServer server = null!;
     private Client client = null!;
@@ -251,9 +253,61 @@ public class ClientContractTests
             "caller-triggered cancellation must not be mis-reported as an HttpTimeout");
     }
 
+    [TestMethod]
+    public async Task InvokeStream_ShouldReturnBeforeBodyCompletes()
+    {
+        var holdBodyOpen = new TaskCompletionSource();
+        this.RespondWithEvents(async queue =>
+        {
+            queue.Write("data: first\n\n");
+            await holdBodyOpen.Task;
+        });
+
+        using var response = await this.client.InvokeStream(FunctionName).WaitAsync(Deadline);
+        holdBodyOpen.SetResult();
+
+        (await response.Content.ReadAsStringAsync()).Should().Be("data: first\n\n");
+    }
+
+    [TestMethod]
+    public async Task InvokeStream_ShouldBufferTheErrorBody_GivenServerError()
+    {
+        this.RespondWith(500, "internal boom");
+        var act = () => this.client.InvokeStream(FunctionName);
+        var exception = (await act.Should().ThrowAsync<FunctionsException>()).Which;
+        (await exception.Response!.Content.ReadAsStringAsync()).Should().Be("internal boom");
+    }
+
+    [TestMethod]
+    public async Task InvokeStream_ShouldThrowTimeoutException_GivenAStalledErrorBody()
+    {
+        var holdBodyOpen = new TaskCompletionSource();
+        // WireMock forces 200 on an SSE body, so a relay error is what makes this one fail.
+        this.RespondWithEvents(async queue =>
+        {
+            queue.Write("partial");
+            await holdBodyOpen.Task;
+        }, Response.Create().WithHeader("x-relay-error", "true"));
+
+        var act = () => this.client.InvokeStream(FunctionName, options: new InvokeFunctionOptions { HttpTimeout = TimeSpan.FromMilliseconds(100) });
+        var exception = (await act.Should().ThrowAsync<TaskCanceledException>().WaitAsync(Deadline)).Which;
+        holdBodyOpen.SetResult();
+
+        exception.InnerException.Should().BeOfType<TimeoutException>();
+    }
+
     private void RespondWith(int statusCode, string body) =>
         this.server.Given(Request.Create().WithPath($"/functions/v1/{FunctionName}").UsingAnyMethod())
             .RespondWith(Response.Create().WithStatusCode(statusCode).WithHeader("Content-Type", "application/json").WithBody(body));
+
+    private void RespondWithEvents(Func<IBlockingQueue<string?>, Task> body, IResponseBuilder? response = null) =>
+        this.server.Given(Request.Create().WithPath($"/functions/v1/{FunctionName}").UsingAnyMethod())
+            .RespondWith((response ?? Response.Create()).WithHeader("Content-Type", "text/event-stream")
+                .WithSseBody(async (_, queue) =>
+                {
+                    await body(queue);
+                    queue.Close();
+                }));
 
     private IRequestMessage SingleRequest() => this.server.LogEntries.Should().ContainSingle().Which.RequestMessage!;
 

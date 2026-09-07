@@ -40,4 +40,14 @@ public interface IFunctionsClient : IGettableHeaders
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
     Task<HttpContent> RawInvoke(string url, string? token = null, Client.InvokeFunctionOptions? options = null, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Invokes a function and returns a successful response after its headers arrive.
+    /// </summary>
+    /// <param name="url">Function name, appended to the base URL.</param>
+    /// <param name="token">Bearer token.</param>
+    /// <param name="options">Invocation options.</param>
+    /// <param name="cancellationToken">Cancels the request and error-body reads. Cancel successful body reads separately.</param>
+    /// <returns>The response, which the caller must dispose.</returns>
+    Task<HttpResponseMessage> InvokeStream(string url, string? token = null, Client.InvokeFunctionOptions? options = null, CancellationToken cancellationToken = default);
 }

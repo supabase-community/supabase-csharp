@@ -12,13 +12,18 @@ public static class RetryExecutor
     private static readonly ThreadLocal<Random> RandomProvider = new(() => new Random(Guid.NewGuid().GetHashCode()));
 
     /// <summary>Sends via <paramref name="requestFactory"/>, called fresh per attempt since a sent <see cref="HttpRequestMessage"/> can't be reused.</summary>
+    public static Task<HttpResponseMessage> SendAsync(HttpClient client, Func<HttpRequestMessage> requestFactory,
+        RetryOptions options, CancellationToken cancellationToken = default) =>
+        SendAsync(client, requestFactory, options, HttpCompletionOption.ResponseContentRead, cancellationToken);
+
+    /// <summary>Sends a request with the specified <paramref name="completionOption"/>.</summary>
     public static async Task<HttpResponseMessage> SendAsync(HttpClient client, Func<HttpRequestMessage> requestFactory,
-        RetryOptions options, CancellationToken cancellationToken = default)
+        RetryOptions options, HttpCompletionOption completionOption, CancellationToken cancellationToken)
     {
         var attempt = 0;
         while (true)
         {
-            var (response, exception) = await Attempt(client, requestFactory, cancellationToken).ConfigureAwait(false);
+            var (response, exception) = await Attempt(client, requestFactory, completionOption, cancellationToken).ConfigureAwait(false);
             if (!ShouldRetry(response, exception, attempt, options))
                 return response ?? throw exception!;
 
@@ -29,12 +34,12 @@ public static class RetryExecutor
     }
 
     private static async Task<(HttpResponseMessage? Response, HttpRequestException? Exception)> Attempt(
-        HttpClient client, Func<HttpRequestMessage> requestFactory, CancellationToken cancellationToken)
+        HttpClient client, Func<HttpRequestMessage> requestFactory, HttpCompletionOption completionOption, CancellationToken cancellationToken)
     {
         using var request = requestFactory();
         try
         {
-            return (await client.SendAsync(request, cancellationToken).ConfigureAwait(false), null);
+            return (await client.SendAsync(request, completionOption, cancellationToken).ConfigureAwait(false), null);
         }
         catch (HttpRequestException e)
         {
