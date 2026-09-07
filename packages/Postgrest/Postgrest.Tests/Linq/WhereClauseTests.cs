@@ -205,7 +205,7 @@ public class WhereClauseTests
     public void Where_ShouldKeepAnExplicitCast_GivenADoubleColumn()
     {
         var threshold = 100.9;
-        this.client.Table<KitchenSink>().Where(x => x.DoubleValue < (int)threshold)
+        this.client.Table<KitchenSink>().Where(x => x.DoubleValue < (int) threshold)
             .GenerateUrl().Should().Be($"{BaseUrl}/kitchen_sink?double_value=lt.100");
     }
 
@@ -213,7 +213,7 @@ public class WhereClauseTests
     public void Where_ShouldKeepAnEnumToIntCast_GivenAnIntColumn()
     {
         var status = MovieStatus.OffDisplay;
-        this.client.Table<Todo>().Where(x => x.UserId == (int)status)
+        this.client.Table<Todo>().Where(x => x.UserId == (int) status)
             .GenerateUrl().Should().Be($"{BaseUrl}/todos?user_id=eq.1");
     }
 
