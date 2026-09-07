@@ -51,6 +51,7 @@ static Supabase.Core.Helpers.GetCustomAttribute<T>(object! obj) -> T!
 static Supabase.Core.Helpers.GetMappedToAttr(System.Enum! obj) -> Supabase.Core.Attributes.MapToAttribute!
 static Supabase.Core.Helpers.GetPropertyValue<T>(object! obj, string! propName) -> T
 static Supabase.Core.Http.DefaultHttpClientFactory.Create(System.TimeSpan? timeout = null, System.Net.IWebProxy? proxy = null) -> System.Net.Http.HttpClient!
+static Supabase.Core.Http.RetryExecutor.SendAsync(System.Net.Http.HttpClient! client, System.Func<System.Net.Http.HttpRequestMessage!>! requestFactory, Supabase.Core.Http.RetryOptions! options, System.Net.Http.HttpCompletionOption completionOption, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage!>!
 static Supabase.Core.Http.RetryExecutor.SendAsync(System.Net.Http.HttpClient! client, System.Func<System.Net.Http.HttpRequestMessage!>! requestFactory, Supabase.Core.Http.RetryOptions! options, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage!>!
 static Supabase.Core.Http.RetryOptions.operator !=(Supabase.Core.Http.RetryOptions? left, Supabase.Core.Http.RetryOptions? right) -> bool
 static Supabase.Core.Http.RetryOptions.operator ==(Supabase.Core.Http.RetryOptions? left, Supabase.Core.Http.RetryOptions? right) -> bool

@@ -23,6 +23,7 @@ Supabase.Functions.Client.InvokeFunctionOptions.HttpMethod.set -> void
 Supabase.Functions.Client.InvokeFunctionOptions.HttpTimeout.get -> System.TimeSpan
 Supabase.Functions.Client.InvokeFunctionOptions.HttpTimeout.set -> void
 Supabase.Functions.Client.InvokeFunctionOptions.InvokeFunctionOptions() -> void
+Supabase.Functions.Client.InvokeStream(string! functionName, string? token = null, Supabase.Functions.Client.InvokeFunctionOptions? options = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage!>!
 Supabase.Functions.Client.Options.get -> Supabase.Functions.ClientOptions!
 Supabase.Functions.Client.RawInvoke(string! functionName, string? token = null, Supabase.Functions.Client.InvokeFunctionOptions? options = null) -> System.Threading.Tasks.Task<System.Net.Http.HttpContent!>!
 Supabase.Functions.Client.RawInvoke(string! functionName, string? token = null, Supabase.Functions.Client.InvokeFunctionOptions? options = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Net.Http.HttpContent!>!
@@ -55,6 +56,7 @@ Supabase.Functions.Interfaces.IFunctionsClient.Invoke(string! url, string? token
 Supabase.Functions.Interfaces.IFunctionsClient.Invoke(string! url, string? token = null, Supabase.Functions.Client.InvokeFunctionOptions? options = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<string!>!
 Supabase.Functions.Interfaces.IFunctionsClient.Invoke<T>(string! url, string? token = null, Supabase.Functions.Client.InvokeFunctionOptions? options = null) -> System.Threading.Tasks.Task<T?>!
 Supabase.Functions.Interfaces.IFunctionsClient.Invoke<T>(string! url, string? token = null, Supabase.Functions.Client.InvokeFunctionOptions? options = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<T?>!
+Supabase.Functions.Interfaces.IFunctionsClient.InvokeStream(string! url, string? token = null, Supabase.Functions.Client.InvokeFunctionOptions? options = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage!>!
 Supabase.Functions.Interfaces.IFunctionsClient.RawInvoke(string! url, string? token = null, Supabase.Functions.Client.InvokeFunctionOptions? options = null) -> System.Threading.Tasks.Task<System.Net.Http.HttpContent!>!
 Supabase.Functions.Interfaces.IFunctionsClient.RawInvoke(string! url, string? token = null, Supabase.Functions.Client.InvokeFunctionOptions? options = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Net.Http.HttpContent!>!
 Supabase.Functions.Responses.BaseResponse
