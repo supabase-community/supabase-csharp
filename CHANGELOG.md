@@ -1,5 +1,19 @@
 # Changelog
 
+## [8.1.0](https://github.com/supabase-community/supabase-csharp/compare/v8.0.0...v8.1.0) (2026-09-07)
+
+
+### Features
+
+* **functions:** stream edge function responses ([#417](https://github.com/supabase-community/supabase-csharp/issues/417)) ([649d922](https://github.com/supabase-community/supabase-csharp/commit/649d92254ab8405d4b47287bf2d62632b827d2c6))
+* **realtime:** add `enabled` flag for opt-in initial presence sync ([#407](https://github.com/supabase-community/supabase-csharp/issues/407)) ([ecb6b11](https://github.com/supabase-community/supabase-csharp/commit/ecb6b11546dc97e1979e71b07fed5e572987d028))
+
+
+### Bug Fixes
+
+* **postgrest:** keep '!' and unary minus on captured values in Where filters ([#414](https://github.com/supabase-community/supabase-csharp/issues/414)) ([0edc5d9](https://github.com/supabase-community/supabase-csharp/commit/0edc5d96a91e300ad8f22bfe6873f6ccb4317c30))
+* **postgrest:** write int arrays as json arrays and reject bad literals with JsonException ([#408](https://github.com/supabase-community/supabase-csharp/issues/408)) ([e479c9e](https://github.com/supabase-community/supabase-csharp/commit/e479c9e65d2be03753da22b75cd8843e08a508ee))
+
 ## [8.0.0](https://github.com/supabase-community/supabase-csharp/compare/v7.4.0...v8.0.0) (2026-09-03)
 
 
