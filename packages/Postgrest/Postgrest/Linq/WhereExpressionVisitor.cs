@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Reflection;
 using Supabase.Postgrest.Attributes;
 using Supabase.Postgrest.Interfaces;
 using static Supabase.Postgrest.Constants;
@@ -119,14 +118,17 @@ namespace Supabase.Postgrest.Linq
             // Otherwise, the base case.
 
             string? column = null;
+            Type? columnType = null;
             if (node.Left is MemberExpression leftMember)
             {
                 column = GetColumnFromMemberExpression(leftMember);
+                columnType = leftMember.Type;
             } //To handle properly if it's a Convert ExpressionType generally with nullable properties
             else if (node.Left is UnaryExpression leftUnary && leftUnary.NodeType == ExpressionType.Convert &&
                      leftUnary.Operand is MemberExpression leftOperandMember)
             {
                 column = GetColumnFromMemberExpression(leftOperandMember);
+                columnType = leftOperandMember.Type;
             }
 
             if (column == null)
@@ -136,22 +138,12 @@ namespace Supabase.Postgrest.Linq
             if (ContainsParameter(node.Right))
                 throw new ArgumentException($"Unable to translate '{node}': Postgrest cannot compare two model columns to each other. Use a database computed/generated column or an RPC for column-to-column comparisons.");
 
-            if (node.Right is ConstantExpression rightConstantExpression)
-            {
-                HandleConstantExpression(column, op, rightConstantExpression);
-            }
-            else if (node.Right is MemberExpression memberExpression)
-            {
-                HandleMemberExpression(column, op, memberExpression);
-            }
-            else if (node.Right is NewExpression newExpression)
-            {
-                HandleNewExpression(column, op, newExpression);
-            }
-            else if (node.Right is UnaryExpression unaryExpression)
-            {
-                HandleUnaryExpression(column, op, unaryExpression);
-            }
+            // Enum columns are compared through the underlying int, so drop that cast to send the name.
+            var value = node.Right;
+            if (IsEnum(columnType!) && value is UnaryExpression { NodeType: ExpressionType.Convert } convert)
+                value = convert.Operand;
+
+            Filter = BuildFilter(column, op, EvaluateExpression(value));
 
             return node;
         }
@@ -339,26 +331,12 @@ namespace Supabase.Postgrest.Linq
             };
 
         /// <summary>
-        /// A constant expression parser (i.e. x => x.Id == 5 &lt;- where '5' is the constant)
+        /// True for an enum type, including a nullable enum.
         /// </summary>
-        /// <param name="column"></param>
-        /// <param name="op"></param>
-        /// <param name="constantExpression"></param>
-        private void HandleConstantExpression(string column, Operator op, ConstantExpression constantExpression)
-        {
-            Filter = BuildFilter(column, op, constantExpression.Value);
-        }
-
-        /// <summary>
-        /// A member expression parser (i.e. => x.Id == Example.Id &lt;- where both `x.Id` and `Example.Id` are parsed as 'members')
-        /// </summary>
-        /// <param name="column"></param>
-        /// <param name="op"></param>
-        /// <param name="memberExpression"></param>
-        private void HandleMemberExpression(string column, Operator op, MemberExpression memberExpression)
-        {
-            Filter = BuildFilter(column, op, GetMemberExpressionValue(memberExpression));
-        }
+        /// <param name="type"></param>
+        /// <returns></returns>
+        private static bool IsEnum(Type type) =>
+            (Nullable.GetUnderlyingType(type) ?? type).IsEnum;
 
         /// <summary>
         /// Builds a filter from a column, operator and (possibly null) criterion, translating null
@@ -380,70 +358,6 @@ namespace Supabase.Postgrest.Linq
                     new QueryFilter(column, Operator.Is, QueryFilter.NullVal)),
                 _ => new QueryFilter(column, op, value)
             };
-        }
-
-        /// <summary>
-        /// A unary expression parser (i.e. => x.Id == 1 &lt;- where both `1` is considered unary)
-        /// </summary>
-        /// <param name="column"></param>
-        /// <param name="op"></param>
-        /// <param name="unaryExpression"></param>
-        private void HandleUnaryExpression(string column, Operator op, UnaryExpression unaryExpression)
-        {
-            if (unaryExpression.Operand is ConstantExpression constantExpression)
-            {
-                HandleConstantExpression(column, op, constantExpression);
-            }
-            else if (unaryExpression.Operand is MemberExpression memberExpression)
-            {
-                HandleMemberExpression(column, op, memberExpression);
-            }
-            else if (unaryExpression.Operand is NewExpression newExpression)
-            {
-                HandleNewExpression(column, op, newExpression);
-            }
-        }
-
-        /// <summary>
-        /// An instantiated class parser (i.e. x => x.CreatedAt &lt;= new DateTime(2022, 08, 20) &lt;- where `new DateTime(...)` is an instantiated expression.
-        /// </summary>
-        /// <param name="column"></param>
-        /// <param name="op"></param>
-        /// <param name="newExpression"></param>
-        private void HandleNewExpression(string column, Operator op, NewExpression newExpression)
-        {
-            var argumentValues = new List<object>();
-            foreach (var argument in newExpression.Arguments)
-            {
-                var lambda = Expression.Lambda(argument);
-                var func = lambda.Compile();
-                argumentValues.Add(func.DynamicInvoke());
-            }
-
-            var constructor = newExpression.Constructor;
-            var instance = constructor.Invoke(argumentValues.ToArray());
-
-            switch (instance)
-            {
-                case DateTime dateTime:
-                    Filter = new QueryFilter(column, op, dateTime);
-                    break;
-                case DateTimeOffset dateTimeOffset:
-                    Filter = new QueryFilter(column, op, dateTimeOffset);
-                    break;
-                case Guid guid:
-                    Filter = new QueryFilter(column, op, guid.ToString());
-                    break;
-                default:
-                {
-                    if (instance.GetType().IsEnum)
-                    {
-                        Filter = new QueryFilter(column, op, instance);
-                    }
-
-                    break;
-                }
-            }
         }
 
         /// <summary>
@@ -471,24 +385,6 @@ namespace Supabase.Postgrest.Linq
             }
 
             return node.Member.Name;
-        }
-
-        /// <summary>
-        /// Get the value from a MemberExpression, which includes both fields and properties.
-        /// </summary>
-        /// <param name="member"></param>
-        /// <returns></returns>
-        private object GetMemberExpressionValue(MemberExpression member)
-        {
-            if (member.Member is FieldInfo field)
-            {
-                var obj = Expression.Lambda(member.Expression).Compile().DynamicInvoke();
-                return field.GetValue(obj);
-            }
-
-            var lambda = Expression.Lambda(member);
-            var func = lambda.Compile();
-            return func.DynamicInvoke();
         }
 
         /// <summary>

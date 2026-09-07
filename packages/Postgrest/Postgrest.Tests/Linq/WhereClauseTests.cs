@@ -178,6 +178,45 @@ public class WhereClauseTests
         act.Should().Throw<ArgumentException>().WithMessage("*cannot compare two model columns*");
     }
 
+    [TestMethod]
+    public void Where_ShouldEvaluateANegatedCapturedBool()
+    {
+        var pending = true;
+        this.client.Table<Todo>().Where(x => x.Done == !pending)
+            .GenerateUrl().Should().Be($"{BaseUrl}/todos?done=eq.False");
+    }
+
+    [TestMethod]
+    public void Where_ShouldEvaluateAUnaryMinusOnACapturedInt()
+    {
+        var threshold = 100;
+        this.client.Table<Todo>().Where(x => x.UserId < -threshold)
+            .GenerateUrl().Should().Be($"{BaseUrl}/todos?user_id=lt.-100");
+    }
+
+    [TestMethod]
+    public void Where_ShouldUseTheEnumName_GivenAnEnumColumn()
+    {
+        this.client.Table<Movie>().Where(x => x.Status == MovieStatus.OnDisplay)
+            .GenerateUrl().Should().StartWith($"{BaseUrl}/movie?status=eq.OnDisplay&select=");
+    }
+
+    [TestMethod]
+    public void Where_ShouldKeepAnExplicitCast_GivenADoubleColumn()
+    {
+        var threshold = 100.9;
+        this.client.Table<KitchenSink>().Where(x => x.DoubleValue < (int)threshold)
+            .GenerateUrl().Should().Be($"{BaseUrl}/kitchen_sink?double_value=lt.100");
+    }
+
+    [TestMethod]
+    public void Where_ShouldKeepAnEnumToIntCast_GivenAnIntColumn()
+    {
+        var status = MovieStatus.OffDisplay;
+        this.client.Table<Todo>().Where(x => x.UserId == (int)status)
+            .GenerateUrl().Should().Be($"{BaseUrl}/todos?user_id=eq.1");
+    }
+
     private class UserRequestModel
     {
         public Func<User, bool>? FilterPredicate { get; set; }
