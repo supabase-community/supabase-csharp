@@ -97,12 +97,7 @@ public partial class Client : IFunctionsClient
         string? token = null,
         InvokeFunctionOptions? options = null,
         CancellationToken cancellationToken = default
-    )
-    {
-        var url = $"{this.baseUrl}/{functionName}";
-
-        return this.HandleRequest(functionName, url, token, options, cancellationToken, HttpCompletionOption.ResponseHeadersRead);
-    }
+    ) => this.HandleRequest(functionName, $"{this.baseUrl}/{functionName}", token, options, cancellationToken, HttpCompletionOption.ResponseHeadersRead);
 
     /// <summary>
     /// Invokes a function and returns the Text content of the response.
