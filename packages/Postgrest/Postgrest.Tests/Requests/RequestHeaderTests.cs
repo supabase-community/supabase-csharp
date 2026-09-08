@@ -59,6 +59,6 @@ public class RequestHeaderTests
     {
         var headers = Helpers.PrepareRequestHeaders(HttpMethod.Get);
         headers.Should().ContainKey("X-Client-Info")
-            .WhoseValue.Should().StartWith("postgrest-csharp/");
+            .WhoseValue.Should().StartWith("supabase.postgrest-csharp/");
     }
 }

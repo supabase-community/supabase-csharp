@@ -209,13 +209,13 @@ internal static class Helpers
             {
                 // Default version to match other clients
                 // https://github.com/search?q=org%3Asupabase-community+x-client-info&type=code
-                headers.Add("X-Client-Info", $"postgrest-csharp/{Util.GetAssemblyVersion(typeof(Client))}");
+                headers.Add("X-Client-Info", Util.GetAssemblyVersion(typeof(Client)));
             }
             catch (Exception)
             {
                 // Fallback for when the version can't be found
                 // e.g. running in the Unity Editor, ILL2CPP builds, etc.
-                headers.Add("X-Client-Info", $"postgrest-csharp/session-{AppSession}");
+                headers.Add("X-Client-Info", $"supabase.postgrest-csharp/session-{AppSession}");
             }
         }
 
