@@ -8,6 +8,12 @@ Supabase.Gotrue.Constants.ResendType.SignUp = 0 -> Supabase.Gotrue.Constants.Res
 Supabase.Gotrue.Constants.ResendType.Sms = 1 -> Supabase.Gotrue.Constants.ResendType
 Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.Resend(Supabase.Gotrue.ResendParam! resend) -> System.Threading.Tasks.Task<Supabase.Gotrue.Responses.BaseResponse!>!
 Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.Resend(Supabase.Gotrue.ResendParam! resend) -> System.Threading.Tasks.Task<Supabase.Gotrue.Responses.BaseResponse!>!
+Supabase.Gotrue.ResendOptionsParam
+Supabase.Gotrue.ResendOptionsParam.CaptchaToken.get -> string?
+Supabase.Gotrue.ResendOptionsParam.CaptchaToken.set -> void
+Supabase.Gotrue.ResendOptionsParam.EmailRedirectTo.get -> string?
+Supabase.Gotrue.ResendOptionsParam.EmailRedirectTo.set -> void
+Supabase.Gotrue.ResendOptionsParam.ResendOptionsParam() -> void
 Supabase.Gotrue.ResendParam
 Supabase.Gotrue.ResendParam.Email.get -> string?
 Supabase.Gotrue.ResendParam.Email.set -> void
