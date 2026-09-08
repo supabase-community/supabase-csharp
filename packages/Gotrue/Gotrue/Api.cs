@@ -832,4 +832,16 @@ public class Api : IGotrueApi<User, Session>
 
         return this.MakeRequestAsync<Session>(HttpMethod.Post, $"{this.Url}/token?grant_type=refresh_token", data, this.Headers.MergeLeft(headers));
     }
+
+    /// <summary>
+    /// Resends a confirmation code to a user's email or phone.
+    /// </summary>
+    /// <param name="resend"></param>
+    /// <returns>BaseResponse</returns>
+    public Task<BaseResponse> Resend(ResendParam resend) => this.MakeRequestAsync(
+        HttpMethod.Post,
+        $"{this.Url}/resend",
+        resend,
+        this.Headers
+    );
 }

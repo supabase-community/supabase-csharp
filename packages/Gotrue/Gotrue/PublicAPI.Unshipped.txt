@@ -1,1 +1,2 @@
 #nullable enable
+Supabase.Gotrue.ResendParam.ResendParam(Supabase.Gotrue.Constants.ResendType type) -> void
