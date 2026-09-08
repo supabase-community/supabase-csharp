@@ -9,4 +9,12 @@ Supabase.Gotrue.Constants.ResendType.Sms = 1 -> Supabase.Gotrue.Constants.Resend
 Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.Resend(Supabase.Gotrue.ResendParam! resend) -> System.Threading.Tasks.Task<Supabase.Gotrue.Responses.BaseResponse!>!
 Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.Resend(Supabase.Gotrue.ResendParam! resend) -> System.Threading.Tasks.Task<Supabase.Gotrue.Responses.BaseResponse!>!
 Supabase.Gotrue.ResendParam
+Supabase.Gotrue.ResendParam.Email.get -> string?
+Supabase.Gotrue.ResendParam.Email.set -> void
+Supabase.Gotrue.ResendParam.Options.get -> Supabase.Gotrue.ResendOptionsParam?
+Supabase.Gotrue.ResendParam.Options.set -> void
+Supabase.Gotrue.ResendParam.Phone.get -> string?
+Supabase.Gotrue.ResendParam.Phone.set -> void
 Supabase.Gotrue.ResendParam.ResendParam(Supabase.Gotrue.Constants.ResendType type) -> void
+Supabase.Gotrue.ResendParam.Type.get -> string?
+Supabase.Gotrue.ResendParam.Type.set -> void
