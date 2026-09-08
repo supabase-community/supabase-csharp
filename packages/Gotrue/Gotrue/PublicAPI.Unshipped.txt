@@ -1,2 +1,12 @@
 #nullable enable
+Supabase.Gotrue.Api.Resend(Supabase.Gotrue.ResendParam! resend) -> System.Threading.Tasks.Task<Supabase.Gotrue.Responses.BaseResponse!>!
+Supabase.Gotrue.Client.Resend(Supabase.Gotrue.ResendParam! resend) -> System.Threading.Tasks.Task<Supabase.Gotrue.Responses.BaseResponse!>!
+Supabase.Gotrue.Constants.ResendType
+Supabase.Gotrue.Constants.ResendType.EmailChange = 3 -> Supabase.Gotrue.Constants.ResendType
+Supabase.Gotrue.Constants.ResendType.PhoneChange = 2 -> Supabase.Gotrue.Constants.ResendType
+Supabase.Gotrue.Constants.ResendType.SignUp = 0 -> Supabase.Gotrue.Constants.ResendType
+Supabase.Gotrue.Constants.ResendType.Sms = 1 -> Supabase.Gotrue.Constants.ResendType
+Supabase.Gotrue.Interfaces.IGotrueApi<TUser, TSession>.Resend(Supabase.Gotrue.ResendParam! resend) -> System.Threading.Tasks.Task<Supabase.Gotrue.Responses.BaseResponse!>!
+Supabase.Gotrue.Interfaces.IGotrueClient<TUser, TSession>.Resend(Supabase.Gotrue.ResendParam! resend) -> System.Threading.Tasks.Task<Supabase.Gotrue.Responses.BaseResponse!>!
+Supabase.Gotrue.ResendParam
 Supabase.Gotrue.ResendParam.ResendParam(Supabase.Gotrue.Constants.ResendType type) -> void
