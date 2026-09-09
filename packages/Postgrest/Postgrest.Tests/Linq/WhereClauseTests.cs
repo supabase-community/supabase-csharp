@@ -217,6 +217,28 @@ public class WhereClauseTests
             .GenerateUrl().Should().Be($"{BaseUrl}/todos?user_id=eq.1");
     }
 
+    [TestMethod]
+    public void Where_ShouldKeepTheTest_GivenATernaryWithAFalseThenBranch()
+    {
+        this.client.Table<KitchenSink>().Where(x => x.BooleanValue ? false : x.IntValue > 3)
+            .GenerateUrl().Should().Be($"{BaseUrl}/kitchen_sink?and=(bool_value.not.eq.True%2cint_value.gt.3)");
+    }
+
+    [TestMethod]
+    public void Where_ShouldKeepTheTest_GivenATernaryWithAFalseElseBranch()
+    {
+        this.client.Table<KitchenSink>().Where(x => x.BooleanValue ? x.IntValue > 3 : false)
+            .GenerateUrl().Should().Be($"{BaseUrl}/kitchen_sink?and=(bool_value.eq.True%2cint_value.gt.3)");
+    }
+
+    [TestMethod]
+    public void Where_ShouldTranslateTernaryIntoOrOfAnds_GivenTwoColumnBranches()
+    {
+        this.client.Table<KitchenSink>().Where(x => x.BooleanValue ? x.IntValue > 3 : x.StringValue == "foo")
+            .GenerateUrl().Should()
+            .Be($"{BaseUrl}/kitchen_sink?or=(and(bool_value.eq.True%2cint_value.gt.3)%2cand(bool_value.not.eq.True%2cstring_value.eq.foo))");
+    }
+
     private class UserRequestModel
     {
         public Func<User, bool>? FilterPredicate { get; set; }
