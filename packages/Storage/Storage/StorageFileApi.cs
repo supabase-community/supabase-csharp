@@ -399,6 +399,11 @@ public class StorageFileApi : IStorageFileApi<FileObject>
         if (options.Upsert)
             this.StorageHeader.Add("x-upsert", options.Upsert.ToString().ToLower());
 
+        if (options.Metadata != null)
+            this.StorageHeader.Add("x-metadata", ParseMetadata(options.Metadata));
+
+        options.Headers?.ToList().ForEach(x => this.StorageHeader.Add(x.Key, x.Value));
+
         var progress = new Progress<float>();
 
         if (onProgress != null)
@@ -445,6 +450,8 @@ public class StorageFileApi : IStorageFileApi<FileObject>
 
         if (options.Metadata != null)
             this.StorageHeader.Add("x-metadata", ParseMetadata(options.Metadata));
+
+        options.Headers?.ToList().ForEach(x => this.StorageHeader.Add(x.Key, x.Value));
 
         var progress = new Progress<float>();
 
