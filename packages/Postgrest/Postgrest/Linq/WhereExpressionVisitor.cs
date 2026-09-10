@@ -171,6 +171,17 @@ internal class WhereExpressionVisitor : ExpressionVisitor
     }
 
     /// <summary>
+    /// Handles a ternary (i.e. `x => x.IsProtected ? false : x.IsExpired`), visited as
+    /// `(test &amp;&amp; a) || (!test &amp;&amp; b)` so the test is kept.
+    /// </summary>
+    /// <param name="node"></param>
+    /// <returns></returns>
+    protected override Expression VisitConditional(ConditionalExpression node) =>
+        this.Visit(Expression.OrElse(
+            Expression.AndAlso(node.Test, node.IfTrue),
+            Expression.AndAlso(Expression.Not(node.Test), node.IfFalse)));
+
+    /// <summary>
     /// Handles a boolean column used directly as a predicate (i.e. `x => x.IsActive`, or negated via
     /// <see cref="VisitUnary"/> `x => !x.IsActive`), translating it into a `column.eq.true` filter.
     /// </summary>
