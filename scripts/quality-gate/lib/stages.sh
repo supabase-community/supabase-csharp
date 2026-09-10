@@ -202,20 +202,26 @@ stage_inner_loop() {
 # requires POSITIVE confirmation ("no vulnerable packages"), never merely the
 # absence of the findings line: if the tool's output drifts, absence would read as
 # clean. It needs network — offline is SKIP, never PASS.
+#
+# This is a SIGNAL, not a blocking stage: a vulnerable dependency may have no
+# fixed version available, and blocking the merge on something we cannot act on
+# would wedge every PR for a defect that is not the PR's to fix. A finding is
+# surfaced for the maintainer to weigh — bump the dependency when a fix exists,
+# accept and track it when one doesn't — not enforced by the gate's exit code.
 stage_security() {
   local log="$SCOPE_LOGS/4-security.log"
   run "$log" dotnet list "$SCAN_TARGET" package --vulnerable --include-transitive
   if grep -qiE 'unable to load the service index|could not resolve|failed to retrieve' "$log"; then
-    add 4 "Dependency vulnerabilities" block "" SKIP "no network — scan not performed" "$log"
+    add 4 "Dependency vulnerabilities" signal "" SKIP "no network — scan not performed" "$log"
   elif [[ $RC -ne 0 ]]; then
-    add 4 "Dependency vulnerabilities" block "" SKIP "command failed (exit $RC)" "$log"
+    add 4 "Dependency vulnerabilities" signal "" SKIP "command failed (exit $RC)" "$log"
   elif grep -qi 'has the following vulnerable packages' "$log"; then
-    add 4 "Dependency vulnerabilities" block "" FAIL \
+    add 4 "Dependency vulnerabilities" signal "" FAIL \
       "$(awk '/^[[:space:]]+> /{n++} END{print n+0}' "$log") vulnerable package(s)" "$log"
   elif grep -qi 'no vulnerable packages' "$log"; then
-    add 4 "Dependency vulnerabilities" block "" PASS "none known" "$log"
+    add 4 "Dependency vulnerabilities" signal "" PASS "none known" "$log"
   else
-    add 4 "Dependency vulnerabilities" block "" SKIP \
+    add 4 "Dependency vulnerabilities" signal "" SKIP \
       "scan produced no recognizable result — neither confirmation nor findings (see log)" "$log"
   fi
 }

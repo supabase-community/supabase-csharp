@@ -63,7 +63,7 @@ A change runs an ordered pipeline; stages are either **blocking** (fail the PR) 
 | **Wire-shape approval tests** | **Block** | Snapshot the serialized request/response payloads (Verify/ApprovalTests). A changed payload is a red diff to accept deliberately — the guard rail against accidental serialization drift. (It was the safety net through the now-complete Newtonsoft → System.Text.Json migration.) |
 | **Public-API diff** (PublicApiAnalyzers) | **Signal** | Surfaces exactly what public surface changed for the maintainer's judgment — **a warning, not a blocker.** Guillaume is the human merge gate and is allowed to cut majors / request breaks; the tool informs that call, it doesn't veto it. |
 | **Line-coverage baseline** | **Block** | A committed per-package `coverage.hermeticLine` baseline, ratcheted up-only within a ~1% tolerance band. Measured over the full suite when the stack is reachable, hermetic-only otherwise. See §4 note below. |
-| Security scan (`dotnet list package --vulnerable`) | **Block** | See §6. |
+| Security scan (`dotnet list package --vulnerable`) | **Signal** | See §6. Surfaced for the maintainer's judgment, not auto-failing: a vulnerable dependency may have no fixed version available, and blocking on something we cannot act on would wedge every PR. |
 | E2E / acceptance | **Nightly / on-demand** | Deterministic, highest-value; gated off the PR path for cost, not reliability (§2). |
 | Mutation (Stryker) | **Periodic / signal** | Test-quality check on inner-loop tests (below). |
 
@@ -88,7 +88,7 @@ A change runs an ordered pipeline; stages are either **blocking** (fail the PR) 
 **Security (non-negotiable — this is an auth SDK):**
 - **No secrets in telemetry, failures, or logs** — tokens, full auth URLs, and credentials are routed through `UrlSanitizer` / redaction, never surfaced raw (CONVENTIONS §9).
 - **Token & session-at-rest handling is deliberate** — session persistence stores only what's needed, and the storage seam is explicit and overridable, not silently writing tokens to disk in the clear.
-- **Dependency vulnerability scan** (`dotnet list package --vulnerable --include-transitive`) runs in CI and blocks on known-vulnerable transitive packages.
+- **Dependency vulnerability scan** (`dotnet list package --vulnerable --include-transitive`) runs in CI and **surfaces** known-vulnerable transitive packages as a signal for the maintainer to weigh — bump the dependency when a fix exists, accept and track it when one doesn't. It does not auto-fail the PR: a vulnerability with no available fix is not the PR's to resolve, and blocking on it would wedge every merge.
 
 ## 7. Preferences (strong defaults, tradeable with a reason)
 
@@ -102,7 +102,7 @@ A change runs an ordered pipeline; stages are either **blocking** (fail the PR) 
 - [ ] Inner-loop suite green (`dotnet test --filter TestCategory=Contract` + unit); outer E2E green locally against `supabase start` when a live path is touched.
 - [ ] Wire-shape approval snapshots reviewed — any payload diff is intended (not an accidental serialization change).
 - [ ] Tests assert behavior through the public surface; any testability friction was resolved by fixing the design, not exposing internals.
-- [ ] `dotnet format` clean; **zero new warnings** vs. baseline; no known-vulnerable dependencies.
+- [ ] `dotnet format` clean; **zero new warnings** vs. baseline; any known-vulnerable dependency reviewed — bumped where a fix exists, consciously accepted and tracked where none does.
 - [ ] Public API diff reviewed — intended (additive, or break logged for the major + signed off; `[Obsolete]` + MIGRATION entry where retiring surface).
 - [ ] `ConfigureAwait(false)` on new awaits; `CancellationToken` genuinely honored through the call path.
 - [ ] Models immutable & per-operation; transport typed; orchestration declarative; expected failures returned not thrown; `Async`+`CancellationToken` on new I/O.

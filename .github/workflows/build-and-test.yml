@@ -48,9 +48,10 @@ jobs:
 
       # Runs the same quality gate as contributors and agents (scripts/quality-gate).
       # Its exit code is the merge gate: build/analyzers, inner-loop tests,
-      # dependency vulnerabilities, public-API sync and E2E/acceptance tests are all
-      # blocking — a non-zero exit fails the job. Only the public-API diff is a
-      # signal (breaking changes may be intentional), surfaced but non-blocking.
+      # public-API sync and E2E/acceptance tests are all blocking — a non-zero exit
+      # fails the job. The public-API diff (breaking changes may be intentional) and
+      # the dependency-vulnerability scan (a vulnerable package may have no available
+      # fix, which shouldn't wedge every PR) are signals — surfaced but non-blocking.
       #
       # The flag depends on the event (this workflow only runs on pull_request and
       # push:master, so the two branches below are exactly those two cases):
