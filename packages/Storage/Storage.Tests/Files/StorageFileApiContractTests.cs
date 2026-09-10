@@ -392,6 +392,62 @@ public class StorageFileApiContractTests
         }
     }
 
+    [TestMethod]
+    public async Task UploadToSignedUrl_ShouldForwardMetadataAndCustomHeaders_GivenFileOptions()
+    {
+        var signedUrl = new UploadSignedUrl(
+            new Uri($"{this.server.Url}/storage/v1/object/upload/sign/{Bucket}/file.bin?token=abc"),
+            "abc",
+            "file.bin");
+        this.Respond($"/storage/v1/object/upload/sign/{Bucket}/file.bin", "POST", 200, "{\"Key\":\"x\"}");
+        var options = new FileOptions
+        {
+            ContentType = "image/png",
+            Metadata = new Dictionary<string, string> { ["k"] = "v" },
+            Headers = new Dictionary<string, string> { ["x-version"] = "123" }
+        };
+        await this.client.From(Bucket).UploadToSignedUrl(Encoding.UTF8.GetBytes("data"), signedUrl, options, inferContentType: false);
+        var request = this.SingleRequest();
+        using (new AssertionScope())
+        {
+            this.HeaderOf(request, "x-metadata").Should().NotBeNullOrEmpty("metadata must ride the signed-URL upload (issue #252)");
+            this.HeaderOf(request, "x-version").Should().Be("123", "custom headers must merge into the signed-URL upload (issue #252)");
+        }
+    }
+
+    [TestMethod]
+    public async Task UploadToSignedUrlFromDisk_ShouldForwardMetadataAndCustomHeaders_GivenFileOptions()
+    {
+        var signedUrl = new UploadSignedUrl(
+            new Uri($"{this.server.Url}/storage/v1/object/upload/sign/{Bucket}/file.bin?token=abc"),
+            "abc",
+            "file.bin");
+        this.Respond($"/storage/v1/object/upload/sign/{Bucket}/file.bin", "POST", 200, "{\"Key\":\"x\"}");
+        var localPath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.bin");
+        await File.WriteAllBytesAsync(localPath, new byte[] { 0x1, 0x2 });
+        try
+        {
+            var options = new FileOptions
+            {
+                ContentType = "image/png",
+                Metadata = new Dictionary<string, string> { ["k"] = "v" },
+                Headers = new Dictionary<string, string> { ["x-version"] = "123" }
+            };
+            await this.client.From(Bucket).UploadToSignedUrl(localPath, signedUrl, options, inferContentType: false);
+            var request = this.SingleRequest();
+            using (new AssertionScope())
+            {
+                this.HeaderOf(request, "x-metadata").Should().NotBeNullOrEmpty("metadata must ride the from-disk signed-URL upload (issue #252)");
+                this.HeaderOf(request, "x-version").Should().Be("123", "custom headers must merge into the from-disk signed-URL upload (issue #252)");
+            }
+        }
+        finally
+        {
+            if (File.Exists(localPath))
+                File.Delete(localPath);
+        }
+    }
+
     private void Respond(string path, string method, int statusCode, string body) =>
         this.server.Given(Request.Create().WithPath(path).UsingMethod(method))
             .RespondWith(Response.Create().WithStatusCode(statusCode)
