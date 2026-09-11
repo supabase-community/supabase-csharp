@@ -66,10 +66,10 @@ public class ClientOptions
     public int MaximumRefreshWaitTime { get; set; } = 14400;
 
     /// <summary>
-    /// Very unlikely this flag needs to be changed except in very specific contexts.
-    /// 
-    /// Enables tests to be E2E tests to be run without requiring users to have
-    /// confirmed emails - mirrors the Gotrue server's configuration.
+    /// Allows unconfirmed users to be treated as signed in. Defaults to false.
+    /// Sign-in returns null for an unconfirmed user unless this is on. During email or phone sign-up,
+    /// enabling this adopts the returned user in a session without tokens and raises
+    /// <see cref="Constants.AuthState.SignedIn" /> when confirmation is pending.
     /// </summary>
     public bool AllowUnconfirmedUserSessions { get; set; }
 }
