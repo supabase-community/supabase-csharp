@@ -25,6 +25,12 @@ public class AdminApiKeyHeaderContractTests
     private const string ServiceKey = "sb_secret_service_role_key";
     private const string UserId = "user-123";
 
+    // JWT-shaped test token; no valid signature needed.
+    private const string UserToken =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9." +
+        "eyJzdWIiOiJ1c2VyLTEyMyIsInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoyMDAwMDAwMDAwfQ." +
+        "not-a-real-signature";
+
     private MockGotrueServer server = null!;
 
     [TestInitialize]
@@ -32,6 +38,8 @@ public class AdminApiKeyHeaderContractTests
     {
         this.server = new MockGotrueServer();
         this.server.Given(Request.Create().WithPath($"/admin/users/{UserId}").UsingDelete())
+            .RespondWith(Response.Create().WithStatusCode(200).WithHeader("Content-Type", "application/json").WithBody("{}"));
+        this.server.Given(Request.Create().WithPath("/user").UsingGet())
             .RespondWith(Response.Create().WithStatusCode(200).WithHeader("Content-Type", "application/json").WithBody("{}"));
     }
 
@@ -74,5 +82,16 @@ public class AdminApiKeyHeaderContractTests
         });
         await admin.DeleteUser(UserId);
         this.server.VerifySingleReceivedRequest().WithHeader("apiKey", "project-anon-key");
+    }
+
+    [TestMethod]
+    public async Task GetUser_ShouldNotSendUserTokenAsApiKey_GivenNoApiKeyConfigured()
+    {
+        // Copying a user token into apikey caused a 401 (#424).
+        var admin = new AdminClient(ServiceKey, new ClientOptions { Url = this.server.Url });
+        await admin.GetUser(UserToken);
+        this.server.VerifySingleReceivedRequest()
+            .WithHeader("Authorization", $"Bearer {UserToken}")
+            .WithoutHeader("apikey");
     }
 }
