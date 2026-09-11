@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
@@ -523,11 +524,9 @@ public class Api : IGotrueApi<User, Session>
             ["Authorization"] = $"Bearer {jwt}"
         };
 
-        // New-format API keys (sb_publishable_/sb_secret_) are rejected on Authorization-only requests;
-        // the gateway requires an apikey header too. Preserve an apikey the caller already supplied (the
-        // stateful client injects the project key via GetHeaders — note the "apiKey" casing), otherwise
-        // fall back to the bearer token, matching supabase-js standalone admin usage.
-        if (!headers.Keys.Any(key => string.Equals(key, "apikey", StringComparison.OrdinalIgnoreCase)))
+        // Opaque keys need an apikey header too. Keep any configured key and never copy a JWT here (#424).
+        var hasApiKey = headers.Keys.Any(key => string.Equals(key, "apikey", StringComparison.OrdinalIgnoreCase));
+        if (!hasApiKey && !new JwtSecurityTokenHandler().CanReadToken(jwt))
             headers["apikey"] = jwt;
 
         return headers;
