@@ -81,4 +81,11 @@ public interface IGotrueApi<TUser, TSession> : IGettableHeaders
     /// <param name="userIdentity">Identity to be unlinked</param>
     /// <returns></returns>
     Task<bool> UnlinkIdentity(string token, UserIdentity userIdentity);
+
+    /// <summary>
+    /// Resends a confirmation code to a user's email or phone.
+    /// </summary>
+    /// <param name="resend"></param>
+    /// <returns></returns>
+    Task<BaseResponse> Resend(ResendParam resend);
 }
