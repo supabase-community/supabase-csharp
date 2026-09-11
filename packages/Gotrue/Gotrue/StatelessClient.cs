@@ -122,17 +122,13 @@ public class StatelessClient : IGotrueStatelessClient<User, Session>
     public async Task<Session?> SignUp(SignUpType type, string identifier, string password, StatelessClientOptions options, SignUpOptions? signUpOptions = null)
     {
         var api = this.GetApi(options);
-        var session = type switch
+        // Return pending users regardless of AllowUnconfirmedUserSessions; this client stores no session.
+        return type switch
         {
-            SignUpType.Email => await api.SignUpWithEmail(identifier, password, signUpOptions),
-            SignUpType.Phone => await api.SignUpWithPhone(identifier, password, signUpOptions),
+            SignUpType.Email => await api.SignUpWithEmail(identifier, password, signUpOptions).ConfigureAwait(false),
+            SignUpType.Phone => await api.SignUpWithPhone(identifier, password, signUpOptions).ConfigureAwait(false),
             _ => null,
         };
-        if (session?.User?.IsConfirmed == true || session?.User != null && options.AllowUnconfirmedUserSessions)
-        {
-            return session;
-        }
-        return null;
     }
 
     /// <inheritdoc />
@@ -357,9 +353,8 @@ public class StatelessClient : IGotrueStatelessClient<User, Session>
         public RetryOptions Retry { get; set; } = new RetryOptions();
 
         /// <summary>
-        ///     Very unlikely this flag needs to be changed except in very specific contexts.
-        ///     Enables tests to be E2E tests to be run without requiring users to have
-        ///     confirmed emails - mirrors the Gotrue server's configuration.
+        ///     Allows sign-in to return a session for an unconfirmed user. Defaults to false.
+        ///     Sign-up returns pending users regardless of this option.
         /// </summary>
         public bool AllowUnconfirmedUserSessions { get; set; }
     }
